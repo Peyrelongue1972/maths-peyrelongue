@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz — Équation de droite cartésienne</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['$', '$']] }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.quiz-entete{max-width:820px;margin:0 auto 1.4rem}
+.quiz-entete h1{margin:.2rem 0 .3rem;font-size:1.6rem}
+.quiz-entete p{margin:.2rem 0;opacity:.85}
+.barre{height:10px;border-radius:6px;background:#e8edf3;overflow:hidden;margin:.8rem 0}
+.barre > span{display:block;height:100%;width:0;background:var(--couleur,#3182ce);transition:width .25s}
+.quiz-score{font-weight:600}
+.question{max-width:820px;margin:0 auto 1rem;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1rem 1.2rem;box-shadow:0 2px 8px rgba(16,42,67,.06)}
+.question h3{margin:.1rem 0 .7rem;font-size:1.02rem;font-weight:600;line-height:1.45}
+.question .num{display:inline-block;min-width:1.9rem;height:1.9rem;line-height:1.9rem;
+  text-align:center;border-radius:50%;background:var(--couleur,#3182ce);
+  color:var(--sur-couleur,#fff);font-size:.85rem;margin-right:.5rem;font-weight:700}
+.choix{display:grid;gap:.5rem}
+.choix button{text-align:left;padding:.6rem .8rem;border-radius:10px;border:1px solid #d7e0ea;
+  background:#fbfdff;cursor:pointer;font-size:.98rem;font-family:inherit;line-height:1.4}
+.choix button:hover:not(:disabled){border-color:var(--couleur,#3182ce);background:#f2f8ff}
+.choix button:disabled{cursor:default}
+.choix button.juste{background:#e6f7ee;border-color:#2f9e63;color:#166534;font-weight:600}
+.choix button.faux{background:#fdeaea;border-color:#d64545;color:#8a1c1c}
+.choix button.oublie{border-color:#2f9e63;border-style:dashed}
+.figure{margin:.6rem 0 .2rem;text-align:center}
+.figure img{max-width:min(100%,420px);height:auto;border:1px solid #dfe6ee;border-radius:10px;background:#fff;padding:4px}
+.expl{margin:.7rem 0 0;font-size:.92rem;background:#f4f7fb;border-left:3px solid var(--couleur,#3182ce);
+  padding:.5rem .7rem;border-radius:6px;display:none}
+.expl.visible{display:block}
+.fin{max-width:820px;margin:1.4rem auto;text-align:center;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1.2rem}
+.fin strong{font-size:1.25rem}
+.fin .btn{margin:.7rem .3rem 0}
+</style>
+</head>
+<body style="--couleur:#2b6cb0; --couleur-fonce:#2b6cb0; --sur-couleur:#fff">
+<main style="padding:2rem 1.2rem 3rem">
+  <header class="quiz-entete">
+    <p><a href="../index.html">← Retour au site</a></p>
+    <h1>Quiz — Équation de droite cartésienne</h1>
+    <p>Seconde · chapitre 12 · 20 questions</p>
+    <p class="quiz-score">Score : <span id="score">0 / 20</span></p>
+    <div class="barre"><span id="barre"></span></div>
+  </header>
+
+  <article class="question" data-bonne="3">
+    <h3><span class="num">1</span>Une équation cartésienne de droite s'écrit :</h3>
+    <div class="choix"><button type="button" data-i="0">$y=ax^{2}+b$</button><button type="button" data-i="1">$ax^{2}+bx+c=0$</button><button type="button" data-i="2">$\dfrac{a}{x}+b=0$</button><button type="button" data-i="3">$ax+by+c=0$</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est la forme générale d'une équation de droite.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">2</span>La droite d'équation $y=2x+3$ a pour équation cartésienne :</h3>
+    <div class="choix"><button type="button" data-i="0">$2x+y+3=0$</button><button type="button" data-i="1">$x-2y+3=0$</button><button type="button" data-i="2">$2x-y+3=0$</button><button type="button" data-i="3">$-2x-y+3=0$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On fait tout passer du même côté : $2x-y+3=0$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">3</span>Le point $(1\,;5)$ appartient-il à la droite $y=2x+3$ ?</h3>
+    <div class="choix"><button type="button" data-i="0">seulement si le repère est orthonormé</button><button type="button" data-i="1">oui, car $2	imes1+3=5$</button><button type="button" data-i="2">non</button><button type="button" data-i="3">on ne peut pas savoir</button></div>
+    <p class="expl"><strong>Réponse :</strong> On vérifie que les coordonnées satisfont l'équation.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">4</span>La droite d'équation $x=3$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">un point</button><button type="button" data-i="1">oblique</button><button type="button" data-i="2">verticale</button><button type="button" data-i="3">horizontale</button></div>
+    <p class="expl"><strong>Réponse :</strong> Tous ses points ont la même abscisse.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">5</span>La droite d'équation $y=-1$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">horizontale</button><button type="button" data-i="1">un cercle</button><button type="button" data-i="2">oblique</button><button type="button" data-i="3">verticale</button></div>
+    <p class="expl"><strong>Réponse :</strong> Tous ses points ont la même ordonnée.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">6</span>Le coefficient directeur de la droite $y=-3x+1$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$3$</button><button type="button" data-i="1">$-3$</button><button type="button" data-i="2">$-1$</button><button type="button" data-i="3">$1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est le nombre qui multiplie $x$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">7</span>Le point $(2\,;1)$ appartient-il à la droite $x+y-3=0$ ?</h3>
+    <div class="choix"><button type="button" data-i="0">on ne peut pas savoir</button><button type="button" data-i="1">seulement si $x>0$</button><button type="button" data-i="2">non</button><button type="button" data-i="3">oui, car $2+1-3=0$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On remplace $x$ et $y$ dans l'équation.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">8</span>Deux droites parallèles ont :</h3>
+    <div class="choix"><button type="button" data-i="0">le même point d'intersection</button><button type="button" data-i="1">le même coefficient directeur</button><button type="button" data-i="2">toujours la même ordonnée à l'origine</button><button type="button" data-i="3">des coefficients directeurs opposés</button></div>
+    <p class="expl"><strong>Réponse :</strong> Des droites parallèles ont la même pente.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">9</span>Pour trouver l'ordonnée à l'origine d'une droite, on cherche son point d'intersection avec :</h3>
+    <div class="choix"><button type="button" data-i="0">l'axe des ordonnées, c'est-à-dire $x=0$</button><button type="button" data-i="1">la droite $y=x$</button><button type="button" data-i="2">l'origine</button><button type="button" data-i="3">l'axe des abscisses, c'est-à-dire $y=0$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On remplace $x$ par $0$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">10</span>L'équation $y=5$ représente :</h3>
+    <div class="choix"><button type="button" data-i="0">une parabole</button><button type="button" data-i="1">un point</button><button type="button" data-i="2">une droite verticale</button><button type="button" data-i="3">une droite horizontale</button></div>
+    <p class="expl"><strong>Réponse :</strong> Tous les points ont pour ordonnée $5$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">11</span>La droite passant par $A(0\,;2)$ et $B(1\,;5)$ a pour équation :</h3>
+    <div class="choix"><button type="button" data-i="0">$y=x+2$</button><button type="button" data-i="1">$y=3x-2$</button><button type="button" data-i="2">$y=2x+3$</button><button type="button" data-i="3">$y=3x+2$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Le coefficient directeur vaut $\dfrac{5-2}{1-0}=3$ et l'ordonnée à l'origine $2$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">12</span>Un vecteur directeur de la droite $y=2x-1$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$(2\,;1)$</button><button type="button" data-i="1">$(1\,;2)$</button><button type="button" data-i="2">$(1\,;-1)$</button><button type="button" data-i="3">$(2\,;-1)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> La pente vaut $2$ : en avançant de $1$, on monte de $2$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">13</span>Les droites $y=2x$ et $y=-x+3$ se coupent en :</h3>
+    <div class="choix"><button type="button" data-i="0">$x=0$</button><button type="button" data-i="1">$x=-1$</button><button type="button" data-i="2">$x=3$</button><button type="button" data-i="3">$x=1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On résout $2x=-x+3$, soit $3x=3$ et $x=1$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">14</span>L'équation $x=0$ représente :</h3>
+    <div class="choix"><button type="button" data-i="0">l'axe des abscisses</button><button type="button" data-i="1">l'origine</button><button type="button" data-i="2">une droite oblique</button><button type="button" data-i="3">l'axe des ordonnées</button></div>
+    <p class="expl"><strong>Réponse :</strong> Tous les points ont une abscisse nulle.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">15</span>L'équation $y=0$ représente :</h3>
+    <div class="choix"><button type="button" data-i="0">le point origine</button><button type="button" data-i="1">l'axe des abscisses</button><button type="button" data-i="2">l'axe des ordonnées</button><button type="button" data-i="3">une droite verticale</button></div>
+    <p class="expl"><strong>Réponse :</strong> Tous les points ont une ordonnée nulle.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">16</span>La droite $2x+3y-6=0$ coupe l'axe des ordonnées en :</h3>
+    <div class="choix"><button type="button" data-i="0">$y=6$</button><button type="button" data-i="1">$y=-2$</button><button type="button" data-i="2">$y=3$</button><button type="button" data-i="3">$y=2$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On remplace $x$ par $0$ : $3y-6=0$, donc $y=2$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">17</span>Le coefficient directeur de la droite passant par $(1\,;2)$ et $(3\,;6)$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$3$</button><button type="button" data-i="1">$2$</button><button type="button" data-i="2">$4$</button><button type="button" data-i="3">$0{,}5$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\dfrac{6-2}{3-1}=\dfrac{4}{2}=2$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">18</span>Une droite verticale :</h3>
+    <div class="choix"><button type="button" data-i="0">est toujours l'axe des ordonnées</button><button type="button" data-i="1">a un coefficient directeur nul</button><button type="button" data-i="2">n'admet pas de coefficient directeur</button><button type="button" data-i="3">a pour coefficient directeur $1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Sa pente n'est pas définie (division par $0$).</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">19</span>L'équation $3x-y+1=0$ peut s'écrire :</h3>
+    <div class="choix"><button type="button" data-i="0">$y=x+3$</button><button type="button" data-i="1">$y=3x-1$</button><button type="button" data-i="2">$y=-3x+1$</button><button type="button" data-i="3">$y=3x+1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $y=3x+1$ : on isole $y$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">20</span>Le point $(0\,;0)$ appartient à la droite d'équation :</h3>
+    <div class="choix"><button type="button" data-i="0">$y=4x$</button><button type="button" data-i="1">$x=4$</button><button type="button" data-i="2">$y=x+4$</button><button type="button" data-i="3">$y=4x+1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> L'ordonnée à l'origine est nulle : la droite passe par l'origine.</p>
+  </article>
+  <section class="fin" id="fin" hidden>
+    <strong>Quiz terminé</strong>
+    <p id="fin-texte"></p>
+    <button class="btn" type="button" id="recommencer">Recommencer</button>
+    <a class="btn btn-secondaire" href="../index.html">Retour au site</a>
+  </section>
+</main>
+<script>
+(function () {
+  var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+  var total = cartes.length, bonnes = 0, repondues = 0;
+  var scoreEl = document.getElementById('score');
+  var barre = document.getElementById('barre');
+  var fin = document.getElementById('fin');
+
+  function majScore() {
+    scoreEl.textContent = bonnes + ' / ' + total;
+    barre.style.width = (100 * repondues / total) + '%';
+    if (repondues === total) {
+      fin.hidden = false;
+      var msg = bonnes === total ? 'Sans faute, bravo !'
+        : bonnes >= 0.8 * total ? 'Très bon score, continuez comme ça.'
+        : bonnes >= 0.5 * total ? 'C\'est correct, mais quelques révisions s\'imposent.'
+        : 'À retravailler : reprenez le cours et les exercices du chapitre.';
+      document.getElementById('fin-texte').textContent = msg;
+    }
+  }
+
+  cartes.forEach(function (carte) {
+    var bonne = parseInt(carte.dataset.bonne, 10);
+    var boutons = Array.prototype.slice.call(carte.querySelectorAll('.choix button'));
+    var expl = carte.querySelector('.expl');
+    boutons.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        if (carte.dataset.fait) return;
+        carte.dataset.fait = '1';
+        repondues++;
+        if (i === bonne) {
+          b.classList.add('juste');
+          bonnes++;
+        } else {
+          b.classList.add('faux');
+          boutons[bonne].classList.add('oublie');
+        }
+        boutons.forEach(function (x) { x.disabled = true; });
+        expl.classList.add('visible');
+        majScore();
+      });
+    });
+  });
+
+  document.getElementById('recommencer').addEventListener('click', function () {
+    window.location.reload();
+  });
+})();
+</script>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

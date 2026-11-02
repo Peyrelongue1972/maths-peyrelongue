@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz — Géométrie dans l&#x27;espace</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['$', '$']] }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.quiz-entete{max-width:820px;margin:0 auto 1.4rem}
+.quiz-entete h1{margin:.2rem 0 .3rem;font-size:1.6rem}
+.quiz-entete p{margin:.2rem 0;opacity:.85}
+.barre{height:10px;border-radius:6px;background:#e8edf3;overflow:hidden;margin:.8rem 0}
+.barre > span{display:block;height:100%;width:0;background:var(--couleur,#3182ce);transition:width .25s}
+.quiz-score{font-weight:600}
+.question{max-width:820px;margin:0 auto 1rem;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1rem 1.2rem;box-shadow:0 2px 8px rgba(16,42,67,.06)}
+.question h3{margin:.1rem 0 .7rem;font-size:1.02rem;font-weight:600;line-height:1.45}
+.question .num{display:inline-block;min-width:1.9rem;height:1.9rem;line-height:1.9rem;
+  text-align:center;border-radius:50%;background:var(--couleur,#3182ce);
+  color:var(--sur-couleur,#fff);font-size:.85rem;margin-right:.5rem;font-weight:700}
+.choix{display:grid;gap:.5rem}
+.choix button{text-align:left;padding:.6rem .8rem;border-radius:10px;border:1px solid #d7e0ea;
+  background:#fbfdff;cursor:pointer;font-size:.98rem;font-family:inherit;line-height:1.4}
+.choix button:hover:not(:disabled){border-color:var(--couleur,#3182ce);background:#f2f8ff}
+.choix button:disabled{cursor:default}
+.choix button.juste{background:#e6f7ee;border-color:#2f9e63;color:#166534;font-weight:600}
+.choix button.faux{background:#fdeaea;border-color:#d64545;color:#8a1c1c}
+.choix button.oublie{border-color:#2f9e63;border-style:dashed}
+.figure{margin:.6rem 0 .2rem;text-align:center}
+.figure img{max-width:min(100%,420px);height:auto;border:1px solid #dfe6ee;border-radius:10px;background:#fff;padding:4px}
+.expl{margin:.7rem 0 0;font-size:.92rem;background:#f4f7fb;border-left:3px solid var(--couleur,#3182ce);
+  padding:.5rem .7rem;border-radius:6px;display:none}
+.expl.visible{display:block}
+.fin{max-width:820px;margin:1.4rem auto;text-align:center;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1.2rem}
+.fin strong{font-size:1.25rem}
+.fin .btn{margin:.7rem .3rem 0}
+</style>
+</head>
+<body style="--couleur:#6b46c1; --couleur-fonce:#6b46c1; --sur-couleur:#fff">
+<main style="padding:2rem 1.2rem 3rem">
+  <header class="quiz-entete">
+    <p><a href="../index.html">← Retour au site</a></p>
+    <h1>Quiz — Géométrie dans l&#x27;espace</h1>
+    <p>Terminale spécialité · chapitre 10 · 20 questions</p>
+    <p class="quiz-score">Score : <span id="score">0 / 20</span></p>
+    <div class="barre"><span id="barre"></span></div>
+  </header>
+
+  <article class="question" data-bonne="0">
+    <h3><span class="num">1</span>Dans l'espace, un point est repéré par :</h3>
+    <div class="choix"><button type="button" data-i="0">trois coordonnées</button><button type="button" data-i="1">quatre coordonnées</button><button type="button" data-i="2">une coordonnée</button><button type="button" data-i="3">deux coordonnées</button></div>
+    <p class="expl"><strong>Réponse :</strong> On travaille dans un repère à trois axes.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">2</span>Un repère orthonormé de l'espace a :</h3>
+    <div class="choix"><button type="button" data-i="0">deux axes seulement</button><button type="button" data-i="1">des unités différentes</button><button type="button" data-i="2">trois axes deux à deux orthogonaux et la même unité</button><button type="button" data-i="3">trois axes quelconques</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est la condition pour que les formules de distance s'appliquent.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">3</span>La distance $AB$ avec $A(1\,;2\,;3)$ et $B(4\,;6\,;3)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$25$</button><button type="button" data-i="1">$5$</button><button type="button" data-i="2">$\sqrt{29}$</button><button type="button" data-i="3">$7$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\sqrt{3^{2}+4^{2}+0^{2}}=5$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">4</span>Le milieu de $[AB]$ avec $A(0\,;0\,;0)$ et $B(2\,;4\,;6)$ a pour coordonnées :</h3>
+    <div class="choix"><button type="button" data-i="0">$(1\,;2\,;3)$</button><button type="button" data-i="1">$(1\,;2\,;6)$</button><button type="button" data-i="2">$(2\,;4\,;6)$</button><button type="button" data-i="3">$(0\,;2\,;3)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On fait la moyenne des coordonnées.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">5</span>Parmi ces équations, laquelle n'est pas celle d'un plan de l'espace ?</h3>
+    <div class="choix"><button type="button" data-i="0">$y=ax+b$</button><button type="button" data-i="1">$ax+by+cz+d=0$</button><button type="button" data-i="2">$ax+by+d=0$</button><button type="button" data-i="3">$x^{2}+y^{2}+z^{2}=r^{2}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $x^{2}+y^{2}+z^{2}=r^{2}$ est l'équation d'une sphère. Les trois autres sont bien des plans : $ax+by+cz+d=0$ est la forme générale, $ax+by+d=0$ est un plan parallèle à l'axe des cotes et $y=ax+b$ un plan parallèle à cet axe également.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">6</span>Un vecteur normal au plan $ax+by+cz+d=0$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$(a\,;b\,;c)$</button><button type="button" data-i="1">$(a\,;b\,;0)$</button><button type="button" data-i="2">$(d\,;d\,;d)$</button><button type="button" data-i="3">$(1\,;1\,;1)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Les coefficients de $x$, $y$ et $z$ forment un vecteur normal.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">7</span>Le plan d'équation $z=0$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">un plan quelconque</button><button type="button" data-i="1">le plan $(xOy)$</button><button type="button" data-i="2">le plan $(yOz)$</button><button type="button" data-i="3">le plan $(xOz)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Les points de ce plan ont une cote nulle.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">8</span>Un vecteur normal au plan $x=2$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$(0\,;0\,;1)$</button><button type="button" data-i="1">$(0\,;1\,;0)$</button><button type="button" data-i="2">$(1\,;0\,;0)$</button><button type="button" data-i="3">$(2\,;2\,;2)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Ce plan est parallèle au plan $(yOz)$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">9</span>Deux plans sont parallèles si et seulement si :</h3>
+    <div class="choix"><button type="button" data-i="0">leurs vecteurs normaux sont colinéaires</button><button type="button" data-i="1">ils passent par l'origine</button><button type="button" data-i="2">ils ont la même équation</button><button type="button" data-i="3">leurs vecteurs normaux sont orthogonaux</button></div>
+    <p class="expl"><strong>Réponse :</strong> Des plans parallèles ont des directions normales colinéaires.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">10</span>Une droite est orthogonale à un plan lorsque :</h3>
+    <div class="choix"><button type="button" data-i="0">elle est incluse dans le plan</button><button type="button" data-i="1">elle est parallèle au plan</button><button type="button" data-i="2">elle coupe le plan en un point quelconque</button><button type="button" data-i="3">elle est orthogonale à deux droites sécantes du plan</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est la caractérisation de l'orthogonalité droite-plan.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">11</span>Deux droites de l'espace qui ne sont ni parallèles ni sécantes sont dites :</h3>
+    <div class="choix"><button type="button" data-i="0">perpendiculaires</button><button type="button" data-i="1">orthogonales</button><button type="button" data-i="2">non coplanaires</button><button type="button" data-i="3">confondues</button></div>
+    <p class="expl"><strong>Réponse :</strong> Elles n'appartiennent à aucun même plan.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">12</span>Un plan est déterminé par :</h3>
+    <div class="choix"><button type="button" data-i="0">un point seulement</button><button type="button" data-i="1">un vecteur seulement</button><button type="button" data-i="2">deux points seulement</button><button type="button" data-i="3">un point et deux vecteurs non colinéaires</button></div>
+    <p class="expl"><strong>Réponse :</strong> Il faut un point et deux directions distinctes.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">13</span>Deux plans non parallèles se coupent selon :</h3>
+    <div class="choix"><button type="button" data-i="0">un point</button><button type="button" data-i="1">rien</button><button type="button" data-i="2">une droite</button><button type="button" data-i="3">un plan</button></div>
+    <p class="expl"><strong>Réponse :</strong> Leur intersection est une droite.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">14</span>La représentation paramétrique d'une droite s'écrit avec :</h3>
+    <div class="choix"><button type="button" data-i="0">un vecteur normal</button><button type="button" data-i="1">deux points et un vecteur normal</button><button type="button" data-i="2">trois vecteurs</button><button type="button" data-i="3">un point et un vecteur directeur</button></div>
+    <p class="expl"><strong>Réponse :</strong> $M(t)=A+t\vec{u}$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">15</span>Un point appartient à un plan si et seulement si :</h3>
+    <div class="choix"><button type="button" data-i="0">il est à l'origine</button><button type="button" data-i="1">son abscisse est positive</button><button type="button" data-i="2">sa cote est nulle</button><button type="button" data-i="3">ses coordonnées vérifient l'équation du plan</button></div>
+    <p class="expl"><strong>Réponse :</strong> On remplace $x$, $y$, $z$ dans l'équation.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">16</span>Deux droites orthogonales ont :</h3>
+    <div class="choix"><button type="button" data-i="0">la même direction</button><button type="button" data-i="1">un point commun obligatoire</button><button type="button" data-i="2">des vecteurs directeurs colinéaires</button><button type="button" data-i="3">des directions orthogonales</button></div>
+    <p class="expl"><strong>Réponse :</strong> Elles n'ont pas besoin d'être sécantes pour être orthogonales.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">17</span>Trois vecteurs sont coplanaires lorsque :</h3>
+    <div class="choix"><button type="button" data-i="0">ils sont orthogonaux</button><button type="button" data-i="1">ils ont la même norme</button><button type="button" data-i="2">l'un s'écrit comme combinaison linéaire des deux autres</button><button type="button" data-i="3">ils sont colinéaires deux à deux</button></div>
+    <p class="expl"><strong>Réponse :</strong> La coplanarité se traduit par une relation de dépendance.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">18</span>Le point $(1\,;2\,;0)$ appartient-il au plan $z=0$ ?</h3>
+    <div class="choix"><button type="button" data-i="0">on ne peut pas savoir</button><button type="button" data-i="1">seulement si $x>0$</button><button type="button" data-i="2">oui, car sa cote est nulle</button><button type="button" data-i="3">non</button></div>
+    <p class="expl"><strong>Réponse :</strong> L'équation du plan impose $z=0$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">19</span>Un vecteur directeur d'une droite de l'espace est un vecteur :</h3>
+    <div class="choix"><button type="button" data-i="0">de norme $1$</button><button type="button" data-i="1">normal au plan contenant la droite</button><button type="button" data-i="2">non nul, colinéaire à la direction de la droite</button><button type="button" data-i="3">toujours vertical</button></div>
+    <p class="expl"><strong>Réponse :</strong> Il indique la direction de la droite.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">20</span>Deux droites parallèles de l'espace :</h3>
+    <div class="choix"><button type="button" data-i="0">sont orthogonales</button><button type="button" data-i="1">sont toujours coplanaires avec toute droite</button><button type="button" data-i="2">se coupent</button><button type="button" data-i="3">ont des vecteurs directeurs colinéaires</button></div>
+    <p class="expl"><strong>Réponse :</strong> Le parallélisme se lit sur les vecteurs directeurs.</p>
+  </article>
+  <section class="fin" id="fin" hidden>
+    <strong>Quiz terminé</strong>
+    <p id="fin-texte"></p>
+    <button class="btn" type="button" id="recommencer">Recommencer</button>
+    <a class="btn btn-secondaire" href="../index.html">Retour au site</a>
+  </section>
+</main>
+<script>
+(function () {
+  var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+  var total = cartes.length, bonnes = 0, repondues = 0;
+  var scoreEl = document.getElementById('score');
+  var barre = document.getElementById('barre');
+  var fin = document.getElementById('fin');
+
+  function majScore() {
+    scoreEl.textContent = bonnes + ' / ' + total;
+    barre.style.width = (100 * repondues / total) + '%';
+    if (repondues === total) {
+      fin.hidden = false;
+      var msg = bonnes === total ? 'Sans faute, bravo !'
+        : bonnes >= 0.8 * total ? 'Très bon score, continuez comme ça.'
+        : bonnes >= 0.5 * total ? 'C\'est correct, mais quelques révisions s\'imposent.'
+        : 'À retravailler : reprenez le cours et les exercices du chapitre.';
+      document.getElementById('fin-texte').textContent = msg;
+    }
+  }
+
+  cartes.forEach(function (carte) {
+    var bonne = parseInt(carte.dataset.bonne, 10);
+    var boutons = Array.prototype.slice.call(carte.querySelectorAll('.choix button'));
+    var expl = carte.querySelector('.expl');
+    boutons.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        if (carte.dataset.fait) return;
+        carte.dataset.fait = '1';
+        repondues++;
+        if (i === bonne) {
+          b.classList.add('juste');
+          bonnes++;
+        } else {
+          b.classList.add('faux');
+          boutons[bonne].classList.add('oublie');
+        }
+        boutons.forEach(function (x) { x.disabled = true; });
+        expl.classList.add('visible');
+        majScore();
+      });
+    });
+  });
+
+  document.getElementById('recommencer').addEventListener('click', function () {
+    window.location.reload();
+  });
+})();
+</script>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

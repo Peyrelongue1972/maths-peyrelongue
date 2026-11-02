@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz — Produit scalaire</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['$', '$']] }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.quiz-entete{max-width:820px;margin:0 auto 1.4rem}
+.quiz-entete h1{margin:.2rem 0 .3rem;font-size:1.6rem}
+.quiz-entete p{margin:.2rem 0;opacity:.85}
+.barre{height:10px;border-radius:6px;background:#e8edf3;overflow:hidden;margin:.8rem 0}
+.barre > span{display:block;height:100%;width:0;background:var(--couleur,#3182ce);transition:width .25s}
+.quiz-score{font-weight:600}
+.question{max-width:820px;margin:0 auto 1rem;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1rem 1.2rem;box-shadow:0 2px 8px rgba(16,42,67,.06)}
+.question h3{margin:.1rem 0 .7rem;font-size:1.02rem;font-weight:600;line-height:1.45}
+.question .num{display:inline-block;min-width:1.9rem;height:1.9rem;line-height:1.9rem;
+  text-align:center;border-radius:50%;background:var(--couleur,#3182ce);
+  color:var(--sur-couleur,#fff);font-size:.85rem;margin-right:.5rem;font-weight:700}
+.choix{display:grid;gap:.5rem}
+.choix button{text-align:left;padding:.6rem .8rem;border-radius:10px;border:1px solid #d7e0ea;
+  background:#fbfdff;cursor:pointer;font-size:.98rem;font-family:inherit;line-height:1.4}
+.choix button:hover:not(:disabled){border-color:var(--couleur,#3182ce);background:#f2f8ff}
+.choix button:disabled{cursor:default}
+.choix button.juste{background:#e6f7ee;border-color:#2f9e63;color:#166534;font-weight:600}
+.choix button.faux{background:#fdeaea;border-color:#d64545;color:#8a1c1c}
+.choix button.oublie{border-color:#2f9e63;border-style:dashed}
+.figure{margin:.6rem 0 .2rem;text-align:center}
+.figure img{max-width:min(100%,420px);height:auto;border:1px solid #dfe6ee;border-radius:10px;background:#fff;padding:4px}
+.expl{margin:.7rem 0 0;font-size:.92rem;background:#f4f7fb;border-left:3px solid var(--couleur,#3182ce);
+  padding:.5rem .7rem;border-radius:6px;display:none}
+.expl.visible{display:block}
+.fin{max-width:820px;margin:1.4rem auto;text-align:center;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1.2rem}
+.fin strong{font-size:1.25rem}
+.fin .btn{margin:.7rem .3rem 0}
+</style>
+</head>
+<body style="--couleur:#2f855a; --couleur-fonce:#2f855a; --sur-couleur:#fff">
+<main style="padding:2rem 1.2rem 3rem">
+  <header class="quiz-entete">
+    <p><a href="../index.html">← Retour au site</a></p>
+    <h1>Quiz — Produit scalaire</h1>
+    <p>Première spécialité · chapitre 10 · 20 questions</p>
+    <p class="quiz-score">Score : <span id="score">0 / 20</span></p>
+    <div class="barre"><span id="barre"></span></div>
+  </header>
+
+  <article class="question" data-bonne="2">
+    <h3><span class="num">1</span>Le produit scalaire de deux vecteurs $\vec{u}$ et $\vec{v}$ est défini par :</h3>
+    <div class="choix"><button type="button" data-i="0">$\|\vec{u}\|\times\|\vec{v}\|\times\sin\left(\vec{u}\,;\vec{v}\right)$</button><button type="button" data-i="1">$\|\vec{u}\|+\|\vec{v}\|$</button><button type="button" data-i="2">$\|\vec{u}\|\times\|\vec{v}\|\times\cos\left(\vec{u}\,;\vec{v}\right)$</button><button type="button" data-i="3">$\|\vec{u}\|\times\|\vec{v}\|$</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est la définition du produit scalaire à l'aide du cosinus de l'angle.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">2</span>Dans un repère orthonormé, avec $\vec{u}(x\,;y)$ et $\vec{v}(x'\,;y')$, le produit scalaire vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$xx'+yy'$</button><button type="button" data-i="1">$xx'-yy'$</button><button type="button" data-i="2">$xy'+x'y$</button><button type="button" data-i="3">$x^{2}+y'^{2}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Expression analytique du produit scalaire.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">3</span>On a $\vec{u}(1\,;2)$ et $\vec{v}(3\,;-1)$. Alors $\vec{u}\cdot\vec{v}$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$7$</button><button type="button" data-i="1">$-1$</button><button type="button" data-i="2">$1$</button><button type="button" data-i="3">$5$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $1\times3+2\times(-1)=3-2=1$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">4</span>Deux vecteurs non nuls sont orthogonaux si et seulement si :</h3>
+    <div class="choix"><button type="button" data-i="0">leur produit scalaire est positif</button><button type="button" data-i="1">leur produit scalaire est nul</button><button type="button" data-i="2">leurs normes sont égales</button><button type="button" data-i="3">ils ont la même direction</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\vec{u}\cdot\vec{v}=0$ caractérise l'orthogonalité.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">5</span>Pour tout vecteur $\vec{u}$, $\vec{u}\cdot\vec{u}$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$\|\vec{u}\|^{2}$</button><button type="button" data-i="1">$\|\vec{u}\|$</button><button type="button" data-i="2">$2\|\vec{u}\|$</button><button type="button" data-i="3">$0$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\vec{u}\cdot\vec{u}=\|\vec{u}\|\times\|\vec{u}\|\times\cos(0)=\|\vec{u}\|^{2}$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">6</span>La norme du vecteur $\vec{u}(3\,;4)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$25$</button><button type="button" data-i="1">$\sqrt{7}$</button><button type="button" data-i="2">$5$</button><button type="button" data-i="3">$7$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\|\vec{u}\|=\sqrt{3^{2}+4^{2}}=\sqrt{25}=5$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">7</span>Les vecteurs $\vec{u}(2\,;-1)$ et $\vec{v}(1\,;2)$ sont :</h3>
+    <div class="choix"><button type="button" data-i="0">orthogonaux</button><button type="button" data-i="1">de même norme</button><button type="button" data-i="2">opposés</button><button type="button" data-i="3">colinéaires</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\vec{u}\cdot\vec{v}=2\times1+(-1)\times2=0$ : ils sont orthogonaux.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">8</span>La relation d'Al-Kashi s'écrit :</h3>
+    <div class="choix"><button type="button" data-i="0">$BC=AB+AC$</button><button type="button" data-i="1">$BC^{2}=AB^{2}+AC^{2}-2\,AB\times AC\times\cos\left(\widehat{BAC}\right)$</button><button type="button" data-i="2">$BC^{2}=AB^{2}+AC^{2}+2\,AB\times AC\times\cos\left(\widehat{BAC}\right)$</button><button type="button" data-i="3">$BC^{2}=AB^{2}+AC^{2}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est la généralisation du théorème de Pythagore.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">9</span>On a $\vec{u}\cdot\vec{v}=0$, $\|\vec{u}\|=2$ et $\|\vec{v}\|=3$. Alors $\|\vec{u}+\vec{v}\|$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$5$</button><button type="button" data-i="1">$13$</button><button type="button" data-i="2">$\sqrt{13}$</button><button type="button" data-i="3">$1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\|\vec{u}+\vec{v}\|^{2}=4+0+9=13$, d'où $\sqrt{13}$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">10</span>Pour tous vecteurs, $\vec{u}\cdot(\vec{v}+\vec{w})$ est égal à :</h3>
+    <div class="choix"><button type="button" data-i="0">$\vec{u}\cdot\vec{v}-\vec{u}\cdot\vec{w}$</button><button type="button" data-i="1">$\vec{u}\cdot\vec{v}+\vec{u}\cdot\vec{w}$</button><button type="button" data-i="2">$2\,\vec{u}\cdot\vec{v}$</button><button type="button" data-i="3">$\vec{u}\cdot\vec{v}\times\vec{u}\cdot\vec{w}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Le produit scalaire est distributif par rapport à l'addition.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">11</span>Si $\vec{u}\cdot\vec{v}>0$ avec $\vec{u}$ et $\vec{v}$ non nuls, alors l'angle $\left(\vec{u}\,;\vec{v}\right)$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">plat</button><button type="button" data-i="1">aigu</button><button type="button" data-i="2">obtus</button><button type="button" data-i="3">droit</button></div>
+    <p class="expl"><strong>Réponse :</strong> Le cosinus est positif, donc l'angle est inférieur à $90$°.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">12</span>$\|\vec{u}+\vec{v}\|^{2}$ est égal à :</h3>
+    <div class="choix"><button type="button" data-i="0">$\|\vec{u}\|^{2}+\|\vec{v}\|^{2}$</button><button type="button" data-i="1">$\|\vec{u}\|^{2}-2\,\vec{u}\cdot\vec{v}+\|\vec{v}\|^{2}$</button><button type="button" data-i="2">$\|\vec{u}\|^{2}+2\,\vec{u}\cdot\vec{v}+\|\vec{v}\|^{2}$</button><button type="button" data-i="3">$2\,\vec{u}\cdot\vec{v}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On développe comme un carré : le double produit fait apparaître $2\,\vec{u}\cdot\vec{v}$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">13</span>On a $\|\vec{u}\|=3$, $\|\vec{v}\|=4$ et $\left(\vec{u}\,;\vec{v}\right)=60$°. Alors $\vec{u}\cdot\vec{v}$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$6\sqrt{3}$</button><button type="button" data-i="1">$12$</button><button type="button" data-i="2">$6$</button><button type="button" data-i="3">$3$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $3\times4\times\cos(60$°$)=12\times\dfrac{1}{2}=6$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">14</span>Le projeté orthogonal de $C$ sur la droite $(AB)$ est $H$. Alors $\overrightarrow{AB}\cdot\overrightarrow{AC}$ est égal à :</h3>
+    <div class="choix"><button type="button" data-i="0">$AB\times HC$</button><button type="button" data-i="1">$AH\times HC$</button><button type="button" data-i="2">$AB\times AC$</button><button type="button" data-i="3">$AB\times AH$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On utilise la formule du projeté orthogonal.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">15</span>Si les vecteurs $\vec{u}$ et $\vec{v}$ sont orthogonaux, alors $\vec{u}\cdot\vec{v}$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$1$</button><button type="button" data-i="1">$0$</button><button type="button" data-i="2">$-1$</button><button type="button" data-i="3">$\|\vec{u}\|\|\vec{v}\|$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\cos(90$°$)=0$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">16</span>Pour tous vecteurs, $(-\vec{u})\cdot\vec{v}$ est égal à :</h3>
+    <div class="choix"><button type="button" data-i="0">$-\vec{u}\cdot\vec{v}$</button><button type="button" data-i="1">$\|\vec{u}\|\|\vec{v}\|$</button><button type="button" data-i="2">$0$</button><button type="button" data-i="3">$\vec{u}\cdot\vec{v}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Le produit scalaire change de signe quand on change un vecteur en son opposé.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">17</span>Pour tous vecteurs, $(\vec{u}+\vec{v})\cdot(\vec{u}-\vec{v})$ est égal à :</h3>
+    <div class="choix"><button type="button" data-i="0">$\|\vec{u}\|^{2}+\|\vec{v}\|^{2}$</button><button type="button" data-i="1">$\|\vec{u}\|^{2}-\|\vec{v}\|^{2}$</button><button type="button" data-i="2">$0$</button><button type="button" data-i="3">$2\,\vec{u}\cdot\vec{v}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est une identité remarquable.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">18</span>Dans un repère orthonormé, la norme de $\vec{u}(x\,;y)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$\sqrt{x^{2}+y^{2}}$</button><button type="button" data-i="1">$x^{2}+y^{2}$</button><button type="button" data-i="2">$|x|+|y|$</button><button type="button" data-i="3">$x+y$</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est l'expression de la longueur d'un segment dans ce repère.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">19</span>Si $\vec{u}\cdot\vec{v}=\|\vec{u}\|\times\|\vec{v}\|$, alors les vecteurs $\vec{u}$ et $\vec{v}$ sont :</h3>
+    <div class="choix"><button type="button" data-i="0">opposés</button><button type="button" data-i="1">de normes égales</button><button type="button" data-i="2">colinéaires et de même sens</button><button type="button" data-i="3">orthogonaux</button></div>
+    <p class="expl"><strong>Réponse :</strong> Le cosinus vaut $1$ : l'angle est nul, les vecteurs ont même direction et même sens.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">20</span>Les vecteurs $\vec{u}(1\,;0)$ et $\vec{v}(0\,;1)$ ont pour produit scalaire :</h3>
+    <div class="choix"><button type="button" data-i="0">$-1$</button><button type="button" data-i="1">$0$</button><button type="button" data-i="2">$2$</button><button type="button" data-i="3">$1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $1\times0+0\times1=0$ : ils sont orthogonaux.</p>
+  </article>
+  <section class="fin" id="fin" hidden>
+    <strong>Quiz terminé</strong>
+    <p id="fin-texte"></p>
+    <button class="btn" type="button" id="recommencer">Recommencer</button>
+    <a class="btn btn-secondaire" href="../index.html">Retour au site</a>
+  </section>
+</main>
+<script>
+(function () {
+  var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+  var total = cartes.length, bonnes = 0, repondues = 0;
+  var scoreEl = document.getElementById('score');
+  var barre = document.getElementById('barre');
+  var fin = document.getElementById('fin');
+
+  function majScore() {
+    scoreEl.textContent = bonnes + ' / ' + total;
+    barre.style.width = (100 * repondues / total) + '%';
+    if (repondues === total) {
+      fin.hidden = false;
+      var msg = bonnes === total ? 'Sans faute, bravo !'
+        : bonnes >= 0.8 * total ? 'Très bon score, continuez comme ça.'
+        : bonnes >= 0.5 * total ? 'C\'est correct, mais quelques révisions s\'imposent.'
+        : 'À retravailler : reprenez le cours et les exercices du chapitre.';
+      document.getElementById('fin-texte').textContent = msg;
+    }
+  }
+
+  cartes.forEach(function (carte) {
+    var bonne = parseInt(carte.dataset.bonne, 10);
+    var boutons = Array.prototype.slice.call(carte.querySelectorAll('.choix button'));
+    var expl = carte.querySelector('.expl');
+    boutons.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        if (carte.dataset.fait) return;
+        carte.dataset.fait = '1';
+        repondues++;
+        if (i === bonne) {
+          b.classList.add('juste');
+          bonnes++;
+        } else {
+          b.classList.add('faux');
+          boutons[bonne].classList.add('oublie');
+        }
+        boutons.forEach(function (x) { x.disabled = true; });
+        expl.classList.add('visible');
+        majScore();
+      });
+    });
+  });
+
+  document.getElementById('recommencer').addEventListener('click', function () {
+    window.location.reload();
+  });
+})();
+</script>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

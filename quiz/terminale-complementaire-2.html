@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz — Les fonctions - limites</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['$', '$']] }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.quiz-entete{max-width:820px;margin:0 auto 1.4rem}
+.quiz-entete h1{margin:.2rem 0 .3rem;font-size:1.6rem}
+.quiz-entete p{margin:.2rem 0;opacity:.85}
+.barre{height:10px;border-radius:6px;background:#e8edf3;overflow:hidden;margin:.8rem 0}
+.barre > span{display:block;height:100%;width:0;background:var(--couleur,#3182ce);transition:width .25s}
+.quiz-score{font-weight:600}
+.question{max-width:820px;margin:0 auto 1rem;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1rem 1.2rem;box-shadow:0 2px 8px rgba(16,42,67,.06)}
+.question h3{margin:.1rem 0 .7rem;font-size:1.02rem;font-weight:600;line-height:1.45}
+.question .num{display:inline-block;min-width:1.9rem;height:1.9rem;line-height:1.9rem;
+  text-align:center;border-radius:50%;background:var(--couleur,#3182ce);
+  color:var(--sur-couleur,#fff);font-size:.85rem;margin-right:.5rem;font-weight:700}
+.choix{display:grid;gap:.5rem}
+.choix button{text-align:left;padding:.6rem .8rem;border-radius:10px;border:1px solid #d7e0ea;
+  background:#fbfdff;cursor:pointer;font-size:.98rem;font-family:inherit;line-height:1.4}
+.choix button:hover:not(:disabled){border-color:var(--couleur,#3182ce);background:#f2f8ff}
+.choix button:disabled{cursor:default}
+.choix button.juste{background:#e6f7ee;border-color:#2f9e63;color:#166534;font-weight:600}
+.choix button.faux{background:#fdeaea;border-color:#d64545;color:#8a1c1c}
+.choix button.oublie{border-color:#2f9e63;border-style:dashed}
+.figure{margin:.6rem 0 .2rem;text-align:center}
+.figure img{max-width:min(100%,420px);height:auto;border:1px solid #dfe6ee;border-radius:10px;background:#fff;padding:4px}
+.expl{margin:.7rem 0 0;font-size:.92rem;background:#f4f7fb;border-left:3px solid var(--couleur,#3182ce);
+  padding:.5rem .7rem;border-radius:6px;display:none}
+.expl.visible{display:block}
+.fin{max-width:820px;margin:1.4rem auto;text-align:center;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1.2rem}
+.fin strong{font-size:1.25rem}
+.fin .btn{margin:.7rem .3rem 0}
+</style>
+</head>
+<body style="--couleur:#1a365d; --couleur-fonce:#1a365d; --sur-couleur:#fff">
+<main style="padding:2rem 1.2rem 3rem">
+  <header class="quiz-entete">
+    <p><a href="../index.html">← Retour au site</a></p>
+    <h1>Quiz — Les fonctions - limites</h1>
+    <p>Terminale complémentaire · chapitre 2 · 20 questions</p>
+    <p class="quiz-score">Score : <span id="score">0 / 20</span></p>
+    <div class="barre"><span id="barre"></span></div>
+  </header>
+
+  <article class="question" data-bonne="1">
+    <h3><span class="num">1</span>$\lim\limits_{x\to+\infty}\dfrac{1}{x}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$-\infty$</button><button type="button" data-i="1">$0$</button><button type="button" data-i="2">$+\infty$</button><button type="button" data-i="3">$1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\dfrac1x\to0$ quand $x\to+\infty$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">2</span>$\lim\limits_{x\to0^{+}}\dfrac{1}{x}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$-\infty$</button><button type="button" data-i="1">$+\infty$</button><button type="button" data-i="2">$0$</button><button type="button" data-i="3">$1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Pour $x>0$ très petit, $\dfrac1x$ devient très grand positif.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">3</span>$\lim\limits_{x\to+\infty}\dfrac{2x+1}{x-3}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$-\dfrac13$</button><button type="button" data-i="1">$2$</button><button type="button" data-i="2">$+\infty$</button><button type="button" data-i="3">$0$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On factorise par $x$ : $\dfrac{2+\frac1x}{1-\frac3x}\to2$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">4</span>$\lim\limits_{x\to+\infty}\left(x^{2}-3x\right)$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$0$</button><button type="button" data-i="1">$-\infty$</button><button type="button" data-i="2">$3$</button><button type="button" data-i="3">$+\infty$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Le terme dominant $x^2$ impose sa limite : $+\infty$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">5</span>$\lim\limits_{x\to+\infty}\mathrm{e}^{-x}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$-\infty$</button><button type="button" data-i="1">$1$</button><button type="button" data-i="2">$+\infty$</button><button type="button" data-i="3">$0$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\mathrm{e}^{-x}=\dfrac{1}{\mathrm{e}^{x}}\to0$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">6</span>$\lim\limits_{x\to0}\dfrac{\sin x}{x}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$+\infty$</button><button type="button" data-i="1">$\dfrac{\pi}{2}$</button><button type="button" data-i="2">$1$</button><button type="button" data-i="3">$0$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Limite classique (taux d'accroissement de $\sin$ en $0$).</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">7</span>La droite $y=2$ est asymptote horizontale à $\mathcal{C}_f$ si :</h3>
+    <div class="choix"><button type="button" data-i="0">$f(2)=0$</button><button type="button" data-i="1">$f'(2)=0$</button><button type="button" data-i="2">$\lim_{x\to2}f(x)=\pm\infty$</button><button type="button" data-i="3">$\lim_{x\to\pm\infty}f(x)=2$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Asymptote horizontale en $\pm\infty$ lorsque la limite vaut $2$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">8</span>La droite $x=3$ est asymptote verticale si :</h3>
+    <div class="choix"><button type="button" data-i="0">$f'(3)=0$</button><button type="button" data-i="1">$f(3)=3$</button><button type="button" data-i="2">$\lim_{x\to\infty}f(x)=3$</button><button type="button" data-i="3">$\lim_{x\to3}f(x)=\pm\infty$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Asymptote verticale lorsque la fonction tend vers l'infini en $3$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">9</span>$\lim\limits_{x\to+\infty}\dfrac{\mathrm{e}^{x}}{x}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$0$</button><button type="button" data-i="1">$+\infty$</button><button type="button" data-i="2">$\mathrm{e}$</button><button type="button" data-i="3">$1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Croissances comparées : l'exponentielle l'emporte sur $x$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">10</span>$\lim\limits_{x\to+\infty}\dfrac{\ln x}{x}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$+\infty$</button><button type="button" data-i="1">$0$</button><button type="button" data-i="2">$1$</button><button type="button" data-i="3">$\dfrac1{\mathrm{e}}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Croissances comparées : $x$ l'emporte sur $\ln x$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">11</span>$\lim\limits_{x\to+\infty}\left(\sqrt{x}-x\right)$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$0$</button><button type="button" data-i="1">$+\infty$</button><button type="button" data-i="2">$-\infty$</button><button type="button" data-i="3">$1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On factorise : $x\left(\dfrac{1}{\sqrt x}-1\right)\to-\infty$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">12</span>Si $\lim_{x\to+\infty}f(x)=3$ et $\lim_{x\to+\infty}g(x)=+\infty$, alors $\lim(f+g)$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$3$</button><button type="button" data-i="1">$0$</button><button type="button" data-i="2">$+\infty$</button><button type="button" data-i="3">forme indéterminée</button></div>
+    <p class="expl"><strong>Réponse :</strong> Somme d'une limite finie et de $+\infty$ : pas d'indétermination, la limite est $+\infty$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">13</span>$\lim\limits_{x\to0}\left(\dfrac1x-\dfrac1{x^{2}}\right)$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$-\infty$</button><button type="button" data-i="1">$0$</button><button type="button" data-i="2">forme indéterminée</button><button type="button" data-i="3">$+\infty$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On réduit : $\dfrac{x-1}{x^{2}}\to-\infty$ quand $x\to0$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">14</span>Une forme indéterminée est :</h3>
+    <div class="choix"><button type="button" data-i="0">$\dfrac{\infty}{\infty}$</button><button type="button" data-i="1">$\dfrac{1}{\infty}$</button><button type="button" data-i="2">$3+\infty$</button><button type="button" data-i="3">$2\times\infty$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Seules $\frac{\infty}{\infty}$, $\infty-\infty$, $0\times\infty$ et $\frac00$ sont indéterminées.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">15</span>$\lim\limits_{x\to-\infty}\mathrm{e}^{x}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$-\infty$</button><button type="button" data-i="1">$1$</button><button type="button" data-i="2">$+\infty$</button><button type="button" data-i="3">$0$</button></div>
+    <p class="expl"><strong>Réponse :</strong> L'exponentielle tend vers $0$ en $-\infty$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">16</span>$\lim\limits_{x\to+\infty}\dfrac{3x^{2}-x}{x^{2}+1}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$0$</button><button type="button" data-i="1">$+\infty$</button><button type="button" data-i="2">$3$</button><button type="button" data-i="3">$1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On compare les degrés : rapport des coefficients dominants, $\dfrac31=3$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">17</span>$f(x)=\dfrac{1}{x-2}$. L'ensemble de définition est :</h3>
+    <div class="choix"><button type="button" data-i="0">$\R\setminus\{-2\}$</button><button type="button" data-i="1">$\left]2\,;+\infty\right[$</button><button type="button" data-i="2">$\R$</button><button type="button" data-i="3">$\R\setminus\{2\}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Le dénominateur s'annule en $2$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">18</span>Si $f(x)\leqslant g(x)$ et $\lim_{x\to+\infty}g(x)=-\infty$, alors :</h3>
+    <div class="choix"><button type="button" data-i="0">$\lim f=-\infty$</button><button type="button" data-i="1">$\lim f=0$</button><button type="button" data-i="2">on ne sait pas</button><button type="button" data-i="3">$\lim f=+\infty$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Théorème de comparaison : $f$ est majorée par une fonction qui tend vers $-\infty$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">19</span>$\lim\limits_{x\to+\infty}\dfrac{\cos x}{x}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$+\infty$</button><button type="button" data-i="1">$0$</button><button type="button" data-i="2">n'existe pas</button><button type="button" data-i="3">$1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On encadre : $-\dfrac1x\leqslant\dfrac{\cos x}{x}\leqslant\dfrac1x$, donc la limite est $0$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">20</span>$\lim\limits_{x\to+\infty}x\,\mathrm{e}^{-x}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$0$</button><button type="button" data-i="1">$\mathrm{e}$</button><button type="button" data-i="2">$+\infty$</button><button type="button" data-i="3">$1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $x\mathrm{e}^{-x}=\dfrac{x}{\mathrm{e}^{x}}\to0$ (croissances comparées).</p>
+  </article>
+  <section class="fin" id="fin" hidden>
+    <strong>Quiz terminé</strong>
+    <p id="fin-texte"></p>
+    <button class="btn" type="button" id="recommencer">Recommencer</button>
+    <a class="btn btn-secondaire" href="../index.html">Retour au site</a>
+  </section>
+</main>
+<script>
+(function () {
+  var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+  var total = cartes.length, bonnes = 0, repondues = 0;
+  var scoreEl = document.getElementById('score');
+  var barre = document.getElementById('barre');
+  var fin = document.getElementById('fin');
+
+  function majScore() {
+    scoreEl.textContent = bonnes + ' / ' + total;
+    barre.style.width = (100 * repondues / total) + '%';
+    if (repondues === total) {
+      fin.hidden = false;
+      var msg = bonnes === total ? 'Sans faute, bravo !'
+        : bonnes >= 0.8 * total ? 'Très bon score, continuez comme ça.'
+        : bonnes >= 0.5 * total ? 'C\'est correct, mais quelques révisions s\'imposent.'
+        : 'À retravailler : reprenez le cours et les exercices du chapitre.';
+      document.getElementById('fin-texte').textContent = msg;
+    }
+  }
+
+  cartes.forEach(function (carte) {
+    var bonne = parseInt(carte.dataset.bonne, 10);
+    var boutons = Array.prototype.slice.call(carte.querySelectorAll('.choix button'));
+    var expl = carte.querySelector('.expl');
+    boutons.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        if (carte.dataset.fait) return;
+        carte.dataset.fait = '1';
+        repondues++;
+        if (i === bonne) {
+          b.classList.add('juste');
+          bonnes++;
+        } else {
+          b.classList.add('faux');
+          boutons[bonne].classList.add('oublie');
+        }
+        boutons.forEach(function (x) { x.disabled = true; });
+        expl.classList.add('visible');
+        majScore();
+      });
+    });
+  });
+
+  document.getElementById('recommencer').addEventListener('click', function () {
+    window.location.reload();
+  });
+})();
+</script>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

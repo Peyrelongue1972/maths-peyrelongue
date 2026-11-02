@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz — Applications et ensembles</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['$', '$']] }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.quiz-entete{max-width:820px;margin:0 auto 1.4rem}
+.quiz-entete h1{margin:.2rem 0 .3rem;font-size:1.6rem}
+.quiz-entete p{margin:.2rem 0;opacity:.85}
+.barre{height:10px;border-radius:6px;background:#e8edf3;overflow:hidden;margin:.8rem 0}
+.barre > span{display:block;height:100%;width:0;background:var(--couleur,#3182ce);transition:width .25s}
+.quiz-score{font-weight:600}
+.question{max-width:820px;margin:0 auto 1rem;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1rem 1.2rem;box-shadow:0 2px 8px rgba(16,42,67,.06)}
+.question h3{margin:.1rem 0 .7rem;font-size:1.02rem;font-weight:600;line-height:1.45}
+.question .num{display:inline-block;min-width:1.9rem;height:1.9rem;line-height:1.9rem;
+  text-align:center;border-radius:50%;background:var(--couleur,#3182ce);
+  color:var(--sur-couleur,#fff);font-size:.85rem;margin-right:.5rem;font-weight:700}
+.choix{display:grid;gap:.5rem}
+.choix button{text-align:left;padding:.6rem .8rem;border-radius:10px;border:1px solid #d7e0ea;
+  background:#fbfdff;cursor:pointer;font-size:.98rem;font-family:inherit;line-height:1.4}
+.choix button:hover:not(:disabled){border-color:var(--couleur,#3182ce);background:#f2f8ff}
+.choix button:disabled{cursor:default}
+.choix button.juste{background:#e6f7ee;border-color:#2f9e63;color:#166534;font-weight:600}
+.choix button.faux{background:#fdeaea;border-color:#d64545;color:#8a1c1c}
+.choix button.oublie{border-color:#2f9e63;border-style:dashed}
+.figure{margin:.6rem 0 .2rem;text-align:center}
+.figure img{max-width:min(100%,420px);height:auto;border:1px solid #dfe6ee;border-radius:10px;background:#fff;padding:4px}
+.expl{margin:.7rem 0 0;font-size:.92rem;background:#f4f7fb;border-left:3px solid var(--couleur,#3182ce);
+  padding:.5rem .7rem;border-radius:6px;display:none}
+.expl.visible{display:block}
+.fin{max-width:820px;margin:1.4rem auto;text-align:center;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1.2rem}
+.fin strong{font-size:1.25rem}
+.fin .btn{margin:.7rem .3rem 0}
+</style>
+</head>
+<body style="--couleur:#000000; --couleur-fonce:#000000; --sur-couleur:#fff">
+<main style="padding:2rem 1.2rem 3rem">
+  <header class="quiz-entete">
+    <p><a href="../index.html">← Retour au site</a></p>
+    <h1>Quiz — Applications et ensembles</h1>
+    <p>Prépa à la prépa · chapitre 2 · 20 questions</p>
+    <p class="quiz-score">Score : <span id="score">0 / 20</span></p>
+    <div class="barre"><span id="barre"></span></div>
+  </header>
+
+  <article class="question" data-bonne="1">
+    <h3><span class="num">1</span>Une application de $E$ dans $F$ associe à chaque $x\in E$ :</h3>
+    <div class="choix"><button type="button" data-i="0">aucun élément</button><button type="button" data-i="1">un unique élément de $F$</button><button type="button" data-i="2">un ensemble</button><button type="button" data-i="3">plusieurs éléments</button></div>
+    <p class="expl"><strong>Réponse :</strong> Définition.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">2</span>$f(x)$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">un antécédent</button><button type="button" data-i="1">la réciproque</button><button type="button" data-i="2">l'ensemble de départ</button><button type="button" data-i="3">l'image de $x$ par $f$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Vocabulaire.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">3</span>Une application est injective si :</h3>
+    <div class="choix"><button type="button" data-i="0">tout élément de $F$ a au plus un antécédent</button><button type="button" data-i="1">exactement un</button><button type="button" data-i="2">aucun</button><button type="button" data-i="3">au moins un</button></div>
+    <p class="expl"><strong>Réponse :</strong> Injectivité.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">4</span>Une application est surjective si :</h3>
+    <div class="choix"><button type="button" data-i="0">aucun</button><button type="button" data-i="1">un seul</button><button type="button" data-i="2">tout élément de $F$ a au moins un antécédent</button><button type="button" data-i="3">au plus un</button></div>
+    <p class="expl"><strong>Réponse :</strong> Surjectivité.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">5</span>Une application est bijective si :</h3>
+    <div class="choix"><button type="button" data-i="0">seulement injective</button><button type="button" data-i="1">constante</button><button type="button" data-i="2">injective et surjective</button><button type="button" data-i="3">seulement surjective</button></div>
+    <p class="expl"><strong>Réponse :</strong> Définition.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">6</span>Pour montrer la non-injectivité, on exhibe :</h3>
+    <div class="choix"><button type="button" data-i="0">une dérivée</button><button type="button" data-i="1">deux antécédents distincts d'une même image</button><button type="button" data-i="2">une limite</button><button type="button" data-i="3">un élément sans antécédent</button></div>
+    <p class="expl"><strong>Réponse :</strong> Contre-exemple.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">7</span>Pour montrer la non-surjectivité, on exhibe :</h3>
+    <div class="choix"><button type="button" data-i="0">un élément sans antécédent</button><button type="button" data-i="1">une image nulle</button><button type="button" data-i="2">un majorant</button><button type="button" data-i="3">deux antécédents</button></div>
+    <p class="expl"><strong>Réponse :</strong> Contre-exemple.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">8</span>La composée $g\circ f$ est définie si :</h3>
+    <div class="choix"><button type="button" data-i="0">$f=g$</button><button type="button" data-i="1">l'ensemble d'arrivée de $f$ est inclus dans celui de départ de $g$</button><button type="button" data-i="2">les ensembles sont finis</button><button type="button" data-i="3">toujours</button></div>
+    <p class="expl"><strong>Réponse :</strong> Compatibilité des ensembles.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">9</span>$(g\circ f)^{-1}$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$f^{-1}\circ g^{-1}$</button><button type="button" data-i="1">$f\circ g$</button><button type="button" data-i="2">$g^{-1}\circ f^{-1}$</button><button type="button" data-i="3">$g\circ f$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Ordre inversé.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">10</span>Si $f\circ f=id$, alors $f$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">bijective et $f^{-1}=f$</button><button type="button" data-i="1">constante</button><button type="button" data-i="2">surjective seulement</button><button type="button" data-i="3">non injective</button></div>
+    <p class="expl"><strong>Réponse :</strong> Involution.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">11</span>La fonction indicatrice $\mathbb{1}_A$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$A$ partout</button><button type="button" data-i="1">$1$ sur $A$ et $0$ ailleurs</button><button type="button" data-i="2">$x$ sur $A$</button><button type="button" data-i="3">$0$ sur $A$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Définition.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">12</span>$\mathbb{1}_{A\cap B}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$\max(\mathbb{1}_A\,;\mathbb{1}_B)$</button><button type="button" data-i="1">$\min(\mathbb{1}_A\,;\mathbb{1}_B)$</button><button type="button" data-i="2">$\mathbb{1}_A+\mathbb{1}_B$</button><button type="button" data-i="3">$1-\mathbb{1}_A$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Intersection : minimum.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">13</span>$\mathbb{1}_{A\cup B}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$\mathbb{1}_A\mathbb{1}_B$</button><button type="button" data-i="1">$\max(\mathbb{1}_A\,;\mathbb{1}_B)$</button><button type="button" data-i="2">$1-\mathbb{1}_A$</button><button type="button" data-i="3">$\min(\mathbb{1}_A\,;\mathbb{1}_B)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Réunion : maximum.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">14</span>$\mathbb{1}_{\overline A}$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$\mathbb{1}_A^{2}$</button><button type="button" data-i="1">$1-\mathbb{1}_A$</button><button type="button" data-i="2">$\mathbb{1}_A$</button><button type="button" data-i="3">$0$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Complémentaire.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">15</span>$\mathbb{1}_{A\setminus B}$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$\mathbb{1}_A\mathbb{1}_B$</button><button type="button" data-i="1">$\mathbb{1}_A(1-\mathbb{1}_B)$</button><button type="button" data-i="2">$\mathbb{1}_A+\mathbb{1}_B$</button><button type="button" data-i="3">$1-\mathbb{1}_A$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Différence.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">16</span>Deux ensembles ont même cardinal si :</h3>
+    <div class="choix"><button type="button" data-i="0">ils contiennent $0$</button><button type="button" data-i="1">il existe une bijection entre eux</button><button type="button" data-i="2">ils sont égaux</button><button type="button" data-i="3">ils sont finis</button></div>
+    <p class="expl"><strong>Réponse :</strong> Définition.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">17</span>$\N$ et $2\N$ :</h3>
+    <div class="choix"><button type="button" data-i="0">n'ont pas même cardinal</button><button type="button" data-i="1">ont même cardinal</button><button type="button" data-i="2">sont finis</button><button type="button" data-i="3">sont égaux</button></div>
+    <p class="expl"><strong>Réponse :</strong> $n\mapsto2n$ est bijective.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">18</span>Un ensemble est dénombrable si :</h3>
+    <div class="choix"><button type="button" data-i="0">il est en bijection avec une partie de $\N$</button><button type="button" data-i="1">il est inclus dans $\R$</button><button type="button" data-i="2">il est infini</button><button type="button" data-i="3">il est fini</button></div>
+    <p class="expl"><strong>Réponse :</strong> Définition.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">19</span>$\Q$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">fini</button><button type="button" data-i="1">vide</button><button type="button" data-i="2">dénombrable</button><button type="button" data-i="3">non dénombrable</button></div>
+    <p class="expl"><strong>Réponse :</strong> Résultat classique.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">20</span>$\R$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">fini</button><button type="button" data-i="1">non dénombrable</button><button type="button" data-i="2">dénombrable</button><button type="button" data-i="3">équipotent à $\N$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Argument diagonal / suites de $0$ et $1$.</p>
+  </article>
+  <section class="fin" id="fin" hidden>
+    <strong>Quiz terminé</strong>
+    <p id="fin-texte"></p>
+    <button class="btn" type="button" id="recommencer">Recommencer</button>
+    <a class="btn btn-secondaire" href="../index.html">Retour au site</a>
+  </section>
+</main>
+<script>
+(function () {
+  var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+  var total = cartes.length, bonnes = 0, repondues = 0;
+  var scoreEl = document.getElementById('score');
+  var barre = document.getElementById('barre');
+  var fin = document.getElementById('fin');
+
+  function majScore() {
+    scoreEl.textContent = bonnes + ' / ' + total;
+    barre.style.width = (100 * repondues / total) + '%';
+    if (repondues === total) {
+      fin.hidden = false;
+      var msg = bonnes === total ? 'Sans faute, bravo !'
+        : bonnes >= 0.8 * total ? 'Très bon score, continuez comme ça.'
+        : bonnes >= 0.5 * total ? 'C\'est correct, mais quelques révisions s\'imposent.'
+        : 'À retravailler : reprenez le cours et les exercices du chapitre.';
+      document.getElementById('fin-texte').textContent = msg;
+    }
+  }
+
+  cartes.forEach(function (carte) {
+    var bonne = parseInt(carte.dataset.bonne, 10);
+    var boutons = Array.prototype.slice.call(carte.querySelectorAll('.choix button'));
+    var expl = carte.querySelector('.expl');
+    boutons.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        if (carte.dataset.fait) return;
+        carte.dataset.fait = '1';
+        repondues++;
+        if (i === bonne) {
+          b.classList.add('juste');
+          bonnes++;
+        } else {
+          b.classList.add('faux');
+          boutons[bonne].classList.add('oublie');
+        }
+        boutons.forEach(function (x) { x.disabled = true; });
+        expl.classList.add('visible');
+        majScore();
+      });
+    });
+  });
+
+  document.getElementById('recommencer').addEventListener('click', function () {
+    window.location.reload();
+  });
+})();
+</script>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

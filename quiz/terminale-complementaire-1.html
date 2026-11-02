@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz — Les suites numériques</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['$', '$']] }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.quiz-entete{max-width:820px;margin:0 auto 1.4rem}
+.quiz-entete h1{margin:.2rem 0 .3rem;font-size:1.6rem}
+.quiz-entete p{margin:.2rem 0;opacity:.85}
+.barre{height:10px;border-radius:6px;background:#e8edf3;overflow:hidden;margin:.8rem 0}
+.barre > span{display:block;height:100%;width:0;background:var(--couleur,#3182ce);transition:width .25s}
+.quiz-score{font-weight:600}
+.question{max-width:820px;margin:0 auto 1rem;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1rem 1.2rem;box-shadow:0 2px 8px rgba(16,42,67,.06)}
+.question h3{margin:.1rem 0 .7rem;font-size:1.02rem;font-weight:600;line-height:1.45}
+.question .num{display:inline-block;min-width:1.9rem;height:1.9rem;line-height:1.9rem;
+  text-align:center;border-radius:50%;background:var(--couleur,#3182ce);
+  color:var(--sur-couleur,#fff);font-size:.85rem;margin-right:.5rem;font-weight:700}
+.choix{display:grid;gap:.5rem}
+.choix button{text-align:left;padding:.6rem .8rem;border-radius:10px;border:1px solid #d7e0ea;
+  background:#fbfdff;cursor:pointer;font-size:.98rem;font-family:inherit;line-height:1.4}
+.choix button:hover:not(:disabled){border-color:var(--couleur,#3182ce);background:#f2f8ff}
+.choix button:disabled{cursor:default}
+.choix button.juste{background:#e6f7ee;border-color:#2f9e63;color:#166534;font-weight:600}
+.choix button.faux{background:#fdeaea;border-color:#d64545;color:#8a1c1c}
+.choix button.oublie{border-color:#2f9e63;border-style:dashed}
+.figure{margin:.6rem 0 .2rem;text-align:center}
+.figure img{max-width:min(100%,420px);height:auto;border:1px solid #dfe6ee;border-radius:10px;background:#fff;padding:4px}
+.expl{margin:.7rem 0 0;font-size:.92rem;background:#f4f7fb;border-left:3px solid var(--couleur,#3182ce);
+  padding:.5rem .7rem;border-radius:6px;display:none}
+.expl.visible{display:block}
+.fin{max-width:820px;margin:1.4rem auto;text-align:center;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1.2rem}
+.fin strong{font-size:1.25rem}
+.fin .btn{margin:.7rem .3rem 0}
+</style>
+</head>
+<body style="--couleur:#1a365d; --couleur-fonce:#1a365d; --sur-couleur:#fff">
+<main style="padding:2rem 1.2rem 3rem">
+  <header class="quiz-entete">
+    <p><a href="../index.html">← Retour au site</a></p>
+    <h1>Quiz — Les suites numériques</h1>
+    <p>Terminale complémentaire · chapitre 1 · 20 questions</p>
+    <p class="quiz-score">Score : <span id="score">0 / 20</span></p>
+    <div class="barre"><span id="barre"></span></div>
+  </header>
+
+  <article class="question" data-bonne="2">
+    <h3><span class="num">1</span>La suite $(u_n)$ définie par $u_n=3n+2$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">ni l'une ni l'autre</button><button type="button" data-i="1">géométrique de raison $3$</button><button type="button" data-i="2">arithmétique de raison $3$</button><button type="button" data-i="3">arithmétique de raison $2$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $u_{n+1}-u_n=3$ : la suite est arithmétique de raison $3$ et de premier terme $u_0=2$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">2</span>La suite $(v_n)$ définie par $v_n=5\times2^{n}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">géométrique de raison $5$</button><button type="button" data-i="1">arithmétique de raison $2$</button><button type="button" data-i="2">constante</button><button type="button" data-i="3">géométrique de raison $2$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $v_{n+1}=2v_n$ : géométrique de raison $2$, de premier terme $v_0=5$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">3</span>Pour une suite arithmétique de raison $r$, $u_n$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$u_0\times r^{n}$</button><button type="button" data-i="1">$u_0+nr$</button><button type="button" data-i="2">$u_0+(n-1)r$</button><button type="button" data-i="3">$u_0+n$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $u_n=u_0+nr$ (on ajoute $r$, $n$ fois).</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">4</span>Pour une suite géométrique de raison $q$, $u_n$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$u_0+nq$</button><button type="button" data-i="1">$u_0\times q^{n}$</button><button type="button" data-i="2">$u_0\times n^{q}$</button><button type="button" data-i="3">$u_0\times q^{n-1}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $u_n=u_0\times q^{n}$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">5</span>$(u_n)$ arithmétique avec $u_0=4$ et $r=-2$. Alors $u_5$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$-4$</button><button type="button" data-i="1">$-6$</button><button type="button" data-i="2">$-10$</button><button type="button" data-i="3">$14$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $u_5=4+5\times(-2)=4-10=-6$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">6</span>$(v_n)$ géométrique avec $v_0=3$ et $q=2$. Alors $v_4$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$48$</button><button type="button" data-i="1">$12$</button><button type="button" data-i="2">$96$</button><button type="button" data-i="3">$24$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $v_4=3\times2^{4}=3\times16=48$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">7</span>La somme $1+2+3+\dots+20$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$200$</button><button type="button" data-i="1">$420$</button><button type="button" data-i="2">$105$</button><button type="button" data-i="3">$210$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Somme des termes d'une suite arithmétique : $\dfrac{20\times21}{2}=210$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">8</span>La somme $1+2+4+8+\dots+2^{6}$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$255$</button><button type="button" data-i="1">$64$</button><button type="button" data-i="2">$127$</button><button type="button" data-i="3">$128$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\dfrac{2^{7}-1}{2-1}=127$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">9</span>Une suite géométrique de raison $-0{,}5$ et de premier terme $2$ :</h3>
+    <div class="choix"><button type="button" data-i="0">diverge vers $+\infty$</button><button type="button" data-i="1">converge vers $0$</button><button type="button" data-i="2">converge vers $2$</button><button type="button" data-i="3">n'a pas de limite</button></div>
+    <p class="expl"><strong>Réponse :</strong> Comme $|q|<1$, $q^{n}\to0$, donc $u_n\to0$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">10</span>Une suite géométrique de raison $1{,}2$ et de premier terme $3$ :</h3>
+    <div class="choix"><button type="button" data-i="0">converge vers $0$</button><button type="button" data-i="1">est constante</button><button type="button" data-i="2">converge vers $3$</button><button type="button" data-i="3">diverge vers $+\infty$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Comme $q>1$, $q^{n}\to+\infty$ et $u_n\to+\infty$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">11</span>$\lim\limits_{n\to+\infty}\dfrac{3n+1}{n+2}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$+\infty$</button><button type="button" data-i="1">$0$</button><button type="button" data-i="2">$3$</button><button type="button" data-i="3">$\dfrac{3}{2}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On factorise par $n$ : $\dfrac{3+\frac1n}{1+\frac2n}\to3$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">12</span>$\lim\limits_{n\to+\infty}\dfrac{(-1)^{n}}{n}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$1$</button><button type="button" data-i="1">$-1$</button><button type="button" data-i="2">$0$</button><button type="button" data-i="3">n'existe pas</button></div>
+    <p class="expl"><strong>Réponse :</strong> On encadre : $-\dfrac1n\leqslant\dfrac{(-1)^n}{n}\leqslant\dfrac1n$, donc la limite est $0$ (gendarmes).</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">13</span>$\lim\limits_{n\to+\infty}\left(2+\dfrac{1}{n}\right)$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$+\infty$</button><button type="button" data-i="1">$3$</button><button type="button" data-i="2">$2$</button><button type="button" data-i="3">$0$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\dfrac1n\to0$, donc la limite vaut $2$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">14</span>$(u_n)$ vérifie $u_n\leqslant v_n$ et $v_n\to+\infty$. Alors :</h3>
+    <div class="choix"><button type="button" data-i="0">$u_n\to+\infty$</button><button type="button" data-i="1">on ne peut rien conclure pour $u_n$</button><button type="button" data-i="2">$u_n\to-\infty$</button><button type="button" data-i="3">$u_n$ converge</button></div>
+    <p class="expl"><strong>Réponse :</strong> Une suite minorée par une suite divergente ne diverge pas forcément : prenons $u_n=-n$ et $v_n=n$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">15</span>$(u_n)$ est croissante et majorée par $5$. Alors :</h3>
+    <div class="choix"><button type="button" data-i="0">$(u_n)$ diverge</button><button type="button" data-i="1">$(u_n)$ converge</button><button type="button" data-i="2">$u_n\to5$</button><button type="button" data-i="3">$u_n\to+\infty$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Théorème de convergence monotone : croissante et majorée ⟹ convergente (la limite est $\leqslant5$).</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">16</span>$(u_n)$ décroissante et minorée par $0$. Alors :</h3>
+    <div class="choix"><button type="button" data-i="0">$(u_n)$ diverge vers $-\infty$</button><button type="button" data-i="1">on ne sait pas</button><button type="button" data-i="2">$u_n\to0$ forcément</button><button type="button" data-i="3">$(u_n)$ converge</button></div>
+    <p class="expl"><strong>Réponse :</strong> Décroissante et minorée ⟹ convergente.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">17</span>$u_{n+1}=0{,}5u_n+3$ et $u_0=2$. La limite de $(u_n)$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$3$</button><button type="button" data-i="1">$0$</button><button type="button" data-i="2">$+\infty$</button><button type="button" data-i="3">$6$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Point fixe : $\ell=0{,}5\ell+3$ donne $\ell=6$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">18</span>$(u_n)$ est arithmétique de raison $4$ et $u_0=1$. La suite est :</h3>
+    <div class="choix"><button type="button" data-i="0">strictement croissante</button><button type="button" data-i="1">décroissante</button><button type="button" data-i="2">constante</button><button type="button" data-i="3">non monotone</button></div>
+    <p class="expl"><strong>Réponse :</strong> $r=4>0$ donc la suite est strictement croissante.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">19</span>$(v_n)$ géométrique de raison $-3$ et $v_0=2$ :</h3>
+    <div class="choix"><button type="button" data-i="0">est croissante</button><button type="button" data-i="1">est constante</button><button type="button" data-i="2">est décroissante</button><button type="button" data-i="3">n'est pas monotone</button></div>
+    <p class="expl"><strong>Réponse :</strong> Les termes changent de signe ($6$, $-18$, $54$…) : la suite n'est pas monotone.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">20</span>La somme $1+\dfrac{1}{2}+\dfrac{1}{4}+\dots$ (suite géométrique de raison $\frac12$) vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$\dfrac32$</button><button type="button" data-i="1">$+\infty$</button><button type="button" data-i="2">$2$</button><button type="button" data-i="3">$1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\dfrac{1}{1-\frac12}=2$.</p>
+  </article>
+  <section class="fin" id="fin" hidden>
+    <strong>Quiz terminé</strong>
+    <p id="fin-texte"></p>
+    <button class="btn" type="button" id="recommencer">Recommencer</button>
+    <a class="btn btn-secondaire" href="../index.html">Retour au site</a>
+  </section>
+</main>
+<script>
+(function () {
+  var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+  var total = cartes.length, bonnes = 0, repondues = 0;
+  var scoreEl = document.getElementById('score');
+  var barre = document.getElementById('barre');
+  var fin = document.getElementById('fin');
+
+  function majScore() {
+    scoreEl.textContent = bonnes + ' / ' + total;
+    barre.style.width = (100 * repondues / total) + '%';
+    if (repondues === total) {
+      fin.hidden = false;
+      var msg = bonnes === total ? 'Sans faute, bravo !'
+        : bonnes >= 0.8 * total ? 'Très bon score, continuez comme ça.'
+        : bonnes >= 0.5 * total ? 'C\'est correct, mais quelques révisions s\'imposent.'
+        : 'À retravailler : reprenez le cours et les exercices du chapitre.';
+      document.getElementById('fin-texte').textContent = msg;
+    }
+  }
+
+  cartes.forEach(function (carte) {
+    var bonne = parseInt(carte.dataset.bonne, 10);
+    var boutons = Array.prototype.slice.call(carte.querySelectorAll('.choix button'));
+    var expl = carte.querySelector('.expl');
+    boutons.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        if (carte.dataset.fait) return;
+        carte.dataset.fait = '1';
+        repondues++;
+        if (i === bonne) {
+          b.classList.add('juste');
+          bonnes++;
+        } else {
+          b.classList.add('faux');
+          boutons[bonne].classList.add('oublie');
+        }
+        boutons.forEach(function (x) { x.disabled = true; });
+        expl.classList.add('visible');
+        majScore();
+      });
+    });
+  });
+
+  document.getElementById('recommencer').addEventListener('click', function () {
+    window.location.reload();
+  });
+})();
+</script>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

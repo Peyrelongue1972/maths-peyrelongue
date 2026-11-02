@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz — Les fonctions de référence</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['$', '$']] }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.quiz-entete{max-width:820px;margin:0 auto 1.4rem}
+.quiz-entete h1{margin:.2rem 0 .3rem;font-size:1.6rem}
+.quiz-entete p{margin:.2rem 0;opacity:.85}
+.barre{height:10px;border-radius:6px;background:#e8edf3;overflow:hidden;margin:.8rem 0}
+.barre > span{display:block;height:100%;width:0;background:var(--couleur,#3182ce);transition:width .25s}
+.quiz-score{font-weight:600}
+.question{max-width:820px;margin:0 auto 1rem;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1rem 1.2rem;box-shadow:0 2px 8px rgba(16,42,67,.06)}
+.question h3{margin:.1rem 0 .7rem;font-size:1.02rem;font-weight:600;line-height:1.45}
+.question .num{display:inline-block;min-width:1.9rem;height:1.9rem;line-height:1.9rem;
+  text-align:center;border-radius:50%;background:var(--couleur,#3182ce);
+  color:var(--sur-couleur,#fff);font-size:.85rem;margin-right:.5rem;font-weight:700}
+.choix{display:grid;gap:.5rem}
+.choix button{text-align:left;padding:.6rem .8rem;border-radius:10px;border:1px solid #d7e0ea;
+  background:#fbfdff;cursor:pointer;font-size:.98rem;font-family:inherit;line-height:1.4}
+.choix button:hover:not(:disabled){border-color:var(--couleur,#3182ce);background:#f2f8ff}
+.choix button:disabled{cursor:default}
+.choix button.juste{background:#e6f7ee;border-color:#2f9e63;color:#166534;font-weight:600}
+.choix button.faux{background:#fdeaea;border-color:#d64545;color:#8a1c1c}
+.choix button.oublie{border-color:#2f9e63;border-style:dashed}
+.figure{margin:.6rem 0 .2rem;text-align:center}
+.figure img{max-width:min(100%,420px);height:auto;border:1px solid #dfe6ee;border-radius:10px;background:#fff;padding:4px}
+.expl{margin:.7rem 0 0;font-size:.92rem;background:#f4f7fb;border-left:3px solid var(--couleur,#3182ce);
+  padding:.5rem .7rem;border-radius:6px;display:none}
+.expl.visible{display:block}
+.fin{max-width:820px;margin:1.4rem auto;text-align:center;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1.2rem}
+.fin strong{font-size:1.25rem}
+.fin .btn{margin:.7rem .3rem 0}
+</style>
+</head>
+<body style="--couleur:#2b6cb0; --couleur-fonce:#2b6cb0; --sur-couleur:#fff">
+<main style="padding:2rem 1.2rem 3rem">
+  <header class="quiz-entete">
+    <p><a href="../index.html">← Retour au site</a></p>
+    <h1>Quiz — Les fonctions de référence</h1>
+    <p>Seconde · chapitre 13 · 20 questions</p>
+    <p class="quiz-score">Score : <span id="score">0 / 20</span></p>
+    <div class="barre"><span id="barre"></span></div>
+  </header>
+
+  <article class="question" data-bonne="3">
+    <h3><span class="num">1</span>La fonction inverse $f(x)=\dfrac{1}{x}$ est définie sur :</h3>
+    <div class="choix"><button type="button" data-i="0">$[0\,;+\infty[$</button><button type="button" data-i="1">$\mathbb{R}$</button><button type="button" data-i="2">$[1\,;+\infty[$</button><button type="button" data-i="3">$\mathbb{R}^{*}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Le dénominateur ne doit pas être nul.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">2</span>La fonction racine carrée $f(x)=\sqrt{x}$ est définie sur :</h3>
+    <div class="choix"><button type="button" data-i="0">$]0\,;+\infty[$</button><button type="button" data-i="1">$[0\,;+\infty[$</button><button type="button" data-i="2">$\mathbb{R}$</button><button type="button" data-i="3">$\mathbb{R}^{*}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Une racine carrée exige un nombre positif ou nul.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">3</span>On a $f(x)=\dfrac{1}{x}$. Alors $f(2)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$-2$</button><button type="button" data-i="1">$1$</button><button type="button" data-i="2">$0{,}5$</button><button type="button" data-i="3">$2$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $f(2)=\dfrac{1}{2}$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">4</span>$\sqrt{4}$ est égal à :</h3>
+    <div class="choix"><button type="button" data-i="0">$8$</button><button type="button" data-i="1">$16$</button><button type="button" data-i="2">$-2$</button><button type="button" data-i="3">$2$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $2^{2}=4$, donc $\sqrt{4}=2$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">5</span>On a $f(x)=x^{3}$. Alors $f(-2)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$-6$</button><button type="button" data-i="1">$8$</button><button type="button" data-i="2">$6$</button><button type="button" data-i="3">$-8$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $(-2)^{3}=-8$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">6</span>Sur $]0\,;+\infty[$, la fonction inverse est :</h3>
+    <div class="choix"><button type="button" data-i="0">constante</button><button type="button" data-i="1">non monotone</button><button type="button" data-i="2">strictement croissante</button><button type="button" data-i="3">strictement décroissante</button></div>
+    <p class="expl"><strong>Réponse :</strong> Quand $x$ augmente, $\dfrac{1}{x}$ diminue.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">7</span>Sur $[0\,;+\infty[$, la fonction racine carrée est :</h3>
+    <div class="choix"><button type="button" data-i="0">strictement décroissante</button><button type="button" data-i="1">constante</button><button type="button" data-i="2">strictement croissante</button><button type="button" data-i="3">non monotone</button></div>
+    <p class="expl"><strong>Réponse :</strong> Quand $x$ augmente, $\sqrt{x}$ augmente.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">8</span>La fonction cube $f(x)=x^{3}$ est sur $\mathbb{R}$ :</h3>
+    <div class="choix"><button type="button" data-i="0">constante</button><button type="button" data-i="1">strictement décroissante</button><button type="button" data-i="2">non monotone</button><button type="button" data-i="3">strictement croissante</button></div>
+    <p class="expl"><strong>Réponse :</strong> Elle croît sur tout $\mathbb{R}$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">9</span>On a $f(x)=\dfrac{1}{x}$. Alors $f(-1)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$0$</button><button type="button" data-i="1">$-2$</button><button type="button" data-i="2">$1$</button><button type="button" data-i="3">$-1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $f(-1)=-1$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">10</span>La courbe de la fonction inverse est :</h3>
+    <div class="choix"><button type="button" data-i="0">une hyperbole</button><button type="button" data-i="1">une droite</button><button type="button" data-i="2">une demi-droite</button><button type="button" data-i="3">une parabole</button></div>
+    <p class="expl"><strong>Réponse :</strong> She est composée de deux branches.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">11</span>La courbe de la fonction racine carrée :</h3>
+    <div class="choix"><button type="button" data-i="0">n'existe que pour $x<0$</button><button type="button" data-i="1">est une droite</button><button type="button" data-i="2">part de l'origine</button><button type="button" data-i="3">est un cercle</button></div>
+    <p class="expl"><strong>Réponse :</strong> $f(0)=0$ et la courbe est définie pour $x\geqslant0$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">12</span>La courbe de la fonction cube est symétrique par rapport à :</h3>
+    <div class="choix"><button type="button" data-i="0">l'origine du repère</button><button type="button" data-i="1">la droite $y=x$</button><button type="button" data-i="2">l'axe des abscisses</button><button type="button" data-i="3">l'axe des ordonnées</button></div>
+    <p class="expl"><strong>Réponse :</strong> $f(-x)=-f(x)$ : on parle de symétrie centrale.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">13</span>$\sqrt{9}$ est égal à :</h3>
+    <div class="choix"><button type="button" data-i="0">$3$</button><button type="button" data-i="1">$4{,}5$</button><button type="button" data-i="2">$81$</button><button type="button" data-i="3">$-3$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $3^{2}=9$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">14</span>La fonction inverse peut-elle s'annuler ?</h3>
+    <div class="choix"><button type="button" data-i="0">non, jamais</button><button type="button" data-i="1">oui, en $x=0$</button><button type="button" data-i="2">oui, en $x=1$</button><button type="button" data-i="3">oui, en $x=-1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\dfrac{1}{x}\neq0$ pour tout $x\neq0$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">15</span>Pour tout $x\geqslant0$, $\sqrt{x}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">toujours égal à $x$</button><button type="button" data-i="1">strictement négatif</button><button type="button" data-i="2">de signe variable</button><button type="button" data-i="3">positif ou nul</button></div>
+    <p class="expl"><strong>Réponse :</strong> Une racine carrée est toujours positive ou nulle.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">16</span>Sur l'intervalle $[0\,;1]$, on a :</h3>
+    <div class="choix"><button type="button" data-i="0">$x^{2}=x^{3}$</button><button type="button" data-i="1">$x^{2}<x^{3}$</button><button type="button" data-i="2">on ne peut rien dire</button><button type="button" data-i="3">$x^{2}\geqslant x^{3}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Multiplier par $x$ (entre $0$ et $1$) diminue le nombre.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">17</span>Pour $x>0$, $\dfrac{1}{x}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">strictement positif</button><button type="button" data-i="1">de signe variable</button><button type="button" data-i="2">strictement négatif</button><button type="button" data-i="3">nul</button></div>
+    <p class="expl"><strong>Réponse :</strong> Le quotient de deux nombres positifs est positif.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">18</span>La courbe de la fonction inverse coupe-t-elle l'axe des abscisses ?</h3>
+    <div class="choix"><button type="button" data-i="0">oui, en $x=-1$</button><button type="button" data-i="1">oui, en $x=1$</button><button type="button" data-i="2">oui, en $x=0$</button><button type="button" data-i="3">non, jamais</button></div>
+    <p class="expl"><strong>Réponse :</strong> La fonction ne s'annule jamais.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">19</span>Pour $x>1$, on a :</h3>
+    <div class="choix"><button type="button" data-i="0">$x^{3}<x^{2}$</button><button type="button" data-i="1">$x^{3}>x^{2}$</button><button type="button" data-i="2">on ne peut rien dire</button><button type="button" data-i="3">$x^{3}=x^{2}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Multiplier par $x$ (supérieur à $1$) augmente le nombre.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">20</span>On a $f(x)=\sqrt{x}$. Alors $f(0)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$-1$</button><button type="button" data-i="1">$0$</button><button type="button" data-i="2">indéfini</button><button type="button" data-i="3">$1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\sqrt{0}=0$.</p>
+  </article>
+  <section class="fin" id="fin" hidden>
+    <strong>Quiz terminé</strong>
+    <p id="fin-texte"></p>
+    <button class="btn" type="button" id="recommencer">Recommencer</button>
+    <a class="btn btn-secondaire" href="../index.html">Retour au site</a>
+  </section>
+</main>
+<script>
+(function () {
+  var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+  var total = cartes.length, bonnes = 0, repondues = 0;
+  var scoreEl = document.getElementById('score');
+  var barre = document.getElementById('barre');
+  var fin = document.getElementById('fin');
+
+  function majScore() {
+    scoreEl.textContent = bonnes + ' / ' + total;
+    barre.style.width = (100 * repondues / total) + '%';
+    if (repondues === total) {
+      fin.hidden = false;
+      var msg = bonnes === total ? 'Sans faute, bravo !'
+        : bonnes >= 0.8 * total ? 'Très bon score, continuez comme ça.'
+        : bonnes >= 0.5 * total ? 'C\'est correct, mais quelques révisions s\'imposent.'
+        : 'À retravailler : reprenez le cours et les exercices du chapitre.';
+      document.getElementById('fin-texte').textContent = msg;
+    }
+  }
+
+  cartes.forEach(function (carte) {
+    var bonne = parseInt(carte.dataset.bonne, 10);
+    var boutons = Array.prototype.slice.call(carte.querySelectorAll('.choix button'));
+    var expl = carte.querySelector('.expl');
+    boutons.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        if (carte.dataset.fait) return;
+        carte.dataset.fait = '1';
+        repondues++;
+        if (i === bonne) {
+          b.classList.add('juste');
+          bonnes++;
+        } else {
+          b.classList.add('faux');
+          boutons[bonne].classList.add('oublie');
+        }
+        boutons.forEach(function (x) { x.disabled = true; });
+        expl.classList.add('visible');
+        majScore();
+      });
+    });
+  });
+
+  document.getElementById('recommencer').addEventListener('click', function () {
+    window.location.reload();
+  });
+})();
+</script>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

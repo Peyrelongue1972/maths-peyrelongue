@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz — Géométrie repérée</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['$', '$']] }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.quiz-entete{max-width:820px;margin:0 auto 1.4rem}
+.quiz-entete h1{margin:.2rem 0 .3rem;font-size:1.6rem}
+.quiz-entete p{margin:.2rem 0;opacity:.85}
+.barre{height:10px;border-radius:6px;background:#e8edf3;overflow:hidden;margin:.8rem 0}
+.barre > span{display:block;height:100%;width:0;background:var(--couleur,#3182ce);transition:width .25s}
+.quiz-score{font-weight:600}
+.question{max-width:820px;margin:0 auto 1rem;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1rem 1.2rem;box-shadow:0 2px 8px rgba(16,42,67,.06)}
+.question h3{margin:.1rem 0 .7rem;font-size:1.02rem;font-weight:600;line-height:1.45}
+.question .num{display:inline-block;min-width:1.9rem;height:1.9rem;line-height:1.9rem;
+  text-align:center;border-radius:50%;background:var(--couleur,#3182ce);
+  color:var(--sur-couleur,#fff);font-size:.85rem;margin-right:.5rem;font-weight:700}
+.choix{display:grid;gap:.5rem}
+.choix button{text-align:left;padding:.6rem .8rem;border-radius:10px;border:1px solid #d7e0ea;
+  background:#fbfdff;cursor:pointer;font-size:.98rem;font-family:inherit;line-height:1.4}
+.choix button:hover:not(:disabled){border-color:var(--couleur,#3182ce);background:#f2f8ff}
+.choix button:disabled{cursor:default}
+.choix button.juste{background:#e6f7ee;border-color:#2f9e63;color:#166534;font-weight:600}
+.choix button.faux{background:#fdeaea;border-color:#d64545;color:#8a1c1c}
+.choix button.oublie{border-color:#2f9e63;border-style:dashed}
+.figure{margin:.6rem 0 .2rem;text-align:center}
+.figure img{max-width:min(100%,420px);height:auto;border:1px solid #dfe6ee;border-radius:10px;background:#fff;padding:4px}
+.expl{margin:.7rem 0 0;font-size:.92rem;background:#f4f7fb;border-left:3px solid var(--couleur,#3182ce);
+  padding:.5rem .7rem;border-radius:6px;display:none}
+.expl.visible{display:block}
+.fin{max-width:820px;margin:1.4rem auto;text-align:center;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1.2rem}
+.fin strong{font-size:1.25rem}
+.fin .btn{margin:.7rem .3rem 0}
+</style>
+</head>
+<body style="--couleur:#2f855a; --couleur-fonce:#2f855a; --sur-couleur:#fff">
+<main style="padding:2rem 1.2rem 3rem">
+  <header class="quiz-entete">
+    <p><a href="../index.html">← Retour au site</a></p>
+    <h1>Quiz — Géométrie repérée</h1>
+    <p>Première spécialité · chapitre 12 · 20 questions</p>
+    <p class="quiz-score">Score : <span id="score">0 / 20</span></p>
+    <div class="barre"><span id="barre"></span></div>
+  </header>
+
+  <article class="question" data-bonne="1">
+    <h3><span class="num">1</span>Dans un repère orthonormé, le cercle de centre $\Omega(a\,;b)$ et de rayon $R$ a pour équation :</h3>
+    <div class="choix"><button type="button" data-i="0">$(x+a)^{2}+(y+b)^{2}=R^{2}$</button><button type="button" data-i="1">$(x-a)^{2}+(y-b)^{2}=R^{2}$</button><button type="button" data-i="2">$x^{2}+y^{2}=R^{2}$</button><button type="button" data-i="3">$(x-a)^{2}+(y-b)^{2}=R$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Traduction de « la distance à $\Omega$ vaut $R$ ».</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">2</span>Le cercle de centre $\Omega(1\,;-2)$ et de rayon $3$ a pour équation :</h3>
+    <div class="choix"><button type="button" data-i="0">$(x-1)^{2}+(y+2)^{2}=9$</button><button type="button" data-i="1">$(x-1)^{2}+(y+2)^{2}=3$</button><button type="button" data-i="2">$(x+1)^{2}+(y-2)^{2}=9$</button><button type="button" data-i="3">$(x-1)^{2}+(y-2)^{2}=3$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $R^{2}=9$ et les termes sont $(x-a)$ et $(y-b)$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">3</span>Le cercle d'équation $x^{2}+y^{2}-4x+2y-4=0$ a pour centre :</h3>
+    <div class="choix"><button type="button" data-i="0">$(2\,;1)$</button><button type="button" data-i="1">$(2\,;-1)$</button><button type="button" data-i="2">$(-2\,;1)$</button><button type="button" data-i="3">$(4\,;-2)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On complète les carrés : $(x-2)^{2}+(y+1)^{2}=9$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">4</span>Le cercle d'équation $x^{2}+y^{2}=25$ a pour rayon :</h3>
+    <div class="choix"><button type="button" data-i="0">$\sqrt{5}$</button><button type="button" data-i="1">$25$</button><button type="button" data-i="2">$5$</button><button type="button" data-i="3">$12{,}5$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $R^{2}=25$, donc $R=5$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">5</span>La médiatrice de $[AB]$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">la droite perpendiculaire à $(AB)$ passant par $A$</button><button type="button" data-i="1">le cercle de diamètre $[AB]$</button><button type="button" data-i="2">l'ensemble des points équidistants de $A$ et de $B$</button><button type="button" data-i="3">l'ensemble des points de la droite $(AB)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est la droite perpendiculaire à $(AB)$ passant par son milieu.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">6</span>Un vecteur normal à la droite d'équation $ax+by+c=0$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$(a\,;b)$</button><button type="button" data-i="1">$(-b\,;a)$</button><button type="button" data-i="2">$(b\,;a)$</button><button type="button" data-i="3">$(c\,;0)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Le vecteur de coordonnées $(a\,;b)$ est orthogonal à la droite.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">7</span>La droite d'équation $x=3$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">verticale</button><button type="button" data-i="1">un cercle</button><button type="button" data-i="2">horizontale</button><button type="button" data-i="3">oblique</button></div>
+    <p class="expl"><strong>Réponse :</strong> Tous les points ont la même abscisse : la droite est verticale.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">8</span>La distance entre $A(1\,;1)$ et $B(4\,;5)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$7$</button><button type="button" data-i="1">$25$</button><button type="button" data-i="2">$\sqrt{7}$</button><button type="button" data-i="3">$5$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $AB=\sqrt{3^{2}+4^{2}}=5$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">9</span>Le cercle de diamètre $[AB]$ a pour centre :</h3>
+    <div class="choix"><button type="button" data-i="0">le point $B$</button><button type="button" data-i="1">le point $A$</button><button type="button" data-i="2">le milieu de $[AB]$</button><button type="button" data-i="3">l'intersection des médiatrices du triangle</button></div>
+    <p class="expl"><strong>Réponse :</strong> Tout point $M$ du cercle vérifie $\overrightarrow{MA}\cdot\overrightarrow{MB}=0$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">10</span>Un point $A$ appartient au cercle d'équation $(x-a)^{2}+(y-b)^{2}=R^{2}$ si :</h3>
+    <div class="choix"><button type="button" data-i="0">il est sur l'axe des abscisses</button><button type="button" data-i="1">ses coordonnées vérifient l'équation</button><button type="button" data-i="2">son abscisse est positive</button><button type="button" data-i="3">son ordonnée est positive</button></div>
+    <p class="expl"><strong>Réponse :</strong> Appartenir au cercle signifie satisfaire son équation.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">11</span>La tangente en $A$ au cercle de centre $\Omega$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">perpendiculaire à $(\Omega A)$</button><button type="button" data-i="1">la droite $(\Omega A)$ elle-même</button><button type="button" data-i="2">la médiatrice de $[\Omega A]$</button><button type="button" data-i="3">parallèle à $(\Omega A)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Le rayon et la tangente sont perpendiculaires au point de contact.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">12</span>Un vecteur directeur de la droite d'équation $y=2x+3$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$(2\,;1)$</button><button type="button" data-i="1">$(2\,;3)$</button><button type="button" data-i="2">$(1\,;2)$</button><button type="button" data-i="3">$(1\,;3)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> La pente vaut $2$ : en avançant de $1$, on monte de $2$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">13</span>Deux droites non verticales sont parallèles si et seulement si :</h3>
+    <div class="choix"><button type="button" data-i="0">elles ont la même ordonnée à l'origine</button><button type="button" data-i="1">leur produit de coefficients directeurs vaut $-1$</button><button type="button" data-i="2">elles passent par l'origine</button><button type="button" data-i="3">elles ont le même coefficient directeur</button></div>
+    <p class="expl"><strong>Réponse :</strong> Des droites parallèles ont la même pente.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">14</span>Deux droites non verticales sont perpendiculaires si et seulement si :</h3>
+    <div class="choix"><button type="button" data-i="0">elles sont sécantes</button><button type="button" data-i="1">le produit de leurs coefficients directeurs vaut $-1$</button><button type="button" data-i="2">elles ont le même coefficient directeur</button><button type="button" data-i="3">leurs coefficients sont opposés</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est la condition d'orthogonalité des directions.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">15</span>La médiatrice de $[AB]$ passe par :</h3>
+    <div class="choix"><button type="button" data-i="0">l'origine du repère</button><button type="button" data-i="1">le point $A$</button><button type="button" data-i="2">le milieu de $[AB]$</button><button type="button" data-i="3">le point $B$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Elle est perpendiculaire à $(AB)$ en son milieu.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">16</span>La droite passant par $A(0\,;1)$ et $B(2\,;5)$ a pour équation :</h3>
+    <div class="choix"><button type="button" data-i="0">$y=2x+5$</button><button type="button" data-i="1">$y=x+1$</button><button type="button" data-i="2">$y=2x+1$</button><button type="button" data-i="3">$y=\dfrac{1}{2}x+1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Le coefficient directeur vaut $\dfrac{5-1}{2-0}=2$ et l'ordonnée à l'origine $1$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">17</span>Le centre du cercle circonscrit à un triangle est :</h3>
+    <div class="choix"><button type="button" data-i="0">le milieu d'un côté</button><button type="button" data-i="1">l'intersection de ses médianes</button><button type="button" data-i="2">l'intersection de ses médiatrices</button><button type="button" data-i="3">l'intersection de ses hauteurs</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est le point équidistant des trois sommets.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">18</span>La norme du vecteur $(-3\,;4)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$7$</button><button type="button" data-i="1">$25$</button><button type="button" data-i="2">$5$</button><button type="button" data-i="3">$1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\sqrt{9+16}=\sqrt{25}=5$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">19</span>Le cercle d'équation $x^{2}+y^{2}+2x+2y+2=0$ :</h3>
+    <div class="choix"><button type="button" data-i="0">a pour rayon $2$</button><button type="button" data-i="1">n'existe pas</button><button type="button" data-i="2">est réduit à un point</button><button type="button" data-i="3">a pour rayon $\sqrt{2}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On obtient $(x+1)^{2}+(y+1)^{2}=0$ : un seul point, $(-1\,;-1)$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">20</span>Le cercle d'équation $x^{2}+y^{2}-6x+4y=0$ passe par :</h3>
+    <div class="choix"><button type="button" data-i="0">aucun de ces points</button><button type="button" data-i="1">le point $(3\,;-2)$</button><button type="button" data-i="2">le point $(1\,;1)$</button><button type="button" data-i="3">l'origine $O(0\,;0)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> En $x=y=0$, l'équation est vérifiée : le cercle passe par l'origine.</p>
+  </article>
+  <section class="fin" id="fin" hidden>
+    <strong>Quiz terminé</strong>
+    <p id="fin-texte"></p>
+    <button class="btn" type="button" id="recommencer">Recommencer</button>
+    <a class="btn btn-secondaire" href="../index.html">Retour au site</a>
+  </section>
+</main>
+<script>
+(function () {
+  var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+  var total = cartes.length, bonnes = 0, repondues = 0;
+  var scoreEl = document.getElementById('score');
+  var barre = document.getElementById('barre');
+  var fin = document.getElementById('fin');
+
+  function majScore() {
+    scoreEl.textContent = bonnes + ' / ' + total;
+    barre.style.width = (100 * repondues / total) + '%';
+    if (repondues === total) {
+      fin.hidden = false;
+      var msg = bonnes === total ? 'Sans faute, bravo !'
+        : bonnes >= 0.8 * total ? 'Très bon score, continuez comme ça.'
+        : bonnes >= 0.5 * total ? 'C\'est correct, mais quelques révisions s\'imposent.'
+        : 'À retravailler : reprenez le cours et les exercices du chapitre.';
+      document.getElementById('fin-texte').textContent = msg;
+    }
+  }
+
+  cartes.forEach(function (carte) {
+    var bonne = parseInt(carte.dataset.bonne, 10);
+    var boutons = Array.prototype.slice.call(carte.querySelectorAll('.choix button'));
+    var expl = carte.querySelector('.expl');
+    boutons.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        if (carte.dataset.fait) return;
+        carte.dataset.fait = '1';
+        repondues++;
+        if (i === bonne) {
+          b.classList.add('juste');
+          bonnes++;
+        } else {
+          b.classList.add('faux');
+          boutons[bonne].classList.add('oublie');
+        }
+        boutons.forEach(function (x) { x.disabled = true; });
+        expl.classList.add('visible');
+        majScore();
+      });
+    });
+  });
+
+  document.getElementById('recommencer').addEventListener('click', function () {
+    window.location.reload();
+  });
+})();
+</script>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

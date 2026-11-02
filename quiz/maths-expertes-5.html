@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz — Nombres complexes et géométrie</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['$', '$']] }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.quiz-entete{max-width:820px;margin:0 auto 1.4rem}
+.quiz-entete h1{margin:.2rem 0 .3rem;font-size:1.6rem}
+.quiz-entete p{margin:.2rem 0;opacity:.85}
+.barre{height:10px;border-radius:6px;background:#e8edf3;overflow:hidden;margin:.8rem 0}
+.barre > span{display:block;height:100%;width:0;background:var(--couleur,#3182ce);transition:width .25s}
+.quiz-score{font-weight:600}
+.question{max-width:820px;margin:0 auto 1rem;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1rem 1.2rem;box-shadow:0 2px 8px rgba(16,42,67,.06)}
+.question h3{margin:.1rem 0 .7rem;font-size:1.02rem;font-weight:600;line-height:1.45}
+.question .num{display:inline-block;min-width:1.9rem;height:1.9rem;line-height:1.9rem;
+  text-align:center;border-radius:50%;background:var(--couleur,#3182ce);
+  color:var(--sur-couleur,#fff);font-size:.85rem;margin-right:.5rem;font-weight:700}
+.choix{display:grid;gap:.5rem}
+.choix button{text-align:left;padding:.6rem .8rem;border-radius:10px;border:1px solid #d7e0ea;
+  background:#fbfdff;cursor:pointer;font-size:.98rem;font-family:inherit;line-height:1.4}
+.choix button:hover:not(:disabled){border-color:var(--couleur,#3182ce);background:#f2f8ff}
+.choix button:disabled{cursor:default}
+.choix button.juste{background:#e6f7ee;border-color:#2f9e63;color:#166534;font-weight:600}
+.choix button.faux{background:#fdeaea;border-color:#d64545;color:#8a1c1c}
+.choix button.oublie{border-color:#2f9e63;border-style:dashed}
+.figure{margin:.6rem 0 .2rem;text-align:center}
+.figure img{max-width:min(100%,420px);height:auto;border:1px solid #dfe6ee;border-radius:10px;background:#fff;padding:4px}
+.expl{margin:.7rem 0 0;font-size:.92rem;background:#f4f7fb;border-left:3px solid var(--couleur,#3182ce);
+  padding:.5rem .7rem;border-radius:6px;display:none}
+.expl.visible{display:block}
+.fin{max-width:820px;margin:1.4rem auto;text-align:center;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1.2rem}
+.fin strong{font-size:1.25rem}
+.fin .btn{margin:.7rem .3rem 0}
+</style>
+</head>
+<body style="--couleur:#FFD700; --couleur-fonce:#B8860B; --sur-couleur:#3F3000">
+<main style="padding:2rem 1.2rem 3rem">
+  <header class="quiz-entete">
+    <p><a href="../index.html">← Retour au site</a></p>
+    <h1>Quiz — Nombres complexes et géométrie</h1>
+    <p>Maths expertes · chapitre 5 · 20 questions</p>
+    <p class="quiz-score">Score : <span id="score">0 / 20</span></p>
+    <div class="barre"><span id="barre"></span></div>
+  </header>
+
+  <article class="question" data-bonne="3">
+    <h3><span class="num">1</span>Le point $M$ d'affixe $z=a+ib$ a pour coordonnées :</h3>
+    <div class="choix"><button type="button" data-i="0">$(0\,;b)$</button><button type="button" data-i="1">$(a\,;0)$</button><button type="button" data-i="2">$(b\,;a)$</button><button type="button" data-i="3">$(a\,;b)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Abscisse : partie réelle, ordonnée : partie imaginaire.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">2</span>$|z_B-z_A|$ représente :</h3>
+    <div class="choix"><button type="button" data-i="0">l'angle</button><button type="button" data-i="1">la distance $AB$</button><button type="button" data-i="2">le milieu</button><button type="button" data-i="3">l'aire</button></div>
+    <p class="expl"><strong>Réponse :</strong> Module de l'affixe du vecteur.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">3</span>L'ensemble des points $M$ tels que $|z-z_A|=r$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">une droite</button><button type="button" data-i="1">une ellipse</button><button type="button" data-i="2">le cercle de centre $A$ et de rayon $r$</button><button type="button" data-i="3">un point</button></div>
+    <p class="expl"><strong>Réponse :</strong> Équation d'un cercle.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">4</span>L'ensemble des points $M$ tels que $|z-z_A|=|z-z_B|$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">le milieu de $[AB]$</button><button type="button" data-i="1">la droite $(AB)$</button><button type="button" data-i="2">le cercle de diamètre $[AB]$</button><button type="button" data-i="3">la médiatrice de $[AB]$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Points équidistants de $A$ et $B$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">5</span>L'affixe du milieu de $[AB]$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$\dfrac{z_A-z_B}{2}$</button><button type="button" data-i="1">$z_A+z_B$</button><button type="button" data-i="2">$\dfrac{z_A+z_B}{2}$</button><button type="button" data-i="3">$z_Az_B$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Moyenne des affixes.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">6</span>$\arg(z_B-z_A)$ représente :</h3>
+    <div class="choix"><button type="button" data-i="0">le milieu</button><button type="button" data-i="1">l'aire</button><button type="button" data-i="2">une mesure de l'angle orienté des vecteurs</button><button type="button" data-i="3">la distance $AB$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Argument du vecteur $\vect{AB}$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">7</span>Trois points $A$, $B$, $C$ sont alignés si :</h3>
+    <div class="choix"><button type="button" data-i="0">$\dfrac{z_C-z_A}{z_B-z_A}$ est réel</button><button type="button" data-i="1">les modules sont égaux</button><button type="button" data-i="2">$z_A+z_B+z_C=0$</button><button type="button" data-i="3">le quotient est imaginaire pur</button></div>
+    <p class="expl"><strong>Réponse :</strong> Argument nul ou $\pi$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">8</span>Le triangle $ABC$ est rectangle en $A$ si :</h3>
+    <div class="choix"><button type="button" data-i="0">les distances sont égales</button><button type="button" data-i="1">$z_A=0$</button><button type="button" data-i="2">$\dfrac{z_C-z_A}{z_B-z_A}$ est imaginaire pur</button><button type="button" data-i="3">le quotient est réel</button></div>
+    <p class="expl"><strong>Réponse :</strong> Angle droit : argument $\pm\dfrac{\pi}{2}$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">9</span>Le triangle $ABC$ est équilatéral si :</h3>
+    <div class="choix"><button type="button" data-i="0">$\left|z_A-z_B\right|=\left|z_B-z_C\right|=\left|z_C-z_A\right|$</button><button type="button" data-i="1">$z_A+z_B+z_C=0$</button><button type="button" data-i="2">les points sont alignés</button><button type="button" data-i="3">un angle est droit</button></div>
+    <p class="expl"><strong>Réponse :</strong> Trois côtés égaux.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">10</span>La rotation de centre $\Omega$ d'affixe $\omega$ et d'angle $\theta$ associe à $z$ :</h3>
+    <div class="choix"><button type="button" data-i="0">$e^{i\theta}z$</button><button type="button" data-i="1">$\omega z$</button><button type="button" data-i="2">$z+\omega$</button><button type="button" data-i="3">$\omega+e^{i\theta}(z-\omega)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Forme complexe de la rotation.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">11</span>La translation de vecteur d'affixe $b$ associe à $z$ :</h3>
+    <div class="choix"><button type="button" data-i="0">$z-b$</button><button type="button" data-i="1">$e^{ib}z$</button><button type="button" data-i="2">$z+b$</button><button type="button" data-i="3">$bz$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Translation.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">12</span>L'homothétie de centre $\Omega$ et de rapport $k$ associe à $z$ :</h3>
+    <div class="choix"><button type="button" data-i="0">$z^{k}$</button><button type="button" data-i="1">$\omega+k(z-\omega)$</button><button type="button" data-i="2">$\omega z$</button><button type="button" data-i="3">$kz+\omega$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Forme complexe.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">13</span>L'ensemble des points $M$ tels que $\arg(z-z_A)=\dfrac{\pi}{4}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">une droite entière</button><button type="button" data-i="1">un point</button><button type="button" data-i="2">un cercle</button><button type="button" data-i="3">une demi-droite</button></div>
+    <p class="expl"><strong>Réponse :</strong> Demi-droite d'origine $A$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">14</span>$|z-1|=|z+i|$ est la médiatrice de $[AB]$ avec :</h3>
+    <div class="choix"><button type="button" data-i="0">$A(1\,;0)$ et $B(0\,;-1)$</button><button type="button" data-i="1">$A(0\,;1)$ et $B(1\,;0)$</button><button type="button" data-i="2">$A(1\,;1)$ et $B(0\,;0)$</button><button type="button" data-i="3">$A(-1\,;0)$ et $B(0\,;1)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Centres $1$ et $-i$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">15</span>Le cercle de centre $A$ et de rayon $3$ a pour équation :</h3>
+    <div class="choix"><button type="button" data-i="0">$|z-z_A|=3$</button><button type="button" data-i="1">$|z+z_A|=3$</button><button type="button" data-i="2">$\arg(z-z_A)=3$</button><button type="button" data-i="3">$|z|=3$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Module constant.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">16</span>Si $M$ et $M'$ ont pour affixes $z$ et $-\bar z$, la transformation est :</h3>
+    <div class="choix"><button type="button" data-i="0">une symétrie</button><button type="button" data-i="1">une homothétie</button><button type="button" data-i="2">une translation</button><button type="button" data-i="3">une rotation</button></div>
+    <p class="expl"><strong>Réponse :</strong> Composition symétrie / axe.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">17</span>$|z+2i|$ est la distance de $M$ au point d'affixe :</h3>
+    <div class="choix"><button type="button" data-i="0">$-2i$</button><button type="button" data-i="1">$2$</button><button type="button" data-i="2">$-2$</button><button type="button" data-i="3">$2i$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $|z-(-2i)|$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">18</span>Un argument de $z-1$ permet d'étudier :</h3>
+    <div class="choix"><button type="button" data-i="0">la distance à l'origine</button><button type="button" data-i="1">l'angle sous lequel on voit $A(1)$</button><button type="button" data-i="2">le conjugué</button><button type="button" data-i="3">le module</button></div>
+    <p class="expl"><strong>Réponse :</strong> Angle orienté.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">19</span>L'écriture complexe d'une similitude directe est :</h3>
+    <div class="choix"><button type="button" data-i="0">$z\mapsto az+b$ avec $a\neq0$</button><button type="button" data-i="1">$z\mapsto\bar z$</button><button type="button" data-i="2">$z\mapsto z^{2}$</button><button type="button" data-i="3">$z\mapsto|z|$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Similitude directe.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">20</span>Le centre d'une similitude $z\mapsto az+b$ ($a\neq1$) est :</h3>
+    <div class="choix"><button type="button" data-i="0">$0$</button><button type="button" data-i="1">le point fixe $\dfrac{b}{1-a}$</button><button type="button" data-i="2">$b$</button><button type="button" data-i="3">$-b$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On résout $\omega=a\omega+b$.</p>
+  </article>
+  <section class="fin" id="fin" hidden>
+    <strong>Quiz terminé</strong>
+    <p id="fin-texte"></p>
+    <button class="btn" type="button" id="recommencer">Recommencer</button>
+    <a class="btn btn-secondaire" href="../index.html">Retour au site</a>
+  </section>
+</main>
+<script>
+(function () {
+  var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+  var total = cartes.length, bonnes = 0, repondues = 0;
+  var scoreEl = document.getElementById('score');
+  var barre = document.getElementById('barre');
+  var fin = document.getElementById('fin');
+
+  function majScore() {
+    scoreEl.textContent = bonnes + ' / ' + total;
+    barre.style.width = (100 * repondues / total) + '%';
+    if (repondues === total) {
+      fin.hidden = false;
+      var msg = bonnes === total ? 'Sans faute, bravo !'
+        : bonnes >= 0.8 * total ? 'Très bon score, continuez comme ça.'
+        : bonnes >= 0.5 * total ? 'C\'est correct, mais quelques révisions s\'imposent.'
+        : 'À retravailler : reprenez le cours et les exercices du chapitre.';
+      document.getElementById('fin-texte').textContent = msg;
+    }
+  }
+
+  cartes.forEach(function (carte) {
+    var bonne = parseInt(carte.dataset.bonne, 10);
+    var boutons = Array.prototype.slice.call(carte.querySelectorAll('.choix button'));
+    var expl = carte.querySelector('.expl');
+    boutons.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        if (carte.dataset.fait) return;
+        carte.dataset.fait = '1';
+        repondues++;
+        if (i === bonne) {
+          b.classList.add('juste');
+          bonnes++;
+        } else {
+          b.classList.add('faux');
+          boutons[bonne].classList.add('oublie');
+        }
+        boutons.forEach(function (x) { x.disabled = true; });
+        expl.classList.add('visible');
+        majScore();
+      });
+    });
+  });
+
+  document.getElementById('recommencer').addEventListener('click', function () {
+    window.location.reload();
+  });
+})();
+</script>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

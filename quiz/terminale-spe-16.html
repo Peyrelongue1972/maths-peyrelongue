@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz — Révisions transversales</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['$', '$']] }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.quiz-entete{max-width:820px;margin:0 auto 1.4rem}
+.quiz-entete h1{margin:.2rem 0 .3rem;font-size:1.6rem}
+.quiz-entete p{margin:.2rem 0;opacity:.85}
+.barre{height:10px;border-radius:6px;background:#e8edf3;overflow:hidden;margin:.8rem 0}
+.barre > span{display:block;height:100%;width:0;background:var(--couleur,#3182ce);transition:width .25s}
+.quiz-score{font-weight:600}
+.question{max-width:820px;margin:0 auto 1rem;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1rem 1.2rem;box-shadow:0 2px 8px rgba(16,42,67,.06)}
+.question h3{margin:.1rem 0 .7rem;font-size:1.02rem;font-weight:600;line-height:1.45}
+.question .num{display:inline-block;min-width:1.9rem;height:1.9rem;line-height:1.9rem;
+  text-align:center;border-radius:50%;background:var(--couleur,#3182ce);
+  color:var(--sur-couleur,#fff);font-size:.85rem;margin-right:.5rem;font-weight:700}
+.choix{display:grid;gap:.5rem}
+.choix button{text-align:left;padding:.6rem .8rem;border-radius:10px;border:1px solid #d7e0ea;
+  background:#fbfdff;cursor:pointer;font-size:.98rem;font-family:inherit;line-height:1.4}
+.choix button:hover:not(:disabled){border-color:var(--couleur,#3182ce);background:#f2f8ff}
+.choix button:disabled{cursor:default}
+.choix button.juste{background:#e6f7ee;border-color:#2f9e63;color:#166534;font-weight:600}
+.choix button.faux{background:#fdeaea;border-color:#d64545;color:#8a1c1c}
+.choix button.oublie{border-color:#2f9e63;border-style:dashed}
+.figure{margin:.6rem 0 .2rem;text-align:center}
+.figure img{max-width:min(100%,420px);height:auto;border:1px solid #dfe6ee;border-radius:10px;background:#fff;padding:4px}
+.expl{margin:.7rem 0 0;font-size:.92rem;background:#f4f7fb;border-left:3px solid var(--couleur,#3182ce);
+  padding:.5rem .7rem;border-radius:6px;display:none}
+.expl.visible{display:block}
+.fin{max-width:820px;margin:1.4rem auto;text-align:center;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1.2rem}
+.fin strong{font-size:1.25rem}
+.fin .btn{margin:.7rem .3rem 0}
+</style>
+</head>
+<body style="--couleur:#6b46c1; --couleur-fonce:#6b46c1; --sur-couleur:#fff">
+<main style="padding:2rem 1.2rem 3rem">
+  <header class="quiz-entete">
+    <p><a href="../index.html">← Retour au site</a></p>
+    <h1>Quiz — Révisions transversales</h1>
+    <p>Terminale spécialité · chapitre 16 · 20 questions</p>
+    <p class="quiz-score">Score : <span id="score">0 / 20</span></p>
+    <div class="barre"><span id="barre"></span></div>
+  </header>
+
+  <article class="question" data-bonne="0">
+    <h3><span class="num">1</span>Une démonstration par récurrence comporte :</h3>
+    <div class="choix"><button type="button" data-i="0">une initialisation et une hérédité</button><button type="button" data-i="1">un calcul de limite</button><button type="button" data-i="2">un discriminant</button><button type="button" data-i="3">une seule étape</button></div>
+    <p class="expl"><strong>Réponse :</strong> Les deux étapes sont indispensables.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">2</span>La dérivée de $\mathrm{e}^{2x}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$\mathrm{e}^{2x}$</button><button type="button" data-i="1">$2\mathrm{e}^{2x}$</button><button type="button" data-i="2">$2x\mathrm{e}^{2x}$</button><button type="button" data-i="3">$\mathrm{e}^{2}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Dérivation d'une composée.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">3</span>$\lim\limits_{n\to+\infty}\dfrac{1}{n}$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$1$</button><button type="button" data-i="1">n'existe pas</button><button type="button" data-i="2">$+\infty$</button><button type="button" data-i="3">$0$</button></div>
+    <p class="expl"><strong>Réponse :</strong> L'inverse d'un grand entier tend vers $0$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">4</span>$\ln(ab)$ vaut, pour $a>0$ et $b>0$ :</h3>
+    <div class="choix"><button type="button" data-i="0">$\ln(a+b)$</button><button type="button" data-i="1">$\ln(a)\times\ln(b)$</button><button type="button" data-i="2">$\ln(a)-\ln(b)$</button><button type="button" data-i="3">$\ln(a)+\ln(b)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Le logarithme transforme le produit en somme.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">5</span>Une primitive de $x^{2}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$\dfrac{x^{3}}{3}$</button><button type="button" data-i="1">$x^{3}$</button><button type="button" data-i="2">$\dfrac{x^{2}}{2}$</button><button type="button" data-i="3">$2x$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On dérive pour vérifier.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">6</span>Les solutions de $y'=3y$ sont :</h3>
+    <div class="choix"><button type="button" data-i="0">$y=C\mathrm{e}^{3x}$</button><button type="button" data-i="1">$y=C\mathrm{e}^{x}$</button><button type="button" data-i="2">$y=C+3x$</button><button type="button" data-i="3">$y=3\mathrm{e}^{x}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Forme générale $C\mathrm{e}^{ax}$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">7</span>Une suite croissante et majorée :</h3>
+    <div class="choix"><button type="button" data-i="0">est constante</button><button type="button" data-i="1">converge</button><button type="button" data-i="2">diverge</button><button type="button" data-i="3">n'a pas de limite</button></div>
+    <p class="expl"><strong>Réponse :</strong> Théorème de convergence monotone.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">8</span>Un vecteur normal au plan $2x-y+3z-1=0$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$(2\,;1\,;3)$</button><button type="button" data-i="1">$(1\,;-1\,;1)$</button><button type="button" data-i="2">$(2\,;-1\,;3)$</button><button type="button" data-i="3">$(3\,;-1\,;2)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Les coefficients de $x$, $y$, $z$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">9</span>$\dbinom{5}{2}$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$10$</button><button type="button" data-i="1">$25$</button><button type="button" data-i="2">$20$</button><button type="button" data-i="3">$5$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\dfrac{5!}{2!3!}=10$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">10</span>La dérivée de $\sin(x)$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$\sin(x)$</button><button type="button" data-i="1">$-\cos(x)$</button><button type="button" data-i="2">$\cos(x)$</button><button type="button" data-i="3">$-\sin(x)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Dérivée usuelle.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">11</span>$\displaystyle\int_0^1 2x\,\mathrm{d}x$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$0$</button><button type="button" data-i="1">$2$</button><button type="button" data-i="2">$1$</button><button type="button" data-i="3">$\dfrac{1}{2}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\left[x^{2}\right]_0^1=1$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">12</span>$X$ suit $\mathcal{B}(10\,;0{,}2)$. Alors $E(X)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$10$</button><button type="button" data-i="1">$2$</button><button type="button" data-i="2">$8$</button><button type="button" data-i="3">$0{,}2$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $E(X)=np=2$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">13</span>Pour $X$ et $Y$ indépendantes, $V(X+Y)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$V(X)-V(Y)$</button><button type="button" data-i="1">$V(X)\times V(Y)$</button><button type="button" data-i="2">$V(X)$</button><button type="button" data-i="3">$V(X)+V(Y)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Les variances s'additionnent.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">14</span>Si $f$ est continue sur $[a\,;b]$ et $f(a)f(b)<0$, alors l'équation $f(x)=0$ admet :</h3>
+    <div class="choix"><button type="button" data-i="0">exactement deux solutions</button><button type="button" data-i="1">au moins une solution dans $[a\,;b]$</button><button type="button" data-i="2">une solution entière</button><button type="button" data-i="3">aucune solution</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est le théorème des valeurs intermédiaires.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">15</span>Le nombre de façons de choisir $2$ délégués parmi $6$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$36$</button><button type="button" data-i="1">$12$</button><button type="button" data-i="2">$30$</button><button type="button" data-i="3">$15$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\dbinom{6}{2}=15$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">16</span>La dérivée de $\ln(x)$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$\dfrac{-1}{x^{2}}$</button><button type="button" data-i="1">$x$</button><button type="button" data-i="2">$\dfrac{1}{x}$</button><button type="button" data-i="3">$\ln(x)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Dérivée de référence.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">17</span>Une primitive de $\mathrm{e}^{x}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$\mathrm{e}^{x}$</button><button type="button" data-i="1">$x\mathrm{e}^{x}$</button><button type="button" data-i="2">$\dfrac{\mathrm{e}^{x}}{2}$</button><button type="button" data-i="3">$\ln(x)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> L'exponentielle est sa propre primitive.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">18</span>$\lim\limits_{x\to+\infty}\dfrac{2x+1}{x-3}$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$0$</button><button type="button" data-i="1">$1$</button><button type="button" data-i="2">$+\infty$</button><button type="button" data-i="3">$2$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On compare les termes de plus haut degré.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">19</span>$P(X=0)$ pour $X\sim\mathcal{B}(n\,;p)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$n(1-p)$</button><button type="button" data-i="1">$p^{n}$</button><button type="button" data-i="2">$1-p$</button><button type="button" data-i="3">$(1-p)^{n}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Aucun succès sur $n$ épreuves.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">20</span>$\displaystyle\int_1^{\mathrm{e}}\dfrac{1}{x}\,\mathrm{d}x$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$\mathrm{e}-1$</button><button type="button" data-i="1">$\mathrm{e}$</button><button type="button" data-i="2">$0$</button><button type="button" data-i="3">$1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\left[\ln x\right]_1^{\mathrm{e}}=1$.</p>
+  </article>
+  <section class="fin" id="fin" hidden>
+    <strong>Quiz terminé</strong>
+    <p id="fin-texte"></p>
+    <button class="btn" type="button" id="recommencer">Recommencer</button>
+    <a class="btn btn-secondaire" href="../index.html">Retour au site</a>
+  </section>
+</main>
+<script>
+(function () {
+  var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+  var total = cartes.length, bonnes = 0, repondues = 0;
+  var scoreEl = document.getElementById('score');
+  var barre = document.getElementById('barre');
+  var fin = document.getElementById('fin');
+
+  function majScore() {
+    scoreEl.textContent = bonnes + ' / ' + total;
+    barre.style.width = (100 * repondues / total) + '%';
+    if (repondues === total) {
+      fin.hidden = false;
+      var msg = bonnes === total ? 'Sans faute, bravo !'
+        : bonnes >= 0.8 * total ? 'Très bon score, continuez comme ça.'
+        : bonnes >= 0.5 * total ? 'C\'est correct, mais quelques révisions s\'imposent.'
+        : 'À retravailler : reprenez le cours et les exercices du chapitre.';
+      document.getElementById('fin-texte').textContent = msg;
+    }
+  }
+
+  cartes.forEach(function (carte) {
+    var bonne = parseInt(carte.dataset.bonne, 10);
+    var boutons = Array.prototype.slice.call(carte.querySelectorAll('.choix button'));
+    var expl = carte.querySelector('.expl');
+    boutons.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        if (carte.dataset.fait) return;
+        carte.dataset.fait = '1';
+        repondues++;
+        if (i === bonne) {
+          b.classList.add('juste');
+          bonnes++;
+        } else {
+          b.classList.add('faux');
+          boutons[bonne].classList.add('oublie');
+        }
+        boutons.forEach(function (x) { x.disabled = true; });
+        expl.classList.add('visible');
+        majScore();
+      });
+    });
+  });
+
+  document.getElementById('recommencer').addEventListener('click', function () {
+    window.location.reload();
+  });
+})();
+</script>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

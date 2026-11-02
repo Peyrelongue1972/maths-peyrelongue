@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz — Les vecteurs (partie II)</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['$', '$']] }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.quiz-entete{max-width:820px;margin:0 auto 1.4rem}
+.quiz-entete h1{margin:.2rem 0 .3rem;font-size:1.6rem}
+.quiz-entete p{margin:.2rem 0;opacity:.85}
+.barre{height:10px;border-radius:6px;background:#e8edf3;overflow:hidden;margin:.8rem 0}
+.barre > span{display:block;height:100%;width:0;background:var(--couleur,#3182ce);transition:width .25s}
+.quiz-score{font-weight:600}
+.question{max-width:820px;margin:0 auto 1rem;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1rem 1.2rem;box-shadow:0 2px 8px rgba(16,42,67,.06)}
+.question h3{margin:.1rem 0 .7rem;font-size:1.02rem;font-weight:600;line-height:1.45}
+.question .num{display:inline-block;min-width:1.9rem;height:1.9rem;line-height:1.9rem;
+  text-align:center;border-radius:50%;background:var(--couleur,#3182ce);
+  color:var(--sur-couleur,#fff);font-size:.85rem;margin-right:.5rem;font-weight:700}
+.choix{display:grid;gap:.5rem}
+.choix button{text-align:left;padding:.6rem .8rem;border-radius:10px;border:1px solid #d7e0ea;
+  background:#fbfdff;cursor:pointer;font-size:.98rem;font-family:inherit;line-height:1.4}
+.choix button:hover:not(:disabled){border-color:var(--couleur,#3182ce);background:#f2f8ff}
+.choix button:disabled{cursor:default}
+.choix button.juste{background:#e6f7ee;border-color:#2f9e63;color:#166534;font-weight:600}
+.choix button.faux{background:#fdeaea;border-color:#d64545;color:#8a1c1c}
+.choix button.oublie{border-color:#2f9e63;border-style:dashed}
+.figure{margin:.6rem 0 .2rem;text-align:center}
+.figure img{max-width:min(100%,420px);height:auto;border:1px solid #dfe6ee;border-radius:10px;background:#fff;padding:4px}
+.expl{margin:.7rem 0 0;font-size:.92rem;background:#f4f7fb;border-left:3px solid var(--couleur,#3182ce);
+  padding:.5rem .7rem;border-radius:6px;display:none}
+.expl.visible{display:block}
+.fin{max-width:820px;margin:1.4rem auto;text-align:center;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1.2rem}
+.fin strong{font-size:1.25rem}
+.fin .btn{margin:.7rem .3rem 0}
+</style>
+</head>
+<body style="--couleur:#2b6cb0; --couleur-fonce:#2b6cb0; --sur-couleur:#fff">
+<main style="padding:2rem 1.2rem 3rem">
+  <header class="quiz-entete">
+    <p><a href="../index.html">← Retour au site</a></p>
+    <h1>Quiz — Les vecteurs (partie II)</h1>
+    <p>Seconde · chapitre 8 · 20 questions</p>
+    <p class="quiz-score">Score : <span id="score">0 / 20</span></p>
+    <div class="barre"><span id="barre"></span></div>
+  </header>
+
+  <article class="question" data-bonne="3">
+    <h3><span class="num">1</span>Deux vecteurs colinéaires ont :</h3>
+    <div class="choix"><button type="button" data-i="0">la même origine</button><button type="button" data-i="1">le même sens</button><button type="button" data-i="2">la même norme</button><button type="button" data-i="3">la même direction</button></div>
+    <p class="expl"><strong>Réponse :</strong> Colinéaire signifie portés par des droites parallèles.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">2</span>Les vecteurs $\vec{u}$ et $-3\vec{u}$ sont :</h3>
+    <div class="choix"><button type="button" data-i="0">de norme égale</button><button type="button" data-i="1">égaux</button><button type="button" data-i="2">colinéaires</button><button type="button" data-i="3">orthogonaux</button></div>
+    <p class="expl"><strong>Réponse :</strong> L'un est un multiple de l'autre.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">3</span>Les points $A$, $B$ et $C$ sont alignés si et seulement si :</h3>
+    <div class="choix"><button type="button" data-i="0">$\overrightarrow{AB}$ et $\overrightarrow{AC}$ sont colinéaires</button><button type="button" data-i="1">$\overrightarrow{AB}$ et $\overrightarrow{AC}$ ont la même norme</button><button type="button" data-i="2">$\overrightarrow{AB}+\overrightarrow{AC}=\vec{0}$</button><button type="button" data-i="3">$AB=BC$</button></div>
+    <p class="expl"><strong>Réponse :</strong> L'alignement se traduit par la colinéarité des vecteurs.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">4</span>Les droites $(AB)$ et $(CD)$ sont parallèles si et seulement si :</h3>
+    <div class="choix"><button type="button" data-i="0">$\overrightarrow{AB}=\overrightarrow{CD}$</button><button type="button" data-i="1">elles sont sécantes</button><button type="button" data-i="2">$AB=CD$</button><button type="button" data-i="3">$\overrightarrow{AB}$ et $\overrightarrow{CD}$ sont colinéaires</button></div>
+    <p class="expl"><strong>Réponse :</strong> Le parallélisme se traduit par la colinéarité des vecteurs directeurs.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">5</span>Dire que $I$ est le milieu de $[AB]$ équivaut à :</h3>
+    <div class="choix"><button type="button" data-i="0">$\overrightarrow{AI}=\overrightarrow{BA}$</button><button type="button" data-i="1">$\overrightarrow{AI}=2\overrightarrow{AB}$</button><button type="button" data-i="2">$\overrightarrow{AI}=\dfrac{1}{2}\overrightarrow{AB}$</button><button type="button" data-i="3">$\overrightarrow{AI}=-\overrightarrow{AB}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Le milieu est à mi-chemin de $A$ vers $B$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">6</span>$ABCD$ est un parallélogramme si et seulement si :</h3>
+    <div class="choix"><button type="button" data-i="0">$AB=CD$</button><button type="button" data-i="1">$\overrightarrow{AC}=\overrightarrow{BD}$</button><button type="button" data-i="2">$\overrightarrow{AB}=\overrightarrow{DC}$</button><button type="button" data-i="3">$\overrightarrow{AB}=\overrightarrow{CD}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est la caractérisation vectorielle du parallélogramme.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">7</span>Pour tous points $A$, $B$, $C$ :</h3>
+    <div class="choix"><button type="button" data-i="0">$\overrightarrow{AB}+\overrightarrow{AC}=\overrightarrow{BC}$</button><button type="button" data-i="1">$\overrightarrow{AB}+\overrightarrow{BC}=\overrightarrow{CA}$</button><button type="button" data-i="2">$\overrightarrow{AB}-\overrightarrow{BC}=\overrightarrow{AC}$</button><button type="button" data-i="3">$\overrightarrow{AB}+\overrightarrow{BC}=\overrightarrow{AC}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Relation de Chasles.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">8</span>Pour tout vecteur $\vec{u}$ :</h3>
+    <div class="choix"><button type="button" data-i="0">$\vec{u}+\vec{0}=\vec{0}$</button><button type="button" data-i="1">$\vec{u}+\vec{0}=\vec{u}$</button><button type="button" data-i="2">$\vec{u}+\vec{0}=2\vec{u}$</button><button type="button" data-i="3">$\vec{u}+\vec{0}=-\vec{u}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Le vecteur nul est neutre pour l'addition.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">9</span>$2\vec{u}+3\vec{u}$ est égal à :</h3>
+    <div class="choix"><button type="button" data-i="0">$5\vec{u}$</button><button type="button" data-i="1">$\vec{u}$</button><button type="button" data-i="2">$5$</button><button type="button" data-i="3">$6\vec{u}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On additionne les coefficients.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">10</span>$-\vec{u}+\vec{u}$ est égal à :</h3>
+    <div class="choix"><button type="button" data-i="0">$\vec{u}$</button><button type="button" data-i="1">$-\vec{u}$</button><button type="button" data-i="2">$2\vec{u}$</button><button type="button" data-i="3">$\vec{0}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Ce sont deux vecteurs opposés.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">11</span>Si $\vec{u}=k\vec{v}$ avec $k\neq0$, alors :</h3>
+    <div class="choix"><button type="button" data-i="0">$ec{u}$ et $ec{v}$ sont colinéaires</button><button type="button" data-i="1">$ec{u}=ec{v}$</button><button type="button" data-i="2">$ec{u}$ et $ec{v}$ ont la même norme</button><button type="button" data-i="3">$ec{u}$ et $ec{v}$ sont orthogonaux</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est la définition de la colinéarité.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">12</span>Un vecteur directeur d'une droite est un vecteur :</h3>
+    <div class="choix"><button type="button" data-i="0">porté par l'axe des abscisses</button><button type="button" data-i="1">perpendiculaire à cette droite</button><button type="button" data-i="2">de norme $1$</button><button type="button" data-i="3">colinéaire à un vecteur de cette droite</button></div>
+    <p class="expl"><strong>Réponse :</strong> Il indique la direction de la droite.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">13</span>Le vecteur nul est colinéaire :</h3>
+    <div class="choix"><button type="button" data-i="0">à aucun vecteur</button><button type="button" data-i="1">à tout vecteur</button><button type="button" data-i="2">seulement aux vecteurs unitaires</button><button type="button" data-i="3">seulement à lui-même</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\vec{0}=0\times\vec{u}$ pour tout vecteur $\vec{u}$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">14</span>Si $\overrightarrow{AB}=2\overrightarrow{AC}$, alors :</h3>
+    <div class="choix"><button type="button" data-i="0">$C$ est le milieu de $[AB]$</button><button type="button" data-i="1">les points forment un triangle</button><button type="button" data-i="2">$A$, $B$ et $C$ sont alignés</button><button type="button" data-i="3">$AB=AC$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Deux vecteurs colinéaires de même origine donnent trois points alignés.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">15</span>$3(\vec{u}+\vec{v})$ est égal à :</h3>
+    <div class="choix"><button type="button" data-i="0">$3\vec{u}\times3\vec{v}$</button><button type="button" data-i="1">$3\vec{u}+\vec{v}$</button><button type="button" data-i="2">$\vec{u}+3\vec{v}$</button><button type="button" data-i="3">$3\vec{u}+3\vec{v}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est la distributivité.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">16</span>$\overrightarrow{AB}+\overrightarrow{BC}+\overrightarrow{CD}$ est égal à :</h3>
+    <div class="choix"><button type="button" data-i="0">$\overrightarrow{AD}$</button><button type="button" data-i="1">$\overrightarrow{AC}$</button><button type="button" data-i="2">$\overrightarrow{BD}$</button><button type="button" data-i="3">$\vec{0}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Les points intermédiaires disparaissent successivement.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">17</span>$-(\vec{u}+\vec{v})$ est égal à :</h3>
+    <div class="choix"><button type="button" data-i="0">$-\vec{u}+\vec{v}$</button><button type="button" data-i="1">$\vec{u}-\vec{v}$</button><button type="button" data-i="2">$\vec{u}+\vec{v}$</button><button type="button" data-i="3">$-\vec{u}-\vec{v}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> L'opposé d'une somme est la somme des opposés.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">18</span>Le milieu $I$ de $[AB]$ vérifie :</h3>
+    <div class="choix"><button type="button" data-i="0">$\overrightarrow{IA}=\overrightarrow{IB}$</button><button type="button" data-i="1">$\overrightarrow{AB}=\vec{0}$</button><button type="button" data-i="2">$\overrightarrow{IA}+\overrightarrow{IB}=2\overrightarrow{AB}$</button><button type="button" data-i="3">$\overrightarrow{IA}+\overrightarrow{IB}=\vec{0}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Les vecteurs sont opposés puisque $I$ est équidistant de $A$ et $B$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">19</span>Deux droites parallèles ont :</h3>
+    <div class="choix"><button type="button" data-i="0">des vecteurs directeurs orthogonaux</button><button type="button" data-i="1">le même coefficient directeur et la même ordonnée à l'origine</button><button type="button" data-i="2">des vecteurs directeurs colinéaires</button><button type="button" data-i="3">la même équation</button></div>
+    <p class="expl"><strong>Réponse :</strong> Des directions parallèles donnent des vecteurs directeurs colinéaires.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">20</span>Si $\vec{u}$ et $\vec{v}$ sont colinéaires avec $\vec{u}\neq\vec{0}$, alors :</h3>
+    <div class="choix"><button type="button" data-i="0">$ec{u}\cdotec{v}=0$</button><button type="button" data-i="1">$\|ec{v}\|=\|ec{u}\|$</button><button type="button" data-i="2">$ec{v}=ec{u}$</button><button type="button" data-i="3">il existe un réel $k$ tel que $ec{v}=kec{u}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> La colinéarité s'écrit avec un coefficient de proportionnalité.</p>
+  </article>
+  <section class="fin" id="fin" hidden>
+    <strong>Quiz terminé</strong>
+    <p id="fin-texte"></p>
+    <button class="btn" type="button" id="recommencer">Recommencer</button>
+    <a class="btn btn-secondaire" href="../index.html">Retour au site</a>
+  </section>
+</main>
+<script>
+(function () {
+  var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+  var total = cartes.length, bonnes = 0, repondues = 0;
+  var scoreEl = document.getElementById('score');
+  var barre = document.getElementById('barre');
+  var fin = document.getElementById('fin');
+
+  function majScore() {
+    scoreEl.textContent = bonnes + ' / ' + total;
+    barre.style.width = (100 * repondues / total) + '%';
+    if (repondues === total) {
+      fin.hidden = false;
+      var msg = bonnes === total ? 'Sans faute, bravo !'
+        : bonnes >= 0.8 * total ? 'Très bon score, continuez comme ça.'
+        : bonnes >= 0.5 * total ? 'C\'est correct, mais quelques révisions s\'imposent.'
+        : 'À retravailler : reprenez le cours et les exercices du chapitre.';
+      document.getElementById('fin-texte').textContent = msg;
+    }
+  }
+
+  cartes.forEach(function (carte) {
+    var bonne = parseInt(carte.dataset.bonne, 10);
+    var boutons = Array.prototype.slice.call(carte.querySelectorAll('.choix button'));
+    var expl = carte.querySelector('.expl');
+    boutons.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        if (carte.dataset.fait) return;
+        carte.dataset.fait = '1';
+        repondues++;
+        if (i === bonne) {
+          b.classList.add('juste');
+          bonnes++;
+        } else {
+          b.classList.add('faux');
+          boutons[bonne].classList.add('oublie');
+        }
+        boutons.forEach(function (x) { x.disabled = true; });
+        expl.classList.add('visible');
+        majScore();
+      });
+    });
+  });
+
+  document.getElementById('recommencer').addEventListener('click', function () {
+    window.location.reload();
+  });
+})();
+</script>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz — Suites et sommes</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['$', '$']] }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.quiz-entete{max-width:820px;margin:0 auto 1.4rem}
+.quiz-entete h1{margin:.2rem 0 .3rem;font-size:1.6rem}
+.quiz-entete p{margin:.2rem 0;opacity:.85}
+.barre{height:10px;border-radius:6px;background:#e8edf3;overflow:hidden;margin:.8rem 0}
+.barre > span{display:block;height:100%;width:0;background:var(--couleur,#3182ce);transition:width .25s}
+.quiz-score{font-weight:600}
+.question{max-width:820px;margin:0 auto 1rem;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1rem 1.2rem;box-shadow:0 2px 8px rgba(16,42,67,.06)}
+.question h3{margin:.1rem 0 .7rem;font-size:1.02rem;font-weight:600;line-height:1.45}
+.question .num{display:inline-block;min-width:1.9rem;height:1.9rem;line-height:1.9rem;
+  text-align:center;border-radius:50%;background:var(--couleur,#3182ce);
+  color:var(--sur-couleur,#fff);font-size:.85rem;margin-right:.5rem;font-weight:700}
+.choix{display:grid;gap:.5rem}
+.choix button{text-align:left;padding:.6rem .8rem;border-radius:10px;border:1px solid #d7e0ea;
+  background:#fbfdff;cursor:pointer;font-size:.98rem;font-family:inherit;line-height:1.4}
+.choix button:hover:not(:disabled){border-color:var(--couleur,#3182ce);background:#f2f8ff}
+.choix button:disabled{cursor:default}
+.choix button.juste{background:#e6f7ee;border-color:#2f9e63;color:#166534;font-weight:600}
+.choix button.faux{background:#fdeaea;border-color:#d64545;color:#8a1c1c}
+.choix button.oublie{border-color:#2f9e63;border-style:dashed}
+.figure{margin:.6rem 0 .2rem;text-align:center}
+.figure img{max-width:min(100%,420px);height:auto;border:1px solid #dfe6ee;border-radius:10px;background:#fff;padding:4px}
+.expl{margin:.7rem 0 0;font-size:.92rem;background:#f4f7fb;border-left:3px solid var(--couleur,#3182ce);
+  padding:.5rem .7rem;border-radius:6px;display:none}
+.expl.visible{display:block}
+.fin{max-width:820px;margin:1.4rem auto;text-align:center;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1.2rem}
+.fin strong{font-size:1.25rem}
+.fin .btn{margin:.7rem .3rem 0}
+</style>
+</head>
+<body style="--couleur:#97266d; --couleur-fonce:#97266d; --sur-couleur:#fff">
+<main style="padding:2rem 1.2rem 3rem">
+  <header class="quiz-entete">
+    <p><a href="../index.html">← Retour au site</a></p>
+    <h1>Quiz — Suites et sommes</h1>
+    <p>Terminale STMG · chapitre 1 · 20 questions</p>
+    <p class="quiz-score">Score : <span id="score">0 / 20</span></p>
+    <div class="barre"><span id="barre"></span></div>
+  </header>
+
+  <article class="question" data-bonne="1">
+    <h3><span class="num">1</span>Une suite arithmétique de raison $r$ vérifie :</h3>
+    <div class="choix"><button type="button" data-i="0">$u_{n+1}=r-u_{n}$</button><button type="button" data-i="1">$u_{n+1}=u_{n}+r$</button><button type="button" data-i="2">$u_{n+1}=r\,u_{n}$</button><button type="button" data-i="3">$u_{n+1}=u_{n}^{r}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On ajoute la même quantité à chaque pas.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">2</span>Une suite géométrique de raison $q$ vérifie :</h3>
+    <div class="choix"><button type="button" data-i="0">$u_{n+1}=q\,u_{n}$</button><button type="button" data-i="1">$u_{n+1}=u_{n}^{q}$</button><button type="button" data-i="2">$u_{n+1}=q-u_{n}$</button><button type="button" data-i="3">$u_{n+1}=u_{n}+q$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On multiplie par la même quantité à chaque pas.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">3</span>Le terme général d'une suite arithmétique de premier terme $u_{0}$ et de raison $r$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$u_{n}=u_{0}+n r$</button><button type="button" data-i="1">$u_{n}=u_{0}\,r^{n}$</button><button type="button" data-i="2">$u_{n}=u_{0}+r$</button><button type="button" data-i="3">$u_{n}=n u_{0}+r$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On ajoute $r$ à chaque étape.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">4</span>Le terme général d'une suite géométrique de premier terme $u_{0}$ et de raison $q$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$u_{n}=u_{0}\,q^{n}$</button><button type="button" data-i="1">$u_{n}=q^{n}+u_{0}$</button><button type="button" data-i="2">$u_{n}=n q$</button><button type="button" data-i="3">$u_{n}=u_{0}+n q$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On multiplie par $q$ à chaque étape.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">5</span>Une suite arithmétique a $u_{0}=100$ et $r=-5$. Alors $u_{3}$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$95$</button><button type="button" data-i="1">$80$</button><button type="button" data-i="2">$85$</button><button type="button" data-i="3">$115$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $u_{3}=100+3\times(-5)=85$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">6</span>Une suite géométrique a $u_{0}=200$ et $q=1{,}1$. Alors $u_{2}$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$242$</button><button type="button" data-i="1">$200{,}11$</button><button type="button" data-i="2">$220$</button><button type="button" data-i="3">$240$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $u_{2}=200\times1{,}1^{2}=242$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">7</span>La somme des $n$ premiers termes entiers $1+2+\cdots+n$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$2n$</button><button type="button" data-i="1">$\dfrac{n(n+1)}{2}$</button><button type="button" data-i="2">$n^{2}$</button><button type="button" data-i="3">$\dfrac{n(n-1)}{2}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est la somme des termes d'une suite arithmétique.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">8</span>La somme $1+2+3+\cdots+10$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$45$</button><button type="button" data-i="1">$100$</button><button type="button" data-i="2">$55$</button><button type="button" data-i="3">$50$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\dfrac{10\times11}{2}=55$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">9</span>La somme $1+q+q^{2}+\cdots+q^{n}$ vaut, si $q\neq1$ :</h3>
+    <div class="choix"><button type="button" data-i="0">$n q$</button><button type="button" data-i="1">$\dfrac{q^{n+1}}{q}$</button><button type="button" data-i="2">$\dfrac{1-q}{1-q^{n}}$</button><button type="button" data-i="3">$\dfrac{1-q^{n+1}}{1-q}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est la somme des termes d'une suite géométrique.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">10</span>Une suite géométrique de raison $q=1{,}05$ et de premier terme $u_{0}=1000$ modélise :</h3>
+    <div class="choix"><button type="button" data-i="0">un capital augmenté de $105\,\%$ par an</button><button type="button" data-i="1">un capital constant</button><button type="button" data-i="2">un capital augmenté de $5\,\%$ par an</button><button type="button" data-i="3">un capital diminué de $5\,\%$ par an</button></div>
+    <p class="expl"><strong>Réponse :</strong> Le coefficient multiplicateur $1{,}05$ correspond à $+5\,\%$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">11</span>Pour une suite géométrique de raison $q>1$ et $u_{0}>0$ :</h3>
+    <div class="choix"><button type="button" data-i="0">la suite n'a pas de sens</button><button type="button" data-i="1">la suite est décroissante</button><button type="button" data-i="2">la suite est croissante</button><button type="button" data-i="3">la suite est constante</button></div>
+    <p class="expl"><strong>Réponse :</strong> Chaque terme est plus grand que le précédent.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">12</span>Pour une suite géométrique de raison $0<q<1$ et $u_{0}>0$ :</h3>
+    <div class="choix"><button type="button" data-i="0">la suite est constante</button><button type="button" data-i="1">la suite est croissante</button><button type="button" data-i="2">la suite change de signe</button><button type="button" data-i="3">la suite est décroissante</button></div>
+    <p class="expl"><strong>Réponse :</strong> Chaque terme est plus petit que le précédent.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">13</span>Une somme d'argent de $500$ € est placée à $2\,\%$ par an. Le capital après $n$ années est :</h3>
+    <div class="choix"><button type="button" data-i="0">$500+0{,}02n$</button><button type="button" data-i="1">$500\times1{,}2^{n}$</button><button type="button" data-i="2">$500\times1{,}02^{n}$</button><button type="button" data-i="3">$500\times0{,}02^{n}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Chaque année le capital est multiplié par $1{,}02$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">14</span>Dans une suite arithmétique, la différence entre deux termes consécutifs est :</h3>
+    <div class="choix"><button type="button" data-i="0">décroissante</button><button type="button" data-i="1">croissante</button><button type="button" data-i="2">constante</button><button type="button" data-i="3">nulle</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est la raison $r$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">15</span>Dans une suite géométrique, le quotient de deux termes consécutifs est :</h3>
+    <div class="choix"><button type="button" data-i="0">croissant</button><button type="button" data-i="1">égal à $1$</button><button type="button" data-i="2">constant</button><button type="button" data-i="3">décroissant</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est la raison $q$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">16</span>Le nombre de termes de la somme $u_{0}+u_{1}+\cdots+u_{10}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$10$</button><button type="button" data-i="1">$9$</button><button type="button" data-i="2">$12$</button><button type="button" data-i="3">$11$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Il y a les rangs $0$ à $10$, soit $11$ termes.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">17</span>Un salaire de $1500$ € augmente de $30$ € par an. Après $4$ ans, il vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$1500\times1{,}03^{4}$ €</button><button type="button" data-i="1">$1620$ €</button><button type="button" data-i="2">$1680$ €</button><button type="button" data-i="3">$1560$ €</button></div>
+    <p class="expl"><strong>Réponse :</strong> Suite arithmétique : $1500+4\times30=1620$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">18</span>Un effectif diminue de $10\,\%$ par an. Le coefficient multiplicateur annuel est :</h3>
+    <div class="choix"><button type="button" data-i="0">$0{,}9$</button><button type="button" data-i="1">$0{,}1$</button><button type="button" data-i="2">$1{,}9$</button><button type="button" data-i="3">$1{,}1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $1-0{,}10=0{,}9$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">19</span>Si $u_{n+1}=0{,}5\,u_{n}$ et $u_{0}=80$, alors $u_{3}$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$40$</button><button type="button" data-i="1">$5$</button><button type="button" data-i="2">$10$</button><button type="button" data-i="3">$20$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $u_{3}=80\times0{,}5^{3}=10$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">20</span>La somme des termes d'une suite arithmétique de raison $r$ se calcule par :</h3>
+    <div class="choix"><button type="button" data-i="0">le dernier terme seulement</button><button type="button" data-i="1">le produit de tous les termes</button><button type="button" data-i="2">la raison élevée au nombre de termes</button><button type="button" data-i="3">le nombre de termes multiplié par la moyenne du premier et du dernier terme</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est la formule de la somme des termes d'une suite arithmétique.</p>
+  </article>
+  <section class="fin" id="fin" hidden>
+    <strong>Quiz terminé</strong>
+    <p id="fin-texte"></p>
+    <button class="btn" type="button" id="recommencer">Recommencer</button>
+    <a class="btn btn-secondaire" href="../index.html">Retour au site</a>
+  </section>
+</main>
+<script>
+(function () {
+  var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+  var total = cartes.length, bonnes = 0, repondues = 0;
+  var scoreEl = document.getElementById('score');
+  var barre = document.getElementById('barre');
+  var fin = document.getElementById('fin');
+
+  function majScore() {
+    scoreEl.textContent = bonnes + ' / ' + total;
+    barre.style.width = (100 * repondues / total) + '%';
+    if (repondues === total) {
+      fin.hidden = false;
+      var msg = bonnes === total ? 'Sans faute, bravo !'
+        : bonnes >= 0.8 * total ? 'Très bon score, continuez comme ça.'
+        : bonnes >= 0.5 * total ? 'C\'est correct, mais quelques révisions s\'imposent.'
+        : 'À retravailler : reprenez le cours et les exercices du chapitre.';
+      document.getElementById('fin-texte').textContent = msg;
+    }
+  }
+
+  cartes.forEach(function (carte) {
+    var bonne = parseInt(carte.dataset.bonne, 10);
+    var boutons = Array.prototype.slice.call(carte.querySelectorAll('.choix button'));
+    var expl = carte.querySelector('.expl');
+    boutons.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        if (carte.dataset.fait) return;
+        carte.dataset.fait = '1';
+        repondues++;
+        if (i === bonne) {
+          b.classList.add('juste');
+          bonnes++;
+        } else {
+          b.classList.add('faux');
+          boutons[bonne].classList.add('oublie');
+        }
+        boutons.forEach(function (x) { x.disabled = true; });
+        expl.classList.add('visible');
+        majScore();
+      });
+    });
+  });
+
+  document.getElementById('recommencer').addEventListener('click', function () {
+    window.location.reload();
+  });
+})();
+</script>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

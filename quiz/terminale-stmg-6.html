@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz — Logarithme décimal</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['$', '$']] }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.quiz-entete{max-width:820px;margin:0 auto 1.4rem}
+.quiz-entete h1{margin:.2rem 0 .3rem;font-size:1.6rem}
+.quiz-entete p{margin:.2rem 0;opacity:.85}
+.barre{height:10px;border-radius:6px;background:#e8edf3;overflow:hidden;margin:.8rem 0}
+.barre > span{display:block;height:100%;width:0;background:var(--couleur,#3182ce);transition:width .25s}
+.quiz-score{font-weight:600}
+.question{max-width:820px;margin:0 auto 1rem;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1rem 1.2rem;box-shadow:0 2px 8px rgba(16,42,67,.06)}
+.question h3{margin:.1rem 0 .7rem;font-size:1.02rem;font-weight:600;line-height:1.45}
+.question .num{display:inline-block;min-width:1.9rem;height:1.9rem;line-height:1.9rem;
+  text-align:center;border-radius:50%;background:var(--couleur,#3182ce);
+  color:var(--sur-couleur,#fff);font-size:.85rem;margin-right:.5rem;font-weight:700}
+.choix{display:grid;gap:.5rem}
+.choix button{text-align:left;padding:.6rem .8rem;border-radius:10px;border:1px solid #d7e0ea;
+  background:#fbfdff;cursor:pointer;font-size:.98rem;font-family:inherit;line-height:1.4}
+.choix button:hover:not(:disabled){border-color:var(--couleur,#3182ce);background:#f2f8ff}
+.choix button:disabled{cursor:default}
+.choix button.juste{background:#e6f7ee;border-color:#2f9e63;color:#166534;font-weight:600}
+.choix button.faux{background:#fdeaea;border-color:#d64545;color:#8a1c1c}
+.choix button.oublie{border-color:#2f9e63;border-style:dashed}
+.figure{margin:.6rem 0 .2rem;text-align:center}
+.figure img{max-width:min(100%,420px);height:auto;border:1px solid #dfe6ee;border-radius:10px;background:#fff;padding:4px}
+.expl{margin:.7rem 0 0;font-size:.92rem;background:#f4f7fb;border-left:3px solid var(--couleur,#3182ce);
+  padding:.5rem .7rem;border-radius:6px;display:none}
+.expl.visible{display:block}
+.fin{max-width:820px;margin:1.4rem auto;text-align:center;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1.2rem}
+.fin strong{font-size:1.25rem}
+.fin .btn{margin:.7rem .3rem 0}
+</style>
+</head>
+<body style="--couleur:#97266d; --couleur-fonce:#97266d; --sur-couleur:#fff">
+<main style="padding:2rem 1.2rem 3rem">
+  <header class="quiz-entete">
+    <p><a href="../index.html">← Retour au site</a></p>
+    <h1>Quiz — Logarithme décimal</h1>
+    <p>Terminale STMG · chapitre 6 · 20 questions</p>
+    <p class="quiz-score">Score : <span id="score">0 / 20</span></p>
+    <div class="barre"><span id="barre"></span></div>
+  </header>
+
+  <article class="question" data-bonne="0">
+    <h3><span class="num">1</span>$\log(1)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$0$</button><button type="button" data-i="1">$1$</button><button type="button" data-i="2">$10$</button><button type="button" data-i="3">$-1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\log(1)=0$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">2</span>$\log(10)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$0$</button><button type="button" data-i="1">$\ln(10)$</button><button type="button" data-i="2">$1$</button><button type="button" data-i="3">$10$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Le logarithme décimal de $10$ vaut $1$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">3</span>$\log(100)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$100$</button><button type="button" data-i="1">$10$</button><button type="button" data-i="2">$1$</button><button type="button" data-i="3">$2$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $100=10^{2}$, donc $\log(100)=2$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">4</span>Pour tous réels $a>0$ et $b>0$, $\log(ab)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$\log(a)-\log(b)$</button><button type="button" data-i="1">$\log(a)+\log(b)$</button><button type="button" data-i="2">$\log(a)\times\log(b)$</button><button type="button" data-i="3">$\log(a+b)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Le logarithme transforme le produit en somme.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">5</span>Pour tous réels $a>0$ et $b>0$, $\log\left(\dfrac{a}{b}\right)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$\log(a)-\log(b)$</button><button type="button" data-i="1">$\log(a-b)$</button><button type="button" data-i="2">$\dfrac{\log a}{\log b}$</button><button type="button" data-i="3">$\log(a)+\log(b)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Le quotient devient une différence.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">6</span>Pour tout $a>0$ et tout entier $n$, $\log\left(a^{n}\right)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$n\log(a)$</button><button type="button" data-i="1">$(\log a)^{n}$</button><button type="button" data-i="2">$\dfrac{\log a}{n}$</button><button type="button" data-i="3">$n+\log(a)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> La puissance devient un facteur.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">7</span>La fonction logarithme décimal est définie sur :</h3>
+    <div class="choix"><button type="button" data-i="0">$]0\,;+\infty[$</button><button type="button" data-i="1">$\mathbb{R}$</button><button type="button" data-i="2">$[0\,;+\infty[$</button><button type="button" data-i="3">$\mathbb{R}^{*}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On ne prend le logarithme que de nombres strictement positifs.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">8</span>$\log(1000)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$3$</button><button type="button" data-i="1">$100$</button><button type="button" data-i="2">$30$</button><button type="button" data-i="3">$10$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $1000=10^{3}$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">9</span>$\log(0{,}1)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$-1$</button><button type="button" data-i="1">$0{,}1$</button><button type="button" data-i="2">$1$</button><button type="button" data-i="3">$-10$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $0{,}1=10^{-1}$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">10</span>$\log(2)+\log(5)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$\log(7)$</button><button type="button" data-i="1">$1$</button><button type="button" data-i="2">$7$</button><button type="button" data-i="3">$10$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\log(2)+\log(5)=\log(10)=1$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">11</span>$\log\left(\sqrt{10}\right)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$2$</button><button type="button" data-i="1">$0{,}5$</button><button type="button" data-i="2">$\sqrt{10}$</button><button type="button" data-i="3">$10$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\sqrt{10}=10^{0{,}5}$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">12</span>Pour tout réel $x>0$, $10^{\log(x)}$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$10x$</button><button type="button" data-i="1">$x$</button><button type="button" data-i="2">$1$</button><button type="button" data-i="3">$\log(x)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Les fonctions $x\mapsto10^{x}$ et $\log$ sont réciproques.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">13</span>Pour tout réel $x$, $\log\left(10^{x}\right)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$10^{x}$</button><button type="button" data-i="1">$x$</button><button type="button" data-i="2">$\log x$</button><button type="button" data-i="3">$1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Ce sont deux fonctions réciproques.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">14</span>Sur $]0\,;+\infty[$, la fonction logarithme décimal est :</h3>
+    <div class="choix"><button type="button" data-i="0">constante</button><button type="button" data-i="1">strictement croissante</button><button type="button" data-i="2">strictement décroissante</button><button type="button" data-i="3">non monotone</button></div>
+    <p class="expl"><strong>Réponse :</strong> Elle croît lentement mais toujours.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">15</span>L'équation $\log(x)=2$ a pour solution :</h3>
+    <div class="choix"><button type="button" data-i="0">$x=\log 2$</button><button type="button" data-i="1">$x=2$</button><button type="button" data-i="2">$x=20$</button><button type="button" data-i="3">$x=100$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $x=10^{2}=100$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">16</span>$\log(0{,}01)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$0{,}01$</button><button type="button" data-i="1">$-1$</button><button type="button" data-i="2">$2$</button><button type="button" data-i="3">$-2$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $0{,}01=10^{-2}$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">17</span>$\log(4)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$2\log(2)$</button><button type="button" data-i="1">$\dfrac{\log 2}{2}$</button><button type="button" data-i="2">$4\log(2)$</button><button type="button" data-i="3">$\log(2)+2$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $4=2^{2}$, donc $\log(4)=2\log(2)$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">18</span>Le pH d'une solution est donné par :</h3>
+    <div class="choix"><button type="button" data-i="0">$\mathrm{pH}=10^{\left[\mathrm{H}_{3}\mathrm{O}^{+}\right]}$</button><button type="button" data-i="1">$\mathrm{pH}=-\log\left[\mathrm{H}_{3}\mathrm{O}^{+}\right]$</button><button type="button" data-i="2">$\mathrm{pH}=\ln\left[\mathrm{H}_{3}\mathrm{O}^{+}\right]$</button><button type="button" data-i="3">$\mathrm{pH}=\log\left[\mathrm{H}_{3}\mathrm{O}^{+}\right]$</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est la définition du pH.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">19</span>Pour $0<a<1$, $\log(a)$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">positif</button><button type="button" data-i="1">négatif</button><button type="button" data-i="2">nul</button><button type="button" data-i="3">supérieur à $1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\log$ est croissante et $\log(1)=0$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">20</span>$\log\left(\dfrac{1}{100}\right)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$-2$</button><button type="button" data-i="1">$-100$</button><button type="button" data-i="2">$2$</button><button type="button" data-i="3">$\dfrac{1}{2}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\log\left(10^{-2}\right)=-2$.</p>
+  </article>
+  <section class="fin" id="fin" hidden>
+    <strong>Quiz terminé</strong>
+    <p id="fin-texte"></p>
+    <button class="btn" type="button" id="recommencer">Recommencer</button>
+    <a class="btn btn-secondaire" href="../index.html">Retour au site</a>
+  </section>
+</main>
+<script>
+(function () {
+  var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+  var total = cartes.length, bonnes = 0, repondues = 0;
+  var scoreEl = document.getElementById('score');
+  var barre = document.getElementById('barre');
+  var fin = document.getElementById('fin');
+
+  function majScore() {
+    scoreEl.textContent = bonnes + ' / ' + total;
+    barre.style.width = (100 * repondues / total) + '%';
+    if (repondues === total) {
+      fin.hidden = false;
+      var msg = bonnes === total ? 'Sans faute, bravo !'
+        : bonnes >= 0.8 * total ? 'Très bon score, continuez comme ça.'
+        : bonnes >= 0.5 * total ? 'C\'est correct, mais quelques révisions s\'imposent.'
+        : 'À retravailler : reprenez le cours et les exercices du chapitre.';
+      document.getElementById('fin-texte').textContent = msg;
+    }
+  }
+
+  cartes.forEach(function (carte) {
+    var bonne = parseInt(carte.dataset.bonne, 10);
+    var boutons = Array.prototype.slice.call(carte.querySelectorAll('.choix button'));
+    var expl = carte.querySelector('.expl');
+    boutons.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        if (carte.dataset.fait) return;
+        carte.dataset.fait = '1';
+        repondues++;
+        if (i === bonne) {
+          b.classList.add('juste');
+          bonnes++;
+        } else {
+          b.classList.add('faux');
+          boutons[bonne].classList.add('oublie');
+        }
+        boutons.forEach(function (x) { x.disabled = true; });
+        expl.classList.add('visible');
+        majScore();
+      });
+    });
+  });
+
+  document.getElementById('recommencer').addEventListener('click', function () {
+    window.location.reload();
+  });
+})();
+</script>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

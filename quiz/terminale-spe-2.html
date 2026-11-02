@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz — Complément sur la dérivation</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['$', '$']] }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.quiz-entete{max-width:820px;margin:0 auto 1.4rem}
+.quiz-entete h1{margin:.2rem 0 .3rem;font-size:1.6rem}
+.quiz-entete p{margin:.2rem 0;opacity:.85}
+.barre{height:10px;border-radius:6px;background:#e8edf3;overflow:hidden;margin:.8rem 0}
+.barre > span{display:block;height:100%;width:0;background:var(--couleur,#3182ce);transition:width .25s}
+.quiz-score{font-weight:600}
+.question{max-width:820px;margin:0 auto 1rem;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1rem 1.2rem;box-shadow:0 2px 8px rgba(16,42,67,.06)}
+.question h3{margin:.1rem 0 .7rem;font-size:1.02rem;font-weight:600;line-height:1.45}
+.question .num{display:inline-block;min-width:1.9rem;height:1.9rem;line-height:1.9rem;
+  text-align:center;border-radius:50%;background:var(--couleur,#3182ce);
+  color:var(--sur-couleur,#fff);font-size:.85rem;margin-right:.5rem;font-weight:700}
+.choix{display:grid;gap:.5rem}
+.choix button{text-align:left;padding:.6rem .8rem;border-radius:10px;border:1px solid #d7e0ea;
+  background:#fbfdff;cursor:pointer;font-size:.98rem;font-family:inherit;line-height:1.4}
+.choix button:hover:not(:disabled){border-color:var(--couleur,#3182ce);background:#f2f8ff}
+.choix button:disabled{cursor:default}
+.choix button.juste{background:#e6f7ee;border-color:#2f9e63;color:#166534;font-weight:600}
+.choix button.faux{background:#fdeaea;border-color:#d64545;color:#8a1c1c}
+.choix button.oublie{border-color:#2f9e63;border-style:dashed}
+.figure{margin:.6rem 0 .2rem;text-align:center}
+.figure img{max-width:min(100%,420px);height:auto;border:1px solid #dfe6ee;border-radius:10px;background:#fff;padding:4px}
+.expl{margin:.7rem 0 0;font-size:.92rem;background:#f4f7fb;border-left:3px solid var(--couleur,#3182ce);
+  padding:.5rem .7rem;border-radius:6px;display:none}
+.expl.visible{display:block}
+.fin{max-width:820px;margin:1.4rem auto;text-align:center;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1.2rem}
+.fin strong{font-size:1.25rem}
+.fin .btn{margin:.7rem .3rem 0}
+</style>
+</head>
+<body style="--couleur:#6b46c1; --couleur-fonce:#6b46c1; --sur-couleur:#fff">
+<main style="padding:2rem 1.2rem 3rem">
+  <header class="quiz-entete">
+    <p><a href="../index.html">← Retour au site</a></p>
+    <h1>Quiz — Complément sur la dérivation</h1>
+    <p>Terminale spécialité · chapitre 2 · 20 questions</p>
+    <p class="quiz-score">Score : <span id="score">0 / 20</span></p>
+    <div class="barre"><span id="barre"></span></div>
+  </header>
+
+  <article class="question" data-bonne="3">
+    <h3><span class="num">1</span>La dérivée de $x\mapsto u(ax+b)$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$u'(ax)+b$</button><button type="button" data-i="1">$u'(ax+b)$</button><button type="button" data-i="2">$a\,u'(x)$</button><button type="button" data-i="3">$a\,u'(ax+b)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On applique la règle de dérivation d'une composée.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">2</span>La dérivée de $f(x)=\mathrm{e}^{2x}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$\mathrm{e}^{2x}$</button><button type="button" data-i="1">$2\mathrm{e}^{2x}$</button><button type="button" data-i="2">$\mathrm{e}^{2}$</button><button type="button" data-i="3">$2x\mathrm{e}^{2x}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\left(\mathrm{e}^{u}\right)'=u'\mathrm{e}^{u}$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">3</span>La dérivée de $f(x)=\ln(x^{2}+1)$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$\dfrac{2x}{x^{2}+1}$</button><button type="button" data-i="1">$\dfrac{1}{2x}$</button><button type="button" data-i="2">$\dfrac{1}{x^{2}+1}$</button><button type="button" data-i="3">$2x\ln(x^{2}+1)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\left(\ln u\right)'=\dfrac{u'}{u}$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">4</span>La dérivée de $f(x)=\sqrt{3x+1}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$\dfrac{3}{2\sqrt{3x+1}}$</button><button type="button" data-i="1">$\dfrac{1}{2\sqrt{x}}$</button><button type="button" data-i="2">$\dfrac{3}{\sqrt{3x+1}}$</button><button type="button" data-i="3">$\dfrac{1}{2\sqrt{3x+1}}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\left(\sqrt{u}\right)'=\dfrac{u'}{2\sqrt{u}}$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">5</span>La dérivée seconde de $f(x)=x^{3}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$3x$</button><button type="button" data-i="1">$6x^{2}$</button><button type="button" data-i="2">$6x$</button><button type="button" data-i="3">$3x^{2}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $f'(x)=3x^{2}$ puis $f''(x)=6x$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">6</span>La dérivée de $f(x)=\left(x^{2}+1\right)^{3}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$2x\left(x^{2}+1\right)^{3}$</button><button type="button" data-i="1">$6x\left(x^{2}+1\right)^{2}$</button><button type="button" data-i="2">$3\left(x^{2}+1\right)^{2}$</button><button type="button" data-i="3">$6x\left(x^{2}+1\right)^{3}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\left(u^{n}\right)'=n\,u'\,u^{n-1}$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">7</span>La dérivée de $f(x)=\cos(3x)$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$3\sin(3x)$</button><button type="button" data-i="1">$-\sin(3x)$</button><button type="button" data-i="2">$\sin(3x)$</button><button type="button" data-i="3">$-3\sin(3x)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\left(\cos u\right)'=-u'\sin u$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">8</span>La dérivée de $f(x)=x\ln x$ sur $]0\,;+\infty[$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$\ln x+1$</button><button type="button" data-i="1">$x+\ln x$</button><button type="button" data-i="2">$\dfrac{1}{x}$</button><button type="button" data-i="3">$\ln x$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Formule du produit : $1\times\ln x+x\times\dfrac{1}{x}$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">9</span>La dérivée de $f(x)=\dfrac{1}{x^{2}+1}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$\dfrac{2x}{\left(x^{2}+1\right)^{2}}$</button><button type="button" data-i="1">$\dfrac{1}{2x}$</button><button type="button" data-i="2">$\dfrac{-2x}{\left(x^{2}+1\right)^{2}}$</button><button type="button" data-i="3">$\dfrac{-1}{\left(x^{2}+1\right)^{2}}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\left(\dfrac{1}{u}\right)'=-\dfrac{u'}{u^{2}}$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">10</span>La dérivée de $f(x)=\mathrm{e}^{-x}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$-x\mathrm{e}^{-x}$</button><button type="button" data-i="1">$\mathrm{e}^{x}$</button><button type="button" data-i="2">$-\mathrm{e}^{-x}$</button><button type="button" data-i="3">$\mathrm{e}^{-x}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $u(x)=-x$, donc $u'=-1$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">11</span>Quand $f''(x)>0$ sur un intervalle, la fonction $f$ y est :</h3>
+    <div class="choix"><button type="button" data-i="0">concave</button><button type="button" data-i="1">décroissante</button><button type="button" data-i="2">constante</button><button type="button" data-i="3">convexe</button></div>
+    <p class="expl"><strong>Réponse :</strong> La dérivée seconde positive correspond à la convexité.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">12</span>Un point d'inflexion est un point où :</h3>
+    <div class="choix"><button type="button" data-i="0">la fonction s'annule</button><button type="button" data-i="1">la fonction est maximale</button><button type="button" data-i="2">la dérivée seconde change de signe</button><button type="button" data-i="3">la dérivée s'annule</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est là que la courbe change de concavité.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">13</span>La dérivée de $f(x)=\sin(2x)$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$2\cos(2x)$</button><button type="button" data-i="1">$-2\cos(2x)$</button><button type="button" data-i="2">$2\sin(2x)$</button><button type="button" data-i="3">$\cos(2x)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\left(\sin u\right)'=u'\cos u$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">14</span>La dérivée de $f(x)=\ln(3x)$ sur $]0\,;+\infty[$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$3\ln x$</button><button type="button" data-i="1">$\dfrac{1}{3x}$</button><button type="button" data-i="2">$\dfrac{3}{x}$</button><button type="button" data-i="3">$\dfrac{1}{x}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\left(\ln(3x)\right)'=\dfrac{3}{3x}=\dfrac{1}{x}$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">15</span>La dérivée de $f(x)=x\mathrm{e}^{x}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$(x+1)\mathrm{e}^{x}$</button><button type="button" data-i="1">$\mathrm{e}^{x}+1$</button><button type="button" data-i="2">$\mathrm{e}^{x}$</button><button type="button" data-i="3">$x\mathrm{e}^{x}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Produit : $1\times\mathrm{e}^{x}+x\times\mathrm{e}^{x}$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">16</span>La dérivée de $f(x)=\sqrt{x^{2}+1}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$\dfrac{1}{\sqrt{x^{2}+1}}$</button><button type="button" data-i="1">$\dfrac{x}{\sqrt{x^{2}+1}}$</button><button type="button" data-i="2">$\dfrac{2x}{\sqrt{x^{2}+1}}$</button><button type="button" data-i="3">$2x\sqrt{x^{2}+1}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\left(\sqrt{u}\right)'=\dfrac{u'}{2\sqrt{u}}$ avec $u'=2x$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">17</span>Si $f''(x)<0$ sur un intervalle, la courbe de $f$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">concave</button><button type="button" data-i="1">une droite</button><button type="button" data-i="2">convexe</button><button type="button" data-i="3">croissante</button></div>
+    <p class="expl"><strong>Réponse :</strong> La dérivée seconde négative donne la concavité.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">18</span>La dérivée de $f(x)=\mathrm{e}^{x^{2}}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$2x\mathrm{e}^{x^{2}}$</button><button type="button" data-i="1">$\mathrm{e}^{x^{2}}$</button><button type="button" data-i="2">$x^{2}\mathrm{e}^{x^{2}}$</button><button type="button" data-i="3">$\mathrm{e}^{2x}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $u(x)=x^{2}$, donc $u'=2x$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">19</span>La dérivée troisième de $f(x)=x^{4}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$12x^{2}$</button><button type="button" data-i="1">$24$</button><button type="button" data-i="2">$24x$</button><button type="button" data-i="3">$4x^{3}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $f'=4x^{3}$, $f''=12x^{2}$, $f'''=24x$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">20</span>La dérivée de $f(x)=\dfrac{\ln x}{x}$ sur $]0\,;+\infty[$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$\dfrac{1-\ln x}{x^{2}}$</button><button type="button" data-i="1">$\dfrac{1}{x^{2}}$</button><button type="button" data-i="2">$\dfrac{\ln x}{x^{2}}$</button><button type="button" data-i="3">$\dfrac{1+\ln x}{x^{2}}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Quotient : $\dfrac{\frac{1}{x}\times x-\ln x\times1}{x^{2}}$.</p>
+  </article>
+  <section class="fin" id="fin" hidden>
+    <strong>Quiz terminé</strong>
+    <p id="fin-texte"></p>
+    <button class="btn" type="button" id="recommencer">Recommencer</button>
+    <a class="btn btn-secondaire" href="../index.html">Retour au site</a>
+  </section>
+</main>
+<script>
+(function () {
+  var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+  var total = cartes.length, bonnes = 0, repondues = 0;
+  var scoreEl = document.getElementById('score');
+  var barre = document.getElementById('barre');
+  var fin = document.getElementById('fin');
+
+  function majScore() {
+    scoreEl.textContent = bonnes + ' / ' + total;
+    barre.style.width = (100 * repondues / total) + '%';
+    if (repondues === total) {
+      fin.hidden = false;
+      var msg = bonnes === total ? 'Sans faute, bravo !'
+        : bonnes >= 0.8 * total ? 'Très bon score, continuez comme ça.'
+        : bonnes >= 0.5 * total ? 'C\'est correct, mais quelques révisions s\'imposent.'
+        : 'À retravailler : reprenez le cours et les exercices du chapitre.';
+      document.getElementById('fin-texte').textContent = msg;
+    }
+  }
+
+  cartes.forEach(function (carte) {
+    var bonne = parseInt(carte.dataset.bonne, 10);
+    var boutons = Array.prototype.slice.call(carte.querySelectorAll('.choix button'));
+    var expl = carte.querySelector('.expl');
+    boutons.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        if (carte.dataset.fait) return;
+        carte.dataset.fait = '1';
+        repondues++;
+        if (i === bonne) {
+          b.classList.add('juste');
+          bonnes++;
+        } else {
+          b.classList.add('faux');
+          boutons[bonne].classList.add('oublie');
+        }
+        boutons.forEach(function (x) { x.disabled = true; });
+        expl.classList.add('visible');
+        majScore();
+      });
+    });
+  });
+
+  document.getElementById('recommencer').addEventListener('click', function () {
+    window.location.reload();
+  });
+})();
+</script>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

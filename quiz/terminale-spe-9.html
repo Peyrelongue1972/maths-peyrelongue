@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz — Théorème de convergence</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['$', '$']] }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.quiz-entete{max-width:820px;margin:0 auto 1.4rem}
+.quiz-entete h1{margin:.2rem 0 .3rem;font-size:1.6rem}
+.quiz-entete p{margin:.2rem 0;opacity:.85}
+.barre{height:10px;border-radius:6px;background:#e8edf3;overflow:hidden;margin:.8rem 0}
+.barre > span{display:block;height:100%;width:0;background:var(--couleur,#3182ce);transition:width .25s}
+.quiz-score{font-weight:600}
+.question{max-width:820px;margin:0 auto 1rem;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1rem 1.2rem;box-shadow:0 2px 8px rgba(16,42,67,.06)}
+.question h3{margin:.1rem 0 .7rem;font-size:1.02rem;font-weight:600;line-height:1.45}
+.question .num{display:inline-block;min-width:1.9rem;height:1.9rem;line-height:1.9rem;
+  text-align:center;border-radius:50%;background:var(--couleur,#3182ce);
+  color:var(--sur-couleur,#fff);font-size:.85rem;margin-right:.5rem;font-weight:700}
+.choix{display:grid;gap:.5rem}
+.choix button{text-align:left;padding:.6rem .8rem;border-radius:10px;border:1px solid #d7e0ea;
+  background:#fbfdff;cursor:pointer;font-size:.98rem;font-family:inherit;line-height:1.4}
+.choix button:hover:not(:disabled){border-color:var(--couleur,#3182ce);background:#f2f8ff}
+.choix button:disabled{cursor:default}
+.choix button.juste{background:#e6f7ee;border-color:#2f9e63;color:#166534;font-weight:600}
+.choix button.faux{background:#fdeaea;border-color:#d64545;color:#8a1c1c}
+.choix button.oublie{border-color:#2f9e63;border-style:dashed}
+.figure{margin:.6rem 0 .2rem;text-align:center}
+.figure img{max-width:min(100%,420px);height:auto;border:1px solid #dfe6ee;border-radius:10px;background:#fff;padding:4px}
+.expl{margin:.7rem 0 0;font-size:.92rem;background:#f4f7fb;border-left:3px solid var(--couleur,#3182ce);
+  padding:.5rem .7rem;border-radius:6px;display:none}
+.expl.visible{display:block}
+.fin{max-width:820px;margin:1.4rem auto;text-align:center;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1.2rem}
+.fin strong{font-size:1.25rem}
+.fin .btn{margin:.7rem .3rem 0}
+</style>
+</head>
+<body style="--couleur:#6b46c1; --couleur-fonce:#6b46c1; --sur-couleur:#fff">
+<main style="padding:2rem 1.2rem 3rem">
+  <header class="quiz-entete">
+    <p><a href="../index.html">← Retour au site</a></p>
+    <h1>Quiz — Théorème de convergence</h1>
+    <p>Terminale spécialité · chapitre 9 · 20 questions</p>
+    <p class="quiz-score">Score : <span id="score">0 / 20</span></p>
+    <div class="barre"><span id="barre"></span></div>
+  </header>
+
+  <article class="question" data-bonne="3">
+    <h3><span class="num">1</span>Une suite croissante et majorée :</h3>
+    <div class="choix"><button type="button" data-i="0">est constante</button><button type="button" data-i="1">diverge vers $+\infty$</button><button type="button" data-i="2">n'a pas de limite</button><button type="button" data-i="3">converge</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est le théorème de convergence monotone.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">2</span>Une suite décroissante et minorée :</h3>
+    <div class="choix"><button type="button" data-i="0">est croissante</button><button type="button" data-i="1">est constante</button><button type="button" data-i="2">converge</button><button type="button" data-i="3">diverge vers $-\infty$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Théorème de convergence monotone.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">3</span>Une suite croissante non majorée :</h3>
+    <div class="choix"><button type="button" data-i="0">tend vers $+\infty$</button><button type="button" data-i="1">converge vers $0$</button><button type="button" data-i="2">converge vers un réel</button><button type="button" data-i="3">est bornée</button></div>
+    <p class="expl"><strong>Réponse :</strong> Sans borne supérieure, elle diverge vers $+\infty$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">4</span>La limite d'une suite convergente est :</h3>
+    <div class="choix"><button type="button" data-i="0">unique</button><button type="button" data-i="1">toujours positive</button><button type="button" data-i="2">toujours un entier</button><button type="button" data-i="3">toujours nulle</button></div>
+    <p class="expl"><strong>Réponse :</strong> Une suite ne peut pas avoir deux limites distinctes.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">5</span>Si une suite $(u_{n})$ converge vers $\ell$ et si $f$ est continue, alors la suite $f(u_{n})$ :</h3>
+    <div class="choix"><button type="button" data-i="0">n'a pas de limite</button><button type="button" data-i="1">converge vers $f(\ell)$</button><button type="button" data-i="2">diverge</button><button type="button" data-i="3">converge vers $\ell$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On utilise la continuité de $f$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">6</span>Si $u_{n+1}=f(u_{n})$ converge vers $\ell$ avec $f$ continue, alors :</h3>
+    <div class="choix"><button type="button" data-i="0">$\ell=0$</button><button type="button" data-i="1">$f(\ell)=\ell$</button><button type="button" data-i="2">$f(0)=\ell$</button><button type="button" data-i="3">$f(\ell)=0$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On dit que $\ell$ est un point fixe de $f$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">7</span>La suite définie par $u_{n}=1-\dfrac{1}{n}$ (pour $n\geqslant1$) est :</h3>
+    <div class="choix"><button type="button" data-i="0">croissante et majorée par $1$, donc convergente</button><button type="button" data-i="1">divergente vers $+\infty$</button><button type="button" data-i="2">décroissante</button><button type="button" data-i="3">non bornée</button></div>
+    <p class="expl"><strong>Réponse :</strong> Elle converge vers $1$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">8</span>La suite $u_{n+1}=\sqrt{u_{n}}$ avec $u_{0}=4$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">décroissante et minorée, donc convergente</button><button type="button" data-i="1">croissante</button><button type="button" data-i="2">non bornée</button><button type="button" data-i="3">divergente</button></div>
+    <p class="expl"><strong>Réponse :</strong> Elle converge vers le point fixe $\ell=1$ (car $\ell=\sqrt{\ell}$ et $\ell\neq0$).</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">9</span>Une suite monotone et bornée :</h3>
+    <div class="choix"><button type="button" data-i="0">est géométrique</button><button type="button" data-i="1">diverge</button><button type="button" data-i="2">converge</button><button type="button" data-i="3">est constante</button></div>
+    <p class="expl"><strong>Réponse :</strong> Les deux hypothèses du théorème de convergence sont réunies.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">10</span>Une suite convergente est :</h3>
+    <div class="choix"><button type="button" data-i="0">décroissante</button><button type="button" data-i="1">positive</button><button type="button" data-i="2">croissante</button><button type="button" data-i="3">bornée</button></div>
+    <p class="expl"><strong>Réponse :</strong> Toute suite convergente est bornée.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">11</span>Si $(u_{n})$ est croissante et majorée par $5$, alors sa limite :</h3>
+    <div class="choix"><button type="button" data-i="0">dépasse $5$</button><button type="button" data-i="1">est égale à $5$</button><button type="button" data-i="2">est inférieure ou égale à $5$</button><button type="button" data-i="3">n'existe pas</button></div>
+    <p class="expl"><strong>Réponse :</strong> La limite est le plus petit majorant, donc au plus $5$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">12</span>La suite $u_{n+1}=0{,}5u_{n}+2$ a pour point fixe :</h3>
+    <div class="choix"><button type="button" data-i="0">$0{,}5$</button><button type="button" data-i="1">$2$</button><button type="button" data-i="2">$4$</button><button type="button" data-i="3">$1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On résout $\ell=0{,}5\ell+2$, soit $\ell=4$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">13</span>La suite $u_{n}=2-\dfrac{1}{n}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">constante</button><button type="button" data-i="1">non bornée</button><button type="button" data-i="2">croissante et majorée par $2$</button><button type="button" data-i="3">décroissante</button></div>
+    <p class="expl"><strong>Réponse :</strong> Elle converge vers $2$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">14</span>La suite $u_{n}=\dfrac{1}{n}$ converge vers :</h3>
+    <div class="choix"><button type="button" data-i="0">$0$</button><button type="button" data-i="1">$+\infty$</button><button type="button" data-i="2">$1$</button><button type="button" data-i="3">n'existe pas</button></div>
+    <p class="expl"><strong>Réponse :</strong> Son inverse tend vers $0$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">15</span>La suite $u_{n}=(-1)^{n}$ :</h3>
+    <div class="choix"><button type="button" data-i="0">converge vers $1$</button><button type="button" data-i="1">ne converge pas</button><button type="button" data-i="2">tend vers $+\infty$</button><button type="button" data-i="3">converge vers $0$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Elle oscille entre $-1$ et $1$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">16</span>Si tous les termes d'une suite croissante sont dans $[0\,;1]$, alors :</h3>
+    <div class="choix"><button type="button" data-i="0">elle est constante</button><button type="button" data-i="1">elle diverge</button><button type="button" data-i="2">elle converge vers un réel de $[0\,;1]$</button><button type="button" data-i="3">elle tend vers $2$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Croissante et majorée par $1$ : elle converge.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">17</span>Si $u_{n}$ tend vers $\ell$, alors la suite $v_{n}=u_{n}+3$ tend vers :</h3>
+    <div class="choix"><button type="button" data-i="0">$\ell-3$</button><button type="button" data-i="1">$\ell$</button><button type="button" data-i="2">$\ell+3$</button><button type="button" data-i="3">$3\ell$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On ajoute $3$ à la limite.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">18</span>Une suite croissante majorée par $M$ a une limite $\ell$ telle que :</h3>
+    <div class="choix"><button type="button" data-i="0">$\ell>M$</button><button type="button" data-i="1">$\ell=-M$</button><button type="button" data-i="2">$\ell\leqslant M$</button><button type="button" data-i="3">$\ell=M+1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> La limite respecte le majorant.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">19</span>Si $u_{1}>u_{0}$ et si $f$ est croissante avec $u_{n+1}=f(u_{n})$, alors la suite est :</h3>
+    <div class="choix"><button type="button" data-i="0">décroissante</button><button type="button" data-i="1">non monotone</button><button type="button" data-i="2">croissante</button><button type="button" data-i="3">constante</button></div>
+    <p class="expl"><strong>Réponse :</strong> La croissance de $f$ conserve l'ordre des termes.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">20</span>Le théorème de convergence monotone exige :</h3>
+    <div class="choix"><button type="button" data-i="0">seulement la monotonie</button><button type="button" data-i="1">seulement une borne</button><button type="button" data-i="2">une limite connue</button><button type="button" data-i="3">monotonie et borne</button></div>
+    <p class="expl"><strong>Réponse :</strong> Les deux hypothèses sont nécessaires.</p>
+  </article>
+  <section class="fin" id="fin" hidden>
+    <strong>Quiz terminé</strong>
+    <p id="fin-texte"></p>
+    <button class="btn" type="button" id="recommencer">Recommencer</button>
+    <a class="btn btn-secondaire" href="../index.html">Retour au site</a>
+  </section>
+</main>
+<script>
+(function () {
+  var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+  var total = cartes.length, bonnes = 0, repondues = 0;
+  var scoreEl = document.getElementById('score');
+  var barre = document.getElementById('barre');
+  var fin = document.getElementById('fin');
+
+  function majScore() {
+    scoreEl.textContent = bonnes + ' / ' + total;
+    barre.style.width = (100 * repondues / total) + '%';
+    if (repondues === total) {
+      fin.hidden = false;
+      var msg = bonnes === total ? 'Sans faute, bravo !'
+        : bonnes >= 0.8 * total ? 'Très bon score, continuez comme ça.'
+        : bonnes >= 0.5 * total ? 'C\'est correct, mais quelques révisions s\'imposent.'
+        : 'À retravailler : reprenez le cours et les exercices du chapitre.';
+      document.getElementById('fin-texte').textContent = msg;
+    }
+  }
+
+  cartes.forEach(function (carte) {
+    var bonne = parseInt(carte.dataset.bonne, 10);
+    var boutons = Array.prototype.slice.call(carte.querySelectorAll('.choix button'));
+    var expl = carte.querySelector('.expl');
+    boutons.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        if (carte.dataset.fait) return;
+        carte.dataset.fait = '1';
+        repondues++;
+        if (i === bonne) {
+          b.classList.add('juste');
+          bonnes++;
+        } else {
+          b.classList.add('faux');
+          boutons[bonne].classList.add('oublie');
+        }
+        boutons.forEach(function (x) { x.disabled = true; });
+        expl.classList.add('visible');
+        majScore();
+      });
+    });
+  });
+
+  document.getElementById('recommencer').addEventListener('click', function () {
+    window.location.reload();
+  });
+})();
+</script>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

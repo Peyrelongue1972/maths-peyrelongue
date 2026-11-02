@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz — Intégration</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['$', '$']] }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.quiz-entete{max-width:820px;margin:0 auto 1.4rem}
+.quiz-entete h1{margin:.2rem 0 .3rem;font-size:1.6rem}
+.quiz-entete p{margin:.2rem 0;opacity:.85}
+.barre{height:10px;border-radius:6px;background:#e8edf3;overflow:hidden;margin:.8rem 0}
+.barre > span{display:block;height:100%;width:0;background:var(--couleur,#3182ce);transition:width .25s}
+.quiz-score{font-weight:600}
+.question{max-width:820px;margin:0 auto 1rem;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1rem 1.2rem;box-shadow:0 2px 8px rgba(16,42,67,.06)}
+.question h3{margin:.1rem 0 .7rem;font-size:1.02rem;font-weight:600;line-height:1.45}
+.question .num{display:inline-block;min-width:1.9rem;height:1.9rem;line-height:1.9rem;
+  text-align:center;border-radius:50%;background:var(--couleur,#3182ce);
+  color:var(--sur-couleur,#fff);font-size:.85rem;margin-right:.5rem;font-weight:700}
+.choix{display:grid;gap:.5rem}
+.choix button{text-align:left;padding:.6rem .8rem;border-radius:10px;border:1px solid #d7e0ea;
+  background:#fbfdff;cursor:pointer;font-size:.98rem;font-family:inherit;line-height:1.4}
+.choix button:hover:not(:disabled){border-color:var(--couleur,#3182ce);background:#f2f8ff}
+.choix button:disabled{cursor:default}
+.choix button.juste{background:#e6f7ee;border-color:#2f9e63;color:#166534;font-weight:600}
+.choix button.faux{background:#fdeaea;border-color:#d64545;color:#8a1c1c}
+.choix button.oublie{border-color:#2f9e63;border-style:dashed}
+.figure{margin:.6rem 0 .2rem;text-align:center}
+.figure img{max-width:min(100%,420px);height:auto;border:1px solid #dfe6ee;border-radius:10px;background:#fff;padding:4px}
+.expl{margin:.7rem 0 0;font-size:.92rem;background:#f4f7fb;border-left:3px solid var(--couleur,#3182ce);
+  padding:.5rem .7rem;border-radius:6px;display:none}
+.expl.visible{display:block}
+.fin{max-width:820px;margin:1.4rem auto;text-align:center;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1.2rem}
+.fin strong{font-size:1.25rem}
+.fin .btn{margin:.7rem .3rem 0}
+</style>
+</head>
+<body style="--couleur:#1a365d; --couleur-fonce:#1a365d; --sur-couleur:#fff">
+<main style="padding:2rem 1.2rem 3rem">
+  <header class="quiz-entete">
+    <p><a href="../index.html">← Retour au site</a></p>
+    <h1>Quiz — Intégration</h1>
+    <p>Terminale complémentaire · chapitre 9 · 20 questions</p>
+    <p class="quiz-score">Score : <span id="score">0 / 20</span></p>
+    <div class="barre"><span id="barre"></span></div>
+  </header>
+
+  <article class="question" data-bonne="0">
+    <h3><span class="num">1</span>L'intégrale $\displaystyle\int_0^1 x\,\mathrm dx$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$\dfrac12$</button><button type="button" data-i="1">$1$</button><button type="button" data-i="2">$2$</button><button type="button" data-i="3">$0$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\left[\dfrac{x^{2}}{2}\right]_0^1=\dfrac12$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">2</span>$\displaystyle\int_1^{\mathrm e}\frac{1}{x}\,\mathrm dx$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$1$</button><button type="button" data-i="1">$\ln\mathrm{e}-1$</button><button type="button" data-i="2">$\mathrm{e}$</button><button type="button" data-i="3">$0$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $[\ln x]_1^{\mathrm e}=1$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">3</span>Une primitive de $x\mapsto x^{3}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$3x^{2}$</button><button type="button" data-i="1">$\dfrac{x^{4}}{4}$</button><button type="button" data-i="2">$x^{4}$</button><button type="button" data-i="3">$\dfrac{x^{3}}{3}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On augmente l'exposant et on divise.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">4</span>Une primitive de $\dfrac{1}{x}$ sur $]0\,;+\infty[$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$\ln x$</button><button type="button" data-i="1">$\dfrac{-1}{x^{2}}$</button><button type="button" data-i="2">$\mathrm{e}^{x}$</button><button type="button" data-i="3">$\sqrt{x}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> La dérivée de $\ln$ est $\dfrac1x$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">5</span>$\displaystyle\int_0^{1}\mathrm{e}^{x}\,\mathrm dx$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$\mathrm{e}-1$</button><button type="button" data-i="1">$\mathrm{e}$</button><button type="button" data-i="2">$1$</button><button type="button" data-i="3">$0$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $[\mathrm{e}^{x}]_0^1=\mathrm{e}-1$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">6</span>La valeur moyenne de $f$ sur $[a\,;b]$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$f(b)-f(a)$</button><button type="button" data-i="1">$\dfrac{f(a)+f(b)}{2}$</button><button type="button" data-i="2">$\displaystyle\int_a^b f$</button><button type="button" data-i="3">$\dfrac{1}{b-a}\displaystyle\int_a^b f$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Définition de la valeur moyenne.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">7</span>Si $f\geqslant0$ sur $[a\,;b]$, $\displaystyle\int_a^b f$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">l'aire sous la courbe</button><button type="button" data-i="1">toujours nulle</button><button type="button" data-i="2">négative</button><button type="button" data-i="3">égale à $f(b)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Interprétation géométrique (en unités d'aire).</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">8</span>Si $f\leqslant0$ sur $[a\,;b]$, alors $\displaystyle\int_a^b f$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">nulle</button><button type="button" data-i="1">négative</button><button type="button" data-i="2">égale à l'aire</button><button type="button" data-i="3">positive</button></div>
+    <p class="expl"><strong>Réponse :</strong> L'intégrale compte le signe (aire algébrique).</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">9</span>$\displaystyle\int_a^a f$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$a$</button><button type="button" data-i="1">$f(a)$</button><button type="button" data-i="2">$1$</button><button type="button" data-i="3">$0$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Intervalle de longueur nulle.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">10</span>La relation de Chasles donne :</h3>
+    <div class="choix"><button type="button" data-i="0">$\int_a^b=f(b)-f(a)$</button><button type="button" data-i="1">$\int_a^b=\int_a^c+\int_c^b$</button><button type="button" data-i="2">$\int_a^b=\int_b^a$</button><button type="button" data-i="3">$\int_a^b=\int_a^c\times\int_c^b$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Additivité par rapport à l'intervalle.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">11</span>$\displaystyle\int_a^b f=-\displaystyle\int_b^a f$ :</h3>
+    <div class="choix"><button type="button" data-i="0">seulement si $a=0$</button><button type="button" data-i="1">vrai</button><button type="button" data-i="2">faux</button><button type="button" data-i="3">seulement si $f\geqslant0$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On inverse les bornes en changeant de signe.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">12</span>Toute fonction continue sur $[a\,;b]$ admet :</h3>
+    <div class="choix"><button type="button" data-i="0">une seule primitive</button><button type="button" data-i="1">aucune primitive</button><button type="button" data-i="2">une dérivée nulle</button><button type="button" data-i="3">des primitives</button></div>
+    <p class="expl"><strong>Réponse :</strong> Les primitives diffèrent d'une constante.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">13</span>La dérivée de $\displaystyle\int_a^x f(t)\,\mathrm dt$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$0$</button><button type="button" data-i="1">$f(a)$</button><button type="button" data-i="2">$f'(x)$</button><button type="button" data-i="3">$f(x)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Théorème fondamental.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">14</span>$\displaystyle\int_0^{1}2x\,\mathrm dx$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$2$</button><button type="button" data-i="1">$1$</button><button type="button" data-i="2">$0$</button><button type="button" data-i="3">$\dfrac12$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $[x^{2}]_0^1=1$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">15</span>L'aire entre deux courbes $f\geqslant g$ sur $[a\,;b]$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$\displaystyle\int_a^bf\times\int_a^bg$</button><button type="button" data-i="1">$\displaystyle\int_a^b(f-g)$</button><button type="button" data-i="2">$f(b)-g(a)$</button><button type="button" data-i="3">$\displaystyle\int_a^b(f+g)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Différence des aires, donc intégrale de la différence.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">16</span>Une intégrale s'exprime en :</h3>
+    <div class="choix"><button type="button" data-i="0">aucune unité</button><button type="button" data-i="1">unités de temps</button><button type="button" data-i="2">unités d'aire</button><button type="button" data-i="3">unités de longueur</button></div>
+    <p class="expl"><strong>Réponse :</strong> u.a. (unités d'aire).</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">17</span>Si $f\leqslant g$ sur $[a\,;b]$, alors :</h3>
+    <div class="choix"><button type="button" data-i="0">l'inégalité est inversée</button><button type="button" data-i="1">$\displaystyle\int_a^bf\leqslant\int_a^bg$</button><button type="button" data-i="2">$\int f=0$</button><button type="button" data-i="3">il n'y a pas de lien</button></div>
+    <p class="expl"><strong>Réponse :</strong> Conservation de l'ordre par l'intégrale.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">18</span>$\displaystyle\int_1^2 \dfrac{1}{x^{2}}\,\mathrm dx$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$\dfrac12$</button><button type="button" data-i="1">$\ln2$</button><button type="button" data-i="2">$2$</button><button type="button" data-i="3">$1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\left[-\dfrac1x\right]_1^2=\dfrac12$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">19</span>Une primitive de $x\mapsto\cos x$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$\cos x$</button><button type="button" data-i="1">$-\sin x$</button><button type="button" data-i="2">$\sin x$</button><button type="button" data-i="3">$-\cos x$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $(\sin x)'=\cos x$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">20</span>$\displaystyle\int_0^{\pi}\sin x\,\mathrm dx$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$1$</button><button type="button" data-i="1">$2$</button><button type="button" data-i="2">$0$</button><button type="button" data-i="3">$\pi$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $[-\cos x]_0^{\pi}=1+1=2$.</p>
+  </article>
+  <section class="fin" id="fin" hidden>
+    <strong>Quiz terminé</strong>
+    <p id="fin-texte"></p>
+    <button class="btn" type="button" id="recommencer">Recommencer</button>
+    <a class="btn btn-secondaire" href="../index.html">Retour au site</a>
+  </section>
+</main>
+<script>
+(function () {
+  var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+  var total = cartes.length, bonnes = 0, repondues = 0;
+  var scoreEl = document.getElementById('score');
+  var barre = document.getElementById('barre');
+  var fin = document.getElementById('fin');
+
+  function majScore() {
+    scoreEl.textContent = bonnes + ' / ' + total;
+    barre.style.width = (100 * repondues / total) + '%';
+    if (repondues === total) {
+      fin.hidden = false;
+      var msg = bonnes === total ? 'Sans faute, bravo !'
+        : bonnes >= 0.8 * total ? 'Très bon score, continuez comme ça.'
+        : bonnes >= 0.5 * total ? 'C\'est correct, mais quelques révisions s\'imposent.'
+        : 'À retravailler : reprenez le cours et les exercices du chapitre.';
+      document.getElementById('fin-texte').textContent = msg;
+    }
+  }
+
+  cartes.forEach(function (carte) {
+    var bonne = parseInt(carte.dataset.bonne, 10);
+    var boutons = Array.prototype.slice.call(carte.querySelectorAll('.choix button'));
+    var expl = carte.querySelector('.expl');
+    boutons.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        if (carte.dataset.fait) return;
+        carte.dataset.fait = '1';
+        repondues++;
+        if (i === bonne) {
+          b.classList.add('juste');
+          bonnes++;
+        } else {
+          b.classList.add('faux');
+          boutons[bonne].classList.add('oublie');
+        }
+        boutons.forEach(function (x) { x.disabled = true; });
+        expl.classList.add('visible');
+        majScore();
+      });
+    });
+  });
+
+  document.getElementById('recommencer').addEventListener('click', function () {
+    window.location.reload();
+  });
+})();
+</script>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

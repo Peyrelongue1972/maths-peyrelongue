@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz — Le principe de récurrence</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['$', '$']] }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.quiz-entete{max-width:820px;margin:0 auto 1.4rem}
+.quiz-entete h1{margin:.2rem 0 .3rem;font-size:1.6rem}
+.quiz-entete p{margin:.2rem 0;opacity:.85}
+.barre{height:10px;border-radius:6px;background:#e8edf3;overflow:hidden;margin:.8rem 0}
+.barre > span{display:block;height:100%;width:0;background:var(--couleur,#3182ce);transition:width .25s}
+.quiz-score{font-weight:600}
+.question{max-width:820px;margin:0 auto 1rem;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1rem 1.2rem;box-shadow:0 2px 8px rgba(16,42,67,.06)}
+.question h3{margin:.1rem 0 .7rem;font-size:1.02rem;font-weight:600;line-height:1.45}
+.question .num{display:inline-block;min-width:1.9rem;height:1.9rem;line-height:1.9rem;
+  text-align:center;border-radius:50%;background:var(--couleur,#3182ce);
+  color:var(--sur-couleur,#fff);font-size:.85rem;margin-right:.5rem;font-weight:700}
+.choix{display:grid;gap:.5rem}
+.choix button{text-align:left;padding:.6rem .8rem;border-radius:10px;border:1px solid #d7e0ea;
+  background:#fbfdff;cursor:pointer;font-size:.98rem;font-family:inherit;line-height:1.4}
+.choix button:hover:not(:disabled){border-color:var(--couleur,#3182ce);background:#f2f8ff}
+.choix button:disabled{cursor:default}
+.choix button.juste{background:#e6f7ee;border-color:#2f9e63;color:#166534;font-weight:600}
+.choix button.faux{background:#fdeaea;border-color:#d64545;color:#8a1c1c}
+.choix button.oublie{border-color:#2f9e63;border-style:dashed}
+.figure{margin:.6rem 0 .2rem;text-align:center}
+.figure img{max-width:min(100%,420px);height:auto;border:1px solid #dfe6ee;border-radius:10px;background:#fff;padding:4px}
+.expl{margin:.7rem 0 0;font-size:.92rem;background:#f4f7fb;border-left:3px solid var(--couleur,#3182ce);
+  padding:.5rem .7rem;border-radius:6px;display:none}
+.expl.visible{display:block}
+.fin{max-width:820px;margin:1.4rem auto;text-align:center;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1.2rem}
+.fin strong{font-size:1.25rem}
+.fin .btn{margin:.7rem .3rem 0}
+</style>
+</head>
+<body style="--couleur:#6b46c1; --couleur-fonce:#6b46c1; --sur-couleur:#fff">
+<main style="padding:2rem 1.2rem 3rem">
+  <header class="quiz-entete">
+    <p><a href="../index.html">← Retour au site</a></p>
+    <h1>Quiz — Le principe de récurrence</h1>
+    <p>Terminale spécialité · chapitre 1 · 20 questions</p>
+    <p class="quiz-score">Score : <span id="score">0 / 20</span></p>
+    <div class="barre"><span id="barre"></span></div>
+  </header>
+
+  <article class="question" data-bonne="3">
+    <h3><span class="num">1</span>Le principe de récurrence sert à démontrer qu'une propriété est vraie :</h3>
+    <div class="choix"><button type="button" data-i="0">pour un seul entier</button><button type="button" data-i="1">pour les entiers négatifs</button><button type="button" data-i="2">pour tous les réels</button><button type="button" data-i="3">pour tout entier naturel à partir d'un certain rang</button></div>
+    <p class="expl"><strong>Réponse :</strong> On démontre l'initialisation puis l'hérédité.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">2</span>La première étape d'une démonstration par récurrence est :</h3>
+    <div class="choix"><button type="button" data-i="0">l'hérédité</button><button type="button" data-i="1">la conclusion</button><button type="button" data-i="2">le calcul de la limite</button><button type="button" data-i="3">l'initialisation</button></div>
+    <p class="expl"><strong>Réponse :</strong> On vérifie que la propriété est vraie au rang de départ.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">3</span>L'hérédité consiste à démontrer que :</h3>
+    <div class="choix"><button type="button" data-i="0">la propriété est vraie au rang $0$</button><button type="button" data-i="1">si la propriété est vraie au rang $n$, alors elle est vraie au rang $n+1$</button><button type="button" data-i="2">la propriété est vraie pour tout réel</button><button type="button" data-i="3">la suite est croissante</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est le cœur du raisonnement par récurrence.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">4</span>Pour démontrer que pour tout $n\geqslant0$, $2^{n}\geqslant n+1$, on commence par :</h3>
+    <div class="choix"><button type="button" data-i="0">vérifier la propriété au rang $n=0$</button><button type="button" data-i="1">calculer une limite</button><button type="button" data-i="2">étudier la fonction $x\mapsto2^{x}$</button><button type="button" data-i="3">calculer $2^{n}$ pour $n=10$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $2^{0}=1\geqslant1$ : l'initialisation est vraie.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">5</span>Une démonstration par récurrence comporte :</h3>
+    <div class="choix"><button type="button" data-i="0">trois étapes obligatoires</button><button type="button" data-i="1">deux étapes : initialisation et hérédité</button><button type="button" data-i="2">aucune étape</button><button type="button" data-i="3">une seule étape</button></div>
+    <p class="expl"><strong>Réponse :</strong> Les deux étapes sont indispensables.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">6</span>Montrer que $1+2+\cdots+n=\dfrac{n(n+1)}{2}$ par récurrence nécessite de vérifier :</h3>
+    <div class="choix"><button type="button" data-i="0">que la formule est vraie pour $n=100$</button><button type="button" data-i="1">que la formule est vraie pour $n=1$</button><button type="button" data-i="2">que la suite est croissante</button><button type="button" data-i="3">que $n$ est pair</button></div>
+    <p class="expl"><strong>Réponse :</strong> On initialise au rang $1$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">7</span>L'hérédité d'une propriété $P_{n}$ s'écrit :</h3>
+    <div class="choix"><button type="button" data-i="0">$P_{n+1}\Rightarrow P_{n}$</button><button type="button" data-i="1">$P_{n}\Leftrightarrow P_{1}$</button><button type="button" data-i="2">$P_{n}\Rightarrow P_{n+1}$</button><button type="button" data-i="3">$P_{n}=P_{n+1}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est l'implication de proche en proche.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">8</span>Si l'initialisation est vraie mais l'hérédité fausse, alors :</h3>
+    <div class="choix"><button type="button" data-i="0">on ne peut pas conclure que la propriété est vraie pour tout $n$</button><button type="button" data-i="1">la propriété est vraie pour tout $n$</button><button type="button" data-i="2">la propriété est vraie pour $n$ pair</button><button type="button" data-i="3">la propriété est fausse partout</button></div>
+    <p class="expl"><strong>Réponse :</strong> Les deux étapes sont nécessaires.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">9</span>Pour l'hérédité, on suppose que :</h3>
+    <div class="choix"><button type="button" data-i="0">$n=0$</button><button type="button" data-i="1">la propriété est fausse</button><button type="button" data-i="2">la propriété est vraie pour tout $n$</button><button type="button" data-i="3">la propriété est vraie à un rang $n$ quelconque</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est l'hypothèse de récurrence.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">10</span>La propriété « $n^{2}\geqslant2^{n}$ pour tout $n\geqslant0$ » est :</h3>
+    <div class="choix"><button type="button" data-i="0">vraie</button><button type="button" data-i="1">indémontrable</button><button type="button" data-i="2">fausse : elle est fausse pour $n=3$</button><button type="button" data-i="3">vraie seulement pour $n$ pair</button></div>
+    <p class="expl"><strong>Réponse :</strong> $3^{2}=9$ et $2^{3}=8$ : elle est vraie en $3$, mais fausse en $n=5$ ($25<32$) : elle n'est pas vraie pour tout $n$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">11</span>Une suite est définie par $u_{0}=1$ et $u_{n+1}=2u_{n}+3$. Pour montrer $u_{n}=4\times2^{n}-3$, on utilise :</h3>
+    <div class="choix"><button type="button" data-i="0">le discriminant</button><button type="button" data-i="1">une étude de fonction</button><button type="button" data-i="2">un calcul de limite</button><button type="button" data-i="3">une démonstration par récurrence</button></div>
+    <p class="expl"><strong>Réponse :</strong> On vérifie l'initialisation puis on calcule $u_{n+1}$ à partir de l'hypothèse.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">12</span>Le rang de départ d'une récurrence peut être :</h3>
+    <div class="choix"><button type="button" data-i="0">toujours $0$</button><button type="button" data-i="1">n'importe quel entier, selon l'énoncé</button><button type="button" data-i="2">toujours $+\infty$</button><button type="button" data-i="3">toujours $1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On initialise au rang à partir duquel la propriété a un sens.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">13</span>Pour démontrer que $3^{n}\geqslant1$ pour tout $n\geqslant0$ :</h3>
+    <div class="choix"><button type="button" data-i="0">la propriété est fausse</button><button type="button" data-i="1">il faut un discriminant</button><button type="button" data-i="2">l'initialisation et l'hérédité fonctionnent</button><button type="button" data-i="3">il faut calculer une limite</button></div>
+    <p class="expl"><strong>Réponse :</strong> $3^{0}=1\geqslant1$ et $3^{n+1}=3\times3^{n}\geqslant3\geqslant1$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">14</span>Dans une récurrence, la conclusion s'appuie sur :</h3>
+    <div class="choix"><button type="button" data-i="0">la calculatrice</button><button type="button" data-i="1">le tableau de variations</button><button type="button" data-i="2">un seul exemple</button><button type="button" data-i="3">le principe de récurrence (initialisation + hérédité)</button></div>
+    <p class="expl"><strong>Réponse :</strong> Les deux étapes établies permettent de conclure pour tout $n$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">15</span>La propriété « $2^{n}>n^{2}$ pour tout $n\geqslant5$ » se démontre :</h3>
+    <div class="choix"><button type="button" data-i="0">par récurrence à partir du rang $5$</button><button type="button" data-i="1">par récurrence à partir du rang $0$</button><button type="button" data-i="2">par une limite</button><button type="button" data-i="3">par le discriminant</button></div>
+    <p class="expl"><strong>Réponse :</strong> On initialise au rang $5$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">16</span>L'hérédité utilise :</h3>
+    <div class="choix"><button type="button" data-i="0">la calculatrice</button><button type="button" data-i="1">un contre-exemple</button><button type="button" data-i="2">l'hypothèse de récurrence</button><button type="button" data-i="3">la conclusion</button></div>
+    <p class="expl"><strong>Réponse :</strong> On part de $P_{n}$ pour établir $P_{n+1}$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">17</span>Un raisonnement par récurrence est adapté pour démontrer :</h3>
+    <div class="choix"><button type="button" data-i="0">une propriété dépendant d'un réel</button><button type="button" data-i="1">une propriété dépendant d'un entier naturel</button><button type="button" data-i="2">une égalité entre deux réels</button><button type="button" data-i="3">une limite de fonction</button></div>
+    <p class="expl"><strong>Réponse :</strong> Le domaine naturel de la récurrence est l'ensemble des entiers.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">18</span>Si $u_{n+1}=u_{n}+2$ et $u_{0}=3$, la formule $u_{n}=3+2n$ se démontre par récurrence :</h3>
+    <div class="choix"><button type="button" data-i="0">en vérifiant $u_{0}=3$ puis $u_{n+1}=u_{n}+2=3+2n+2=3+2(n+1)$</button><button type="button" data-i="1">en utilisant le discriminant</button><button type="button" data-i="2">en calculant $u_{10}$</button><button type="button" data-i="3">en étudiant la fonction $x\mapsto3+2x$</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est l'hérédité attendue.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">19</span>Le principe de récurrence s'appuie sur :</h3>
+    <div class="choix"><button type="button" data-i="0">le théorème de Pythagore</button><button type="button" data-i="1">les propriétés des réels</button><button type="button" data-i="2">la dérivation</button><button type="button" data-i="3">la structure de l'ensemble des entiers naturels</button></div>
+    <p class="expl"><strong>Réponse :</strong> Chaque entier s'obtient en ajoutant $1$ au précédent.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">20</span>Une propriété vraie jusqu'au rang $100$ mais fausse au rang $101$ :</h3>
+    <div class="choix"><button type="button" data-i="0">est démontrable par récurrence</button><button type="button" data-i="1">n'existe pas</button><button type="button" data-i="2">est vraie pour tout $n$</button><button type="button" data-i="3">ne peut pas être démontrée par récurrence pour tout $n$</button></div>
+    <p class="expl"><strong>Réponse :</strong> La récurrence exige l'hérédité pour tout $n$.</p>
+  </article>
+  <section class="fin" id="fin" hidden>
+    <strong>Quiz terminé</strong>
+    <p id="fin-texte"></p>
+    <button class="btn" type="button" id="recommencer">Recommencer</button>
+    <a class="btn btn-secondaire" href="../index.html">Retour au site</a>
+  </section>
+</main>
+<script>
+(function () {
+  var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+  var total = cartes.length, bonnes = 0, repondues = 0;
+  var scoreEl = document.getElementById('score');
+  var barre = document.getElementById('barre');
+  var fin = document.getElementById('fin');
+
+  function majScore() {
+    scoreEl.textContent = bonnes + ' / ' + total;
+    barre.style.width = (100 * repondues / total) + '%';
+    if (repondues === total) {
+      fin.hidden = false;
+      var msg = bonnes === total ? 'Sans faute, bravo !'
+        : bonnes >= 0.8 * total ? 'Très bon score, continuez comme ça.'
+        : bonnes >= 0.5 * total ? 'C\'est correct, mais quelques révisions s\'imposent.'
+        : 'À retravailler : reprenez le cours et les exercices du chapitre.';
+      document.getElementById('fin-texte').textContent = msg;
+    }
+  }
+
+  cartes.forEach(function (carte) {
+    var bonne = parseInt(carte.dataset.bonne, 10);
+    var boutons = Array.prototype.slice.call(carte.querySelectorAll('.choix button'));
+    var expl = carte.querySelector('.expl');
+    boutons.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        if (carte.dataset.fait) return;
+        carte.dataset.fait = '1';
+        repondues++;
+        if (i === bonne) {
+          b.classList.add('juste');
+          bonnes++;
+        } else {
+          b.classList.add('faux');
+          boutons[bonne].classList.add('oublie');
+        }
+        boutons.forEach(function (x) { x.disabled = true; });
+        expl.classList.add('visible');
+        majScore();
+      });
+    });
+  });
+
+  document.getElementById('recommencer').addEventListener('click', function () {
+    window.location.reload();
+  });
+})();
+</script>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz — Variables aléatoires</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['$', '$']] }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.quiz-entete{max-width:820px;margin:0 auto 1.4rem}
+.quiz-entete h1{margin:.2rem 0 .3rem;font-size:1.6rem}
+.quiz-entete p{margin:.2rem 0;opacity:.85}
+.barre{height:10px;border-radius:6px;background:#e8edf3;overflow:hidden;margin:.8rem 0}
+.barre > span{display:block;height:100%;width:0;background:var(--couleur,#3182ce);transition:width .25s}
+.quiz-score{font-weight:600}
+.question{max-width:820px;margin:0 auto 1rem;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1rem 1.2rem;box-shadow:0 2px 8px rgba(16,42,67,.06)}
+.question h3{margin:.1rem 0 .7rem;font-size:1.02rem;font-weight:600;line-height:1.45}
+.question .num{display:inline-block;min-width:1.9rem;height:1.9rem;line-height:1.9rem;
+  text-align:center;border-radius:50%;background:var(--couleur,#3182ce);
+  color:var(--sur-couleur,#fff);font-size:.85rem;margin-right:.5rem;font-weight:700}
+.choix{display:grid;gap:.5rem}
+.choix button{text-align:left;padding:.6rem .8rem;border-radius:10px;border:1px solid #d7e0ea;
+  background:#fbfdff;cursor:pointer;font-size:.98rem;font-family:inherit;line-height:1.4}
+.choix button:hover:not(:disabled){border-color:var(--couleur,#3182ce);background:#f2f8ff}
+.choix button:disabled{cursor:default}
+.choix button.juste{background:#e6f7ee;border-color:#2f9e63;color:#166534;font-weight:600}
+.choix button.faux{background:#fdeaea;border-color:#d64545;color:#8a1c1c}
+.choix button.oublie{border-color:#2f9e63;border-style:dashed}
+.figure{margin:.6rem 0 .2rem;text-align:center}
+.figure img{max-width:min(100%,420px);height:auto;border:1px solid #dfe6ee;border-radius:10px;background:#fff;padding:4px}
+.expl{margin:.7rem 0 0;font-size:.92rem;background:#f4f7fb;border-left:3px solid var(--couleur,#3182ce);
+  padding:.5rem .7rem;border-radius:6px;display:none}
+.expl.visible{display:block}
+.fin{max-width:820px;margin:1.4rem auto;text-align:center;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1.2rem}
+.fin strong{font-size:1.25rem}
+.fin .btn{margin:.7rem .3rem 0}
+</style>
+</head>
+<body style="--couleur:#97266d; --couleur-fonce:#97266d; --sur-couleur:#fff">
+<main style="padding:2rem 1.2rem 3rem">
+  <header class="quiz-entete">
+    <p><a href="../index.html">← Retour au site</a></p>
+    <h1>Quiz — Variables aléatoires</h1>
+    <p>Terminale STMG · chapitre 7 · 20 questions</p>
+    <p class="quiz-score">Score : <span id="score">0 / 20</span></p>
+    <div class="barre"><span id="barre"></span></div>
+  </header>
+
+  <article class="question" data-bonne="1">
+    <h3><span class="num">1</span>Une variable aléatoire $X$ associe :</h3>
+    <div class="choix"><button type="button" data-i="0">un événement à chaque issue</button><button type="button" data-i="1">un nombre réel à chaque issue de l'expérience</button><button type="button" data-i="2">une probabilité à chaque issue</button><button type="button" data-i="3">un effectif à chaque issue</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est une fonction définie sur l'univers.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">2</span>Dans une loi de probabilité, la somme des probabilités vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$1$</button><button type="button" data-i="1">$0$</button><button type="button" data-i="2">le nombre de valeurs</button><button type="button" data-i="3">$E(X)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Les valeurs possibles forment une partition de l'univers.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">3</span>L'espérance $E(X)$ se calcule par :</h3>
+    <div class="choix"><button type="button" data-i="0">$\displaystyle\sum_{i}p_{i}x_{i}$</button><button type="button" data-i="1">$\displaystyle\sum_{i}x_{i}$</button><button type="button" data-i="2">$\displaystyle\sum_{i}p_{i}$</button><button type="button" data-i="3">$\displaystyle\sum_{i}p_{i}x_{i}^{2}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est la moyenne pondérée des valeurs.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">4</span>Si $X$ est constante égale à $5$, alors $E(X)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$1$</button><button type="button" data-i="1">$0$</button><button type="button" data-i="2">$5$</button><button type="button" data-i="3">$25$</button></div>
+    <p class="expl"><strong>Réponse :</strong> L'espérance d'une constante est cette constante.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">5</span>Un jeu est équitable lorsque :</h3>
+    <div class="choix"><button type="button" data-i="0">la mise est nulle</button><button type="button" data-i="1">l'espérance du gain est positive</button><button type="button" data-i="2">le gain maximal est nul</button><button type="button" data-i="3">l'espérance du gain algébrique est nulle</button></div>
+    <p class="expl"><strong>Réponse :</strong> Aucun des deux joueurs n'est avantagé en moyenne.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">6</span>On lance un dé équilibré à six faces. L'espérance du numéro obtenu vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$6$</button><button type="button" data-i="1">$4$</button><button type="button" data-i="2">$3$</button><button type="button" data-i="3">$3{,}5$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\dfrac{1+2+3+4+5+6}{6}=3{,}5$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">7</span>$X$ prend les valeurs $0$ et $10$ avec $P(X=10)=0{,}1$. Alors $E(X)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$1$</button><button type="button" data-i="1">$5$</button><button type="button" data-i="2">$10$</button><button type="button" data-i="3">$0{,}1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $E(X)=0\times0{,}9+10\times0{,}1=1$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">8</span>La variance d'une variable aléatoire mesure :</h3>
+    <div class="choix"><button type="button" data-i="0">la valeur maximale</button><button type="button" data-i="1">la dispersion autour de l'espérance</button><button type="button" data-i="2">le nombre de valeurs</button><button type="button" data-i="3">la valeur moyenne</button></div>
+    <p class="expl"><strong>Réponse :</strong> Elle quantifie l'étalement des valeurs.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">9</span>Pour une variable aléatoire $X$, la variance $V(X)$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">de signe variable</button><button type="button" data-i="1">positive ou nulle</button><button type="button" data-i="2">strictement négative</button><button type="button" data-i="3">toujours égale à $1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est une moyenne de carrés.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">10</span>Pour tous réels $a$ et $b$, $E(aX+b)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$aE(X)+b$</button><button type="button" data-i="1">$aE(X)$</button><button type="button" data-i="2">$E(X)+b$</button><button type="button" data-i="3">$a+bE(X)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> L'espérance est linéaire.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">11</span>L'écart type $\sigma(X)$ est égal à :</h3>
+    <div class="choix"><button type="button" data-i="0">$V(X)$</button><button type="button" data-i="1">$\sqrt{V(X)}$</button><button type="button" data-i="2">$E(X)-V(X)$</button><button type="button" data-i="3">$V(X)^{2}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> L'écart type est la racine carrée de la variance.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">12</span>$E(2X+3)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$E(X)+3$</button><button type="button" data-i="1">$2E(X)+9$</button><button type="button" data-i="2">$2E(X)+3$</button><button type="button" data-i="3">$2E(X)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Linéarité de l'espérance.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">13</span>$X$ prend les valeurs $1$ et $2$ avec la même probabilité $0{,}5$. Alors $E(X)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$0{,}5$</button><button type="button" data-i="1">$1{,}5$</button><button type="button" data-i="2">$1$</button><button type="button" data-i="3">$2$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $1\times0{,}5+2\times0{,}5=1{,}5$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">14</span>L'espérance d'une variable aléatoire :</h3>
+    <div class="choix"><button type="button" data-i="0">est toujours entière</button><button type="button" data-i="1">est toujours positive</button><button type="button" data-i="2">n'est pas forcément une valeur prise par $X$</button><button type="button" data-i="3">est toujours une valeur prise par $X$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Pour un dé, $E(X)=3{,}5$ alors que $X$ ne prend que des entiers.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">15</span>Le gain algébrique d'un jeu se calcule en :</h3>
+    <div class="choix"><button type="button" data-i="0">divisant le gain par la mise</button><button type="button" data-i="1">ajoutant la mise au gain reçu</button><button type="button" data-i="2">retirant la mise au gain reçu</button><button type="button" data-i="3">multipliant le gain par la mise</button></div>
+    <p class="expl"><strong>Réponse :</strong> Gain algébrique $=$ gain $-$ mise.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">16</span>Un jeu est favorable au joueur lorsque :</h3>
+    <div class="choix"><button type="button" data-i="0">$E(X)>0$</button><button type="button" data-i="1">$E(X)=0$</button><button type="button" data-i="2">$V(X)=0$</button><button type="button" data-i="3">$E(X)<0$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Le gain moyen est positif.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">17</span>Si toutes les valeurs prises par $X$ sont égales, alors $V(X)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$0$</button><button type="button" data-i="1">$E(X)$</button><button type="button" data-i="2">$1$</button><button type="button" data-i="3">$E(X)^{2}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Aucune dispersion : tous les écarts à la moyenne sont nuls.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">18</span>Dans une loi de probabilité, chaque probabilité $p_{i}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">toujours égale à $1$</button><button type="button" data-i="1">comprise entre $0$ et $1$</button><button type="button" data-i="2">strictement supérieure à $1$</button><button type="button" data-i="3">négative</button></div>
+    <p class="expl"><strong>Réponse :</strong> Une probabilité est comprise entre $0$ et $1$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">19</span>L'espérance s'interprète comme :</h3>
+    <div class="choix"><button type="button" data-i="0">la valeur maximale</button><button type="button" data-i="1">la valeur la plus probable</button><button type="button" data-i="2">la moyenne des valeurs obtenues sur un grand nombre d'essais</button><button type="button" data-i="3">la valeur minimale</button></div>
+    <p class="expl"><strong>Réponse :</strong> La moyenne se stabilise autour de $E(X)$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">20</span>Pour tout réel $a$, $V(aX)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$V(X)$</button><button type="button" data-i="1">$aV(X)^{2}$</button><button type="button" data-i="2">$a^{2}V(X)$</button><button type="button" data-i="3">$aV(X)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Multiplier les valeurs par $a$ multiplie les carrés des écarts par $a^{2}$.</p>
+  </article>
+  <section class="fin" id="fin" hidden>
+    <strong>Quiz terminé</strong>
+    <p id="fin-texte"></p>
+    <button class="btn" type="button" id="recommencer">Recommencer</button>
+    <a class="btn btn-secondaire" href="../index.html">Retour au site</a>
+  </section>
+</main>
+<script>
+(function () {
+  var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+  var total = cartes.length, bonnes = 0, repondues = 0;
+  var scoreEl = document.getElementById('score');
+  var barre = document.getElementById('barre');
+  var fin = document.getElementById('fin');
+
+  function majScore() {
+    scoreEl.textContent = bonnes + ' / ' + total;
+    barre.style.width = (100 * repondues / total) + '%';
+    if (repondues === total) {
+      fin.hidden = false;
+      var msg = bonnes === total ? 'Sans faute, bravo !'
+        : bonnes >= 0.8 * total ? 'Très bon score, continuez comme ça.'
+        : bonnes >= 0.5 * total ? 'C\'est correct, mais quelques révisions s\'imposent.'
+        : 'À retravailler : reprenez le cours et les exercices du chapitre.';
+      document.getElementById('fin-texte').textContent = msg;
+    }
+  }
+
+  cartes.forEach(function (carte) {
+    var bonne = parseInt(carte.dataset.bonne, 10);
+    var boutons = Array.prototype.slice.call(carte.querySelectorAll('.choix button'));
+    var expl = carte.querySelector('.expl');
+    boutons.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        if (carte.dataset.fait) return;
+        carte.dataset.fait = '1';
+        repondues++;
+        if (i === bonne) {
+          b.classList.add('juste');
+          bonnes++;
+        } else {
+          b.classList.add('faux');
+          boutons[bonne].classList.add('oublie');
+        }
+        boutons.forEach(function (x) { x.disabled = true; });
+        expl.classList.add('visible');
+        majScore();
+      });
+    });
+  });
+
+  document.getElementById('recommencer').addEventListener('click', function () {
+    window.location.reload();
+  });
+})();
+</script>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

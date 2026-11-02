@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz — Les graphes</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['$', '$']] }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.quiz-entete{max-width:820px;margin:0 auto 1.4rem}
+.quiz-entete h1{margin:.2rem 0 .3rem;font-size:1.6rem}
+.quiz-entete p{margin:.2rem 0;opacity:.85}
+.barre{height:10px;border-radius:6px;background:#e8edf3;overflow:hidden;margin:.8rem 0}
+.barre > span{display:block;height:100%;width:0;background:var(--couleur,#3182ce);transition:width .25s}
+.quiz-score{font-weight:600}
+.question{max-width:820px;margin:0 auto 1rem;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1rem 1.2rem;box-shadow:0 2px 8px rgba(16,42,67,.06)}
+.question h3{margin:.1rem 0 .7rem;font-size:1.02rem;font-weight:600;line-height:1.45}
+.question .num{display:inline-block;min-width:1.9rem;height:1.9rem;line-height:1.9rem;
+  text-align:center;border-radius:50%;background:var(--couleur,#3182ce);
+  color:var(--sur-couleur,#fff);font-size:.85rem;margin-right:.5rem;font-weight:700}
+.choix{display:grid;gap:.5rem}
+.choix button{text-align:left;padding:.6rem .8rem;border-radius:10px;border:1px solid #d7e0ea;
+  background:#fbfdff;cursor:pointer;font-size:.98rem;font-family:inherit;line-height:1.4}
+.choix button:hover:not(:disabled){border-color:var(--couleur,#3182ce);background:#f2f8ff}
+.choix button:disabled{cursor:default}
+.choix button.juste{background:#e6f7ee;border-color:#2f9e63;color:#166534;font-weight:600}
+.choix button.faux{background:#fdeaea;border-color:#d64545;color:#8a1c1c}
+.choix button.oublie{border-color:#2f9e63;border-style:dashed}
+.figure{margin:.6rem 0 .2rem;text-align:center}
+.figure img{max-width:min(100%,420px);height:auto;border:1px solid #dfe6ee;border-radius:10px;background:#fff;padding:4px}
+.expl{margin:.7rem 0 0;font-size:.92rem;background:#f4f7fb;border-left:3px solid var(--couleur,#3182ce);
+  padding:.5rem .7rem;border-radius:6px;display:none}
+.expl.visible{display:block}
+.fin{max-width:820px;margin:1.4rem auto;text-align:center;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1.2rem}
+.fin strong{font-size:1.25rem}
+.fin .btn{margin:.7rem .3rem 0}
+</style>
+</head>
+<body style="--couleur:#FFD700; --couleur-fonce:#B8860B; --sur-couleur:#3F3000">
+<main style="padding:2rem 1.2rem 3rem">
+  <header class="quiz-entete">
+    <p><a href="../index.html">← Retour au site</a></p>
+    <h1>Quiz — Les graphes</h1>
+    <p>Maths expertes · chapitre 7 · 20 questions</p>
+    <p class="quiz-score">Score : <span id="score">0 / 20</span></p>
+    <div class="barre"><span id="barre"></span></div>
+  </header>
+
+  <article class="question" data-bonne="0">
+    <h3><span class="num">1</span>Un graphe est constitué :</h3>
+    <div class="choix"><button type="button" data-i="0">de sommets et d'arêtes</button><button type="button" data-i="1">de matrices uniquement</button><button type="button" data-i="2">de points seulement</button><button type="button" data-i="3">de fonctions</button></div>
+    <p class="expl"><strong>Réponse :</strong> Objets et relations.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">2</span>Le degré d'un sommet est :</h3>
+    <div class="choix"><button type="button" data-i="0">sa distance</button><button type="button" data-i="1">le nombre d'arêtes incidentes</button><button type="button" data-i="2">sa valeur</button><button type="button" data-i="3">son rang</button></div>
+    <p class="expl"><strong>Réponse :</strong> Nombre de voisins (avec multiplicités).</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">3</span>La somme des degrés d'un graphe vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$0$</button><button type="button" data-i="1">le nombre de sommets</button><button type="button" data-i="2">le nombre d'arêtes</button><button type="button" data-i="3">$2\times$ le nombre d'arêtes</button></div>
+    <p class="expl"><strong>Réponse :</strong> Chaque arête est comptée deux fois.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">4</span>Un graphe est complet si :</h3>
+    <div class="choix"><button type="button" data-i="0">il est vide</button><button type="button" data-i="1">tous les sommets sont deux à deux adjacents</button><button type="button" data-i="2">il est biparti</button><button type="button" data-i="3">il est orienté</button></div>
+    <p class="expl"><strong>Réponse :</strong> Toutes les arêtes possibles sont présentes.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">5</span>Le nombre d'arêtes de $K_n$ (graphe complet) est :</h3>
+    <div class="choix"><button type="button" data-i="0">$n(n+1)$</button><button type="button" data-i="1">$\dfrac{n(n-1)}{2}$</button><button type="button" data-i="2">$n$</button><button type="button" data-i="3">$n^{2}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Une arête par paire de sommets.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">6</span>Une chaîne est :</h3>
+    <div class="choix"><button type="button" data-i="0">une suite de sommets reliés par des arêtes</button><button type="button" data-i="1">un cycle infini</button><button type="button" data-i="2">un sommet isolé</button><button type="button" data-i="3">une boucle</button></div>
+    <p class="expl"><strong>Réponse :</strong> Chemin dans le graphe.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">7</span>Un graphe est connexe si :</h3>
+    <div class="choix"><button type="button" data-i="0">il est orienté</button><button type="button" data-i="1">il est complet</button><button type="button" data-i="2">il n'a pas d'arêtes</button><button type="button" data-i="3">toute paire de sommets est reliée par une chaîne</button></div>
+    <p class="expl"><strong>Réponse :</strong> Une seule composante connexe.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">8</span>Un cycle est une chaîne :</h3>
+    <div class="choix"><button type="button" data-i="0">ouverte</button><button type="button" data-i="1">de longueur nulle</button><button type="button" data-i="2">sans arête</button><button type="button" data-i="3">fermée dont tous les sommets sont distincts (sauf les extrémités)</button></div>
+    <p class="expl"><strong>Réponse :</strong> Retour au point de départ.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">9</span>Un arbre est un graphe :</h3>
+    <div class="choix"><button type="button" data-i="0">orienté</button><button type="button" data-i="1">avec un cycle</button><button type="button" data-i="2">connexe sans cycle</button><button type="button" data-i="3">complet</button></div>
+    <p class="expl"><strong>Réponse :</strong> Structure minimale connexe.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">10</span>Un arbre à $n$ sommets possède :</h3>
+    <div class="choix"><button type="button" data-i="0">$n$ arêtes</button><button type="button" data-i="1">$n+1$ arêtes</button><button type="button" data-i="2">$2n$ arêtes</button><button type="button" data-i="3">$n-1$ arêtes</button></div>
+    <p class="expl"><strong>Réponse :</strong> Caractérisation des arbres.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">11</span>Un graphe est eulérien s'il admet :</h3>
+    <div class="choix"><button type="button" data-i="0">un seul sommet</button><button type="button" data-i="1">un cycle passant par chaque sommet</button><button type="button" data-i="2">un sommet isolé</button><button type="button" data-i="3">une chaîne passant une fois par chaque arête</button></div>
+    <p class="expl"><strong>Réponse :</strong> Théorème d'Euler : tous les degrés pairs.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">12</span>Un graphe admet un cycle hamiltonien s'il passe :</h3>
+    <div class="choix"><button type="button" data-i="0">par aucun sommet</button><button type="button" data-i="1">une fois par chaque arête</button><button type="button" data-i="2">une fois par chaque sommet</button><button type="button" data-i="3">par deux sommets</button></div>
+    <p class="expl"><strong>Réponse :</strong> Cycle hamiltonien.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">13</span>La matrice d'adjacence d'un graphe a pour coefficients :</h3>
+    <div class="choix"><button type="button" data-i="0">des poids</button><button type="button" data-i="1">$1$ si les sommets sont adjacents, $0$ sinon</button><button type="button" data-i="2">des distances</button><button type="button" data-i="3">des degrés</button></div>
+    <p class="expl"><strong>Réponse :</strong> Traduction matricielle du graphe.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">14</span>Le coefficient $(i\,;j)$ de $A^{k}$ compte :</h3>
+    <div class="choix"><button type="button" data-i="0">le nombre de chaînes de longueur $k$ de $i$ à $j$</button><button type="button" data-i="1">le degré de $i$</button><button type="button" data-i="2">le nombre d'arêtes</button><button type="button" data-i="3">les cycles</button></div>
+    <p class="expl"><strong>Réponse :</strong> Propriété classique.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">15</span>Un graphe orienté possède :</h3>
+    <div class="choix"><button type="button" data-i="0">aucun sommet</button><button type="button" data-i="1">des arcs avec un sens</button><button type="button" data-i="2">des arêtes symétriques</button><button type="button" data-i="3">uniquement des boucles</button></div>
+    <p class="expl"><strong>Réponse :</strong> Relations orientées.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">16</span>Un graphe pondéré est un graphe :</h3>
+    <div class="choix"><button type="button" data-i="0">sans cycle</button><button type="button" data-i="1">dont les arêtes portent des poids</button><button type="button" data-i="2">complet</button><button type="button" data-i="3">connexe</button></div>
+    <p class="expl"><strong>Réponse :</strong> Utilisé pour les chemins optimaux.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">17</span>L'algorithme de Dijkstra calcule :</h3>
+    <div class="choix"><button type="button" data-i="0">un cycle eulérien</button><button type="button" data-i="1">une coloration</button><button type="button" data-i="2">le degré maximal</button><button type="button" data-i="3">le plus court chemin (poids positifs)</button></div>
+    <p class="expl"><strong>Réponse :</strong> Plus court chemin pondéré.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">18</span>Un graphe biparti est un graphe :</h3>
+    <div class="choix"><button type="button" data-i="0">dont les sommets se répartissent en deux ensembles sans arête interne</button><button type="button" data-i="1">complet</button><button type="button" data-i="2">cyclique</button><button type="button" data-i="3">orienté</button></div>
+    <p class="expl"><strong>Réponse :</strong> Deux classes.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">19</span>Un graphe biparti complet $K_{m,n}$ a :</h3>
+    <div class="choix"><button type="button" data-i="0">$\dfrac{mn}{2}$ arêtes</button><button type="button" data-i="1">$m^{2}$ arêtes</button><button type="button" data-i="2">$mn$ arêtes</button><button type="button" data-i="3">$m+n$ arêtes</button></div>
+    <p class="expl"><strong>Réponse :</strong> Toutes les arêtes entre les deux classes.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">20</span>Coloriage : le nombre chromatique est :</h3>
+    <div class="choix"><button type="button" data-i="0">le nombre de sommets</button><button type="button" data-i="1">le nombre d'arêtes</button><button type="button" data-i="2">le degré max</button><button type="button" data-i="3">le nombre minimal de couleurs</button></div>
+    <p class="expl"><strong>Réponse :</strong> Nombre chromatique.</p>
+  </article>
+  <section class="fin" id="fin" hidden>
+    <strong>Quiz terminé</strong>
+    <p id="fin-texte"></p>
+    <button class="btn" type="button" id="recommencer">Recommencer</button>
+    <a class="btn btn-secondaire" href="../index.html">Retour au site</a>
+  </section>
+</main>
+<script>
+(function () {
+  var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+  var total = cartes.length, bonnes = 0, repondues = 0;
+  var scoreEl = document.getElementById('score');
+  var barre = document.getElementById('barre');
+  var fin = document.getElementById('fin');
+
+  function majScore() {
+    scoreEl.textContent = bonnes + ' / ' + total;
+    barre.style.width = (100 * repondues / total) + '%';
+    if (repondues === total) {
+      fin.hidden = false;
+      var msg = bonnes === total ? 'Sans faute, bravo !'
+        : bonnes >= 0.8 * total ? 'Très bon score, continuez comme ça.'
+        : bonnes >= 0.5 * total ? 'C\'est correct, mais quelques révisions s\'imposent.'
+        : 'À retravailler : reprenez le cours et les exercices du chapitre.';
+      document.getElementById('fin-texte').textContent = msg;
+    }
+  }
+
+  cartes.forEach(function (carte) {
+    var bonne = parseInt(carte.dataset.bonne, 10);
+    var boutons = Array.prototype.slice.call(carte.querySelectorAll('.choix button'));
+    var expl = carte.querySelector('.expl');
+    boutons.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        if (carte.dataset.fait) return;
+        carte.dataset.fait = '1';
+        repondues++;
+        if (i === bonne) {
+          b.classList.add('juste');
+          bonnes++;
+        } else {
+          b.classList.add('faux');
+          boutons[bonne].classList.add('oublie');
+        }
+        boutons.forEach(function (x) { x.disabled = true; });
+        expl.classList.add('visible');
+        majScore();
+      });
+    });
+  });
+
+  document.getElementById('recommencer').addEventListener('click', function () {
+    window.location.reload();
+  });
+})();
+</script>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

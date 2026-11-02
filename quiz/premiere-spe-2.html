@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz — Équation et inéquation du second degré</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['$', '$']] }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.quiz-entete{max-width:820px;margin:0 auto 1.4rem}
+.quiz-entete h1{margin:.2rem 0 .3rem;font-size:1.6rem}
+.quiz-entete p{margin:.2rem 0;opacity:.85}
+.barre{height:10px;border-radius:6px;background:#e8edf3;overflow:hidden;margin:.8rem 0}
+.barre > span{display:block;height:100%;width:0;background:var(--couleur,#3182ce);transition:width .25s}
+.quiz-score{font-weight:600}
+.question{max-width:820px;margin:0 auto 1rem;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1rem 1.2rem;box-shadow:0 2px 8px rgba(16,42,67,.06)}
+.question h3{margin:.1rem 0 .7rem;font-size:1.02rem;font-weight:600;line-height:1.45}
+.question .num{display:inline-block;min-width:1.9rem;height:1.9rem;line-height:1.9rem;
+  text-align:center;border-radius:50%;background:var(--couleur,#3182ce);
+  color:var(--sur-couleur,#fff);font-size:.85rem;margin-right:.5rem;font-weight:700}
+.choix{display:grid;gap:.5rem}
+.choix button{text-align:left;padding:.6rem .8rem;border-radius:10px;border:1px solid #d7e0ea;
+  background:#fbfdff;cursor:pointer;font-size:.98rem;font-family:inherit;line-height:1.4}
+.choix button:hover:not(:disabled){border-color:var(--couleur,#3182ce);background:#f2f8ff}
+.choix button:disabled{cursor:default}
+.choix button.juste{background:#e6f7ee;border-color:#2f9e63;color:#166534;font-weight:600}
+.choix button.faux{background:#fdeaea;border-color:#d64545;color:#8a1c1c}
+.choix button.oublie{border-color:#2f9e63;border-style:dashed}
+.figure{margin:.6rem 0 .2rem;text-align:center}
+.figure img{max-width:min(100%,420px);height:auto;border:1px solid #dfe6ee;border-radius:10px;background:#fff;padding:4px}
+.expl{margin:.7rem 0 0;font-size:.92rem;background:#f4f7fb;border-left:3px solid var(--couleur,#3182ce);
+  padding:.5rem .7rem;border-radius:6px;display:none}
+.expl.visible{display:block}
+.fin{max-width:820px;margin:1.4rem auto;text-align:center;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1.2rem}
+.fin strong{font-size:1.25rem}
+.fin .btn{margin:.7rem .3rem 0}
+</style>
+</head>
+<body style="--couleur:#2f855a; --couleur-fonce:#2f855a; --sur-couleur:#fff">
+<main style="padding:2rem 1.2rem 3rem">
+  <header class="quiz-entete">
+    <p><a href="../index.html">← Retour au site</a></p>
+    <h1>Quiz — Équation et inéquation du second degré</h1>
+    <p>Première spécialité · chapitre 2 · 20 questions</p>
+    <p class="quiz-score">Score : <span id="score">0 / 20</span></p>
+    <div class="barre"><span id="barre"></span></div>
+  </header>
+
+  <article class="question" data-bonne="2">
+    <h3><span class="num">1</span>Le discriminant du trinôme $x^{2}-6x+9$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$-36$</button><button type="button" data-i="1">$9$</button><button type="button" data-i="2">$0$</button><button type="button" data-i="3">$36$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\Delta=(-6)^{2}-4\times1\times9=36-36=0$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">2</span>Les solutions de $x^{2}+x-6=0$ sont :</h3>
+    <div class="choix"><button type="button" data-i="0">$3$ et $2$</button><button type="button" data-i="1">$1$ et $-6$</button><button type="button" data-i="2">$2$ et $-3$</button><button type="button" data-i="3">$-2$ et $3$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\Delta=1+24=25$, d'où $x=\dfrac{-1\pm5}{2}$, soit $2$ et $-3$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">3</span>Les solutions de $2x^{2}-5x+2=0$ sont :</h3>
+    <div class="choix"><button type="button" data-i="0">$\dfrac{1}{2}$ et $2$</button><button type="button" data-i="1">$1$ et $2$</button><button type="button" data-i="2">$-\dfrac{1}{2}$ et $-2$</button><button type="button" data-i="3">aucune</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\Delta=25-16=9$, d'où $x=\dfrac{5\pm3}{4}$, soit $\dfrac{1}{2}$ et $2$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">4</span>L'équation $x^{2}+3x+7=0$ :</h3>
+    <div class="choix"><button type="button" data-i="0">a une solution double</button><button type="button" data-i="1">a pour solution $0$</button><button type="button" data-i="2">n'a pas de solution réelle</button><button type="button" data-i="3">a deux solutions</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\Delta=9-28=-19<0$ : aucune solution réelle.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">5</span>La forme factorisée de $x^{2}-2x-3$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$(x-3)(x+1)$</button><button type="button" data-i="1">$(x-3)(x-1)$</button><button type="button" data-i="2">$(x+3)(x+1)$</button><button type="button" data-i="3">$(x+3)(x-1)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Les racines sont $3$ et $-1$, donc $x^{2}-2x-3=(x-3)(x+1)$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">6</span>La somme des racines de $2x^{2}-7x+3$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$\dfrac{3}{2}$</button><button type="button" data-i="1">$7$</button><button type="button" data-i="2">$-\dfrac{7}{2}$</button><button type="button" data-i="3">$\dfrac{7}{2}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> La somme des racines vaut $-\dfrac{b}{a}=\dfrac{7}{2}$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">7</span>Le produit des racines de $x^{2}-5x+6$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$-5$</button><button type="button" data-i="1">$6$</button><button type="button" data-i="2">$-6$</button><button type="button" data-i="3">$5$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Le produit des racines vaut $\dfrac{c}{a}=6$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">8</span>L'ensemble des solutions de $x^{2}-4\leqslant0$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$]-2\,;2[$</button><button type="button" data-i="1">$\mathbb{R}$</button><button type="button" data-i="2">$[-2\,;2]$</button><button type="button" data-i="3">$]-\infty\,;-2]\cup[2\,;+\infty[$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $x^{2}-4=(x-2)(x+2)\leqslant0$ : le trinôme est négatif entre ses racines.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">9</span>L'ensemble des solutions de $x^{2}+1>0$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$\varnothing$</button><button type="button" data-i="1">$]-1\,;1[$</button><button type="button" data-i="2">$\mathbb{R}$</button><button type="button" data-i="3">$]0\,;+\infty[$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Un carré est toujours positif, donc $x^{2}+1>0$ pour tout réel $x$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">10</span>Le signe du trinôme $-x^{2}+4x-3$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">toujours positif</button><button type="button" data-i="1">toujours négatif</button><button type="button" data-i="2">positif entre $1$ et $3$</button><button type="button" data-i="3">négatif entre $1$ et $3$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\Delta=16-12=4$ : racines $1$ et $3$ ; $a=-1<0$, donc le trinôme est positif entre les racines.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">11</span>L'ensemble des solutions de $(2x-1)(x+3)>0$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$\left[-3\,;\dfrac{1}{2}\right]$</button><button type="button" data-i="1">$]-\infty\,;-3[\cup\left]\dfrac{1}{2}\,;+\infty\right[$</button><button type="button" data-i="2">$\mathbb{R}$</button><button type="button" data-i="3">$\left]-3\,;\dfrac{1}{2}\right[$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Produit positif à l'extérieur des racines $-3$ et $\dfrac{1}{2}$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">12</span>Dans le tableau de signes de $\dfrac{x-1}{x+2}$, la valeur interdite est :</h3>
+    <div class="choix"><button type="button" data-i="0">$1$</button><button type="button" data-i="1">$-1$</button><button type="button" data-i="2">$-2$</button><button type="button" data-i="3">$2$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Le dénominateur s'annule en $-2$, valeur pour laquelle le quotient n'est pas défini.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">13</span>L'ensemble des solutions de $\dfrac{x-1}{x+2}\leqslant0$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$]-2\,;1[$</button><button type="button" data-i="1">$[-2\,;1]$</button><button type="button" data-i="2">$]-2\,;1]$</button><button type="button" data-i="3">$]-\infty\,;-2[\cup[1\,;+\infty[$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Le quotient est négatif ou nul entre les racines, en excluant la valeur interdite $-2$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">14</span>Le discriminant de $x^{2}-2x+5$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$4$</button><button type="button" data-i="1">$16$</button><button type="button" data-i="2">$-4$</button><button type="button" data-i="3">$-16$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\Delta=4-20=-16$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">15</span>Si $\Delta>0$ et $a>0$, le trinôme $ax^{2}+bx+c$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">toujours positif</button><button type="button" data-i="1">négatif à l'extérieur et positif entre</button><button type="button" data-i="2">positif à l'extérieur des racines et négatif entre</button><button type="button" data-i="3">toujours négatif</button></div>
+    <p class="expl"><strong>Réponse :</strong> Le trinôme est du signe de $a$ à l'extérieur des racines : positif puisque $a>0$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">16</span>L'équation $x^{2}=5x$ a pour solutions :</h3>
+    <div class="choix"><button type="button" data-i="0">$x=5$</button><button type="button" data-i="1">$x=0$</button><button type="button" data-i="2">$x=0$ ou $x=5$</button><button type="button" data-i="3">$x=\pm5$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $x^{2}-5x=0$ s'écrit $x(x-5)=0$, d'où $x=0$ ou $x=5$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">17</span>L'ensemble des solutions de $x^{2}+2x+1\leqslant0$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$\mathbb{R}$</button><button type="button" data-i="1">$\varnothing$</button><button type="button" data-i="2">$\{-1\}$</button><button type="button" data-i="3">$]-\infty\,;-1]$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $x^{2}+2x+1=(x+1)^{2}\geqslant0$ : l'inéquation n'est vérifiée que pour $x=-1$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">18</span>L'équation $x^{2}-3x+2=0$ admet :</h3>
+    <div class="choix"><button type="button" data-i="0">aucune solution</button><button type="button" data-i="1">une solution double</button><button type="button" data-i="2">trois solutions</button><button type="button" data-i="3">deux solutions distinctes</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\Delta=9-8=1>0$ : deux solutions distinctes, $1$ et $2$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">19</span>Les solutions de $3x^{2}=12x$ sont :</h3>
+    <div class="choix"><button type="button" data-i="0">$4$</button><button type="button" data-i="1">$0$ et $4$</button><button type="button" data-i="2">$0$</button><button type="button" data-i="3">$-4$ et $0$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $3x^{2}-12x=0$ s'écrit $3x(x-4)=0$, d'où $x=0$ ou $x=4$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">20</span>Pour $a>0$, l'ensemble des solutions de $x^{2}-a^{2}<0$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$[-a\,;a]$</button><button type="button" data-i="1">$]-a\,;a[$</button><button type="button" data-i="2">$\mathbb{R}$</button><button type="button" data-i="3">$]-\infty\,;-a[\cup]a\,;+\infty[$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $(x-a)(x+a)<0$ : le produit est négatif entre les racines $-a$ et $a$.</p>
+  </article>
+  <section class="fin" id="fin" hidden>
+    <strong>Quiz terminé</strong>
+    <p id="fin-texte"></p>
+    <button class="btn" type="button" id="recommencer">Recommencer</button>
+    <a class="btn btn-secondaire" href="../index.html">Retour au site</a>
+  </section>
+</main>
+<script>
+(function () {
+  var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+  var total = cartes.length, bonnes = 0, repondues = 0;
+  var scoreEl = document.getElementById('score');
+  var barre = document.getElementById('barre');
+  var fin = document.getElementById('fin');
+
+  function majScore() {
+    scoreEl.textContent = bonnes + ' / ' + total;
+    barre.style.width = (100 * repondues / total) + '%';
+    if (repondues === total) {
+      fin.hidden = false;
+      var msg = bonnes === total ? 'Sans faute, bravo !'
+        : bonnes >= 0.8 * total ? 'Très bon score, continuez comme ça.'
+        : bonnes >= 0.5 * total ? 'C\'est correct, mais quelques révisions s\'imposent.'
+        : 'À retravailler : reprenez le cours et les exercices du chapitre.';
+      document.getElementById('fin-texte').textContent = msg;
+    }
+  }
+
+  cartes.forEach(function (carte) {
+    var bonne = parseInt(carte.dataset.bonne, 10);
+    var boutons = Array.prototype.slice.call(carte.querySelectorAll('.choix button'));
+    var expl = carte.querySelector('.expl');
+    boutons.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        if (carte.dataset.fait) return;
+        carte.dataset.fait = '1';
+        repondues++;
+        if (i === bonne) {
+          b.classList.add('juste');
+          bonnes++;
+        } else {
+          b.classList.add('faux');
+          boutons[bonne].classList.add('oublie');
+        }
+        boutons.forEach(function (x) { x.disabled = true; });
+        expl.classList.add('visible');
+        majScore();
+      });
+    });
+  });
+
+  document.getElementById('recommencer').addEventListener('click', function () {
+    window.location.reload();
+  });
+})();
+</script>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz — Nombres complexes : applications</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['$', '$']] }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.quiz-entete{max-width:820px;margin:0 auto 1.4rem}
+.quiz-entete h1{margin:.2rem 0 .3rem;font-size:1.6rem}
+.quiz-entete p{margin:.2rem 0;opacity:.85}
+.barre{height:10px;border-radius:6px;background:#e8edf3;overflow:hidden;margin:.8rem 0}
+.barre > span{display:block;height:100%;width:0;background:var(--couleur,#3182ce);transition:width .25s}
+.quiz-score{font-weight:600}
+.question{max-width:820px;margin:0 auto 1rem;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1rem 1.2rem;box-shadow:0 2px 8px rgba(16,42,67,.06)}
+.question h3{margin:.1rem 0 .7rem;font-size:1.02rem;font-weight:600;line-height:1.45}
+.question .num{display:inline-block;min-width:1.9rem;height:1.9rem;line-height:1.9rem;
+  text-align:center;border-radius:50%;background:var(--couleur,#3182ce);
+  color:var(--sur-couleur,#fff);font-size:.85rem;margin-right:.5rem;font-weight:700}
+.choix{display:grid;gap:.5rem}
+.choix button{text-align:left;padding:.6rem .8rem;border-radius:10px;border:1px solid #d7e0ea;
+  background:#fbfdff;cursor:pointer;font-size:.98rem;font-family:inherit;line-height:1.4}
+.choix button:hover:not(:disabled){border-color:var(--couleur,#3182ce);background:#f2f8ff}
+.choix button:disabled{cursor:default}
+.choix button.juste{background:#e6f7ee;border-color:#2f9e63;color:#166534;font-weight:600}
+.choix button.faux{background:#fdeaea;border-color:#d64545;color:#8a1c1c}
+.choix button.oublie{border-color:#2f9e63;border-style:dashed}
+.figure{margin:.6rem 0 .2rem;text-align:center}
+.figure img{max-width:min(100%,420px);height:auto;border:1px solid #dfe6ee;border-radius:10px;background:#fff;padding:4px}
+.expl{margin:.7rem 0 0;font-size:.92rem;background:#f4f7fb;border-left:3px solid var(--couleur,#3182ce);
+  padding:.5rem .7rem;border-radius:6px;display:none}
+.expl.visible{display:block}
+.fin{max-width:820px;margin:1.4rem auto;text-align:center;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1.2rem}
+.fin strong{font-size:1.25rem}
+.fin .btn{margin:.7rem .3rem 0}
+</style>
+</head>
+<body style="--couleur:#FFD700; --couleur-fonce:#B8860B; --sur-couleur:#3F3000">
+<main style="padding:2rem 1.2rem 3rem">
+  <header class="quiz-entete">
+    <p><a href="../index.html">← Retour au site</a></p>
+    <h1>Quiz — Nombres complexes : applications</h1>
+    <p>Maths expertes · chapitre 3 · 20 questions</p>
+    <p class="quiz-score">Score : <span id="score">0 / 20</span></p>
+    <div class="barre"><span id="barre"></span></div>
+  </header>
+
+  <article class="question" data-bonne="0">
+    <h3><span class="num">1</span>La forme trigonométrique de $z$ s'écrit :</h3>
+    <div class="choix"><button type="button" data-i="0">$r(\cos\theta+i\sin\theta)$</button><button type="button" data-i="1">$r\theta$</button><button type="button" data-i="2">$\theta(\cos r+i\sin r)$</button><button type="button" data-i="3">$r+i\theta$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Avec $r=|z|$ et $\theta=\arg z$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">2</span>Le module de $z^{n}$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$|z|^{n-1}$</button><button type="button" data-i="1">$n|z|$</button><button type="button" data-i="2">$|z|$</button><button type="button" data-i="3">$|z|^{n}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Le module est multiplicatif.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">3</span>$\arg\left(z^{n}\right)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$(\arg z)^{n}$</button><button type="button" data-i="1">$\arg z$</button><button type="button" data-i="2">$n+\arg z$</button><button type="button" data-i="3">$n\arg z$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Formule de Moivre.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">4</span>Formule de Moivre : $(\cos\theta+i\sin\theta)^{n}$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$n\cos\theta$</button><button type="button" data-i="1">$\cos(n\theta)+i\sin(n\theta)$</button><button type="button" data-i="2">$\cos^{n}\theta$</button><button type="button" data-i="3">$\cos\theta+i\sin\theta$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Moivre.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">5</span>$\left(\dfrac{1+i}{\sqrt2}\right)^{4}$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$i$</button><button type="button" data-i="1">$-i$</button><button type="button" data-i="2">$-1$</button><button type="button" data-i="3">$1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\dfrac{1+i}{\sqrt2}=e^{i\pi/4}$, donc la puissance $4$ vaut $e^{i\pi}=-1$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">6</span>Les racines $n$-ièmes de l'unité sont :</h3>
+    <div class="choix"><button type="button" data-i="0">les $e^{2ik\pi/n}$</button><button type="button" data-i="1">les entiers</button><button type="button" data-i="2">les $e^{ik\pi}$</button><button type="button" data-i="3">les réels</button></div>
+    <p class="expl"><strong>Réponse :</strong> $n$ racines régulièrement réparties.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">7</span>Les racines cubiques de $1$ sont :</h3>
+    <div class="choix"><button type="button" data-i="0">$0$, $1$, $-1$</button><button type="button" data-i="1">$1$, $-1$, $i$</button><button type="button" data-i="2">$1$, $j$, $j^{2}$</button><button type="button" data-i="3">$1$ seulement</button></div>
+    <p class="expl"><strong>Réponse :</strong> Avec $j=e^{2i\pi/3}$ et $1+j+j^{2}=0$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">8</span>L'équation $z^{3}=8$ a pour solutions :</h3>
+    <div class="choix"><button type="button" data-i="0">$\pm2$</button><button type="button" data-i="1">$2$ seulement</button><button type="button" data-i="2">$2$, $2j$, $2j^{2}$</button><button type="button" data-i="3">$8$ et $\pm8i$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On multiplie la racine réelle par les racines cubiques de l'unité.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">9</span>Pour résoudre $z^{n}=a$, on écrit :</h3>
+    <div class="choix"><button type="button" data-i="0">$a$ sous forme exponentielle</button><button type="button" data-i="1">$n=1$</button><button type="button" data-i="2">$z=0$</button><button type="button" data-i="3">$a$ sous forme algébrique</button></div>
+    <p class="expl"><strong>Réponse :</strong> Puis on répartit les arguments.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">10</span>Une équation polynomiale de degré $n$ a, dans $\C$ :</h3>
+    <div class="choix"><button type="button" data-i="0">au plus une</button><button type="button" data-i="1">$n-1$ racines</button><button type="button" data-i="2">aucune</button><button type="button" data-i="3">$n$ racines comptées avec multiplicité</button></div>
+    <p class="expl"><strong>Réponse :</strong> Théorème de d'Alembert-Gauss.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">11</span>Les solutions de $z^{2}=1+i$ ont pour module :</h3>
+    <div class="choix"><button type="button" data-i="0">$2$</button><button type="button" data-i="1">$1$</button><button type="button" data-i="2">$\sqrt[4]{2}$</button><button type="button" data-i="3">$\sqrt2$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $|1+i|=\sqrt2$ et $|z|^{2}=\sqrt2$, donc $|z|=\sqrt[4]{2}$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">12</span>$e^{i\theta}+e^{-i\theta}$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$2i\sin\theta$</button><button type="button" data-i="1">$2\cos\theta$</button><button type="button" data-i="2">$\cos\theta$</button><button type="button" data-i="3">$0$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Formules d'Euler.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">13</span>$e^{i\theta}-e^{-i\theta}$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$2\cos\theta$</button><button type="button" data-i="1">$2\sin\theta$</button><button type="button" data-i="2">$2i\sin\theta$</button><button type="button" data-i="3">$0$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Formules d'Euler.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">14</span>$\cos\theta$ s'écrit :</h3>
+    <div class="choix"><button type="button" data-i="0">$2e^{i\theta}$</button><button type="button" data-i="1">$\dfrac{e^{i\theta}-e^{-i\theta}}{2}$</button><button type="button" data-i="2">$\dfrac{e^{i\theta}+e^{-i\theta}}{2}$</button><button type="button" data-i="3">$e^{i\theta}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Euler.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">15</span>Linéariser $\cos^{2}\theta$ donne :</h3>
+    <div class="choix"><button type="button" data-i="0">$\cos2\theta$</button><button type="button" data-i="1">$\dfrac{1+\cos2\theta}{2}$</button><button type="button" data-i="2">$2\cos\theta$</button><button type="button" data-i="3">$\dfrac{1-\cos2\theta}{2}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Formule de duplication.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">16</span>$(1+i)^{2}$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$1+2i$</button><button type="button" data-i="1">$2i$</button><button type="button" data-i="2">$-2$</button><button type="button" data-i="3">$2$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $1+2i+i^{2}=2i$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">17</span>Un argument de $-1+i$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$-\dfrac{\pi}{4}$</button><button type="button" data-i="1">$\dfrac{\pi}{2}$</button><button type="button" data-i="2">$\dfrac{3\pi}{4}$</button><button type="button" data-i="3">$\dfrac{\pi}{4}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $|{-1+i}|=\sqrt2$ et le point est dans le deuxième quadrant.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">18</span>$z\bar z$ pour $z=2+3i$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$6$</button><button type="button" data-i="1">$-5$</button><button type="button" data-i="2">$13$</button><button type="button" data-i="3">$5$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $4+9=13$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">19</span>Le quotient $\dfrac{z_1}{z_2}$ a pour module :</h3>
+    <div class="choix"><button type="button" data-i="0">$|z_1||z_2|$</button><button type="button" data-i="1">$|z_1|+|z_2|$</button><button type="button" data-i="2">$|z_1|-|z_2|$</button><button type="button" data-i="3">$\dfrac{|z_1|}{|z_2|}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Le module est compatible avec le quotient.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">20</span>Si $z=e^{i\theta}$, alors $\bar z$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$-e^{i\theta}$</button><button type="button" data-i="1">$e^{i\pi\theta}$</button><button type="button" data-i="2">$e^{i\theta}$</button><button type="button" data-i="3">$e^{-i\theta}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Conjugaison : l'argument change de signe.</p>
+  </article>
+  <section class="fin" id="fin" hidden>
+    <strong>Quiz terminé</strong>
+    <p id="fin-texte"></p>
+    <button class="btn" type="button" id="recommencer">Recommencer</button>
+    <a class="btn btn-secondaire" href="../index.html">Retour au site</a>
+  </section>
+</main>
+<script>
+(function () {
+  var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+  var total = cartes.length, bonnes = 0, repondues = 0;
+  var scoreEl = document.getElementById('score');
+  var barre = document.getElementById('barre');
+  var fin = document.getElementById('fin');
+
+  function majScore() {
+    scoreEl.textContent = bonnes + ' / ' + total;
+    barre.style.width = (100 * repondues / total) + '%';
+    if (repondues === total) {
+      fin.hidden = false;
+      var msg = bonnes === total ? 'Sans faute, bravo !'
+        : bonnes >= 0.8 * total ? 'Très bon score, continuez comme ça.'
+        : bonnes >= 0.5 * total ? 'C\'est correct, mais quelques révisions s\'imposent.'
+        : 'À retravailler : reprenez le cours et les exercices du chapitre.';
+      document.getElementById('fin-texte').textContent = msg;
+    }
+  }
+
+  cartes.forEach(function (carte) {
+    var bonne = parseInt(carte.dataset.bonne, 10);
+    var boutons = Array.prototype.slice.call(carte.querySelectorAll('.choix button'));
+    var expl = carte.querySelector('.expl');
+    boutons.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        if (carte.dataset.fait) return;
+        carte.dataset.fait = '1';
+        repondues++;
+        if (i === bonne) {
+          b.classList.add('juste');
+          bonnes++;
+        } else {
+          b.classList.add('faux');
+          boutons[bonne].classList.add('oublie');
+        }
+        boutons.forEach(function (x) { x.disabled = true; });
+        expl.classList.add('visible');
+        majScore();
+      });
+    });
+  });
+
+  document.getElementById('recommencer').addEventListener('click', function () {
+    window.location.reload();
+  });
+})();
+</script>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

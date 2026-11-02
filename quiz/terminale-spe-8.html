@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz — Équations différentielles</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['$', '$']] }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.quiz-entete{max-width:820px;margin:0 auto 1.4rem}
+.quiz-entete h1{margin:.2rem 0 .3rem;font-size:1.6rem}
+.quiz-entete p{margin:.2rem 0;opacity:.85}
+.barre{height:10px;border-radius:6px;background:#e8edf3;overflow:hidden;margin:.8rem 0}
+.barre > span{display:block;height:100%;width:0;background:var(--couleur,#3182ce);transition:width .25s}
+.quiz-score{font-weight:600}
+.question{max-width:820px;margin:0 auto 1rem;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1rem 1.2rem;box-shadow:0 2px 8px rgba(16,42,67,.06)}
+.question h3{margin:.1rem 0 .7rem;font-size:1.02rem;font-weight:600;line-height:1.45}
+.question .num{display:inline-block;min-width:1.9rem;height:1.9rem;line-height:1.9rem;
+  text-align:center;border-radius:50%;background:var(--couleur,#3182ce);
+  color:var(--sur-couleur,#fff);font-size:.85rem;margin-right:.5rem;font-weight:700}
+.choix{display:grid;gap:.5rem}
+.choix button{text-align:left;padding:.6rem .8rem;border-radius:10px;border:1px solid #d7e0ea;
+  background:#fbfdff;cursor:pointer;font-size:.98rem;font-family:inherit;line-height:1.4}
+.choix button:hover:not(:disabled){border-color:var(--couleur,#3182ce);background:#f2f8ff}
+.choix button:disabled{cursor:default}
+.choix button.juste{background:#e6f7ee;border-color:#2f9e63;color:#166534;font-weight:600}
+.choix button.faux{background:#fdeaea;border-color:#d64545;color:#8a1c1c}
+.choix button.oublie{border-color:#2f9e63;border-style:dashed}
+.figure{margin:.6rem 0 .2rem;text-align:center}
+.figure img{max-width:min(100%,420px);height:auto;border:1px solid #dfe6ee;border-radius:10px;background:#fff;padding:4px}
+.expl{margin:.7rem 0 0;font-size:.92rem;background:#f4f7fb;border-left:3px solid var(--couleur,#3182ce);
+  padding:.5rem .7rem;border-radius:6px;display:none}
+.expl.visible{display:block}
+.fin{max-width:820px;margin:1.4rem auto;text-align:center;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1.2rem}
+.fin strong{font-size:1.25rem}
+.fin .btn{margin:.7rem .3rem 0}
+</style>
+</head>
+<body style="--couleur:#6b46c1; --couleur-fonce:#6b46c1; --sur-couleur:#fff">
+<main style="padding:2rem 1.2rem 3rem">
+  <header class="quiz-entete">
+    <p><a href="../index.html">← Retour au site</a></p>
+    <h1>Quiz — Équations différentielles</h1>
+    <p>Terminale spécialité · chapitre 8 · 20 questions</p>
+    <p class="quiz-score">Score : <span id="score">0 / 20</span></p>
+    <div class="barre"><span id="barre"></span></div>
+  </header>
+
+  <article class="question" data-bonne="1">
+    <h3><span class="num">1</span>Une équation différentielle est une équation qui relie :</h3>
+    <div class="choix"><button type="button" data-i="0">deux suites</button><button type="button" data-i="1">une fonction et ses dérivées</button><button type="button" data-i="2">une fonction et son intégrale seulement</button><button type="button" data-i="3">deux nombres</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est la définition.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">2</span>Les solutions de l'équation $y'=0$ sur $\mathbb{R}$ sont :</h3>
+    <div class="choix"><button type="button" data-i="0">les exponentielles</button><button type="button" data-i="1">la fonction nulle seulement</button><button type="button" data-i="2">les fonctions affines</button><button type="button" data-i="3">les fonctions constantes</button></div>
+    <p class="expl"><strong>Réponse :</strong> Une dérivée nulle caractérise une fonction constante.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">3</span>Les solutions de l'équation $y'=ay$ (avec $a$ réel) sont :</h3>
+    <div class="choix"><button type="button" data-i="0">$y(x)=C\mathrm{e}^{x/a}$</button><button type="button" data-i="1">$y(x)=C+x$</button><button type="button" data-i="2">$y(x)=C\mathrm{e}^{ax}$</button><button type="button" data-i="3">$y(x)=a\mathrm{e}^{x}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Ce sont les fonctions exponentielles de paramètre $a$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">4</span>Les solutions de $y'=2y$ sont :</h3>
+    <div class="choix"><button type="button" data-i="0">$y(x)=C\mathrm{e}^{x}$</button><button type="button" data-i="1">$y(x)=C\mathrm{e}^{2x}$</button><button type="button" data-i="2">$y(x)=C+2x$</button><button type="button" data-i="3">$y(x)=2\mathrm{e}^{x}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $a=2$ dans la formule générale.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">5</span>La solution de $y'=y$ telle que $y(0)=3$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$y(x)=3\mathrm{e}^{x}$</button><button type="button" data-i="1">$y(x)=3$</button><button type="button" data-i="2">$y(x)=\mathrm{e}^{3x}$</button><button type="button" data-i="3">$y(x)=\mathrm{e}^{x}+3$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $y(x)=C\mathrm{e}^{x}$ et $y(0)=C=3$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">6</span>Les solutions de $y'+2y=0$ sont :</h3>
+    <div class="choix"><button type="button" data-i="0">$y(x)=C\mathrm{e}^{2x}$</button><button type="button" data-i="1">$y(x)=C-2y$</button><button type="button" data-i="2">$y(x)=-2x+C$</button><button type="button" data-i="3">$y(x)=C\mathrm{e}^{-2x}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On écrit $y'=-2y$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">7</span>La solution de $y'=3y$ telle que $y(0)=1$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$y(x)=3\mathrm{e}^{x}$</button><button type="button" data-i="1">$y(x)=\mathrm{e}^{3x}$</button><button type="button" data-i="2">$y(x)=3x$</button><button type="button" data-i="3">$y(x)=\mathrm{e}^{x}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $y(x)=C\mathrm{e}^{3x}$ avec $C=1$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">8</span>Une condition initiale permet de :</h3>
+    <div class="choix"><button type="button" data-i="0">rendre l'équation linéaire</button><button type="button" data-i="1">déterminer la constante dans la solution générale</button><button type="button" data-i="2">supprimer l'exponentielle</button><button type="button" data-i="3">calculer une intégrale</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est la donnée de $y(x_0)$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">9</span>Les solutions de $y'=2y+1$ comportent une solution particulière constante égale à :</h3>
+    <div class="choix"><button type="button" data-i="0">$\dfrac{1}{2}$</button><button type="button" data-i="1">$-2$</button><button type="button" data-i="2">$-\dfrac{1}{2}$</button><button type="button" data-i="3">$2$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Si $y$ est constante, $0=2y+1$, donc $y=-\dfrac{1}{2}$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">10</span>La solution de $y'=0$ avec $y(0)=5$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$y(x)=5x$</button><button type="button" data-i="1">$y(x)=0$</button><button type="button" data-i="2">$y(x)=\mathrm{e}^{5x}$</button><button type="button" data-i="3">$y(x)=5$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Les solutions sont constantes et valent $5$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">11</span>Les solutions de $y'=-y$ sont :</h3>
+    <div class="choix"><button type="button" data-i="0">$y(x)=C-x$</button><button type="button" data-i="1">$y(x)=C\mathrm{e}^{-x}$</button><button type="button" data-i="2">$y(x)=C\mathrm{e}^{x}$</button><button type="button" data-i="3">$y(x)=-C\mathrm{e}^{x}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $a=-1$ dans la formule générale.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">12</span>Les solutions de $y'=0{,}5y$ sont :</h3>
+    <div class="choix"><button type="button" data-i="0">$y(x)=C\mathrm{e}^{2x}$</button><button type="button" data-i="1">$y(x)=C+0{,}5x$</button><button type="button" data-i="2">$y(x)=C\mathrm{e}^{0{,}5x}$</button><button type="button" data-i="3">$y(x)=0{,}5\mathrm{e}^{x}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $a=0{,}5$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">13</span>La solution de $y'=y$ avec $y(0)=0$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$y(x)=\mathrm{e}^{x}$</button><button type="button" data-i="1">la fonction nulle</button><button type="button" data-i="2">$y(x)=1$</button><button type="button" data-i="3">$y(x)=x$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $C=0$ : la solution est identiquement nulle.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">14</span>Pour vérifier qu'une fonction est solution d'une équation différentielle, on :</h3>
+    <div class="choix"><button type="button" data-i="0">calcule une primitive</button><button type="button" data-i="1">trace sa courbe</button><button type="button" data-i="2">cherche son ensemble de définition</button><button type="button" data-i="3">calcule sa dérivée et reporte dans l'équation</button></div>
+    <p class="expl"><strong>Réponse :</strong> On vérifie l'égalité pour tout $x$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">15</span>Les solutions de $y''=0$ sur $\mathbb{R}$ sont :</h3>
+    <div class="choix"><button type="button" data-i="0">les fonctions affines</button><button type="button" data-i="1">les fonctions constantes</button><button type="button" data-i="2">les polynômes de degré $2$</button><button type="button" data-i="3">les exponentielles</button></div>
+    <p class="expl"><strong>Réponse :</strong> $y'=C$ puis $y=Cx+D$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">16</span>Combien de solutions l'équation $y'=2y$ avec $y(0)=1$ admet-elle ?</h3>
+    <div class="choix"><button type="button" data-i="0">deux</button><button type="button" data-i="1">une infinité</button><button type="button" data-i="2">une seule</button><button type="button" data-i="3">aucune</button></div>
+    <p class="expl"><strong>Réponse :</strong> La condition initiale fixe la constante.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">17</span>Pour l'équation $y'=ay$ avec $a<0$, le sens de variation d'une solution :</h3>
+    <div class="choix"><button type="button" data-i="0">est constant</button><button type="button" data-i="1">est toujours décroissant</button><button type="button" data-i="2">est toujours croissant</button><button type="button" data-i="3">dépend du signe de la constante $C$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Les solutions s'écrivent $y(x)=C\mathrm{e}^{ax}$. Si $C>0$, la fonction est décroissante (elle tend vers $0$) ; si $C<0$, elle est croissante (elle part d'un nombre négatif et tend vers $0$). Par exemple $y(0)=-1$ donne $y(x)=-\mathrm{e}^{ax}$, qui est croissante.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">18</span>La solution générale de $y'=4y$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$y(x)=4\mathrm{e}^{Cx}$</button><button type="button" data-i="1">$y(x)=C\mathrm{e}^{4x}$</button><button type="button" data-i="2">$y(x)=C\mathrm{e}^{x/4}$</button><button type="button" data-i="3">$y(x)=4Cx$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Forme $C\mathrm{e}^{ax}$ avec $a=4$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">19</span>La solution de $y'=y$ telle que $y(1)=0$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$y(x)=\mathrm{e}^{x}$</button><button type="button" data-i="1">la fonction nulle</button><button type="button" data-i="2">$y(x)=\mathrm{e}^{x-1}$</button><button type="button" data-i="3">$y(x)=x-1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $C\mathrm{e}^{1}=0$ donne $C=0$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">20</span>L'équation $y'=y$ signifie que :</h3>
+    <div class="choix"><button type="button" data-i="0">la fonction est constante</button><button type="button" data-i="1">la fonction est affine</button><button type="button" data-i="2">la fonction est égale à sa dérivée</button><button type="button" data-i="3">la fonction est nulle</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est la propriété caractéristique de l'exponentielle.</p>
+  </article>
+  <section class="fin" id="fin" hidden>
+    <strong>Quiz terminé</strong>
+    <p id="fin-texte"></p>
+    <button class="btn" type="button" id="recommencer">Recommencer</button>
+    <a class="btn btn-secondaire" href="../index.html">Retour au site</a>
+  </section>
+</main>
+<script>
+(function () {
+  var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+  var total = cartes.length, bonnes = 0, repondues = 0;
+  var scoreEl = document.getElementById('score');
+  var barre = document.getElementById('barre');
+  var fin = document.getElementById('fin');
+
+  function majScore() {
+    scoreEl.textContent = bonnes + ' / ' + total;
+    barre.style.width = (100 * repondues / total) + '%';
+    if (repondues === total) {
+      fin.hidden = false;
+      var msg = bonnes === total ? 'Sans faute, bravo !'
+        : bonnes >= 0.8 * total ? 'Très bon score, continuez comme ça.'
+        : bonnes >= 0.5 * total ? 'C\'est correct, mais quelques révisions s\'imposent.'
+        : 'À retravailler : reprenez le cours et les exercices du chapitre.';
+      document.getElementById('fin-texte').textContent = msg;
+    }
+  }
+
+  cartes.forEach(function (carte) {
+    var bonne = parseInt(carte.dataset.bonne, 10);
+    var boutons = Array.prototype.slice.call(carte.querySelectorAll('.choix button'));
+    var expl = carte.querySelector('.expl');
+    boutons.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        if (carte.dataset.fait) return;
+        carte.dataset.fait = '1';
+        repondues++;
+        if (i === bonne) {
+          b.classList.add('juste');
+          bonnes++;
+        } else {
+          b.classList.add('faux');
+          boutons[bonne].classList.add('oublie');
+        }
+        boutons.forEach(function (x) { x.disabled = true; });
+        expl.classList.add('visible');
+        majScore();
+      });
+    });
+  });
+
+  document.getElementById('recommencer').addEventListener('click', function () {
+    window.location.reload();
+  });
+})();
+</script>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

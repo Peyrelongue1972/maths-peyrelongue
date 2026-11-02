@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz — Fonction logarithme népérien</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['$', '$']] }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.quiz-entete{max-width:820px;margin:0 auto 1.4rem}
+.quiz-entete h1{margin:.2rem 0 .3rem;font-size:1.6rem}
+.quiz-entete p{margin:.2rem 0;opacity:.85}
+.barre{height:10px;border-radius:6px;background:#e8edf3;overflow:hidden;margin:.8rem 0}
+.barre > span{display:block;height:100%;width:0;background:var(--couleur,#3182ce);transition:width .25s}
+.quiz-score{font-weight:600}
+.question{max-width:820px;margin:0 auto 1rem;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1rem 1.2rem;box-shadow:0 2px 8px rgba(16,42,67,.06)}
+.question h3{margin:.1rem 0 .7rem;font-size:1.02rem;font-weight:600;line-height:1.45}
+.question .num{display:inline-block;min-width:1.9rem;height:1.9rem;line-height:1.9rem;
+  text-align:center;border-radius:50%;background:var(--couleur,#3182ce);
+  color:var(--sur-couleur,#fff);font-size:.85rem;margin-right:.5rem;font-weight:700}
+.choix{display:grid;gap:.5rem}
+.choix button{text-align:left;padding:.6rem .8rem;border-radius:10px;border:1px solid #d7e0ea;
+  background:#fbfdff;cursor:pointer;font-size:.98rem;font-family:inherit;line-height:1.4}
+.choix button:hover:not(:disabled){border-color:var(--couleur,#3182ce);background:#f2f8ff}
+.choix button:disabled{cursor:default}
+.choix button.juste{background:#e6f7ee;border-color:#2f9e63;color:#166534;font-weight:600}
+.choix button.faux{background:#fdeaea;border-color:#d64545;color:#8a1c1c}
+.choix button.oublie{border-color:#2f9e63;border-style:dashed}
+.figure{margin:.6rem 0 .2rem;text-align:center}
+.figure img{max-width:min(100%,420px);height:auto;border:1px solid #dfe6ee;border-radius:10px;background:#fff;padding:4px}
+.expl{margin:.7rem 0 0;font-size:.92rem;background:#f4f7fb;border-left:3px solid var(--couleur,#3182ce);
+  padding:.5rem .7rem;border-radius:6px;display:none}
+.expl.visible{display:block}
+.fin{max-width:820px;margin:1.4rem auto;text-align:center;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1.2rem}
+.fin strong{font-size:1.25rem}
+.fin .btn{margin:.7rem .3rem 0}
+</style>
+</head>
+<body style="--couleur:#6b46c1; --couleur-fonce:#6b46c1; --sur-couleur:#fff">
+<main style="padding:2rem 1.2rem 3rem">
+  <header class="quiz-entete">
+    <p><a href="../index.html">← Retour au site</a></p>
+    <h1>Quiz — Fonction logarithme népérien</h1>
+    <p>Terminale spécialité · chapitre 6 · 20 questions</p>
+    <p class="quiz-score">Score : <span id="score">0 / 20</span></p>
+    <div class="barre"><span id="barre"></span></div>
+  </header>
+
+  <article class="question" data-bonne="3">
+    <h3><span class="num">1</span>$\ln(1)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$\mathrm{e}$</button><button type="button" data-i="1">$-1$</button><button type="button" data-i="2">$1$</button><button type="button" data-i="3">$0$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\ln(1)=0$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">2</span>$\ln(\mathrm{e})$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$1$</button><button type="button" data-i="1">$\mathrm{e}$</button><button type="button" data-i="2">$2$</button><button type="button" data-i="3">$0$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\ln(\mathrm{e})=1$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">3</span>Pour tous réels $a>0$ et $b>0$, $\ln(ab)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$\ln(a)\times\ln(b)$</button><button type="button" data-i="1">$\ln(a)+\ln(b)$</button><button type="button" data-i="2">$\ln(a)-\ln(b)$</button><button type="button" data-i="3">$\ln(a+b)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Le logarithme transforme le produit en somme.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">4</span>Pour tous réels $a>0$ et $b>0$, $\ln\left(\dfrac{a}{b}\right)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$\ln(a-b)$</button><button type="button" data-i="1">$\ln(a)-\ln(b)$</button><button type="button" data-i="2">$\dfrac{\ln a}{\ln b}$</button><button type="button" data-i="3">$\ln(a)+\ln(b)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Le quotient devient une différence.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">5</span>Pour tout $a>0$ et tout entier $n$, $\ln(a^{n})$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$(\ln a)^{n}$</button><button type="button" data-i="1">$\dfrac{\ln a}{n}$</button><button type="button" data-i="2">$n+\ln(a)$</button><button type="button" data-i="3">$n\ln(a)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> La puissance devient un facteur.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">6</span>Pour tout $a>0$, $\ln\left(\dfrac{1}{a}\right)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$\ln(a)$</button><button type="button" data-i="1">$-\ln(a)$</button><button type="button" data-i="2">$\dfrac{1}{\ln a}$</button><button type="button" data-i="3">$\ln(a)-1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\ln(1)-\ln(a)=-\ln(a)$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">7</span>La fonction logarithme népérien est définie sur :</h3>
+    <div class="choix"><button type="button" data-i="0">$\mathbb{R}^{*}$</button><button type="button" data-i="1">$]0\,;+\infty[$</button><button type="button" data-i="2">$\mathbb{R}$</button><button type="button" data-i="3">$[0\,;+\infty[$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On ne prend le logarithme que de nombres strictement positifs.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">8</span>La dérivée de $\ln(x)$ sur $]0\,;+\infty[$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$x$</button><button type="button" data-i="1">$\dfrac{1}{x}$</button><button type="button" data-i="2">$\ln(x)$</button><button type="button" data-i="3">$-\dfrac{1}{x^{2}}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est la dérivée de référence.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">9</span>Sur $]0\,;+\infty[$, la fonction $\ln$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">strictement décroissante</button><button type="button" data-i="1">constante</button><button type="button" data-i="2">non monotone</button><button type="button" data-i="3">strictement croissante</button></div>
+    <p class="expl"><strong>Réponse :</strong> Sa dérivée $\dfrac{1}{x}$ est positive.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">10</span>Pour tout réel $x$, $\ln\left(\mathrm{e}^{x}\right)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$\mathrm{e}^{x}$</button><button type="button" data-i="1">$\ln(x)$</button><button type="button" data-i="2">$1$</button><button type="button" data-i="3">$x$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Les fonctions $\ln$ et $\exp$ sont réciproques.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">11</span>Pour tout réel $x>0$, $\mathrm{e}^{\ln(x)}$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$0$</button><button type="button" data-i="1">$\mathrm{e}^{x}$</button><button type="button" data-i="2">$x$</button><button type="button" data-i="3">$\ln(x)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Ce sont deux fonctions réciproques.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">12</span>$\ln(2)+\ln(3)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$\ln(5)$</button><button type="button" data-i="1">$\ln(2)\times\ln(3)$</button><button type="button" data-i="2">$\ln(6)$</button><button type="button" data-i="3">$\ln(23)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\ln(2\times3)=\ln(6)$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">13</span>$\ln(8)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$3\ln(2)$</button><button type="button" data-i="1">$\ln(3)$</button><button type="button" data-i="2">$\ln(2)+\ln(3)$</button><button type="button" data-i="3">$2\ln(3)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $8=2^{3}$, donc $\ln(8)=3\ln(2)$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">14</span>L'équation $\ln(x)=0$ a pour solution :</h3>
+    <div class="choix"><button type="button" data-i="0">$x=0$</button><button type="button" data-i="1">$x=1$</button><button type="button" data-i="2">$x=\mathrm{e}$</button><button type="button" data-i="3">aucune solution</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\ln(1)=0$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">15</span>L'inéquation $\ln(x)<0$ a pour ensemble de solutions :</h3>
+    <div class="choix"><button type="button" data-i="0">$]0\,;1[$</button><button type="button" data-i="1">$]0\,;+\infty[$</button><button type="button" data-i="2">$]1\,;+\infty[$</button><button type="button" data-i="3">$]-\infty\,;1[$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\ln$ est croissante et $\ln(1)=0$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">16</span>$\lim\limits_{x\to0^{+}}\ln(x)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$-\infty$</button><button type="button" data-i="1">$1$</button><button type="button" data-i="2">$+\infty$</button><button type="button" data-i="3">$0$</button></div>
+    <p class="expl"><strong>Réponse :</strong> La courbe admet l'axe des ordonnées pour asymptote verticale.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">17</span>$\ln\left(\sqrt{2}\right)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$2\ln(2)$</button><button type="button" data-i="1">$\dfrac{1}{2}\ln(2)$</button><button type="button" data-i="2">$\ln(2)$</button><button type="button" data-i="3">$\sqrt{\ln(2)}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\sqrt{2}=2^{1/2}$, donc $\ln\left(\sqrt2\right)=\dfrac{1}{2}\ln 2$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">18</span>$\ln\left(\mathrm{e}^{2}\right)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$2$</button><button type="button" data-i="1">$\ln(2)$</button><button type="button" data-i="2">$\mathrm{e}^{2}$</button><button type="button" data-i="3">$2\mathrm{e}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\ln\left(\mathrm{e}^{2}\right)=2$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">19</span>La dérivée de $\ln(2x)$ sur $]0\,;+\infty[$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$\dfrac{1}{x}$</button><button type="button" data-i="1">$\dfrac{2}{x}$</button><button type="button" data-i="2">$2\ln(x)$</button><button type="button" data-i="3">$\dfrac{1}{2x}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\ln(2x)=\ln(2)+\ln(x)$, de dérivée $\dfrac{1}{x}$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">20</span>Pour $a>0$ et $b>0$, l'égalité $\ln(ab)=\ln(a)\times\ln(b)$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">vraie seulement pour $a=1$</button><button type="button" data-i="1">fausse</button><button type="button" data-i="2">vraie</button><button type="button" data-i="3">vraie seulement si $a=b$</button></div>
+    <p class="expl"><strong>Réponse :</strong> La bonne formule est $\ln(ab)=\ln(a)+\ln(b)$.</p>
+  </article>
+  <section class="fin" id="fin" hidden>
+    <strong>Quiz terminé</strong>
+    <p id="fin-texte"></p>
+    <button class="btn" type="button" id="recommencer">Recommencer</button>
+    <a class="btn btn-secondaire" href="../index.html">Retour au site</a>
+  </section>
+</main>
+<script>
+(function () {
+  var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+  var total = cartes.length, bonnes = 0, repondues = 0;
+  var scoreEl = document.getElementById('score');
+  var barre = document.getElementById('barre');
+  var fin = document.getElementById('fin');
+
+  function majScore() {
+    scoreEl.textContent = bonnes + ' / ' + total;
+    barre.style.width = (100 * repondues / total) + '%';
+    if (repondues === total) {
+      fin.hidden = false;
+      var msg = bonnes === total ? 'Sans faute, bravo !'
+        : bonnes >= 0.8 * total ? 'Très bon score, continuez comme ça.'
+        : bonnes >= 0.5 * total ? 'C\'est correct, mais quelques révisions s\'imposent.'
+        : 'À retravailler : reprenez le cours et les exercices du chapitre.';
+      document.getElementById('fin-texte').textContent = msg;
+    }
+  }
+
+  cartes.forEach(function (carte) {
+    var bonne = parseInt(carte.dataset.bonne, 10);
+    var boutons = Array.prototype.slice.call(carte.querySelectorAll('.choix button'));
+    var expl = carte.querySelector('.expl');
+    boutons.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        if (carte.dataset.fait) return;
+        carte.dataset.fait = '1';
+        repondues++;
+        if (i === bonne) {
+          b.classList.add('juste');
+          bonnes++;
+        } else {
+          b.classList.add('faux');
+          boutons[bonne].classList.add('oublie');
+        }
+        boutons.forEach(function (x) { x.disabled = true; });
+        expl.classList.add('visible');
+        majScore();
+      });
+    });
+  });
+
+  document.getElementById('recommencer').addEventListener('click', function () {
+    window.location.reload();
+  });
+})();
+</script>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

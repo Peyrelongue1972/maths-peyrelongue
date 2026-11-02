@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz — Statistique à deux variables</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['$', '$']] }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.quiz-entete{max-width:820px;margin:0 auto 1.4rem}
+.quiz-entete h1{margin:.2rem 0 .3rem;font-size:1.6rem}
+.quiz-entete p{margin:.2rem 0;opacity:.85}
+.barre{height:10px;border-radius:6px;background:#e8edf3;overflow:hidden;margin:.8rem 0}
+.barre > span{display:block;height:100%;width:0;background:var(--couleur,#3182ce);transition:width .25s}
+.quiz-score{font-weight:600}
+.question{max-width:820px;margin:0 auto 1rem;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1rem 1.2rem;box-shadow:0 2px 8px rgba(16,42,67,.06)}
+.question h3{margin:.1rem 0 .7rem;font-size:1.02rem;font-weight:600;line-height:1.45}
+.question .num{display:inline-block;min-width:1.9rem;height:1.9rem;line-height:1.9rem;
+  text-align:center;border-radius:50%;background:var(--couleur,#3182ce);
+  color:var(--sur-couleur,#fff);font-size:.85rem;margin-right:.5rem;font-weight:700}
+.choix{display:grid;gap:.5rem}
+.choix button{text-align:left;padding:.6rem .8rem;border-radius:10px;border:1px solid #d7e0ea;
+  background:#fbfdff;cursor:pointer;font-size:.98rem;font-family:inherit;line-height:1.4}
+.choix button:hover:not(:disabled){border-color:var(--couleur,#3182ce);background:#f2f8ff}
+.choix button:disabled{cursor:default}
+.choix button.juste{background:#e6f7ee;border-color:#2f9e63;color:#166534;font-weight:600}
+.choix button.faux{background:#fdeaea;border-color:#d64545;color:#8a1c1c}
+.choix button.oublie{border-color:#2f9e63;border-style:dashed}
+.figure{margin:.6rem 0 .2rem;text-align:center}
+.figure img{max-width:min(100%,420px);height:auto;border:1px solid #dfe6ee;border-radius:10px;background:#fff;padding:4px}
+.expl{margin:.7rem 0 0;font-size:.92rem;background:#f4f7fb;border-left:3px solid var(--couleur,#3182ce);
+  padding:.5rem .7rem;border-radius:6px;display:none}
+.expl.visible{display:block}
+.fin{max-width:820px;margin:1.4rem auto;text-align:center;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1.2rem}
+.fin strong{font-size:1.25rem}
+.fin .btn{margin:.7rem .3rem 0}
+</style>
+</head>
+<body style="--couleur:#97266d; --couleur-fonce:#97266d; --sur-couleur:#fff">
+<main style="padding:2rem 1.2rem 3rem">
+  <header class="quiz-entete">
+    <p><a href="../index.html">← Retour au site</a></p>
+    <h1>Quiz — Statistique à deux variables</h1>
+    <p>Terminale STMG · chapitre 9 · 20 questions</p>
+    <p class="quiz-score">Score : <span id="score">0 / 20</span></p>
+    <div class="barre"><span id="barre"></span></div>
+  </header>
+
+  <article class="question" data-bonne="3">
+    <h3><span class="num">1</span>Une série statistique à deux variables est une série où, pour chaque individu, on relève :</h3>
+    <div class="choix"><button type="button" data-i="0">un caractère qualitatif</button><button type="button" data-i="1">un seul caractère</button><button type="button" data-i="2">deux qualités</button><button type="button" data-i="3">deux caractères quantitatifs</button></div>
+    <p class="expl"><strong>Réponse :</strong> On étudie le lien entre deux grandeurs.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">2</span>Le nuage de points d'une série à deux variables a pour coordonnées :</h3>
+    <div class="choix"><button type="button" data-i="0">$(y_{i}\,;x_{i})$ seulement</button><button type="button" data-i="1">$(x_{i}\,;y_{i})$</button><button type="button" data-i="2">$(n_{i}\,;x_{i})$</button><button type="button" data-i="3">$(x_{i}\,;e_{i})$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Chaque individu donne un point du plan.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">3</span>Le point moyen d'un nuage a pour coordonnées :</h3>
+    <div class="choix"><button type="button" data-i="0">le point le plus élevé</button><button type="button" data-i="1">$\left(\overline{x}\,;\overline{y}\right)$</button><button type="button" data-i="2">$\left(\overline{x}\,;\overline{x}\right)$</button><button type="button" data-i="3">$(0\,;0)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est le couple des moyennes.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">4</span>Un ajustement affine consiste à :</h3>
+    <div class="choix"><button type="button" data-i="0">supprimer les points aberrants</button><button type="button" data-i="1">calculer la médiane</button><button type="button" data-i="2">relier les points par une courbe</button><button type="button" data-i="3">trouver une droite qui passe au plus près des points</button></div>
+    <p class="expl"><strong>Réponse :</strong> On cherche une droite de régression.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">5</span>La droite de régression passe par :</h3>
+    <div class="choix"><button type="button" data-i="0">l'origine du repère</button><button type="button" data-i="1">le point moyen du nuage</button><button type="button" data-i="2">le premier point</button><button type="button" data-i="3">le dernier point</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est une propriété de la droite des moindres carrés.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">6</span>Le coefficient de corrélation linéaire $r$ est toujours compris entre :</h3>
+    <div class="choix"><button type="button" data-i="0">$0$ et $100$</button><button type="button" data-i="1">$-1$ et $0$</button><button type="button" data-i="2">$0$ et $1$</button><button type="button" data-i="3">$-1$ et $1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est la définition de ce coefficient.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">7</span>Un coefficient de corrélation $r$ proche de $1$ indique :</h3>
+    <div class="choix"><button type="button" data-i="0">aucune corrélation</button><button type="button" data-i="1">une corrélation linéaire négative</button><button type="button" data-i="2">une forte corrélation linéaire positive</button><button type="button" data-i="3">une erreur de calcul</button></div>
+    <p class="expl"><strong>Réponse :</strong> Les points sont alignés suivant une droite croissante.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">8</span>Un coefficient de corrélation $r$ proche de $0$ indique :</h3>
+    <div class="choix"><button type="button" data-i="0">que les points sont alignés</button><button type="button" data-i="1">une corrélation négative</button><button type="button" data-i="2">l'absence de corrélation linéaire</button><button type="button" data-i="3">une corrélation parfaite</button></div>
+    <p class="expl"><strong>Réponse :</strong> Les points ne suivent pas de direction privilégiée.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">9</span>Un coefficient de corrélation $r=-0{,}95$ indique :</h3>
+    <div class="choix"><button type="button" data-i="0">une forte corrélation linéaire négative</button><button type="button" data-i="1">une erreur</button><button type="button" data-i="2">aucune corrélation</button><button type="button" data-i="3">une forte corrélation positive</button></div>
+    <p class="expl"><strong>Réponse :</strong> Les points sont alignés suivant une droite décroissante.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">10</span>Une interpolation consiste à :</h3>
+    <div class="choix"><button type="button" data-i="0">estimer en dehors de la plage</button><button type="button" data-i="1">calculer la moyenne</button><button type="button" data-i="2">faire une estimation à l'intérieur de la plage de données</button><button type="button" data-i="3">tracer le nuage</button></div>
+    <p class="expl"><strong>Réponse :</strong> On reste dans le domaine observé.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">11</span>Une extrapolation consiste à :</h3>
+    <div class="choix"><button type="button" data-i="0">calculer un écart type</button><button type="button" data-i="1">faire une prévision en dehors de la plage de données</button><button type="button" data-i="2">supprimer une valeur</button><button type="button" data-i="3">rester dans la plage observée</button></div>
+    <p class="expl"><strong>Réponse :</strong> La fiabilité de la prévision diminue alors.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">12</span>Si l'on a dix valeurs de $x$ dont la somme vaut $30$, alors $\overline{x}$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$30$</button><button type="button" data-i="1">$0{,}3$</button><button type="button" data-i="2">$10$</button><button type="button" data-i="3">$3$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\overline{x}=\dfrac{30}{10}=3$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">13</span>Un ajustement affine est adapté lorsque :</h3>
+    <div class="choix"><button type="button" data-i="0">les points sont dispersés</button><button type="button" data-i="1">les points sont sensiblement alignés</button><button type="button" data-i="2">il n'y a que deux points</button><button type="button" data-i="3">les points forment une courbe</button></div>
+    <p class="expl"><strong>Réponse :</strong> On vérifie avec le coefficient de corrélation.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">14</span>La méthode utilisée pour déterminer la droite d'ajustement est celle :</h3>
+    <div class="choix"><button type="button" data-i="0">de la médiane</button><button type="button" data-i="1">du maximum</button><button type="button" data-i="2">des moindres carrés</button><button type="button" data-i="3">des moyennes mobiles</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est la méthode de régression.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">15</span>L'équation d'une droite d'ajustement s'écrit :</h3>
+    <div class="choix"><button type="button" data-i="0">$y=ax+b$</button><button type="button" data-i="1">$y=ax^{2}+b$</button><button type="button" data-i="2">$y=ax^{3}$</button><button type="button" data-i="3">$y=\ln(ax)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est une droite, donc une fonction affine.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">16</span>Pour faire une prévision à l'aide d'un ajustement affine, on :</h3>
+    <div class="choix"><button type="button" data-i="0">calcule la moyenne</button><button type="button" data-i="1">trace le nuage de points</button><button type="button" data-i="2">remplace $x$ par la valeur souhaitée dans l'équation</button><button type="button" data-i="3">calcule le coefficient $r$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On utilise l'équation de la droite.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">17</span>Avec $r=0{,}99$, on peut dire que :</h3>
+    <div class="choix"><button type="button" data-i="0">l'ajustement affine est très fiable</button><button type="button" data-i="1">le calcul est faux</button><button type="button" data-i="2">les variables sont indépendantes</button><button type="button" data-i="3">l'ajustement est mauvais</button></div>
+    <p class="expl"><strong>Réponse :</strong> $r$ très proche de $1$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">18</span>Dans l'équation $y=2{,}5x+10$, le coefficient $2{,}5$ représente :</h3>
+    <div class="choix"><button type="button" data-i="0">la valeur de $y$ pour $x=0$</button><button type="button" data-i="1">la moyenne de $x$</button><button type="button" data-i="2">l'augmentation de $y$ quand $x$ augmente de $1$</button><button type="button" data-i="3">le coefficient de corrélation</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est le coefficient directeur.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">19</span>Prévoir à long terme par extrapolation est :</h3>
+    <div class="choix"><button type="button" data-i="0">inutile</button><button type="button" data-i="1">impossible</button><button type="button" data-i="2">toujours fiable</button><button type="button" data-i="3">risqué, car rien ne garantit que le modèle reste valable</button></div>
+    <p class="expl"><strong>Réponse :</strong> L'ajustement n'est valable que sur la plage observée.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">20</span>Le point moyen d'un nuage $(3\,;5)$ signifie que :</h3>
+    <div class="choix"><button type="button" data-i="0">$x$ et $y$ valent $15$</button><button type="button" data-i="1">la moyenne des $x$ vaut $3$ et celle des $y$ vaut $5$</button><button type="button" data-i="2">il y a $15$ individus</button><button type="button" data-i="3">le coefficient vaut $0{,}6$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Les coordonnées sont les moyennes.</p>
+  </article>
+  <section class="fin" id="fin" hidden>
+    <strong>Quiz terminé</strong>
+    <p id="fin-texte"></p>
+    <button class="btn" type="button" id="recommencer">Recommencer</button>
+    <a class="btn btn-secondaire" href="../index.html">Retour au site</a>
+  </section>
+</main>
+<script>
+(function () {
+  var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+  var total = cartes.length, bonnes = 0, repondues = 0;
+  var scoreEl = document.getElementById('score');
+  var barre = document.getElementById('barre');
+  var fin = document.getElementById('fin');
+
+  function majScore() {
+    scoreEl.textContent = bonnes + ' / ' + total;
+    barre.style.width = (100 * repondues / total) + '%';
+    if (repondues === total) {
+      fin.hidden = false;
+      var msg = bonnes === total ? 'Sans faute, bravo !'
+        : bonnes >= 0.8 * total ? 'Très bon score, continuez comme ça.'
+        : bonnes >= 0.5 * total ? 'C\'est correct, mais quelques révisions s\'imposent.'
+        : 'À retravailler : reprenez le cours et les exercices du chapitre.';
+      document.getElementById('fin-texte').textContent = msg;
+    }
+  }
+
+  cartes.forEach(function (carte) {
+    var bonne = parseInt(carte.dataset.bonne, 10);
+    var boutons = Array.prototype.slice.call(carte.querySelectorAll('.choix button'));
+    var expl = carte.querySelector('.expl');
+    boutons.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        if (carte.dataset.fait) return;
+        carte.dataset.fait = '1';
+        repondues++;
+        if (i === bonne) {
+          b.classList.add('juste');
+          bonnes++;
+        } else {
+          b.classList.add('faux');
+          boutons[bonne].classList.add('oublie');
+        }
+        boutons.forEach(function (x) { x.disabled = true; });
+        expl.classList.add('visible');
+        majScore();
+      });
+    });
+  });
+
+  document.getElementById('recommencer').addEventListener('click', function () {
+    window.location.reload();
+  });
+})();
+</script>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

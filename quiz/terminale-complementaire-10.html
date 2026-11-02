@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz — Variables aléatoires continues</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['$', '$']] }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.quiz-entete{max-width:820px;margin:0 auto 1.4rem}
+.quiz-entete h1{margin:.2rem 0 .3rem;font-size:1.6rem}
+.quiz-entete p{margin:.2rem 0;opacity:.85}
+.barre{height:10px;border-radius:6px;background:#e8edf3;overflow:hidden;margin:.8rem 0}
+.barre > span{display:block;height:100%;width:0;background:var(--couleur,#3182ce);transition:width .25s}
+.quiz-score{font-weight:600}
+.question{max-width:820px;margin:0 auto 1rem;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1rem 1.2rem;box-shadow:0 2px 8px rgba(16,42,67,.06)}
+.question h3{margin:.1rem 0 .7rem;font-size:1.02rem;font-weight:600;line-height:1.45}
+.question .num{display:inline-block;min-width:1.9rem;height:1.9rem;line-height:1.9rem;
+  text-align:center;border-radius:50%;background:var(--couleur,#3182ce);
+  color:var(--sur-couleur,#fff);font-size:.85rem;margin-right:.5rem;font-weight:700}
+.choix{display:grid;gap:.5rem}
+.choix button{text-align:left;padding:.6rem .8rem;border-radius:10px;border:1px solid #d7e0ea;
+  background:#fbfdff;cursor:pointer;font-size:.98rem;font-family:inherit;line-height:1.4}
+.choix button:hover:not(:disabled){border-color:var(--couleur,#3182ce);background:#f2f8ff}
+.choix button:disabled{cursor:default}
+.choix button.juste{background:#e6f7ee;border-color:#2f9e63;color:#166534;font-weight:600}
+.choix button.faux{background:#fdeaea;border-color:#d64545;color:#8a1c1c}
+.choix button.oublie{border-color:#2f9e63;border-style:dashed}
+.figure{margin:.6rem 0 .2rem;text-align:center}
+.figure img{max-width:min(100%,420px);height:auto;border:1px solid #dfe6ee;border-radius:10px;background:#fff;padding:4px}
+.expl{margin:.7rem 0 0;font-size:.92rem;background:#f4f7fb;border-left:3px solid var(--couleur,#3182ce);
+  padding:.5rem .7rem;border-radius:6px;display:none}
+.expl.visible{display:block}
+.fin{max-width:820px;margin:1.4rem auto;text-align:center;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1.2rem}
+.fin strong{font-size:1.25rem}
+.fin .btn{margin:.7rem .3rem 0}
+</style>
+</head>
+<body style="--couleur:#1a365d; --couleur-fonce:#1a365d; --sur-couleur:#fff">
+<main style="padding:2rem 1.2rem 3rem">
+  <header class="quiz-entete">
+    <p><a href="../index.html">← Retour au site</a></p>
+    <h1>Quiz — Variables aléatoires continues</h1>
+    <p>Terminale complémentaire · chapitre 10 · 20 questions</p>
+    <p class="quiz-score">Score : <span id="score">0 / 20</span></p>
+    <div class="barre"><span id="barre"></span></div>
+  </header>
+
+  <article class="question" data-bonne="3">
+    <h3><span class="num">1</span>Une loi de probabilité continue est donnée par :</h3>
+    <div class="choix"><button type="button" data-i="0">un arbre</button><button type="button" data-i="1">une liste de probabilités</button><button type="button" data-i="2">un tableau de valeurs</button><button type="button" data-i="3">une densité</button></div>
+    <p class="expl"><strong>Réponse :</strong> $P(a\leqslant X\leqslant b)=\int_a^b f$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">2</span>Une densité $f$ vérifie :</h3>
+    <div class="choix"><button type="button" data-i="0">$f\leqslant1$</button><button type="button" data-i="1">$f$ nulle</button><button type="button" data-i="2">$f\geqslant0$ et $\int_{-\infty}^{+\infty}f=1$</button><button type="button" data-i="3">$f$ croissante</button></div>
+    <p class="expl"><strong>Réponse :</strong> Conditions d'une densité.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">3</span>Pour une loi continue, $P(X=a)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$1$</button><button type="button" data-i="1">$f(a)$</button><button type="button" data-i="2">$\dfrac12$</button><button type="button" data-i="3">$0$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Un point a une probabilité nulle.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">4</span>$P(a\leqslant X\leqslant b)$ se calcule par :</h3>
+    <div class="choix"><button type="button" data-i="0">$f(b)-f(a)$</button><button type="button" data-i="1">$f(a)+f(b)$</button><button type="button" data-i="2">$\displaystyle\int f'$</button><button type="button" data-i="3">$\displaystyle\int_a^b f(t)\,\mathrm dt$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On intègre la densité sur l'intervalle.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">5</span>L'espérance d'une loi continue de densité $f$ sur $[a\,;b]$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$\dfrac{a+b}{2}$ toujours</button><button type="button" data-i="1">$\displaystyle\int_a^b tf(t)\,\mathrm dt$</button><button type="button" data-i="2">$f(b)-f(a)$</button><button type="button" data-i="3">$\displaystyle\int_a^b f$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Moyenne pondérée par la densité.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">6</span>La loi uniforme sur $[a\,;b]$ a pour densité :</h3>
+    <div class="choix"><button type="button" data-i="0">$\dfrac{1}{b-a}$ sur $[a\,;b]$</button><button type="button" data-i="1">$x$</button><button type="button" data-i="2">$1$ partout</button><button type="button" data-i="3">$\mathrm{e}^{-x}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Densité constante.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">7</span>Pour la loi uniforme sur $[0\,;1]$, $P\left(X\leqslant0{,}3\right)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$0{,}5$</button><button type="button" data-i="1">$0{,}3$</button><button type="button" data-i="2">$3$</button><button type="button" data-i="3">$0{,}7$</button></div>
+    <p class="expl"><strong>Réponse :</strong> La probabilité est proportionnelle à la longueur.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">8</span>La loi exponentielle de paramètre $\lambda$ a pour densité :</h3>
+    <div class="choix"><button type="button" data-i="0">$\mathrm{e}^{-t}$ seulement</button><button type="button" data-i="1">$\lambda\mathrm{e}^{-\lambda t}$ sur $[0\,;+\infty[$</button><button type="button" data-i="2">$\lambda t$</button><button type="button" data-i="3">$\dfrac{1}{\lambda}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Modélise des durées de vie sans mémoire.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">9</span>Pour une loi exponentielle de paramètre $\lambda$, $E(X)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$\lambda$</button><button type="button" data-i="1">$\lambda^{2}$</button><button type="button" data-i="2">$\ln\lambda$</button><button type="button" data-i="3">$\dfrac{1}{\lambda}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Espérance = $1/\lambda$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">10</span>La loi exponentielle est dite :</h3>
+    <div class="choix"><button type="button" data-i="0">discrète</button><button type="button" data-i="1">symétrique</button><button type="button" data-i="2">sans mémoire</button><button type="button" data-i="3">uniforme</button></div>
+    <p class="expl"><strong>Réponse :</strong> $P(X>s+t\mid X>s)=P(X>t)$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">11</span>La loi normale est caractérisée par :</h3>
+    <div class="choix"><button type="button" data-i="0">$a$ et $b$</button><button type="button" data-i="1">$\lambda$</button><button type="button" data-i="2">$\mu$ et $\sigma$</button><button type="button" data-i="3">$n$ et $p$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Espérance et écart-type.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">12</span>La courbe de la loi normale est :</h3>
+    <div class="choix"><button type="button" data-i="0">un rectangle</button><button type="button" data-i="1">une droite</button><button type="button" data-i="2">en cloche, symétrique</button><button type="button" data-i="3">exponentielle</button></div>
+    <p class="expl"><strong>Réponse :</strong> Courbe de Gauss.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">13</span>Pour $X\sim\mathcal{N}(0\,;1)$, $P(-1\leqslant X\leqslant1)\approx$ :</h3>
+    <div class="choix"><button type="button" data-i="0">$0{,}683$</button><button type="button" data-i="1">$0{,}5$</button><button type="button" data-i="2">$0{,}95$</button><button type="button" data-i="3">$0{,}99$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Règle des $68\,\%$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">14</span>Pour $X\sim\mathcal{N}(0\,;1)$, $P(-2\leqslant X\leqslant2)\approx$ :</h3>
+    <div class="choix"><button type="button" data-i="0">$0{,}683$</button><button type="button" data-i="1">$0{,}954$</button><button type="button" data-i="2">$0{,}5$</button><button type="button" data-i="3">$0{,}997$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Règle des $95\,\%$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">15</span>Pour $X\sim\mathcal{N}(0\,;1)$, $P(X\leqslant0)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$0$</button><button type="button" data-i="1">$0{,}683$</button><button type="button" data-i="2">$1$</button><button type="button" data-i="3">$0{,}5$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Symétrie autour de $0$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">16</span>Si $X\sim\mathcal{N}(\mu\,;\sigma^{2})$, alors $\dfrac{X-\mu}{\sigma}$ suit :</h3>
+    <div class="choix"><button type="button" data-i="0">$\mathcal{N}(0\,;1)$</button><button type="button" data-i="1">une loi uniforme</button><button type="button" data-i="2">$\mathcal{B}(n\,;p)$</button><button type="button" data-i="3">une loi de Poisson</button></div>
+    <p class="expl"><strong>Réponse :</strong> Centrage et réduction.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">17</span>La loi normale est une loi :</h3>
+    <div class="choix"><button type="button" data-i="0">continue</button><button type="button" data-i="1">uniforme</button><button type="button" data-i="2">binomiale</button><button type="button" data-i="3">discrète</button></div>
+    <p class="expl"><strong>Réponse :</strong> Densité en cloche.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">18</span>$P(X\geqslant1)$ pour $X\sim\mathcal{N}(0\,;1)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$0$</button><button type="button" data-i="1">$0{,}5$</button><button type="button" data-i="2">$P(X\leqslant1)$</button><button type="button" data-i="3">$1-P(X\leqslant1)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On utilise l'événement contraire.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">19</span>Une loi binomiale peut être approchée par une loi normale lorsque :</h3>
+    <div class="choix"><button type="button" data-i="0">$\lambda$ petit</button><button type="button" data-i="1">$n$ est grand</button><button type="button" data-i="2">$n=1$</button><button type="button" data-i="3">$p=1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Théorème de Moivre-Laplace.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">20</span>L'écart-type d'une loi normale mesure :</h3>
+    <div class="choix"><button type="button" data-i="0">la dispersion autour de $\mu$</button><button type="button" data-i="1">la moyenne</button><button type="button" data-i="2">l'aire</button><button type="button" data-i="3">le maximum</button></div>
+    <p class="expl"><strong>Réponse :</strong> Plus $\sigma$ est grand, plus la cloche est large.</p>
+  </article>
+  <section class="fin" id="fin" hidden>
+    <strong>Quiz terminé</strong>
+    <p id="fin-texte"></p>
+    <button class="btn" type="button" id="recommencer">Recommencer</button>
+    <a class="btn btn-secondaire" href="../index.html">Retour au site</a>
+  </section>
+</main>
+<script>
+(function () {
+  var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+  var total = cartes.length, bonnes = 0, repondues = 0;
+  var scoreEl = document.getElementById('score');
+  var barre = document.getElementById('barre');
+  var fin = document.getElementById('fin');
+
+  function majScore() {
+    scoreEl.textContent = bonnes + ' / ' + total;
+    barre.style.width = (100 * repondues / total) + '%';
+    if (repondues === total) {
+      fin.hidden = false;
+      var msg = bonnes === total ? 'Sans faute, bravo !'
+        : bonnes >= 0.8 * total ? 'Très bon score, continuez comme ça.'
+        : bonnes >= 0.5 * total ? 'C\'est correct, mais quelques révisions s\'imposent.'
+        : 'À retravailler : reprenez le cours et les exercices du chapitre.';
+      document.getElementById('fin-texte').textContent = msg;
+    }
+  }
+
+  cartes.forEach(function (carte) {
+    var bonne = parseInt(carte.dataset.bonne, 10);
+    var boutons = Array.prototype.slice.call(carte.querySelectorAll('.choix button'));
+    var expl = carte.querySelector('.expl');
+    boutons.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        if (carte.dataset.fait) return;
+        carte.dataset.fait = '1';
+        repondues++;
+        if (i === bonne) {
+          b.classList.add('juste');
+          bonnes++;
+        } else {
+          b.classList.add('faux');
+          boutons[bonne].classList.add('oublie');
+        }
+        boutons.forEach(function (x) { x.disabled = true; });
+        expl.classList.add('visible');
+        majScore();
+      });
+    });
+  });
+
+  document.getElementById('recommencer').addEventListener('click', function () {
+    window.location.reload();
+  });
+})();
+</script>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz — Somme de variables aléatoires</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['$', '$']] }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.quiz-entete{max-width:820px;margin:0 auto 1.4rem}
+.quiz-entete h1{margin:.2rem 0 .3rem;font-size:1.6rem}
+.quiz-entete p{margin:.2rem 0;opacity:.85}
+.barre{height:10px;border-radius:6px;background:#e8edf3;overflow:hidden;margin:.8rem 0}
+.barre > span{display:block;height:100%;width:0;background:var(--couleur,#3182ce);transition:width .25s}
+.quiz-score{font-weight:600}
+.question{max-width:820px;margin:0 auto 1rem;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1rem 1.2rem;box-shadow:0 2px 8px rgba(16,42,67,.06)}
+.question h3{margin:.1rem 0 .7rem;font-size:1.02rem;font-weight:600;line-height:1.45}
+.question .num{display:inline-block;min-width:1.9rem;height:1.9rem;line-height:1.9rem;
+  text-align:center;border-radius:50%;background:var(--couleur,#3182ce);
+  color:var(--sur-couleur,#fff);font-size:.85rem;margin-right:.5rem;font-weight:700}
+.choix{display:grid;gap:.5rem}
+.choix button{text-align:left;padding:.6rem .8rem;border-radius:10px;border:1px solid #d7e0ea;
+  background:#fbfdff;cursor:pointer;font-size:.98rem;font-family:inherit;line-height:1.4}
+.choix button:hover:not(:disabled){border-color:var(--couleur,#3182ce);background:#f2f8ff}
+.choix button:disabled{cursor:default}
+.choix button.juste{background:#e6f7ee;border-color:#2f9e63;color:#166534;font-weight:600}
+.choix button.faux{background:#fdeaea;border-color:#d64545;color:#8a1c1c}
+.choix button.oublie{border-color:#2f9e63;border-style:dashed}
+.figure{margin:.6rem 0 .2rem;text-align:center}
+.figure img{max-width:min(100%,420px);height:auto;border:1px solid #dfe6ee;border-radius:10px;background:#fff;padding:4px}
+.expl{margin:.7rem 0 0;font-size:.92rem;background:#f4f7fb;border-left:3px solid var(--couleur,#3182ce);
+  padding:.5rem .7rem;border-radius:6px;display:none}
+.expl.visible{display:block}
+.fin{max-width:820px;margin:1.4rem auto;text-align:center;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1.2rem}
+.fin strong{font-size:1.25rem}
+.fin .btn{margin:.7rem .3rem 0}
+</style>
+</head>
+<body style="--couleur:#6b46c1; --couleur-fonce:#6b46c1; --sur-couleur:#fff">
+<main style="padding:2rem 1.2rem 3rem">
+  <header class="quiz-entete">
+    <p><a href="../index.html">← Retour au site</a></p>
+    <h1>Quiz — Somme de variables aléatoires</h1>
+    <p>Terminale spécialité · chapitre 15 · 20 questions</p>
+    <p class="quiz-score">Score : <span id="score">0 / 20</span></p>
+    <div class="barre"><span id="barre"></span></div>
+  </header>
+
+  <article class="question" data-bonne="0">
+    <h3><span class="num">1</span>Pour toutes variables aléatoires $X$ et $Y$, on a :</h3>
+    <div class="choix"><button type="button" data-i="0">$E(X+Y)=E(X)+E(Y)$</button><button type="button" data-i="1">$E(X+Y)=E(X)$</button><button type="button" data-i="2">$E(X+Y)=E(X)\times E(Y)$</button><button type="button" data-i="3">$E(X+Y)=E(X)-E(Y)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> L'espérance est toujours linéaire.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">2</span>Si $X$ et $Y$ sont indépendantes, alors :</h3>
+    <div class="choix"><button type="button" data-i="0">$V(X+Y)=V(X)$</button><button type="button" data-i="1">$V(X+Y)=V(X)\times V(Y)$</button><button type="button" data-i="2">$V(X+Y)=V(X)-V(Y)$</button><button type="button" data-i="3">$V(X+Y)=V(X)+V(Y)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Les variances s'additionnent pour des variables indépendantes.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">3</span>Pour tout réel $a$, $E(aX)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$E(X)$</button><button type="button" data-i="1">$aE(X)$</button><button type="button" data-i="2">$a^{2}E(X)$</button><button type="button" data-i="3">$E(X)+a$</button></div>
+    <p class="expl"><strong>Réponse :</strong> L'espérance est linéaire.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">4</span>Pour tout réel $a$, $V(aX)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$V(X)+a$</button><button type="button" data-i="1">$a^{2}V(X)$</button><button type="button" data-i="2">$V(X)$</button><button type="button" data-i="3">$aV(X)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> La variance est multipliée par $a^{2}$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">5</span>Si $X$ et $Y$ sont indépendantes, alors $\sigma(X+Y)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$V(X)+V(Y)$</button><button type="button" data-i="1">$\sigma(X)+\sigma(Y)$</button><button type="button" data-i="2">$\sigma(X)\times\sigma(Y)$</button><button type="button" data-i="3">$\sqrt{V(X)+V(Y)}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Les écarts types ne s'additionnent pas.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">6</span>Si $X\sim\mathcal{B}(n_1\,;p)$ et $Y\sim\mathcal{B}(n_2\,;p)$ sont indépendantes, alors $X+Y$ suit :</h3>
+    <div class="choix"><button type="button" data-i="0">une loi uniforme</button><button type="button" data-i="1">$\mathcal{B}(n_1\,;p)$</button><button type="button" data-i="2">$\mathcal{B}(n_1+n_2\,;p)$</button><button type="button" data-i="3">$\mathcal{B}(n_1\times n_2\,;p)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On additionne les nombres d'épreuves.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">7</span>Pour toutes variables $X$ et $Y$, $E(X-Y)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$E(X)+E(Y)$</button><button type="button" data-i="1">$E(X)-E(Y)$</button><button type="button" data-i="2">$E(X)\times E(Y)$</button><button type="button" data-i="3">$E(Y)-E(X)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> L'espérance est linéaire.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">8</span>Si $X$ et $Y$ sont indépendantes, $V(X-Y)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$V(X)\times V(Y)$</button><button type="button" data-i="1">$V(X)+V(Y)$</button><button type="button" data-i="2">$0$</button><button type="button" data-i="3">$V(X)-V(Y)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $V(X-Y)=V(X)+(-1)^{2}V(Y)=V(X)+V(Y)$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">9</span>Pour tout réel $a$, $\sigma(aX)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$|a|\sigma(X)$</button><button type="button" data-i="1">$\sigma(X)$</button><button type="button" data-i="2">$a\sigma(X)$</button><button type="button" data-i="3">$a^{2}\sigma(X)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Un écart type est positif.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">10</span>$E(2X+3)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$2E(X)+3$</button><button type="button" data-i="1">$2E(X)$</button><button type="button" data-i="2">$E(X)+3$</button><button type="button" data-i="3">$2E(X)+9$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Linéarité de l'espérance.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">11</span>La moyenne $M$ d'un échantillon de taille $n$ d'une variable d'espérance $\mu$ vérifie :</h3>
+    <div class="choix"><button type="button" data-i="0">$E(M)=\mu^{2}$</button><button type="button" data-i="1">$E(M)=n\mu$</button><button type="button" data-i="2">$E(M)=\dfrac{\mu}{n}$</button><button type="button" data-i="3">$E(M)=\mu$</button></div>
+    <p class="expl"><strong>Réponse :</strong> La moyenne d'échantillon est sans biais.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">12</span>La variance de la moyenne $M$ d'un échantillon de taille $n$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$nV(X)$</button><button type="button" data-i="1">$\dfrac{V(X)}{n}$</button><button type="button" data-i="2">$V(X)$</button><button type="button" data-i="3">$\dfrac{V(X)}{n^{2}}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Elle diminue avec la taille de l'échantillon.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">13</span>L'écart type de la moyenne $M$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$\sigma\sqrt{n}$</button><button type="button" data-i="1">$\sigma$</button><button type="button" data-i="2">$\dfrac{\sigma}{\sqrt{n}}$</button><button type="button" data-i="3">$\dfrac{\sigma}{n}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est la racine de la variance de $M$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">14</span>La loi des grands nombres affirme que la moyenne d'un échantillon :</h3>
+    <div class="choix"><button type="button" data-i="0">s'éloigne de l'espérance</button><button type="button" data-i="1">ne dépend pas de $n$</button><button type="button" data-i="2">se rapproche de l'espérance quand $n$ augmente</button><button type="button" data-i="3">est toujours égale à la variance</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est le fondement de l'estimation.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">15</span>Dans le cas de variables dépendantes, $V(X+Y)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$V(X)+V(Y)$</button><button type="button" data-i="1">$V(X)-V(Y)$</button><button type="button" data-i="2">$V(X)+V(Y)+2\,\mathrm{Cov}(X\,;Y)$</button><button type="button" data-i="3">$V(X)\times V(Y)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Un terme de covariance apparaît.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">16</span>Si $X$ et $Y$ sont indépendantes et suivent des lois binomiales de même paramètre $p$, alors $E(X+Y)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$(n_1+n_2)p$</button><button type="button" data-i="1">$p^{2}$</button><button type="button" data-i="2">$n_1p$</button><button type="button" data-i="3">$n_1n_2p$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $E(X)+E(Y)=n_1p+n_2p$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">17</span>$V(3X)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$6V(X)$</button><button type="button" data-i="1">$V(X)$</button><button type="button" data-i="2">$3V(X)$</button><button type="button" data-i="3">$9V(X)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $a^{2}=9$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">18</span>Pour des variables indépendantes, $V(X+Y+Z)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$V(X)+V(Y)+V(Z)$</button><button type="button" data-i="1">$V(X)\times V(Y)\times V(Z)$</button><button type="button" data-i="2">$V(X)-V(Y)+V(Z)$</button><button type="button" data-i="3">$3V(X)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Les variances s'additionnent deux à deux.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">19</span>$E(X)+E(Y)$ est égal à :</h3>
+    <div class="choix"><button type="button" data-i="0">$E(X+Y)$</button><button type="button" data-i="1">$E(X-Y)$</button><button type="button" data-i="2">$E(X\times Y)$</button><button type="button" data-i="3">$V(X+Y)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Linéarité de l'espérance.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">20</span>La variance d'une somme de deux variables indépendantes est :</h3>
+    <div class="choix"><button type="button" data-i="0">égale au produit des variances</button><button type="button" data-i="1">toujours nulle</button><button type="button" data-i="2">plus grande que chacune des variances</button><button type="button" data-i="3">plus petite que chaque variance</button></div>
+    <p class="expl"><strong>Réponse :</strong> $V(X+Y)=V(X)+V(Y)\geqslant V(X)$.</p>
+  </article>
+  <section class="fin" id="fin" hidden>
+    <strong>Quiz terminé</strong>
+    <p id="fin-texte"></p>
+    <button class="btn" type="button" id="recommencer">Recommencer</button>
+    <a class="btn btn-secondaire" href="../index.html">Retour au site</a>
+  </section>
+</main>
+<script>
+(function () {
+  var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+  var total = cartes.length, bonnes = 0, repondues = 0;
+  var scoreEl = document.getElementById('score');
+  var barre = document.getElementById('barre');
+  var fin = document.getElementById('fin');
+
+  function majScore() {
+    scoreEl.textContent = bonnes + ' / ' + total;
+    barre.style.width = (100 * repondues / total) + '%';
+    if (repondues === total) {
+      fin.hidden = false;
+      var msg = bonnes === total ? 'Sans faute, bravo !'
+        : bonnes >= 0.8 * total ? 'Très bon score, continuez comme ça.'
+        : bonnes >= 0.5 * total ? 'C\'est correct, mais quelques révisions s\'imposent.'
+        : 'À retravailler : reprenez le cours et les exercices du chapitre.';
+      document.getElementById('fin-texte').textContent = msg;
+    }
+  }
+
+  cartes.forEach(function (carte) {
+    var bonne = parseInt(carte.dataset.bonne, 10);
+    var boutons = Array.prototype.slice.call(carte.querySelectorAll('.choix button'));
+    var expl = carte.querySelector('.expl');
+    boutons.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        if (carte.dataset.fait) return;
+        carte.dataset.fait = '1';
+        repondues++;
+        if (i === bonne) {
+          b.classList.add('juste');
+          bonnes++;
+        } else {
+          b.classList.add('faux');
+          boutons[bonne].classList.add('oublie');
+        }
+        boutons.forEach(function (x) { x.disabled = true; });
+        expl.classList.add('visible');
+        majScore();
+      });
+    });
+  });
+
+  document.getElementById('recommencer').addEventListener('click', function () {
+    window.location.reload();
+  });
+})();
+</script>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

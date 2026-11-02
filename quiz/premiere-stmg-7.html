@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz — Fréquences et probabilités conditionnelles</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['$', '$']] }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.quiz-entete{max-width:820px;margin:0 auto 1.4rem}
+.quiz-entete h1{margin:.2rem 0 .3rem;font-size:1.6rem}
+.quiz-entete p{margin:.2rem 0;opacity:.85}
+.barre{height:10px;border-radius:6px;background:#e8edf3;overflow:hidden;margin:.8rem 0}
+.barre > span{display:block;height:100%;width:0;background:var(--couleur,#3182ce);transition:width .25s}
+.quiz-score{font-weight:600}
+.question{max-width:820px;margin:0 auto 1rem;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1rem 1.2rem;box-shadow:0 2px 8px rgba(16,42,67,.06)}
+.question h3{margin:.1rem 0 .7rem;font-size:1.02rem;font-weight:600;line-height:1.45}
+.question .num{display:inline-block;min-width:1.9rem;height:1.9rem;line-height:1.9rem;
+  text-align:center;border-radius:50%;background:var(--couleur,#3182ce);
+  color:var(--sur-couleur,#fff);font-size:.85rem;margin-right:.5rem;font-weight:700}
+.choix{display:grid;gap:.5rem}
+.choix button{text-align:left;padding:.6rem .8rem;border-radius:10px;border:1px solid #d7e0ea;
+  background:#fbfdff;cursor:pointer;font-size:.98rem;font-family:inherit;line-height:1.4}
+.choix button:hover:not(:disabled){border-color:var(--couleur,#3182ce);background:#f2f8ff}
+.choix button:disabled{cursor:default}
+.choix button.juste{background:#e6f7ee;border-color:#2f9e63;color:#166534;font-weight:600}
+.choix button.faux{background:#fdeaea;border-color:#d64545;color:#8a1c1c}
+.choix button.oublie{border-color:#2f9e63;border-style:dashed}
+.figure{margin:.6rem 0 .2rem;text-align:center}
+.figure img{max-width:min(100%,420px);height:auto;border:1px solid #dfe6ee;border-radius:10px;background:#fff;padding:4px}
+.expl{margin:.7rem 0 0;font-size:.92rem;background:#f4f7fb;border-left:3px solid var(--couleur,#3182ce);
+  padding:.5rem .7rem;border-radius:6px;display:none}
+.expl.visible{display:block}
+.fin{max-width:820px;margin:1.4rem auto;text-align:center;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1.2rem}
+.fin strong{font-size:1.25rem}
+.fin .btn{margin:.7rem .3rem 0}
+</style>
+</head>
+<body style="--couleur:#2c7a7b; --couleur-fonce:#2c7a7b; --sur-couleur:#fff">
+<main style="padding:2rem 1.2rem 3rem">
+  <header class="quiz-entete">
+    <p><a href="../index.html">← Retour au site</a></p>
+    <h1>Quiz — Fréquences et probabilités conditionnelles</h1>
+    <p>Première STMG · chapitre 7 · 20 questions</p>
+    <p class="quiz-score">Score : <span id="score">0 / 20</span></p>
+    <div class="barre"><span id="barre"></span></div>
+  </header>
+
+  <article class="question" data-bonne="0">
+    <h3><span class="num">1</span>En situation d'équiprobabilité, la probabilité d'un événement est :</h3>
+    <div class="choix"><button type="button" data-i="0">le nombre de cas favorables divisé par le nombre de cas possibles</button><button type="button" data-i="1">le nombre de cas possibles</button><button type="button" data-i="2">la somme des cas favorables</button><button type="button" data-i="3">toujours $0{,}5$</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est la définition de la probabilité en équiprobabilité.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">2</span>La fréquence d'un événement se calcule :</h3>
+    <div class="choix"><button type="button" data-i="0">à partir des effectifs observés</button><button type="button" data-i="1">en utilisant une calculatrice</button><button type="button" data-i="2">uniquement avec une calculatrice</button><button type="button" data-i="3">en multipliant les probabilités</button></div>
+    <p class="expl"><strong>Réponse :</strong> Fréquence $=\dfrac{\text{effectif observé}}{\text{effectif total}}$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">3</span>Pour tout événement $A$, $P\left(\overline{A}\right)$ est égal à :</h3>
+    <div class="choix"><button type="button" data-i="0">$-P(A)$</button><button type="button" data-i="1">$P(A)$</button><button type="button" data-i="2">$1-P(A)$</button><button type="button" data-i="3">$1+P(A)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Un événement et son contraire sont complémentaires.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">4</span>Pour tous événements $A$ et $B$, $P(A\cup B)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$P(A)+P(B)$</button><button type="button" data-i="1">$P(A)+P(B)+P(A\cap B)$</button><button type="button" data-i="2">$P(A)\times P(B)$</button><button type="button" data-i="3">$P(A)+P(B)-P(A\cap B)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On retire $P(A\cap B)$ qui est compté deux fois.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">5</span>La probabilité conditionnelle $P_{A}(B)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$\dfrac{P(A\cap B)}{P(A)}$</button><button type="button" data-i="1">$P(A\cap B)\times P(A)$</button><button type="button" data-i="2">$\dfrac{P(A\cap B)}{P(B)}$</button><button type="button" data-i="3">$P(A)+P(B)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est la probabilité de $B$ sachant $A$ réalisé.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">6</span>Dans un tableau à double entrée, $P(A\cap B)$ se calcule en divisant l'effectif de la case par :</h3>
+    <div class="choix"><button type="button" data-i="0">le total de la colonne</button><button type="button" data-i="1">l'effectif total</button><button type="button" data-i="2">$100$</button><button type="button" data-i="3">le total de la ligne</button></div>
+    <p class="expl"><strong>Réponse :</strong> La probabilité d'une issue est son effectif divisé par l'effectif total.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">7</span>On a $P(A)=0{,}4$ et $P(A\cap B)=0{,}1$. Alors $P_{A}(B)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$0{,}25$</button><button type="button" data-i="1">$0{,}1$</button><button type="button" data-i="2">$2{,}5$</button><button type="button" data-i="3">$0{,}4$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $P_{A}(B)=\dfrac{0{,}1}{0{,}4}=0{,}25$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">8</span>Deux événements $A$ et $B$ sont indépendants lorsque :</h3>
+    <div class="choix"><button type="button" data-i="0">$P(A\cap B)=P(A)\times P(B)$</button><button type="button" data-i="1">$P(A\cap B)=0$</button><button type="button" data-i="2">$P(A\cup B)=1$</button><button type="button" data-i="3">$P(A)=P(B)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est la définition de l'indépendance.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">9</span>Sur un arbre pondéré, la probabilité d'un chemin est :</h3>
+    <div class="choix"><button type="button" data-i="0">toujours égale à $1$</button><button type="button" data-i="1">la moyenne des probabilités</button><button type="button" data-i="2">la somme des probabilités des branches</button><button type="button" data-i="3">le produit des probabilités des branches</button></div>
+    <p class="expl"><strong>Réponse :</strong> On multiplie les probabilités le long du chemin.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">10</span>Sur un arbre pondéré, la somme des probabilités des branches issues d'un nœud vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">la probabilité du nœud</button><button type="button" data-i="1">$0$</button><button type="button" data-i="2">$1$</button><button type="button" data-i="3">$2$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Les branches forment une partition.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">11</span>Dans un lycée, $40\,\%$ des élèves étudient l'espagnol. On choisit un élève au hasard. La probabilité qu'il étudie l'espagnol est :</h3>
+    <div class="choix"><button type="button" data-i="0">$0{,}04$</button><button type="button" data-i="1">$4$</button><button type="button" data-i="2">$0{,}4$</button><button type="button" data-i="3">$0{,}6$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $40\,\%=0{,}4$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">12</span>Sur $50$ élèves, $12$ sont internes. La fréquence des internes est :</h3>
+    <div class="choix"><button type="button" data-i="0">$24\,\%$</button><button type="button" data-i="1">$38\,\%$</button><button type="button" data-i="2">$4{,}2\,\%$</button><button type="button" data-i="3">$12\,\%$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\dfrac{12}{50}=0{,}24=24\,\%$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">13</span>Si $A$ et $B$ sont incompatibles, alors $P(A\cup B)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$0$</button><button type="button" data-i="1">$1$</button><button type="button" data-i="2">$P(A)+P(B)$</button><button type="button" data-i="3">$P(A)\times P(B)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Comme $P(A\cap B)=0$, la formule se simplifie.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">14</span>On a $P(A)=0{,}6$, $P(B)=0{,}5$ et $P(A\cap B)=0{,}2$. Alors $P(A\cup B)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$0{,}9$</button><button type="button" data-i="1">$0{,}3$</button><button type="button" data-i="2">$1{,}1$</button><button type="button" data-i="3">$0{,}7$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $0{,}6+0{,}5-0{,}2=0{,}9$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">15</span>$P_{A}(B)$ se lit :</h3>
+    <div class="choix"><button type="button" data-i="0">probabilité de $A$ ou $B$</button><button type="button" data-i="1">probabilité de $A$ sachant $B$</button><button type="button" data-i="2">probabilité de $A$ et $B$</button><button type="button" data-i="3">probabilité de $B$ sachant $A$</button></div>
+    <p class="expl"><strong>Réponse :</strong> L'indice indique l'événement supposé réalisé.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">16</span>Pour tout événement $A$, on a :</h3>
+    <div class="choix"><button type="button" data-i="0">$P(A)-P\left(\overline{A}\right)=1$</button><button type="button" data-i="1">$P(A)+P\left(\overline{A}\right)=1$</button><button type="button" data-i="2">$P(A)=P\left(\overline{A}\right)$</button><button type="button" data-i="3">$P(A)\times P\left(\overline{A}\right)=1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $A$ et $\overline{A}$ forment une partition de l'univers.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">17</span>Deux tirages successifs avec remise sont :</h3>
+    <div class="choix"><button type="button" data-i="0">toujours dépendants</button><button type="button" data-i="1">impossibles</button><button type="button" data-i="2">indépendants</button><button type="button" data-i="3">incompatibles</button></div>
+    <p class="expl"><strong>Réponse :</strong> La remise rétablit la composition : le second tirage ne dépend pas du premier.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">18</span>Dans un tableau à double entrée, les marges (totaux de lignes et de colonnes) permettent de calculer :</h3>
+    <div class="choix"><button type="button" data-i="0">uniquement les effectifs</button><button type="button" data-i="1">la dérivée</button><button type="button" data-i="2">en utilisant une calculatrice</button><button type="button" data-i="3">les probabilités totales</button></div>
+    <p class="expl"><strong>Réponse :</strong> Les totaux donnent les probabilités marginales.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">19</span>Pour tout événement $A$, la probabilité $P(A)$ vérifie :</h3>
+    <div class="choix"><button type="button" data-i="0">$P(A)>1$</button><button type="button" data-i="1">$P(A)=2$</button><button type="button" data-i="2">$P(A)<0$</button><button type="button" data-i="3">$0\leqslant P(A)\leqslant1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Une probabilité est toujours comprise entre $0$ et $1$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">20</span>Si $A$ et $B$ sont indépendants, alors $P_{A}(B)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$0$</button><button type="button" data-i="1">$P(A\cap B)$</button><button type="button" data-i="2">$P(A)$</button><button type="button" data-i="3">$P(B)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> L'information sur $A$ n'apporte rien sur $B$.</p>
+  </article>
+  <section class="fin" id="fin" hidden>
+    <strong>Quiz terminé</strong>
+    <p id="fin-texte"></p>
+    <button class="btn" type="button" id="recommencer">Recommencer</button>
+    <a class="btn btn-secondaire" href="../index.html">Retour au site</a>
+  </section>
+</main>
+<script>
+(function () {
+  var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+  var total = cartes.length, bonnes = 0, repondues = 0;
+  var scoreEl = document.getElementById('score');
+  var barre = document.getElementById('barre');
+  var fin = document.getElementById('fin');
+
+  function majScore() {
+    scoreEl.textContent = bonnes + ' / ' + total;
+    barre.style.width = (100 * repondues / total) + '%';
+    if (repondues === total) {
+      fin.hidden = false;
+      var msg = bonnes === total ? 'Sans faute, bravo !'
+        : bonnes >= 0.8 * total ? 'Très bon score, continuez comme ça.'
+        : bonnes >= 0.5 * total ? 'C\'est correct, mais quelques révisions s\'imposent.'
+        : 'À retravailler : reprenez le cours et les exercices du chapitre.';
+      document.getElementById('fin-texte').textContent = msg;
+    }
+  }
+
+  cartes.forEach(function (carte) {
+    var bonne = parseInt(carte.dataset.bonne, 10);
+    var boutons = Array.prototype.slice.call(carte.querySelectorAll('.choix button'));
+    var expl = carte.querySelector('.expl');
+    boutons.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        if (carte.dataset.fait) return;
+        carte.dataset.fait = '1';
+        repondues++;
+        if (i === bonne) {
+          b.classList.add('juste');
+          bonnes++;
+        } else {
+          b.classList.add('faux');
+          boutons[bonne].classList.add('oublie');
+        }
+        boutons.forEach(function (x) { x.disabled = true; });
+        expl.classList.add('visible');
+        majScore();
+      });
+    });
+  });
+
+  document.getElementById('recommencer').addEventListener('click', function () {
+    window.location.reload();
+  });
+})();
+</script>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

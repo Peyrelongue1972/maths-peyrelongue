@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz — Les matrices</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['$', '$']] }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.quiz-entete{max-width:820px;margin:0 auto 1.4rem}
+.quiz-entete h1{margin:.2rem 0 .3rem;font-size:1.6rem}
+.quiz-entete p{margin:.2rem 0;opacity:.85}
+.barre{height:10px;border-radius:6px;background:#e8edf3;overflow:hidden;margin:.8rem 0}
+.barre > span{display:block;height:100%;width:0;background:var(--couleur,#3182ce);transition:width .25s}
+.quiz-score{font-weight:600}
+.question{max-width:820px;margin:0 auto 1rem;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1rem 1.2rem;box-shadow:0 2px 8px rgba(16,42,67,.06)}
+.question h3{margin:.1rem 0 .7rem;font-size:1.02rem;font-weight:600;line-height:1.45}
+.question .num{display:inline-block;min-width:1.9rem;height:1.9rem;line-height:1.9rem;
+  text-align:center;border-radius:50%;background:var(--couleur,#3182ce);
+  color:var(--sur-couleur,#fff);font-size:.85rem;margin-right:.5rem;font-weight:700}
+.choix{display:grid;gap:.5rem}
+.choix button{text-align:left;padding:.6rem .8rem;border-radius:10px;border:1px solid #d7e0ea;
+  background:#fbfdff;cursor:pointer;font-size:.98rem;font-family:inherit;line-height:1.4}
+.choix button:hover:not(:disabled){border-color:var(--couleur,#3182ce);background:#f2f8ff}
+.choix button:disabled{cursor:default}
+.choix button.juste{background:#e6f7ee;border-color:#2f9e63;color:#166534;font-weight:600}
+.choix button.faux{background:#fdeaea;border-color:#d64545;color:#8a1c1c}
+.choix button.oublie{border-color:#2f9e63;border-style:dashed}
+.figure{margin:.6rem 0 .2rem;text-align:center}
+.figure img{max-width:min(100%,420px);height:auto;border:1px solid #dfe6ee;border-radius:10px;background:#fff;padding:4px}
+.expl{margin:.7rem 0 0;font-size:.92rem;background:#f4f7fb;border-left:3px solid var(--couleur,#3182ce);
+  padding:.5rem .7rem;border-radius:6px;display:none}
+.expl.visible{display:block}
+.fin{max-width:820px;margin:1.4rem auto;text-align:center;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1.2rem}
+.fin strong{font-size:1.25rem}
+.fin .btn{margin:.7rem .3rem 0}
+</style>
+</head>
+<body style="--couleur:#FFD700; --couleur-fonce:#B8860B; --sur-couleur:#3F3000">
+<main style="padding:2rem 1.2rem 3rem">
+  <header class="quiz-entete">
+    <p><a href="../index.html">← Retour au site</a></p>
+    <h1>Quiz — Les matrices</h1>
+    <p>Maths expertes · chapitre 4 · 20 questions</p>
+    <p class="quiz-score">Score : <span id="score">0 / 20</span></p>
+    <div class="barre"><span id="barre"></span></div>
+  </header>
+
+  <article class="question" data-bonne="2">
+    <h3><span class="num">1</span>Une matrice $2\times3$ a :</h3>
+    <div class="choix"><button type="button" data-i="0">2 colonnes</button><button type="button" data-i="1">3 lignes et 2 colonnes</button><button type="button" data-i="2">2 lignes et 3 colonnes</button><button type="button" data-i="3">6 lignes</button></div>
+    <p class="expl"><strong>Réponse :</strong> Taille $n\times p$ : $n$ lignes, $p$ colonnes.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">2</span>On peut multiplier $A$ par $B$ si :</h3>
+    <div class="choix"><button type="button" data-i="0">elles sont carrées</button><button type="button" data-i="1">le nombre de colonnes de $A$ égale le nombre de lignes de $B$</button><button type="button" data-i="2">elles ont la même taille</button><button type="button" data-i="3">toujours</button></div>
+    <p class="expl"><strong>Réponse :</strong> Condition de compatibilité.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">3</span>Le produit de deux matrices est :</h3>
+    <div class="choix"><button type="button" data-i="0">non commutatif en général</button><button type="button" data-i="1">toujours commutatif</button><button type="button" data-i="2">impossible</button><button type="button" data-i="3">toujours nul</button></div>
+    <p class="expl"><strong>Réponse :</strong> $AB\neq BA$ en général.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">4</span>La matrice identité $I_n$ vérifie :</h3>
+    <div class="choix"><button type="button" data-i="0">$I_n$ n'existe pas</button><button type="button" data-i="1">$AI_n=0$</button><button type="button" data-i="2">$AI_n=I_nA=A$</button><button type="button" data-i="3">$I_n=0$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Élément neutre du produit.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">5</span>L'inverse de $A$ existe si :</h3>
+    <div class="choix"><button type="button" data-i="0">$A$ est symétrique</button><button type="button" data-i="1">$\det A=0$</button><button type="button" data-i="2">$\det A\neq0$</button><button type="button" data-i="3">$A$ est nulle</button></div>
+    <p class="expl"><strong>Réponse :</strong> Matrice inversible ⟺ déterminant non nul.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">6</span>$\det\begin{pmatrix}a&b\c&d\end{pmatrix}$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$ad-bc$</button><button type="button" data-i="1">$a+d$</button><button type="button" data-i="2">$ab-cd$</button><button type="button" data-i="3">$ac-bd$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Déterminant $2\times2$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">7</span>Si $\det A=0$, alors $A$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">l'identité</button><button type="button" data-i="1">non inversible</button><button type="button" data-i="2">inversible</button><button type="button" data-i="3">nulle</button></div>
+    <p class="expl"><strong>Réponse :</strong> Déterminant nul : matrice singulière.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">8</span>$(AB)^{-1}$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$A^{-1}B^{-1}$</button><button type="button" data-i="1">$B^{-1}A^{-1}$</button><button type="button" data-i="2">$AB$</button><button type="button" data-i="3">$(BA)^{-1}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> L'ordre est inversé.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">9</span>$\det(AB)$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$0$</button><button type="button" data-i="1">$\det A-\det B$</button><button type="button" data-i="2">$\det A+\det B$</button><button type="button" data-i="3">$\det A\times\det B$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Le déterminant est multiplicatif.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">10</span>Une matrice carrée vérifiant $A^{2}=A$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">inversible</button><button type="button" data-i="1">un projecteur</button><button type="button" data-i="2">l'identité</button><button type="button" data-i="3">nulle</button></div>
+    <p class="expl"><strong>Réponse :</strong> Projecteur (idempotent).</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">11</span>Le système $AX=B$ a une unique solution si :</h3>
+    <div class="choix"><button type="button" data-i="0">$A$ est symétrique</button><button type="button" data-i="1">$A=0$</button><button type="button" data-i="2">$B=0$</button><button type="button" data-i="3">$A$ est inversible</button></div>
+    <p class="expl"><strong>Réponse :</strong> $X=A^{-1}B$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">12</span>La transposée de $\begin{pmatrix}1&2\3&4\end{pmatrix}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">$\begin{pmatrix}4&3\2&1\end{pmatrix}$</button><button type="button" data-i="1">$\begin{pmatrix}1&2\3&4\end{pmatrix}$</button><button type="button" data-i="2">$\begin{pmatrix}1&3\2&4\end{pmatrix}$</button><button type="button" data-i="3">$\begin{pmatrix}-1&-2\-3&-4\end{pmatrix}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On échange lignes et colonnes.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">13</span>$\det\begin{pmatrix}1&2\3&4\end{pmatrix}$ vaut :</h3>
+    <div class="choix"><button type="button" data-i="0">$10$</button><button type="button" data-i="1">$0$</button><button type="button" data-i="2">$2$</button><button type="button" data-i="3">$-2$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $1\times4-2\times3=-2$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">14</span>L'inverse de $\begin{pmatrix}1&0\0&2\end{pmatrix}$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">n'existe pas</button><button type="button" data-i="1">$\begin{pmatrix}1&0\0&\frac12\end{pmatrix}$</button><button type="button" data-i="2">$\begin{pmatrix}2&0\0&1\end{pmatrix}$</button><button type="button" data-i="3">$\begin{pmatrix}1&0\0&2\end{pmatrix}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Inverse d'une matrice diagonale.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">15</span>Une matrice diagonale est inversible si :</h3>
+    <div class="choix"><button type="button" data-i="0">elle est symétrique</button><button type="button" data-i="1">sa diagonale est nulle</button><button type="button" data-i="2">tous ses coefficients diagonaux sont non nuls</button><button type="button" data-i="3">elle est de taille $2$</button></div>
+    <p class="expl"><strong>Réponse :</strong> On inverse chaque coefficient diagonal.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">16</span>Le rang d'une matrice est :</h3>
+    <div class="choix"><button type="button" data-i="0">sa taille</button><button type="button" data-i="1">son déterminant</button><button type="button" data-i="2">la dimension de l'espace engendré par ses colonnes</button><button type="button" data-i="3">sa trace</button></div>
+    <p class="expl"><strong>Réponse :</strong> Nombre de colonnes indépendantes.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">17</span>Deux matrices sont égales si :</h3>
+    <div class="choix"><button type="button" data-i="0">même taille</button><button type="button" data-i="1">mêmes coefficients aux mêmes places</button><button type="button" data-i="2">même trace</button><button type="button" data-i="3">même déterminant</button></div>
+    <p class="expl"><strong>Réponse :</strong> Égalité coefficient par coefficient.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">18</span>La trace d'une matrice carrée est :</h3>
+    <div class="choix"><button type="button" data-i="0">sa taille</button><button type="button" data-i="1">le produit des diagonaux</button><button type="button" data-i="2">son déterminant</button><button type="button" data-i="3">la somme des coefficients diagonaux</button></div>
+    <p class="expl"><strong>Réponse :</strong> Somme de la diagonale.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">19</span>Un système de Cramer est un système :</h3>
+    <div class="choix"><button type="button" data-i="0">rectangulaire</button><button type="button" data-i="1">homogène</button><button type="button" data-i="2">sans solution</button><button type="button" data-i="3">carré dont la matrice est inversible</button></div>
+    <p class="expl"><strong>Réponse :</strong> Solution unique.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">20</span>Si $A$ et $B$ sont inversibles, $AB$ est :</h3>
+    <div class="choix"><button type="button" data-i="0">symétrique</button><button type="button" data-i="1">non inversible</button><button type="button" data-i="2">inversible</button><button type="button" data-i="3">nulle</button></div>
+    <p class="expl"><strong>Réponse :</strong> $(AB)^{-1}=B^{-1}A^{-1}$.</p>
+  </article>
+  <section class="fin" id="fin" hidden>
+    <strong>Quiz terminé</strong>
+    <p id="fin-texte"></p>
+    <button class="btn" type="button" id="recommencer">Recommencer</button>
+    <a class="btn btn-secondaire" href="../index.html">Retour au site</a>
+  </section>
+</main>
+<script>
+(function () {
+  var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+  var total = cartes.length, bonnes = 0, repondues = 0;
+  var scoreEl = document.getElementById('score');
+  var barre = document.getElementById('barre');
+  var fin = document.getElementById('fin');
+
+  function majScore() {
+    scoreEl.textContent = bonnes + ' / ' + total;
+    barre.style.width = (100 * repondues / total) + '%';
+    if (repondues === total) {
+      fin.hidden = false;
+      var msg = bonnes === total ? 'Sans faute, bravo !'
+        : bonnes >= 0.8 * total ? 'Très bon score, continuez comme ça.'
+        : bonnes >= 0.5 * total ? 'C\'est correct, mais quelques révisions s\'imposent.'
+        : 'À retravailler : reprenez le cours et les exercices du chapitre.';
+      document.getElementById('fin-texte').textContent = msg;
+    }
+  }
+
+  cartes.forEach(function (carte) {
+    var bonne = parseInt(carte.dataset.bonne, 10);
+    var boutons = Array.prototype.slice.call(carte.querySelectorAll('.choix button'));
+    var expl = carte.querySelector('.expl');
+    boutons.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        if (carte.dataset.fait) return;
+        carte.dataset.fait = '1';
+        repondues++;
+        if (i === bonne) {
+          b.classList.add('juste');
+          bonnes++;
+        } else {
+          b.classList.add('faux');
+          boutons[bonne].classList.add('oublie');
+        }
+        boutons.forEach(function (x) { x.disabled = true; });
+        expl.classList.add('visible');
+        majScore();
+      });
+    });
+  });
+
+  document.getElementById('recommencer').addEventListener('click', function () {
+    window.location.reload();
+  });
+})();
+</script>
+<script src="../assets/acces.js"></script>
+</body>
+</html>
