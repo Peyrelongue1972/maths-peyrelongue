@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Quiz — Révisions transversales</title>
+<title>Quiz — Concentration et loi des grands nombres</title>
 <link rel="stylesheet" href="../assets/style.css">
 <script>
   window.MathJax = { tex: { inlineMath: [['$', '$']], macros: {"prob": "{\\mathbb{P}}", "R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathcal{D}}", "e": "{\\mathrm{e}}", "vect": ["{\\overrightarrow{#1}}", 1]} }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] } };
@@ -45,111 +45,96 @@
 <main style="padding:2rem 1.2rem 3rem">
   <header class="quiz-entete">
     <p><a href="../index.html">← Retour au site</a></p>
-    <h1>Quiz — Révisions transversales</h1>
-    <p>Terminale spécialité · chapitre 16 · 20 questions</p>
-    <p class="quiz-score">Score : <span id="score">0 / 20</span></p>
+    <h1>Quiz — Concentration et loi des grands nombres</h1>
+    <p>Terminale spécialité · chapitre 16 · 17 questions</p>
+    <p class="quiz-score">Score : <span id="score">0 / 17</span></p>
     <div class="barre"><span id="barre"></span></div>
   </header>
 
   <article class="question" data-bonne="0">
-    <h3><span class="num">1</span>Une démonstration par récurrence comporte :</h3>
-    <div class="choix"><button type="button" data-i="0">une initialisation et une hérédité</button><button type="button" data-i="1">un calcul de limite</button><button type="button" data-i="2">un discriminant</button><button type="button" data-i="3">une seule étape</button></div>
-    <p class="expl"><strong>Réponse :</strong> Les deux étapes sont indispensables.</p>
+    <h3><span class="num">1</span>L'inégalité de Bienaymé-Tchebychev s'écrit, pour tout réel $a>0$ :</h3>
+    <div class="choix"><button type="button" data-i="0">$\prob\left(\left|X-E(X)\right|\geqslant a\right)\leqslant\dfrac{V(X)}{a^{2}}$</button><button type="button" data-i="1">$\prob\left(\left|X-E(X)\right|\geqslant a\right)\leqslant\dfrac{a^{2}}{V(X)}$</button><button type="button" data-i="2">$\prob\left(X\geqslant a\right)\leqslant\dfrac{V(X)}{a}$</button><button type="button" data-i="3">$\prob\left(\left|X-E(X)\right|\geqslant a\right)\geqslant\dfrac{V(X)}{a^{2}}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est l'inégalité de Bienaymé-Tchebychev : la probabilité de s'écarter de l'espérance de plus de $a$ est majorée par $\dfrac{V(X)}{a^{2}}$.</p>
   </article>
   <article class="question" data-bonne="1">
-    <h3><span class="num">2</span>La dérivée de $\mathrm{e}^{2x}$ est :</h3>
-    <div class="choix"><button type="button" data-i="0">$\mathrm{e}^{2x}$</button><button type="button" data-i="1">$2\mathrm{e}^{2x}$</button><button type="button" data-i="2">$2x\mathrm{e}^{2x}$</button><button type="button" data-i="3">$\mathrm{e}^{2}$</button></div>
-    <p class="expl"><strong>Réponse :</strong> Dérivation d'une composée.</p>
+    <h3><span class="num">2</span>Pour tout réel $k>0$, l'inégalité de Bienaymé-Tchebychev s'écrit aussi :</h3>
+    <div class="choix"><button type="button" data-i="0">$\prob\left(\left|X-\mu\right|\geqslant k\sigma\right)\leqslant\dfrac{1}{k}$</button><button type="button" data-i="1">$\prob\left(\left|X-\mu\right|\geqslant k\sigma\right)\leqslant\dfrac{1}{k^{2}}$</button><button type="button" data-i="2">$\prob\left(\left|X-\mu\right|\leqslant k\sigma\right)\leqslant\dfrac{1}{k^{2}}$</button><button type="button" data-i="3">$\prob\left(\left|X-\mu\right|\geqslant k\sigma\right)\geqslant\dfrac{1}{k^{2}}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> En prenant $a=k\sigma$ : $\dfrac{V(X)}{a^{2}}=\dfrac{\sigma^{2}}{k^{2}\sigma^{2}}=\dfrac{1}{k^{2}}$.</p>
   </article>
   <article class="question" data-bonne="3">
-    <h3><span class="num">3</span>$\lim\limits_{n\to+\infty}\dfrac{1}{n}$ vaut :</h3>
-    <div class="choix"><button type="button" data-i="0">$1$</button><button type="button" data-i="1">n'existe pas</button><button type="button" data-i="2">$+\infty$</button><button type="button" data-i="3">$0$</button></div>
-    <p class="expl"><strong>Réponse :</strong> L'inverse d'un grand entier tend vers $0$.</p>
+    <h3><span class="num">3</span>On en déduit que $X$ appartient à l'intervalle $[\mu-2\sigma\,;\mu+2\sigma]$ avec une probabilité d'au moins :</h3>
+    <div class="choix"><button type="button" data-i="0">$0{,}5$</button><button type="button" data-i="1">$0{,}89$</button><button type="button" data-i="2">$0{,}95$</button><button type="button" data-i="3">$0{,}75$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $1-\dfrac{1}{2^{2}}=1-0{,}25=0{,}75$.</p>
   </article>
   <article class="question" data-bonne="3">
-    <h3><span class="num">4</span>$\ln(ab)$ vaut, pour $a>0$ et $b>0$ :</h3>
-    <div class="choix"><button type="button" data-i="0">$\ln(a+b)$</button><button type="button" data-i="1">$\ln(a)\times\ln(b)$</button><button type="button" data-i="2">$\ln(a)-\ln(b)$</button><button type="button" data-i="3">$\ln(a)+\ln(b)$</button></div>
-    <p class="expl"><strong>Réponse :</strong> Le logarithme transforme le produit en somme.</p>
+    <h3><span class="num">4</span>Avec $k=3$, la probabilité que $X$ soit dans $[\mu-3\sigma\,;\mu+3\sigma]$ est au moins égale à :</h3>
+    <div class="choix"><button type="button" data-i="0">environ $0{,}9$ exactement</button><button type="button" data-i="1">environ $0{,}997$</button><button type="button" data-i="2">$0{,}75$</button><button type="button" data-i="3">environ $0{,}889$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $1-\dfrac{1}{9}=\dfrac{8}{9}\approx0{,}889$. (Le $0{,}997$ est la valeur de la loi normale, hors programme.)</p>
   </article>
   <article class="question" data-bonne="0">
-    <h3><span class="num">5</span>Une primitive de $x^{2}$ est :</h3>
-    <div class="choix"><button type="button" data-i="0">$\dfrac{x^{3}}{3}$</button><button type="button" data-i="1">$x^{3}$</button><button type="button" data-i="2">$\dfrac{x^{2}}{2}$</button><button type="button" data-i="3">$2x$</button></div>
-    <p class="expl"><strong>Réponse :</strong> On dérive pour vérifier.</p>
+    <h3><span class="num">5</span>L'inégalité de Bienaymé-Tchebychev est valable :</h3>
+    <div class="choix"><button type="button" data-i="0">pour toute variable aléatoire admettant une espérance et une variance</button><button type="button" data-i="1">seulement pour les variables aléatoires finies</button><button type="button" data-i="2">seulement pour les variables aléatoires positives</button><button type="button" data-i="3">seulement pour les variables aléatoires suivant une loi binomiale</button></div>
+    <p class="expl"><strong>Réponse :</strong> Elle ne suppose aucune loi particulière : seules l'espérance et la variance doivent exister.</p>
   </article>
   <article class="question" data-bonne="0">
-    <h3><span class="num">6</span>Les solutions de $y'=3y$ sont :</h3>
-    <div class="choix"><button type="button" data-i="0">$y=C\mathrm{e}^{3x}$</button><button type="button" data-i="1">$y=C\mathrm{e}^{x}$</button><button type="button" data-i="2">$y=C+3x$</button><button type="button" data-i="3">$y=3\mathrm{e}^{x}$</button></div>
-    <p class="expl"><strong>Réponse :</strong> Forme générale $C\mathrm{e}^{ax}$.</p>
+    <h3><span class="num">6</span>L'inégalité de concentration concerne :</h3>
+    <div class="choix"><button type="button" data-i="0">la moyenne $M_{n}$ de $n$ variables aléatoires indépendantes et de même loi</button><button type="button" data-i="1">la somme $X_{1}+X_{2}+\cdots+X_{n}$</button><button type="button" data-i="2">la fréquence observée dans un échantillon seulement</button><button type="button" data-i="3">une variable aléatoire quelconque $X$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Elle s'applique à la moyenne $M_{n}=\dfrac{X_{1}+\cdots+X_{n}}{n}$ de variables iid.</p>
   </article>
   <article class="question" data-bonne="1">
-    <h3><span class="num">7</span>Une suite croissante et majorée :</h3>
-    <div class="choix"><button type="button" data-i="0">est constante</button><button type="button" data-i="1">converge</button><button type="button" data-i="2">diverge</button><button type="button" data-i="3">n'a pas de limite</button></div>
-    <p class="expl"><strong>Réponse :</strong> Théorème de convergence monotone.</p>
+    <h3><span class="num">7</span>L'inégalité de concentration s'écrit, pour tout $a>0$ :</h3>
+    <div class="choix"><button type="button" data-i="0">$\prob\left(\left|M_{n}-\mu\right|\geqslant a\right)\geqslant\dfrac{V}{n\,a^{2}}$</button><button type="button" data-i="1">$\prob\left(\left|M_{n}-\mu\right|\geqslant a\right)\leqslant\dfrac{V}{n\,a^{2}}$</button><button type="button" data-i="2">$\prob\left(\left|M_{n}-\mu\right|\geqslant a\right)\leqslant\dfrac{V}{a^{2}}$</button><button type="button" data-i="3">$\prob\left(\left|M_{n}-\mu\right|\geqslant a\right)\leqslant\dfrac{a^{2}}{n\,V}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est l'inégalité de concentration : la variance de $M_{n}$ vaut $\dfrac{V}{n}$, d'où la majoration.</p>
   </article>
   <article class="question" data-bonne="2">
-    <h3><span class="num">8</span>Un vecteur normal au plan $2x-y+3z-1=0$ est :</h3>
-    <div class="choix"><button type="button" data-i="0">$(2\,;1\,;3)$</button><button type="button" data-i="1">$(1\,;-1\,;1)$</button><button type="button" data-i="2">$(2\,;-1\,;3)$</button><button type="button" data-i="3">$(3\,;-1\,;2)$</button></div>
-    <p class="expl"><strong>Réponse :</strong> Les coefficients de $x$, $y$, $z$.</p>
+    <h3><span class="num">8</span>L'espérance et la variance de $M_{n}$ valent respectivement :</h3>
+    <div class="choix"><button type="button" data-i="0">$\mu$ et $V$</button><button type="button" data-i="1">$n\mu$ et $nV$</button><button type="button" data-i="2">$\mu$ et $\dfrac{V}{n}$</button><button type="button" data-i="3">$\dfrac{\mu}{n}$ et $\dfrac{V}{n}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> L'espérance est conservée ($E(M_{n})=\mu$) et la variance est divisée par $n$.</p>
   </article>
   <article class="question" data-bonne="0">
-    <h3><span class="num">9</span>$\dbinom{5}{2}$ vaut :</h3>
-    <div class="choix"><button type="button" data-i="0">$10$</button><button type="button" data-i="1">$25$</button><button type="button" data-i="2">$20$</button><button type="button" data-i="3">$5$</button></div>
-    <p class="expl"><strong>Réponse :</strong> $\dfrac{5!}{2!3!}=10$.</p>
+    <h3><span class="num">9</span>Lorsque $n$ augmente, la majoration $\dfrac{V}{n\,a^{2}}$ de l'écart de $M_{n}$ à $\mu$ :</h3>
+    <div class="choix"><button type="button" data-i="0">diminue et tend vers $0$</button><button type="button" data-i="1">tend vers $V$</button><button type="button" data-i="2">augmente</button><button type="button" data-i="3">reste constante</button></div>
+    <p class="expl"><strong>Réponse :</strong> Elle est proportionnelle à $\dfrac{1}{n}$ : elle tend vers $0$ quand $n$ tend vers $+\infty$.</p>
   </article>
   <article class="question" data-bonne="2">
-    <h3><span class="num">10</span>La dérivée de $\sin(x)$ est :</h3>
-    <div class="choix"><button type="button" data-i="0">$\sin(x)$</button><button type="button" data-i="1">$-\cos(x)$</button><button type="button" data-i="2">$\cos(x)$</button><button type="button" data-i="3">$-\sin(x)$</button></div>
-    <p class="expl"><strong>Réponse :</strong> Dérivée usuelle.</p>
+    <h3><span class="num">10</span>La loi des grands nombres affirme que, lorsque $n$ tend vers $+\infty$, la moyenne $M_{n}$ :</h3>
+    <div class="choix"><button type="button" data-i="0">suit une loi binomiale</button><button type="button" data-i="1">converge vers $V$</button><button type="button" data-i="2">converge en probabilité vers $\mu$</button><button type="button" data-i="3">converge vers $0$</button></div>
+    <p class="expl"><strong>Réponse :</strong> Pour tout $a>0$, $\prob\left(\left|M_{n}-\mu\right|\geqslant a\right)\to0$ : c'est la convergence en probabilité.</p>
   </article>
   <article class="question" data-bonne="2">
-    <h3><span class="num">11</span>$\displaystyle\int_0^1 2x\,\mathrm{d}x$ vaut :</h3>
-    <div class="choix"><button type="button" data-i="0">$0$</button><button type="button" data-i="1">$2$</button><button type="button" data-i="2">$1$</button><button type="button" data-i="3">$\dfrac{1}{2}$</button></div>
-    <p class="expl"><strong>Réponse :</strong> $\left[x^{2}\right]_0^1=1$.</p>
+    <h3><span class="num">11</span>Pour diviser par $10$ l'écart-type de $M_{n}$, il faut multiplier la taille de l'échantillon par :</h3>
+    <div class="choix"><button type="button" data-i="0">$1\,000$</button><button type="button" data-i="1">$10$</button><button type="button" data-i="2">$100$</button><button type="button" data-i="3">$\sqrt{10}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> L'écart-type de $M_{n}$ vaut $\dfrac{\sigma}{\sqrt{n}}$ : il faut $\sqrt{n}\times10$, donc $n\times100$.</p>
   </article>
   <article class="question" data-bonne="1">
-    <h3><span class="num">12</span>$X$ suit $\mathcal{B}(10\,;0{,}2)$. Alors $E(X)$ vaut :</h3>
-    <div class="choix"><button type="button" data-i="0">$10$</button><button type="button" data-i="1">$2$</button><button type="button" data-i="2">$8$</button><button type="button" data-i="3">$0{,}2$</button></div>
-    <p class="expl"><strong>Réponse :</strong> $E(X)=np=2$.</p>
+    <h3><span class="num">12</span>L'inégalité de concentration suppose que les variables $X_{1},\ldots,X_{n}$ sont :</h3>
+    <div class="choix"><button type="button" data-i="0">de variance nulle</button><button type="button" data-i="1">indépendantes et de même loi</button><button type="button" data-i="2">toutes positives</button><button type="button" data-i="3">toutes distinctes</button></div>
+    <p class="expl"><strong>Réponse :</strong> C'est l'hypothèse « iid » (indépendantes et identiquement distribuées).</p>
   </article>
   <article class="question" data-bonne="3">
-    <h3><span class="num">13</span>Pour $X$ et $Y$ indépendantes, $V(X+Y)$ vaut :</h3>
-    <div class="choix"><button type="button" data-i="0">$V(X)-V(Y)$</button><button type="button" data-i="1">$V(X)\times V(Y)$</button><button type="button" data-i="2">$V(X)$</button><button type="button" data-i="3">$V(X)+V(Y)$</button></div>
-    <p class="expl"><strong>Réponse :</strong> Les variances s'additionnent.</p>
+    <h3><span class="num">13</span>Avec $k=4$, la probabilité que $X$ appartienne à $[\mu-4\sigma\,;\mu+4\sigma]$ est au moins égale à :</h3>
+    <div class="choix"><button type="button" data-i="0">$0{,}8$</button><button type="button" data-i="1">$0{,}75$</button><button type="button" data-i="2">$0{,}996$</button><button type="button" data-i="3">$0{,}9375$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $1-\dfrac{1}{16}=\dfrac{15}{16}=0{,}9375$.</p>
   </article>
   <article class="question" data-bonne="1">
-    <h3><span class="num">14</span>Si $f$ est continue sur $[a\,;b]$ et $f(a)f(b)<0$, alors l'équation $f(x)=0$ admet :</h3>
-    <div class="choix"><button type="button" data-i="0">exactement deux solutions</button><button type="button" data-i="1">au moins une solution dans $[a\,;b]$</button><button type="button" data-i="2">une solution entière</button><button type="button" data-i="3">aucune solution</button></div>
-    <p class="expl"><strong>Réponse :</strong> C'est le théorème des valeurs intermédiaires.</p>
+    <h3><span class="num">14</span>On sait que $V(X)=9$. D'après Bienaymé-Tchebychev, $\prob\left(\left|X-\mu\right|\geqslant6\right)$ est majorée par :</h3>
+    <div class="choix"><button type="button" data-i="0">$1{,}5$</button><button type="button" data-i="1">$0{,}25$</button><button type="button" data-i="2">$0{,}75$</button><button type="button" data-i="3">$0{,}5$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\dfrac{V}{a^{2}}=\dfrac{9}{36}=0{,}25$.</p>
   </article>
   <article class="question" data-bonne="3">
-    <h3><span class="num">15</span>Le nombre de façons de choisir $2$ délégués parmi $6$ est :</h3>
-    <div class="choix"><button type="button" data-i="0">$36$</button><button type="button" data-i="1">$12$</button><button type="button" data-i="2">$30$</button><button type="button" data-i="3">$15$</button></div>
-    <p class="expl"><strong>Réponse :</strong> $\dbinom{6}{2}=15$.</p>
+    <h3><span class="num">15</span>On sait que $V=4$, $n=100$ et $a=0{,}5$. L'inégalité de concentration donne : $\prob\left(\left|M_{n}-\mu\right|\geqslant0{,}5\right)\leqslant$</h3>
+    <div class="choix"><button type="button" data-i="0">$0{,}04$</button><button type="button" data-i="1">$1{,}6$</button><button type="button" data-i="2">$0{,}4$</button><button type="button" data-i="3">$0{,}16$</button></div>
+    <p class="expl"><strong>Réponse :</strong> $\dfrac{V}{n\,a^{2}}=\dfrac{4}{100\times0{,}25}=\dfrac{4}{25}=0{,}16$.</p>
   </article>
   <article class="question" data-bonne="2">
-    <h3><span class="num">16</span>La dérivée de $\ln(x)$ est :</h3>
-    <div class="choix"><button type="button" data-i="0">$\dfrac{-1}{x^{2}}$</button><button type="button" data-i="1">$x$</button><button type="button" data-i="2">$\dfrac{1}{x}$</button><button type="button" data-i="3">$\ln(x)$</button></div>
-    <p class="expl"><strong>Réponse :</strong> Dérivée de référence.</p>
+    <h3><span class="num">16</span>La loi des grands nombres permet de justifier :</h3>
+    <div class="choix"><button type="button" data-i="0">le fait qu'une variable aléatoire soit bornée</button><button type="button" data-i="1">la formule de la variance d'une somme</button><button type="button" data-i="2">la stabilisation des fréquences observées vers la probabilité</button><button type="button" data-i="3">l'égalité $E(aX)=aE(X)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> La fréquence observée est une moyenne de variables de Bernoulli : elle se rapproche de $p$.</p>
   </article>
   <article class="question" data-bonne="0">
-    <h3><span class="num">17</span>Une primitive de $\mathrm{e}^{x}$ est :</h3>
-    <div class="choix"><button type="button" data-i="0">$\mathrm{e}^{x}$</button><button type="button" data-i="1">$x\mathrm{e}^{x}$</button><button type="button" data-i="2">$\dfrac{\mathrm{e}^{x}}{2}$</button><button type="button" data-i="3">$\ln(x)$</button></div>
-    <p class="expl"><strong>Réponse :</strong> L'exponentielle est sa propre primitive.</p>
-  </article>
-  <article class="question" data-bonne="3">
-    <h3><span class="num">18</span>$\lim\limits_{x\to+\infty}\dfrac{2x+1}{x-3}$ vaut :</h3>
-    <div class="choix"><button type="button" data-i="0">$0$</button><button type="button" data-i="1">$1$</button><button type="button" data-i="2">$+\infty$</button><button type="button" data-i="3">$2$</button></div>
-    <p class="expl"><strong>Réponse :</strong> On compare les termes de plus haut degré.</p>
-  </article>
-  <article class="question" data-bonne="3">
-    <h3><span class="num">19</span>$P(X=0)$ pour $X\sim\mathcal{B}(n\,;p)$ vaut :</h3>
-    <div class="choix"><button type="button" data-i="0">$n(1-p)$</button><button type="button" data-i="1">$p^{n}$</button><button type="button" data-i="2">$1-p$</button><button type="button" data-i="3">$(1-p)^{n}$</button></div>
-    <p class="expl"><strong>Réponse :</strong> Aucun succès sur $n$ épreuves.</p>
-  </article>
-  <article class="question" data-bonne="3">
-    <h3><span class="num">20</span>$\displaystyle\int_1^{\mathrm{e}}\dfrac{1}{x}\,\mathrm{d}x$ vaut :</h3>
-    <div class="choix"><button type="button" data-i="0">$\mathrm{e}-1$</button><button type="button" data-i="1">$\mathrm{e}$</button><button type="button" data-i="2">$0$</button><button type="button" data-i="3">$1$</button></div>
-    <p class="expl"><strong>Réponse :</strong> $\left[\ln x\right]_1^{\mathrm{e}}=1$.</p>
+    <h3><span class="num">17</span>L'inégalité de concentration est d'autant plus précise que :</h3>
+    <div class="choix"><button type="button" data-i="0">$n$ est grand</button><button type="button" data-i="1">$n$ est petit</button><button type="button" data-i="2">$V$ est grand</button><button type="button" data-i="3">$a$ est grand</button></div>
+    <p class="expl"><strong>Réponse :</strong> La majoration $\dfrac{V}{n\,a^{2}}$ décroît quand $n$ augmente : le résultat est d'autant plus fin.</p>
   </article>
   <section class="fin" id="fin" hidden>
     <strong>Quiz terminé</strong>
