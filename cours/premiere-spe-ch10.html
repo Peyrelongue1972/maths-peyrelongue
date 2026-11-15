@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 11 : Produit scalaire — Première spécialité</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#premiere-spe">← Retour au site</a></p>
+  <h1>Chapitre 11 : Produit scalaire</h1>
+  <p class="sous-titre">Première spécialité · Chapitre 10 — Produit scalaire · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Produit scalaire</span><a class="onglet" href="../pdf/premiere-spe/10-produit-scalaire.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/premiere-spe/fiche-activite-1-al-kashi.pdf" target="_blank" rel="noopener">Fiche activité 1</a><a class="onglet" href="../pdf/premiere-spe/fiche-activite-2-produit-scalaire-trigo.pdf" target="_blank" rel="noopener">Fiche activité 2</a><a class="onglet" href="../pdf/premiere-spe/td01-produit-scalaire.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/premiere-spe/td02-produit-scalaire.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../quiz/premiere-spe-10.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Introduction du produit scalaire</a></li><li><a href="#s2">II Différentes expressions du produit scalaire</a></li><li><a href="#s3">III Propriétés du produit scalaire</a></li></ol></nav>
+<h2 id="s1"><span class="num-section">I.</span> Introduction du produit scalaire</h2>
+<p><strong>Travail d'une force en physique</strong></p>
+<figure class="figure-cours"><img src="img/premiere-spe-ch10-fig01.png" alt="figure 1 du cours"></figure>
+<figure class="figure-cours"><img src="img/premiere-spe-ch10-fig02.png" alt="figure 2 du cours"></figure>
+<p>Le travail d'une force $\vect{AC}$ durant le déplacement de $A$ vers $B$ est un nombre $W$ :</p>
+<ul><li>positif lorsque la force favorise le déplacement de $A$ vers $B$ ;</li><li>négatif lorsque la force s'oppose au déplacement de $A$ vers $B$ ;</li><li>nul lorsque la force ne contribue pas au déplacement de $A$ vers $B$.</li></ul>
+<p>Ce nombre $W$, qui est le travail de la force $\vect{AC}$, correspond au produit scalaire du vecteur $\vect{AC}$ et du vecteur $\vect{AB}$ : on le note</p>
+<div class="maths">\[
+W=\vect{AC}\cdot\vect{AB} .
+\]</div>
+<h2 id="s2"><span class="num-section">II.</span> Différentes expressions du produit scalaire</h2>
+<h3>Produit scalaire de deux vecteurs du plan</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Angle orienté</span><div class="boite-corps"><p>L'angle orienté formé par les vecteurs $\vec{u}$ et $\vec{v}$ se note $\left(\vec{u}\,,\vec{v}\right)$.</p></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Produit scalaire</span><div class="boite-corps"><p>Soit $\vec{u}$ et $\vec{v}$ deux vecteurs du plan. On appelle <strong>produit scalaire</strong> de $\vec{u}$ et $\vec{v}$, et on note $\vec{u}\cdot\vec{v}$, le nombre réel défini par</p>
+<div class="maths">\[
+\vec{u}\cdot\vec{v}=\|\vec{u}\|\times\|\vec{v}\|\times\cos\left(\vec{u}\,,\vec{v}\right) .
+\]</div></div></section>
+<h3>Produit scalaire et projection orthogonale</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Projection orthogonale</span><div class="boite-corps"><p>Soit $\vect{AB}$ et $\vect{AC}$ deux vecteurs du plan. On note $H$ le projeté orthogonal du point $B$ sur la droite $(AC)$.</p>
+<ol><li>Si $\vect{AC}$ et $\vect{AH}$ ont même sens, alors $\vect{AB}\cdot\vect{AC}=AC\times AH$.</li><li>Si $\vect{AC}$ et $\vect{AH}$ ont des sens opposés, alors $\vect{AB}\cdot\vect{AC}=-AC\times AH$.</li><li>Si $\vect{AB}$ et $\vect{AC}$ sont orthogonaux, alors $\vect{AB}\cdot\vect{AC}=0$.</li></ol></div></section>
+<figure class="figure-cours"><img src="img/premiere-spe-ch10-fig03.png" alt="figure 3 du cours"></figure>
+<div class="minipage"><section class="boite boite-info"><div class="maths">\[
+\begin{aligned}
+\vect{AB}\cdot\vect{AC}&=\vect{AB}\cdot\vect{AH}\\
+&=AB\times AH
+\end{aligned}
+\]</div>
+<p>si $H$ est sur la demi-droite $[AB)$.</p></section></div>
+<div class="minipage"><section class="boite boite-info"><div class="maths">\[
+\begin{aligned}
+\vect{AB}\cdot\vect{AC}&=\vect{AB}\cdot\vect{AH}\\
+&=-AB\times AH
+\end{aligned}
+\]</div>
+<p>si $H$ n'est pas sur la demi-droite $[AB)$.</p></section></div>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Vecteur projeté</span><div class="boite-corps"><p>Le vecteur $\vect{AH}$ est le <strong>projeté orthogonal</strong> du vecteur $\vect{AC}$ sur le vecteur $\vect{AB}$.</p></div></section>
+<p><strong>Configuration 1 :</strong></p>
+<figure class="figure-cours"><img src="img/premiere-spe-ch10-fig04.png" alt="figure 4 du cours"></figure>
+<div class="minipage"><section class="boite boite-info"><div class="maths">\[
+\begin{aligned}
+\vect{AB}\cdot\vect{AC}&=\vect{AB}\cdot\vect{AD}\\
+&=\vect{AB}\cdot\vect{AE}\\
+&=\vect{AB}\cdot\vect{AH}
+\end{aligned}
+\]</div></section></div>
+<p><strong>Configuration 2 :</strong></p>
+<figure class="figure-cours"><img src="img/premiere-spe-ch10-fig05.png" alt="figure 5 du cours"></figure>
+<div class="minipage"><section class="boite boite-info"><div class="maths">\[
+\begin{aligned}
+\vect{AB}\cdot\vect{MN}&=\vect{AB}\cdot\vect{PQ}\\
+&=\vect{AB}\cdot\vect{RS}\\
+&=\vect{AB}\cdot\vect{IJ}
+\end{aligned}
+\]</div></section></div>
+<p><strong>Configuration 3 :</strong></p>
+<figure class="figure-cours"><img src="img/premiere-spe-ch10-fig06.png" alt="figure 6 du cours"></figure>
+<div class="minipage"><section class="boite boite-info"><div class="maths">\[
+\vect{AB}\cdot\vect{MN}=\vect{AB}\cdot\vect{PQ}=0
+\]</div></section></div>
+<h3>Produit scalaire et identité du parallélogramme</h3>
+<p>Dans le plan muni d'un repère orthonormé $\left(O\,;\vec{\imath}\,,\vec{\jmath}\right)$, on considère deux vecteurs $\vec{u}$ et $\vec{v}$. On cherche une expression simple de $\vec{u}\cdot\vec{v}$ en fonction des normes des vecteurs $\vec{u}$, $\vec{v}$ et $\vec{u}+\vec{v}$.</p>
+<p>Soit $A$, $B$ et $C$ des points du plan tels que $\vec{u}=\vect{AB}$ et $\vec{v}=\vect{BC}$ ; alors $\vec{u}+\vec{v}=\vect{AC}$ (relation de Chasles).</p>
+<p>En utilisant la formule d'Al-Kashi (démontrée dans l'activité 1) à l'angle $\left(\vect{BA}\,,\vect{BC}\right)$, on obtient :</p>
+<div class="maths">\[
+AC^{2}=AB^{2}+BC^{2}-2\,BA\cdot BC\cdot\cos\left(\vect{BA}\,,\vect{BC}\right)
+\]</div>
+<p>Soit</p>
+<div class="maths">\[
+\|\vect{AC}\|^{2}=\|\vect{AB}\|^{2}+\|\vect{BC}\|^{2}-2\vect{BA}\cdot\vect{BC}
+=\|\vect{AB}\|^{2}+\|\vect{BC}\|^{2}+2\vect{AB}\cdot\vect{BC}
+\]</div>
+<p>Soit</p>
+<div class="maths">\[
+\|\vect{AC}\|^{2}=\|\vect{AB}\|^{2}+\|\vect{BC}\|^{2}+2\vect{AB}\cdot\vect{BC}
+\iff
+\|\vec{u}+\vec{v}\|^{2}=\|\vec{u}\|^{2}+\|\vec{v}\|^{2}+2\,\vec{u}\cdot\vec{v}
+\]</div>
+<p>Et donc</p>
+<div class="maths">\[
+\vec{u}\cdot\vec{v}=\frac{\|\vec{u}+\vec{v}\|^{2}-\|\vec{u}\|^{2}-\|\vec{v}\|^{2}}{2} .
+\]</div>
+<figure class="figure-cours"><img src="img/premiere-spe-ch10-fig07.png" alt="figure 7 du cours"></figure>
+<h3>Produit scalaire dans un repère orthonormé</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Expression analytique</span><div class="boite-corps"><p>On considère deux vecteurs $\vec{u}$ et $\vec{v}$ de coordonnées respectives $(x\,;y)$ et $(x'\,;y')$ dans le repère orthonormé $\left(O\,;\vec{\imath}\,,\vec{\jmath}\right)$. Alors le produit scalaire des deux vecteurs est :</p>
+<div class="maths">\[
+\vec{u}\cdot\vec{v}=xx'+yy' .
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Deux calculs</span><div class="boite-corps"><p>$\vec{u}\binom{2}{3}$ et $\vec{v}\binom{-1}{3}$ :</p>
+<div class="maths">\[
+\vec{u}\cdot\vec{v}=2\times(-1)+3\times 3=-2+9=7 .
+\]</div>
+<p>$\vec{u}\binom{5}{7}$ et $\vec{v}\binom{8}{-7}$ :</p>
+<div class="maths">\[
+\vec{u}\cdot\vec{v}=5\times 8+7\times(-7)=40-49=-9 .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>$\left(O\,;\vec{\imath}\,,\vec{\jmath}\right)$, on considère deux vecteurs $\vec{u}$ et $\vec{v}$ de coordonnées respectives $(x\,;y)$ et $(x'\,;y')$. On cherche une expression simple de $\vec{u}\cdot\vec{v}$ en fonction de ces coordonnées.</p>
+<p>Comme</p>
+<div class="maths">\[
+\vec{u}\cdot\vec{v}=\frac{\|\vec{u}+\vec{v}\|^{2}-\|\vec{u}\|^{2}-\|\vec{v}\|^{2}}{2},
+\]</div>
+<p>on a $\|\vec{u}\|^{2}=x^{2}+y^{2}$, $\|\vec{v}\|^{2}=x'^{2}+y'^{2}$ et $\vec{u}+\vec{v}\,(x+x'\,;y+y')$.</p>
+<p>Donc</p>
+<div class="maths">\[
+\|\vec{u}+\vec{v}\|^{2}=(x+x')^{2}+(y+y')^{2}
+=x^{2}+x'^{2}+2xx'+y^{2}+y'^{2}+2yy' .
+\]</div>
+<section class="boite boite-info"><div class="maths">\[
+\vec{u}\cdot\vec{v}
+=\frac{x^{2}+y^{2}+x'^{2}+y'^{2}+2xx'+2yy'-x^{2}-x'^{2}-y^{2}-y'^{2}}{2}
+=xx'+yy' .
+\]</div></section></div></section>
+<h2 id="s3"><span class="num-section">III.</span> Propriétés du produit scalaire</h2>
+<h3>Symétrie et bilinéarité du produit scalaire</h3>
+<p>On considère deux vecteurs $\vec{u}$ et $\vec{v}$ de coordonnées respectives $(x\,;y)$ et $(x'\,;y')$.</p>
+<p>En utilisant la formule $\vec{u}\cdot\vec{v}=xx'+yy'$, on constate que le produit scalaire est symétrique :</p>
+<div class="maths">\[
+\vec{v}\cdot\vec{u}=x'x+y'y=xx'+yy'=\vec{u}\cdot\vec{v} .
+\]</div>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriété 1 : symétrie</span><div class="boite-corps"><p>Le produit scalaire est <strong>symétrique</strong> : pour tous les vecteurs $\vec{u}$ et $\vec{v}$, on a</p>
+<div class="maths">\[
+\vec{u}\cdot\vec{v}=\vec{v}\cdot\vec{u} .
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriété 2 : distributivité</span><div class="boite-corps"><p>Le produit scalaire est <strong>distributif</strong> par rapport à l'addition. Pour tous les vecteurs $\vec{u}$, $\vec{v}$ et $\vec{w}$,</p>
+<div class="maths">\[
+\vec{u}\cdot\left(\vec{v}+\vec{w}\right)=\vec{u}\cdot\vec{v}+\vec{u}\cdot\vec{w}
+\qquad\text{et}\qquad
+\vec{u}\cdot\left(\vec{v}+\vec{w}\right)=\left(\vec{v}+\vec{w}\right)\cdot\vec{u} .
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriété 3 : multiplication par un réel</span><div class="boite-corps"><p>Le produit scalaire est <strong>compatible</strong> avec la multiplication par un nombre réel : pour tout nombre réel $k$ et pour tous les vecteurs $\vec{u}$ et $\vec{v}$, on a</p>
+<div class="maths">\[
+k\left(\vec{u}\cdot\vec{v}\right)
+=\left(k\vec{u}\right)\cdot\vec{v}
+=\vec{u}\cdot\left(k\vec{v}\right)
+=\left(\vec{u}\cdot\vec{v}\right)k .
+\]</div></div></section>
+<p><strong>Remarque :</strong> les propriétés 1, 2 et 3 réunies constituent la <strong>bilinéarité</strong> du produit scalaire.</p>
+<p><strong>Norme et produit scalaire :</strong></p>
+<div class="maths">\[
+\vec{u}^{2}=\vec{u}\cdot\vec{u}=x^{2}+y^{2}=\|\vec{u}\|^{2} .
+\]</div>
+<p><strong>Identité remarquable :</strong></p>
+<ul><li><div class="maths">        \[
+        \left(\vec{u}+\vec{v}\right)^{2}
+        =\left(\vec{u}+\vec{v}\right)\cdot\left(\vec{u}+\vec{v}\right)
+        =\vec{u}\cdot\vec{u}+\vec{u}\cdot\vec{v}+\vec{v}\cdot\vec{u}+\vec{v}\cdot\vec{v}
+        =\vec{u}^{2}+2\,\vec{u}\cdot\vec{v}+\vec{v}^{2}
+        =\|\vec{u}\|^{2}+2\,\vec{u}\cdot\vec{v}+\|\vec{v}\|^{2}
+        \]</div></li><li><div class="maths">        \[
+        \left(\vec{u}-\vec{v}\right)^{2}
+        =\left(\vec{u}-\vec{v}\right)\cdot\left(\vec{u}-\vec{v}\right)
+        =\vec{u}^{2}-2\,\vec{u}\cdot\vec{v}+\vec{v}^{2}
+        =\|\vec{u}\|^{2}-2\,\vec{u}\cdot\vec{v}+\|\vec{v}\|^{2}
+        \]</div></li><li><div class="maths">        \[
+        \left(\vec{u}-\vec{v}\right)\cdot\left(\vec{u}+\vec{v}\right)
+        =\vec{u}^{2}-\vec{v}^{2}
+        =\|\vec{u}\|^{2}-\|\vec{v}\|^{2}
+        \]</div></li></ul>
+<h3>Orthogonalité et produit scalaire</h3>
+<p>On considère que le <strong>vecteur nul est orthogonal à tous les vecteurs</strong> du plan.</p>
+<p><strong>Rappel :</strong> un produit de facteurs est nul si, et seulement si, l'un des facteurs est nul.</p>
+<div class="maths">\[
+\vec{u}\cdot\vec{v}=0
+\iff \|\vec{u}\|=0 \text{ ou } \|\vec{v}\|=0 \text{ ou } \cos\left(\vec{u}\,,\vec{v}\right)=0
+\iff \vec{u}=\vec{0} \text{ ou } \vec{v}=\vec{0} \text{ ou }
+\left(\vec{u}\,,\vec{v}\right)=\frac{\pi}{2} \bmod (\pi)
+\]</div>
+<p>On obtient donc le théorème suivant.</p>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Orthogonalité</span><div class="boite-corps"><p>Deux vecteurs $\vec{u}$ et $\vec{v}$ sont orthogonaux si, et seulement si, $\vec{u}\cdot\vec{v}=0$.</p>
+<p><strong>Corollaire :</strong> deux vecteurs $\vec{u}$ et $\vec{v}$ sont orthogonaux si, et seulement si, $xx'+yy'=0$.</p></div></section>
+<h3>Colinéarité de deux vecteurs</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Vecteurs colinéaires</span><div class="boite-corps"><p>Deux vecteurs $\vec{u}$ et $\vec{v}$ sont <strong>colinéaires</strong> s'ils ont même direction.</p></div></section>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Caractérisation</span><div class="boite-corps"><p>Deux vecteurs $\vec{u}$ et $\vec{v}$ sont colinéaires si, et seulement si, il existe un réel $k$ non nul tel que</p>
+<div class="maths">\[
+\vec{u}=k\,\vec{v} .
+\]</div></div></section>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Déterminant</span><div class="boite-corps"><p>Deux vecteurs $\vec{u}$ et $\vec{v}$ sont colinéaires si, et seulement si,</p>
+<div class="maths">\[
+\det\left(\vec{u}\,,\vec{v}\right)=0 .
+\]</div>
+<p>Avec</p>
+<div class="maths">\[
+\det\left(\vec{u}\,,\vec{v}\right)=xy'-x'y .
+\]</div></div></section>
+  <p style="margin-top:2.5rem"><a href="../index.html#premiere-spe">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

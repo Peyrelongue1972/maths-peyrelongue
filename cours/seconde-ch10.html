@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 10 : Étude de la fonction carré — Seconde</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#seconde">← Retour au site</a></p>
+  <h1>Chapitre 10 : Étude de la fonction carré</h1>
+  <p class="sous-titre">Seconde · Chapitre 10 — Étude de la fonction carré · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Étude de la fonction carré</span><a class="onglet" href="../pdf/seconde/10-etude-de-la-fonction-carre.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../quiz/seconde-10.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Définition et propriétés</a></li><li><a href="#s2">II Représentation graphique et parité</a></li><li><a href="#s3">III Comparer les carrés de deux nombres</a></li><li><a href="#s4">IV Résoudre l'équation $x^{2}=k$</a></li><li><a href="#s5">V Résoudre une inéquation</a></li></ol></nav>
+<h2 id="s1"><span class="num-section">I.</span> Définition et propriétés</h2>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Fonction carré</span><div class="boite-corps"><p>La <strong>fonction carré</strong> est la fonction $f$ définie sur $\R$ par</p>
+<div class="maths">\[
+f(x)=x^{2} .
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Variations de la fonction carré</span><div class="boite-corps"><p>La <strong>fonction carré</strong> est strictement décroissante sur $\left]-\infty\,;0 \right]$ et strictement croissante sur $\left[0\,;+\infty\right[$.</p></div></section>
+<p><strong>Tableau de variation de la fonction carré :</strong></p>
+<figure class="figure-cours"><img src="img/seconde-ch10-fig01.png" alt="figure 1 du cours"></figure>
+<p><strong>Démonstration :</strong></p>
+<p><em>Démontrons que $f$ est strictement croissante sur $\left[0\,;+\infty\right[$ :</em> soit $a$ et $b$ deux nombres tels que $0&lt;a&lt;b$.</p>
+<p>Je dois donc prouver que $f(a)&lt;f(b)$, ou que $f(a)-f(b)&lt;0$ :</p>
+<div class="maths">\[
+f(a)-f(b)=a^{2}-b^{2}=(a-b)(a+b) .
+\]</div>
+<p>Par hypothèse : $a$ et $b$ sont positifs, donc $a+b&gt;0$ ; et $a&lt;b$, donc $a-b&lt;0$.</p>
+<p>Donc, d'après la règle des signes d'un produit : $f(a)-f(b)&lt;0$, ou encore $f(a)&lt;f(b)$.</p>
+<div class="maths">\[
+\forall a,\ b\in\R^{+},\quad 0&lt;a&lt;b\ \Longrightarrow\ f(a)&lt;f(b) :
+\]</div>
+<p>$f$ est donc strictement croissante sur $\left[0\,;+\infty\right[$.</p>
+<p><strong>Démonstration (suite) :</strong></p>
+<p><em>Démontrons que $f$ est strictement décroissante sur $\left]-\infty\,;0\right]$ :</em> soit $a$ et $b$ deux nombres tels que $a&lt;b&lt;0$.</p>
+<p>Je dois donc prouver que $f(a)&gt;f(b)$, ou que $f(a)-f(b)&gt;0$ :</p>
+<div class="maths">\[
+f(a)-f(b)=a^{2}-b^{2}=(a-b)(a+b) .
+\]</div>
+<p>Par hypothèse : $a$ et $b$ sont négatifs, donc $a+b&lt;0$ ; et $a&lt;b$, donc $a-b&lt;0$.</p>
+<p>Donc, d'après la règle des signes d'un produit : $f(a)-f(b)&gt;0$, ou $f(a)&gt;f(b)$.</p>
+<div class="maths">\[
+\forall a,\ b\in\R^{-},\quad a&lt;b&lt;0\ \Longrightarrow\ f(a)&gt;f(b) :
+\]</div>
+<p>$f$ est donc strictement décroissante sur $\left]-\infty\,;0\right]$.</p>
+<h2 id="s2"><span class="num-section">II.</span> Représentation graphique et parité</h2>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Fonction paire</span><div class="boite-corps"><p>Une fonction qui vérifie la propriété $f(-x)=f(x)$ pour tout $x\in\R$ est une fonction <strong>paire</strong>.</p></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Symétrie de la courbe d'une fonction paire</span><div class="boite-corps"><p>La courbe représentative d'une fonction paire est symétrique par rapport à l'axe des ordonnées.</p></div></section>
+<p><strong>Preuve :</strong> soit $M(x\,;y)\in\mathcal{C}_{f}$, donc $y=f(x)$ ; soit $M'$ l'image de $M$ par rapport à l'axe $(Oy)$.</p>
+<p>Les coordonnées de $M'$ sont $M'(-x\,;y)=(-x\,;f(x))$.</p>
+<p>Si $f$ est paire, alors $f(-x)=f(x)$, donc $M'(-x\,;f(-x))$. L'ordonnée de $M'$ est l'image de l'abscisse, donc $M'\in\mathcal{C}_{f}$. Si l'on a tracé la fonction sur $\R^{+}$, on obtient le complément par <strong>symétrie d'axe $(Oy)$</strong>.</p>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">La fonction carré est paire</span><div class="boite-corps"><p>La fonction carré est une fonction <strong>paire</strong>.</p>
+<p>En effet : $f(-x)=(-x)^{2}=x^{2}=f(x)$ pour tout $x\in\R$.</p></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">La parabole $\mathcal{P}$ (admise)</span><div class="boite-corps"><p>Dans un repère orthogonal $(O\,;I\,,J)$, la courbe représentative de la fonction carré est une <strong>parabole</strong> $\mathcal{P}$ de <em>sommet</em> $O$ et d'axe de symétrie $(Oy)$.</p>
+<ul><li>La parabole $\mathcal{P}$ est entièrement située au-dessus de l'axe des abscisses : en effet, pour tout réel $x$, $x^{2}\geqslant 0$.</li><li>Dans un repère orthonormé $(O\,;I\,,J)$, l'axe des ordonnées est un axe de symétrie de la parabole.</li></ul></div></section>
+<figure class="figure-cours"><img src="img/seconde-ch10-fig02.png" alt="figure 2 du cours"></figure>
+<h2 id="s3"><span class="num-section">III.</span> Comparer les carrés de deux nombres</h2>
+<p>En utilisant les variations de la fonction carré, on obtient les propriétés suivantes :</p>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Comparaison des carrés</span><div class="boite-corps"><ul><li><p>Deux nombres <strong>négatifs</strong> et leurs carrés sont rangés dans des ordres <strong>contraires</strong> :</p>
+<p>pour tous réels $a$ et $b$ tels que $a&lt;b\leqslant 0$, on a $a^{2}&gt;b^{2}$ ;</p></li><li><p>Deux nombres <strong>positifs</strong> et leurs carrés sont rangés dans le <strong>même ordre</strong> :</p>
+<p>pour tous réels $a$ et $b$ tels que $0\leqslant a&lt;b$, on a $a^{2}&lt;b^{2}$.</p></li></ul></div></section>
+<figure class="figure-cours"><img src="img/seconde-ch10-fig03.png" alt="figure 3 du cours"></figure>
+<h2 id="s4"><span class="num-section">IV.</span> Résoudre l'équation $x^{2}=k$</h2>
+<p>Les solutions de l'équation $x^{2}=k$ sont les abscisses des points d'intersection de la parabole $\mathcal{P}$ et de la droite parallèle à l'axe des abscisses d'équation $y=k$.</p>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Nombre de solutions de $x^{2}=k$</span><div class="boite-corps"><p>Soit un réel $k$.</p>
+<ul><li>Si $k&lt;0$, l'équation $x^{2}=k$ n'a pas de solution.</li><li>Si $k=0$, l'équation $x^{2}=k$ a une unique solution : $S=\{0\}$.</li><li>Si $k&gt;0$, l'équation $x^{2}=k$ a deux solutions : $S=\left\{-\sqrt{k}\,;\sqrt{k}\right\}$.</li></ul></div></section>
+<p><strong>Résolution algébrique de $x^{2}=k$ :</strong></p>
+<p><em>1<sup>er</sup> cas : $k&lt;0$.</em> Un carré est toujours positif : l'équation n'a pas de solution. L'ensemble des solutions est vide.</p>
+<p><em>2<sup>e</sup> cas : $k\geqslant 0$.</em> On utilise l'identité remarquable $a^{2}-b^{2}=(a-b)(a+b)$.</p>
+<p>Comme $k&gt;0$, $k$ est le carré de $\sqrt{k}$ :</p>
+<div class="maths">\[
+x^{2}=\left(\sqrt{k}\right)^{2}
+\iff x^{2}-\left(\sqrt{k}\right)^{2}=0
+\iff \left(x-\sqrt{k}\right)\left(x+\sqrt{k}\right)=0 .
+\]</div>
+<p><strong>Théorème :</strong> un produit de facteurs est nul si et seulement si l'un de ses facteurs est nul.</p>
+<div class="maths">\[
+x^{2}=k\iff x-\sqrt{k}=0 \ \text{ou}\ x+\sqrt{k}=0
+\iff x=\sqrt{k}\ \text{ou}\ x=-\sqrt{k} .
+\]</div>
+<p>Les solutions de l'équation sont donc $S=\left\{-\sqrt{k}\,;\sqrt{k}\right\}$.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Résoudre $x^{2}=4$ et $x^{2}=-1$</span><div class="boite-corps"><ul><li>L'équation $x^{2}=4$ admet deux solutions : $-2$ et $2$.</li><li>L'équation $x^{2}=-1$ n'admet pas de solution.</li></ul>
+<figure class="figure-cours"><img src="img/seconde-ch10-fig04.png" alt="figure 4 du cours"></figure></div></section>
+<h2 id="s5"><span class="num-section">V.</span> Résoudre une inéquation</h2>
+<h3>5.1  Résoudre graphiquement une inéquation</h3>
+<ul><li>Soit $x$ un réel : déterminer les solutions de l'inéquation $x^{2}\leqslant a$ en utilisant la représentation graphique de la fonction carré.</li><li>Les solutions de l'inéquation $x^{2}\leqslant a$ sont les abscisses des points de la courbe de la fonction carré qui ont une ordonnée inférieure ou égale à $a$.</li><li>On trace la droite d'équation $y=a$, on repasse en couleur les points de la courbe qui sont situés en dessous de la droite, puis on lit les abscisses de ces points.</li></ul>
+<figure class="figure-cours"><img src="img/seconde-ch10-fig05.png" alt="figure 5 du cours"></figure>
+<h3>5.2  Résoudre algébriquement une inéquation</h3>
+<p><strong>Résoudre $f(x)&lt;k$ :</strong></p>
+<ol><li>On se ramène à une comparaison à zéro : $f(x)&lt;k\iff f(x)-k&lt;0$.</li><li>On factorise l'expression obtenue.</li><li>On dresse un tableau de signes et, par lecture du tableau, on peut conclure.</li></ol>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Résoudre $x^{2}&lt;4$</span><div class="boite-corps"><p>Résoudre $x^{2}&lt;4$ :</p>
+<div class="maths">\[
+x^{2}&lt;4\iff x^{2}-4&lt;0\iff (x-2)(x+2)&lt;0 .
+\]</div>
+<p>On dresse le tableau de signes :</p>
+<table class="tableau"><tr><td>$x$</td><td>$-\infty$</td><td>$-2$</td><td></td><td>$2$</td><td>$+\infty$</td></tr><tr><td>$(x-2)$</td><td>$-$</td><td></td><td>$-$</td><td>$0$</td><td>$+$</td></tr><tr><td>$(x+2)$</td><td>$-$</td><td>$0$</td><td>$+$</td><td></td><td>$+$</td></tr><tr><td>$(x-2)(x+2)$</td><td>$+$</td><td>$0$</td><td>$-$</td><td>$0$</td><td>$+$</td></tr></table>
+<p>On peut conclure que, dans l'intervalle $\left]-2\,;2\right[$, l'expression $(x-2)(x+2)$ est strictement négative :</p>
+<div class="maths">\[
+S=\left]-2\,;2\right[ .
+\]</div></div></section>
+  <p style="margin-top:2.5rem"><a href="../index.html#seconde">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

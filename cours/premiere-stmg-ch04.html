@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre IV : Le second degré — Première STMG</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#premiere-stmg">← Retour au site</a></p>
+  <h1>Chapitre IV : Le second degré</h1>
+  <p class="sous-titre">Première STMG · Chapitre 4 — Le second degré · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Le second degré</span><a class="onglet" href="../pdf/premiere-stmg/iv-le-second-degre.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/premiere-stmg/td01-forme-canonique.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/premiere-stmg/td02-problemes-second-degre.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../quiz/premiere-stmg-4.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Le second degré</a></li><li><a href="#s2">II Forme canonique</a></li><li><a href="#s3">III Représentation graphique</a></li><li><a href="#s4">IV Étude de la fonction polynôme du second degré</a></li><li><a href="#s5">V Forme factorisée</a></li></ol></nav>
+<h2 id="s1"><span class="num-section">I.</span> Le second degré</h2>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Polynôme du second degré</span><div class="boite-corps"><p>On appelle <strong>polynôme du second degré</strong> toute fonction définie sur $\R$ par</p>
+<div class="maths">\[
+f(x)=ax^{2}+bx+c,
+\]</div>
+<p>avec $a$, $b$ et $c$ trois paramètres réels et $a$ non nul.</p></div></section>
+<p>Lorsque $f$ est donnée sous la forme $f(x)=ax^{2}+bx+c$, on dit que $f$ est donnée sous la <strong>forme développée</strong>.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$f(x)=3x^{2}-5x+2$</span><div class="boite-corps"><p>$f(x)=3x^{2}-5x+2$ est un polynôme du second degré.</p></div></section>
+<h2 id="s2"><span class="num-section">II.</span> Forme canonique</h2>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriété 1</span><div class="boite-corps"><p>Toute fonction du $2^{\text{nd}}$ degré peut s'écrire sous la forme canonique :</p>
+<div class="maths">\[
+f(x)=a\left(x+\frac{b}{2a}\right)^{2}-\frac{b^{2}-4ac}{4a} .
+\]</div></div></section>
+<p>En posant</p>
+<div class="maths">\[
+\alpha=-\frac{b}{2a}
+\qquad\text{et}\qquad
+\beta=-\frac{b^{2}-4ac}{4a},
+\]</div>
+<p>la forme canonique s'écrit :</p>
+<div class="maths">\[
+f(x)=a(x-\alpha)^{2}+\beta .
+\]</div>
+<p>Pour calculer alpha, il suffit de calculer $-\dfrac{b}{2a}$ ; et pour calculer $\beta$, on calcule $f(\alpha)$.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$f(x)=3x^{2}-4x+5$</span><div class="boite-corps"><p>$f(x)=3x^{2}-4x+5$ : ici $a=3$, $b=-4$ et $c=5$.</p>
+<div class="maths">\[
+\alpha=-\frac{b}{2a}=-\frac{-4}{2\times 3}=\frac{2}{3}
+\]</div>
+<div class="maths">\[
+\beta=f(\alpha)=f\left(\frac{2}{3}\right)
+=3\left(\frac{2}{3}\right)^{2}-4\left(\frac{2}{3}\right)+5
+=3\times\frac{4}{9}-\frac{8}{3}+\frac{15}{3}
+=\frac{4}{3}-\frac{8}{3}+\frac{15}{3}=\frac{11}{3} .
+\]</div>
+<p>Finalement,</p>
+<div class="maths">\[
+f(x)=3\left(x-\frac{2}{3}\right)^{2}+\frac{11}{3} .
+\]</div></div></section>
+<h2 id="s3"><span class="num-section">III.</span> Représentation graphique</h2>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriété 1</span><div class="boite-corps"><p>La courbe de la fonction polynôme est une <strong>parabole</strong> qui admet pour <strong>axe de symétrie</strong> la droite $D : x=-\dfrac{b}{2a}$ et pour <strong>sommet</strong> le point $S(\alpha\,;\beta)$ avec</p>
+<div class="maths">\[
+\alpha=-\frac{b}{2a}
+\qquad\text{et}\qquad
+\beta=f(\alpha) .
+\]</div></div></section>
+<figure class="figure-cours"><img src="img/premiere-stmg-ch04-fig01.png" alt="figure 1 du cours" style="height:569px;object-fit:fill"></figure>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Forme canonique de $3x^{2}-4x+5$</span><div class="boite-corps"><div class="maths">\[
+f(x)=3x^{2}-4x+5=3\left(x-\frac{2}{3}\right)^{2}+\frac{11}{3} .
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriété 2</span><div class="boite-corps"><p>La parabole est orientée vers le haut lorsque « $a$ » est positif, et vers le bas lorsque « $a$ » est négatif.</p></div></section>
+<figure class="figure-cours"><img src="img/premiere-stmg-ch04-fig02.png" alt="figure 2 du cours"></figure>
+<section class="boite boite-meth"><span class="boite-titre">Méthode</span> <span class="boite-sous-titre">Tracer une parabole</span><div class="boite-corps"><p>pour tracer la parabole, on calcule $\alpha=-\dfrac{b}{2a}$ et $\beta=f(\alpha)$, puis on trace l'axe de symétrie vertical $D : x=-\dfrac{b}{2a}$ ; on place le sommet $S$, on place deux ou trois points d'un côté de l'axe de symétrie, on place les autres par symétrie et on trace la courbe.</p></div></section>
+<h2 id="s4"><span class="num-section">IV.</span> Étude de la fonction polynôme du second degré</h2>
+<p>Soit $f(x)=ax^{2}+bx+c$ avec $a\neq 0$.</p>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Sens de variation</span><div class="boite-corps"><p>Si $a&gt;0$, alors $f$ est décroissante sur $\left]-\infty\,;-\dfrac{b}{2a}\right]$ et croissante sur $\left[-\dfrac{b}{2a}\,;+\infty\right[$.</p>
+<p>Si $a&lt;0$, alors $f$ est croissante sur $\left]-\infty\,;-\dfrac{b}{2a}\right]$ et décroissante sur $\left[-\dfrac{b}{2a}\,;+\infty\right[$.</p></div></section>
+<figure class="figure-cours"><img src="img/premiere-stmg-ch04-fig03.png" alt="figure 3 du cours"></figure>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Tableau de variation</span><div class="boite-corps"><p>Donner le tableau de variation de la fonction $f(x)=-4x^{2}+24x+7$.</p></div></section>
+<h2 id="s5"><span class="num-section">V.</span> Forme factorisée</h2>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Racine</span><div class="boite-corps"><p>On appelle <strong>racine</strong> d'un polynôme $P$ toute valeur « $r$ » telle que $P(r)=0$.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$f(x)=3x^{2}-2x-1$</span><div class="boite-corps"><p>$f(x)=3x^{2}-2x-1$ : on a $f(1)=0$, donc $1$ est une racine de $f$.</p></div></section>
+<h3>Fonctions polynômes du second degré sous forme factorisée</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriétés</span><div class="boite-corps"><p>Toute fonction $f$ définie sur $\R$ par</p>
+<div class="maths">\[
+f(x)=a(x-u)(x-v),
+\]</div>
+<p>où $a$, $u$ et $v$ sont des paramètres réels et $a$ est non nul, est une fonction polynôme du second degré. On dit que $f$ est donnée sous la <strong>forme factorisée</strong>.</p></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><div class="maths">\[
+f(x)=a(x-u)(x-v)=ax^{2}-a(u+v)x+auv .
+\]</div>
+<p>On a ici $a=a$, $b=a(u+v)$ et $c=auv$.</p></div></section>
+<h3>Avantage de la forme factorisée</h3>
+<p>Soit $f$ une fonction polynôme du second degré, donnée sous la forme factorisée (ce n'est pas toujours possible)</p>
+<div class="maths">\[
+f(x)=a(x-x_{1})(x-x_{2}),
+\]</div>
+<p>où $a$, $x_{1}$ et $x_{2}$ sont des paramètres réels et $a$ est non nul.</p>
+<p><strong>1. Résoudre l'équation $f(x)=0$.</strong></p>
+<p>Cela revient à résoudre $a(x-x_{1})(x-x_{2})=0$.</p>
+<p>On peut utiliser le théorème : un produit de facteurs est nul si, et seulement si, au moins l'un de ses facteurs est nul.</p>
+<p>Ainsi,</p>
+<div class="maths">\[
+a(x-x_{1})(x-x_{2})=0
+\iff (x-x_{1})=0 \text{ ou } (x-x_{2})=0
+\iff x=x_{1} \text{ ou } x=x_{2} .
+\]</div>
+<p>$f(x)=0$ a pour solution</p>
+<div class="maths">\[
+S=\{x_{1}\,;x_{2}\} .
+\]</div>
+<p><strong>Exemple :</strong> $5(x-2)(x+3)=0$, alors $S=\{2\,;-3\}$.</p>
+<p><strong>2. Étudier le signe de $f(x)$.</strong></p>
+<p>Pour étudier le signe de $f(x)$, on dresse un tableau de signes où l'on place chacun des facteurs.</p>
+<p><strong>Exemple :</strong> $f(x)=5(x-2)(4-x)$.</p>
+<figure class="figure-cours"><img src="img/premiere-stmg-ch04-fig04.png" alt="figure 4 du cours"></figure>
+<p><strong>Conclusion :</strong> $f(x)\geqslant 0$ sur l'intervalle $[2\,;4]$ et $f(x)&lt;0$ sur $\left]-\infty\,;2\right[\cup\left]4\,;+\infty\right[$.</p>
+<p><strong>3. Propriété :</strong> si $f(x)=a(x-x_{1})(x-x_{2})$, alors</p>
+<div class="maths">\[
+\alpha=\frac{x_{1}+x_{2}}{2} .
+\]</div>
+<p>C'est évident : l'axe de symétrie se trouve au milieu des racines.</p>
+<p><strong>Exemple :</strong> $f(x)=5(x-2)(x+8)$, alors $x_{1}=2$ et $x_{2}=-8$, donc $\alpha=-3$.</p>
+<h3>Obtenir une forme factorisée</h3>
+<p><strong>Exemple :</strong> soit $P(x)=a(x-u)(x-v)$ ; alors $P(u)=0$ et $P(v)=0$ : $u$ et $v$ sont donc des racines de $P$.</p>
+<p><strong>Exemple :</strong> $P(x)=x^{2}-2x+1$ ; $P(1)=1-2+1=0$, donc $1$ est une racine de $P$.</p>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème</span><div class="boite-corps"><p>Soit $P$ un polynôme et soit $u$ une racine de $P$ : alors $P(u)=0$ et on peut mettre $(x-u)$ en facteur.</p></div></section>
+<p><strong>Exemple :</strong> $P(x)=x^{2}+6x-7$ ; $P(1)=1+6-7=0$ : $1$ est une racine, on peut donc mettre $(x-1)$ en facteur.</p>
+<div class="maths">\[
+P(x)=(x-1)(x+k) :
+\]</div>
+<p>il faudra identifier la valeur de $k$.</p>
+<p>On développe :</p>
+<div class="maths">\[
+P(x)=(x-1)(x+k)=x^{2}-x+kx-k=x^{2}+(1-k)x+k .
+\]</div>
+<p>Par identification, on a $k=-7$ et $1-k=6$, d'où $k=-7$.</p>
+<p>Et</p>
+<div class="maths">\[
+P(x)=(x-1)(x+7) .
+\]</div>
+<h3>Propriété</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Somme des racines</span><div class="boite-corps"><p>Soit $f$ une fonction du second degré ayant deux racines $x_{1}$ et $x_{2}$, alors</p>
+<div class="maths">\[
+\alpha=\frac{x_{1}+x_{2}}{2} .
+\]</div></div></section>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">$f(x)=5(x-2)(x+5)$</span><div class="boite-corps"><p>Soit $f(x)=5(x-2)(x+5)$.</p>
+<ul><li>Trouver les deux racines de $f$.</li><li>Calculer $\alpha$.</li></ul></div></section>
+  <p style="margin-top:2.5rem"><a href="../index.html#premiere-stmg">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

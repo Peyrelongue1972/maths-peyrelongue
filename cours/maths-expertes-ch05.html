@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 5 : Nombres complexes et géométrie — Maths expertes</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "ii": "{\\mathrm{i}}", "argz": "{\\mathrm{arg}}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#maths-expertes">← Retour au site</a></p>
+  <h1>Chapitre 5 : Nombres complexes et géométrie</h1>
+  <p class="sous-titre">Maths expertes · Chapitre 5 — Nombres complexes et géométrie · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Nombres complexes et géométrie</span><a class="onglet" href="../pdf/maths-expertes/Chapitre_V_Nombre_Complexe_Géométrie.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/maths-expertes/bac-s-complexes-1999-2012.pdf" target="_blank" rel="noopener">Bac S</a><a class="onglet" href="../quiz/maths-expertes-5.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Affixe d'un point et affixe d'un vecteur</a></li><li><a href="#s2">II Racines $n$-ièmes de l'unité</a></li></ol></nav>
+<p>Le plan est muni d'un repère orthonormé direct $(O,\vec{u},\vec{v})$, nommé <strong>plan complexe</strong>.</p>
+<p><strong>Remarque :</strong> un repère orthonormé $(O,\vec{u},\vec{v})$ est <strong>direct</strong> lorsque</p>
+<div class="maths">\[
+(\vec{u},\vec{v})\equiv\frac{\pi}{2}+2k\pi \quad\text{avec } k\in\Z .
+\]</div>
+<h2 id="s1"><span class="num-section">I.</span> Affixe d'un point et affixe d'un vecteur</h2>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Affixe</span><div class="boite-corps"><p>Soit $M$ le point du plan de coordonnées $(x\,;y)$.</p>
+<ol><li>On appelle <strong>affixe du point $M$</strong> le nombre complexe $z$ défini par $z=x+iy$.</li><li>On appelle <strong>affixe du vecteur</strong> $\overrightarrow{OM}$ le nombre complexe $z$.</li><li>Un vecteur $\vec{w}$ a pour affixe $z$ lorsque $\vec{w}=\overrightarrow{OM}$, où $M$ est le point d'affixe $z$.</li></ol></div></section>
+<p>On note $M(z)$, $\overrightarrow{OM}(z)$, $\vec{w}(z)$.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Trois points</span><div class="boite-corps"><p>Les points $I$, $J$ et $C$ ont pour affixes respectives $z_{I}=1$, $z_{J}=i$ et $z_{A}=-2+i$.</p></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Distance</span><div class="boite-corps"><p>Soient $A$ et $B$ deux points d'affixe respective $z_{A}$ et $z_{B}$ dans le plan complexe.</p>
+<p>La distance $AB$ est égale à</p>
+<div class="maths">\[
+AB=|z_{B}-z_{A}|=|z_{A}-z_{B}| .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><div class="maths">\[
+AB=\sqrt{(x_{B}-x_{A})^{2}+(y_{B}-y_{A})^{2}}
+=\left|(x_{B}-x_{A})+(y_{B}-y_{A})i\right|
+\]</div>
+<div class="maths">\[
+=\left|(x_{B}+iy_{B})-(x_{A}+iy_{A})\right|=|z_{B}-z_{A}| .
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Médiatrice et cercle</span><div class="boite-corps"><p>Soient $A$ et $B$ deux points d'affixe respective $z_{A}$ et $z_{B}$ dans le plan complexe.</p>
+<ol><li>L'ensemble $(E)$ des points $M$ du plan d'affixe $z$ vérifiant $|z-z_{A}|=|z-z_{B}|$ est la médiatrice du segment $[AB]$.</li><li>Si $r$ est un nombre réel strictement positif, alors l'ensemble $(E')$ des points $M$ du plan d'affixe $z$ vérifiant $|z-z_{A}|=r$ est le cercle de centre $A$ et de rayon $r$.</li></ol></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><ol><li>$M\in(E)\iff |z-z_{A}|=|z-z_{B}|\iff AM=BM\iff M$ appartient à la médiatrice de $[AB]$.</li><li>$M\in(E')\iff |z-z_{A}|=r\iff AM=r\iff M$ appartient au cercle de centre $A$ et de rayon $r$.</li></ol></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Affixe du vecteur $\overrightarrow{AB}$</span><div class="boite-corps"><p>Soient $A$ et $B$ deux points d'affixe respective $z_{A}$ et $z_{B}$ dans le plan complexe.</p>
+<p>L'affixe du vecteur $\overrightarrow{AB}$ est $z_{B}-z_{A}$.</p></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>$z_{A}=a+ib$ et $z_{B}=a'+ib'$.</p>
+<p>Les coordonnées cartésiennes des points $A$ et $B$ sont $A(a,b)$ et $B(a',b')$, d'où $\overrightarrow{AB}\,(a'-a\,,\,b'-b)$.</p>
+<p>Donc l'affixe de $\overrightarrow{AB}$ est</p>
+<div class="maths">\[
+z_{\overrightarrow{AB}}=(a'-a)+i(b'-b)=a'+ib'-(a+ib)=z_{B}-z_{A} .
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Milieu d'un segment</span><div class="boite-corps"><p>Soient $A$ et $B$ deux points d'affixe respective $z_{A}$ et $z_{B}$ dans le plan complexe : l'affixe du point $I$ milieu de $[AB]$ est</p>
+<div class="maths">\[
+z_{I}=\frac{z_{A}+z_{B}}{2} .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>$z_{A}=a+ib$ et $z_{B}=a'+ib'$.</p>
+<p>Les coordonnées cartésiennes des points $A$ et $B$ sont $A(a,b)$ et $B(a',b')$, d'où</p>
+<div class="maths">\[
+I\left(\frac{a+a'}{2}\,;\frac{b+b'}{2}\right),
+\]</div>
+<p>d'où</p>
+<div class="maths">\[
+z_{I}=\frac{a+a'}{2}+i\frac{b+b'}{2}
+=\frac{a+ib+a'+ib'}{2}=\frac{z_{A}+z_{B}}{2} .
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Angles</span><div class="boite-corps"><p>Soient $A$, $B$ et $C$ trois points deux à deux distincts d'affixe respective $z_{A}$, $z_{B}$ et $z_{C}$.</p>
+<ol><li>$\left(\vec{u}\,;\overrightarrow{AB}\right) =\argz(z_{B}-z_{A})+k\times 2\pi$ \ ($k\in\Z$) ;</li><li>$\left(\overrightarrow{AB}\,;\overrightarrow{AC}\right) =\argz\left(\dfrac{z_{C}-z_{A}}{z_{B}-z_{A}}\right)+k\times 2\pi$ \ ($k\in\Z$).</li></ol></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>$(z_{B}-z_{A})$. Soit $M$ le point d'affixe $z_{B}-z_{A}$.</p>
+<p>Alors $\overrightarrow{OM}=\overrightarrow{AB}$, d'où</p>
+<div class="maths">\[
+\left(\vec{u}\,;\overrightarrow{AB}\right)
+=\left(\vec{u}\,;\overrightarrow{OM}\right)+k\times 2\pi
+=\argz(z_{B}-z_{A})+k'\times 2\pi .
+\]</div>
+<p>D'après la relation de Chasles,</p>
+<div class="maths">\[\begin{aligned}
+\left(\overrightarrow{AB}\,;\overrightarrow{AC}\right)
+&=\left(\overrightarrow{AB}\,;\vec{u}\right)
++\left(\vec{u}\,;\overrightarrow{AC}\right)
+=-\left(\vec{u}\,;\overrightarrow{AB}\right)
++\left(\vec{u}\,;\overrightarrow{AC}\right)\\
+&=-\argz(z_{B}-z_{A})+\argz(z_{C}-z_{A})+k\times 2\pi \\
+&=\argz\left(\frac{z_{C}-z_{A}}{z_{B}-z_{A}}\right)+k\times 2\pi
+\quad (k\in\Z).
+\end{aligned}\]</div></div></section>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Nature du triangle $ABC$</span><div class="boite-corps"><p>Soient $A$, $B$ et $C$ trois points d'affixe respective $a=-1-i$, $b=3$ et $c=-2+3i$. Déterminer la nature du triangle $ABC$.</p></div></section>
+<p><strong>Méthode :</strong> on calcule le nombre complexe $\dfrac{b-a}{c-a}$, puis son module et son argument ;</p>
+<ul><li>si le module est égal à $1$, on en déduit que $AB=AC$ ;</li><li>si un argument de $\dfrac{b-c}{a-c}$ est $\pm\pi$, alors les points sont alignés ;</li><li>si un argument est $\pm\dfrac{\pi}{2}$, alors les droites $(AB)$ et $(AC)$ sont perpendiculaires.</li></ul>
+<p><strong>Solution :</strong></p>
+<div class="maths">\[
+\frac{c-a}{b-a}=\frac{-1+4i}{4+i}=i
+\qquad
+\left|\frac{c-a}{b-a}\right|=1
+\iff AB=AC
+\]</div>
+<div class="maths">\[
+\arg\left(\frac{c-a}{b-a}\right)=\frac{\pi}{2}+k\times 2\pi
+\iff
+\left(\overrightarrow{AB}\,;\overrightarrow{AC}\right)
+=\frac{\pi}{2}+k\times 2\pi .
+\]</div>
+<p>Le triangle $ABC$ est isocèle rectangle en $A$.</p>
+<h2 id="s2"><span class="num-section">II.</span> Racines $n$-ièmes de l'unité</h2>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Cercle unité</span><div class="boite-corps"><p>On appelle <strong>cercle unité</strong>, et on note $U$, l'ensemble des nombres complexes de module $1$. On a donc</p>
+<div class="maths">\[
+U=\{z\in\C\ /\ |z|=1\} .
+\]</div></div></section>
+<p><strong>Remarque :</strong> $z\in U$ signifie que le point $M(z)$ appartient au cercle trigonométrique</p>
+<div class="maths">\[
+z\in U\iff \exists\theta\in\R \text{ tq } z=\e^{i\theta} .
+\]</div>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Stabilité</span><div class="boite-corps"><p>Pour tout $z\in U$ et pour tout $z'\in U$, alors $zz'\in U$ et $z/z'\in U$.</p></div></section>
+<p>$U$ est un ensemble stable.</p>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Racines $n$-ièmes de l'unité</span><div class="boite-corps"><p>Pour $n\in\N^{*}$, on appelle <strong>racines $n$-ièmes de l'unité</strong> les solutions de l'équation complexe $z^{n}=1$.</p>
+<p>On note $U_{n}$ l'ensemble des solutions de $z^{n}=1$.</p></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Description de $U_{n}$</span><div class="boite-corps"><div class="maths">\[
+U_{n}=\left\{\e^{\frac{2ik\pi}{n}},\ k\in\N,\ 0\leqslant k\leqslant n-1\right\} .
+\]</div>
+<p>$U_{n}$ est composé d'exactement $n$ éléments.</p>
+<p>Si $n\geqslant 3$, alors les points dont les affixes sont les racines $n$-ièmes de l'unité forment un polygone régulier à $n$ côtés.</p></div></section>
+<figure class="figure-cours"><img src="img/maths-expertes-ch05-fig01.png" alt="figure 1 du cours"></figure>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Les premières racines de l'unité</span><div class="boite-corps"><div class="maths">\[
+U_{1}=\{1\},
+\qquad
+U_{2}=\{-1\,;1\},
+\qquad
+U_{3}=\left\{1\,;j\,;j^{2}\right\},
+\quad\text{avec } j=\e^{\frac{2i\pi}{3}},
+\]</div>
+<p>et</p>
+<div class="maths">\[
+U_{4}=\{-1\,;-i\,;1\,;i\} .
+\]</div></div></section>
+  <p style="margin-top:2.5rem"><a href="../index.html#maths-expertes">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

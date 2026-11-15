@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 6 : Statistiques descriptives — Seconde</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#seconde">← Retour au site</a></p>
+  <h1>Chapitre 6 : Statistiques descriptives</h1>
+  <p class="sous-titre">Seconde · Chapitre 6 — Statistiques descriptives · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Statistiques descriptives</span><a class="onglet" href="../pdf/seconde/6-statistiques-descriptives.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../quiz/seconde-6.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Définitions et vocabulaire</a></li><li><a href="#s2">II Médiane et écart interquartile</a></li><li><a href="#s3">III Moyenne et écart-type</a></li></ol></nav>
+<h2 id="s1"><span class="num-section">I.</span> Définitions et vocabulaire</h2>
+<ul><li>L'ensemble sur lequel porte l'étude statistique s'appelle la <strong>population</strong>. Un élément de la population s'appelle un <strong>individu</strong>. L'objet étudié s'appelle le <strong>caractère</strong>.</li><li>Si le caractère étudié prend des <strong>valeurs numériques</strong>, on dit qu'il est <strong>quantitatif</strong>. Sinon, on dit qu'il est <strong>qualitatif</strong>.</li><li>Un caractère quantitatif peut être <strong>discret</strong> (il prend des valeurs isolées) ou <strong>continu</strong> (il prend toute valeur dans un intervalle appelé classe).</li><li>Les différentes valeurs prises par un caractère s'appellent les <strong>modalités</strong> (ou modes).</li><li>L'<strong>effectif</strong> d'une valeur est le nombre d'individus ayant cette valeur.</li><li>L'<strong>effectif total</strong> (noté $N$) est le nombre d'individus dans la population étudiée.</li><li><p>La <strong>fréquence</strong> d'une valeur est :</p>
+<div class="maths">        \[
+        f=\frac{\text{Effectif d'une valeur}}{\text{Effectif total}} .
+        \]</div></li></ul>
+<p>On peut résumer les données d'une série statistique par un tableau.</p>
+<table class="tableau"><tr><td>Caractéristique étudiée</td><td>Valeur 1</td><td>Valeur 2</td><td>…</td><td>Valeur $n$</td></tr><tr><td>Effectif</td><td></td><td></td><td></td><td></td></tr><tr><td>Fréquence</td><td></td><td></td><td></td><td></td></tr></table>
+<h2 id="s2"><span class="num-section">II.</span> Médiane et écart interquartile</h2>
+<h3>2.1  La médiane, indicateur de tendance centrale de la série</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Médiane</span><div class="boite-corps"><p>Soit une série de $N$ valeurs rangées par ordre croissant. La <strong>médiane</strong> $Me$ est le nombre défini par :</p>
+<ul><li>si $N$ est impair, $Me$ est la valeur centrale : elle correspond au rang $\dfrac{N+1}{2}$ dans la série classée par ordre croissant ;</li><li>si $N$ est pair, $Me$ est la moyenne des deux valeurs centrales, c'est-à-dire la moyenne des valeurs ayant les positions $\dfrac{N}{2}$ et $\dfrac{N}{2}+1$.</li></ul></div></section>
+<p><strong>Méthode :</strong></p>
+<ol><li>Ordonner la série par ordre croissant.</li><li>Compléter les effectifs.</li><li>Compléter les effectifs cumulés croissants (E.C.C.).</li><li>Selon que $N$ est pair ou non, venir chercher la valeur centrale ou les deux valeurs centrales.</li></ol>
+<h3>2.2  Les quartiles</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Quartiles</span><div class="boite-corps"><ul><li>Le <strong>premier quartile</strong>, noté $Q_{1}$, est la plus petite valeur de la série telle qu'au moins $25\,\%$ des valeurs soient inférieures ou égales à $Q_{1}$.</li><li>Le <strong>troisième quartile</strong>, noté $Q_{3}$, est la plus petite valeur de la série telle qu'au moins $75\,\%$ des valeurs soient inférieures ou égales à $Q_{3}$.</li></ul></div></section>
+<figure class="figure-cours"><img src="img/seconde-ch06-fig01.png" alt="figure 1 du cours"></figure>
+<p>Le <strong>rang</strong> du $1$<sup>er</sup> quartile d'une série de $N$ valeurs est le plus petit entier supérieur ou égal à $\dfrac{N}{4}$.</p>
+<p>Le <strong>rang</strong> du $3$<sup>e</sup> quartile est le plus petit entier supérieur ou égal à $\dfrac{3N}{4}$.</p>
+<h3>2.3  L'écart interquartile : un indicateur de dispersion</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Écart interquartile</span><div class="boite-corps"><ul><li>L'<strong>écart interquartile</strong> est la différence $Q_{3}-Q_{1}$.</li><li>L'<strong>intervalle interquartile</strong> est l'intervalle $[Q_{1}\,;Q_{3}]$.</li></ul></div></section>
+<p>L'écart interquartile indique la longueur de l'intervalle dans lequel la moitié centrale des valeurs de la série sont comprises.</p>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Moitié centrale</span><div class="boite-corps"><p>Au moins $50\,\%$ des valeurs de la série sont comprises dans l'intervalle interquartile.</p></div></section>
+<h2 id="s3"><span class="num-section">III.</span> Moyenne et écart-type</h2>
+<p>On considère ici la série statistique donnée dans le tableau ci-dessous, et on note $N=n_{1}+n_{2}+\dots+n_{p}$ l'effectif total.</p>
+<table class="tableau"><tr><td>Valeur</td><td>$x_{1}$</td><td>$x_{2}$</td><td>…</td><td>$x_{p}$</td></tr><tr><td>Effectif</td><td>$n_{1}$</td><td>$n_{2}$</td><td>…</td><td>$n_{p}$</td></tr></table>
+<h3>3.1  La moyenne pondérée : indicateur de tendance centrale</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Moyenne pondérée</span><div class="boite-corps"><p>La <strong>moyenne pondérée</strong> de la série ci-dessus est le nombre, noté $\overline{x}$, tel que :</p>
+<div class="maths">\[
+\overline{x}=\frac{n_{1}x_{1}+n_{2}x_{2}+\dots+n_{p}x_{p}}{N} .
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Nombre d'appels reçus par jour</span><div class="boite-corps"><p>Nombre d'appels reçus par jour par un standardiste pendant $20$ jours :</p>
+<table class="tableau"><tr><td>Nombre d'appels</td><td>$8$</td><td>$9$</td><td>$11$</td><td>$12$</td><td>$14$</td><td>$16$</td></tr><tr><td>Effectif</td><td>$1$</td><td>$3$</td><td>$5$</td><td>$5$</td><td>$2$</td><td>$4$</td></tr></table>
+<div class="maths">\[
+\overline{x}=\frac{n_{1}x_{1}+n_{2}x_{2}+\dots+n_{p}x_{p}}{N}
+=\frac{8\times 1+9\times 3+11\times 5+12\times 5+14\times 2+16\times 4}{20}
+\approx 12{,}1 .
+\]</div>
+<p>En moyenne, ce standardiste reçoit $12{,}1$ appels par jour.</p></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Linéarité de la moyenne</span><div class="boite-corps"><p>Soient $a$ et $b$ deux nombres réels.</p>
+<p>Si une série de valeurs $(x_{i})_{1\leqslant i\leqslant p}$ a pour moyenne $\overline{x}$, alors la série de valeurs $(a\,x_{i}+b)_{1\leqslant i\leqslant p}$ a pour moyenne $a\,\overline{x}+b$.</p></div></section>
+<p><strong>Preuve :</strong> calculons la moyenne de la série $(a\,x_{i}+b)$ :</p>
+<div class="maths">\[
+\frac{n_{1}(ax_{1}+b)+n_{2}(ax_{2}+b)+\dots+n_{p}(ax_{p}+b)}{N}
+=\frac{a\left(n_{1}x_{1}+\dots+n_{p}x_{p}\right)+b\left(n_{1}+\dots+n_{p}\right)}{N}
+\]</div>
+<div class="maths">\[
+=a\times\frac{n_{1}x_{1}+\dots+n_{p}x_{p}}{N}+b\times\frac{n_{1}+\dots+n_{p}}{N}
+=a\,\overline{x}+b\times\frac{N}{N}=a\,\overline{x}+b .
+\]</div>
+<h3>3.2  L'écart-type : un indicateur de dispersion</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Écart-type</span><div class="boite-corps"><p>L'<strong>écart-type</strong> d'une série de valeurs $(x_{i})_{1\leqslant i\leqslant p}$ est le nombre positif, noté $\sigma$, défini par :</p>
+<div class="maths">\[
+\sigma=\sqrt{\frac{n_{1}\left(x_{1}-\overline{x}\right)^{2}
++n_{2}\left(x_{2}-\overline{x}\right)^{2}
++\dots+n_{p}\left(x_{p}-\overline{x}\right)^{2}}{N}} .
+\]</div></div></section>
+<p>Plus l'écart-type est grand, plus les valeurs sont dispersées autour de la moyenne.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Écart-type de la série précédente</span><div class="boite-corps"><p>On reprend l'exemple précédent :</p>
+<div class="maths">\[
+\sigma=\sqrt{
+\frac{
+\begin{aligned}
+&(8-12{,}1)^{2}\times 1+(9-12{,}1)^{2}\times 3\\
+&\quad +(11-12{,}1)^{2}\times 5+(12-12{,}1)^{2}\times 5\\
+&\quad +(14-12{,}1)^{2}\times 2+(16-12{,}1)^{2}\times 4
+\end{aligned}}{20}}
+\approx 2{,}4 .
+\]</div>
+<p>En moyenne, le nombre d'appels par jour s'écarte de $2{,}4$ par rapport à $\overline{x}$.</p></div></section>
+  <p style="margin-top:2.5rem"><a href="../index.html#seconde">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

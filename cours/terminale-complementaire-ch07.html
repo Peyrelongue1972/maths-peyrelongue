@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 7 : Équations différentielles — Terminale complémentaire</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "dt": "{\\,\\mathrm{d}t}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#terminale-complementaire">← Retour au site</a></p>
+  <h1>Chapitre 7 : Équations différentielles</h1>
+  <p class="sous-titre">Terminale complémentaire · Chapitre 7 — Équations différentielles · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Équations différentielles</span><a class="onglet" href="../pdf/terminale-complementaire/7-equations-differentielles.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/terminale-complementaire/td01-primitives.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/terminale-complementaire/td02-equations-differentielles-1er-ordre.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../pdf/terminale-complementaire/td03-problemes-equations-differentielles.pdf" target="_blank" rel="noopener">TD n°3</a><a class="onglet" href="../quiz/terminale-complementaire-7.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Notion d'équation différentielle</a></li><li><a href="#s2">II Primitives d'une fonction</a></li><li><a href="#s3">III Équations différentielles linéaires</a></li><li><a href="#s4">IV Équations différentielles du type $y'=ay+b$</a></li></ol></nav>
+<h2 id="s1"><span class="num-section">I.</span> Notion d'équation différentielle</h2>
+<h3>1.1  Définition</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Équation fonctionnelle</span><div class="boite-corps"><p>Une <strong>équation fonctionnelle</strong> est une équation dont l'inconnue est une fonction.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Équation $f(x+y)=f(x)\times f(y)$</span><div class="boite-corps"><p>On cherche les fonctions qui vérifient la propriété $f(x+y)=f(x)\times f(y)$ pour tous $x$ et $y$ réels. L'inconnue ici est la fonction $f$.</p>
+<p>On peut remarquer que la fonction exponentielle est une solution de l'équation. Ainsi, on vient de montrer l'existence d'une solution. Le problème devient alors de déterminer si la solution est unique.</p></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Équation différentielle</span><div class="boite-corps"><p>Une <strong>équation différentielle</strong> est une équation dont l'inconnue est une fonction, et dont cette fonction inconnue et/ou ses dérivées apparaissent.</p>
+<p>Le plus souvent, la fonction inconnue sera notée $y$.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Deux équations différentielles</span><div class="boite-corps"><ol><li><p>$\left(E_{1}\right) : y'(t)=5$, pour $t\in\R$. L'inconnue est la fonction $y$ qui dépend de la variable $t$.</p>
+<p>On cherche ici une fonction dont la dérivée est constante. D'après notre cours sur les primitives, on sait qu'une fonction du type $f(t)=5t+4$ est une solution. En effet $f'(t)=5$, donc la fonction $f$ vérifie l'équation $y'(t)=5$.</p>
+<p>L'équation différentielle $(E_{1})$ peut se noter aussi $\dfrac{\mathrm{d}y}{\mathrm{d}t}=5$ : c'est la notation notamment des physiciens, et cela permet d'indiquer que la fonction est dérivée par rapport à la variable $t$.</p></li><li><p>$\left(E_{2}\right) : y'(x)=2x$, pour $x\in\R$.</p>
+<p>On remarque qu'une solution de cette équation est la fonction $f(x)=x^{2}+5$. On prouve ainsi l'existence ; se pose alors le problème de l'unicité.</p></li></ol></div></section>
+<h3>1.2  Vérifier qu'une fonction est solution d'une équation différentielle</h3>
+<p>Prouver que la fonction $g$ définie sur $\left]0\,;+\infty\right[$ par $g(x)=3x^{2}+\e^{x}$ est solution de l'équation différentielle $y'=6x+\e^{x}$ : on remplace la fonction $y$ par la fonction $g$ dans le membre de gauche de l'équation et, par calcul, on vérifie que le membre de gauche de l'équation est bien égal au membre de droite.</p>
+<p>Pour tout $x$ de $\left]0\,;+\infty\right[$, on a : la fonction $g$ est une somme de deux fonctions que je peux dériver terme à terme :</p>
+<div class="maths">\[
+g'(x)=3\times 2x+\e^{x}=6x+\e^{x} .
+\]</div>
+<p>Donc $g$ est bien solution de l'équation $y'=6x+\e^{x}$.</p>
+<h2 id="s2"><span class="num-section">II.</span> Primitives d'une fonction</h2>
+<h3>2.1  Définition</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Primitive</span><div class="boite-corps"><p>Soit $f$ une fonction définie sur $I$. Dire que $F$ est une <strong>primitive</strong> de la fonction $f$ sur $I$ signifie que $F$ est dérivable sur $I$ et que $F'=f$.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Une primitive de $2x$</span><div class="boite-corps"><p>Soit $f(x)=2x$ : alors $F(x)=x^{2}+5$ est une primitive de $f$. En effet, $F$ est dérivable sur $\R$ et</p>
+<div class="maths">\[
+F'(x)=2x+0=2x=f(x)\quad\text{sur } \R .
+\]</div></div></section>
+<h3>2.2  Ensemble des primitives d'une fonction sur un intervalle</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Deux primitives diffèrent d'une constante</span><div class="boite-corps"><p>Soit $f$ une fonction définie sur $I$ et $F$ une primitive de $f$. L'ensemble des primitives de $f$ sur $I$ est constitué par les fonctions $G$ définies sur $I$ par</p>
+<div class="maths">\[
+G(x)=F(x)+k,\quad\text{où } k \text{ décrit } \R .
+\]</div>
+<p>On dit que deux primitives d'une même fonction $f$ sur un intervalle $I$ diffèrent d'une constante.</p></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>Si $G(x)=F(x)+k$ sur $I$, alors $G'(x)=F'(x)=f(x)$, donc $G$ est une primitive de $f$ sur $I$.</p>
+<p><strong>Réciproquement</strong>, soit $G$ une primitive de $f$ sur $I$ ; donc $G'(x)=f(x)=F'(x)$, d'où $G'-F'=0$, c'est-à-dire</p>
+<div class="maths">\[
+(G-F)'=0\Longrightarrow G-F \text{ est constante sur } I .
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Primitive vérifiant une condition initiale</span><div class="boite-corps"><p>Soit $f$ une fonction définie sur un intervalle $I$. Il existe une <strong>unique</strong> primitive $G$ de $f$ sur l'intervalle $I$ telle que $G(x_{0})=y_{0}$, où $x_{0}\in I$ et $y_{0}$ est un réel donné.</p></div></section>
+<p>En effet, $G(x_{0})=F(x_{0})+C=y_{0}$, d'où $C=y_{0}-F(x_{0})$, donc</p>
+<div class="maths">\[
+G(x)=F(x)+y_{0}-F(x_{0}) .
+\]</div>
+<h3>2.3  Formulaire de primitives des fonctions de référence</h3>
+<table class="tableau"><tr><td><strong>Fonction $f$</strong></td><td><strong>Une primitive $F$</strong></td><td></td></tr><tr><td>$x\longmapsto a$ \ ($a$ réel)</td><td>$x\longmapsto ax$</td><td>sur $\R$</td></tr><tr><td>$x\longmapsto x^{n}$ \ ($n\in\mathbb{Z}\setminus\{-1\}$)</td><td>$x\longmapsto \dfrac{x^{n+1}}{n+1}$</td><td>sur $\R$ si $n\geqslant 0$ \newline sur $]0\,;+\infty[$ et $]-\infty\,;0[$ si $n\leqslant -2$</td></tr><tr><td>$x\longmapsto \dfrac{1}{x}$</td><td>$x\longmapsto \ln x$</td><td>sur $\left]0\,;+\infty\right[$</td></tr><tr><td>$x\longmapsto \dfrac{1}{\sqrt{x}}$</td><td>$x\longmapsto 2\sqrt{x}$</td><td>sur $\left]0\,;+\infty\right[$</td></tr><tr><td>$x\longmapsto \e^{x}$</td><td>$x\longmapsto \e^{x}$</td><td>sur $\R$</td></tr></table>
+<h3>2.4  Propriété de linéarité</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Linéarité</span><div class="boite-corps"><p>Soient $f$ et $g$ deux fonctions définies sur un intervalle $I$, et $F$ et $G$ deux primitives respectivement des fonctions $f$ et $g$ sur $I$.</p>
+<ul><li>Alors $F+G$ est une primitive de $f+g$.</li><li>$aF$ est une primitive de la fonction $a\times f$, où $a$ est un nombre réel.</li></ul></div></section>
+<h3>2.5  Autre formulaire</h3>
+<p>Soit $u$ une fonction dérivable sur $I$.</p>
+<table class="tableau"><tr><td><strong>Fonction $f$</strong></td><td><strong>Une primitive $F$ (sur $I$)</strong></td></tr><tr><td>$ku'$ \ ($k$ réel)</td><td>$ku$</td></tr><tr><td>$u'+v'$</td><td>$u+v$</td></tr><tr><td>$u'u$</td><td>$\dfrac{u^{2}}{2}$</td></tr><tr><td>$\dfrac{u'}{u}$</td><td>$\ln|u|$, c'est-à-dire \newline $\ln u$ si $u$ est strictement positive sur $I$ \newline $\ln(-u)$ si $u$ est strictement négative sur $I$</td></tr><tr><td>$u'\e^{u}$</td><td>$\e^{u}$</td></tr></table>
+<h2 id="s3"><span class="num-section">III.</span> Équations différentielles linéaires</h2>
+<h3>3.1  Définition</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Équation du premier ordre</span><div class="boite-corps"><p>Soit une fonction $y$ de la variable $x$. Si la fonction $y$ est dérivable, l'équation $y'=ay+b$ est appelée <strong>équation différentielle du 1<sup>er</sup> ordre à coefficients constants</strong>.</p></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Équation du second ordre</span><div class="boite-corps"><p>Soit une fonction $y$ de la variable $x$. Si la fonction $y$ est dérivable deux fois, l'équation $y''=ay'+by+c$ est appelée <strong>équation différentielle du 2<sup>ème</sup> ordre à coefficients constants</strong>.</p></div></section>
+<p><strong>Notation :</strong> on peut noter $y'=\dfrac{\mathrm{d}y}{\mathrm{d}x}$ ; on indique ainsi que la fonction est dérivée par rapport à la variable $x$.</p>
+<h3>3.2  Résolution de l'équation différentielle $y'=ay$</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Solutions de $y'=ay$</span><div class="boite-corps"><p>L'équation différentielle du premier ordre</p>
+<div class="maths">\[
+\left(E_{0}\right) : y'=ay,\quad\text{avec } a\in\R,
+\]</div>
+<p>admet comme solutions les fonctions de la forme</p>
+<div class="maths">\[
+x\longmapsto C\,\e^{ax},
+\]</div>
+<p>où $C$ est une constante réelle quelconque.</p></div></section>
+<p><strong>Remarque.</strong>  C'est un théorème d'existence de solution. Le nombre de solutions est infini ! La variable $C$ peut prendre toutes les valeurs, y compris zéro !</p>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>Montrons que les fonctions de type $f(x)=C\e^{ax}$ sont solutions de l'équation :</p>
+<div class="maths">\[
+f'(x)=C\times a\times \e^{ax}=a\times f(x),
+\]</div>
+<p>donc les fonctions de type $C\e^{ax}$ sont toutes des solutions.</p>
+<p><strong>Réciproquement</strong>, montrons que les fonctions solutions sont toutes de la forme $C\e^{ax}$.</p>
+<p>Soit $y$ une solution de $(E_{0})$ ; je considère alors la fonction $z$ définie par</p>
+<div class="maths">\[
+z(x)=y(x)\times \e^{-ax}.
+\]</div>
+<div class="maths">\[
+z'(x)=y'(x)\times \e^{-ax}+y(x)\times(-a)\times \e^{-ax}
+=\e^{-ax}\bigl(y'(x)-ay(x)\bigr)=0,
+\]</div>
+<p>car $y$ est solution de $(E_{0})$.</p>
+<p>Donc $z'(x)=0\iff z(x)=C$ avec $C\in\R$, d'où $y(x)=\dfrac{C}{\e^{-ax}}=C\e^{ax}$.</p></div></section>
+<h3>3.3  Méthode : résoudre une équation différentielle du type $y'=ay$</h3>
+<p>On considère l'équation différentielle $3y'+5y=0$.</p>
+<ol><li><p>a) Déterminer la forme générale des solutions de l'équation.</p>
+<p>b) Représenter, à l'aide de la calculatrice ou d'un logiciel, quelques courbes des fonctions solutions.</p></li><li>Déterminer l'unique solution telle que $y(1)=2$.</li></ol>
+<figure class="figure-cours"><img src="img/terminale-complementaire-ch07-fig01.png" alt="figure 1 du cours"></figure>
+<p><strong>Correction.</strong></p>
+<p><strong>1) a)</strong></p>
+<div class="maths">\[\begin{aligned}
+3y'+5y&=0\\
+3y'&=-5y\\
+y'&=-\frac{5}{3}y .
+\end{aligned}\]</div>
+<p>Les solutions sont de la forme :</p>
+<div class="maths">\[
+y_{C}(x)=C\,\e^{-\frac{5}{3}x},\quad C\in\R .
+\]</div>
+<p><strong>b)</strong>  Pour différentes valeurs de $C$, on obtient les courbes ci-dessus.</p>
+<p><strong>2)</strong>  La condition initiale $y(1)=2$ va déterminer une unique valeur de $C$.</p>
+<p>La condition initiale impose que :</p>
+<div class="maths">\[
+C\,\e^{-\frac{5}{3}\times 1}=2
+\iff C\,\e^{-\frac{5}{3}}=2
+\iff C=2\,\e^{\frac{5}{3}} .
+\]</div>
+<p><strong>Conclusion :</strong> l'équation différentielle avec la condition initiale $y(1)=2$ a pour unique solution :</p>
+<div class="maths">\[
+y(x)=2\,\e^{\frac{5}{3}}\,\e^{-\frac{5}{3}x}
+=2\,\e^{\frac{5}{3}-\frac{5}{3}x}
+=2\,\e^{\frac{5}{3}(1-x)} .
+\]</div>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème de linéarité</span><div class="boite-corps"><p>Si $f$ et $g$ sont deux solutions de l'équation différentielle $y'=ay$, $a\in\R$, alors $f+g$ et $kf$, $k\in\R$, sont également solutions de l'équation différentielle.</p></div></section>
+<p><strong>Démonstrations.</strong></p>
+<div class="maths">\[
+(f+g)'=f'+g'=af+ag=a(f+g) .
+\]</div>
+<div class="maths">\[
+(kf)'=kf'=k\times af=a(kf) .
+\]</div>
+<h2 id="s4"><span class="num-section">IV.</span> Équations différentielles du type $y'=ay+b$</h2>
+<h3>4.1  Solution particulière</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Solution particulière</span><div class="boite-corps"><p>On appelle <strong>solution particulière</strong> de l'équation $y'=ay+b$ une solution quelconque de cette équation.</p></div></section>
+<p>On remarque qu'il existe une solution constante de cette équation :</p>
+<p>en effet, soit $f_{0}(x)=k$ une fonction constante ; alors $f_{0}'(x)=0$ ; on remplace dans l'équation et on trouve que $0=a\times k+b$, pour $k=-\dfrac{b}{a}$ l'équation est donc vérifiée.</p>
+<p>La fonction $f_{0}(x)=-\dfrac{b}{a}$ est une solution particulière de l'équation.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Solution particulière de $y'=5y+3$</span><div class="boite-corps"><p>$y'=5y+3$ : la fonction $f_{0}(x)=-\dfrac{3}{5}$ est une solution particulière de l'équation.</p></div></section>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Solution particulière constante</span><div class="boite-corps"><p>La fonction $x\longmapsto -\dfrac{b}{a}$ est solution de l'équation différentielle $y'=ay+b$ ($a\neq 0$). Cette solution est appelée <strong>solution particulière constante</strong>.</p></div></section>
+<h3>4.2  Solutions générales de l'équation différentielle du 1<sup>er</sup> ordre</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Trois étapes de résolution</span><div class="boite-corps"><p>L'équation différentielle du 1<sup>er</sup> ordre $y'=ay+b$, avec $a,b\in\R$, se résout en trois étapes :</p>
+<ul><li><p><strong>Étape 1 :</strong> dans un premier temps, on annule la constante $b$ et on obtient l'équation dite « équation homogène » : $y'=ay$.</p>
+<p>Cette équation homogène admet comme solutions l'ensemble des fonctions $y_{C}(x)=C\,\e^{ax}$, avec $C\in\R$.</p></li><li><p><strong>Étape 2 :</strong> dans un second temps, on recherche une solution particulière sous la forme d'une fonction constante.</p>
+<p>La fonction $y_{0}(x)=-\dfrac{b}{a}$ est une solution particulière.</p></li><li><p><strong>Étape 3 :</strong> les solutions de l'équation différentielle $y'=ay+b$ ($a$ et $b$ deux réels, $a$ non nul) sont la somme des fonctions solutions de l'équation homogène et de la solution particulière :</p>
+<div class="maths">        \[
+        x\longmapsto y_{C}(x)+y_{0}(x)=C\,\e^{ax}-\frac{b}{a}.
+        \]</div></li></ul></div></section>
+<p><strong>Remarque.</strong>  L'équation $y'=ay+b$ est appelée équation différentielle linéaire du premier ordre à coefficients constants.</p>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Corollaire</span><div class="boite-corps"><p>Les solutions de l'équation différentielle $y'=ay+b$ sont les fonctions de la forme</p>
+<div class="maths">\[
+x\longmapsto C\,\e^{ax}-\frac{b}{a},\quad\text{où } C\in\R .
+\]</div></div></section>
+<h3>4.3  Méthode : résoudre une équation différentielle du type $y'=ay+b$</h3>
+<p>On considère l'équation différentielle $2y'-y=3$.</p>
+<ol><li>Déterminer la forme générale des solutions de l'équation.</li><li>Déterminer l'unique solution telle que $y(0)=-1$.</li></ol>
+<p><strong>Correction.</strong></p>
+<p><strong>1)</strong>  <strong>Étape 0 :</strong> on transforme l'équation sous la forme $y'=ay+b$.</p>
+<div class="maths">\[
+2y'-y=3\iff 2y'=y+3\iff y'=\frac{1}{2}y+\frac{3}{2} .
+\]</div>
+<p><strong>Étape 1 :</strong> recherche d'une solution particulière constante $y_{0}(x)=k$.</p>
+<p>On veut que $y_{0}(x)$ soit solution, donc $y_{0}(x)$ vérifie l'équation $y_{0}'(x)=0$ ; on remplace dans l'équation et on obtient que $0=\dfrac{1}{2}k+\dfrac{3}{2}$, d'où</p>
+<div class="maths">\[
+k=-\frac{\frac{3}{2}}{\frac{1}{2}}=-3,
+\]</div>
+<p>donc $y_{0}(x)=-3$ est une solution particulière.</p>
+<p><strong>Étape 2 :</strong> on résout l'équation différentielle homogène associée $y'=\dfrac{1}{2}y$.</p>
+<p>Les solutions sont de la forme :</p>
+<div class="maths">\[
+y_{C}(x)=C\,\e^{\frac{1}{2}x},\quad C\in\R .
+\]</div>
+<p><strong>Étape 3 :</strong> les solutions générales de l'équation $y'=\dfrac{1}{2}y+\dfrac{3}{2}$ sont la somme des fonctions solutions de l'équation homogène et de la solution particulière :</p>
+<div class="maths">\[
+x\longmapsto y_{C}(x)+y_{0}(x)=C\,\e^{\frac{1}{2}x}-3 .
+\]</div>
+<p>Nous avons une infinité de solutions.</p>
+<p><strong>2)</strong>  <strong>Étape 4 :</strong> si on impose une condition initiale, ici $y(0)=-1$, cette condition va déterminer une unique valeur de $C$.</p>
+<p>En effet, avec la condition initiale on a :</p>
+<div class="maths">\[
+C\,\e^{\frac{1}{2}\times 0}-3=-1
+\]</div>
+<div class="maths">\[
+C-3=-1
+\]</div>
+<div class="maths">\[
+C=2 .
+\]</div>
+<p><strong>Conclusion :</strong> l'équation différentielle $2y'-y=3$ avec la condition initiale $y(0)=-1$ a une unique solution :</p>
+<div class="maths">\[
+y(x)=2\,\e^{\frac{1}{2}x}-3 .
+\]</div>
+  <p style="margin-top:2.5rem"><a href="../index.html#terminale-complementaire">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

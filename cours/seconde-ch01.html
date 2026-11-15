@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 1 : Les ensembles de nombres — Seconde</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#seconde">← Retour au site</a></p>
+  <h1>Chapitre 1 : Les ensembles de nombres</h1>
+  <p class="sous-titre">Seconde · Chapitre 1 — Les ensembles de nombres · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Les ensembles de nombres</span><a class="onglet" href="../pdf/seconde/1-les-ensembles-de-nombres.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/seconde/td01-ensembles-de-nombres.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/seconde/td02-intervalles-et-inequations.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../pdf/seconde/td03-calculs-intervalles-inequations.pdf" target="_blank" rel="noopener">TD n°3</a><a class="onglet" href="../quiz/seconde-1.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Nombres entiers</a></li><li><a href="#s2">II Les entiers relatifs</a></li><li><a href="#s3">III Nombres décimaux, nombres rationnels</a></li><li><a href="#s4">IV Notions de nombres réels</a></li><li><a href="#s5">V Propriétés des nombres réels</a></li><li><a href="#s6">VI Intervalles de $\R$</a></li><li><a href="#s7">VII Valeur absolue d'un réel</a></li></ol></nav>
+<h2 id="s1"><span class="num-section">I.</span> Nombres entiers</h2>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Ensembles des entiers</span><div class="boite-corps"><div class="maths">\[
+\N=\text{Ensemble des entiers naturels}=\{0\,;1\,;2\,;3\,;\dots\}
+\qquad
+\N^{*}=\N\setminus\{0\}=\{1\,;2\,;3\,;\dots\}
+\]</div></div></section>
+<h3>1.1  Quelques nombres particuliers</h3>
+<p><strong>Les nombres premiers</strong></p>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Nombre premier</span><div class="boite-corps"><p>Un entier naturel non nul est dit <strong>premier</strong> lorsqu'il possède exactement deux diviseurs distincts : $1$ et lui-même.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Nombres premiers</span><div class="boite-corps"><p>$2$ – $3$ – $5$ – $7$ – $11$ – $13$ – $17$.</p></div></section>
+<p><strong>Les nombres pairs et impairs</strong></p>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Nombres pairs et impairs</span><div class="boite-corps"><p>Soit $n\in\Z$ : $n$ est un nombre</p>
+<ul><li><strong>pair</strong> lorsqu'il existe $k\in\Z$ tel que $n=2\times k$ ;</li><li><strong>impair</strong> lorsqu'il existe $k\in\Z$ tel que $n=2\times k+1$.</li></ul></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Un pair, un impair</span><div class="boite-corps"><p>$15=7\times 2+1$ est un nombre impair ; $24=2\times 12$ est un nombre pair.</p></div></section>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Carré d'un nombre impair</span><div class="boite-corps"><p>Montrer que le carré d'un nombre impair est impair.</p></div></section>
+<p>Soit $k$ un nombre entier impair, donc $k=2n+1$ avec $n$ entier.</p>
+<div class="maths">\[
+k^{2}=(2n+1)^{2}=4n^{2}+4n+1=2\left(2n^{2}+2n\right)+1
+\]</div>
+<p>On en déduit que $k^{2}$ est aussi un nombre impair.</p>
+<p><strong>Conclusion :</strong> $k$ impair $\Longrightarrow$ $k^{2}$ est impair.</p>
+<p><strong>Rappel :</strong> la contraposée de toute proposition vraie est aussi vraie.</p>
+<p>Contraposée :   $k^{2}$ n'est pas impair $\Longrightarrow$ $k$ n'est pas impair.</p>
+<p>On peut réécrire la proposition : $k^{2}$ est pair $\Longrightarrow$ $k$ est pair.</p>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Carré d'un nombre pair</span><div class="boite-corps"><p>Montrer que le carré d'un nombre pair est pair.</p></div></section>
+<p>Soit $k$ un nombre entier pair, donc $k=2n$ avec $n$ entier.</p>
+<div class="maths">\[
+k^{2}=(2n)^{2}=4n^{2}=2\times\left(2n^{2}\right)
+\]</div>
+<p>On en déduit que $k^{2}$ est aussi un nombre pair.</p>
+<p><strong>Conclusion :</strong> $k$ pair $\Longrightarrow$ $k^{2}$ est pair.</p>
+<p>La contraposée de toute proposition vraie est aussi vraie.</p>
+<p>Contraposée :   $k^{2}$ n'est pas pair $\Longrightarrow$ $k$ n'est pas pair.</p>
+<p>On peut l'écrire aussi : $k^{2}$ est impair $\Longrightarrow$ $k$ est impair. C'est la réciproque de l'exercice.</p>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Parité du carré</span><div class="boite-corps"><p>Soit $k\in\Z$. L'entier relatif $k^{2}$ est impair si, et seulement si, $k$ est impair.</p>
+<p>$k^{2}$ est pair si, et seulement si, $k$ est pair.</p></div></section>
+<h2 id="s2"><span class="num-section">II.</span> Les entiers relatifs</h2>
+<div class="maths">\[
+\Z=\text{Ensemble des entiers relatifs}=\{\dots\,;-2\,;-1\,;0\,;1\,;2\,;3\} .
+\]</div>
+<p>$-2$ est appelé l'<strong>opposé</strong> de $2$.</p>
+<h2 id="s3"><span class="num-section">III.</span> Nombres décimaux, nombres rationnels</h2>
+<h3>3.1  Les nombres décimaux</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Nombre décimal</span><div class="boite-corps"><p>Un <strong>nombre décimal</strong> est un nombre de la forme $\dfrac{a}{10^{n}}$, avec $a$ entier et $n$ entier naturel.</p>
+<p>Un nombre décimal peut s'écrire avec un nombre fini de chiffres après la virgule.</p>
+<p>L'ensemble des <strong>nombres décimaux</strong> est noté $\D$.</p>
+<div class="maths">\[
+\D=\text{Ensemble des nombres décimaux}
+=\left\{\frac{a}{10^{n}}\,;a\in\Z \text{ et } n\in\N\right\} .
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Nombres décimaux</span><div class="boite-corps"><p>$0{,}17\in\D$   $3\in\D$   $\dfrac{1}{3}\notin\D$ mais $\dfrac{3}{5}\in\D$.</p></div></section>
+<h3>3.2  Nombres rationnels</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Nombre rationnel</span><div class="boite-corps"><p>Un <strong>nombre rationnel</strong> est un nombre sous la forme d'un quotient $\dfrac{a}{b}$ avec $a$ un entier et $b$ un entier non nul. L'ensemble des <strong>nombres rationnels</strong> est noté $\Q$.</p>
+<div class="maths">\[
+\Q=\text{Ensemble des nombres rationnels}
+=\left\{\frac{p}{q}\,;p\in\Z \text{ et } q\in\N^{*}\right\} .
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Nombres rationnels</span><div class="boite-corps"><p>$\dfrac{1}{3}\in\Q$   $4\in\Q$   $-5{,}4\in\Q$   $\sqrt{2}\notin\Q$.</p></div></section>
+<p><strong>Remarque :</strong> $\Q$ peut aussi être considéré comme l'ensemble des nombres dont le développement décimal est fini ou illimité mais périodique. Un nombre avec un développement décimal fini (nombre décimal) ou avec un développement décimal illimité périodique peut toujours se mettre sous la forme d'une fraction.</p>
+<p>$\D$, l'ensemble des nombres décimaux, est un sous-ensemble des nombres rationnels $\Q$.</p>
+<p><strong>Exemples :</strong></p>
+<p><em>développement décimal fini</em>   $15{,}53=\dfrac{1553}{100}\in\D\subset\Q$   (nombre décimal)</p>
+<p><em>développement décimal illimité périodique</em>   $a=1{,}7232323\dots$ : la séquence $23$ est périodique.</p>
+<div class="maths">\[\begin{aligned}
+1000\times a-10\times a&=1723{,}23232323\dots-17{,}23232323\dots=1705\\
+990\,a&=1705
+\end{aligned}\]</div>
+<p>donc</p>
+<div class="maths">\[
+a=\frac{1705}{990}\in\Q .
+\]</div>
+<p><strong>Démonstration au programme :</strong> $\dfrac{1}{3}\in\Q$ mais $\dfrac{1}{3}\notin\D$.</p>
+<p>Démontrons que le nombre rationnel $\dfrac{1}{3}$ n'est pas décimal :</p>
+<p><em>On va effectuer une démonstration par l'absurde en supposant que $\dfrac{1}{3}$ est décimal.</em></p>
+<p><em>Si notre démonstration aboutit à une absurdité, cela prouvera que notre hypothèse de départ est fausse.</em></p>
+<p>Supposons donc que $\dfrac{1}{3}$ est décimal. Alors il peut s'écrire sous la forme $\dfrac{1}{3}=\dfrac{a}{10^{p}}$ avec $a$ entier relatif et $p$ entier naturel.</p>
+<p>Donc $10^{p}=3a$, et donc $10^{p}$ est divisible par $3$.</p>
+<p>Un nombre est divisible par $3$ lorsque la somme de ses chiffres est divisible par $3$.</p>
+<p>Or ceci est impossible, car la somme des chiffres de $10^{p}$ est $1$, et $1$ n'est pas divisible par $3$.</p>
+<p>Donc l'hypothèse posée au départ est fausse, et donc $\dfrac{1}{3}$ n'est pas décimal !</p>
+<h2 id="s4"><span class="num-section">IV.</span> Notions de nombres réels</h2>
+<h3>4.1  Les nombres irrationnels</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Nombre irrationnel</span><div class="boite-corps"><p>Un nombre qui n'est pas rationnel est dit <strong>irrationnel</strong>.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Nombres irrationnels</span><div class="boite-corps"><p>$\sqrt{2}$, $\sqrt{3}$ ou encore $\pi$ sont des nombres irrationnels. Ils ne peuvent pas s'écrire sous la forme $\dfrac{a}{b}$ avec $a$ et $b$ deux entiers relatifs, $b$ non nul.</p></div></section>
+<p>Comme pour un nombre rationnel, il n'est pas possible d'écrire un nombre irrationnel sous forme décimale. En effet, le nombre de décimales qui le constitue est infini, mais de surcroît ces décimales se suivent sans suite logique.</p>
+<p><strong>Démonstration au programme :</strong> irrationalité de $\sqrt{2}$.</p>
+<p>On va effectuer une démonstration par l'absurde en supposant que $\sqrt{2}$ est rationnel.</p>
+<p>Supposons donc que $\sqrt{2}$ est un rationnel.</p>
+<p>Il s'écrit alors $\sqrt{2}=\dfrac{a}{b}$ avec $a$ et $b$ entiers naturels premiers entre eux, $b$ non nul.</p>
+<p>Ainsi : $\dfrac{a^{2}}{b^{2}}=2$, soit $a^{2}=2b^{2}$. On en déduit que $a^{2}$ est pair, ce qui entraîne que $a$ est pair.</p>
+<p>En effet, si $a$ était impair, alors $a^{2}$ serait impair (en effet $(2k+1)^{2}=2\left(2k^{2}+2k\right)+1$).</p>
+<p>Donc $a$ est pair : il existe un entier naturel $k$ tel que $a=2k$.</p>
+<p>Comme $a^{2}=2b^{2}$, on a : $(2k)^{2}=2b^{2}$.</p>
+<p>Soit : $4k^{2}=2b^{2}$, soit encore $b^{2}=2k^{2}$.</p>
+<p>On en déduit que $b^{2}$ est pair, ce qui entraîne que $b$ est pair. Or $a$ et $b$ sont premiers entre eux, donc ils ne peuvent être pairs simultanément. On aboutit à une <strong>absurdité</strong>.</p>
+<p>Donc $\sqrt{2}$ n'est pas un rationnel. Et donc $\sqrt{2}$ est un irrationnel.</p>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Ensemble des réels</span><div class="boite-corps"><p>L'ensemble des nombres rationnels et irrationnels est l'ensemble des nombres réels. On le note $\R$.</p></div></section>
+<h3>4.2  La droite numérique</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Droite numérique</span><div class="boite-corps"><p>Un nombre est réel s'il est l'abscisse d'un point d'une droite graduée appelée la <strong>droite numérique</strong>.</p>
+<p>L'ensemble des <strong>nombres réels</strong> est noté $\R$.</p></div></section>
+<figure class="figure-cours"><img src="img/seconde-ch01-fig01.png" alt="figure 1 du cours"></figure>
+<p>C'est l'ensemble de tous les nombres que nous utiliserons en classe de seconde.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Nombres réels</span><div class="boite-corps"><p>$2$, $0$, $-5$, $0{,}67$, $\dfrac{1}{3}$, $\sqrt{3}$ ou $\pi$ appartiennent à $\R$.</p></div></section>
+<h3>4.3  Classification des nombres</h3>
+<p>Tous les nombres de l'ensemble des entiers naturels $\N$ appartiennent à l'ensemble des entiers relatifs $\Z$. On dit que l'ensemble $\N$ est <strong>inclus</strong> dans l'ensemble $\Z$. On note : $\N\subset\Z$.</p>
+<p>On a également les inclusions suivantes :</p>
+<div class="maths">\[
+\N\subset\Z\subset\D\subset\Q\subset\R .
+\]</div>
+<p><strong>La classification des nombres :</strong></p>
+<figure class="figure-cours"><img src="img/seconde-ch01-fig02.png" alt="figure 2 du cours"></figure>
+<h3>4.4  Déterminer un arrondi d'un nombre</h3>
+<p><strong>Méthode : donner un encadrement d'un nombre réel</strong></p>
+<p>À l'aide de la calculatrice, donner un encadrement à $10^{-2}$ de $\sqrt{2}$ et de $\sqrt{3}$.</p>
+<p>La calculatrice affiche des valeurs approchées :</p>
+<div class="maths">\[
+\sqrt{2}\approx 1{,}414213562
+\qquad\qquad
+\sqrt{3}\approx 1{,}732050808 .
+\]</div>
+<p>On a alors les encadrements à $10^{-2}$ :</p>
+<div class="maths">\[
+1{,}41&lt;\sqrt{2}&lt;1{,}42
+\qquad\text{et}\qquad
+1{,}73&lt;\sqrt{3}&lt;1{,}74 .
+\]</div>
+<h2 id="s5"><span class="num-section">V.</span> Propriétés des nombres réels</h2>
+<p>Les nombres réels jouissent des <strong>propriétés</strong> ci-dessous, c'est-à-dire que, quelles que soient les valeurs que l'on donne aux lettres $a$, $b$, $c$ et $d$, les relations suivantes sont toujours vraies :</p>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Règles de calcul dans $\R$</span><div class="boite-corps"><ol><li><em>La somme de deux nombres réels est un nombre réel.</em></li><li><em>Le produit de deux nombres réels est un nombre réel.</em></li><li>$a+b=b+a$   $a\times b=b\times a$  <em>commutativité</em></li><li>$a+(b+c)=(a+b)+c$   $a\times(b\times c)=(a\times b)\times c$  <em>associativité</em></li><li>$0+a=a$   $1\times a=a$  <em>élément neutre</em></li><li>$a+(-a)=0$   $a\times\dfrac{1}{a}=1$  <em>élément symétrique</em></li><li>$a\times(b+c)=a\times b+a\times c$  <em>distributivité</em></li><li>$(a+b)(c+d)=ac+ad+bc+bd$  <em>double distributivité</em></li><li>$(-a)b=a(-b)=-ab$   $(-a)(-b)=ab$  <em>règle des signes</em></li></ol></div></section>
+<p><strong>Illustration de la distributivité / mise en évidence</strong></p>
+<figure class="figure-cours"><img src="img/seconde-ch01-fig03.png" alt="figure 3 du cours"></figure>
+<p><strong>Illustration de la double distributivité / mise en évidence</strong></p>
+<figure class="figure-cours"><img src="img/seconde-ch01-fig04.png" alt="figure 4 du cours"></figure>
+<p><strong>Règle de la multiplication par zéro</strong></p>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Produit par zéro</span><div class="boite-corps"><p>Lorsque l'on multiplie un nombre réel par $0$, on trouve toujours $0$.</p>
+<p>Autrement dit : $a\cdot 0=0\cdot a=0$.</p></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Produit nul</span><div class="boite-corps"><p>Dire que le produit de deux nombres réels vaut $0$ est <strong>équivalent</strong> à dire que l'un des deux nombres (au moins) est égal à $0$.</p>
+<p>Autrement dit : $a\cdot b=0\iff a=0$ <strong>ou</strong> $b=0$.</p></div></section>
+<h3>5.1  Ordre des opérations</h3>
+<p>Pour déterminer la valeur d'une expression arithmétique, on décide d'effectuer les différentes opérations en suivant <strong>l'ordre indiqué par les règles</strong> ci-dessous :</p>
+<ol><li><em>Les opérations à l'intérieur d'une paire de parenthèses qui ne contient pas de parenthèse.</em></li><li><em>Les puissances.</em></li><li><em>Les multiplications et les divisions de gauche à droite.</em></li><li><em>Les additions et les soustractions de gauche à droite.</em></li></ol>
+<p><strong>Remarques</strong></p>
+<p><strong>a)</strong> Si, dans une écriture sans parenthèse, il ne reste que des multiplications et des divisions (ou que des additions et des soustractions), il faut effectuer ces opérations de gauche à droite :</p>
+<div class="maths">\[
+3\times 8\div 4\times 2=24\div 4\times 2=6\times 2=12
+\qquad
+7-2+5=5+5=10 .
+\]</div>
+<p><strong>b)</strong> La barre de fraction représente une division, mais attention à l'ordre des opérations :</p>
+<div class="maths">\[
+\frac{2+7}{4+3} \text{ s'écrit, sans la barre de fraction, } (2+7)/(4+3) .
+\]</div>
+<h2 id="s6"><span class="num-section">VI.</span> Intervalles de $\R$</h2>
+<h3>6.1  Notations</h3>
+<p>L'ensemble de tous les nombres réels $x$ tels que $2\leqslant x\leqslant 4$ peut se représenter sur une droite graduée.</p>
+<p>Cet ensemble est appelé un <strong>intervalle</strong> et se note $[2\,;4]$.</p>
+<figure class="figure-cours"><img src="img/seconde-ch01-fig05.png" alt="figure 5 du cours"></figure>
+<p><em>Exemple :</em></p>
+<p>L'ensemble de tous les nombres réels $x$ tels que $-2\leqslant x\leqslant 7$ se note $[-2\,;7]$.</p>
+<p>On a par exemple : $4\in[-2\,;7]$   $-1\in[-2\,;7]$   $8\notin[-2\,;7]$.</p>
+<table class="tableau"><tr><td>Nombres réels $x$</td><td>Notation</td><td>Représentation</td></tr><tr><td>$2\leqslant x\leqslant 4$</td><td>$[2\,;4]$</td><td><img class="mini-fig" src="img/seconde-ch01-fig06.png" alt="figure"></td></tr><tr><td>$-1&lt;x\leqslant 3$</td><td>$]-1\,;3]$</td><td><img class="mini-fig" src="img/seconde-ch01-fig07.png" alt="figure"></td></tr><tr><td>$0\leqslant x&lt;2$</td><td>$[0\,;2[$</td><td><img class="mini-fig" src="img/seconde-ch01-fig08.png" alt="figure"></td></tr><tr><td>$2&lt;x&lt;4$</td><td>$]2\,;4[$</td><td><img class="mini-fig" src="img/seconde-ch01-fig09.png" alt="figure"></td></tr><tr><td>$x\geqslant 2$</td><td>$[2\,;+\infty[$</td><td><img class="mini-fig" src="img/seconde-ch01-fig10.png" alt="figure"></td></tr><tr><td>$x&gt;-1$</td><td>$]-1\,;+\infty[$</td><td><img class="mini-fig" src="img/seconde-ch01-fig11.png" alt="figure"></td></tr><tr><td>$x\leqslant 3$</td><td>$]-\infty\,;3]$</td><td><img class="mini-fig" src="img/seconde-ch01-fig12.png" alt="figure"></td></tr><tr><td>$x&lt;2$</td><td>$]-\infty\,;2[$</td><td><img class="mini-fig" src="img/seconde-ch01-fig13.png" alt="figure"></td></tr></table>
+<p><strong>Remarque :</strong> l'ensemble des nombres réels $\R$ est un intervalle qui peut se noter $]-\infty\,;+\infty[$.</p>
+<h3>6.2  Application aux inéquations</h3>
+<p>Une <strong>inéquation</strong> est une inégalité qui contient une inconnue $x$.</p>
+<p>Résoudre une inéquation, c'est trouver toutes les valeurs de $x$ qui vérifient cette inégalité. Il s'agit d'un ensemble de valeurs. Pour représenter l'ensemble des solutions, on utilise un intervalle. Les techniques de résolution des inéquations sont semblables à celles utilisées pour les équations.</p>
+<p><strong>Méthode : résoudre l'inéquation et donner les solutions sous forme d'un intervalle : $2x-3&lt;4$</strong></p>
+<div class="maths">\[\begin{aligned}
+2x-3&&lt;4\\
+2x&&lt;4+3\\
+2x&&lt;7\\
+x&&lt;\frac{7}{2}
+\end{aligned}\]</div>
+<figure class="figure-cours"><img src="img/seconde-ch01-fig14.png" alt="figure 14 du cours"></figure>
+<p>L'ensemble des solutions est l'intervalle $\left]-\infty\,;\dfrac{7}{2}\right[$.</p>
+<h3>6.3  Intervalle ouvert et intervalle fermé</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Intervalle ouvert, intervalle fermé</span><div class="boite-corps"><p>On dit qu'un intervalle est <strong>fermé</strong> si ses extrémités appartiennent à l'intervalle.</p>
+<p>On dit qu'il est <strong>ouvert</strong> dans le cas contraire.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Trois intervalles</span><div class="boite-corps"><ul><li>l'intervalle $[-2\,;5]$ est un intervalle fermé. On a : $-2\in[-2\,;5]$ et $5\in[-2\,;5]$ ;</li><li>l'intervalle $]2\,;6[$ est un intervalle ouvert. On a : $2\notin]2\,;6[$ et $6\notin]2\,;6[$ ;</li><li>l'intervalle $]6\,;+\infty[$ est également un intervalle ouvert.</li></ul></div></section>
+<h3>6.4  Intersections et réunions d'intervalles</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Intersection et réunion</span><div class="boite-corps"><ul><li>l'<strong>intersection</strong> de deux ensembles $A$ et $B$ est l'ensemble des éléments qui appartiennent à $A$ <strong>et</strong> à $B$ ; on le note $A\cap B$ ;</li><li>la <strong>réunion</strong> de deux ensembles $A$ et $B$ est l'ensemble des éléments qui appartiennent à $A$ <strong>ou</strong> à $B$ ; on la note $A\cup B$.</li></ul></div></section>
+<figure class="figure-cours"><img src="img/seconde-ch01-fig15.png" alt="figure 15 du cours"></figure>
+<p><strong>Méthode : déterminer l'intersection et la réunion d'intervalles</strong></p>
+<p>Dans les cas suivants, déterminer l'intersection et la réunion des intervalles $I$ et $J$ :</p>
+<ol><li>$I=[-1\,;3[$ et $J=]0\,;4[$</li><li>$I=]-\infty\,;-1]$ et $J=[1\,;4]$</li></ol>
+<p><strong>1)</strong> Pour visualiser les ensembles solutions, on peut représenter les intervalles $I$ et $J$ sur un même axe gradué.</p>
+<figure class="figure-cours"><img src="img/seconde-ch01-fig16.png" alt="figure 16 du cours"></figure>
+<p>Les nombres de l'intersection des deux ensembles sont les nombres qui appartiennent à la fois aux deux ensembles : il s'agit donc de la zone de l'axe gradué où les deux ensembles se superposent. Ainsi $I\cap J=[0\,;3]$.</p>
+<figure class="figure-cours"><img src="img/seconde-ch01-fig17.png" alt="figure 17 du cours"></figure>
+<p>Les nombres de la réunion des deux ensembles sont les nombres qui appartiennent au moins à l'un des deux ensembles : il s'agit donc de la zone de l'axe gradué marquée soit par l'intervalle $I$, soit par l'intervalle $J$. Ainsi $I\cup J=[-1\,;4[$.</p>
+<p><strong>2)</strong></p>
+<figure class="figure-cours"><img src="img/seconde-ch01-fig18.png" alt="figure 18 du cours"></figure>
+<p>Ici, les ensembles $I$ et $J$ n'ont pas de zone en commun. L'intersection des deux intervalles est vide.</p>
+<p>Un ensemble qui ne contient aucun élément s'appelle l'<strong>ensemble vide</strong> et se note $\varnothing$.</p>
+<p>On a alors : $I\cap J=\varnothing$ et $I\cup J=\left]-\infty\,;-1\right]\cup \left[1\,;4\right]$.</p>
+<h2 id="s7"><span class="num-section">VII.</span> Valeur absolue d'un réel</h2>
+<h3>7.1  Définition</h3>
+<p><strong>Exemples :</strong></p>
+<ul><li>la valeur absolue de $-5$ est égale à $5$ ;</li><li>la valeur absolue de $8$ est égale à $8$.</li></ul>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Valeur absolue</span><div class="boite-corps"><p>La <strong>valeur absolue</strong> d'un nombre $A$ est égale au nombre $A$ si $A$ est positif, et au nombre $-A$ si $A$ est négatif. La valeur absolue de $A$ se note $|A|$.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Valeur absolue de $x-5$</span><div class="boite-corps"><div class="maths">\[
+|x-5|=
+\begin{cases}
+x-5 & \text{si } x\geqslant 5\\[2pt]
+5-x & \text{si } x\leqslant 5
+\end{cases}
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriétés de la valeur absolue</span><div class="boite-corps"><p>Soit $x$ et $y$ deux nombres réels.</p>
+<div class="maths">\[
+\textbf{1)}\ |x|\geqslant 0
+\qquad
+\textbf{2)}\ |-x|=|x|
+\qquad
+\textbf{3)}\ \sqrt{x^{2}}=|x|
+\qquad
+\textbf{4)}\ |x|=0 \text{ équivaut à } x=0
+\]</div>
+<div class="maths">\[
+\textbf{5)}\ |x|=|y| \text{ équivaut à } x=y \text{ ou } x=-y
+\qquad
+\textbf{6)}\ |xy|=|x|\times|y|
+\qquad
+\textbf{7)}\ \left|\dfrac{x}{y}\right|=\dfrac{|x|}{|y|} \text{ pour } y\neq 0
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Deux vérifications</span><div class="boite-corps"><div class="maths">\[
+\textbf{1)}\ |-3|=3 \text{ et } |3|=3 \text{ donc } |-3|=|3|
+\]</div>
+<div class="maths">\[
+\textbf{2)}\ \sqrt{(-5)^{2}}=\sqrt{25}=5 \text{ et } |-5|=5
+\text{ donc } \sqrt{(-5)^{2}}=|-5|
+\]</div></div></section>
+<h3>7.2  Distance et valeur absolue</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Distance et valeur absolue</span><div class="boite-corps"><p>Soient $a$ et $b$ deux nombres réels. Sur une droite graduée, la distance entre les points $A$ et $B$ d'abscisses respectives les nombres $a$ et $b$ est le nombre $|a-b|$.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Distance entre $-1{,}5$ et $4$</span><div class="boite-corps"><p>Calculer la distance entre les nombres $-1{,}5$ et $4$ :</p>
+<div class="maths">\[
+d(-1{,}5\,;4)=|4-(-1{,}5)|=5{,}5 .
+\]</div>
+<figure class="figure-cours"><img src="img/seconde-ch01-fig19.png" alt="figure 19 du cours"></figure></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Écart à un réel</span><div class="boite-corps"><p>Soit $a\in\R$.</p>
+<p>Dire que $x$ est tel que $|x-a|\leqslant r$ signifie que $x$ appartient à l'intervalle $[a-r\,;a+r]$.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$|x-5|\leqslant 2$</span><div class="boite-corps"><p>Soit un réel $x$ tel que $|x-5|\leqslant 2$. Cela signifie que $x\in[5-2\,;5+2]$, soit $x\in[3\,;7]$.</p>
+<p>Géométriquement, cela se traduit par le fait que la distance du point d'abscisse $x$ au point d'abscisse $5$ est inférieure ou égale à $2$.</p>
+<figure class="figure-cours"><img src="img/seconde-ch01-fig20.png" alt="figure 20 du cours"></figure></div></section>
+  <p style="margin-top:2.5rem"><a href="../index.html#seconde">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

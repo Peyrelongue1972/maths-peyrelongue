@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 16 : Concentration et loi des grands nombres 
+\large Terminale spécialité — Terminale spécialité</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "prob": ["{p\\left(#1\\right)}", 1]} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#terminale-spe">← Retour au site</a></p>
+  <h1>Chapitre 16 : Concentration et loi des grands nombres 
+\large Terminale spécialité</h1>
+  <p class="sous-titre">Terminale spécialité · Chapitre 16 — Concentration et loi des grands nombres · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Concentration et loi des grands nombres</span><a class="onglet" href="../pdf/terminale-spe/16-concentration-et-loi-des-grands-nombres.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/terminale-spe/td01-loi-grands-nombres.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../quiz/terminale-spe-16.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Concentration</a></li><li><a href="#s2">II Loi des grands nombres</a></li></ol></nav>
+<h2 id="s1"><span class="num-section">I.</span> Concentration</h2>
+<h3>Inégalité de Bienaymé-Tchebychev</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Inégalité de Bienaymé-Tchebychev</span><div class="boite-corps"><p>Soit $X$ une variable aléatoire d'espérance $\mu$ et de variance $V$.</p>
+<div class="maths">\[
+\forall\delta\in\left[0\,;+\infty\right[,\qquad
+\prob{\left|X-\mu\right|\geqslant\delta}\leqslant\frac{V}{\delta^{2}} .
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span><div class="boite-corps"><p>La probabilité que $X$ se trouve en dehors de l'intervalle $\left[\mu-\delta\,;\mu+\delta\right]$ est inférieure à $\dfrac{V}{\delta^{2}}$.</p>
+<p>Cette inégalité conduit à la loi des grands nombres.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">La taille des femmes françaises</span><div class="boite-corps"><p>La taille moyenne d'une femme française est de $1{,}65$ m et la variance est évaluée à $0{,}0025$. Majorer la proportion des femmes françaises dont la taille est inférieure ou égale à $1{,}55$ ou supérieure ou égale à $1{,}75$.</p>
+<p>Soit $T_{F}$ la variable aléatoire associée à la taille d'une femme française. On a donc :</p>
+<div class="maths">\[
+\mu=1{,}65 \qquad\text{et}\qquad V=0{,}0025 .
+\]</div>
+<figure class="figure-cours"><img src="img/terminale-spe-ch16-fig01.png" alt="figure 1 du cours"></figure>
+<p>On a alors :</p>
+<div class="maths">\[
+\prob{\left|T_{F}-1{,}65\right|\geqslant0{,}1}\leqslant\frac{0{,}0025}{0{,}1^{2}}
+\iff
+\prob{\left|T_{F}-1{,}65\right|\geqslant0{,}1}\leqslant0{,}25 .
+\]</div>
+<p>Il y a au plus un quart des femmes françaises dont la taille est inférieure ou égale à $1{,}55$ ou supérieure ou égale à $1{,}75$.</p></div></section>
+<h3>1.2  Application à un intervalle de rayon de $k$ fois l'écart-type</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Intervalle de rayon $k\sigma$</span><div class="boite-corps"><p>Soit $X$ une variable aléatoire d'espérance $\mu$ et d'écart-type $\sigma$.</p>
+<div class="maths">\[
+\forall k\in\N^{*},\qquad
+\prob{\left|X-\mu\right|\geqslant k\sigma}\leqslant\frac{1}{k^{2}} .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>On prend, avec $k\in\N^{*}$, $\delta=k\sigma$, d'où :</p>
+<div class="maths">\[
+\delta^{2}=k^{2}\sigma^{2}=k^{2}V .
+\]</div>
+<p>De l'inégalité de Bienaymé-Tchebychev :</p>
+<div class="maths">\[
+\prob{\left|X-\mu\right|\geqslant\delta}\leqslant\frac{V}{\delta^{2}}
+\quad\Longrightarrow\quad
+\prob{\left|X-\mu\right|\geqslant k\sigma}\leqslant\frac{V}{k^{2}V}
+\quad\Longrightarrow\quad
+\prob{\left|X-\mu\right|\geqslant k\sigma}\leqslant\frac{1}{k^{2}} .
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span><div class="boite-corps"><ul><li>$k=2$ : $\prob{\left|X-\mu\right|\geqslant2\sigma}\leqslant0{,}25$. La probabilité que l'écart de $X$ à $\mu$ soit supérieur ou égal à $2\sigma$ est inférieure ou égale à $0{,}25$.</li><li>$k=4$ : $\prob{\left|X-\mu\right|\geqslant4\sigma}\leqslant0{,}0625$. Obtenir un écart de $X$ à $\mu$ supérieur ou égal à $4\sigma$ est un événement improbable.</li></ul></div></section>
+<figure class="figure-cours"><img src="img/terminale-spe-ch16-fig02.png" alt="figure 2 du cours"></figure>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Exercice</span><div class="boite-corps"><p>Sur une roue de loterie il y a $4$ secteurs rouges sur $10$. On fait tourner $20$ fois la roue en notant par $X$ le nombre de fois où la roue tombe sur un secteur rouge.</p>
+<p>La variable aléatoire $X$ suit alors la loi binomiale $\mathcal{B}(20\,;0{,}4)$.</p>
+<p>Majorer la probabilité que $X$ soit en dehors de l'intervalle centré en $\mu$ et de rayon $2\sigma$.</p>
+<p><strong>Correction.</strong></p>
+<div class="maths">\[
+\mu=20\times0{,}4=8 \qquad\text{et}\qquad
+\sigma=\sqrt{20\times0{,}4\times0{,}6}\approx2{,}19 .
+\]</div>
+<p>On a alors :</p>
+<div class="maths">\[
+\prob{\left|X-\mu\right|\geqslant2\sigma}\leqslant\frac{1}{4} .
+\]</div>
+<p>$2\sigma\approx4{,}4$, à l'aide de la calculatrice, on trouve :</p>
+<div class="maths">\[\begin{aligned}
+\prob{\left|X-8\right|\geqslant4{,}4}
+&\overset{X\in\N}{=}\prob{\left|X-8\right|\geqslant4}\\
+&=\prob{X\leqslant4}+\prob{X\geqslant12}\\
+&=\prob{X\leqslant4}+1-\prob{X\leqslant11}\\
+&\approx0{,}11 .
+\end{aligned}\]</div>
+<p>L'inégalité de Bienaymé-Tchebychev donne une majoration de $0{,}25$ qui est loin d'être optimale comme le calcul sur la calculatrice le montre.</p></div></section>
+<h2 id="s2"><span class="num-section">II.</span> Loi des grands nombres</h2>
+<h3>Inégalité de concentration</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Inégalité de concentration</span><div class="boite-corps"><p>Soit $\left(X_{1},X_{2},\dots,X_{n}\right)$ un échantillon de variables aléatoires d'espérance $\mu$ et de variance $V$, et $M_{n}$ la variable aléatoire moyenne de cet échantillon.</p>
+<div class="maths">\[
+\forall\delta\in\left[0\,;+\infty\right[,\qquad
+\prob{\left|M_{n}-\mu\right|\geqslant\delta}\leqslant\frac{V}{n\delta^{2}} .
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span><div class="boite-corps"><p>On rappelle que</p>
+<div class="maths">\[
+M_{n}=\frac{X_{1}+X_{2}+\dots+X_{n}}{n}.
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>D'après les relations sur l'espérance et la variance de la variable aléatoire d'un échantillon, on a :</p>
+<div class="maths">\[
+E\left(M_{n}\right)=\mu \qquad\text{et}\qquad V\left(M_{n}\right)=\frac{V}{n} .
+\]</div>
+<p>D'après l'inégalité de Bienaymé-Tchebychev, on a :</p>
+<div class="maths">\[
+\prob{\left|M_{n}-\mu\right|\geqslant\delta}\leqslant\frac{V\left(M_{n}\right)}{\delta^{2}}
+\quad\Longrightarrow\quad
+\prob{\left|M_{n}-\mu\right|\geqslant\delta}\leqslant\frac{V}{n\delta^{2}} .
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Démarchage téléphonique</span><div class="boite-corps"><p>Dans une société de démarchage par téléphone, on estime que $40\,\%$ des personnes appelées répondent effectivement.</p>
+<p>On appelle $n$ personnes, la variable aléatoire $X_{k}$ donne $1$ si la $k$-ième personne appelée répond et $0$ sinon.</p>
+<p>Les variables aléatoires $X_{1}$, $X_{2}$, …, $X_{n}$ sont indépendantes, identiques, de même loi d'espérance</p>
+<div class="maths">\[
+\mu=0{,}6\times0+0{,}4\times1=0{,}4
+\]</div>
+<p>et de variance</p>
+<div class="maths">\[
+V=0{,}6\times\left(0-0{,}4\right)^{2}+0{,}4\times\left(1-0{,}4\right)^{2}=0{,}24 .
+\]</div>
+<p>Alors, pour tout réel $\delta&gt;0$,</p>
+<div class="maths">\[
+P\left(\left|M_{n}-0{,}4\right|\geqslant\delta\right)\leqslant\frac{0{,}24}{n\delta^{2}} .
+\]</div>
+<p>Par exemple, pour $\delta=0{,}1$,</p>
+<div class="maths">\[
+P\left(\left|M_{n}-0{,}4\right|\geqslant0{,}1\right)\leqslant\frac{24}{n} .
+\]</div>
+<ul><li>Pour $n=1\,000$, $P\left(\left|M_{n}-0{,}4\right|\geqslant0{,}1\right)\leqslant0{,}024$.</li></ul>
+<p>On dit que l'on obtient pour $M_{n}$ une <strong>précision</strong> de $0{,}1$ avec un <strong>risque</strong> de $0{,}024$.</p>
+<p>Lorsqu'on appelle $1\,000$ personnes, la probabilité que le nombre de personnes qui répondent soit en dehors de l'intervalle $\left]300\,;500\right[$ est inférieure à $0{,}024$.</p></div></section>
+<h3>2.2  Loi des grands nombres</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Loi des grands nombres</span><div class="boite-corps"><p>Soit $\left(X_{1},X_{2},\dots,X_{n}\right)$ un échantillon de variables aléatoires d'espérance $\mu$ et $M_{n}$ la variable aléatoire moyenne de cet échantillon.</p>
+<div class="maths">\[
+\forall\delta\in\left[0\,;+\infty\right[,\qquad
+\lim_{n\to+\infty}p\left(\left|M_{n}-\mu\right|\geqslant\delta\right)=0 .
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span><div class="boite-corps"><p>Pour un $\delta$ donné aussi petit soit-il, la limite de la probabilité que $M_{n}$ soit en dehors de l'intervalle $\left[\mu-\delta\,;\mu+\delta\right]$ est nul.</p>
+<p>Ce théorème montre de façon rigoureuse que, lorsqu'on lance un grand nombre de fois une pièce de monnaie bien équilibrée, on a une chance sur deux en moyenne que la pièce tombe sur « pile » ou sur « face ».</p></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>Pour tout réel $t&gt;0$ donné, l'inégalité de concentration permet d'écrire :</p>
+<div class="maths">\[
+0\leqslant P\left(\left|M_{n}-\mu\right|\geqslant t\right)\leqslant\frac{V}{nt^{2}} .
+\]</div>
+<p>Or $\lim\limits_{n\to+\infty}\dfrac{V}{nt^{2}}=0$, donc d'après le théorème des gendarmes $\lim\limits_{n\to+\infty}P\left(\left|M_{n}-\mu\right|\geqslant t\right)=0$.</p></div></section>
+  <p style="margin-top:2.5rem"><a href="../index.html#terminale-spe">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

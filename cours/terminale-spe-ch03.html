@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 3 : Limite d&#x27;une suite — Terminale spécialité</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "limn": "{\\lim_{n\\to+\\infty}}", "norme": ["{\\left\\|#1\\right\\|}", 1], "prob": "{P}", "Pcond": ["{P_{#1}\\left(#2\\right)}", 2], "suite": ["{\\left(#1\\right)}", 1], "limx": ["{\\lim\\limits_{x\\to #1}}", 1]} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#terminale-spe">← Retour au site</a></p>
+  <h1>Chapitre 3 : Limite d&#x27;une suite</h1>
+  <p class="sous-titre">Terminale spécialité · Chapitre 3 — Limite d&#x27;une suite · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Limite d&#x27;une suite</span><a class="onglet" href="../pdf/terminale-spe/3-limite-d-une-suite.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/terminale-spe/td01-suites-numeriques-2.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/terminale-spe/td02-limites-de-suites-geometriques.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../pdf/terminale-spe/fiche-ap-limites-de-suites.pdf" target="_blank" rel="noopener">Fiche</a><a class="onglet" href="../quiz/terminale-spe-3.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Limites finies</a></li><li><a href="#s2">II Limites infinies</a></li><li><a href="#s3">III Opérations sur les limites</a></li><li><a href="#s4">IV Limites et comparaison</a></li><li><a href="#s5">V Limite des suites géométriques</a></li></ol></nav>
+<h2 id="s1"><span class="num-section">I.</span> Limites finies</h2>
+<h3>Définition</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Limite finie</span><div class="boite-corps"><p>Une suite $(u_{n})$ a pour <strong>limite le réel $l$</strong> lorsque tout intervalle ouvert contenant $l$ contient tous les termes de la suite à partir d'un certain rang.</p>
+<p>Autrement dit, pour tout réel $\varepsilon&gt;0$, on peut trouver un rang $N_{0}$ tel que, pour tout $n\geqslant N_{0}$, on a $u_{n}\in\,]l-\varepsilon\,;l+\varepsilon[$, soit encore $l-\varepsilon\leqslant u_{n}\leqslant l+\varepsilon$.</p></div></section>
+<figure class="figure-cours"><img src="img/terminale-spe-ch03-fig01.png" alt="figure 1 du cours"></figure>
+<p>Cette définition signifie que, si $l$ existe, alors, quelle que soit la taille de l'intervalle (<strong>aussi petit soit-il</strong>), il existe un rang à partir duquel tous les termes vont s'accumuler dans cet intervalle.</p>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Partie entière</span><div class="boite-corps"><p>Pour tout réel $x$, la <strong>partie entière</strong> est l'unique entier $n$ tel que</p>
+<div class="maths">\[
+n\leqslant x&lt;n+1 .
+\]</div>
+<p>On écrit alors $E(x)=n$ ou $[x]=n$.</p></div></section>
+<p><strong>Exemple.</strong>  $[\pi]=3$ ;   $[-3{,}5]=-4$ ;   $[1{,}95]=1$.</p>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Suite convergente, suite divergente</span><div class="boite-corps"><ul><li>Une suite <strong>convergente</strong> est une suite qui a pour limite un nombre réel $l$. On dit aussi que <strong>la suite converge vers $l$</strong>.</li><li>Une suite <strong>divergente</strong> est une suite qui ne converge pas.</li></ul></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Une suite divergente</span><div class="boite-corps"><p>La suite de terme général $(-1)^{n}$ prend alternativement les valeurs $-1$ et $1$. Elle n'admet donc pas de limite finie : elle est divergente.</p></div></section>
+<h3>Propriétés</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Unicité de la limite (admise)</span><div class="boite-corps"><p>Si une suite $(u_{n})$ a pour limite le réel $l$, alors cette limite est unique.</p></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Limites de référence</span><div class="boite-corps"><div class="maths">\[
+\limn\frac{1}{n}=0,\qquad
+\limn\frac{1}{n^{2}}=0,\qquad
+\limn\frac{1}{\sqrt{n}}=0,\qquad
+\forall k\geqslant 1,\quad \limn\frac{1}{n^{k}}=0 .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p><strong>Montrons que</strong> $\displaystyle\limn\frac{1}{n}=0$.</p>
+<p>Soit $\varepsilon&gt;0$ un réel et $n$ un entier naturel.</p>
+<p>Posons $N_{0}=\left[\dfrac{1}{\varepsilon}\right]+1$. Donc</p>
+<div class="maths">\[
+\forall n\geqslant N_{0},\quad n\geqslant\left[\frac{1}{\varepsilon}\right]+1
+&gt;\frac{1}{\varepsilon}
+\Longrightarrow 0&lt;\frac{1}{n}\leqslant\varepsilon
+\Longrightarrow \frac{1}{n}\in\,]-\varepsilon\,;\varepsilon[ .
+\]</div>
+<p>À partir du rang $N_{0}$, $\dfrac{1}{n}\in\,]-\varepsilon\,;\varepsilon[$, donc $\displaystyle\limn\frac{1}{n}=0$.</p>
+<p><strong>Montrons que</strong> $\displaystyle\limn\frac{1}{n^{2}}=0$.</p>
+<p>Posons $N_{0}=\left[\dfrac{1}{\sqrt{\varepsilon}}\right]+1$. Donc</p>
+<div class="maths">\[
+\forall n\geqslant N_{0},\quad
+n\geqslant\left[\frac{1}{\sqrt{\varepsilon}}\right]+1&gt;\frac{1}{\sqrt{\varepsilon}}
+\Longrightarrow 0&lt;\frac{1}{n}&lt;\sqrt{\varepsilon}
+\Longrightarrow 0&lt;\frac{1}{n^{2}}&lt;\varepsilon
+\Longrightarrow \frac{1}{n^{2}}\in\,]-\varepsilon\,;\varepsilon[ .
+\]</div>
+<p>À partir du rang $N_{0}$, $\dfrac{1}{n^{2}}\in\,]-\varepsilon\,;\varepsilon[$, donc $\displaystyle\limn\frac{1}{n^{2}}=0$.</p></div></section>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Convergence de $v_{n}=2+\frac{1}{n}$</span><div class="boite-corps"><p>On considère la suite $(v_{n})$ définie pour tout entier $n\geqslant 1$ par $v_{n}=2+\dfrac{1}{n}$.</p>
+<p>Montrer que $(v_{n})$ converge vers $2$.</p></div></section>
+<section class="boite boite-meth"><span class="boite-titre">Méthode</span> <span class="boite-sous-titre">Montrer qu'une suite converge vers $l$</span><div class="boite-corps"><ul><li>On considère un réel $\varepsilon$ quelconque.</li><li>On cherche ensuite à déterminer la valeur du plus petit entier $N_{0}$ tel que, pour tout entier $n\geqslant N_{0}$, on a $l-\varepsilon\leqslant u_{n}\leqslant l+\varepsilon$.</li></ul></div></section>
+<p><strong>Correction.</strong></p>
+<p>Soit $\varepsilon&gt;0$ un réel et $n$ un entier naturel non nul.</p>
+<p>On résout</p>
+<div class="maths">\[\begin{aligned}
+2-\varepsilon\leqslant v_{n}\leqslant 2+\varepsilon
+&\iff 2-\varepsilon\leqslant 2+\frac{1}{n}\leqslant 2+\varepsilon\\
+&\iff -\varepsilon\leqslant\frac{1}{n}\leqslant\varepsilon\\
+&\iff \left|\frac{1}{n}\right|\leqslant\varepsilon
+  \quad\left(\text{car } n&gt;0 \text{ donc } \left|\frac{1}{n}\right|=\frac{1}{n}\right)\\
+&\iff \frac{1}{n}\leqslant\varepsilon
+\iff n\geqslant\frac{1}{\varepsilon} .
+\end{aligned}\]</div>
+<p>Donc il faut choisir pour $N_{0}$ le premier entier au-dessus de $\dfrac{1}{\varepsilon}$, d'où $N_{0}=\left[\dfrac{1}{\varepsilon}\right]+1$.</p>
+<p><strong>Conclusion.</strong>  $\forall n\geqslant N_{0}$, $v_{n}\in[2-\varepsilon\,;2+\varepsilon[$, donc $\displaystyle\limn v_{n}=2$.</p>
+<h2 id="s2"><span class="num-section">II.</span> Limites infinies</h2>
+<h3>Définitions</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Limite $+\infty$</span><div class="boite-corps"><p>Une suite $(u_{n})$ a pour <strong>limite $+\infty$</strong> lorsque, pour tout réel $A$, l'intervalle $[A\,;+\infty[$ contient tous les termes de la suite à partir d'un certain rang.</p>
+<p>Autrement dit, pour tout réel $A$, on peut trouver un rang $N_{0}$ tel que, pour tout entier $n\geqslant N_{0}$, on a $u_{n}\geqslant A$.</p></div></section>
+<figure class="figure-cours"><img src="img/terminale-spe-ch03-fig02.png" alt="figure 2 du cours"></figure>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Limite $-\infty$</span><div class="boite-corps"><p>Une suite $(u_{n})$ a pour <strong>limite $-\infty$</strong> lorsque, pour tout réel $A$, l'intervalle $]-\infty\,;A]$ contient tous les termes de la suite à partir d'un certain rang.</p>
+<p>Autrement dit, pour tout réel $A$, on peut trouver un rang $N_{0}$ tel que, pour tout entier $n\geqslant N_{0}$, on a $u_{n}\leqslant A$.</p></div></section>
+<figure class="figure-cours"><img src="img/terminale-spe-ch03-fig03.png" alt="figure 3 du cours"></figure>
+<h3>Suites de référence</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Limites de référence</span><div class="boite-corps"><div class="maths">\[
+\limn n=+\infty,\qquad
+\limn n^{2}=+\infty,\qquad
+\limn\sqrt{n}=+\infty,\qquad
+\forall k\geqslant 1,\quad \limn n^{k}=+\infty .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p><strong>Montrons que</strong> $\displaystyle\limn n=+\infty$.</p>
+<p>Soit $A$ un nombre réel ; posons $N_{0}=[A]+1$.</p>
+<div class="maths">\[
+\forall n\geqslant N_{0},\quad n\geqslant[A]+1\geqslant A .
+\]</div>
+<p>À partir du rang $N_{0}$, tous les termes de la suite sont au-dessus de $A$, donc $\displaystyle\limn n=+\infty$.</p>
+<p><strong>Montrons que</strong> $\displaystyle\limn n^{2}=+\infty$.</p>
+<p>Soit $A$ un nombre réel ; posons $N_{0}=\left[\sqrt{A}\right]+1$.</p>
+<div class="maths">\[
+\forall n\geqslant N_{0},\quad n\geqslant\left[\sqrt{A}\right]+1\geqslant\sqrt{A}
+\Longrightarrow n^{2}\geqslant A .
+\]</div>
+<p>À partir du rang $N_{0}$, tous les termes de la suite sont au-dessus de $A$, donc $\displaystyle\limn n^{2}=+\infty$.</p></div></section>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Passage à l'opposé</span><div class="boite-corps"><p>Si $\displaystyle\limn u_{n}=+\infty$, alors $\displaystyle\limn(-u_{n})=-\infty$.</p></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>$\displaystyle\limn u_{n}=+\infty \iff \forall A\in\R,\ \exists N_{0}\in\N,\ \forall n\geqslant N_{0},\ u_{n}\geqslant A \Longrightarrow -u_{n}\leqslant -A$.</p>
+<p>En posant $B=-A$, on a $\forall B\in\R,\ \exists N_{0}\in\N,\ \forall n\geqslant N_{0},\ -u_{n}\leqslant B$.</p>
+<p>Donc $\displaystyle\limn(-u_{n})=-\infty$.</p></div></section>
+<h3>Propriétés</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Suites monotones non bornées</span><div class="boite-corps"><ul><li>Toute suite croissante non majorée a pour limite $+\infty$ quand $n$ tend vers $+\infty$.</li><li>Toute suite décroissante non minorée a pour limite $-\infty$ quand $n$ tend vers $+\infty$.</li></ul></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>Soit $(u_{n})$ une suite croissante non majorée et soit $A$ un nombre réel. Comme $(u_{n})$ n'est pas majorée, il existe un entier $n_{0}$ tel que $u_{n_{0}}\geqslant A$.</p>
+<p>Or, comme $(u_{n})$ est croissante, pour tout entier $n\geqslant n_{0}$, on a $u_{n}\geqslant u_{n_{0}}\geqslant A$.</p>
+<p>Il existe donc un entier $n_{0}$ tel que, pour tout entier $n\geqslant n_{0}$, $u_{n}\geqslant A$, donc $\displaystyle\limn u_{n}=+\infty$.</p></div></section>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Preuve du deuxième cas</span><div class="boite-corps"><p>Démontrer le deuxième cas du théorème précédent : toute suite décroissante non minorée a pour limite $-\infty$.</p></div></section>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Limite de $u_{n}=5n+3$</span><div class="boite-corps"><p>Montrer que la suite $(u_{n})$ définie pour tout entier naturel par $u_{n}=5n+3$ a pour limite $+\infty$ quand $n$ tend vers $+\infty$.</p></div></section>
+<p><strong>Correction.</strong></p>
+<p>La suite $(u_{n})$ est une suite arithmétique de raison $5$ : elle est donc croissante.</p>
+<p>Supposons que la suite $(u_{n})$ soit bornée. Il existe un réel $A$ tel que</p>
+<div class="maths">\[
+\forall n\in\N,\quad u_{n}&lt;A
+\iff \forall n\in\N,\quad 5n+3&lt;A
+\iff \forall n\in\N,\quad n&lt;\frac{A-3}{5},
+\]</div>
+<p>c'est absurde.</p>
+<p>Donc la suite $(u_{n})$ n'est pas bornée.</p>
+<p><strong>Conclusion.</strong>  $\displaystyle\limn u_{n}=+\infty$.</p>
+<h2 id="s3"><span class="num-section">III.</span> Opérations sur les limites</h2>
+<h3>Limite d'une somme de suites</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème (admis).</span><div class="boite-corps"><table class="tableau"><tr><td>$\limn u_{n}=$</td><td>$L$</td><td>$L$</td><td>$L$</td><td>$+\infty$</td><td>$-\infty$</td><td>$+\infty$</td></tr><tr><td>$\limn v_{n}=$</td><td>$L'$</td><td>$+\infty$</td><td>$-\infty$</td><td>$+\infty$</td><td>$-\infty$</td><td>$-\infty$</td></tr><tr><td>$\limn u_{n}+v_{n}=$</td><td>$L+L'$</td><td>$+\infty$</td><td>$-\infty$</td><td>$+\infty$</td><td>$-\infty$</td><td><strong>F.I.</strong></td></tr></table>
+<p>* <strong>F.I.</strong> : <strong>forme indéterminée</strong> : on ne peut pas prévoir la limite éventuelle.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Limite d'une somme</span><div class="boite-corps"><p>$\displaystyle\limn n^{2}+n$ :</p>
+<div class="maths">\[
+\limn n^{2}+n = ?
+\]</div>
+<p>Or $\displaystyle\limn n^{2}=+\infty$ et $\displaystyle\limn n=+\infty$. D'après la propriété donnant la limite d'une somme :</p>
+<div class="maths">\[
+\limn n^{2}+n=+\infty .
+\]</div></div></section>
+<h3>Limite d'un produit de suites</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème (admis).</span><div class="boite-corps"><p>  $\infty$ désigne $+\infty$ ou $-\infty$.</p>
+<table class="tableau"><tr><td>$\limn u_{n}=$</td><td>$L$</td><td>$L$</td><td>$\infty$</td><td>$0$</td></tr><tr><td>$\limn v_{n}=$</td><td>$L'$</td><td>$\infty$</td><td>$\infty$</td><td>$\infty$</td></tr><tr><td>$\limn u_{n}v_{n}=$</td><td>$L\,L'$</td><td>$\infty$</td><td>$\infty$</td><td><strong>F.I.</strong></td></tr></table>
+<p><strong>On applique la règle des signes</strong> pour déterminer si le produit est $+\infty$ ou $-\infty$.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Limite d'un produit</span><div class="boite-corps"><div class="maths">\[
+\limn\left(\frac{1}{\sqrt{n}}+1\right)\left(n^{2}+3\right) = ?
+\]</div>
+<p>Or $\displaystyle\limn\frac{1}{\sqrt{n}}=0$, donc $\displaystyle\limn\left(\frac{1}{\sqrt{n}}+1\right)=1$   (par somme), et $\displaystyle\limn n^{2}=+\infty$, donc $\displaystyle\limn\left(n^{2}+3\right)=+\infty$   (par somme).</p>
+<p>D'après la propriété donnant la limite d'un produit :</p>
+<div class="maths">\[
+\limn\left(\frac{1}{\sqrt{n}}+1\right)\times\left(n^{2}+3\right)=+\infty .
+\]</div></div></section>
+<h3>Limite d'un quotient de suites</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème (admis).</span><div class="boite-corps"><p>  $\infty$ désigne $+\infty$ ou $-\infty$.</p>
+<table class="tableau"><tr><td>$\limn u_{n}=$</td><td>$L$</td><td>$L\neq 0$</td><td>$L$</td><td>$\infty$</td><td>$\infty$</td><td>$0$</td></tr><tr><td>$\limn v_{n}=$</td><td>$L'\neq 0$</td><td>$0$</td><td>$\infty$</td><td>$L$</td><td>$\infty$</td><td>$0$</td></tr><tr><td>$\limn\dfrac{u_{n}}{v_{n}}=$</td><td>$\dfrac{L}{L'}$</td><td>$\infty$</td><td>$0$</td><td>$\infty$</td><td><strong>F.I.</strong></td><td><strong>F.I.</strong></td></tr></table>
+<p><strong>On applique la règle des signes</strong> pour déterminer si le quotient est $+\infty$ ou $-\infty$.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Limite d'un quotient</span><div class="boite-corps"><div class="maths">\[
+\limn\frac{2}{-n^{2}-3} = ?
+\]</div>
+<p>Or $\displaystyle\limn 2=2$, et $\displaystyle\limn n^{2}=+\infty$ donc $\displaystyle\limn-n^{2}=-\infty$, et par somme $\displaystyle\limn-n^{2}-3=-\infty$.</p>
+<p>D'après la propriété donnant la limite d'un quotient :</p>
+<div class="maths">\[
+\limn\frac{2}{-n^{2}-3}=0 .
+\]</div></div></section>
+<h3>Cas des formes indéterminées</h3>
+<p>On peut reconnaître les formes indéterminées pour lesquelles il faudra utiliser des calculs algébriques ou d'autres propriétés sur les calculs de limites afin de lever l'indétermination.</p>
+<section class="boite boite-info"><p>Les quatre <strong>formes indéterminées</strong> sont, par abus d'écriture :</p>
+<div class="maths">\[
+\text{« }\infty-\infty\text{ »},\quad
+\text{« }0\times\infty\text{ »},\quad
+\text{« }\frac{\infty}{\infty}\text{ »}\quad\text{et}\quad
+\text{« }\frac{0}{0}\text{ »}.
+\]</div></section>
+<h3>Méthode : lever une indétermination</h3>
+<p>Déterminer les limites suivantes : <strong>a)</strong> $\displaystyle\limn n-3\sqrt{n}$   <strong>b)</strong> $\displaystyle\limn n^{2}-5n+1$.</p>
+<p><strong>Correction.</strong></p>
+<p><strong>a)</strong>  $\displaystyle\limn n-3\sqrt{n}=?$</p>
+<p>Or $\displaystyle\limn n=+\infty$ et $\displaystyle\limn-3\sqrt{n}=-\infty$.</p>
+<p>Il s'agit d'une forme indéterminée du type « $\infty-\infty$ ».</p>
+<p><strong>Levons l'indétermination :</strong> on factorise par le plus grand terme.</p>
+<div class="maths">\[\begin{aligned}
+n-3\sqrt{n}
+&=n\left(1-\frac{3\sqrt{n}}{n}\right)
+ =n\left(1-\frac{3}{\sqrt{n}}\right).
+\end{aligned}\]</div>
+<p>Or $\displaystyle\limn\frac{3}{\sqrt{n}}=0$ donc $\displaystyle\limn 1-\frac{3}{\sqrt{n}}=1$.</p>
+<p>Par produit : $\displaystyle\limn n\left(1-\frac{3}{\sqrt{n}}\right)=+\infty$.</p>
+<p>Soit : $\displaystyle\limn n-3\sqrt{n}=+\infty$.</p>
+<p><strong>b)</strong>  $\displaystyle\limn n^{2}-5n+1=?$</p>
+<p>Or $\displaystyle\limn n^{2}=+\infty$ et $\displaystyle\limn-5n+1=-\infty$.</p>
+<p>Il s'agit d'une forme indéterminée du type « $\infty-\infty$ ».</p>
+<p><strong>Levons l'indétermination en factorisant par le monôme de plus haut degré :</strong></p>
+<div class="maths">\[
+n^{2}-5n+1=n^{2}\left(1-\frac{5n}{n^{2}}+\frac{1}{n^{2}}\right)
+=n^{2}\left(1-\frac{5}{n}+\frac{1}{n^{2}}\right).
+\]</div>
+<p>Or $\displaystyle\limn\frac{5}{n}=0$ et $\displaystyle\limn\frac{1}{n^{2}}=0$.</p>
+<p>Donc, comme limite d'une somme : $\displaystyle\limn 1-\frac{5}{n}+\frac{1}{n^{2}}=1$.</p>
+<p>Or $\displaystyle\limn n^{2}=+\infty$ et $\displaystyle\limn 1-\frac{5}{n}+\frac{1}{n^{2}}=1$.</p>
+<p>Donc, comme limite d'un produit :</p>
+<div class="maths">\[
+\limn n^{2}\left(1-\frac{5}{n}+\frac{1}{n^{2}}\right)=+\infty .
+\]</div>
+<p>Soit : $\displaystyle\limn n^{2}-5n+1=+\infty$.</p>
+<h2 id="s4"><span class="num-section">IV.</span> Limites et comparaison</h2>
+<h3>Théorèmes de comparaison</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème de compraison 1</span><div class="boite-corps"><p>Soit deux suites $(u_{n})$ et $(v_{n})$.</p>
+<p>Si, à partir d'un certain rang, on a $u_{n}\leqslant v_{n}$ et $\displaystyle\limn u_{n}=+\infty$, alors $\displaystyle\limn v_{n}=+\infty$.</p></div></section>
+<p>Par abus de langage, on pourrait dire que la suite $(u_{n})$ pousse la suite $(v_{n})$ vers $+\infty$ à partir d'un certain rang.</p>
+<figure class="figure-cours"><img src="img/terminale-spe-ch03-fig04.png" alt="figure 4 du cours"></figure>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème de comparaison 2</span><div class="boite-corps"><p>Soit deux suites $(u_{n})$ et $(v_{n})$.</p>
+<p>Si, à partir d'un certain rang, on a $u_{n}\geqslant v_{n}$ et $\displaystyle\limn u_{n}=-\infty$, alors $\displaystyle\limn v_{n}=-\infty$.</p></div></section>
+<h3>Méthode : déterminer une limite par comparaison</h3>
+<p>Déterminer la limite suivante : $\displaystyle\limn n^{2}+(-1)^{n}$.</p>
+<p><strong>Correction.</strong></p>
+<p>On a : $(-1)^{n}\geqslant -1$, donc $n^{2}+(-1)^{n}\geqslant n^{2}-1$.</p>
+<p>Or $\displaystyle\limn n^{2}-1=+\infty$, donc par comparaison,</p>
+<div class="maths">\[
+\limn n^{2}+(-1)^{n}=+\infty .
+\]</div>
+<h3>Théorème d'encadrement</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème des gendarmes</span><div class="boite-corps"><p>Soit trois suites $(u_{n})$, $(v_{n})$ et $(w_{n})$.</p>
+<p>Si, à partir d'un certain rang, on a</p>
+<div class="maths">\[
+u_{n}\leqslant v_{n}\leqslant w_{n},
+\qquad
+\limn u_{n}=L,
+\qquad
+\limn w_{n}=L,
+\]</div>
+<p>alors $\displaystyle\limn v_{n}=L$.</p></div></section>
+<p>Par abus de langage, on pourrait dire que les suites $(u_{n})$ et $(w_{n})$ (les gendarmes) se resserrent autour de la suite $(v_{n})$ à partir d'un certain rang pour la faire converger vers la même limite.</p>
+<p>Ce théorème est également appelé le <strong>théorème du sandwich</strong>.</p>
+<figure class="figure-cours"><img src="img/terminale-spe-ch03-fig05.png" alt="figure 5 du cours"></figure>
+<h3>Méthode : déterminer une limite par encadrement</h3>
+<p>Déterminer la limite suivante : $\displaystyle\limn 1+\frac{\sin n}{n}$.</p>
+<p><strong>Correction.</strong></p>
+<p>On a $-1\leqslant\sin n\leqslant 1$, donc</p>
+<div class="maths">\[
+-\frac{1}{n}\leqslant\frac{\sin n}{n}\leqslant\frac{1}{n}.
+\]</div>
+<p>Or $\displaystyle\limn-\frac{1}{n}=\limn\frac{1}{n}=0$, donc d'après le théorème des gendarmes :</p>
+<div class="maths">\[
+\limn\frac{\sin n}{n}=0 .
+\]</div>
+<p>Et donc $\displaystyle\limn 1+\frac{\sin n}{n}=1$.</p>
+<p><strong>Remarque.</strong>  On utilise le théorème de comparaison pour démontrer une limite infinie, et le théorème d'encadrement pour une limite finie.</p>
+<h2 id="s5"><span class="num-section">V.</span> Limite des suites géométriques</h2>
+<h3>Approche intuitive</h3>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span><div class="boite-corps"><p>$a_{n}=1{,}5^{n}$.</p>
+<p>La suite $(a_{n})$ est une suite géométrique de raison $q=1{,}5$.</p>
+<p>La suite $(a_{n})$ est strictement positive (produit de facteurs positifs).</p>
+<p>La suite $(a_{n})$ est strictement croissante : $a_{n+1}=1{,}5a_{n}$, donc $a_{n+1}-a_{n}=0{,}5a_{n}&gt;0$.</p>
+<p>Et la suite $(a_{n})$ ne semble pas bornée : je peux la rendre aussi grande que je veux. Elle augmente de $50\,\%$ à chaque itération.</p>
+<p>Intuitivement, la suite $(a_{n})$ semble diverger vers $+\infty$.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span><div class="boite-corps"><p>$b_{n}=0{,}5^{n}$.</p>
+<p>La suite $(b_{n})$ est une suite géométrique de raison $q=0{,}5$.</p>
+<p>La suite $(b_{n})$ est strictement positive (produit de facteurs positifs).</p>
+<p>La suite $(b_{n})$ est strictement décroissante : $b_{n+1}=0{,}5b_{n}$, donc $b_{n+1}-b_{n}=-0{,}5b_{n}&lt;0$.</p>
+<p>Et la suite $(b_{n})$ est décroissante et, à chaque itération, diminue de $50\,\%$.</p>
+<p>Intuitivement, la suite $(b_{n})$ semble converger vers $0$.</p></div></section>
+<h3>Limite de $q^{n}$</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Limite de $q^{n}$</span><div class="boite-corps"><p>Soit $q$ un nombre réel strictement positif.</p>
+<ul><li>Si $q&gt;1$ alors $\displaystyle\limn q^{n}=+\infty$.</li><li>Si $0&lt;q&lt;1$ alors $\displaystyle\limn q^{n}=0$.</li><li>Si $q=1$ alors $\displaystyle\limn q^{n}=1$.</li></ul></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span><div class="boite-corps"><p>  $\displaystyle\limn 2^{n}=+\infty$ car $q=2&gt;1$ ;   $\displaystyle\limn 0{,}3^{n}=0$ car $0&lt;0{,}3&lt;1$.</p></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>$(1+a)^{n}&gt;1+na$.</p>
+<ul><li><p>Si $q&gt;1$ : posons $a=q-1&gt;0$, donc $q^{n}=(1+a)^{n}&gt;1+na$.</p>
+<p>Posons $u_{n}=1+na$ : la suite vérifie $\displaystyle\limn na=+\infty$ par somme, donc $\displaystyle\limn u_{n}=+\infty$.</p>
+<p>Donc $\forall n\in\N$, $q^{n}&gt;u_{n}$ et $\displaystyle\limn u_{n}=+\infty$ ; d'après le théorème de comparaison, $\displaystyle\limn q^{n}=+\infty$.</p></li><li><p>Si $0&lt;q&lt;1$ : $\dfrac{1}{q}&gt;1$, donc $\displaystyle\limn\left(\frac{1}{q}\right)^{n}=+\infty$.</p>
+<p>Par quotient des limites, $\displaystyle\limn q^{n} =\limn\frac{1}{\left(\frac{1}{q}\right)^{n}}=0$.</p></li><li>Si $q=1$ : $q^{n}=1$ pour tout $n\in\N$, donc $\displaystyle\limn q^{n}=1$.</li></ul></div></section>
+<h3>Limite de la somme des termes d'une suite géométrique</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Somme des termes</span><div class="boite-corps"><p>Soit $(u_{n})$ une suite géométrique de raison $q$, avec $0&lt;q&lt;1$. Alors</p>
+<div class="maths">\[
+\limn u_{0}+u_{1}+\dots+u_{n}=\frac{u_{0}}{1-q}.
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>Posons $S_{n}=u_{0}+u_{1}+\dots+u_{n}$.</p>
+<p>$S_{n}$ est la somme des termes d'une suite géométrique de raison $q$, donc</p>
+<div class="maths">\[
+S_{n}=u_{0}\,\frac{1-q^{n+1}}{1-q}
+=\frac{u_{0}}{1-q}\left(1-q^{n+1}\right).
+\]</div>
+<p>D'après le théorème précédent, $\displaystyle\limn q^{n+1}=0$ car $0&lt;q&lt;1$, donc $\displaystyle\limn 1-q^{n+1}=1$ (par somme) et, en utilisant la limite d'un produit,</p>
+<div class="maths">\[
+\limn S_{n}=\frac{u_{0}}{1-q}.
+\]</div></div></section>
+  <p style="margin-top:2.5rem"><a href="../index.html#terminale-spe">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

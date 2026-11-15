@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre VI : Dérivation — Première STMG</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#premiere-stmg">← Retour au site</a></p>
+  <h1>Chapitre VI : Dérivation</h1>
+  <p class="sous-titre">Première STMG · Chapitre 6 — Dérivation · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Dérivation</span><a class="onglet" href="../pdf/premiere-stmg/vi-derivation.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/premiere-stmg/td01-nombre-derive-et-tangente.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/premiere-stmg/td02-application-derivation.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../pdf/premiere-stmg/td03-derivation.pdf" target="_blank" rel="noopener">TD n°3</a><a class="onglet" href="../quiz/premiere-stmg-6.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Nombre dérivé et tangente</a></li><li><a href="#s2">II Tangente à une courbe en un point</a></li><li><a href="#s3">III Dérivation sur un intervalle – fonction dérivée</a></li><li><a href="#s4">IV Opérations sur les fonctions dérivables</a></li><li><a href="#s5">V Application de la dérivation</a></li></ol></nav>
+<h2 id="s1"><span class="num-section">I.</span> Nombre dérivé et tangente</h2>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Sécante et tangente</span><div class="boite-corps"><p>On appelle <strong>sécante</strong> à la courbe $\mathcal{C}$ la droite passant par le point $A$ et par un autre point $M$ de la courbe $\mathcal{C}$.</p>
+<p>Lorsque $M$ se rapproche du point $A$, la position limite des sécantes $(AM)$ est une droite : cette droite est appelée <strong>tangente</strong> à la courbe au point $A$.</p></div></section>
+<p>Le <strong>coefficient directeur</strong> de la sécante correspond au <strong>taux d'accroissement</strong> $\dfrac{f(x_{M})-f(x_{A})}{x_{M}-x_{A}}$ ; et la limite de ce taux d'accroissement, lorsque le point $M$ se rapproche du point $A$, correspond au coefficient directeur de la <strong>tangente</strong>.</p>
+<figure class="figure-cours"><img src="img/premiere-stmg-ch06-fig01.png" alt="figure 1 du cours"></figure>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Nombre dérivé</span><div class="boite-corps"><p>On dit que $f$ est <strong>dérivable en « $a$ »</strong> si le taux d'accroissement $\dfrac{f(a+h)-f(a)}{h}$ tend vers un nombre réel lorsque $h$ tend vers $0$. Ce nombre est appelé <strong>nombre dérivé</strong> de $f$ en $a$ et est noté $f'(a)$. (Ce nombre est le coefficient directeur de la tangente.)</p>
+<p>On écrit alors</p>
+<div class="maths">\[
+f'(a)=\lim_{h\to 0}\frac{f(a+h)-f(a)}{h} .
+\]</div></div></section>
+<h2 id="s2"><span class="num-section">II.</span> Tangente à une courbe en un point</h2>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Tangente</span><div class="boite-corps"><p>Soit $a$ un réel et $f$ une fonction dérivable en $a$. On appelle <strong>tangente</strong> à la courbe représentative de $f$ au point $A$ d'abscisse $a$ la droite passant par le point de coordonnées $\bigl(a\,;f(a)\bigr)$ et de coefficient directeur $f'(a)$.</p></div></section>
+<figure class="figure-cours"><img src="img/premiere-stmg-ch06-fig02.png" alt="figure 2 du cours"></figure>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Équation de la tangente</span><div class="boite-corps"><p>L'équation de la droite tangente à $\mathcal{C}$ au point $A$ est :</p>
+<div class="maths">\[
+T : y=f'(a)(x-a)+f(a) .
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Tangente en $A(2\,;5)$</span><div class="boite-corps"><p>Soit $f$ une fonction et $\mathcal{C}$ sa courbe représentative dans un repère. On sait que $A(2\,;5)$ est un point de $\mathcal{C}$ et que $f$ est dérivable en $2$ avec $f'(2)=4$.</p>
+<p>La tangente à la courbe $\mathcal{C}$ en $A$ est la droite $T$ d'équation :</p>
+<div class="maths">\[
+T : y=f'(2)(x-2)+f(2)=4(x-2)+5=4x-3 .
+\]</div></div></section>
+<h2 id="s3"><span class="num-section">III.</span> Dérivation sur un intervalle – fonction dérivée</h2>
+<h3>3.1  Définition</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Fonction dérivée</span><div class="boite-corps"><p>Soit $f$ une fonction définie sur un intervalle $I$ de $\R$. Si, pour tout $a$ de $I$, $f$ est dérivable en $a$, on dit que $f$ est <strong>dérivable sur $I$</strong>. La fonction qui, à tout $x$ de $I$, associe le nombre dérivé de $f$ sur $x$, est appelée <strong>fonction dérivée</strong> de $f$ et est notée $f'$.</p>
+<div class="maths">\[
+f' : x\longmapsto f'(x)
+\]</div></div></section>
+<h3>Exemple : fonction dérivée de la fonction affine $f(x)=mx+p$</h3>
+<p>Soit $x$ un nombre réel quelconque.</p>
+<p>Le taux d'accroissement entre $x$ et $x+h$ est</p>
+<div class="maths">\[
+\Delta f[x\,;x+h]=\frac{f(x+h)-f(x)}{h}
+=\frac{m(x+h)+p-(mx+p)}{h}=\frac{mh}{h}=m .
+\]</div>
+<p>Le taux d'accroissement de la fonction affine entre $x$ et $x+h$ est égal au coefficient directeur « $m$ » pour toutes les valeurs de $h$, et donc notamment quand $h$ devient très petit : il est constant, égal à « $m$ ».</p>
+<p>Donc</p>
+<div class="maths">\[
+f'(x)=\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}=m \quad\text{pour tout } x \text{ réel.}
+\]</div>
+<p><strong>Exemple :</strong> $f(x)=5x+3$, alors $f'(x)=5$ pour tout nombre réel $x$.</p>
+<h3>3.2  Fonctions dérivées des fonctions usuelles</h3>
+<table class="tableau"><tr><td>fonction définie et dérivable sur :</td><td>fonction $f$ définie par :</td><td>fonction dérivée $f'$ définie par :</td></tr><tr><td>$\R$</td><td>$f(x)=k$</td><td>$f'(x)=0$</td></tr><tr><td>$\R$</td><td>$f(x)=ax+b$</td><td>$a$</td></tr><tr><td>$\R$</td><td>$f(x)=x^{n}$ ($n$ entier $n\geqslant 1$)</td><td>$f'(x)=nx^{n-1}$</td></tr></table>
+<p><strong>Exemple :</strong></p>
+<div class="maths">\[\begin{aligned}
+f(x)&=x^{2} & \text{alors}\quad f'(x)&=2x\\
+g(x)&=x^{3} & \text{alors}\quad g'(x)&=3x^{2}
+\end{aligned}\]</div>
+<div class="maths">\[
+h(x)=-7x+3 \quad\text{alors}\quad h'(x)=-7
+\qquad\qquad
+u(x)=5 \quad\text{alors}\quad u'(x)=0
+\]</div>
+<h2 id="s4"><span class="num-section">IV.</span> Opérations sur les fonctions dérivables</h2>
+<p>$u$ et $v$ sont deux fonctions dérivables sur un intervalle $I$.</p>
+<table class="tableau"><tr><td></td><td>fonction $f$ définie par :</td><td>fonction dérivée $f'$ :</td></tr><tr><td>Produit d'une fonction par un réel $k$</td><td>$ku$</td><td>$ku'$</td></tr><tr><td>Somme</td><td>$u+v$</td><td>$u'+v'$</td></tr></table>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Produit par une constante</span><div class="boite-corps"><p>Soit $u$ une fonction dérivable sur un même intervalle $I$ de $\R$, et $k$ une constante : alors $f=k\,u$ est dérivable sur $I$ et</p>
+<div class="maths">\[
+f'=k\,u' .
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$f(x)=3x^{7}$</span><div class="boite-corps"><p>Soit $f$ la fonction définie sur $\R$ par $f(x)=3x^{7}$.</p>
+<p>La fonction $f=k\,u$ avec $u(x)=x^{7}$ et $k=3$.</p>
+<p>La fonction $u$ est dérivable sur $\R$, avec $u'(x)=7x^{6}$.</p>
+<p>Donc $f$ est dérivable et $f'=ku'$, donc</p>
+<div class="maths">\[
+f'(x)=3\times 7x^{6}=21x^{6} .
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$f(x)=x^{2}+5x+3$</span><div class="boite-corps"><p>$f(x)=x^{2}+5x+3$ :</p>
+<div class="maths">\[
+f=u+v \quad\text{avec}\quad u(x)=x^{2} \quad\text{et}\quad v(x)=5x+3 .
+\]</div>
+<div class="maths">\[
+u'(x)=2x \qquad\text{et}\qquad v'(x)=5 .
+\]</div>
+<p>Donc $f'=u'+v'$ et</p>
+<div class="maths">\[
+f'(x)=2x+5 .
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$g(x)=x^{3}-2x^{2}+3x+5$</span><div class="boite-corps"><p>$g(x)=x^{3}-2x^{2}+3x+5$ :</p>
+<div class="maths">\[
+g=u+v+w \quad\text{avec}\quad u(x)=x^{3},\quad v(x)=-2x^{2}
+\quad\text{et}\quad w(x)=3x+5 .
+\]</div>
+<div class="maths">\[
+u'(x)=3x^{2},\qquad v'(x)=-2\times 2x=-4x
+\qquad\text{et}\qquad w'(x)=3 .
+\]</div>
+<p>Donc $f'=u'+v'+w'$ et</p>
+<div class="maths">\[
+f'(x)=3x^{2}-4x+3 .
+\]</div></div></section>
+<h2 id="s5"><span class="num-section">V.</span> Application de la dérivation</h2>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Signe de la dérivée et sens de variation</span><div class="boite-corps"><p>Soit $f$ une fonction définie sur un ensemble $D$ et $I$ un intervalle de $D$.</p>
+<ol><li>Si, pour tout réel $x$ appartenant à $I$, $f'(x)\geqslant 0$, alors $f$ est <strong>croissante</strong> sur $I$.</li><li>Si, pour tout réel $x$ appartenant à $I$, $f'(x)\leqslant 0$, alors $f$ est <strong>décroissante</strong> sur $I$.</li></ol></div></section>
+<p>L'étude des variations d'une fonction permet de déterminer ses extremums éventuels.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$f(x)=x^{2}-2x-1$ sur $[-1\,;2]$</span><div class="boite-corps"><p>Soit $f$ la fonction définie sur l'intervalle $[-1\,;2]$ par $f(x)=x^{2}-2x-1$.</p>
+<p>Pour étudier les variations de $f$, on étudie le signe de $f'(x)$.</p>
+<p>Pour tout réel $x$, $f'(x)=2x-2$.</p>
+<p>$f'(x)\geqslant 0$ équivaut à $2x-2\geqslant 0$, donc à $2x\geqslant 2$, soit $x\geqslant 1$.</p>
+<p>On en déduit le signe de $f'(x)$ sur l'intervalle $[-1\,;2]$, puis les variations de la fonction $f$.</p>
+<figure class="figure-cours"><img src="img/premiere-stmg-ch06-fig03.png" alt="figure 3 du cours"></figure>
+<p>La fonction $f$ admet un minimum en $1$. Ce minimum est égal à $-2$.</p></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriété réciproque</span><div class="boite-corps"><p>Soit $f$ une fonction définie sur un ensemble $D$ et $I$ un intervalle de $D$.</p>
+<ol><li>Si $f$ est croissante sur $I$, alors, pour tout réel $x$ de $I$, $f'(x)\geqslant 0$.</li><li>Si $f$ est décroissante sur $I$, alors, pour tout réel $x$ de $I$, $f'(x)\leqslant 0$.</li></ol></div></section>
+<p><strong>Remarque :</strong> lorsqu'une fonction $f$ est croissante (respectivement décroissante) sur un intervalle $I$, le taux de variation de $f$ entre $a$ et $a+h$ (deux réels de $I$) est positif (respectivement négatif).</p>
+  <p style="margin-top:2.5rem"><a href="../index.html#premiere-stmg">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

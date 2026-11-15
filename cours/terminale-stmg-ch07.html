@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre V : Variables aléatoires — Terminale STMG</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "prob": "{\\mathbb{P}}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#terminale-stmg">← Retour au site</a></p>
+  <h1>Chapitre V : Variables aléatoires</h1>
+  <p class="sous-titre">Terminale STMG · Chapitre 7 — Variables aléatoires · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Variables aléatoires</span><a class="onglet" href="../pdf/terminale-stmg/viii-variable-aléatoire.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/terminale-stmg/td01-variable-aleatoire.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/terminale-stmg/td02-variable-aleatoire.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../pdf/terminale-stmg/td03-variable-aleatoire.pdf" target="_blank" rel="noopener">TD n°3</a><a class="onglet" href="../quiz/terminale-stmg-7.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Variable aléatoire et loi de probabilité</a></li><li><a href="#s2">II Répétitions d'expériences identiques et indépendantes</a></li><li><a href="#s3">III Espérance, variance, écart-type</a></li></ol></nav>
+<h2 id="s1"><span class="num-section">I.</span> Variable aléatoire et loi de probabilité</h2>
+<h3>1.1  Variable aléatoire</h3>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Lancer d'un dé</span><div class="boite-corps"><p>Soit l'expérience aléatoire : « On lance un dé à six faces et on regarde le résultat. »</p>
+<p>L'ensemble de toutes les issues possibles $\Omega=\{1\,;2\,;3\,;4\,;5\,;6\}$ s'appelle l'<strong>univers des possibles</strong>.</p>
+<p>On considère l'événement $A$ : « On obtient un résultat pair. » On a donc $A=\{2\,;4\,;6\}$.</p>
+<p>On considère l'événement élémentaire $E$ : « On obtient un 3 ». On a donc $E=\{3\}$.</p></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Vocabulaire</span><div class="boite-corps"><ul><li>Chaque résultat d'une expérience aléatoire s'appelle une <strong>issue</strong>.</li><li>L'<strong>univers des possibles</strong> est l'ensemble des issues d'une expérience aléatoire.</li><li>Un <strong>événement</strong> est un sous-ensemble de l'univers des possibles.</li><li>Un <strong>événement élémentaire</strong> est un événement contenant une seule issue.</li></ul></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Variable aléatoire</span><div class="boite-corps"><p>Une <strong>variable aléatoire</strong> $X$ est une <strong>fonction</strong> définie sur un univers $\Omega$ et à valeurs dans $\R$.</p>
+<p>Si $x_{1},x_{2},\dots,x_{r}$ désignent les valeurs prises par $X$, on note « $X=x_{i}$ » l'événement « $X$ prend la valeur $x_{i}$ ».</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Un jeu</span><div class="boite-corps"><p>Dans l'expérience précédente, on considère le jeu suivant :</p>
+<ul><li>si le résultat est pair, on gagne $2$&nbsp;euros ;</li><li>si le résultat est $1$, on gagne $3$&nbsp;euros ;</li><li>si le résultat est $3$ ou $5$, on perd $4$&nbsp;euros.</li></ul>
+<p>On a défini une variable aléatoire $X$ sur $\Omega=\{1\,;2\,;3\,;4\,;5\,;6\}$ qui peut prendre les valeurs $2$, $3$ ou $-4$.</p>
+<p>On a donc : $X(1)=3$, $X(2)=2$, $X(3)=-4$, $X(4)=2$, $X(5)=-4$, $X(6)=2$.</p></div></section>
+<h3>1.2  Loi de probabilité</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Loi de probabilité</span><div class="boite-corps"><p>Soit une variable aléatoire $X$ définie sur un univers $\Omega$ et prenant les valeurs $x_{1},x_{2},\dots,x_{n}$.</p>
+<p>La <strong>loi de probabilité</strong> de $X$ associe à toute valeur $x_{i}$ la probabilité $\prob(X=x_{i})$.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Loi de probabilité du jeu</span><div class="boite-corps"><p>On considère la variable aléatoire $X$ définie dans l'exemple précédent.</p>
+<p>Chaque issue du lancer de dé est équiprobable et égale à $\dfrac{1}{6}$.</p>
+<p>La probabilité que la variable aléatoire prenne la valeur $2$ est égale à $\dfrac{1}{6}+\dfrac{1}{6}+\dfrac{1}{6}=\dfrac{1}{2}$.</p>
+<p>On note : $\prob(X=2)=\dfrac{1}{2}$. De même : $\prob(X=3)=\dfrac{1}{6}$ et $\prob(X=-4)=\dfrac{1}{6}+\dfrac{1}{6}=\dfrac{1}{3}$.</p>
+<p>On peut résumer les résultats dans un tableau :</p>
+<table class="tableau"><tr><td>$x_{i}$</td><td>$-4$</td><td>$2$</td><td>$3$</td></tr><tr><td>$\prob(X=x_{i})$</td><td>$\dfrac{1}{3}$</td><td>$\dfrac{1}{2}$</td><td>$\dfrac{1}{6}$</td></tr></table>
+<p>Ce tableau résume la loi de probabilité de la variable aléatoire $X$.</p>
+<p><strong>Remarque.</strong>  $\prob(X=x_{i})$ peut se noter $p_{i}$.</p></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Somme des probabilités</span><div class="boite-corps"><p>La somme de toutes les probabilités $\prob(X=x_{i})$ doit toujours être égale à $1$.</p></div></section>
+<p><strong>Démonstration.</strong></p>
+<div class="maths">\[
+\prob(X=x_{1})+\prob(X=x_{2})+\dots+\prob(X=x_{r})=\prob(\Omega)=1 .
+\]</div>
+<p>Dans l'exemple traité plus haut :</p>
+<div class="maths">\[
+p_{1}+p_{2}+p_{3}=\frac{1}{3}+\frac{1}{2}+\frac{1}{6}=1 .
+\]</div>
+<h2 id="s2"><span class="num-section">II.</span> Répétitions d'expériences identiques et indépendantes</h2>
+<p>On considère une expérience aléatoire qui consiste à <strong>répéter $n$ fois une même expérience</strong>, appelée <strong>épreuve</strong>.</p>
+<p>Lorsque l'issue d'une épreuve ne dépend pas des issues des épreuves précédentes, on dit que ces <strong>épreuves sont indépendantes</strong>.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Tirages avec remise</span><div class="boite-corps"><p>Une urne contient cinq boules indiscernables : deux bleues, deux rouges et une noire.</p>
+<p>L'expérience aléatoire consiste à tirer au hasard une boule, noter sa couleur, la remettre dans l'urne, puis tirer une seconde boule et noter sa couleur.</p>
+<ul><li>Les $2$ tirages sont effectués dans les mêmes conditions (puisqu'on remet la boule).</li><li>L'issue du 2<sup>nd</sup> tirage ne dépend pas de l'issue du 1<sup>er</sup> tirage.</li></ul>
+<p>L'expérience consiste donc à répéter deux épreuves identiques et indépendantes.</p></div></section>
+<p><strong>Probabilité lors d'une épreuve :</strong></p>
+<div class="maths">\[
+\prob(B)=\frac{2}{5}
+\qquad
+\prob(R)=\frac{2}{5}
+\qquad
+\prob(N)=\frac{1}{5}.
+\]</div>
+<h3>2.1  Construction d'un arbre pondéré</h3>
+<p>On dessine les branches qui représentent les résultats obtenus lors de la répétition des deux épreuves.</p>
+<p>On inscrit sur chaque branche la probabilité de l'événement correspondant <strong>lors d'une épreuve</strong>.</p>
+<figure class="figure-cours"><img src="img/terminale-stmg-ch07-fig01.png" alt="figure 1 du cours"></figure>
+<h3>2.2  Vocabulaire</h3>
+<ul><li>Chaque segment de l'arbre est <strong>une branche</strong>.</li><li>Un point à l'intersection de $2$ branches est <strong>un nœud</strong> : il correspond à une étape de l'expérience.</li><li>Une <strong>issue</strong> est une liste ordonnée de résultats, représentée par <strong>un chemin</strong>.</li></ul>
+<p>Ainsi, le chemin $\to R\to N$ représente l'issue $(R\,;N)$.</p>
+<h3>2.3  Règles d'utilisation d'un arbre pondéré</h3>
+<section class="boite boite-info"><ul><li><strong>Loi des chemins :</strong> la probabilité d'une issue est le produit des probabilités inscrites sur le chemin représentant cette issue.</li><li><strong>Loi des nœuds :</strong> la somme des probabilités inscrites sur les branches issues d'un même nœud vaut $1$.</li><li><strong>La probabilité d'un événement $A$</strong> est la somme des probabilités des issues associées aux chemins qui réalisent $A$.</li></ul></section>
+<p><strong>Par exemple :</strong></p>
+<div class="maths">\[
+\prob(R\,;N)=\frac{2}{5}\times\frac{1}{5}=\frac{2}{25}
+\qquad
+\prob(R\,;B)=\frac{2}{5}\times\frac{2}{5}=\frac{4}{25}.
+\]</div>
+<p>Soit $U$ l'événement « Les deux boules sont de la même couleur ». $U$ est réalisé par les issues $(B\,;B)$, $(R\,;R)$ et $(N\,;N)$. Donc</p>
+<div class="maths">\[
+\prob(U)=\prob(B\,;B)+\prob(R\,;R)+\prob(N\,;N)
+=\frac{4}{25}+\frac{4}{25}+\frac{1}{25}=\frac{9}{25}.
+\]</div>
+<p>Soit $Z$ la variable aléatoire qui indique le nombre de boules rouges obtenues. Déterminer la loi de probabilité de $Z$, ainsi que $E(Z)$.</p>
+<p>$Z$ est définie sur $\Omega=\{0\,;1\,;2\}$.</p>
+<div class="maths">\[
+\prob(Z=2)=\prob(R\,;R)=\frac{4}{25}.
+\]</div>
+<div class="maths">\[\begin{aligned}
+\prob(Z=1)&=\prob(B\,;R)+\prob(R\,;B)+\prob(N\,;R)+\prob(R\,;N)\\
+&=\frac{4}{25}+\frac{4}{25}+\frac{2}{25}+\frac{2}{25}=\frac{12}{25}.
+\end{aligned}\]</div>
+<div class="maths">\[\begin{aligned}
+\prob(Z=0)&=\prob(B\,;B)+\prob(N\,;N)+\prob(B\,;N)+\prob(N\,;B)\\
+&=\frac{4}{25}+\frac{1}{25}+\frac{2}{25}+\frac{2}{25}=\frac{9}{25}.
+\end{aligned}\]</div>
+<div class="maths">\[
+E(Z)=0+1\times\frac{12}{25}+2\times\frac{4}{25}
+=\frac{12+8}{25}=\frac{20}{25}=0{,}8 .
+\]</div>
+<table class="tableau"><tr><td>Valeurs $z_{i}$</td><td>$0$</td><td>$1$</td><td>$2$</td><td>total</td></tr><tr><td>$\prob(Z=z_{i})$</td><td>$\dfrac{9}{25}$</td><td>$\dfrac{12}{25}$</td><td>$\dfrac{4}{25}$</td><td>$1$</td></tr></table>
+<h2 id="s3"><span class="num-section">III.</span> Espérance, variance, écart-type</h2>
+<h3>3.1  Espérance</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Espérance mathématique</span><div class="boite-corps"><p>Soit une variable aléatoire $X$ définie sur un univers $\Omega$ et prenant les valeurs $x_{1},x_{2},\dots,x_{n}$. La loi de probabilité de $X$ associe à toute valeur $x_{i}$ la probabilité $p_{i}=\prob(X=x_{i})$.</p>
+<p>L'<strong>espérance mathématique</strong> de la loi de probabilité de $X$ est :</p>
+<div class="maths">\[
+E(X)=p_{1}x_{1}+p_{2}x_{2}+p_{3}x_{3}+\dots+p_{n}x_{n}
+=\sum_{i=1}^{n}p_{i}x_{i} .
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Espérance du jeu</span><div class="boite-corps"><div class="maths">\[
+E(X)=\frac{1}{3}\times(-4)+\frac{1}{2}\times 2+\frac{1}{6}\times 3=\frac{1}{6}.
+\]</div>
+<p>Il s'agit de l'espérance de gain du jeu, c'est-à-dire qu'en moyenne on gagne environ $0{,}17$&nbsp;euros.</p></div></section>
+<p><strong>Remarques.</strong></p>
+<ul><li>On parlera d'un jeu équilibré ou équitable si l'espérance de gain est nulle.</li><li>L'espérance est la moyenne de la série des $x_{i}$ pondérés par les probabilités $p_{i}$.</li></ul>
+<p>En effet :</p>
+<div class="maths">\[
+E(X)=p_{1}x_{1}+p_{2}x_{2}+\dots+p_{n}x_{n}
+=\frac{p_{1}x_{1}+p_{2}x_{2}+\dots+p_{n}x_{n}}{1}
+=\frac{p_{1}x_{1}+p_{2}x_{2}+\dots+p_{n}x_{n}}{p_{1}+p_{2}+\dots+p_{n}} .
+\]</div>
+<p>En répétant un grand nombre de fois l'expérience, la loi des grands nombres nous permet d'affirmer que les fréquences se rapprochent des probabilités théoriques. La moyenne des résultats se rapproche donc de l'espérance de la loi de probabilité.</p>
+<p><strong>L'espérance est donc la moyenne que l'on peut espérer si l'on répète l'expérience un grand nombre de fois.</strong></p>
+<h3>3.2  Variance, écart-type</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Variance et écart-type</span><div class="boite-corps"><p>Soit une variable aléatoire $X$ de loi de probabilité $(x_{i}\,;p_{i})$, $i$ allant de $1$ à $n$.</p>
+<p>La <strong>variance</strong> de la loi de probabilité de $X$ est :</p>
+<div class="maths">\[
+V(x)=p_{1}\bigl(x_{1}-E(X)\bigr)^{2}+p_{2}\bigl(x_{2}-E(X)\bigr)^{2}
++\dots+p_{n}\bigl(x_{n}-E(X)\bigr)^{2}
+=\sum_{i=1}^{n}p_{i}\bigl(x_{i}-E(X)\bigr)^{2}.
+\]</div>
+<p>L'<strong>écart-type</strong> de la loi de probabilité de $X$ est :</p>
+<div class="maths">\[
+\sigma(x)=\sqrt{V(x)} .
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Variance du jeu</span><div class="boite-corps"><div class="maths">\[
+V(x)=\frac{1}{3}\left(-4-\frac{1}{6}\right)^{2}
++\frac{1}{2}\left(2-\frac{1}{6}\right)^{2}
++\frac{1}{6}\left(3-\frac{1}{6}\right)^{2}
+=\frac{317}{36}
+\qquad
+\sigma(x)=\sqrt{V(x)}\approx 2{,}9 .
+\]</div>
+<p>Il indique la dispersion des gains autour du « gain moyen » (l'espérance) : cela signifie qu'avec une espérance proche de $0{,}17$, le risque de perdre de l'argent est important.</p></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Formule de la variance</span><div class="boite-corps"><div class="maths">\[
+V(X)=E\left(X^{2}\right)-\bigl[E(X)\bigr]^{2}.
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><div class="maths">\[\begin{aligned}
+V(X)&=\sum_{i=1}^{n}p_{i}\bigl(x_{i}-E(X)\bigr)^{2}
+=\sum_{i=1}^{n}p_{i}\left[x_{i}^{2}-2x_{i}E(X)+E(X)^{2}\right]\\
+&=\sum_{i=1}^{n}p_{i}x_{i}^{2}-2\sum_{i=1}^{n}p_{i}x_{i}E(X)
++\sum_{i=1}^{n}p_{i}E(X)^{2}\\
+&=E\left(x^{2}\right)-2E(x)E(x)+1E(x)^{2}
+=E\left(x^{2}\right)-E(x)^{2}.
+\end{aligned}\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Calcul par la formule</span><div class="boite-corps"><div class="maths">\[
+E\left(X^{2}\right)=\frac{1}{3}\times(-4)^{2}+\frac{1}{2}\times 2^{2}
++\frac{1}{6}\times 3^{2}=\frac{53}{6}=\frac{318}{36}
+\qquad\text{et}\qquad
+E(X)^{2}=\frac{1}{36}
+\]</div>
+<p>donc</p>
+<div class="maths">\[
+V(X)=\frac{318}{36}-\frac{1}{36}=\frac{317}{36}.
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Espérance et variance d'une fonction affine</span><div class="boite-corps"><p>Soit une variable aléatoire $X$ définie sur un univers $\Omega$, et $a$ et $b$ deux nombres réels.</p>
+<div class="maths">\[
+E(aX+b)=aE(X)+b
+\qquad
+V(aX+b)=a^{2}V(X).
+\]</div></div></section>
+<p><strong>Démonstrations.</strong></p>
+<div class="maths">\[
+E(aX+b)=\sum_{i=1}^{n}p_{i}\left(ax_{i}+b\right)
+=a\sum_{i=1}^{n}p_{i}x_{i}+b\sum_{i=1}^{n}p_{i}
+=a\sum_{i=1}^{n}p_{i}x_{i}+b=aE(X)+b .
+\]</div>
+<div class="maths">\[\begin{aligned}
+V(aX+b)&=\sum_{i=1}^{n}p_{i}\Bigl(ax_{i}+b-\bigl(aE(X)+b\bigr)\Bigr)^{2}\\
+&=\sum_{i=1}^{n}p_{i}\bigl(ax_{i}-aE(X)\bigr)^{2}
+=a^{2}\sum_{i=1}^{n}p_{i}\bigl(x_{i}-E(X)\bigr)^{2}\\
+&=a^{2}V(X).
+\end{aligned}\]</div>
+  <p style="margin-top:2.5rem"><a href="../index.html#terminale-stmg">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

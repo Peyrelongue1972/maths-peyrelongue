@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 10 : Variables aléatoires continues — Terminale complémentaire</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "dt": "{\\,\\mathrm{d}t}", "prob": "{\\mathbb{P}}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#terminale-complementaire">← Retour au site</a></p>
+  <h1>Chapitre 10 : Variables aléatoires continues</h1>
+  <p class="sous-titre">Terminale complémentaire · Chapitre 10 — Variables aléatoires continues · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Variables aléatoires continues</span><a class="onglet" href="../pdf/terminale-complementaire/10-variables-aleatoires-continues.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../quiz/terminale-complementaire-10.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Définitions</a></li><li><a href="#s2">II Propriétés</a></li><li><a href="#s3">III Caractéristiques d'une variable aléatoire continue</a></li><li><a href="#s4">IV Lois usuelles</a></li></ol></nav>
+<h2 id="s1"><span class="num-section">I.</span> Définitions</h2>
+<h3>1.1  Variable aléatoire continue</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Variable aléatoire continue</span><div class="boite-corps"><p>Une variable aléatoire $X$ est <strong>continue</strong> signifie qu'elle prend toutes les valeurs d'un intervalle de $\R$.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Deux exemples</span><div class="boite-corps"><p>Variable aléatoire continue : $T$, temps d'attente du bus.</p>
+<p>Variable aléatoire discrète : lancer de dé ; $X$ valeur de la face.</p>
+<table class="tableau"><tr><td>$k$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$6$</td></tr><tr><td>$\prob(X=k)$</td><td>$1/6$</td><td>$1/6$</td><td>$1/6$</td><td>$1/6$</td><td>$1/6$</td><td>$1/6$</td></tr></table></div></section>
+<h3>1.2  Fonction de densité</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Fonction de densité</span><div class="boite-corps"><p>Soient deux réels $a$ et $b$ avec $a\leqslant b$ : toute fonction $f$ vérifiant les trois conditions</p>
+<ul><li>$f$ est continue sur $[a\,;b]$, sauf éventuellement en un nombre fini de valeurs ;</li><li>$f$ est positive sur $[a\,;b]$ : pour tout $x\in[a\,;b]$, $f(x)\geqslant 0$ ;</li><li>$\displaystyle\int_{a}^{b}f(x)\dx=1$</li></ul>
+<p>est appelée <strong>fonction de densité</strong>.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Une première densité</span><div class="boite-corps"><div class="maths">\[
+f(x)=
+\begin{cases}
+\dfrac{1}{2} & \text{pour } x\in[2\,;4]\\[6pt]
+0 & \text{sinon}
+\end{cases}
+\]</div>
+<p>$f$ est continue sur $[2\,;4]$ et $\displaystyle\int_{2}^{4}f(x)\dx=1$ et $f(x)\geqslant 0$.</p>
+<p>Cette fonction est une fonction de densité !</p></div></section>
+<h3>1.3  Probabilité</h3>
+<section class="boite boite-info"><p>Soit $f$ une fonction de densité définie sur un intervalle $[a\,;b]$ de $\R$, avec $a\leqslant b$. Soit $X$ une variable aléatoire associée à la fonction de densité $f$.</p>
+<p>Pour tout intervalle $[c\,;d]$ contenu dans $[a\,;b]$ avec $c\leqslant d$, la probabilité de l'événement « $X\in[c\,;d]$ » est donnée par</p>
+<div class="maths">\[
+\prob\bigl(X\in[c\,;d]\bigr)=\prob(c\leqslant X\leqslant d)
+=\int_{c}^{d}f(x)\dx .
+\]</div></section>
+<figure class="figure-cours"><img src="img/terminale-complementaire-ch10-fig01.png" alt="figure 1 du cours"></figure>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Temps d'attente du bus</span><div class="boite-corps"><p>Soit $T$ la variable aléatoire de temps d'attente du bus qui suit une loi uniforme sur $[0\,;10]$.</p>
+<div class="maths">\[
+U(t)=
+\begin{cases}
+\dfrac{1}{10} & \text{sur } [0\,;10]\\[6pt]
+0 & \text{sinon}
+\end{cases}
+\]</div>
+<p>Donc la probabilité d'attendre entre $2$ et $4$ minutes est</p>
+<div class="maths">\[
+\prob(2\leqslant T\leqslant 4)=\int_{2}^{4}U(t)\dt=\frac{2}{10}.
+\]</div></div></section>
+<p><strong>Remarques.</strong></p>
+<ul><li>$\prob(X=x)=0$ pour tout $x$.</li><li><p>On peut remplacer $\leqslant$ par $&lt;$, en effet on peut considérer que $\prob(X=x)=0$.</p>
+<div class="maths">        \[
+        \prob(X=x)=\prob(x\leqslant X\leqslant x)=\int_{x}^{x}f(t)\dt=0
+        \]</div>
+<div class="maths">        \[
+        \prob(X\leqslant x)=\prob(X&lt;x)+\prob(X=x)=\prob(X&lt;x).
+        \]</div></li></ul>
+<h3>1.4  Fonction de répartition</h3>
+<p>La fonction de répartition de la variable aléatoire $X$ est la fonction :</p>
+<div class="maths">\[
+F:\R\longrightarrow\R,\qquad x\longmapsto \prob(X\leqslant x).
+\]</div>
+<div class="maths">\[
+F(x)=\prob(X\leqslant x)\quad\text{: fonction de répartition.}
+\]</div>
+<h2 id="s2"><span class="num-section">II.</span> Propriétés</h2>
+<h3>2.1  Propriétés de la fonction de répartition</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriété 1</span><div class="boite-corps"><p>Soit $X$ une variable aléatoire ayant pour $f$ une densité de probabilité : alors la fonction de répartition $F$ vérifie</p>
+<ul><li><p>si $x\in\left]-\infty\,;a\right]$, alors</p>
+<div class="maths">        \[
+        F(x)=\prob(-\infty\leqslant X\leqslant x)=\int_{-\infty}^{x}f(t)\dt ;
+        \]</div></li><li><p>si $x\in[a\,;b]$, alors</p>
+<div class="maths">        \[
+        F(x)=\int_{-\infty}^{x}f(t)\dt
+        =\int_{-\infty}^{a}f(t)\dt+\int_{a}^{x}f(t)\dt
+        =F(a)+\int_{a}^{x}f(t)\dt ;
+        \]</div></li><li><p>si $x\in\left]b\,;+\infty\right[$, alors</p>
+<div class="maths">        \[
+        F(x)=\int_{b}^{x}f(t)\dt+F(b) ;
+        \]</div></li><li><div class="maths">        \[
+        F(a)=\int_{-\infty}^{a}f(t)\dt
+        \qquad\text{et}\qquad
+        F(b)=\int_{-\infty}^{b}f(t)\dt=1-\int_{b}^{+\infty}f(t)\dt .
+        \]</div></li></ul></div></section>
+<div class="maths">\[
+\int_{-\infty}^{+\infty}f(t)\dt=1
+=\int_{-\infty}^{b}f(t)\dt+\int_{b}^{+\infty}f(t)\dt
+=F(b)+\int_{b}^{+\infty}f(t)\dt .
+\]</div>
+<ul><li><p>Si la fonction de densité ne s'annule pas sur $\R$, alors on calcule $\displaystyle\int_{m}^{x}f(t)\dt$ pour tous réels $m$ et $x$ tels que $m\leqslant x$. Ainsi $F(x)$ est égale à la limite, lorsque $m$ tend vers $-\infty$, de $\displaystyle\int_{m}^{x}f(t)\dt$. On peut donc noter :</p>
+<div class="maths">        \[
+        \text{Pour tout } x\in\R,\quad
+        F(x)=\lim_{m\to-\infty}\int_{m}^{x}f(t)\dt=\int_{-\infty}^{x}f(t)\dt .
+        \]</div></li></ul>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriété 2</span><div class="boite-corps"><p>$F$ est la primitive de $f$ qui s'annule en $m$, autrement dit</p>
+<div class="maths">\[
+\forall x\in[m\,;+\infty[,\quad F'(x)=f(x).
+\]</div></div></section>
+<p><strong>Remarque.</strong>  On peut étendre cette propriété à toute fonction $f$ de densité qui ne s'annule pas sur $\R$, autrement dit $\forall x\in\R$, $F'(x)=f(x)$.</p>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriété 3</span><div class="boite-corps"><p>La fonction de répartition $F$ d'une variable aléatoire continue $X$ a les propriétés suivantes :</p>
+<ol><li>$F$ est une fonction croissante sur $\R$ ;</li><li>pour tout $x\in\R$, $F(x)=\lim\limits_{m\to-\infty}\displaystyle\int_{m}^{x}f(t)\dt$ ;</li><li>$\lim\limits_{x\to+\infty}F(x)=1$ et $\lim\limits_{x\to-\infty}F(x)=0$.</li></ol></div></section>
+<figure class="figure-cours"><img src="img/terminale-complementaire-ch10-fig02.png" alt="figure 2 du cours"></figure>
+<h2 id="s3"><span class="num-section">III.</span> Caractéristiques d'une variable aléatoire continue</h2>
+<h3>3.1  Moyenne – Variance – Écart type</h3>
+<section class="boite boite-info"><p>L'<strong>espérance</strong> d'une variable aléatoire $X$ à densité sur un intervalle $[a\,;b]$ est :</p>
+<div class="maths">\[
+E(X)=\int_{a}^{b}t\times f(t)\dt,
+\]</div>
+<p>où $f$ est la fonction de densité.</p></section>
+<section class="boite boite-info"><p>La <strong>variance</strong> d'une variable aléatoire $X$ à densité sur un intervalle $[a\,;b]$ est :</p>
+<div class="maths">\[
+V(X)=\int_{a}^{b}t^{2}\times f(t)\dt-\bigl(E(X)\bigr)^{2},
+\]</div>
+<p>où $f$ est la fonction de densité.</p>
+<p>L'<strong>écart type</strong> de $X$ est</p>
+<div class="maths">\[
+\sigma(X)=\sqrt{V(X)} .
+\]</div></section>
+<p><strong>Remarques.</strong></p>
+<p>Ces résultats sont à comparer aux variables aléatoires discrètes ou aux statistiques, où :</p>
+<ul><li>la moyenne ou l'espérance mathématique se calcule : $E(X)=\displaystyle\sum_{i=1}^{n}x_{i}\,p(X=x_{i})$ ;</li><li><p>la variance de la variable aléatoire $X$ est donnée par le calcul</p>
+<div class="maths">        \[
+        V(X)=\sum_{i=1}^{n}x_{i}^{2}\,p(X=x_{i})-\bigl(E(X)\bigr)^{2} ;
+        \]</div></li><li>l'expression de la densité $f(x)$ remplace la probabilité $p(X=x_{i})$ ;</li><li>la notation « $\displaystyle\int_{a}^{b}$ » remplace la somme « $\displaystyle\sum_{i=1}^{n}$ ».</li></ul>
+<h3>3.2  Propriétés</h3>
+<p>On retrouve les mêmes résultats que pour les variables aléatoires discrètes, soit :</p>
+<section class="boite boite-info"><div class="maths">\[
+E(aX+bY)=aE(X)+bE(Y)
+\qquad
+E(X+\mu)=E(X)+\mu
+\]</div>
+<div class="maths">\[
+V(X+\mu)=V(X)
+\qquad
+V(\lambda X)=\lambda^{2}V(X)
+\qquad
+\sigma(\lambda X)=\lambda\,\sigma(X)
+\]</div></section>
+<p><strong>Remarque.</strong>  La linéarité de l'espérance est une conséquence de la linéarité de l'intégrale.</p>
+<h2 id="s4"><span class="num-section">IV.</span> Lois usuelles</h2>
+<h3>4.1  Loi uniforme</h3>
+<h3>4.1.1  Définition</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Loi uniforme</span><div class="boite-corps"><p>On dit qu'une variable aléatoire $X$ suit une <strong>loi uniforme</strong> sur $I=[a\,;b]$ (avec $a&lt;b$) lorsque sa densité de probabilité $f$ est une fonction constante.</p>
+<p>Comme l'aire sous la courbe de $f$ doit être égale à $1$, cela impose :</p>
+<div class="maths">\[
+\forall x\in[a\,;b],\ f(x)=\frac{1}{b-a}
+\quad\text{et}\quad
+f(x)=0 \text{ partout ailleurs.}
+\]</div></div></section>
+<figure class="figure-cours"><img src="img/terminale-complementaire-ch10-fig03.png" alt="figure 3 du cours"></figure>
+<p>1) $f$ est continue sur $[a\,;b]$   2) $f\geqslant 0$   3)</p>
+<div class="maths">\[
+\int_{a}^{b}\frac{1}{b-a}\dx
+=\left[\frac{x}{b-a}\right]_{a}^{b}
+=\frac{b}{b-a}-\frac{a}{b-a}=\frac{b-a}{b-a}=1 .
+\]</div>
+<p>Donc c'est bien une fonction de densité : on l'appelle la <strong>loi de probabilité uniforme</strong> !</p>
+<h3>4.1.2  Propriétés</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Probabilité d'un événement</span><div class="boite-corps"><p>Pour tout intervalle $J=[\alpha\,;\beta]$ inclus dans $I=[a\,;b]$,</p>
+<div class="maths">\[
+\prob(\alpha\leqslant X\leqslant\beta)=\frac{1}{b-a}(\beta-\alpha).
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><div class="maths">\[
+\prob(\alpha\leqslant X\leqslant\beta)
+=\int_{\alpha}^{\beta}\frac{1}{b-a}\dx
+=\left[\frac{t}{b-a}\right]_{\alpha}^{\beta}
+=\frac{1}{b-a}(\beta-\alpha).
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Bus toutes les $30$ minutes</span><div class="boite-corps"><p>Soit $T$ la variable aléatoire du temps d'attente d'un bus qui a pour fonction de densité une loi uniforme sur l'intervalle $[0\,;30]$ : $U(t)=1/30$ sur $[0\,;30]$ et $0$ ailleurs.</p>
+<div class="maths">\[
+\prob(5&lt;T&lt;10)=\int_{5}^{10}\frac{1}{30}\dt
+=\left[\frac{t}{30}\right]_{5}^{10}=\frac{5}{30}=\frac{1}{6},
+\]</div>
+<p>soit une probabilité de $16{,}6$ %.</p>
+<div class="maths">\[
+\prob(5&lt;T&lt;10)=\frac{10-5}{30-0}=\frac{5}{30}.
+\]</div></div></section>
+<p><strong>Remarque.</strong>  La probabilité que $X$ soit dans un intervalle $J$ est le rapport de la largeur de l'intervalle $J$ sur la largeur de l'intervalle $[a\,;b]$.</p>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Fonction de répartition</span><div class="boite-corps"><ul><li>Si $x\in\left]-\infty\,;a\right]$, alors $F(x)=0$.</li><li>Si $x\in[a\,;b]$, alors $F(x)=\displaystyle\int_{a}^{x}\frac{1}{b-a}\dt=\frac{x-a}{b-a}$.</li><li>Si $x\in\left]b\,;+\infty\right[$, alors $F(x)=1$.</li></ul></div></section>
+<p><strong>Preuve.</strong>  Si $x\in\left]-\infty\,;a\right]$, $F(x)=\displaystyle\int_{-\infty}^{x}0\dt=0$.</p>
+<p>Si $x\in[a\,;b]$, alors $F(x)=F(a)+\displaystyle\int_{a}^{x}\frac{1}{b-a}\dt=\frac{x-a}{b-a}$.</p>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Espérance mathématique</span><div class="boite-corps"><p>Si une variable aléatoire $X$ suit une loi uniforme sur $I=[a\,;b]$ (avec $a&lt;b$), alors son espérance est</p>
+<div class="maths">\[
+E(X)=\frac{b+a}{2}.
+\]</div></div></section>
+<p><strong>Preuve.</strong></p>
+<div class="maths">\[\begin{aligned}
+E(X)&=\int_{a}^{b}xf(x)\dx=\int_{a}^{b}x\times\frac{1}{b-a}\dx
+=\left[\frac{1}{b-a}\times\frac{x^{2}}{2}\right]_{a}^{b}\\
+&=\frac{b^{2}}{2(b-a)}-\frac{a^{2}}{2(b-a)}
+=\frac{b^{2}-a^{2}}{2(b-a)}
+=\frac{(b-a)(b+a)}{2(b-a)}
+=\frac{a+b}{2}.
+\end{aligned}\]</div>
+<p><strong>Application.</strong>  Si $T$ suit la loi uniforme $U([0\,;30])$, alors</p>
+<div class="maths">\[
+E(X)=\frac{0+30}{2}=15 .
+\]</div>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Variance et écart type</span><div class="boite-corps"><p>Si une variable aléatoire $X$ suit une loi uniforme sur $I=[a\,;b]$ (avec $a&lt;b$), alors sa variance est</p>
+<div class="maths">\[
+V(X)=\frac{(b-a)^{2}}{12}
+\]</div>
+<p>et son écart type est</p>
+<div class="maths">\[
+\sigma_{X}=\frac{b-a}{\sqrt{12}}.
+\]</div></div></section>
+<p><strong>Preuve.</strong>  $V(X)=E\left((X-E(X))^{2}\right)=E\left(X^{2}\right)-E(X)^{2}$.</p>
+<p>On calcule</p>
+<div class="maths">\[
+E\left(X^{2}\right)=\int_{a}^{b}x^{2}f(x)\dx=\int_{a}^{b}\frac{x^{2}}{b-a}\dx
+\]</div>
+<div class="maths">\[
+E\left(X^{2}\right)=\left[\frac{1}{b-a}\,\frac{x^{3}}{3}\right]_{a}^{b}
+=\frac{1}{3(b-a)}\left(b^{3}-a^{3}\right)
+=\frac{(b-a)\left(b^{2}+ab+a^{2}\right)}{3(b-a)}
+=\frac{a^{2}+ab+b^{2}}{3}.
+\]</div>
+<div class="maths">\[\begin{aligned}
+V(X)&=E\left(X^{2}\right)-E(X)^{2}
+=\frac{a^{2}+ab+b^{2}}{3}-\left(\frac{b+a}{2}\right)^{2}\\
+&=\frac{4a^{2}+4ab+4b^{2}}{12}-\frac{3a^{2}+6ab+3b^{2}}{12}
+=\frac{a^{2}-2ab+b^{2}}{12}=\frac{(a-b)^{2}}{12}.
+\end{aligned}\]</div>
+<h3>4.1.3  Cas d'utilisation de la loi uniforme</h3>
+<p>Cette loi modélise un phénomène uniforme sur un intervalle donné. La notion d'uniformité vient du fait que la probabilité qu'une valeur tirée d'une loi uniforme soit dans un certain intervalle ne dépend pas de la position de l'intervalle, mais uniquement de sa longueur.</p>
+<p>On l'utilise généralement lorsque la situation se ramène à choisir au hasard un réel dans un intervalle $[a\,;b]$.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Le bus des Papangues</span><div class="boite-corps"><p>À l'arrêt de bus des Papangues, un bus passe toutes les $10$ minutes. Un voyageur ignore les horaires et arrive à cet arrêt de bus. On note $T$ la variable aléatoire représentant le temps d'attente, en minutes. On suppose que $T$ suit la loi uniforme $U(0\,;10)$.</p>
+<p><strong>a)</strong> Quelle est la probabilité d'attendre le bus</p>
+<ul><li>exactement $3$ minutes ? $\prob(T=3)=0$ (variable aléatoire continue) ;</li><li>entre $2$ et $4$ minutes ? $\prob(2&lt;T&lt;4)=\dfrac{4-2}{10-0}=\dfrac{2}{10}$ ;</li><li>plus de $5$ minutes ? $\prob(T&gt;5)=1-\prob(T\leqslant 5)=1-5/10=0{,}5$.</li></ul>
+<p><strong>b)</strong> Déterminer l'attente moyenne de notre voyageur à l'arrêt de bus des Papangues.</p>
+<p>L'attente moyenne correspondra à l'espérance</p>
+<div class="maths">\[
+E(T)=\frac{b+a}{2}=\frac{10}{2}=5 \text{ minutes.}
+\]</div>
+<p><strong>c)</strong> Déterminer l'écart type. Interpréter.</p>
+<div class="maths">\[
+\sigma_{T}=\frac{b-a}{\sqrt{12}}=\frac{5\sqrt{3}}{3}=2{,}\dots
+\]</div>
+<p>L'écart type est important par rapport à l'intervalle, donc l'espérance n'aura pas une grande signification.</p></div></section>
+<h3>4.2  Loi exponentielle de paramètre $\lambda$</h3>
+<h3>4.2.1  Définition</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Loi exponentielle</span><div class="boite-corps"><p>On dit qu'une variable aléatoire $X$ suit une <strong>loi exponentielle</strong> de paramètre $\lambda&gt;0$ sur $I=[0\,;+\infty[$ lorsque sa densité de probabilité $f$ est une fonction définie par</p>
+<div class="maths">\[
+f(x)=
+\begin{cases}
+0 & \forall x\in\left]-\infty\,;0\right[\\[4pt]
+\lambda\e^{-\lambda x} & \forall x\in[0\,;+\infty[
+\end{cases}
+\]</div></div></section>
+<figure class="figure-cours"><img src="img/terminale-complementaire-ch10-fig04.png" alt="figure 4 du cours"></figure>
+<p>Les trois conditions d'une fonction de densité sont vérifiées ; en effet :</p>
+<ol><li>$f$ est continue sur $\R$ sauf en $0$ ;</li><li>$f(x)\geqslant 0$ pour tout $x\in\R$ ;</li><li><div class="maths">        \[
+        \int_{-\infty}^{+\infty}f(x)\dx
+        =\int_{-\infty}^{0}f(x)\dx+\int_{0}^{+\infty}f(x)\dx
+        \quad\text{(propriété de Chasles)}
+        \]</div>
+<div class="maths">        \[
+        \int_{-\infty}^{0}0\dx+\int_{0}^{+\infty}\lambda\e^{-\lambda x}\dx
+        =0+\left[-\e^{-\lambda x}\right]_{0}^{+\infty}=1 .
+        \]</div></li></ol>
+<h3>4.2.2  Propriétés</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Probabilité d'un événement</span><div class="boite-corps"><p>$X$ suit la loi exponentielle de paramètre $\lambda$.</p>
+<ol><li>$\prob(X=x)=0$   ($X$ est une variable aléatoire continue).</li><li><p>Pour tout intervalle $J=[\alpha\,;\beta]$ inclus dans $I=[0\,;+\infty[$,</p>
+<div class="maths">        \[
+        \prob(\alpha\leqslant X\leqslant\beta)=\e^{-\lambda\alpha}
+        -\e^{-\lambda\beta}.
+        \]</div></li></ol></div></section>
+<p><strong>Preuve.</strong></p>
+<div class="maths">\[
+\prob(\alpha\leqslant X\leqslant\beta)
+=\int_{\alpha}^{\beta}f(x)\dx
+=\left[-\e^{-\lambda x}\right]_{\alpha}^{\beta}
+=\e^{-\lambda\alpha}-\e^{-\lambda\beta}.
+\]</div>
+<div class="maths">\[
+\prob(X=x)=\prob(x\leqslant X\leqslant x)=\int_{x}^{x}f(u)\mathrm{d}u=0 .
+\]</div>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Fonction de répartition</span><div class="boite-corps"><p>$F(x)=\prob(X\leqslant x)$.</p>
+<ul><li>Si $x\in\left]-\infty\,;0\right]$, alors $F(x)=0$.</li><li>Si $x\in\left]0\,;+\infty\right[$, alors $F(x)=1-\e^{-\lambda x}$.</li></ul></div></section>
+<p><strong>Preuve.</strong>  Si $x\in\left]-\infty\,;0\right]$, $f(x)=0$ et</p>
+<div class="maths">\[
+F(x)=\prob(X\leqslant x)=\int_{-\infty}^{x}f(t)\dt=\int_{-\infty}^{x}0\dt=0 .
+\]</div>
+<p>Si $x\in\left[0\,;+\infty\right[$,</p>
+<div class="maths">\[
+F(x)=\prob(X\leqslant x)=\int_{-\infty}^{0}f(t)\dt+\int_{0}^{x}f(t)\dt
+=0+\int_{0}^{x}\lambda\e^{-\lambda t}\dt
+=\left[-\e^{-\lambda t}\right]_{0}^{x}
+\]</div>
+<div class="maths">\[
+F(x)=1-\e^{-\lambda x}.
+\]</div>
+<p><strong>Ainsi</strong>, pour tout $x\in\left[0\,;+\infty\right[$, la probabilité de l'événement $(X\leqslant x)$ est donnée par :</p>
+<div class="maths">\[
+F(x)=\prob(X\leqslant x)=
+\begin{cases}
+0 & x&lt;0\\
+1-\e^{-\lambda x} & \text{sinon}
+\end{cases}
+\]</div>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Espérance mathématique</span><div class="boite-corps"><p>Si une variable aléatoire $X$ suit une loi exponentielle de paramètre $\lambda$ sur $I=[0\,;+\infty[$, alors son espérance est</p>
+<div class="maths">\[
+E(X)=\frac{1}{\lambda}.
+\]</div></div></section>
+<p><strong>Preuve.</strong></p>
+<div class="maths">\[
+E(X)=\int_{-\infty}^{+\infty}xf(x)\dx
+=\int_{-\infty}^{0}x\times 0\dx+\int_{0}^{+\infty}x\lambda\e^{-\lambda x}\dx
+=\int_{0}^{+\infty}x\lambda\e^{-\lambda x}\dx
+\]</div>
+<p>(linéarité de l'intégrale).</p>
+<p>Je pose $g(t)=t\,\e^{-\lambda t}$, qui a pour primitive</p>
+<div class="maths">\[
+G(t)=-t\,\e^{-\lambda t}-\frac{\e^{-\lambda t}}{\lambda}
+=UV+W .
+\]</div>
+<p>Pour montrer que $G$ est une primitive de $g$, on dérive : $G'=(UV)'+W'=U'V+UV'+W'$ avec</p>
+<div class="maths">\[
+U=-t,\quad V=\e^{-\lambda t},\quad W=-\frac{\e^{-\lambda t}}{\lambda},
+\]</div>
+<div class="maths">\[
+U'=-1,\quad V'=-\lambda\e^{-\lambda t},\quad W'=\e^{-\lambda t},
+\]</div>
+<div class="maths">\[
+G'(t)=U'V+UV'+W'=-1\times\e^{-\lambda t}-t\times\lambda\e^{-\lambda t}
++\e^{-\lambda t}=t\lambda\e^{-\lambda t}=g(t).
+\]</div>
+<div class="maths">\[
+G(0)=-\frac{1}{\lambda}
+\quad\text{et}\quad
+\lim_{+\infty}G(t)=\langle\infty\times 0\rangle+\langle\infty\times 0\rangle
+\text{ : F.I.}
+\]</div>
+<p>or $\exp(x)\gg x^{n}$, donc le zéro l'emporte.</p>
+<div class="maths">\[
+E(X)=\int_{0}^{+\infty}t\lambda\e^{-\lambda t}\dt
+=\left[-t\e^{-\lambda t}-\frac{\e^{-\lambda t}}{\lambda}\right]_{0}^{+\infty}
+=\langle G(+\infty)\rangle-G(0)=\frac{1}{\lambda}.
+\]</div>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Variance et écart type</span><div class="boite-corps"><p>Si une variable aléatoire $X$ suit une loi exponentielle de paramètre $\lambda$ sur $I=[0\,;+\infty[$, alors sa variance est</p>
+<div class="maths">\[
+V(X)=\frac{1}{\lambda^{2}}
+\]</div>
+<p>et son écart type est</p>
+<div class="maths">\[
+\sigma_{X}=\frac{1}{\lambda}.
+\]</div></div></section>
+<p><strong>Preuve.</strong>  $V(X)=E\left(X^{2}\right)-E(X)^{2}$.</p>
+<div class="maths">\[
+E\left(X^{2}\right)=\int_{-\infty}^{+\infty}t^{2}f(t)\dt
+=\int_{-\infty}^{0}0\dt+\int_{0}^{+\infty}t^{2}\lambda\e^{-\lambda t}\dt
+=\int_{0}^{+\infty}t^{2}\lambda\e^{-\lambda t}\dt .
+\]</div>
+<p>Je pose $h(t)=t^{2}\lambda\e^{-\lambda t}$, qui a pour primitive</p>
+<div class="maths">\[
+H(t)=-t^{2}\e^{-\lambda t}-\frac{2}{\lambda}t\e^{-\lambda t}
+-\frac{2}{\lambda}\frac{\e^{-\lambda t}}{\lambda}.
+\]</div>
+<p>On vérifie que $H'(t)=h(t)$, et $H(0)=-2/\lambda^{2}$, $\lim\limits_{+\infty}H(t)=0$.</p>
+<div class="maths">\[
+E\left(X^{2}\right)=H(+\infty)-H(0)=\frac{2}{\lambda^{2}} .
+\]</div>
+<div class="maths">\[
+V\left(X^{2}\right)=E\left(X^{2}\right)-E(X)^{2}
+=\frac{2}{\lambda^{2}}-\frac{1}{\lambda^{2}}=\frac{1}{\lambda^{2}},
+\quad\text{et donc}\quad
+\sigma_{X}=\frac{1}{\lambda}.
+\]</div>
+<h3>4.2.3  Cas d'utilisation de la loi exponentielle</h3>
+<p>Une loi exponentielle modélise la durée de vie d'un phénomène sans mémoire, ou sans vieillissement, ou sans usure. En d'autres termes, le fait que le phénomène ait duré pendant un temps $t$ ne change rien à son espérance de vie à partir du temps $t$. Elle permet entre autres de modéliser la durée de vie de la radioactivité ou d'un composant électronique, de décrire le temps écoulé entre deux moments…</p>
+<h3>4.2.4  Exemple : brevet de technicien supérieur Chimiste, session 2015</h3>
+<p>Soit $X$ la variable aléatoire mesurant la durée de vie, en jours, d'un atome radioactif d'iode 131 avant sa désintégration. $X$ suit une loi exponentielle de paramètre $\lambda=0{,}087$ (exprimé en jour$^{-1}$).</p>
+<p><strong>1. a.</strong> Calculer la valeur exacte de $\prob(X\leqslant 6)$.</p>
+<p><strong>1<sup>re</sup> méthode :</strong> je connais la fonction de répartition de la loi exponentielle.</p>
+<div class="maths">\[
+\prob(X\leqslant 6)=F(6) \quad\text{(c'est la valeur de la fonction de
+répartition pour } x=6\text{)}
+\]</div>
+<div class="maths">\[
+F(x)=\prob(X\leqslant x)=1-\e^{-\lambda x}
+\]</div>
+<div class="maths">\[
+\prob(X\leqslant 6)=1-\e^{-\lambda\times 6} .
+\]</div>
+<p><strong>2<sup>ème</sup> méthode :</strong></p>
+<div class="maths">\[
+\prob(X\leqslant 6)=\int_{-\infty}^{6}f(t)\dt
+=\int_{-\infty}^{0}0\dt+\int_{0}^{6}\lambda\e^{-\lambda t}\dt
+=0+\left[-\e^{-\lambda t}\right]_{0}^{6}
+\]</div>
+<div class="maths">\[
+\prob(X\leqslant 6)=1-\e^{-\lambda\times 6}
+=1-\e^{-0{,}087\times 6} .
+\]</div>
+<p><strong>b.</strong> Donner de même une valeur arrondie à $0{,}01$ de $\prob(X\leqslant 4)$.</p>
+<p><strong>1<sup>re</sup> méthode :</strong> j'utilise la fonction de répartition.</p>
+<div class="maths">\[
+F(x)=\prob(X\leqslant x)=1-\e^{-\lambda x}
+\qquad
+\prob(X\leqslant 4)=F(4)=1-\e^{-\lambda\times 4} .
+\]</div>
+<p><strong>2<sup>e</sup> méthode :</strong> j'utilise la loi de probabilité et je calcule</p>
+<div class="maths">\[\begin{aligned}
+\prob(X\leqslant 4)&=\int_{-\infty}^{4}f(t)\dt
+=\int_{-\infty}^{0}f(t)\dt+\int_{0}^{4}f(t)\dt
+=0+\int_{0}^{4}\lambda\e^{-\lambda t}\dt\\
+&=\left[-\e^{-\lambda t}\right]_{0}^{4}
+=-\e^{-\lambda\times 4}-\left(-\e^{-\lambda\times 0}\right)
+=1-\e^{-\lambda\times 4}.
+\end{aligned}\]</div>
+<p><strong>Conclusion :</strong></p>
+<div class="maths">\[
+\prob(X\leqslant 4)=\int_{0}^{4}f(t)\dt=\left[-\e^{-\lambda t}\right]_{0}^{4}
+=1-\e^{-\lambda\times 4}.
+\]</div>
+<p><strong>c.</strong> Donner de même une valeur arrondie à $0{,}01$ de $\prob(X=4)$.</p>
+<div class="maths">\[
+\prob(X=4)=\prob(4\leqslant X\leqslant 4)=\int_{4}^{4}f(x)\dx=0
+\]</div>
+<p>c'est une variable aléatoire continue : $\prob(X=k)=0$.</p>
+<p><strong>Remarque :</strong> c'est vrai pour les points de continuité de la fonction de densité :</p>
+<div class="maths">\[
+\prob(X=4)=\prob(X\leqslant 4)-\prob(X&lt;4)\neq 0
+\]</div>
+<p>pour une variable aléatoire discrète.</p>
+<p><strong>2.</strong> Soient les événements suivants concernant un atome d'iode 131 :</p>
+<p>$E$ : « sa durée de vie est d'au moins $6$ jours », soit $X\geqslant 6$ ;</p>
+<p>$F$ : « sa durée de vie est d'au moins $4$ jours », soit $X\geqslant 4$.</p>
+<p><strong>a.</strong> Que représente l'événement $E\cap F$ ? Déterminer sa probabilité.</p>
+<div class="maths">\[
+E\cap F=E
+\]</div>
+<div class="maths">\[\begin{aligned}
+\prob(E\cap F)&=\prob(E)=\prob(X\geqslant 6)=\int_{6}^{+\infty}f(t)\dt
+=\int_{6}^{+\infty}\lambda\e^{-\lambda t}\dt
+=\left[-\e^{-\lambda t}\right]_{6}^{+\infty}\\
+&=0-\e^{-\lambda\times 6}=\e^{-\lambda\times 6} .
+\end{aligned}\]</div>
+<div class="maths">\[
+\prob(X\geqslant 6)=1-\prob(X&lt;6)=1-\prob(X\leqslant 6)
+=1-\left(1-\e^{-\lambda\times 6}\right)=\e^{-\lambda\times 6} .
+\]</div>
+<p><strong>Remarque :</strong> avec les variables aléatoires continues, il n'y a pas de différence entre les inégalités strictes et les inégalités larges, car $\prob(X=k)=0$.</p>
+<p><strong>b.</strong> Calculer la probabilité qu'un atome d'iode 131 ait une durée de vie d'au moins $6$ jours (événement $E$), sachant qu'il n'a pas été désintégré au bout de $4$ jours (événement $F$).</p>
+<div class="maths">\[
+\prob_{F}(E)=\frac{\prob(E\cap F)}{\prob(F)}
+=\frac{\e^{-\lambda\times 6}}{\e^{-\lambda\times 4}}=\e^{-\lambda\times 2}
+=\prob(X\geqslant 2).
+\]</div>
+<p>Durée d'au moins $6$ jours si l'on sait que l'on a une durée d'au moins $4$ jours, c'est égal à une durée d'au moins deux jours.</p>
+<p>On appelle la loi exponentielle <strong>sans mémoire</strong> ou sans vieillissement, car</p>
+<div class="maths">\[
+\prob_{(X&gt;T)}(X&gt;T+h)=\prob(X&gt;h).
+\]</div>
+<p>$X$ est la durée de vie d'un lave-linge : $\prob_{X&gt;10}(X&gt;12)=\prob(X&gt;2)$.</p>
+<div class="maths">\[
+\prob(X\geqslant x)=1-\prob(X&lt;x)=1-F(x)
+=1-\left(1-\e^{-\lambda x}\right)=\e^{-\lambda x}
+\]</div>
+<div class="maths">\[
+\prob(X\geqslant 2)=\e^{-\lambda\times 2}=\prob_{X&gt;4}(X\geqslant 6).
+\]</div>
+<p>Pour une machine électronique, $\prob(T&gt;11\ \text{ans})=\prob_{T&gt;10\ \text{ans}}(T&gt;21\ \text{ans})$.</p>
+<p><strong>Remarque :</strong> c'est une des propriétés de la loi exponentielle, elle est sans mémoire !</p>
+<p><strong>3.</strong> Déterminer la durée de vie moyenne, en jours, d'un atome radioactif d'iode 131 avant sa désintégration.</p>
+<p>La durée moyenne est représentée par l'espérance :</p>
+<div class="maths">\[
+E(T)=\frac{1}{\lambda}.
+\]</div>
+<p><strong>4.</strong> Déterminer le réel $t$ tel que $\prob(X\leqslant t)=0{,}5$ ; on donnera la valeur exacte de $t$ puis une valeur approchée arrondie à l'unité.</p>
+<div class="maths">\[
+\prob(X\leqslant t)=1-\e^{-\lambda t}=0{,}5
+\iff 0{,}5=\e^{-\lambda t}
+\iff \ln\left(\frac{1}{2}\right)=-\lambda t
+\iff \ln(2)=\lambda t
+\]</div>
+<div class="maths">\[
+t=\frac{\ln 2}{\lambda}.
+\]</div>
+<p>On appelle $t$ la durée (ou période) de demi-vie. C'est un exercice à savoir-faire parfaitement.</p>
+  <p style="margin-top:2.5rem"><a href="../index.html#terminale-complementaire">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

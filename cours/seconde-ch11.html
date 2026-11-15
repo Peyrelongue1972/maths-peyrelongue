@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 11 : Probabilités — Seconde</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "prob": "{\\mathbb{P}}", "Om": "{\\Omega}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#seconde">← Retour au site</a></p>
+  <h1>Chapitre 11 : Probabilités</h1>
+  <p class="sous-titre">Seconde · Chapitre 11 — Probabilités · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Probabilités</span><a class="onglet" href="../pdf/seconde/11-probabilites.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../quiz/seconde-11.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Expérience aléatoire</a></li><li><a href="#s2">II Probabilités</a></li><li><a href="#s3">III Propriétés de probabilité</a></li></ol></nav>
+<h2 id="s1"><span class="num-section">I.</span> Expérience aléatoire</h2>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Jetons et mot de cinq lettres</span><div class="boite-corps"><p>On prend cinq jetons avec les lettres P, R, O, B, A. On tire les lettres une par une pour écrire un mot de 5 lettres.</p>
+<ol><li>Sait-on avec certitude quelle sera la position de la lettre A ?</li><li>Sait-on avec certitude combien de consonnes seront contenues dans le mot ?</li><li>Y a-t-il une différence entre les deux expériences ?</li></ol></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Expérience aléatoire</span><div class="boite-corps"><p>Une <strong>expérience aléatoire</strong> est une expérience comportant plusieurs résultats et dont tous les résultats possibles sont connus, mais dont on ne peut pas prédire le résultat définitif avec certitude.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Lancer de dé</span><div class="boite-corps"><p>On lance un dé à 6 faces non truqué et on regarde le numéro obtenu sur la face du dessus. On sait que l'on peut obtenir exactement six résultats possibles, mais on ne sait pas lequel exactement tombera.</p></div></section>
+<h3>1.1  Vocabulaire</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Univers</span><div class="boite-corps"><p>L'<strong>univers</strong> d'une expérience aléatoire est l'ensemble de toutes ses issues. On le note $\Om$.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Univers d'un lancer de dé</span><div class="boite-corps"><p>Pour le lancer de dé, les issues sont $1$, $2$, $3$, $4$, $5$ et $6$. L'univers associé à cette expérience aléatoire est :</p>
+<div class="maths">\[
+\Om=\{1\,;2\,;3\,;4\,;5\,;6\} .
+\]</div></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Événement</span><div class="boite-corps"><p>Un <strong>événement</strong> est un sous-ensemble (une partie) de l'univers. Il peut toujours se décrire à l'aide d'issues.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Événement « obtenir un chiffre impair »</span><div class="boite-corps"><p>Pour l'expérience du dé, on peut prendre comme événement $A$ = « Obtenir un chiffre impair ». Les issues qui réalisent cet événement sont $1$, $3$ et $5$.</p>
+<p>On écrit donc : $A=\{1\,;3\,;5\}$.</p></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Événement élémentaire</span><div class="boite-corps"><p>Un <strong>événement élémentaire</strong> est un événement formé d'un seul élément.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Événement élémentaire</span><div class="boite-corps"><p>L'événement $B$ = « Obtenir 6 » est un événement élémentaire. On écrit : $B=\{6\}$.</p></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Événement contraire</span><div class="boite-corps"><p>L'<strong>événement contraire</strong> de l'événement $A$ est noté $\overline{A}$. Il s'agit de l'événement qui contient tous les éléments de l'univers $\Om$ qui ne sont pas dans $A$ (c'est-à-dire toutes les issues qui ne réalisent pas $A$).</p></div></section>
+<figure class="figure-cours"><img src="img/seconde-ch11-fig01.png" alt="figure 1 du cours"></figure>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Contraires d'un lancer de dé</span><div class="boite-corps"><p>L'événement $\overline{A}$, contraire de l'événement $A$ = « Obtenir un chiffre impair », est l'événement « Obtenir un chiffre pair ». On a : $\overline{A}=\{2\,;4\,;6\}$.</p>
+<p>Soit $C=\{1\,;6\}$ : on a alors $\overline{C}=\{2\,;3\,;4\,;5\}$.</p></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Événement impossible</span><div class="boite-corps"><p>Un <strong>événement impossible</strong> est un événement qui ne peut pas se produire. On le note $\varnothing$ (on lit « ensemble vide »).</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Événement impossible</span><div class="boite-corps"><p>L'événement $D$ = « Obtenir 7 » est impossible. On note : $D=\varnothing$.</p></div></section>
+<h3>1.2  Union et intersection d'ensembles</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Union de deux ensembles</span><div class="boite-corps"><p>Soient $A$ et $B$ deux ensembles. On note $A\cup B$ (lire « $A$ union $B$ ») l'événement dont les éléments sont dans l'ensemble $A$ <strong>ou</strong> dans l'ensemble $B$.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Unions</span><div class="boite-corps"><ul><li>On considère les événements $A=\{1\,;3\,;5\}$ et $B=\{6\}$. On a : $A\cup B=\{1\,;3\,;5\,;6\}$.</li><li>On considère les événements $C=\{1\,;6\}$ et $A=\{2\,;4\,;6\}$. On a : $A\cup C=\{1\,;2\,;4\,;6\}$.</li></ul></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Intersection de deux ensembles</span><div class="boite-corps"><p>Soient $A$ et $B$ deux ensembles. On note $A\cap B$ (lire « $A$ inter $B$ ») l'événement dont les éléments sont dans l'ensemble $A$ <strong>et</strong> dans l'ensemble $B$.</p></div></section>
+<figure class="figure-cours"><img src="img/seconde-ch11-fig02.png" alt="figure 2 du cours"></figure>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Intersections</span><div class="boite-corps"><ul><li>On considère les événements $A=\{1\,;3\,;5\}$ et $E=\{3\,;4\,;5\}$. On a : $A\cap E=\{3\,;5\}$.</li><li>On considère les événements $A=\{1\,;3\,;5\}$ et $B=\{6\}$. On a : $A\cap B=\varnothing$. On parle dans ce cas d'<strong>événements incompatibles</strong> (ou d'ensembles disjoints).</li></ul></div></section>
+<h2 id="s2"><span class="num-section">II.</span> Probabilités</h2>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Fréquence d'une issue</span><div class="boite-corps"><p>On considère une expérience aléatoire dont les issues sont notées $e_{1}\,;e_{2}\,;e_{3}\,;\dots\,;e_{p}$. On répète cette expérience $n$ fois.</p>
+<ul><li>Si une issue se réalise $k$ fois au cours des $n$ expériences, sa fréquence est égale à $\dfrac{k}{n}$.</li><li>Une fréquence est toujours comprise entre $0$ et $1$.</li><li>La somme des fréquences de toutes les issues est égale à $1$.</li><li>Si on répète un grand nombre de fois l'expérience dans les mêmes conditions, alors la fréquence de chaque issue se stabilise autour d'une valeur $p$ appelée la <strong>probabilité</strong> de cette issue.</li></ul></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Loi de probabilité</span><div class="boite-corps"><p>Soit $\Om=\{e_{1}\,;e_{2}\,;e_{3}\,;\dots\,;e_{n}\}$ l'univers d'une expérience aléatoire, où chaque $e_{i}$ représente une issue. À chaque issue $e_{i}$, on associe sa probabilité $p_{i}$, qui est un nombre ayant les propriétés suivantes :</p>
+<ul><li>pour tout entier $i$ tel que $1\leqslant i\leqslant n$, $0\leqslant p_{i}\leqslant 1$ ;</li><li>$p_{1}+p_{2}+p_{3}+\dots+p_{n}=1$.</li></ul></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Loi de probabilité (définition)</span><div class="boite-corps"><p>Une <strong>loi de probabilité</strong> est définie en associant à chaque issue une probabilité. Modéliser une expérience aléatoire, c'est faire le choix d'une loi de probabilité.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Loi de probabilité d'un dé</span><div class="boite-corps"><p>On lance un dé cubique numéroté de $1$ à $6$. On a : $\Om=\{1\,;2\,;3\,;4\,;5\,;6\}$.</p>
+<p>La loi de probabilité de cette expérience est, pour tout entier $i$ : $p_{i}=\dfrac{1}{6}$.</p>
+<table class="tableau"><tr><td>issue</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$6$</td></tr><tr><td>probabilité</td><td>$\dfrac{1}{6}$</td><td>$\dfrac{1}{6}$</td><td>$\dfrac{1}{6}$</td><td>$\dfrac{1}{6}$</td><td>$\dfrac{1}{6}$</td><td>$\dfrac{1}{6}$</td></tr></table></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Probabilité d'un événement</span><div class="boite-corps"><p>La <strong>probabilité</strong> d'un événement $A$, notée $\prob(A)$, est la somme des probabilités de toutes les issues qui réalisent l'événement $A$.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Probabilité d'un événement</span><div class="boite-corps"><p>Si l'événement $A=\{e_{1}\,;e_{2}\,;e_{3}\}$, alors</p>
+<div class="maths">\[
+\prob(A)=p(e_{1})+p(e_{2})+p(e_{3}) .
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Lancer de dé</span><div class="boite-corps"><p>On considère l'événement $A=\{1\,;3\,;5\}$. La probabilité de $A$ est :</p>
+<div class="maths">\[
+\prob(A)=\frac{1}{6}+\frac{1}{6}+\frac{1}{6}=\frac{3}{6}=\frac{1}{2} .
+\]</div></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Équiprobabilité</span><div class="boite-corps"><p>On dit qu'on est en situation d'<strong>équiprobabilité</strong> sur un univers $\Om$ si toutes les issues ont la même probabilité.</p></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Probabilité en situation d'équiprobabilité</span><div class="boite-corps"><p>Dans le cas d'équiprobabilité, la probabilité d'un événement $A$ est :</p>
+<div class="maths">\[
+\prob(A)
+=\frac{\text{nombre d'issues favorables à } A}{\text{nombre d'issues possibles}}
+=\frac{\text{nombre d'éléments dans } A}{\text{nombre d'éléments dans } \Om} .
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Dé équilibré</span><div class="boite-corps"><p>Un lancer de dé <strong>équilibré</strong> est une situation d'équiprobabilité : toutes les issues ont une probabilité de $\dfrac{1}{6}$.</p>
+<p>L'univers $\Om=\{1\,;2\,;3\,;4\,;5\,;6\}$ possède $6$ éléments. L'événement $C=\{1\,;6\}$ possède $2$ éléments, donc la probabilité de $C$ est :</p>
+<div class="maths">\[
+\prob(C)=\frac{2}{6}=\frac{1}{3} .
+\]</div></div></section>
+<h2 id="s3"><span class="num-section">III.</span> Propriétés de probabilité</h2>
+<p><strong>Activité :</strong> considérons, lors d'un lancer de dé équilibré à six faces, les événements suivants : $A=\{1\,;2\,;3\}$, $B=\{3\,;4\}$ et $C=\{4\}$.</p>
+<ol><li>Déterminer les probabilités des trois événements.</li><li>Déterminer les événements $A\cap B$, $A\cup B$, $A\cap C$, $A\cup C$, $B\cap C$ et $B\cup C$.</li><li>Calculer les probabilités des événements ci-dessus.</li><li><p>Établir une relation entre :</p>
+<ol><li>$\prob(A)$, $\prob(B)$, $\prob(A\cap B)$ et $\prob(A\cup B)$ ;</li><li>$\prob(A)$, $\prob(C)$, $\prob(A\cap C)$ et $\prob(A\cup C)$ ;</li><li>$\prob(B)$ et $\prob\left(\overline{B}\right)$ ;</li><li>$\prob(C)$ et $\prob\left(\overline{C}\right)$.</li></ol></li></ol>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriétés des probabilités</span><div class="boite-corps"><p>Soient $A$ et $B$ deux événements.</p>
+<ul><li><p>Si les événements sont <strong>incompatibles</strong> (c'est-à-dire si les ensembles $A$ et $B$ sont disjoints), alors</p>
+<div class="maths">        \[
+        \prob(A\cup B)=\prob(A)+\prob(B) .
+        \]</div></li><li><p>Si les événements ne sont pas incompatibles, alors</p>
+<div class="maths">        \[
+        \prob(A\cup B)=\prob(A)+\prob(B)-\prob(A\cap B) .
+        \]</div></li><li><p>L'événement contraire de $A$ a pour probabilité :</p>
+<div class="maths">        \[
+        \prob\left(\overline{A}\right)=1-\prob(A) .
+        \]</div></li></ul></div></section>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Les galettes</span><div class="boite-corps"><p>$20$ amis sont regroupés autour de trois galettes (frangipane, pomme et chocolat) pour tirer les rois. La galette à la frangipane contient $2$ fèves ; elle est coupée en $10$ parts (aucune ne contenant les deux fèves). La galette à la pomme contient $1$ fève ; elle est coupée en $6$ parts. La galette au chocolat, plus petite, contient $1$ fève ; elle est coupée en $4$ parts.</p>
+<ol><li><p>Complétez le tableau suivant donnant la répartition des parts suivant la présence d'une fève ou non et le type de galette.</p>
+<table class="tableau"><tr><td></td><td>Frangipane</td><td>Pomme</td><td>Chocolat</td><td>Total</td></tr><tr><td>Avec fève</td><td></td><td></td><td></td><td></td></tr><tr><td>Sans fève</td><td></td><td></td><td></td><td></td></tr><tr><td>Total</td><td></td><td></td><td></td><td></td></tr></table>
+<p>On note $R$ « la personne a une fève », $F$ « sa part est à la frangipane » et $P$ « sa part est à la pomme ».</p></li><li>Calculer la probabilité de chacun des événements $R$, $F$ et $P$.</li><li>Calculer la probabilité que la part de la personne ne soit pas à la pomme.</li><li>Calculer la probabilité que la part de la personne soit à la frangipane et avec une fève.</li><li>Calculer la probabilité que la part de la personne soit à la frangipane ou avec une fève.</li><li>Calculer la probabilité que la part soit à la pomme ou à la frangipane.</li></ol></div></section>
+  <p style="margin-top:2.5rem"><a href="../index.html#seconde">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

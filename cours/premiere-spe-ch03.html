@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 3 : Les suites (généralités) — Première spécialité</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#premiere-spe">← Retour au site</a></p>
+  <h1>Chapitre 3 : Les suites (généralités)</h1>
+  <p class="sous-titre">Première spécialité · Chapitre 3 — Les suites généralités · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Les suites généralités</span><a class="onglet" href="../pdf/premiere-spe/3-les-suites-generalites.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/premiere-spe/td01-generalites-suites.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/premiere-spe/td02-variations-suites.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../pdf/premiere-spe/activite-representation-graphique-suite.pdf" target="_blank" rel="noopener">Activité</a><a class="onglet" href="../pdf/premiere-spe/fiche-methode-sens-variation-suite.pdf" target="_blank" rel="noopener">Fiche méthode</a><a class="onglet" href="../quiz/premiere-spe-3.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Définition</a></li><li><a href="#s2">II Représentation graphique d'une suite</a></li><li><a href="#s3">III Sens de variation d'une suite numérique</a></li><li><a href="#s4">IV Notion de limite d'une suite</a></li><li><a href="#s5">V Algorithme Python pour suite récurrente</a></li></ol></nav>
+<h2 id="s1"><span class="num-section">I.</span> Définition</h2>
+<h3>Définition d'une suite numérique</h3>
+<p><strong>Exemple 0 :</strong> la suite $u$ des nombres pairs : $0,2,4,6,8,10,12,\dots$</p>
+<p>On note $(u_{n})$ l'ensemble des « éléments » de cette suite de nombres tel que :</p>
+<div class="maths">\[
+u_{0}=2,\ u_{1}=4,\ u_{2}=6,\ u_{3}=8,\ \dots
+\]</div>
+<p>On a ainsi défini une suite numérique.</p>
+<p>On peut lui associer une fonction définie sur $\N$ par</p>
+<div class="maths">\[
+u :
+\begin{array}[t]{ccc}
+\N & \longrightarrow & \R\\
+n & \longmapsto & u(n)=u_{n}
+\end{array}
+\]</div>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Suite numérique</span><div class="boite-corps"><p>Une <strong>suite numérique</strong> $(u_{n})$ est une liste ordonnée de nombres réels telle qu'à tout entier $n$ on associe un nombre réel noté $u_{n}$.</p>
+<p>$u_{n}$ est appelé le <strong>terme de rang $n$</strong> de cette suite (ou d'indice $n$).</p></div></section>
+<h3>Générer une suite numérique par une formule explicite</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Suite définie explicitement</span><div class="boite-corps"><p>Une suite définie à l'aide d'une fonction $f$, définie sur $\N$, est dite définie de <strong>manière explicite</strong>. On a alors $u_{n}=f(n)$ pour $n\in\N$.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Suite des nombres impairs</span><div class="boite-corps"><p>Pour tout $n$ de $\N$, on donne : $u_{n}=2n+1$, ce qui définit la suite des nombres impairs.</p>
+<p>Les premiers termes de cette suite sont donc :</p>
+<div class="maths">\[\begin{aligned}
+u_{0}&=2\times 0+1=1, & u_{2}&=2\times 2+1=5,\\
+u_{1}&=2\times 1+1=3, & u_{3}&=2\times 3+1=7 .
+\end{aligned}\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$w_{n}=2n^{2}-n+1$</span><div class="boite-corps"><p>Pour tout $n$ de $\N$, on donne : $w_{n}=2n^{2}-n+1$.</p>
+<p>Les premiers termes de cette suite sont donc :</p>
+<div class="maths">\[\begin{aligned}
+w_{0}&=2\times 0^{2}-0+1=1, & w_{2}&=2\times 2^{2}-2+1=5,\\
+w_{1}&=2\times 1^{2}-1+1=2, & w_{3}&=2\times 3^{2}-3+1=16 .
+\end{aligned}\]</div></div></section>
+<p>Lorsqu'on génère une suite par une formule explicite, chaque terme de la suite est exprimé en fonction de $n$ et indépendamment des termes précédents : la suite est une fonction de la variable entière $n$.</p>
+<h3>Générer une suite numérique par une relation de récurrence</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Suite définie par récurrence</span><div class="boite-corps"><p>Une suite est définie <strong>par récurrence</strong> lorsque le terme de rang $n$ est défini à partir de termes de rang qui le précèdent.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Le double du précédent</span><div class="boite-corps"><p>On définit la suite $(u_{n})$ par : $u_{0}=3$ et chaque terme de la suite est le double de son précédent.</p>
+<p>Les premiers termes de cette suite sont donc :</p>
+<div class="maths">\[\begin{aligned}
+u_{0}&=3, & u_{2}&=2\times u_{1}=2\times 6=12 .\\
+u_{1}&=2\times u_{0}=2\times 3=6, & &
+\end{aligned}\]</div>
+<p>De façon générale, on peut noter : $u_{n+1}=2u_{n}$ et il faut initier la suite avec le 1<sup>er</sup> terme $u_{0}=3$.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$v_{n+1}=4v_{n}-6$</span><div class="boite-corps"><p>On définit la suite $(v_{n})$ par : $v_{0}=3$ et, pour tout $n$ de $\N$, $v_{n+1}=4v_{n}-6$.</p>
+<p>Les premiers termes de cette suite sont donc :</p>
+<div class="maths">\[\begin{aligned}
+v_{0}&=3, & v_{2}&=4v_{1}-6=4\times 6-6=18,\\
+v_{1}&=4v_{0}-6=4\times 3-6=6, & v_{3}&=4v_{2}-6=4\times 18-6=66 .
+\end{aligned}\]</div>
+<p>Contrairement à une suite définie par une formule explicite, il n'est pas possible, dans l'état, de calculer par exemple $v_{100}$ sans connaître $v_{99}$.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Somme des $n$ premiers entiers</span><div class="boite-corps"><p>On définit la suite $(w_{n})$, somme des $n$ premiers entiers, par : pour tout $n$ de $\N\setminus\{0\}$,</p>
+<div class="maths">\[
+w_{n}=1+2+3+\dots+n .
+\]</div>
+<p>Les premiers termes de cette suite sont donc :</p>
+<div class="maths">\[\begin{aligned}
+w_{1}&=1, & w_{3}&=1+2+3=6,\\
+w_{2}&=1+2=3, & w_{4}&=1+2+3+4=10 .
+\end{aligned}\]</div>
+<p>On remarque par ailleurs que $w_{n+1}=w_{n}+n+1$ :</p>
+<div class="maths">\[\begin{aligned}
+w_{2}&=w_{1}+2=1+2=3, & w_{4}&=w_{3}+4=6+4=10 .\\
+w_{3}&=w_{2}+3=3+3=6, & &
+\end{aligned}\]</div></div></section>
+<p>Lorsqu'on génère une suite par une relation de récurrence, chaque terme de la suite s'obtient à partir d'un (ou plusieurs) des termes précédents.</p>
+<p><strong>À noter :</strong> le mot <em>récurrence</em> vient du latin <em>recurrere</em> qui signifie « revenir en arrière ».</p>
+<h2 id="s2"><span class="num-section">II.</span> Représentation graphique d'une suite</h2>
+<h3>Suite définie de manière explicite</h3>
+<p>Soit $f$ une fonction définie sur $\N$ et $(u_{n})$ la suite définie par $u_{n}=f(n)$.</p>
+<p>Dans un repère du plan, on représente une suite par un nuage de points de coordonnées $(n\,;u_{n})$.</p>
+<p>Pour représenter une suite $u$ dans un repère, on place :</p>
+<ul><li>les indices $n$ sur l'axe des abscisses ;</li><li>les termes $u_{n}$ sur l'axe des ordonnées ;</li><li>les points de coordonnées $(n\,;u_{n})$ dans le repère, sans les relier (image de points).</li></ul>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Suite définie explicitement</span><div class="boite-corps"><p>Pour tout $n$ de $\N$, on donne $u_{n}=\dfrac{n^{2}}{2}-3$.</p>
+<p>On construit le tableau de valeurs avec les premiers termes de la suite :</p></div></section>
+<table class="tableau"><tr><td>$n$</td><td>$0$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$6$</td><td>$7$</td><td>$8$</td></tr><tr><td>$u_{n}$</td><td>$-3$</td><td>$-2{,}5$</td><td>$-1$</td><td>$1{,}5$</td><td>$5$</td><td>$9{,}5$</td><td>$15$</td><td>$21{,}5$</td><td>$29$</td></tr><tr><td class="vide"></td><td colspan="9" class="note-tableau"></td></tr></table>
+<figure class="figure-cours"><img src="img/premiere-spe-ch03-fig01.png" alt="figure 1 du cours"></figure>
+<h3>Suite définie par récurrence</h3>
+<p>Soit $f$ une fonction définie sur $\N$ et $(u_{n})$ la suite définie par la relation de récurrence $u_{n+1}=f(u_{n})$ et le premier terme $u_{0}$.</p>
+<section class="boite boite-meth"><span class="boite-titre">Méthode</span> <span class="boite-sous-titre">1<sup>re</sup> méthode</span><div class="boite-corps"><p>Pour représenter cette suite, il est possible de calculer les termes un à un : $u_{1}$, $u_{2}$, …, $u_{n}$, et de se placer dans un repère orthonormal pour placer les points $U_{k}$ de coordonnées $(k\,;u_{k})$.</p></div></section>
+<section class="boite boite-meth"><span class="boite-titre">Méthode</span> <span class="boite-sous-titre">2<sup>ème</sup> méthode : la construction graphique</span><div class="boite-corps"><figure class="figure-cours"><img src="img/premiere-spe-ch03-fig02.png" alt="figure 2 du cours"></figure>
+<ul><li>Tracer la courbe représentant la fonction $f$.</li><li>Tracer la droite d'équation $y=x$ : chaque point de cette droite possède une abscisse égale à l'ordonnée.</li><li>Placer le point de coordonnées $(0\,;u_{0})$, le premier terme de la suite.</li><li>À l'aide de la droite $\Delta : y=x$, on cherche l'antécédent de $u_{0}$ qui est $u_{0}$, que l'on obtient par projection orthogonale sur l'axe des abscisses.</li><li>On obtient alors $u_{1}$ comme image de $u_{0}$ par la fonction $f$ : en effet $u_{1}=f(u_{0})$.</li><li>On va itérer le même processus : on cherche l'antécédent de $u_{1}$ par la fonction $y=x$ ; l'antécédent est $u_{1}$ et on l'obtient par projection orthogonale sur l'axe des abscisses. Puis on peut obtenir $u_{2}$ comme image de $u_{1}$ par la fonction $f$. Et ainsi de suite : de proche en proche, on obtient tous les termes de la suite sans effectuer de calcul !!!</li></ul></div></section>
+<h2 id="s3"><span class="num-section">III.</span> Sens de variation d'une suite numérique</h2>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Suite croissante, décroissante</span><div class="boite-corps"><p>Soit un entier $p$ et une suite numérique $(u_{n})$.</p>
+<p>La suite $(u_{n})$ est dite <strong>croissante à partir du rang $p$</strong> si, pour $n\geqslant p$, on a $u_{n+1}\geqslant u_{n}$.</p>
+<p>La suite $(u_{n})$ est dite <strong>décroissante à partir du rang $p$</strong> si, pour $n\geqslant p$, on a $u_{n+1}\leqslant u_{n}$.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Conjecture graphique</span><div class="boite-corps"><p>On a représenté ci-dessous le nuage de points des premiers termes d'une suite $(u_{n})$.</p>
+<p>On peut conjecturer que cette suite est croissante pour $n\geqslant 3$.</p>
+<figure class="figure-cours"><img src="img/premiere-spe-ch03-fig03.png" alt="figure 3 du cours"></figure></div></section>
+<h3>Méthode : étudier les variations d'une suite</h3>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$u_{n}=n^{2}-4n+4$</span><div class="boite-corps"><p>Pour tout $n$ de $\N$, on donne la suite $(u_{n})$ définie par : $u_{n}=n^{2}-4n+4$. Démontrer que la suite $(u_{n})$ est croissante à partir d'un certain rang.</p></div></section>
+<section class="boite boite-meth"><span class="boite-titre">Méthode</span> <span class="boite-sous-titre"><strong>Méthode 1 :</strong>Différence</span><div class="boite-corps"><p><strong>1.</strong> On commence par calculer la différence $u_{n+1}-u_{n}$ :</p>
+<div class="maths">\[\begin{aligned}
+u_{n+1}-u_{n}&=(n+1)^{2}-4(n+1)+4-(n^{2}-4n+4)\\
+&=n^{2}+2n+1-4n-4+4-n^{2}+4n-4\\
+&=2n-3 .
+\end{aligned}\]</div>
+<p><strong>2.</strong> On étudie ensuite le signe de $u_{n+1}-u_{n}$ :</p>
+<p>$u_{n+1}-u_{n}\geqslant 0$ pour $2n-3\geqslant 0$, donc pour $n\geqslant 1{,}5$. Ainsi, pour $n\geqslant 2$ ($n$ est entier), on a $u_{n+1}-u_{n}\geqslant 0$. On en déduit qu'à partir du rang $2$, la suite $(u_{n})$ est croissante.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$v_{n}=\dfrac{1}{n(n+1)}$</span><div class="boite-corps"><p>Pour tout $n$ de $\N^{*}$, on donne la suite $(v_{n})$ définie par : $v_{n}=\dfrac{1}{n(n+1)}$. Démontrer que la suite $(v_{n})$ est décroissante.</p></div></section>
+<section class="boite boite-meth"><span class="boite-titre">Méthode</span> <span class="boite-sous-titre"><strong>Méthode 2 :</strong> Quotient (uniquement pour suite de terme de signe constant !)</span><div class="boite-corps"><p><strong>1.</strong> On étudie le signe de $v_n$</p>
+<div class="maths">\[\forall n\in \N^{*},\quad n&gt;0\ \text{et}\ n+1&gt;0\ \Rightarrow\ n(n+1)&gt;0\ \Rightarrow\ \frac{1}{n(n+1)}&gt;0\ \Rightarrow\ \forall n\in \N^{*},\ v_{n}&gt;0\]</div>
+<p><strong>2.</strong> On peut calculer le rapport $\dfrac{v_{n+1}}{v_{n}}$ :</p>
+<div class="maths">\[
+\frac{v_{n+1}}{v_{n}}
+=\frac{\frac{1}{(n+1)(n+2)}}{\frac{1}{n(n+1)}}
+=\frac{n(n+1)}{(n+1)(n+2)}=\frac{n}{n+2} .
+\]</div>
+<p><strong>3.</strong> Puis on compare $\dfrac{v_{n+1}}{v_{n}}$ à $1$ :</p>
+<p>Or $0\leqslant n\leqslant n+2$, on a $\dfrac{v_{n+1}}{v_{n}}&lt;1$ et donc $v_{n+1}&lt;v_{n}$ (car $v_{n}&gt;0$).</p>
+<p>Soit $v_{n+1}-v_{n}&lt;0$ et on en déduit que $(v_{n})$ est décroissante.</p></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Fonction associée</span><div class="boite-corps"><p>Soit une fonction $f$ définie sur $\left[0\,;+\infty\right[$ et une suite numérique $(u_{n})$ définie sur $\N$ par $u_{n}=f(n)$. Soit un entier $p$.</p>
+<ul><li>Si $f$ est croissante sur l'intervalle $\left[p\,;+\infty\right[$, alors la suite $(u_{n})$ est croissante à partir du rang $p$.</li><li>Si $f$ est décroissante sur l'intervalle $\left[p\,;+\infty\right[$, alors la suite $(u_{n})$ est décroissante à partir du rang $p$.</li></ul></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><ul><li>$f$ est croissante sur $\left[p\,;+\infty\right[$ : donc, par définition d'une fonction croissante, on a, pour tout entier $n\geqslant p$, comme $n+1&gt;n$, $f(n+1)&gt;f(n)$ et donc $u_{n+1}&gt;u_{n}$.</li><li>Démonstration analogue pour la décroissance.</li></ul></div></section>
+<section class="boite boite-meth"><span class="boite-titre">Méthode</span> <span class="boite-sous-titre"><strong>Méthode 3 :</strong> fonction associée</span><div class="boite-corps"></div></section>
+<p>En effet $0&lt;n&lt;n+1$, donc $f(n)&gt;f(n+1)$, $\forall n\in\N$.</p>
+<p>Donc $\forall n\in\N$, $u_{n}&gt;u_{n+1}$ : la suite $u_{n}$ est donc décroissante ! \end{boxmethode}</p>
+<p><strong>Attention :</strong> la réciproque de la propriété énoncée plus haut est fausse.</p>
+<p>La représentation suivante montre une suite décroissante alors que la fonction $f$ correspondante n'est pas monotone.</p>
+<figure class="figure-cours"><img src="img/premiere-spe-ch03-fig04.png" alt="figure 4 du cours"></figure>
+<p><em>On a posé ici</em> $f(x)=\dfrac{2\sin\left(\frac{\pi}{2}+2\pi x\right)}{x}+1$ <em>sur</em> $\left]0\,;+\infty\right[$ <em>et</em> $u_{n}=f(n)$ <em>pour</em> $n\geqslant1$.</p>
+<p>Comme $\sin\left(\frac{\pi}{2}+2\pi n\right)=1$, on a $u_{n}=1+\dfrac{2}{n}$ : la suite est bien décroissante, alors que la fonction $f$ oscille indéfiniment autour de $1$ et n'est donc monotone sur aucun intervalle de la forme $\left[p\,;+\infty\right[$.</p>
+<h2 id="s4"><span class="num-section">IV.</span> Notion de limite d'une suite</h2>
+<h3>4.1  Suite convergente</h3>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$u_{n}=\dfrac{3n+5}{n}$</span><div class="boite-corps"><p>Pour tout $n$ de $\N\setminus\{0\}$, on considère la suite $(u_{n})$ définie par :</p>
+<div class="maths">\[
+u_{n}=\frac{3n+5}{n} .
+\]</div>
+<p>On construit le tableau de valeurs avec des termes de la suite :</p>
+<table class="tableau"><tr><td>$n$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$10$</td><td>$15$</td><td>$50$</td><td>$500$</td><td>$5000$</td></tr><tr><td>$u_{n}$</td><td>$8$</td><td>$5{,}5$</td><td>$4{,}6666$</td><td>$4{,}25$</td><td>$4$</td><td>$3{,}5$</td><td>$3{,}3333$</td><td>$3{,}1$</td><td>$3{,}01$</td><td>$3{,}001$</td></tr></table>
+<p>Plus $n$ devient grand, plus les termes de la suite semblent se rapprocher de $3$.</p>
+<p>On dit que la suite $(u_{n})$ converge vers $3$ et on note :</p>
+<div class="maths">\[
+\lim_{n\to+\infty}u_{n}=3 .
+\]</div></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Suite convergente</span><div class="boite-corps"><p>Une suite $(u_{n})$ est <strong>convergente</strong> lorsqu'elle admet une unique limite finie $\ell$ !</p>
+<p>On notera</p>
+<div class="maths">\[
+\lim_{n\to+\infty}u_{n}=\ell
+\]</div>
+<div class="maths">\[
+\forall\varepsilon&gt;0,\ \exists N\in\N \text{ tel que, pour tout } n&gt;N,\
+|u_{n}-\ell|&lt;\varepsilon .
+\]</div>
+<p><em>Traduction :</em> « Aussi petit que soit la taille de l'intervalle autour de la limite $\ell$, il existe toujours un rang à partir duquel la suite est coincée dans cette intervalle ! »</p></div></section>
+<h3>4.2  Suite divergente</h3>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$u_{n}=n$</span><div class="boite-corps"><p>Pour tout $n$ de $\N$, on considère la suite $(u_{n})$ définie par : $u_{n}=n$.</p>
+<p>Calculons quelques termes de cette suite :</p>
+<div class="maths">\[\begin{aligned}
+u_{0}&=0, & u_{2}&=2,\\
+u_{1}&=1, & u_{10}&=10,\\
+u_{1\,000\,000}&=100\,000, & &
+\end{aligned}\]</div>
+<p>Plus $n$ devient grand, plus les termes de la suite semblent devenir grands.</p>
+<p>On dit que la suite $(u_{n})$ diverge vers $+\infty$ et on note :</p>
+<div class="maths">\[
+\lim_{n\to+\infty}u_{n}=+\infty .
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$v_{n+1}=(-1)^{n}v_{n}$</span><div class="boite-corps"><p>Pour tout $n$ de $\N$, on considère la suite $(v_{n})$ définie par : $v_{n+1}=(-1)^{n}v_{n}$ et $v_{0}=2$.</p>
+<p>Calculons les premiers termes de cette suite :</p>
+<div class="maths">\[\begin{aligned}
+v_{1}&=(-1)^{0}v_{0}=2, & v_{4}&=(-1)^{3}v_{3}=2,\\
+v_{2}&=(-1)^{1}v_{1}=-2, & v_{5}&=(-1)^{4}v_{4}=2,\\
+v_{3}&=(-1)^{2}v_{2}=-2, & &
+\end{aligned}\]</div>
+<p>Lorsque $n$ devient grand, les termes de la suite ne semblent pas se rapprocher vers une valeur unique. On dit que la suite $(v_{n})$ diverge.</p></div></section>
+<h2 id="s5"><span class="num-section">V.</span> Algorithme Python pour suite récurrente</h2>
+<h3>5.1  Calculer le terme de rang $n$</h3>
+<p>Soit la suite $(u_{n})_{n\in\N}$ définie par</p>
+<div class="maths">\[
+\begin{cases}
+u_{0}=5\\
+u_{n+1}=2u_{n}^{2}+u_{n}+3
+\end{cases}
+\]</div>
+<p><strong>Algorithme en Python</strong></p>
+<div class="minipage"><pre class="verbatim">def calcul_terme_suite(n):
+    u = 5                    #On affecte le 1er terme de la suite a u
+    for i in range (n) :     #Boucle for va repeter n fois la meme instruction
+        u = 2 * u ** 2 + u + 3  #On calcule le terme suivant et on l&#x27;affecte a u
+    return u                 #Donne le resultat du terme de rang n</pre></div>
+<h3>5.2  Calculer un seuil</h3>
+<p>Soit la suite $u_{n}=3-\dfrac{1}{2^{n}}$ : déterminer à partir de quel rang la suite $(u_{n})$ vérifie</p>
+<div class="maths">\[
+0{,}2999&lt;u_{n}&lt;3{,}0001
+\]</div>
+<p>c'est-à-dire que $|u_{n}-3|&lt;0{,}0001$.</p>
+<p><strong>Algorithme en Python</strong></p>
+<div class="minipage"><pre class="verbatim">def calcul_seuil(s):
+    n=0                     #compteur
+    u=2                     #On affecte le premier terme de la suite a u
+    while abs(u - 3) &gt; s:   #Tant que la suite est a une distance &gt; s de 3
+        u = 3 - 1/2 ** n    #On calcule le terme suivant
+        n = n + 1           #A chaque tour on augmente le compteur de 1
+    return (n,u)            #Rang a partir duquel le seuil est depasse</pre></div>
+<p>Résultat pour $s=0{,}001$ :</p>
+<div class="minipage"><pre class="verbatim">&gt;&gt;&gt; calcul_seuil(0.001)
+(11, 2.9990234375)</pre></div>
+  <p style="margin-top:2.5rem"><a href="../index.html#premiere-spe">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

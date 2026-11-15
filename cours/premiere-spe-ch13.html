@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 13 : Variables aléatoires réelles — Première spécialité</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "prob": "{\\mathbb{P}}", "Esp": "{\\mathrm{E}}", "norme": ["{\\left\\|#1\\right\\|}", 1], "Pcond": ["{P_{#1}\\left(#2\\right)}", 2], "suite": ["{\\left(#1\\right)}", 1], "limn": "{\\lim\\limits_{n\\to+\\infty}}", "limx": ["{\\lim\\limits_{x\\to #1}}", 1]} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:60%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:60%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#premiere-spe">← Retour au site</a></p>
+  <h1>Chapitre 13 : Variables aléatoires réelles</h1>
+  <p class="sous-titre">Première spécialité · Chapitre 13 — Variables aléatoires · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Variables aléatoires</span><a class="onglet" href="../pdf/premiere-spe/13-variables-aleatoires.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/premiere-spe/td01-variable-aleatoire.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../quiz/premiere-spe-13.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Notion de variable aléatoire réelle</a></li><li><a href="#s2">II Espérance d'une variable aléatoire réelle</a></li><li><a href="#s3">III Variance et écart-type</a></li></ol></nav>
+<h2 id="s1"><span class="num-section">I.</span> Notion de variable aléatoire réelle</h2>
+<h3>Variable aléatoire</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Variable aléatoire</span><div class="boite-corps"><p>Soit $\Omega$ l'ensemble des issues d'une expérience aléatoire ($\Omega$ est l'univers). Une <strong>variable aléatoire</strong> sur $\Omega$ est une fonction définie sur $\Omega$ à valeurs dans $\R$.</p></div></section>
+<p>Soient $X$ une variable aléatoire définie sur $\Omega$ et $x$ un réel.</p>
+<p><strong>1.</strong> L'événement « $X$ prend la valeur $x$ » est l'ensemble des issues de $\Omega$ auxquelles on associe le réel $x$.</p>
+<p><strong>2.</strong> L'événement « $X$ prend des valeurs supérieures ou égales à $x$ » est l'ensemble des issues de $\Omega$ auxquelles on associe un réel supérieur ou égal à $x$.</p>
+<p><strong>3.</strong> L'événement « $X$ prend des valeurs inférieures ou égales à $x$ » est l'ensemble des issues de $\Omega$ auxquelles on associe un réel inférieur ou égal à $x$.</p>
+<p><strong>Notation :</strong> ces événements sont respectivement notés $\{X=x\}$, $\{X\geqslant x\}$ et $\{X\leqslant x\}$.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Trois menus</span><div class="boite-corps"><p>Un restaurant propose trois menus dont les prix respectifs sont $10$ euros, $12$ euros et $18$ euros. Il y a actuellement $100$ clients dans le restaurant.</p>
+<p><strong>1.</strong> On choisit une personne au hasard dans ce restaurant et on lui demande le prix de son menu. Quelle variable aléatoire peut-on définir ici ?</p>
+<p><strong>2.</strong> On choisit un menu au hasard et on s'intéresse au nombre de personnes dans le restaurant ayant choisi ce menu. Quelle variable aléatoire peut-on définir ici ?</p></div></section>
+<section class="boite boite-meth"><span class="boite-titre">Méthode</span><div class="boite-corps"><ul><li>il faut commencer par déterminer l'univers en fonction de l'expérience aléatoire ;</li><li>la variable aléatoire associe une valeur à chaque issue de l'univers.</li></ul></div></section>
+<p><strong>1.</strong> L'univers de cette expérience aléatoire est l'ensemble $\Omega_{1}$ des personnes du restaurant. Chaque personne interrogée répond $10$, $12$ ou $18$. On peut donc définir la variable $X_{1}$ sur $\Omega_{1}$, qui associe à chaque personne une valeur parmi $10$, $12$ ou $18$.</p>
+<p><strong>2.</strong> L'univers de cette expérience aléatoire est l'ensemble $\Omega_{2}=\{10\,;12\,;18\}$. Pour chaque valeur, on compte le nombre de personnes ayant choisi ce menu. La variable aléatoire $X_{2}$ est définie sur $\Omega_{2}$ et associe à chaque prix le nombre de personnes correspondant.</p>
+<h3>Loi de probabilité d'une variable aléatoire réelle</h3>
+<p>La <strong>probabilité de l'événement</strong> $\{X=x_{i}\}$ est la somme des probabilités des issues de $X$ auxquelles on associe le réel $x_{i}$.</p>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Loi de probabilité</span><div class="boite-corps"><p>Soit $X$ une variable aléatoire définie sur $\Omega$. Définir la <strong>loi de probabilité</strong> de la variable aléatoire $X$, c'est associer à chaque valeur $x_{i}$ prise par $X$ la probabilité de l'événement $\{X=x_{i}\}$.</p>
+<p>On présente souvent la loi de probabilité de $X$ sous la forme d'un tableau.</p></div></section>
+<h2 id="s2"><span class="num-section">II.</span> Espérance d'une variable aléatoire réelle</h2>
+<p>L'<strong>espérance</strong> de $X$ est le nombre réel, noté $\Esp(X)$, défini par</p>
+<div class="maths">\[
+\Esp(X)=\sum p_{i}x_{i}=p_{1}x_{1}+p_{2}x_{2}+\dots+p_{r}x_{r} .
+\]</div>
+<p>C'est une <strong>moyenne pondérée</strong> par la loi de probabilité. $\Esp(X)$ peut s'interpréter comme la valeur moyenne des valeurs prises par $X$ lorsque l'expérience aléatoire est répétée <strong>un très grand nombre de fois</strong>.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Calcul d'une espérance</span><div class="boite-corps"><p>La loi de probabilité d'une variable aléatoire $X$ est donnée ci-dessous :</p>
+<table class="tableau"><tr><td>$x_{i}$</td><td>$-2$</td><td>$1$</td><td>$4$</td></tr><tr><td>$\prob(X=x_{i})$</td><td>$\dfrac{1}{6}$</td><td>$\dfrac{1}{2}$</td><td>$\dfrac{1}{3}$</td></tr></table>
+<p>On a alors</p>
+<div class="maths">\[
+\Esp(x)=\frac{1}{6}\times(-2)+\frac{1}{2}\times 1+\frac{1}{3}\times 4=\frac{3}{2} .
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Linéarité de l'espérance</span><div class="boite-corps"><p>Soit $X$ une variable aléatoire et soient $a$ et $b$ des réels. Alors</p>
+<div class="maths">\[
+\Esp(aX+b)=a\times\Esp(X)+b .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><div class="maths">\[\begin{aligned}
+\Esp(aX+b)&=\sum p_{i}\left(ax_{i}+b\right)
+=p_{1}\left(ax_{1}+b\right)+p_{2}\left(ax_{2}+b\right)+\dots+p_{r}\left(ax_{r}+b\right)\\
+&=a\,p_{1}\times x_{1}+p_{1}b+a\,p_{2}\times x_{2}+p_{2}b+\dots+a\,p_{r}\times x_{r}+p_{r}b\\
+&=a\left(p_{1}x_{1}+p_{2}x_{2}+\dots+p_{r}x_{r}\right)+b\left(p_{1}+p_{2}+\dots+p_{r}\right)\\
+&=a\,\Esp(X)+b .
+\end{aligned}\]</div></div></section>
+<p><strong>Rappel :</strong> on a utilisé la propriété $p_{1}+p_{2}+\dots+p_{r}=1$.</p>
+<h3>Méthode</h3>
+<p><strong>1.</strong> On applique la formule du cours en remplaçant les $x_{i}$ par les valeurs prises par la variable aléatoire $X$ et les $p_{i}$ par les probabilités correspondantes.</p>
+<p><strong>2.</strong> On interprète le résultat à l'aide d'une <strong>moyenne</strong>, en se rappelant que cela est valable uniquement pour un <strong>très grand nombre</strong> d'expériences identiques réalisées.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Calculer et interpréter $\Esp(X)$</span><div class="boite-corps"><p>Soit $X$ une variable aléatoire dont on donne la loi de probabilité dans le tableau suivant. Calculer et interpréter $\Esp(X)$.</p>
+<table class="tableau"><tr><td>$x_{i}$</td><td>$-2$</td><td>$1$</td><td>$4$</td></tr><tr><td>$\prob(X=x_{i})$</td><td>$0{,}2$</td><td>$0{,}5$</td><td>$0{,}3$</td></tr></table>
+<div class="maths">\[
+\Esp(X)=-2\times 0{,}2+1\times 0{,}5+4\times 0{,}3=1{,}3 .
+\]</div>
+<p>Sur un très grand nombre de répétitions de cette expérience aléatoire, la valeur moyenne de $X$ est $1{,}3$.</p></div></section>
+<h2 id="s3"><span class="num-section">III.</span> Variance et écart-type</h2>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Variance et écart-type</span><div class="boite-corps"><p>Soit une variable aléatoire $X$ de loi de probabilité $\left(x_{i}\,;p_{i}\right)$, $i$ allant de $1$ à $n$.</p>
+<p>La <strong>variance</strong> de la loi de probabilité de $X$ est :</p>
+<div class="maths">\[
+V(X)=p_{1}\left(x_{1}-\Esp(X)\right)^{2}+p_{2}\left(x_{2}-\Esp(X)\right)^{2}
++\dots+p_{n}\left(x_{n}-\Esp(X)\right)^{2}
+=\sum_{i=1}^{n}p_{i}\left(x_{i}-\Esp(X)\right)^{2} .
+\]</div>
+<p>L'<strong>écart-type</strong> de la loi de probabilité de $X$ est :</p>
+<div class="maths">\[
+\sigma(X)=\sqrt{V(X)} .
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Formule de König</span><div class="boite-corps"><div class="maths">\[
+V(X)=\Esp\left(X^{2}\right)-\left[\Esp(X)\right]^{2} .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><div class="maths">\[\begin{aligned}
+V(X)&=\sum_{i=1}^{n}p_{i}\left(x_{i}-\Esp(X)\right)^{2}
+=\sum_{i=1}^{n}p_{i}\left[x_{i}^{2}-2x_{i}\Esp(X)+\left(\Esp(X)\right)^{2}\right]\\
+V(X)&=\sum_{i=1}^{n}p_{i}x_{i}^{2}-2\sum_{i=1}^{n}p_{i}x_{i}\Esp(X)
++\sum_{i=1}^{n}p_{i}\left(\Esp(X)\right)^{2}\\
+V(X)&=\Esp\left(x^{2}\right)-2\,\Esp(x)\sum_{i=1}^{n}p_{i}x_{i}
++\left(\Esp(x)\right)^{2}\sum_{i=1}^{n}p_{i}
+=\Esp\left(x^{2}\right)-2\left(\Esp(x)\right)^{2}+\left(\Esp(x)\right)^{2}
+=\Esp\left(x^{2}\right)-\left(\Esp(x)\right)^{2} .
+\end{aligned}\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Linéarité de l'espérance</span><div class="boite-corps"><p>Soit une variable aléatoire $X$ définie sur un univers $\Omega$, et $a$ et $b$ deux nombres réels.</p>
+<div class="maths">\[
+\Esp(aX+b)=a\,\Esp(X)+b
+\qquad\qquad
+V(aX+b)=a^{2}\,V(X) .
+\]</div></div></section>
+<p>\end{boxprop}</p>
+<h3>Méthode</h3>
+<p><strong>1.</strong> On applique la formule du cours en remplaçant les $x_{i}$ par les valeurs prises par la variable aléatoire $X$ et les $p_{i}$ par les probabilités correspondantes.</p>
+<p><strong>2.</strong> L'écart-type s'obtient simplement en calculant la racine carrée de la variance.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Variance et écart-type</span><div class="boite-corps"><p>Soit $X$ une variable aléatoire dont on donne la loi de probabilité dans le tableau suivant. Calculer la variance et l'écart-type de la variable aléatoire $X$.</p>
+<table class="tableau"><tr><td>$x_{i}$</td><td>$-2$</td><td>$1$</td><td>$4$</td></tr><tr><td>$\prob(X=x_{i})$</td><td>$0{,}2$</td><td>$0{,}5$</td><td>$0{,}3$</td></tr></table>
+<p>On a vu précédemment que $\Esp(X)=1{,}3$. On a alors :</p>
+<div class="maths">\[\begin{aligned}
+V(X)&=0{,}2\times(-2-1{,}3)^{2}+0{,}5\times(1-1{,}3)^{2}+0{,}3\times(4-1{,}3)^{2}\\
+&=0{,}2\times(-3{,}3)^{2}+0{,}5\times(-0{,}3)^{2}+0{,}3\times 2{,}7^{2}\\
+&=0{,}2\times 10{,}89+0{,}5\times 0{,}09+0{,}3\times 7{,}29\\
+&=2{,}178+0{,}045+2{,}187\\
+&=4{,}41 .
+\end{aligned}\]</div>
+<p>On en déduit l'écart-type :</p>
+<div class="maths">\[
+\sigma(X)=\sqrt{V(X)}=\sqrt{4{,}41}=2{,}1 .
+\]</div>
+<p>Vérification avec la formule de König :</p>
+<div class="maths">\[
+\Esp\left(X^{2}\right)=0{,}2\times 4+0{,}5\times 1+0{,}3\times 16
+=0{,}8+0{,}5+4{,}8=6{,}1,
+\]</div>
+<p>d'où</p>
+<div class="maths">\[
+V(X)=\Esp\left(X^{2}\right)-\left[\Esp(X)\right]^{2}=6{,}1-1{,}3^{2}=6{,}1-1{,}69=4{,}41 .
+\]</div></div></section>
+  <p style="margin-top:2.5rem"><a href="../index.html#premiere-spe">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

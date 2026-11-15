@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Géométrie — AP Concours</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.cours{max-width:960px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.7rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.4rem}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;
+  border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet.actif{background:var(--couleur,#3182ce);border-color:var(--couleur,#3182ce);color:#fff;font-weight:600}
+h2.niveau-titre{font-size:1.15rem;margin:1.8rem 0 .6rem;padding-bottom:.3rem;border-bottom:2px solid var(--couleur,#3182ce)}
+table.docs{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--bord);border-radius:12px;
+  overflow:hidden;font-size:.96rem}
+table.docs th{background:#eef4fb;text-align:left;padding:.55rem .8rem;border-bottom:1px solid var(--bord);
+  font-size:.82rem;text-transform:uppercase;letter-spacing:.03em;color:var(--doux)}
+table.docs td{padding:.55rem .8rem;border-bottom:1px solid var(--bord);vertical-align:middle}
+table.docs tr:last-child td{border-bottom:none}
+.pastille{display:inline-block;margin:.1rem .25rem .1rem 0;padding:.25rem .6rem;border-radius:8px;
+  border:1px solid var(--bord);background:#fbfdff;color:inherit;text-decoration:none;font-size:.88rem}
+.pastille:hover{border-color:var(--couleur,#3182ce);background:#f2f8ff}
+.pastille-quiz{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+.pastille-quiz:hover{background:#fbdcec;border-color:#e79cc3}
+.vide{color:#a0aec0}
+</style>
+</head>
+<body style="--couleur:#dd6b20">
+<main class="cours">
+  <p><a href="../index.html#ap-concours">← Retour au site</a></p>
+  <h1>Géométrie</h1>
+  <p class="sous-titre">AP Concours · fiches méthode, TD, corrigés et quiz par niveau</p>
+  <nav class="onglets" aria-label="Documents du chapitre">
+    <span class="onglet actif">Géométrie</span>
+    <a class="onglet" href="../pdf/ap-concours/fiche-methode-omb-geometrie.pdf" target="_blank" rel="noopener">🧭 Fiche méthode (PDF)</a>
+  </nav>
+  <h2 class="niveau-titre">Niveau 1</h2>
+  <table class="docs">
+    <thead><tr><th>TD</th><th>Corrigé</th><th>Quiz</th></tr></thead>
+    <tbody><tr><td><a class="pastille" href="../pdf/ap-concours/td01-omb-geometrie-1.pdf" target="_blank" rel="noopener">📄 TD — Niveau 1</a></td><td><a class="pastille" href="../pdf/ap-concours/td01-omb-geometrie-1-corrige.pdf" target="_blank" rel="noopener">📄 Corrigé — Niveau 1</a></td><td><a class="pastille pastille-quiz" href="../quiz/ap-concours-2n1.html">🧠 Quiz — Niveau 1</a></td></tr></tbody>
+  </table>
+  <h2 class="niveau-titre">Niveau 2</h2>
+  <table class="docs">
+    <thead><tr><th>TD</th><th>Corrigé</th><th>Quiz</th></tr></thead>
+    <tbody><tr><td><a class="pastille" href="../pdf/ap-concours/td02-omb-geometrie-2.pdf" target="_blank" rel="noopener">📄 TD — Niveau 2</a></td><td><a class="pastille" href="../pdf/ap-concours/td02-omb-geometrie-2-corrige.pdf" target="_blank" rel="noopener">📄 Corrigé — Niveau 2</a></td><td><a class="pastille pastille-quiz" href="../quiz/ap-concours-2n2.html">🧠 Quiz — Niveau 2</a></td></tr></tbody>
+  </table>
+  <p style="margin-top:2rem"><a href="../index.html#ap-concours">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 5 : Étude de fonction – Limite et continuité — Terminale spécialité</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "limx": ["{\\lim_{x\\to #1}}", 1], "norme": ["{\\left\\|#1\\right\\|}", 1], "prob": "{P}", "Pcond": ["{P_{#1}\\left(#2\\right)}", 2], "suite": ["{\\left(#1\\right)}", 1], "limn": "{\\lim\\limits_{n\\to+\\infty}}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#terminale-spe">← Retour au site</a></p>
+  <h1>Chapitre 5 : Étude de fonction – Limite et continuité</h1>
+  <p class="sous-titre">Terminale spécialité · Chapitre 5 — Limite et continuité · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Limite et continuité</span><a class="onglet" href="../pdf/terminale-spe/5-limite-et-continuite.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/terminale-spe/td01-limites-de-fonctions.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/terminale-spe/td02-continuite-et-tvi.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../pdf/terminale-spe/fiche-ap-limites-fonctions.pdf" target="_blank" rel="noopener">Fiche</a><a class="onglet" href="../quiz/terminale-spe-5.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Limite d'une fonction à l'infini</a></li><li><a href="#s2">II Limite d'une fonction en un réel $A$</a></li><li><a href="#s3">III Opérations sur les limites</a></li><li><a href="#s4">IV Limites et comparaison</a></li><li><a href="#s5">V Fonction continue</a></li><li><a href="#s6">VI Théorème des valeurs intermédiaires</a></li></ol></nav>
+<p>\newpage</p>
+<h2 id="s1"><span class="num-section">I.</span> Limite d'une fonction à l'infini</h2>
+<h3>Fonction sans limite à l'infini</h3>
+<p>Il existe des fonctions qui ne possèdent pas de limite à l'infini. C'est le cas des fonctions sinusoïdales.</p>
+<figure class="figure-cours"><img src="img/terminale-spe-ch05-fig01.png" alt="figure 1 du cours" style="height:116px;object-fit:fill"></figure>
+<h3>Limite finie à l'infini</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Limite finie en $+\infty$</span><div class="boite-corps"><p>On dit que la fonction $f$ admet pour <strong>limite $L$ en $+\infty$</strong> si tout intervalle ouvert contenant $L$ contient toutes les valeurs de $f(x)$ dès que $x$ est suffisamment grand, et on note</p>
+<div class="maths">\[
+\limx{+\infty}f(x)=L .
+\]</div>
+<p><strong>Notation mathématique :</strong></p>
+<div class="maths">\[
+\forall\varepsilon&gt;0,\ \exists A,\ \forall x&gt;A,\ f(x)\in\,]L-\varepsilon\,;L+\varepsilon[
+\quad\text{ou encore}\quad |f(x)-L|&lt;\varepsilon .
+\]</div></div></section>
+<figure class="figure-cours"><img src="img/terminale-spe-ch05-fig02.png" alt="figure 2 du cours"></figure>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Asymptote horizontale</span><div class="boite-corps"><ul><li>La droite d'équation $y=L$ est <strong>asymptote horizontale</strong> à la courbe représentative de la fonction $f$ en $+\infty$ si $\limx{+\infty}f(x)=L$.</li><li>La droite d'équation $y=L$ est <strong>asymptote horizontale</strong> à la courbe représentative de la fonction $f$ en $-\infty$ si $\limx{-\infty}f(x)=L$.</li></ul></div></section>
+<p><strong>Remarque.</strong>  Lorsque $x$ tend vers $+\infty$, la courbe de la fonction « se rapproche » de son asymptote : la distance $MN$ tend vers $0$.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Asymptote horizontale</span><div class="boite-corps"><p>$f(x)=5+\dfrac{1}{x}$.</p>
+<p>Lorsque $x$ devient très grand, la fonction $f$ se rapproche de $5$ de plus en plus sans le toucher :</p>
+<div class="maths">\[
+\limx{+\infty}f(x)=5 .
+\]</div>
+<p>Graphiquement, la fonction devient horizontale : on dit que $\mathcal{C}_{f}$ admet une asymptote horizontale au voisinage de $+\infty$.</p></div></section>
+<h3>Limite infinie en $+\infty$ et $-\infty$</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Limite $+\infty$ en $+\infty$</span><div class="boite-corps"><p>On dit que la fonction $f$ admet pour <strong>limite $+\infty$ en $+\infty$</strong> si, pour tout nombre $M$ réel aussi grand soit-il, il existe une valeur de $A$ telle que, pour $x$ supérieur à $A$, on aura $f(x)&gt;M$, et on note</p>
+<div class="maths">\[
+\limx{+\infty}f(x)=+\infty .
+\]</div>
+<p><strong>Notation mathématique :</strong></p>
+<div class="maths">\[
+\forall M\in\R,\quad \exists A,\ \forall x&gt;A,\ f(x)&gt;M .
+\]</div></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Limite $-\infty$ en $+\infty$</span><div class="boite-corps"><p>On dit que la fonction $f$ admet pour <strong>limite $-\infty$ en $+\infty$</strong> si, pour tout nombre $M$ réel aussi négatif soit-il, il existe une valeur de $A$ telle que, pour $x$ supérieur à $A$, on aura $f(x)&lt;M$, et on note</p>
+<div class="maths">\[
+\limx{+\infty}f(x)=-\infty .
+\]</div>
+<p><strong>Notation mathématique :</strong></p>
+<div class="maths">\[
+\forall M\in\R,\quad \exists A,\ \forall x&gt;A,\ f(x)&lt;M .
+\]</div></div></section>
+<figure class="figure-cours"><img src="img/terminale-spe-ch05-fig03-custom.png" alt="figure 3 du cours"></figure>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Limite infinie en $+\infty$</span><div class="boite-corps"><p>La fonction définie par $f(x)=x^{2}$ a pour limite $+\infty$ lorsque $x$ tend vers $+\infty$.</p>
+<p>En effet, les valeurs de la fonction deviennent aussi grandes que l'on souhaite dès que $x$ est suffisamment grand. Si on prend un réel $a$ quelconque, l'intervalle $]a\,;+\infty[$ contient toutes les valeurs de la fonction dès que $x$ est suffisamment grand.</p></div></section>
+<h3>Limites des fonctions usuelles</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Limites de référence</span><div class="boite-corps"><ul><li>$\limx{+\infty}x^{2}=+\infty$ et $\limx{-\infty}x^{2}=+\infty$ ;</li><li>$\limx{+\infty}x^{3}=+\infty$ et $\limx{-\infty}x^{3}=-\infty$ ;</li><li>$\limx{+\infty}x^{n}=+\infty$ et $\limx{-\infty}x^{n}=+\infty$ (pour $n$ pair) ;</li><li>$\limx{+\infty}x^{n}=+\infty$ et $\limx{-\infty}x^{n}=-\infty$ (pour $n$ impair) ;</li><li>$\limx{+\infty}\sqrt{x}=+\infty$ ;</li><li>$\limx{+\infty}\dfrac{1}{x}=0$ et $\limx{-\infty}\dfrac{1}{x}=0$ ;</li><li>$\limx{+\infty}\e^{x}=+\infty$ et $\limx{-\infty}\e^{x}=0$.</li></ul></div></section>
+<h2 id="s2"><span class="num-section">II.</span> Limite d'une fonction en un réel $A$</h2>
+<h3>Limite infinie en un point</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Limite infinie en $A$</span><div class="boite-corps"><ul><li><p>On dit que la fonction $f$ admet pour <strong>limite $+\infty$ en $A$</strong> si tout intervalle $]a\,;+\infty[$, $a$ réel, contient toutes les valeurs de $f(x)$ dès que $x$ est suffisamment proche de $A$, et on note $\limx{A}f(x)=+\infty$.</p>
+<p><strong>Notation mathématique :</strong></p>
+<div class="maths">        \[
+        \forall a&gt;0,\ \exists\mu,\ \forall x,\ |x-A|&lt;\mu
+        \Longrightarrow f(x)&gt;a .
+        \]</div></li><li>On dit que la fonction $f$ admet pour <strong>limite $-\infty$ en $A$</strong> si tout intervalle $]-\infty\,;b]$, $b$ réel, contient toutes les valeurs de $f(x)$ dès que $x$ est suffisamment proche de $A$, et on note $\limx{A}f(x)=-\infty$.</li></ul></div></section>
+<figure class="figure-cours"><img src="img/terminale-spe-ch05-fig04.png" alt="figure 4 du cours"></figure>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Asymptote verticale</span><div class="boite-corps"><p>La droite d'équation $x=A$ est <strong>asymptote verticale</strong> à la courbe représentative de la fonction $f$ si</p>
+<div class="maths">\[
+\limx{A}f(x)=+\infty
+\qquad\text{ou}\qquad
+\limx{A}f(x)=-\infty .
+\]</div></div></section>
+<p><strong>Remarque.</strong>  Certaines fonctions admettent des limites différentes en un réel $A$ selon que $x&gt;A$ ou $x&lt;A$.</p>
+<p>Considérons la fonction inverse définie sur $\R^{*}$ par $f(x)=\dfrac{1}{x}$.</p>
+<ul><li>Si $x&lt;0$ : lorsque $x$ tend vers $0$, $f(x)$ tend vers $-\infty$ et on note $\lim\limits_{\substack{x\to 0\\ x&lt;0}}f(x)=-\infty$ ou $\lim\limits_{x\to 0^{-}}f(x)=-\infty$.</li><li>Si $x&gt;0$ : lorsque $x$ tend vers $0$, $f(x)$ tend vers $+\infty$ et on note $\lim\limits_{\substack{x\to 0\\ x&gt;0}}f(x)=+\infty$ ou $\lim\limits_{x\to 0^{+}}f(x)=+\infty$.</li></ul>
+<p>On parle de <strong>limite à gauche de $0$</strong> et de <strong>limite à droite de $0$</strong>.</p>
+<figure class="figure-cours"><img src="img/terminale-spe-ch05-fig05.png" alt="figure 5 du cours"></figure>
+<h3>Limite en $0$ des fonctions élémentaires</h3>
+<table class="tableau"><tr><td>$f(x)$</td><td>$\dfrac{1}{x^{n}}$</td><td>$\dfrac{1}{\sqrt{x}}$</td></tr><tr><td>$\lim\limits_{x\to 0^{+}}f(x)$</td><td>$+\infty$</td><td>$+\infty$</td></tr><tr><td>$\lim\limits_{x\to 0^{-}}f(x)$</td><td>$+\infty$ \ $n$ pair<br> $-\infty$ \ $n$ impair</td><td>non défini</td></tr></table>
+<h3>Limite finie en un point</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Limite finie en $a$</span><div class="boite-corps"><p>Une fonction $f$ a pour <strong>limite $\ell$ en $a$</strong> si tout intervalle ouvert contenant $\ell$ contient toutes les valeurs de $f(x)$ pour $x$ assez proche de $a$.</p>
+<p>On note alors $\limx{a}f(x)=\ell$.</p>
+<p><strong>Notation mathématique :</strong></p>
+<div class="maths">\[
+\forall\varepsilon&gt;0,\ \exists\mu,\ |x-a|&lt;\mu
+\Longrightarrow |f(x)-\ell|&lt;\varepsilon .
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriétés (admises)</span><div class="boite-corps"><p>Soit $a$ un réel.</p>
+<ul><li>Si $a\geqslant 0$, $\limx{a}\sqrt{x}=\sqrt{a}$.</li><li>Si $P$ est un polynôme, alors $\limx{a}P(x)=P(a)$.</li><li>Si $F$ est une fonction rationnelle (quotient de deux polynômes) définie en $a$, alors $\limx{a}F(x)=F(a)$.</li><li>$\limx{a}\cos(x)=\cos(a)$ et $\limx{a}\sin(x)=\sin(a)$.</li><li>$\limx{a}\e^{x}=\e^{a}$.</li></ul></div></section>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Lecture d'un tableau de variations</span><div class="boite-corps"><p>Soit $f$ une fonction définie et dérivable sur $\R\setminus\{-1\}$ dont on donne le tableau de variations ci-dessous.</p>
+<ol><li>Donner les limites de $f$ en $+\infty$, $-\infty$ et $-1$.</li><li>Préciser les asymptotes.</li><li>Tracer une allure de $\mathcal{C}_{f}$.</li></ol></div></section>
+<figure class="figure-cours"><img src="img/terminale-spe-ch05-fig06.png" alt="figure 6 du cours"></figure>
+<p><strong>Correction.</strong></p>
+<p>D'après le tableau :</p>
+<ul><li>$\limx{-\infty}f(x)=2$ : $\mathcal{C}_{f}$ admet donc, au voisinage de $-\infty$, une asymptote horizontale d'équation $y=2$.</li><li>$\limx{+\infty}f(x)=-\infty$ : pas d'asymptote horizontale.</li><li>$\lim\limits_{\substack{x\to -1\\ x&lt;-1}}f(x)=+\infty$ et $\lim\limits_{\substack{x\to -1\\ x&gt;-1}}f(x)=+\infty$ : $\mathcal{C}_{f}$ admet donc, au voisinage de $-1$, une asymptote verticale d'équation $x=-1$.</li></ul>
+<figure class="figure-cours"><img src="img/terminale-spe-ch05-fig07.png" alt="figure 7 du cours"></figure>
+<h2 id="s3"><span class="num-section">III.</span> Opérations sur les limites</h2>
+<p>$\alpha$ peut désigner $+\infty$, $-\infty$ ou un nombre réel.</p>
+<h3>Limite d'une somme</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Limite d'une somme</span><div class="boite-corps"><table class="tableau"><tr><td>$\lim\limits_{x\to\alpha}f(x)=$</td><td>$L$</td><td>$L$</td><td>$L$</td><td>$+\infty$</td><td>$-\infty$</td><td>$+\infty$</td></tr><tr><td>$\lim\limits_{x\to\alpha}g(x)=$</td><td>$L'$</td><td>$+\infty$</td><td>$-\infty$</td><td>$+\infty$</td><td>$-\infty$</td><td>$-\infty$</td></tr><tr><td>$\lim\limits_{x\to\alpha}f(x)+g(x)=$</td><td>$L+L'$</td><td>$+\infty$</td><td>$-\infty$</td><td>$+\infty$</td><td>$-\infty$</td><td><strong>F.I.*</strong></td></tr></table>
+<p>* Forme indéterminée : on ne peut pas prévoir la limite éventuelle.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Limite d'une somme</span><div class="boite-corps"><p>$f(x)=x^{2}+\dfrac{1}{x}$.</p>
+<div class="maths">\[
+\limx{+\infty}x^{2}=+\infty
+\quad\text{et}\quad
+\limx{+\infty}\frac{1}{x}=0
+\quad\text{par somme}\quad
+\limx{+\infty}f(x)=+\infty .
+\]</div></div></section>
+<h3>Limite d'un produit</h3>
+<p>$\infty$ désigne $+\infty$ ou $-\infty$.</p>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Limite d'un produit</span><div class="boite-corps"><table class="tableau"><tr><td>$\lim\limits_{x\to\alpha}f(x)=$</td><td>$L$</td><td>$L$</td><td>$\infty$</td><td>$0$</td></tr><tr><td>$\lim\limits_{x\to\alpha}g(x)=$</td><td>$L'$</td><td>$\infty$</td><td>$\infty$</td><td>$\infty$</td></tr><tr><td>$\lim\limits_{x\to\alpha}f(x)g(x)=$</td><td>$L\,L'$</td><td>$\infty$</td><td>$\infty$</td><td><strong>F.I.</strong></td></tr></table>
+<p>On applique la <strong>règle des signes</strong> pour déterminer si le produit est $+\infty$ ou $-\infty$.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Limite d'un produit</span><div class="boite-corps"><div class="maths">\[
+\limx{-\infty}(x-5)\left(3+x^{2}\right)=?
+\]</div>
+<p>Or $\limx{-\infty}(x-5)=-\infty$ et $\limx{-\infty}\left(3+x^{2}\right)=+\infty$.</p>
+<p>D'après la règle sur la limite d'un produit :</p>
+<div class="maths">\[
+\limx{-\infty}(x-5)\left(3+x^{2}\right)=-\infty .
+\]</div></div></section>
+<h3>Limite d'un quotient</h3>
+<p>$\infty$ désigne $+\infty$ ou $-\infty$.</p>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Limite d'un quotient</span><div class="boite-corps"><table class="tableau"><tr><td>$\lim\limits_{x\to\alpha}f(x)=$</td><td>$L$</td><td>$L\neq 0$</td><td>$L$</td><td>$\infty$</td><td>$\infty$</td><td>$0$</td></tr><tr><td>$\lim\limits_{x\to\alpha}g(x)=$</td><td>$L'\neq 0$</td><td>$0$</td><td>$\infty$</td><td>$L$</td><td>$\infty$</td><td>$0$</td></tr><tr><td>$\lim\limits_{x\to\alpha}\dfrac{f(x)}{g(x)}=$</td><td>$\dfrac{L}{L'}$</td><td>$\infty$</td><td>$0$</td><td>$\infty$</td><td><strong>F.I.</strong></td><td><strong>F.I.</strong></td></tr></table></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Limite d'un quotient</span><div class="boite-corps"><div class="maths">\[
+\limx{3}\frac{1-2x}{x-3}=?
+\]</div>
+<p>Or $\limx{3}1-2x=-5$, et $\lim\limits_{\substack{x\to 3\\ x&lt;3}}x-3=0^{-}$, $\lim\limits_{\substack{x\to 3\\ x&gt;3}}x-3=0^{+}$.</p>
+<p>D'après la règle sur la limite d'un quotient :</p>
+<div class="maths">\[
+\lim_{\substack{x\to 3\\ x&lt;3}}\frac{1-2x}{x-3}=+\infty
+\qquad\text{et}\qquad
+\lim_{\substack{x\to 3\\ x&gt;3}}\frac{1-2x}{x-3}=-\infty .
+\]</div></div></section>
+<p><strong>Remarque.</strong>  Comme pour les suites, on rappelle que les quatre formes indéterminées sont, par abus d'écriture :</p>
+<div class="maths">\[
+\text{« }\infty-\infty\text{ »},\quad
+\text{« }0\times\infty\text{ »},\quad
+\text{« }\frac{\infty}{\infty}\text{ »}\quad\text{et}\quad
+\text{« }\frac{0}{0}\text{ »}.
+\]</div>
+<h3>Méthode : lever une forme indéterminée sur les fonctions polynômes et rationnelles</h3>
+<p><strong>Calculer</strong> $\displaystyle\limx{+\infty}-3x^{3}+2x^{2}-6x+1$.</p>
+<p>On a $\limx{+\infty}-3x^{3}=-\infty$ et $\limx{+\infty}2x^{2}=+\infty$.</p>
+<p>On reconnaît une forme indéterminée du type « $\infty-\infty$ ».</p>
+<p>Levons l'indétermination par la <strong>factorisation par le monôme de plus haut degré</strong> :</p>
+<div class="maths">\[
+-3x^{3}+2x^{2}-6x+1=x^{3}\left(-3+\frac{2}{x}-\frac{6}{x^{2}}
++\frac{1}{x^{3}}\right).
+\]</div>
+<p>Or $\limx{+\infty}\dfrac{2}{x}=\limx{+\infty}\dfrac{6}{x^{2}} =\limx{+\infty}\dfrac{1}{x^{3}}=0$.</p>
+<p>Donc, par limite d'une somme :</p>
+<div class="maths">\[
+\limx{+\infty}-3+\frac{2}{x}-\frac{6}{x^{2}}+\frac{1}{x^{3}}=-3 .
+\]</div>
+<p>De plus $\limx{+\infty}x^{3}=+\infty$, donc, par limite d'un produit :</p>
+<div class="maths">\[
+\limx{+\infty}x^{3}\left(-3+\frac{2}{x}-\frac{6}{x^{2}}+\frac{1}{x^{3}}\right)
+=-\infty .
+\]</div>
+<p>Soit :</p>
+<div class="maths">\[
+\limx{+\infty}-3x^{3}+2x^{2}-6x+1=-\infty .
+\]</div>
+<p> <strong>Calculer</strong> $\displaystyle\limx{+\infty}\frac{2x^{2}-5x+1}{6x^{2}-5}$ : c'est une limite de type « $\dfrac{\infty}{\infty}$ ».</p>
+<p>Levons l'indétermination en factorisant le plus grand monôme au numérateur et au dénominateur :</p>
+<div class="maths">\[
+\frac{2x^{2}-5x+1}{6x^{2}-5}
+=\frac{x^{2}\left(2-\frac{5}{x}+\frac{1}{x^{2}}\right)}
+       {x^{2}\left(6-\frac{5}{x^{2}}\right)}
+=\frac{2-\frac{5}{x}+\frac{1}{x^{2}}}{6-\frac{5}{x^{2}}}.
+\]</div>
+<p>Or $\limx{+\infty}\dfrac{5}{x}=\limx{+\infty}\dfrac{1}{x^{2}} =\limx{+\infty}\dfrac{5}{x^{2}}=0$.</p>
+<p>Donc, par limite d'une somme :</p>
+<div class="maths">\[
+\limx{+\infty}2-\frac{5}{x}+\frac{1}{x^{2}}=2
+\qquad\text{et}\qquad
+\limx{+\infty}6-\frac{5}{x^{2}}=6 .
+\]</div>
+<p>Donc, par limite d'un quotient :</p>
+<div class="maths">\[
+\limx{+\infty}\frac{2-\frac{5}{x}+\frac{1}{x^{2}}}{6-\frac{5}{x^{2}}}
+=\frac{2}{6}=\frac{1}{3}.
+\]</div>
+<p>Soit :</p>
+<div class="maths">\[
+\limx{+\infty}\frac{2x^{2}-5x+1}{6x^{2}-5}=\frac{1}{3}.
+\]</div>
+<p> <strong>Calculer</strong> $\displaystyle\limx{-\infty}\frac{3x^{2}+2}{4x-1}$ : il s'agit d'une forme indéterminée du type « $\dfrac{\infty}{\infty}$ ».</p>
+<p>Levons l'indétermination en factorisant le plus grand monôme au numérateur et au dénominateur :</p>
+<div class="maths">\[
+\frac{3x^{2}+2}{4x-1}
+=\frac{x^{2}\left(3+\frac{2}{x^{2}}\right)}{x\left(4-\frac{1}{x}\right)}
+=x\times\frac{3+\frac{2}{x^{2}}}{4-\frac{1}{x}} .
+\]</div>
+<p>Or $\limx{-\infty}\dfrac{1}{x}=\limx{-\infty}\dfrac{2}{x^{2}}=0$.</p>
+<p>Donc, par limite d'une somme :</p>
+<div class="maths">\[
+\limx{-\infty}3+\frac{2}{x^{2}}=3
+\qquad\text{et}\qquad
+\limx{-\infty}4-\frac{1}{x}=4 .
+\]</div>
+<p>Donc, par limite d'un quotient :</p>
+<div class="maths">\[
+\limx{-\infty}\frac{3+\frac{2}{x^{2}}}{4-\frac{1}{x}}=\frac{3}{4}.
+\]</div>
+<p>De plus $\limx{-\infty}x=-\infty$, donc, par limite d'un produit :</p>
+<div class="maths">\[
+\limx{-\infty}x\times\frac{3+\frac{2}{x^{2}}}{4-\frac{1}{x}}=-\infty .
+\]</div>
+<p>Soit :</p>
+<div class="maths">\[
+\limx{-\infty}\frac{3x^{2}+2}{4x-1}=-\infty .
+\]</div>
+<h2 id="s4"><span class="num-section">IV.</span> Limites et comparaison</h2>
+<h3>Théorème de comparaison</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème de comparaison</span><div class="boite-corps"><p>Soient $f$ et $g$ deux fonctions définies sur un intervalle $I$ de la forme $I=[A\,;+\infty[$ où $A$ est soit un réel, soit $-\infty$.</p>
+<ul><li>Si, pour tout $x\in I$, $f(x)\geqslant g(x)$ et $\limx{+\infty}g(x)=+\infty$, alors $\limx{+\infty}f(x)=+\infty$.</li><li>Si, pour tout $x\in I$, $f(x)\leqslant g(x)$ et $\limx{+\infty}g(x)=-\infty$, alors $\limx{+\infty}f(x)=-\infty$.</li></ul></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><ul><li><p>On suppose que, pour tout $x\in I$, $f(x)\geqslant g(x)$ et $\limx{+\infty}g(x)=+\infty$.</p>
+<div class="maths">        \[
+        \limx{+\infty}g(x)=+\infty
+        \iff \forall M,\ \exists A,\ x\geqslant A,\ g(x)\geqslant M .
+        \]</div>
+<p>Or, pour tout $x\in I$, $f(x)\geqslant g(x)$, donc</p>
+<div class="maths">        \[
+        \forall M,\ \exists A,\ x\geqslant A,\ f(x)\geqslant M
+        \iff \limx{+\infty}f(x)=+\infty .
+        \]</div></li><li><p>On suppose que, pour tout $x\in I$, $f(x)\leqslant g(x)$ et $\limx{+\infty}g(x)=-\infty$.</p>
+<div class="maths">        \[
+        \limx{+\infty}g(x)=-\infty
+        \iff \forall M,\ \exists A,\ x\geqslant A,\ g(x)\leqslant M .
+        \]</div>
+<p>Or, pour tout $x\in I$, $f(x)\leqslant g(x)$, donc</p>
+<div class="maths">        \[
+        \forall M,\ \exists A,\ x\geqslant A,\ f(x)\leqslant M
+        \iff \limx{+\infty}f(x)=-\infty .
+        \]</div></li></ul></div></section>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Inégalité de convexité</span><div class="boite-corps"><p>Pour tout $x\in\R$, $\e^{x}\geqslant x+1$ (inégalité de convexité).</p>
+<p>En déduire la limite $\displaystyle\limx{+\infty}\e^{x}$.</p></div></section>
+<p><strong>Correction.</strong></p>
+<ul><li>$\limx{+\infty}x+1=+\infty$ ;</li><li>$\forall x\in\R$, $\e^{x}\geqslant x+1$ ;</li></ul>
+<p>d'après le théorème de comparaison,</p>
+<div class="maths">\[
+\limx{+\infty}\e^{x}=+\infty .
+\]</div>
+<h3>Théorème d'encadrement (théorème des gendarmes)</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème des gendarmes</span><div class="boite-corps"><p>Soient $f$, $g$ et $h$ trois fonctions définies sur un intervalle $I$ de la forme $I=[A\,;+\infty[$ où $A$ est soit un réel, soit $-\infty$. Soit $\ell$ un nombre réel ou $+\infty$ ou $-\infty$. Si, pour tout $x\in I$,</p>
+<div class="maths">\[
+g(x)\leqslant f(x)\leqslant h(x)
+\]</div>
+<p>et si les fonctions $g$ et $h$ ont la même limite $\ell$ en $+\infty$, alors $\limx{+\infty}f(x)=\ell$.</p></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>Cas où $\alpha=+\infty$.</p>
+<p>On suppose que, pour tout $x\in I$, $g(x)\leqslant f(x)\leqslant h(x)$ et $\limx{+\infty}g(x)=\limx{+\infty}h(x)=\ell$.</p>
+<p>Quel que soit $\varepsilon&gt;0$ :</p>
+<div class="maths">\[
+\limx{+\infty}g(x)=\ell
+\iff \exists M_{1},\ x&gt;M_{1},\ |g(x)-\ell|&lt;\varepsilon
+\iff -\varepsilon\leqslant g(x)-\ell\leqslant\varepsilon
+\]</div>
+<div class="maths">\[
+\limx{+\infty}h(x)=\ell
+\iff \exists M_{2},\ x&gt;M_{2},\ |h(x)-\ell|&lt;\varepsilon
+\iff -\varepsilon\leqslant h(x)-\ell\leqslant\varepsilon .
+\]</div>
+<p>Posons $M=\max(M_{1}\,;M_{2})$.</p>
+<p>Or, pour tout $x\in I$, $g(x)\leqslant f(x)\leqslant h(x)$, donc</p>
+<div class="maths">\[
+g(x)-\ell\leqslant f(x)-\ell\leqslant h(x)-\ell .
+\]</div>
+<p>Pour $x&gt;M$ :</p>
+<div class="maths">\[
+-\varepsilon\leqslant f(x)-\ell\leqslant\varepsilon
+\iff |f(x)-\ell|&lt;\varepsilon .
+\]</div>
+<p><strong>Conclusion.</strong></p>
+<div class="maths">\[
+\forall\varepsilon&gt;0,\ \exists M,\ x&gt;M,\ |f(x)-\ell|&lt;\varepsilon
+\iff \limx{+\infty}f(x)=\ell .
+\]</div></div></section>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Limite de $\dfrac{\sin x}{x}$</span><div class="boite-corps"><p>Calculer $\displaystyle\limx{+\infty}\frac{\sin(x)}{x}$.</p></div></section>
+<p><strong>Correction.</strong></p>
+<ul><li>Pour tout $x\in\R^{++}$, $-1\leqslant\sin(x)\leqslant 1$, donc $-\dfrac{1}{x}\leqslant\dfrac{\sin(x)}{x}\leqslant\dfrac{1}{x}$ (car $x&gt;0$).</li><li>$\limx{+\infty}-\dfrac{1}{x}=0$ et $\limx{+\infty}\dfrac{1}{x}=0$.</li></ul>
+<p>D'après le théorème des gendarmes,</p>
+<div class="maths">\[
+\limx{+\infty}\frac{\sin(x)}{x}=0 .
+\]</div>
+<h3>Théorème de croissance comparée</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Croissance comparée</span><div class="boite-corps"><p>Pour tout $n\in\N$,</p>
+<div class="maths">\[
+\limx{+\infty}\frac{\e^{x}}{x^{n}}=+\infty
+\qquad\text{et}\qquad
+\limx{+\infty}x^{n}\e^{x}=+\infty .
+\]</div></div></section>
+<p><strong>Application :</strong> calculer $\displaystyle\limx{+\infty}\e^{x}-x^{2}$.</p>
+<p>On a $\limx{+\infty}\e^{x}=+\infty$ et $\limx{+\infty}-x^{2}=-\infty$, donc $\limx{+\infty}\e^{x}-x^{2}$ est une forme indéterminée.</p>
+<p><strong>On factorise $x^{2}$ :</strong></p>
+<div class="maths">\[
+\limx{+\infty}\e^{x}-x^{2}=\limx{+\infty}x^{2}\left(\frac{\e^{x}}{x^{2}}-1\right).
+\]</div>
+<p>D'après le théorème de croissance comparée, $\limx{+\infty}\dfrac{\e^{x}}{x^{2}}=+\infty$, donc par somme $\limx{+\infty}\dfrac{\e^{x}}{x^{2}}-1=+\infty$.</p>
+<p>Par produit :</p>
+<div class="maths">\[
+\limx{+\infty}x^{2}\left(\frac{\e^{x}}{x^{2}}-1\right)=+\infty .
+\]</div>
+<h2 id="s5"><span class="num-section">V.</span> Fonction continue</h2>
+<h3>Définition</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Continuité en un point</span><div class="boite-corps"><p>Soient $f$ une fonction définie sur un intervalle $I$ et $a$ un réel appartenant à $I$.</p>
+<ul><li>$f$ est <strong>continue en $a$</strong> lorsque $f$ admet une limite en $a$ et que cette limite est $f(a)$.</li><li>$f$ est <strong>continue sur un intervalle $I$</strong> lorsqu'elle est continue en $a$ pour tout $a\in I$.</li></ul></div></section>
+<section class="boite boite-meth"><span class="boite-titre">Méthode</span> <span class="boite-sous-titre">Méthode d'étude de limite de $f$ en $a$.</span><div class="boite-corps"><p>Pour étudier la continuité en $a$ d'une fonction $f$ :</p>
+<ol><li>on calcule la limite de $f$ en $a$ pour $x&lt;a$ ;</li><li>on calcule la limite de $f$ en $a$ pour $x&gt;a$ ;</li><li>on compare les valeurs obtenues à $f(a)$ : si $\lim\limits_{\substack{x\to a\\ x&lt;a}}f(x) =\lim\limits_{\substack{x\to a\\ x&gt;a}}f(x)=f(a)$, alors $f$ est continue en $a$.</li></ol></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Fonction discontinue</span><div class="boite-corps"><p>La fonction $f$ définie sur $\R$ par</p>
+<div class="maths">\[
+\begin{cases}
+x^{2} & \text{si } x&lt;2\\
+3 & \text{si } x=2\\
+x^{2} & \text{si } x&gt;2
+\end{cases}
+\]</div>
+<div class="maths">\[
+\lim\limits_{\substack{x\to 2\\ x&lt;2}}f(x)=4
+\qquad\text{et}\qquad
+\lim\limits_{\substack{x\to 2\\ x&gt;2}}f(x)=4
+\quad\text{mais}\quad f(2)=3 .
+\]</div>
+<p>Donc $f$ n'est pas continue en $2$.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Fonction continue</span><div class="boite-corps"><p>La fonction $f$ définie sur $\R$ par</p>
+<div class="maths">\[
+\begin{cases}
+x+6 & \text{si } x\leqslant 3\\
+x^{2} & \text{si } x&gt;3
+\end{cases}
+\]</div>
+<p>Étudions la continuité en $3$.</p>
+<div class="maths">\[
+\lim\limits_{\substack{x\to 3\\ x&lt;3}}f(x)=9
+\qquad\text{et}\qquad
+\lim\limits_{\substack{x\to 3\\ x&gt;3}}f(x)=9
+\quad\text{de plus}\quad f(3)=9 .
+\]</div>
+<p>On a $\lim\limits_{\substack{x\to 3\\ x&lt;3}}f(x) =\lim\limits_{\substack{x\to 3\\ x&gt;3}}f(x)=f(3)$, donc $f$ est continue en $3$.</p></div></section>
+<h3>Opérations et fonctions continues</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Dérivable implique continue</span><div class="boite-corps"><p>Toute fonction dérivable sur un intervalle $I$ est continue sur $I$.</p></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>On considère une fonction $f$ définie et dérivable sur un intervalle $I$ ; quels que soient $a$ et $x$ deux réels appartenant à $I$.</p>
+<p>Pour tout $x\neq a$, on a</p>
+<div class="maths">\[
+f(x)-f(a)=\frac{f(x)-f(a)}{x-a}\,(x-a).
+\]</div>
+<p>Or $\limx{a}x-a=0$ et $\limx{a}\dfrac{f(x)-f(a)}{x-a}=f'(a)$, car $f$ est dérivable sur $I$.</p>
+<p>Par produit, $\limx{a}\dfrac{f(x)-f(a)}{x-a}\,(x-a)=0$, donc $\limx{a}f(x)=f(a)$.</p>
+<p><strong>Conclusion.</strong>  Quel que soit $a\in I$, $f$ est continue en $a$, donc $f$ est continue sur $I$.</p></div></section>
+<p><strong>Remarque.</strong>  La réciproque est fausse : $f(x)=|x|$ est continue en $0$ mais n'est pas dérivable en $0$.</p>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Opérations sur les fonctions continues</span><div class="boite-corps"><ol><li>Les fonctions de référence (polynômes, valeur absolue, exponentielle, racine carrée, fonction inverse, fonction logarithme et fonction trigonométrique) sont continues sur leur intervalle de définition.</li><li>La somme et le produit de fonctions continues sur un intervalle $I$ sont continus sur cet intervalle.</li><li>Si $f$ et $g$ sont continues sur $I$ et si $g$ ne s'annule pas sur $I$, alors le quotient $\dfrac{f}{g}$ est continu sur $I$.</li><li>Si $f:I\to J$ et $g:J\to\R$ sont continues, alors $g\circ f$ est continue sur $I$.</li></ol></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>les limites.</p>
+<p>Soient $a\in I$ ; si $\limx{a}f(x)=f(a)$ et $\limx{a}g(x)=g(a)$, alors</p>
+<div class="maths">\[
+\limx{a}f(x)+g(x)=f(a)+g(a)
+\qquad\text{et}\qquad
+\limx{a}f(x)\times g(x)=f(a)\times g(a).
+\]</div>
+<p>Et, pour $g(a)\neq 0$,</p>
+<div class="maths">\[
+\limx{a}\frac{f(x)}{g(x)}=\frac{f(a)}{g(a)} .
+\]</div>
+<p>Donc la somme et le produit de deux fonctions continues sont continus, et, pour le quotient, il faut ajouter la condition $g(a)\neq 0$.</p></div></section>
+<p><strong>Application.</strong>  Soit $f$ la fonction définie sur $[0\,;+\infty[$ par $f(x)=x^{3}+2x+\sqrt{x}$.</p>
+<p>$f$ est une somme de fonctions continues sur $[0\,;+\infty[$ : elle est donc continue sur $[0\,;+\infty[$.</p>
+<h2 id="s6"><span class="num-section">VI.</span> Théorème des valeurs intermédiaires</h2>
+<h3>Cas général</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème des valeurs intermédiaires</span><div class="boite-corps"><p>Si $f$ est continue sur $[a\,;b]$, alors, pour tout réel $k$ compris entre $f(a)$ et $f(b)$, l'équation $f(x)=k$ admet <strong>au moins</strong> une solution dans $[a\,;b]$.</p>
+<p>Autrement dit, tout réel $k$ compris entre $f(a)$ et $f(b)$ admet <strong>au moins</strong> un antécédent par $f$ dans $[a\,;b]$.</p></div></section>
+<figure class="figure-cours"><img src="img/terminale-spe-ch05-fig08.png" alt="figure 8 du cours"></figure>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Solution de $\e^{x}=2$</span><div class="boite-corps"><p>Soit $f(x)=\e^{x}$ : montrer que $f(x)=2$ admet une solution dans $[0\,;1]$.</p></div></section>
+<p><strong>Correction.</strong></p>
+<ul><li>$f$ est continue ;</li><li>$f(0)=1$ et $f(1)=\e\approx 2{,}7$ : $2$ est une valeur intermédiaire.</li></ul>
+<p>D'après le théorème des valeurs intermédiaires, l'équation $f(x)=2$ admet au moins une solution dans $[0\,;1]$.</p>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Cas du changement de signe</span><div class="boite-corps"><p>Si $f$ est continue sur $[a\,;b]$ et $f(a)\times f(b)\leqslant 0$, l'équation $f(x)=0$ admet <strong>au moins</strong> une solution dans $[a\,;b]$.</p></div></section>
+<h3>Fonctions strictement monotones</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Corollaire du TVI</span><div class="boite-corps"><p>Si $f$ est continue et <strong>strictement monotone</strong> sur $[a\,;b]$, alors, pour tout réel $k$ compris entre $f(a)$ et $f(b)$, l'équation $f(x)=k$ admet <strong>une unique</strong> solution dans $[a\,;b]$.</p></div></section>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Nombre de solutions de $f(x)=10$</span><div class="boite-corps"><p>Soit $f(x)=x^{3}-3x^{2}-1$ la fonction définie sur $\R$. Quel est le nombre de solutions de l'équation $f(x)=10$ sur $\R$ ?</p></div></section>
+<p><strong>Solution.</strong>  $f$ est une fonction polynôme : elle est donc définie, continue et dérivable sur $\R$.</p>
+<p>Pour tout $x\in\R$, $f'(x)=3x^{2}-6x=3x(x-2)$.</p>
+<p>Dressons le tableau de variation de $f$ :</p>
+<figure class="figure-cours"><img src="img/terminale-spe-ch05-fig09.png" alt="figure 9 du cours"></figure>
+<p>Sur $]-\infty\,;2]$, le maximum de $f$ vaut $-1$, donc $f(x)=10$ n'a pas de solution sur cet intervalle.</p>
+<p>Sur $[2\,;+\infty[$, $f$ est <strong>continue et strictement croissante</strong> et $10$ est une valeur intermédiaire. D'après le corollaire du théorème des valeurs intermédiaires, il existe un unique $\alpha\in[2\,;+\infty[$ tel que $f(\alpha)=10$.</p>
+<p>Donc l'équation n'admet qu'une seule solution sur $\R$.</p>
+<h3>Dichotomie</h3>
+<p>Résolution algorithmique de $f(x)=0$.</p>
+<p>On identifie un intervalle où une solution existe grâce au TVI.</p>
+<p><strong>Le principe de dichotomie</strong> consiste à diviser l'intervalle en deux et à choisir la moitié de l'intervalle où la fonction change de signe, et à réitérer ce processus jusqu'à la précision demandée.</p>
+<pre class="verbatim">def dicho(a,b,p):
+    n=0
+    while b-a&gt;=10**(-p):
+        c=(a+b)/2
+        if f(a)*f(c)&lt;0:
+            b=c
+        else:
+            a=c
+        n+=1
+    return a,b,n</pre>
+  <p style="margin-top:2.5rem"><a href="../index.html#terminale-spe">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

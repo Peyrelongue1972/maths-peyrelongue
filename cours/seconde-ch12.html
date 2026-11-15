@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 12 : Équation de droite cartésienne — Seconde</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "AB": "{\\overrightarrow{AB}}", "AM": "{\\overrightarrow{AM}}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#seconde">← Retour au site</a></p>
+  <h1>Chapitre 12 : Équation de droite cartésienne</h1>
+  <p class="sous-titre">Seconde · Chapitre 12 — Équation de droite cartésienne · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Équation de droite cartésienne</span><a class="onglet" href="../pdf/seconde/12-equation-de-droite-cartesienne.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../quiz/seconde-12.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Notion d'équation de droite</a></li><li><a href="#s2">II Théorèmes</a></li><li><a href="#s3">III Propriétés</a></li><li><a href="#s4">IV Application : fonction affine</a></li><li><a href="#s5">V Résolution de système d'équations à deux inconnues</a></li></ol></nav>
+<h2 id="s1"><span class="num-section">I.</span> Notion d'équation de droite</h2>
+<h3>1.1  Définition d'une droite</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Droite $(AB)$</span><div class="boite-corps"><p>Soient $A$ et $B$ deux points du plan : on appelle <strong>droite</strong> $(AB)$ l'ensemble des points $M$ du plan alignés avec les points $A$ et $B$.</p></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Vecteur directeur</span><div class="boite-corps"><p>On appelle <strong>vecteur directeur</strong> de la droite $(AB)$ tout vecteur $\vec{v}$ qui a la même direction que la droite $(AB)$.</p></div></section>
+<p><strong>Remarque :</strong> une droite admet une infinité de vecteurs directeurs. Ils sont tous colinéaires entre eux.</p>
+<figure class="figure-cours"><img src="img/seconde-ch12-fig01.png" alt="figure 1 du cours"></figure>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Point et vecteur directeur</span><div class="boite-corps"><p>Soient $A$ un point et $\vec{u}$ un vecteur : l'ensemble des points $M$ du plan tels que les vecteurs $\AM$ et $\vec{u}$ soient colinéaires forme une droite passant par $A$ et de vecteur directeur $\vec{u}$.</p></div></section>
+<p><strong>Remarque :</strong> un point et un vecteur définissent une droite !</p>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Colinéarité et déterminant</span><div class="boite-corps"><p>Deux vecteurs non nuls $\vec{u}$ et $\vec{v}$ sont colinéaires si et seulement si</p>
+<div class="maths">\[
+\det\left(\vec{u}\,;\vec{v}\right)=0 .
+\]</div></div></section>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Ensemble des points alignés</span><div class="boite-corps"><p>Soient $A(2\,;-3)$ et $B(2\,;4)$ : trouver l'ensemble des points $M(x\,;y)$ alignés avec $A$ et $B$.</p></div></section>
+<p><strong>Correction :</strong> $M$ est aligné avec $A$ et $B$ si et seulement si $\AM$ et $\AB$ sont colinéaires.</p>
+<div class="maths">\[
+\AB\begin{pmatrix}0\\ 7\end{pmatrix}
+\qquad\text{et}\qquad
+\AM\begin{pmatrix}x-2\\ y+3\end{pmatrix} .
+\]</div>
+<p>$A$, $B$ et $M$ alignés $\iff \det\left(\AB\,;\AM\right)=0 \iff -7\,(x-2)+0\times(y+3)=0\iff -7(x-2)=0\iff x=2$.</p>
+<p>Il y a équivalence entre « $M$ est aligné avec les points $A$ et $B$ » et « l'abscisse du point $M$ est égale à $2$ ».</p>
+<p><strong>Conclusion :</strong> l'ensemble des points $M$ d'abscisse $2$ sont alignés avec $A$ et $B$ et appartiennent donc à la droite $(AB)$. On dira que la droite $(AB)$ a pour équation $x=2$.</p>
+<p><strong>Remarque :</strong> cette droite est parallèle à l'axe des ordonnées.</p>
+<h2 id="s2"><span class="num-section">II.</span> Théorèmes</h2>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Équation cartésienne</span><div class="boite-corps"><p>Soit $D$ une droite dans le plan muni d'un repère $(O\,;\vec{i}\,;\vec{j})$. On appelle <strong>équation cartésienne</strong> de la droite $(D)$ toute équation vérifiée par, et uniquement par, les coordonnées $(x\,;y)$ des points de la droite $(D)$.</p></div></section>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Équation cartésienne d'une droite</span><div class="boite-corps"><p>Soit $(O\,;\vec{i}\,;\vec{j})$ un repère du plan : toute équation cartésienne de la forme</p>
+<div class="maths">\[
+a\,y+b\,x+c=0
+\]</div>
+<p>est une équation de droite.</p></div></section>
+<p><strong>Interprétation :</strong> tous les points $M$ du plan d'abscisse $x$ et d'ordonnée $y$ tels que $a\,y+b\,x+c=0$ appartiennent à la même droite.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Point appartenant à une droite</span><div class="boite-corps"><p>Soit $D$ : $2y+x=2$.</p>
+<p>Le point $A(0\,;1)$ appartient à $D$ car $2\times 1+0=2$.</p>
+<p>Le point $B(0\,;2)$ n'appartient pas à $D$ car $2\times 2+0=4\neq 2$.</p></div></section>
+<p><strong>Preuve :</strong> soit un point $A$ du plan de coordonnées $A\left(x_{0}\,;y_{0}\right)$ et $\vec{u}\begin{pmatrix}\alpha\\ \beta\end{pmatrix}$ un vecteur du plan non nul (donc $(\alpha\,;\beta)\neq(0\,;0)$).</p>
+<p>Le couple $\left(A\,;\vec{u}\right)$ définit une droite $D$ du plan.</p>
+<p>Pour tout point $M$ de coordonnées $M(x\,;y)$, les vecteurs $\AM$ et $\vec{u}$ sont colinéaires. On aura donc $\det\left(\AM\,;\vec{u}\right)=0$.</p>
+<p>Les coordonnées de $\AM$ sont $\AM\begin{pmatrix}x-x_{0}\\ y-y_{0}\end{pmatrix}$.</p>
+<div class="maths">\[
+\det\left(\AM\,;\vec{u}\right)
+=\begin{vmatrix}x-x_{0} & \alpha\\ y-y_{0} & \beta\end{vmatrix}
+=\beta\left(x-x_{0}\right)-\alpha\left(y-y_{0}\right)=0 .
+\]</div>
+<p>On développe l'expression obtenue :</p>
+<div class="maths">\[
+\beta x-\beta x_{0}-\alpha y+\alpha y_{0}=0
+\iff -\alpha y+\beta x+\alpha y_{0}-\beta x_{0}=0 .
+\]</div>
+<p>Posons $a=-\alpha$, $b=\beta$ et $c=\alpha y_{0}-\beta x_{0}$ : on obtient</p>
+<div class="maths">\[
+a\,y+b\,x+c=0 .
+\]</div>
+<p>Tout point $M$ du plan de coordonnées $M(x\,;y)$ qui vérifie l'équation $a\,y+b\,x+c=0$ appartient à la droite $D$.</p>
+<figure class="figure-cours"><img src="img/seconde-ch12-fig02.png" alt="figure 2 du cours"></figure>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Corollaire : vecteur directeur</span><div class="boite-corps"><p>Soit $D$ une droite ayant pour équation cartésienne $a\,y+b\,x+c=0$ : alors le vecteur</p>
+<div class="maths">\[
+\vec{u}\begin{pmatrix}-a\\ b\end{pmatrix}
+\]</div>
+<p>est un vecteur directeur de la droite $D$.</p></div></section>
+<h3>2.1  Équation réduite de droite</h3>
+<p><strong>Remarque :</strong> $a$ et $b$ ne peuvent pas être nuls en même temps.</p>
+<p><strong>1<sup>er</sup> cas : droite horizontale</strong> ($b=0$ et $a\neq 0$).</p>
+<p>Le vecteur $\vec{u}\begin{pmatrix}-a\\ 0\end{pmatrix}$ est un vecteur directeur de la droite $D$ : il est horizontal, la droite $D$ est donc horizontale et elle a pour équation réduite</p>
+<div class="maths">\[
+D : y=p \qquad\text{avec}\qquad p=-\frac{c}{a} .
+\]</div>
+<p><strong>2<sup>e</sup> cas : droite verticale</strong> ($a=0$ et $b\neq 0$).</p>
+<p>Le vecteur $\vec{u}\begin{pmatrix}0\\ b\end{pmatrix}$ est un vecteur directeur de la droite $D$ : il est vertical, la droite $D$ est donc verticale et elle a pour équation réduite</p>
+<div class="maths">\[
+D : x=p \qquad\text{avec}\qquad p=-\frac{c}{b} .
+\]</div>
+<p><strong>3<sup>e</sup> cas :</strong> ($a\neq 0$ et $b\neq 0$).</p>
+<p>Le vecteur $\vec{u}\begin{pmatrix}-a\\ b\end{pmatrix}$ est un vecteur directeur de $D$ ; on obtient une équation dite réduite de $D$ :</p>
+<div class="maths">\[
+D : y=m\,x+p
+\qquad\text{avec}\qquad
+m=-\frac{b}{a}
+\quad\text{et}\quad
+p=-\frac{c}{a} .
+\]</div>
+<ul><li>$m$ : nombre réel appelé <strong>coefficient directeur</strong> ;</li><li>$p$ : nombre réel appelé <strong>ordonnée à l'origine</strong>.</li></ul>
+<figure class="figure-cours"><img src="img/seconde-ch12-fig03.png" alt="figure 3 du cours"></figure>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Corollaire : fonction affine</span><div class="boite-corps"><p>Toute fonction affine a pour représentation graphique une droite.</p></div></section>
+<h2 id="s3"><span class="num-section">III.</span> Propriétés</h2>
+<h3>3.1  Vecteur directeur d'une droite</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Équation et vecteur directeur</span><div class="boite-corps"><ol><li>Toute droite $D$ non parallèle à l'axe des ordonnées admet une équation de la forme $y=m\,x+p$, et un vecteur directeur de $D$ est $\vec{u}(1\,;m)$.</li><li>Toute droite parallèle à l'axe des ordonnées a pour équation $x=k$ et pour vecteur directeur $\vec{u}(0\,;1)$.</li></ol></div></section>
+<h3>3.2  Droite parallèle</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Parallélisme</span><div class="boite-corps"><p>Deux droites sont parallèles si et seulement si leurs vecteurs directeurs sont colinéaires.</p></div></section>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Même coefficient directeur</span><div class="boite-corps"><p>Deux droites $D$ et $D'$ ayant le même coefficient directeur $m$ sont parallèles.</p></div></section>
+<p><strong>Preuve :</strong> $D$ a pour équation $y=m\,x+p$ et $D'$ a pour équation $y=m\,x+p'$ : elles ont donc même vecteur directeur $\vec{u}(1\,;m)$. Les deux vecteurs sont donc colinéaires et les droites parallèles.</p>
+<h3>3.3  Droites sécantes</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Coefficients directeurs différents</span><div class="boite-corps"><p>Deux droites $D$ et $D'$ ayant des coefficients directeurs différents sont sécantes.</p></div></section>
+<h2 id="s4"><span class="num-section">IV.</span> Application : fonction affine</h2>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Fonction affine</span><div class="boite-corps"><p>Les fonctions définies sur $\R$ dont l'expression est de la forme $f(x)=a\,x+b$, avec $a$ et $b$ deux nombres réels, sont appelées <strong>fonctions affines</strong>.</p></div></section>
+<p>La courbe représentative de la fonction $f$ est l'ensemble des points du plan $M\left(x\,;y=a\,x+b\right)$.</p>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Représentation graphique</span><div class="boite-corps"><p>La représentation graphique d'une fonction affine est une droite.</p></div></section>
+<p><strong>Preuve :</strong> $y=a\,x+b$ est l'équation réduite d'une droite.</p>
+<h2 id="s5"><span class="num-section">V.</span> Résolution de système d'équations à deux inconnues</h2>
+<h3>5.1  Système linéaire de deux équations à deux inconnues</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Système linéaire</span><div class="boite-corps"><p>On appelle $S$ un <strong>système linéaire</strong> de deux équations à deux inconnues :</p>
+<div class="maths">\[
+S\left\{
+\begin{array}{l}
+a\,y+b\,x=c\\
+a'\,y+b'\,x=c'
+\end{array}
+\right.
+\qquad\text{avec } a,\,b,\,a',\,b',\,c,\,c' \text{ six nombres réels.}
+\]</div></div></section>
+<p><em>Une solution du système $(S)$ est un couple vérifiant à la fois les deux équations de $(S)$.</em></p>
+<p><em>Résoudre le système $(S)$, c'est trouver toutes les solutions.</em></p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Exemple 1</span><div class="boite-corps"><p>Soit</p>
+<div class="maths">\[
+S_{1}\left\{
+\begin{array}{l}
+y+2x=3\\
+y+3x=5
+\end{array}
+\right.
+\]</div>
+<p>$S_{1}$ est un système linéaire de deux équations à deux inconnues. Chaque équation peut être interprétée comme une droite.</p></div></section>
+<h3>5.2  Résolution graphique d'un système</h3>
+<p>Pour résoudre graphiquement le système $(S)$, il faut tracer la droite $D$ d'équation $a\,y+b\,x=c$ et la droite $D'$ d'équation $a'\,y+b'\,x=c'$, puis il y a $3$ cas :</p>
+<p><strong>1<sup>er</sup> cas :</strong> $D$ et $D'$ sont sécantes en un point $M\left(x_{0}\,;y_{0}\right)$.</p>
+<p>Le système admet une unique solution qui est $\left(x_{0}\,;y_{0}\right)$. On note l'ensemble des solutions $S=\left\{\left(x_{0}\,;y_{0}\right)\right\}$.</p>
+<p><strong>2<sup>e</sup> cas :</strong> les droites $D$ et $D'$ sont parallèles et non confondues.</p>
+<p>Le système $(S)$ n'a aucune solution. On note l'ensemble des solutions $S=\varnothing$.</p>
+<p><strong>3<sup>e</sup> cas :</strong> les droites $D$ et $D'$ sont confondues.</p>
+<p>Le système $(S)$ a une infinité de solutions : tous les couples de coordonnées des points de la droite $D$.</p>
+<p>On note l'ensemble des solutions $S=\left\{(x\,;y)\,;a\,y+b\,x=c\right\}$.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">On reprend l'exemple $S_{1}$</span><div class="boite-corps"><div class="maths">\[
+S_{1}\left\{
+\begin{array}{l}
+y+2x=3\\
+y+3x=5
+\end{array}
+\right.
+\]</div>
+<p>On trace la droite $D$ d'équation $y=-2x+3$ et la droite $D'$ d'équation $y=-3x+5$.</p>
+<p>L'unique solution est le point d'intersection des deux droites : $M(2\,;-1)$, donc $S=\{(2\,;-1)\}$.</p>
+<figure class="figure-cours"><img src="img/seconde-ch12-fig04.png" alt="figure 4 du cours"></figure></div></section>
+<h3>5.3  Résolution algébrique d'un système</h3>
+<p>On dispose de deux méthodes pour résoudre algébriquement un système linéaire à deux inconnues : la <strong>méthode par substitution</strong> et la <strong>méthode par combinaison</strong>.</p>
+<p><em>On peut avoir une préférence, mais il est cependant intéressant de connaître les deux méthodes : c'est pourquoi certains exercices sont corrigés avec une méthode, et d'autres avec l'autre méthode.</em></p>
+<p><strong>A. Méthode par substitution</strong></p>
+<p>Dans la <strong>méthode par substitution</strong>, on exprime une des inconnues en fonction de l'autre en se servant de l'une des équations, et on remplace cette inconnue par l'expression trouvée dans l'autre équation : le but est d'obtenir une équation dans laquelle ne figure plus qu'une seule inconnue.</p>
+<div class="maths">\[
+S_{1}\left\{\begin{array}{l}y+2x=3\\ y+3x=5\end{array}\right.
+\iff
+S_{1}\left\{\begin{array}{l}y=-2x+3\\ y+3x=5\end{array}\right.
+\]</div>
+<p>On substitue $y$ dans la deuxième équation :</p>
+<div class="maths">\[
+\iff
+S_{1}\left\{\begin{array}{l}y=-2x+3\\ -2x+3+3x=5\end{array}\right.
+\iff
+S_{1}\left\{\begin{array}{l}y=-2x+3\\ x=2\end{array}\right.
+\]</div>
+<p>On substitue $x$ dans la première équation :</p>
+<div class="maths">\[
+\iff
+S_{1}\left\{\begin{array}{l}y=-4+3=-1\\ x=2\end{array}\right.
+\]</div>
+<p>On retrouve bien la même solution : $S=\{(2\,;-1)\}$.</p>
+<p><strong>B. Méthode par combinaison</strong></p>
+<p>Dans la <strong>méthode par combinaison</strong>, on multiplie les deux membres de chaque équation par des nombres choisis de telle sorte que les coefficients de l'une des inconnues soient opposés : il ne reste plus qu'à ajouter les équations membre à membre pour obtenir une équation dans laquelle ne figure plus qu'une seule inconnue.</p>
+<div class="maths">\[
+S_{1}\left\{\begin{array}{l}y+2x=3\\ y+3x=5\end{array}\right.
+\quad\text{on multiplie la deuxième équation par } -1
+\iff
+S_{1}\left\{\begin{array}{l}y+2x=3\\ -y-3x=-5\end{array}\right.
+\]</div>
+<p>On additionne les deux équations membre à membre :</p>
+<div class="maths">\[
+S_{1}\left\{\begin{array}{l}y+2x=3\\ -y-3x+y+2x=-5+3\end{array}\right.
+\iff
+S_{1}\left\{\begin{array}{l}y+2x=3\\ -x=-2\end{array}\right.
+\iff
+S_{1}\left\{\begin{array}{l}y=-1\\ x=2\end{array}\right.
+\]</div>
+<p>On trouve l'ensemble des solutions $S=\{(2\,;-1)\}$.</p>
+  <p style="margin-top:2.5rem"><a href="../index.html#seconde">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

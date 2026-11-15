@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre VI : Statistique à deux variables — Terminale complémentaire</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#terminale-complementaire">← Retour au site</a></p>
+  <h1>Chapitre VI : Statistique à deux variables</h1>
+  <p class="sous-titre">Terminale complémentaire · Chapitre 6 — Statistique à deux variables · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Statistique à deux variables</span><a class="onglet" href="../pdf/terminale-complementaire/6-statistique-a-deux-variables.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/terminale-complementaire/td01-statistiques-a-deux-variables.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/terminale-complementaire/td02-statistiques-a-deux-variables.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../quiz/terminale-complementaire-6.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Tableau d'effectifs – Nuage de points</a></li><li><a href="#s2">II Ajustement affine</a></li><li><a href="#s3">III Ajustement par changement de variable</a></li></ol></nav>
+<h2 id="s1"><span class="num-section">I.</span> Tableau d'effectifs – Nuage de points</h2>
+<p>On considère deux caractères simultanément : $x$ et $y$, dont on donne les données dans un tableau d'effectifs.</p>
+<table class="tableau"><tr><td>$x_{i}$</td><td>$x_{1}$</td><td>$x_{2}$</td><td>$\dots$</td><td>$x_{p}$</td></tr><tr><td>$y_{i}$</td><td>$y_{1}$</td><td>$y_{2}$</td><td>$\dots$</td><td>$y_{p}$</td></tr></table>
+<p>Ces données peuvent être représentées par un nuage de points de coordonnées $(x_{i}\,;y_{i})$.</p>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Nuage de points</span><div class="boite-corps"><p>L'ensemble des points $M_{i}$ de coordonnées $(x_{i}\,;y_{i})$ est appelé <strong>nuage de points</strong> associé à la série statistique $(x_{1}\,;y_{1}),(x_{2}\,;y_{2}),\dots,(x_{n}\,;y_{n})$ à deux variables.</p></div></section>
+<figure class="figure-cours"><img src="img/terminale-complementaire-ch06-fig01.png" alt="figure 1 du cours"></figure>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Point moyen</span><div class="boite-corps"><p>Le point $G$ de coordonnées $(\overline{x}\,;\overline{y})$, où $\overline{x}$ et $\overline{y}$ sont les moyennes respectives des $x_{i}$ et des $y_{i}$, est appelé le <strong>point moyen</strong> du nuage de points associé à la série.</p></div></section>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Budget publicitaire et chiffre d'affaires</span><div class="boite-corps"><p>Le tableau suivant présente l'évolution du budget publicitaire et du chiffre d'affaires d'une société au cours des $6$ dernières années :</p>
+<table class="tableau"><tr><td>Budget publicitaire en milliers d'euros $x_{i}$</td><td>$8$</td><td>$10$</td><td>$12$</td><td>$14$</td><td>$16$</td><td>$18$</td></tr><tr><td>Chiffre d'affaire en milliers d'euros $y_{i}$</td><td>$40$</td><td>$55$</td><td>$55$</td><td>$70$</td><td>$75$</td><td>$95$</td></tr></table>
+<ol><li>Dans un repère, représenter le nuage de points $(x_{i}\,;y_{i})$.</li><li>Déterminer les coordonnées du point moyen $G$ du nuage de points.</li></ol></div></section>
+<p><strong>Correction.</strong>  On a représenté ci-dessous le nuage de points de la série $(x_{i}\,;y_{i})$.</p>
+<div class="maths">\[
+\overline{x}=\frac{8+10+12+14+16+18}{6}=13
+\qquad
+\overline{y}=\frac{40+55+55+70+75+95}{6}=65 .
+\]</div>
+<p>Le point moyen $G$ du nuage de points a pour coordonnées $(13\,;65)$. On peut placer ce point dans le repère.</p>
+<figure class="figure-cours"><img src="img/terminale-complementaire-ch06-fig02.png" alt="figure 2 du cours"></figure>
+<h2 id="s2"><span class="num-section">II.</span> Ajustement affine</h2>
+<p>Dans certaines situations, le nuage de points semble donner un ensemble de points presque alignés. On va alors dans ces cas faire un ajustement affine, c'est-à-dire trouver une droite d'équation $y=ax+b$ qui permet de représenter cette série.</p>
+<h3>Interpolation, extrapolation</h3>
+<p>L'objectif est, à partir des valeurs d'une série statistique à deux variables, d'obtenir des approximations pour des valeurs inconnues de cette série.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Budget pour un chiffre d'affaires de $80$ Mio</span><div class="boite-corps"><p>Quelle serait le budget publicitaire pour un chiffre d'affaires de $80$ Mio ?</p>
+<p>Ici, on est dans le domaine d'étude de la série : le chiffre d'affaires a été étudié entre $40$ Mio et $95$ Mio. L'estimation que l'on donnera sera une <strong>interpolation</strong>.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Budget pour un chiffre d'affaires de $100$ Mio</span><div class="boite-corps"><p>Quelle serait le budget publicitaire pour un chiffre d'affaires de $100$ Mio ?</p>
+<p>Ici, on est en dehors du domaine d'étude de la série. L'estimation que l'on donnera sera une <strong>extrapolation</strong>.</p></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Interpolation et extrapolation</span><div class="boite-corps"><p>L'<strong>interpolation</strong> et l'<strong>extrapolation</strong> sont des méthodes qui consistent à estimer une valeur inconnue dans une série statistique.</p>
+<ul><li>Pour une interpolation, le calcul est réalisé dans le domaine d'étude fourni par les valeurs de la série.</li><li>Pour une extrapolation, le calcul est réalisé en dehors du domaine d'étude.</li></ul></div></section>
+<p><strong>Remarque.</strong>  La méthode d'extrapolation est parfois contestable, car en dehors du domaine d'étude fourni par les valeurs de la série, rien ne nous assure que le modèle mathématique mis en œuvre soit encore valable.</p>
+<h3>Droite d'ajustement</h3>
+<p>Pour obtenir de telles estimations, il faudra déterminer une droite passant « le plus près possible » des points du nuage.</p>
+<p>L'interpolation ou l'extrapolation consiste à effectuer l'estimation par lecture graphique sur la droite ou par calcul à l'aide de l'équation de la droite.</p>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Droite d'ajustement</span><div class="boite-corps"><p>Lorsque les points d'un nuage sont sensiblement alignés, on peut construire une droite, appelée <strong>droite d'ajustement</strong> (ou <strong>droite de régression</strong>), passant « au plus près » de ces points.</p></div></section>
+<figure class="figure-cours"><img src="img/terminale-complementaire-ch06-fig03.png" alt="figure 3 du cours"></figure>
+<h3>Méthode à main levée</h3>
+<p>Sans technique particulière, on trace « au jugé » une droite passant « au plus près » des points du nuage, puis on détermine l'équation de cette droite $y=ax+b$.</p>
+<p>On peut alors utiliser cette droite pour faire des estimations de valeur théorique de $y$ pour $x=9$, par exemple.</p>
+<h3>Méthode des points moyens (ajustement de Mayer)</h3>
+<p>Cet ajustement consiste à déterminer la droite passant par deux points moyens du nuage de points.</p>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Droite de Mayer</span><div class="boite-corps"><p>Déterminer la droite d'ajustement par la méthode des points moyens. On reprend les données du paragraphe I.</p>
+<ol><li><p>Soit $G_{1}$ le point moyen associé aux trois premiers points du nuage et $G_{2}$ le point moyen associé aux trois derniers points du nuage.</p>
+<ol><li>Calculer les coordonnées de $G_{1}$ et $G_{2}$.</li><li>On prend $(G_{1}G_{2})$ comme droite d'ajustement. Tracer cette droite.</li></ol></li><li><p>À l'aide du graphique :</p>
+<ol><li>Estimer le chiffre d'affaire à prévoir pour un budget publicitaire de $22\,000$&nbsp;\euro.</li><li>Estimer le budget publicitaire qu'il faudrait prévoir pour obtenir un chiffre d'affaire de $100\,000$&nbsp;\euro.</li><li>La méthode utilisée dans les questions 2a et 2b consiste-t-elle en une interpolation ou une extrapolation ?</li></ol></li></ol></div></section>
+<p><strong>Correction.</strong></p>
+<p><strong>1) a)</strong> </p>
+<div class="maths">\[
+\overline{x_{1}}=\frac{8+10+12}{3}=10
+\qquad
+\overline{y_{1}}=\frac{40+55+55}{3}=50 .
+\]</div>
+<p>Le point moyen $G_{1}$ a pour coordonnées $(10\,;50)$.</p>
+<div class="maths">\[
+\overline{x_{2}}=\frac{14+16+18}{3}=16
+\qquad
+\overline{y_{2}}=\frac{70+75+95}{3}=80 .
+\]</div>
+<p>Le point moyen $G_{2}$ a pour coordonnées $(16\,;80)$.</p>
+<p><strong>b)</strong>  La droite $(G_{1}G_{2})$ a pour coefficient directeur $\dfrac{80-50}{16-10}=5$, donc pour équation $y=5x$.</p>
+<figure class="figure-cours"><img src="img/terminale-complementaire-ch06-fig04.png" alt="figure 4 du cours"></figure>
+<p><strong>2)</strong>  On lit graphiquement :</p>
+<p><strong>a)</strong>  Le chiffre d'affaires à prévoir pour un budget publicitaire de $22\,000$&nbsp;\euro{} est de $110\,000$&nbsp;\euro.</p>
+<p><strong>b)</strong>  Le budget publicitaire qu'il faudrait prévoir pour obtenir un chiffre d'affaire de $100\,000$&nbsp;\euro{} est de $20\,000$&nbsp;\euro.</p>
+<figure class="figure-cours"><img src="img/terminale-complementaire-ch06-fig05.png" alt="figure 5 du cours"></figure>
+<p><strong>c)</strong>  Les lectures graphiques sont réalisées ici en dehors du domaine d'étude : on parle donc d'<strong>extrapolation</strong>.</p>
+<h3>Méthode des moindres carrés</h3>
+<p>Cette méthode porte le nom de « moindres carrés » car elle consiste à rechercher la position de la droite d'ajustement telle que la somme des carrés des longueurs donnant les distances respectives entre la droite et les points soit minimale.</p>
+<p>Le principe consiste donc à déterminer les coefficients $a$ et $b$ d'une droite d'équation $y=ax+b$ de sorte qu'elle passe le « plus près possible » des points du nuage.</p>
+<p>Pour chaque abscisse $x_{i}$, on calcule la distance $M_{i}P_{i}$ entre le point du nuage et le point de la droite, soit :</p>
+<div class="maths">\[
+M_{i}P_{i}=\left|y_{i}-(ax_{i}+b)\right| .
+\]</div>
+<p>Il s'agit dans ce cas de la droite d'ajustement de $y$ en $x$.</p>
+<p>Dans la méthode des moindres carrés, on recherche $a$ et $b$ pour lesquels la somme des carrés des distances est minimale, soit :</p>
+<div class="maths">\[
+M_{1}P_{1}^{2}+\dots+M_{n}P_{n}^{2}
+=\bigl(y_{1}-(ax_{1}+b)\bigr)^{2}+\dots+\bigl(y_{n}-(ax_{n}+b)\bigr)^{2}
+\]</div>
+<p>est minimale.</p>
+<figure class="figure-cours"><img src="img/terminale-complementaire-ch06-fig06.png" alt="figure 6 du cours"></figure>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Droite des moindres carrés</span><div class="boite-corps"><p>Déterminer la droite d'ajustement par la méthode des moindres carrés.</p>
+<p>On considère la série statistique à deux variables données dans le tableau suivant :</p>
+<table class="tableau"><tr><td>$x_{i}$</td><td>$5$</td><td>$10$</td><td>$15$</td><td>$20$</td><td>$25$</td><td>$30$</td><td>$35$</td><td>$40$</td></tr><tr><td>$y_{i}$</td><td>$13$</td><td>$23$</td><td>$34$</td><td>$44$</td><td>$50$</td><td>$65$</td><td>$75$</td><td>$90$</td></tr></table>
+<ol><li>Dans un repère, représenter le nuage de points $(x_{i}\,;y_{i})$.</li><li><p>a) À l'aide de la calculatrice, déterminer une équation de la droite d'ajustement par la méthode des moindres carrés.</p>
+<p>b) Représenter la droite d'ajustement de $y$ en $x$.</p></li><li>Estimer graphiquement la valeur de $x$ pour $y=70$. Retrouver ce résultat par calcul. S'agit-il d'une interpolation ou d'une extrapolation ?</li></ol></div></section>
+<p><strong>Correction.</strong></p>
+<p><strong>1)</strong> et <strong>2) b)</strong></p>
+<figure class="figure-cours"><img src="img/terminale-complementaire-ch06-fig07.png" alt="figure 7 du cours"></figure>
+<p><strong>2) a)</strong> </p>
+<section class="boite boite-info"><p><strong>Avec TI :</strong></p>
+<ul><li>Appuyer sur « STATS » puis « Édite » et saisir les valeurs de $x$ dans L1 et les valeurs de $y$ dans L2.</li><li>Appuyer à nouveau sur « STATS » puis « CALC » et « RegLin(ax+b) ».</li><li>Saisir L1,L2.</li></ul></section>
+<section class="boite boite-info"><p><strong>Avec CASIO :</strong></p>
+<ul><li>Aller dans le menu « STAT ».</li><li>Saisir les valeurs de $x$ dans <em>List1</em> et les valeurs de $y$ dans <em>List2</em>.</li><li>Sélectionner « CALC » puis « SET ».</li><li>Choisir <em>List1</em> pour <em>2Var XList</em> et <em>List2</em> pour <em>2Var YList</em> puis « EXE ».</li><li>Sélectionner « REG » puis « X » et « aX+b ».</li></ul></section>
+<p>La calculatrice nous renvoie : $a=2{,}138095238$ et $b=1{,}142857143$.</p>
+<p>Une équation de la droite d'ajustement est :</p>
+<div class="maths">\[
+y=2{,}1x+1{,}1 .
+\]</div>
+<p>Pour tracer la droite, il suffit de calculer les coordonnées de deux points de la droite d'ajustement :</p>
+<ul><li>si $x=0$, alors $y=2{,}1\times0+1{,}1=1{,}1$ : le point de coordonnées $(0\,;1{,}1)$ appartient à la droite d'ajustement ;</li><li>si $x=10$, alors $y=2{,}1\times10+1{,}1=22{,}1$ : le point de coordonnées $(10\,;22{,}1)$ appartient à la droite d'ajustement.</li></ul>
+<p><strong>3)</strong>  Pour $y=70$, on lit graphiquement $x\approx33$.</p>
+<p>Par le calcul, si $y=70$, alors $70=2{,}1x+1{,}1$, soit $2{,}1x=70-1{,}1$, c'est-à-dire $2{,}1x=68{,}9$, donc</p>
+<div class="maths">\[
+x=\frac{68{,}9}{2{,}1}\approx32{,}8 .
+\]</div>
+<p>Les calculs sont réalisés dans le domaine d'étude : on parle donc d'<strong>interpolation</strong>.</p>
+<h2 id="s3"><span class="num-section">III.</span> Ajustement par changement de variable</h2>
+<p>Lorsque le nuage de points n'est à priori pas modélisable par une droite, on peut réaliser un ajustement linéaire en effectuant un changement de variable.</p>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Ajustement par changement de variable</span><div class="boite-corps"><p>Effectuer un ajustement se ramenant par changement de variable à un ajustement affine.</p>
+<p>On a relevé la population d'une grande métropole sur $50$ ans tous les $5$ ans. Les résultats sont présentés dans le tableau suivant :</p>
+<table class="tableau"><tr><td>Année $x_{i}$</td><td>$0$</td><td>$5$</td><td>$10$</td><td>$15$</td><td>$20$</td><td>$25$</td><td>$30$</td><td>$35$</td><td>$40$</td><td>$45$</td><td>$50$</td></tr><tr><td>Population en milliers $y_{i}$</td><td>$19{,}4$</td><td>$19{,}4$</td><td>$27{,}6$</td><td>$40{,}3$</td><td>$50$</td><td>$59$</td><td>$69$</td><td>$87$</td><td>$132$</td><td>$166$</td><td>$216$</td></tr></table>
+<ol><li>Représenter le nuage de points dans un repère.</li><li><p>a) On effectue le changement de variable $z=\log y$. Réaliser un nouveau tableau présentant les valeurs prises par les variables $x$ et $z$.</p>
+<p>b) Représenter un nouveau nuage de points à partir des données des variables $x$ et $z$.</p>
+<p>c) À l'aide de la calculatrice, déterminer une équation de la droite d'ajustement de $z$ en $x$ par la méthode des moindres carrés. Représenter la droite d'ajustement.</p></li><li><p>a) En déduire la relation qui lie $y$ et $x$, puis tracer la courbe représentative de la fonction $f$ définie par $y=f(x)$ dans le repère contenant le premier nuage de points.</p>
+<p>b) En admettant que le modèle mathématique reste valable en dehors du domaine d'étude, extrapoler le nombre d'habitants $5$ ans après l'étude.</p></li></ol></div></section>
+<p><strong>Correction.</strong></p>
+<p><strong>1)</strong></p>
+<figure class="figure-cours"><img src="img/terminale-complementaire-ch06-fig08.png" alt="figure 8 du cours"></figure>
+<p><strong>2) a)</strong></p>
+<table class="tableau"><tr><td>$x_{i}$</td><td>$0$</td><td>$5$</td><td>$10$</td><td>$15$</td><td>$20$</td><td>$25$</td><td>$30$</td><td>$35$</td><td>$40$</td><td>$45$</td><td>$50$</td></tr><tr><td>$z_{i}=\log y_{i}$</td><td>$1{,}29$</td><td>$1{,}29$</td><td>$1{,}44$</td><td>$1{,}61$</td><td>$1{,}7$</td><td>$1{,}77$</td><td>$1{,}84$</td><td>$1{,}94$</td><td>$2{,}12$</td><td>$2{,}22$</td><td>$2{,}33$</td></tr></table>
+<p><strong>b)</strong> et <strong>c)</strong>  Une équation de la droite d'ajustement est :</p>
+<div class="maths">\[
+z=0{,}0214x+1{,}2427 .
+\]</div>
+<figure class="figure-cours"><img src="img/terminale-complementaire-ch06-fig09.png" alt="figure 9 du cours"></figure>
+<section class="boite boite-info"><p><strong>RegLin</strong><br> $y=ax+b$<br> $a=0.0213818182$<br> $b=1.242727273$<br> $r^{2}=0.9883906748$<br> $r=0.9941783918$</p></section>
+<p><strong>3) a)</strong>  On a : $z=0{,}0214x+1{,}2427$ et $z=\log y$, soit :</p>
+<div class="maths">\[\begin{aligned}
+\log y&=0{,}0214x+1{,}2427\\
+y&=10^{\log y}=10^{0{,}0214x+1{,}2427}\\
+y&=10^{0{,}0214x}\times 10^{1{,}2427}\\
+y&=17{,}4864\times 10^{0{,}0214x} .
+\end{aligned}\]</div>
+<p>Donc</p>
+<div class="maths">\[
+f(x)=17{,}4864\times 10^{0{,}0214x}
+\]</div>
+<p>est l'expression de la fonction permettant d'ajuster le nuage de points $(x_{i}\,;y_{i})$. On trace la courbe de $f$ ci-dessous.</p>
+<figure class="figure-cours"><img src="img/terminale-complementaire-ch06-fig10.png" alt="figure 10 du cours"></figure>
+<p><strong>b)</strong> </p>
+<div class="maths">\[
+y=17{,}4864\times 10^{0{,}0214\times 55}\approx 263 .
+\]</div>
+<p>On peut supposer que $5$ années après la fin de l'étude, la population de la ville sera proche de $263\,000$ habitants.</p>
+  <p style="margin-top:2.5rem"><a href="../index.html#terminale-complementaire">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

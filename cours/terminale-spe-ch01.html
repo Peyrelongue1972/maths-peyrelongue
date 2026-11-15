@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 1 : Le principe de récurrence — Terminale spécialité</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#terminale-spe">← Retour au site</a></p>
+  <h1>Chapitre 1 : Le principe de récurrence</h1>
+  <p class="sous-titre">Terminale spécialité · Chapitre 1 — Le principe de récurrence · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Le principe de récurrence</span><a class="onglet" href="../pdf/terminale-spe/1-le-principe-de-recurrence.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/terminale-spe/td01-suites-numeriques.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/terminale-spe/td02-recurrence.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../pdf/terminale-spe/fiche-ap-suites-arithmetiques-et-geometriques.pdf" target="_blank" rel="noopener">Fiche</a><a class="onglet" href="../quiz/terminale-spe-1.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Raisonnement par récurrence</a></li><li><a href="#s2">II Représentation graphique d'une suite</a></li><li><a href="#s3">III Sens de variation d'une suite</a></li><li><a href="#s4">IV Suites majorées, minorées, bornées</a></li><li><a href="#s5">V Suites arithmétiques</a></li><li><a href="#s6">VI Suites géométriques</a></li></ol></nav>
+<p>\newpage</p>
+<h2 id="s1"><span class="num-section">I.</span> Raisonnement par récurrence</h2>
+<h3>L'effet domino</h3>
+<p>On considère une file illimitée de dominos placés côte à côte. La règle veut que lorsqu'un domino tombe, alors il fait tomber le domino suivant, et ceci à n'importe quel niveau de la file. Alors, si le premier domino tombe, on est assuré que tous les dominos de la file tombent.</p>
+<figure class="figure-cours"><img src="img/terminale-spe-ch01-fig01.png" alt="figure 1 du cours"></figure>
+<p>Si on suppose qu'un domino n° $k$ tombe, alors le domino suivant n° $(k+1)$ tombe également. C'est ce qu'on appelle le principe d'<strong>hérédité</strong>.</p>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Propriété héréditaire</span><div class="boite-corps"><p>On dit qu'une propriété est <strong>héréditaire</strong> à partir d'un certain rang si, lorsque la propriété est vraie pour un entier $k$, alors elle est vraie pour l'entier $k+1$.</p></div></section>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Principe du raisonnement par récurrence</span><div class="boite-corps"><p>Si la propriété $P_{n}$ est :</p>
+<ul><li>vraie au rang $n_{0}$   (<strong>Initialisation</strong>),</li><li>héréditaire à partir du rang $n_{0}$   (<strong>Hérédité</strong>),</li></ul>
+<p>alors la propriété $P_{n}$ est vraie pour tout entier $n\geqslant n_{0}$.</p></div></section>
+<p>Dans l'exemple, le premier domino tombe (initialisation). Ici $n_{0}=1$. L'hérédité est vérifiée (voir plus haut). On en déduit que tous les dominos tombent.</p>
+<h3>Méthode : démontrer une propriété par récurrence</h3>
+<section class="boite boite-meth"><span class="boite-titre">Méthode</span><div class="boite-corps"><p>Démontrer par récurrence que, pour tout entier naturel $n$ non nul, on a $2^{n}&gt;n$.</p>
+<p>Soit la propriété $P(n)$ :   $2^{n}&gt;n$.</p>
+<p><strong>Initialisation.</strong></p>
+<p>Montrons que $P(1)$ est vraie :</p>
+<div class="maths">\[
+2^{1}=2\quad\text{et}\quad 2&gt;1 .
+\]</div>
+<p>La propriété est donc vraie au rang $1$.</p>
+<p><strong>Hérédité.</strong></p>
+<p>Soit $k$ un entier supérieur ou égal à $1$. Supposons que la propriété $P(k)$ soit vraie au rang $k$, c'est-à-dire que $2^{k}&gt;k$.   (HR)</p>
+<p>Montrons que la propriété est vraie au rang $k+1$, c'est-à-dire que $2^{k+1}&gt;k+1$.</p>
+<div class="maths">\[\begin{aligned}
+2^{k}&gt;k & \quad\text{d'après HR}\\
+\Longrightarrow\quad 2\times 2^{k}&gt;2\times k & \quad\text{car } 2&gt;0\\
+\Longrightarrow\quad 2^{k+1}&gt;2k & \\
+\Longrightarrow\quad 2^{k+1}&gt;k+k & \\
+\Longrightarrow\quad 2^{k+1}&gt;k+k\geqslant k+1 & \quad\text{car } k\geqslant 1\\
+\Longrightarrow\quad 2^{k+1}&gt;k+1 & .
+\end{aligned}\]</div>
+<p>$P(k)$ vraie $\Longrightarrow$ $P(k+1)$ vraie.</p>
+<p><strong>Conclusion.</strong>  La propriété est initialisée au rang $1$ et héréditaire, donc par le principe de récurrence :</p>
+<div class="maths">\[
+\forall n\in\N^{*},\quad 2^{n}&gt;n .
+\]</div></div></section>
+<h3>Application</h3>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Suite définie par récurrence</span><div class="boite-corps"><p>On considère la suite $(u_{n})$ définie par</p>
+<div class="maths">\[
+\begin{cases}
+u_{n+1}=u_{n}+2n+3\\
+u_{0}=1
+\end{cases}
+\]</div>
+<p>Démontrer par récurrence que $u_{n}=(n+1)^{2}$.</p></div></section>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Suite croissante</span><div class="boite-corps"><p>On considère la suite $(u_{n})$ définie pour tout entier naturel $n$ par</p>
+<div class="maths">\[
+\begin{cases}
+u_{n+1}=\dfrac{1}{3}u_{n}+2\\[4pt]
+u_{0}=2
+\end{cases}
+\]</div>
+<p>Démontrer par récurrence que la suite $(u_{n})$ est croissante.</p></div></section>
+<h3>Inégalité de Bernoulli</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Inégalité de Bernoulli</span><div class="boite-corps"><p>Soit un nombre réel $a$ positif. Pour tout entier naturel $n$, on a</p>
+<div class="maths">\[
+(1+a)^{n}\geqslant 1+na .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p><strong>Démonstration au programme.</strong></p>
+<p>Soit la propriété $P_{n}$ : pour $a\in\R^{+}$,   $(1+a)^{n}\geqslant 1+na$.</p>
+<p><strong>Initialisation.</strong>  Montrons que la propriété $P_{n}$ est vraie au rang $0$ :</p>
+<div class="maths">\[
+(1+a)^{0}=1\quad\text{et}\quad 1+0\times a=1 .
+\]</div>
+<p>$P_{0}$ est vraie.</p>
+<p><strong>Hérédité.</strong>  Soit $k$ un entier ; supposons que la propriété $P_{k}$ est vraie (c'est notre hypothèse de récurrence) :</p>
+<div class="maths">\[
+(1+a)^{k}\geqslant 1+ka .
+\]</div>
+<p>Montrons que la propriété est vraie au rang $k+1$, soit $(1+a)^{k+1}\geqslant 1+(k+1)a$.</p>
+<p>On a $(1+a)^{k}\geqslant 1+ka$, d'après HR.</p>
+<div class="maths">\[\begin{aligned}
+\Longrightarrow\quad (1+a)(1+a)^{k} &\geqslant (1+a)(1+ka)
+  \quad\text{car } 1+a&gt;0\\
+\Longrightarrow\quad (1+a)^{k+1} &\geqslant 1+ka+a+ka^{2}\\
+\Longrightarrow\quad (1+a)^{k+1} &\geqslant 1+(k+1)a+ka^{2}
+  \geqslant 1+(k+1)a \quad\text{car } ka^{2}\geqslant 0 .
+\end{aligned}\]</div>
+<p>Donc $(1+a)^{k+1}\geqslant 1+(k+1)a$.</p>
+<p><strong>Conclusion.</strong>  De l'initialisation ($P_{0}$ est vraie) et de l'hérédité ($P_{k}$ vraie $\Longrightarrow$ $P_{k+1}$ vraie), par le principe de récurrence, pour tout entier $n$ la propriété $P_{n}$ est vraie.</p></div></section>
+<h3>Le rôle de l'initialisation</h3>
+<p><strong>L'initialisation</strong> est indispensable dans une démonstration par récurrence, sinon on peut démontrer des propriétés fausses !</p>
+<p>En effet, démontrons par exemple que la propriété « $2^{n}$ est divisible par $3$ » est héréditaire sans vérifier l'initialisation.</p>
+<p>Supposons que, pour un certain entier $k$, « $2^{k}$ est divisible par $3$ ». Donc il existe un entier $p$ tel que $2^{k}=3p$.</p>
+<div class="maths">\[\begin{aligned}
+2^{k+1} &= 2^{k}\times 2\\
+        &= 3p\times 2 \quad\text{(d'après l'hypothèse de récurrence)}\\
+        &= 6p\\
+        &= 3\times 2p,\quad\text{avec } 2p \text{ entier.}
+\end{aligned}\]</div>
+<p>Donc $2^{k+1}$ est divisible par $3$. L'hérédité est vérifiée et pourtant la propriété n'est jamais vraie ($2^{0}=1$ n'est pas divisible par $3$).</p>
+<h2 id="s2"><span class="num-section">II.</span> Représentation graphique d'une suite</h2>
+<h3>Suite définie de manière explicite</h3>
+<p>Soit $f$ une fonction définie sur $\N$ et $(u_{n})$ la suite définie par $u_{n}=f(n)$.</p>
+<p>Dans un repère du plan, on représente une suite par un nuage de points de coordonnées $(n\,;u_{n})$.</p>
+<section class="boite boite-meth"><span class="boite-titre">Méthode</span> <span class="boite-sous-titre">Représenter une suite explicite</span><div class="boite-corps"><p>Pour représenter une suite $u$ dans un repère, on place :</p>
+<ul><li>les indices $n$ sur l'axe des abscisses ;</li><li>les termes $u_{n}$ sur l'axe des ordonnées ;</li><li>les points de coordonnées $(n\,;u_{n})$ dans le repère, sans les relier (image de points).</li></ul></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Suite définie explicitement</span><div class="boite-corps"><p>Pour tout $n$ de $\N$, on donne $u_{n}=\dfrac{n^{2}}{2}-3$.</p>
+<p>On construit le tableau de valeurs avec les premiers termes de la suite :</p></div></section>
+<table class="tableau"><tr><td>$n$</td><td>$0$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$6$</td><td>$7$</td><td>$8$</td></tr><tr><td>$u_{n}$</td><td>$-3$</td><td>$-2{,}5$</td><td>$-1$</td><td>$1{,}5$</td><td>$5$</td><td>$9{,}5$</td><td>$15$</td><td>$21{,}5$</td><td>$29$</td></tr><tr><td class="vide"></td><td colspan="9" class="note-tableau"></td></tr></table>
+<figure class="figure-cours"><img src="img/terminale-spe-ch01-fig02.png" alt="figure 2 du cours"></figure>
+<h3>Suite définie par récurrence</h3>
+<p>Soit $f$ une fonction définie sur $\N$ et $(u_{n})$ la suite définie par la relation de récurrence $u_{n+1}=f(u_{n})$ et le premier terme $u_{0}$.</p>
+<section class="boite boite-meth"><span class="boite-titre">Méthode</span> <span class="boite-sous-titre">1<sup>re</sup> méthode</span><div class="boite-corps"><p>Pour représenter cette suite, il est possible de calculer les termes un à un : $u_{1}$, $u_{2}$, …, $u_{n}$, et de se placer dans un repère orthonormal pour placer les points $U_{k}$ de coordonnées $(k\,;u_{k})$.</p></div></section>
+<section class="boite boite-meth"><span class="boite-titre">Méthode</span> <span class="boite-sous-titre">2<sup>ème</sup> méthode : la construction graphique</span><div class="boite-corps"><figure class="figure-cours"><img src="img/terminale-spe-ch01-fig03.png" alt="figure 3 du cours"></figure>
+<ul><li>Tracer la courbe représentant la fonction $f$.</li><li>Tracer la droite d'équation $y=x$ : chaque point de cette droite possède une abscisse égale à l'ordonnée.</li><li>Placer le point de coordonnées $(0\,;u_{0})$, le premier terme de la suite.</li><li>À l'aide de la droite $\Delta : y=x$, on cherche l'antécédent de $u_{0}$ qui est $u_{0}$, que l'on obtient par projection orthogonale sur l'axe des abscisses.</li><li>On obtient alors $u_{1}$ comme image de $u_{0}$ par la fonction $f$ : en effet $u_{1}=f(u_{0})$.</li><li>On va itérer le même processus : on cherche l'antécédent de $u_{1}$ par la fonction $y=x$ ; l'antécédent est $u_{1}$ et on l'obtient par projection orthogonale sur l'axe des abscisses. Puis on peut obtenir $u_{2}$ comme image de $u_{1}$ par la fonction $f$. Et ainsi de suite : de proche en proche, on obtient tous les termes de la suite sans effectuer de calcul !!!</li></ul></div></section>
+<h2 id="s3"><span class="num-section">III.</span> Sens de variation d'une suite</h2>
+<h3>Définition</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Suite croissante, suite décroissante</span><div class="boite-corps"><p>Soit un entier $p$ et une suite numérique $(u_{n})$.</p>
+<p>La suite $(u_{n})$ est dite <strong>croissante à partir du rang $p$</strong> si, pour $n\geqslant p$, on a $u_{n+1}\geqslant u_{n}$.</p>
+<p>La suite $(u_{n})$ est dite <strong>décroissante à partir du rang $p$</strong> si, pour $n\geqslant p$, on a $u_{n+1}\leqslant u_{n}$.</p></div></section>
+<h3>Méthode d'étude du sens de variation</h3>
+<section class="boite boite-meth"><span class="boite-titre">Méthode</span> <span class="boite-sous-titre">1.</span><div class="boite-corps"><p>Pour tout $n$ de $\N$, on donne la suite $(u_{n})$ définie par $u_{n}=n^{2}-4n+4$.</p>
+<p>Démontrer que la suite $(u_{n})$ est croissante à partir d'un certain rang.</p>
+<ol><li>Calculer $u_{n+1}-u_{n}$.</li><li>Déterminer le signe de $u_{n+1}-u_{n}$.</li><li>Conclure.</li></ol></div></section>
+<section class="boite boite-meth"><span class="boite-titre">Méthode</span> <span class="boite-sous-titre">2</span><div class="boite-corps"><p>Pour tout $n$ de $\N^{*}$, on donne la suite $(v_{n})$ définie par $v_{n}=\dfrac{1}{n(n+1)}$.</p>
+<p>Démontrer que la suite $(v_{n})$ est décroissante.</p>
+<ol><li>Déterminer le signe du terme $v_{n}$ : ce signe doit être <em>constant</em> pour que cette méthode s'applique.</li><li>Si, pour tout $n\in\N$, $v_{n}\neq 0$, déterminer $\dfrac{v_{n+1}}{v_{n}}$.</li><li>Comparer $\dfrac{v_{n+1}}{v_{n}}$ à $1$.</li><li>Conclure.</li></ol></div></section>
+<section class="boite boite-meth"><span class="boite-titre">Méthode</span> <span class="boite-sous-titre">3. Suite explicite $u_n=f(n)$</span><div class="boite-corps"></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><ul><li>$f$ est croissante sur $[p\,;+\infty[$ : par définition d'une fonction croissante, on a, pour tout entier $n\geqslant p$, comme $n+1&gt;n$, $f(n+1)&gt;f(n)$ et donc $u_{n+1}&gt;u_{n}$.</li><li>Démonstration analogue pour la décroissance.</li></ul></div></section>
+<p>\end{boxmethode}</p>
+<section class="boite boite-meth"><span class="boite-titre">Méthode</span> <span class="boite-sous-titre">4.</span><div class="boite-corps"><p>Soit $f$ une fonction <strong>strictement croissante</strong> définie sur $\N$ et $(u_{n})$ la suite définie par la relation de récurrence $u_{n+1}=f(u_{n})$ et le premier terme $u_{0}$.</p>
+<ul><li>Calculer les deux premiers termes de la suite.</li><li>Conjecturer un sens de variation.</li><li>Utiliser une récurrence pour affirmer votre conjecture.</li></ul></div></section>
+<h2 id="s4"><span class="num-section">IV.</span> Suites majorées, minorées, bornées</h2>
+<h3>Définitions</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Suites majorées, minorées, bornées</span><div class="boite-corps"><ul><li>Une suite $(u_{n})$ est <strong>majorée</strong> par un réel $M$ lorsque, pour tout entier naturel $n$, $u_{n}\leqslant M$. On dit que $M$ est un <strong>majorant</strong> de $(u_{n})$.</li><li>Une suite $(u_{n})$ est <strong>minorée</strong> par un réel $m$ lorsque, pour tout entier naturel $n$, $u_{n}\geqslant m$. On dit que $m$ est un <strong>minorant</strong> de $(u_{n})$.</li><li>Une suite est <strong>bornée</strong> lorsqu'elle est à la fois majorée et minorée.</li></ul></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Suite minorée</span><div class="boite-corps"><p>$u_{n}=2+\dfrac{1}{n}$ pour tout $n\in\N^{*}$.</p>
+<div class="maths">\[
+\forall n\in\N^{*},\ n&gt;0
+\Longrightarrow \frac{1}{n}&gt;0
+\Longrightarrow 2+\frac{1}{n}&gt;2
+\Longrightarrow u_{n}&gt;2 .
+\]</div>
+<p>La suite $(u_{n})$ est minorée par $2$.</p></div></section>
+<p><strong>Remarque.</strong>  Le minorant ou le majorant ne sont pas uniques : dans le cas ci-dessus, la suite $(u_{n})$ est aussi minorée par $0$.</p>
+<p>Une suite majorée (resp. minorée) possède une infinité de majorants (resp. de minorants).</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Suite bornée</span><div class="boite-corps"><p>$u_{n}=\cos(n)$ pour tout $n\in\N$.</p>
+<p>On a, pour tout $x\in\R$, $-1\leqslant\cos(x)\leqslant 1$, donc pour tout $n\in\N$, $-1\leqslant\cos(n)\leqslant 1$, soit $-1\leqslant u_{n}\leqslant 1$.</p>
+<p>La suite $(u_{n})$ est bornée, car elle est minorée par $-1$ et majorée par $1$.</p></div></section>
+<h2 id="s5"><span class="num-section">V.</span> Suites arithmétiques</h2>
+<h3>Définition</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Suite arithmétique</span><div class="boite-corps"><p>Une <strong>suite arithmétique</strong> est une suite de nombres dans laquelle on passe d'un terme au suivant en ajoutant toujours le même nombre, appelé la <strong>raison</strong> (souvent notée $r$) :</p>
+<div class="maths">\[
+\forall n\in\N,\quad u_{n+1}=u_{n}+r .
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Terme général</span><div class="boite-corps"><div class="maths">\[
+\forall n\in\N,\ u_{n+1}=u_{n}+r
+\iff
+\forall n,\,p\in\N\times\N,\quad u_{n}=u_{p}+(n-p)r .
+\]</div></div></section>
+<p><strong>Corollaire.</strong>  $(u_{n})$ est une suite arithmétique de raison $r$ et de premier terme $u_{0}$ :</p>
+<div class="maths">\[
+\iff\forall n\in\N,\quad u_{n}=u_{0}+nr .
+\]</div>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Sens de variation</span><div class="boite-corps"><p>Soit $(u_{n})$ une suite arithmétique de raison $r$. Alors :</p>
+<ul><li>si $r&gt;0$, la suite $(u_{n})$ est strictement croissante ;</li><li>si $r&lt;0$, la suite $(u_{n})$ est strictement décroissante ;</li><li>si $r=0$, la suite $(u_{n})$ est constante.</li></ul></div></section>
+<h3>Somme des termes d'une suite arithmétique</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Somme des termes</span><div class="boite-corps"><p>Soit $(u_{n})$ une suite arithmétique de raison $r$ et $S_{n}$ la somme définie par</p>
+<div class="maths">\[
+S_{n}=u_{0}+u_{1}+\dots+u_{n} .
+\]</div>
+<p>Alors</p>
+<div class="maths">\[
+\forall n\in\N,\quad S_{n}=\frac{u_{0}+u_{n}}{2}\times(n+1).
+\]</div></div></section>
+<p><strong>Corollaire.</strong>  Soit $(u_{n})$ une suite arithmétique de raison $r$. Alors</p>
+<div class="maths">\[
+\forall n,\,p\in\N\times\N,\quad
+u_{p}+\dots+u_{n}=\frac{u_{p}+u_{n}}{2}\times(n+1-p).
+\]</div>
+<h2 id="s6"><span class="num-section">VI.</span> Suites géométriques</h2>
+<h3>Définition</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Suite géométrique</span><div class="boite-corps"><p>Une suite $(u_{n})$ est dite <strong>géométrique</strong> lorsqu'il existe un nombre réel non nul $q$, qu'on appelle la raison de la suite, tel que, pour tout entier naturel $n$,</p>
+<div class="maths">\[
+u_{n+1}=q\times u_{n} .
+\]</div>
+<p>Autrement dit : $(u_{n})$ géométrique $\iff$ pour tout entier $n$, $u_{n+1}=q\times u_{n}$.</p></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Terme général</span><div class="boite-corps"><div class="maths">\[
+\forall n\in\N,\ u_{n+1}=q\times u_{n}
+\iff
+\forall n,\,p\in\N\times\N,\quad u_{n}=q^{\,n-p}\,u_{p} .
+\]</div></div></section>
+<p><strong>Corollaire.</strong>  $(u_{n})$ est une suite géométrique de raison $q$ et de premier terme $u_{0}$ :</p>
+<div class="maths">\[
+\iff\forall n\in\N,\quad u_{n}=u_{0}\times q^{\,n} .
+\]</div>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Sens de variation</span><div class="boite-corps"><p>Soit $(u_{n})$ une suite géométrique de raison $q$. Alors :</p>
+<ul><li><p>si $u_{0}&gt;0$ :</p>
+<ul><li>si $q&gt;1$, la suite $(u_{n})$ est strictement croissante ;</li><li>si $q&lt;1$, la suite $(u_{n})$ est strictement décroissante ;</li><li>si $q=1$, la suite $(u_{n})$ est constante.</li></ul></li><li><p>si $u_{0}&lt;0$ :</p>
+<ul><li>si $q&gt;1$, la suite $(u_{n})$ est strictement décroissante ;</li><li>si $q&lt;1$, la suite $(u_{n})$ est strictement croissante ;</li><li>si $q=1$, la suite $(u_{n})$ est constante.</li></ul></li></ul></div></section>
+<h3>Somme des termes d'une suite géométrique</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Somme des termes</span><div class="boite-corps"><p>Soit $(u_{n})$ une suite géométrique de raison $q\neq 1$ et $S_{n}$ la somme définie par</p>
+<div class="maths">\[
+S_{n}=u_{0}+u_{1}+\dots+u_{n} .
+\]</div>
+<p>Alors</p>
+<div class="maths">\[
+\forall n\in\N,\quad S_{n}=u_{0}\times\frac{1-q^{\,n+1}}{1-q} .
+\]</div></div></section>
+<p><strong>Corollaire.</strong>  Soit $(u_{n})$ une suite géométrique de raison $q\neq 1$. Alors</p>
+<div class="maths">\[
+\forall n,\,p\in\N\times\N,\quad
+u_{p}+\dots+u_{n}=u_{p}\times\frac{1-q^{\,n+1-p}}{1-q}.
+\]</div>
+  <p style="margin-top:2.5rem"><a href="../index.html#terminale-spe">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

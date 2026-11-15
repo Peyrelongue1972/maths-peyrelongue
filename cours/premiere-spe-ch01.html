@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 1 : Les fonctions de références 
+{\large La fonction du second degré} — Première spécialité</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#premiere-spe">← Retour au site</a></p>
+  <h1>Chapitre 1 : Les fonctions de références 
+{\large La fonction du second degré}</h1>
+  <p class="sous-titre">Première spécialité · Chapitre 1 — Fonction du second degré · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Fonction du second degré</span><a class="onglet" href="../pdf/premiere-spe/1-fonction-du-second-degre.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/premiere-spe/td01-fonction-reference.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/premiere-spe/td02-second-degre.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../pdf/premiere-spe/activite1-parabole-foyer.pdf" target="_blank" rel="noopener">Activité 1</a><a class="onglet" href="../pdf/premiere-spe/activite2-transformations.pdf" target="_blank" rel="noopener">Activité 2</a><a class="onglet" href="../pdf/premiere-spe/activite3-forme-canonique.pdf" target="_blank" rel="noopener">Activité 3</a><a class="onglet" href="../quiz/premiere-spe-1.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I La fonction carré</a></li><li><a href="#s2">II La fonction carré et ses variantes</a></li><li><a href="#s3">III La fonction polynôme du second degré</a></li></ol></nav>
+<h2 id="s1"><span class="num-section">I.</span> La fonction carré</h2>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Fonction carré</span><div class="boite-corps"><p>La <strong>fonction carré</strong> est la fonction définie sur $\R$ par</p>
+<div class="maths">\[
+f(x)=x^{2} .
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Représentation graphique</span><div class="boite-corps"><p>Sa représentation graphique dans un repère orthogonal est une <strong>parabole</strong> ayant l'axe des ordonnées pour axe de symétrie et ayant pour sommet l'origine du repère.</p></div></section>
+<p><strong>Preuve :</strong> voir activité 1.</p>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Fonctions paire et impaire</span><div class="boite-corps"><p>Une fonction $f$ définie sur $\R$ est <strong>paire</strong> si, pour tout $x$ réel,</p>
+<div class="maths">\[
+f(-x)=f(x) .
+\]</div>
+<p>Une fonction définie sur $\R$ est <strong>impaire</strong> si, pour tout $x$ réel,</p>
+<div class="maths">\[
+f(-x)=-f(x) .
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Symétries</span><div class="boite-corps"><p>Une fonction paire est symétrique par rapport à l'axe des ordonnées.</p>
+<p>Une fonction impaire est symétrique par rapport à l'origine du repère.</p></div></section>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Démonstration</span><div class="boite-corps"><p>Démontrer cette propriété !</p></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Parité de la fonction carré</span><div class="boite-corps"><p>La fonction carré est paire : en effet, pour tout $x$,</p>
+<div class="maths">\[
+f(-x)=(-x)^{2}=x^{2}=f(x) .
+\]</div></div></section>
+<p><strong>Conséquence :</strong> elle admet pour axe de symétrie l'axe $(Oy)$.</p>
+<p>On dresse un tableau de valeurs pour tracer $\mathcal{C}_{f}$ :</p>
+<table class="tableau"><tr><td>$x$</td><td>$0$</td><td>$\dfrac{1}{2}$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$5$</td></tr><tr><td>$f(x)$</td><td>$0$</td><td>$\dfrac{1}{4}$</td><td>$1$</td><td>$4$</td><td>$9$</td><td>$25$</td></tr></table>
+<figure class="figure-cours"><img src="img/premiere-spe-ch01-fig01.png" alt="figure 1 du cours"></figure>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Variations</span><div class="boite-corps"><p>La fonction carré $f$ est strictement décroissante sur $\left]-\infty\,;0\right]$ et strictement croissante sur $\left[0\,;+\infty\right[$. Son minimum sur $\R$ est $0$, et il est atteint pour $x=0$.</p></div></section>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Croissance sur $\left[0\,;+\infty\right[$</span><div class="boite-corps"><p>Démontrer que $f$ est croissante sur $\left[0\,;+\infty\right[$.</p></div></section>
+<p>Soient $a\in\R^{+}$ et $b\in\R^{+}$ tels que $a&lt;b$.</p>
+<p>On va comparer les images $f(a)$ et $f(b)$ : on calcule $f(a)-f(b)$ et on étudie le signe.</p>
+<div class="maths">\[
+f(a)-f(b)=a^{2}-b^{2}=(a-b)(a+b) .
+\]</div>
+<p>$a\geqslant 0$ et $b\geqslant 0$, d'où $a+b\geqslant 0$.</p>
+<p>$a&lt;b\iff a-b&lt;0$ : la règle des signes implique que le produit est négatif, $(a-b)(a+b)\leqslant 0$.</p>
+<p>Donc $f(a)-f(b)\leqslant 0\iff f(a)\leqslant f(b)$ : c'est vrai pour tous les nombres $a$ et $b$ réels positifs.</p>
+<p><strong>Conclusion :</strong> $\forall a,b\in\R^{+}$, $a&lt;b\Longrightarrow f(a)\leqslant f(b)$.</p>
+<p>La fonction carré est donc croissante sur $\R^{+}$.</p>
+<h2 id="s2"><span class="num-section">II.</span> La fonction carré et ses variantes</h2>
+<h3>2.1  Transformations géométriques appliquées à la fonction carré</h3>
+<p><strong>Activité 2 : les transformations de la fonction carré.</strong></p>
+<h3>a) Translation verticale</h3>
+<p>Soit $g(x)=f(x)+k$.</p>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Translation verticale</span><div class="boite-corps"><p>La translation de vecteur $k\vec{j}$ transforme la courbe $\mathcal{C}_{f}$ en la courbe $\mathcal{C}_{g}$.</p></div></section>
+<p>En effet, soit $M\bigl(x\,;f(x)\bigr)\in\mathcal{C}_{f}$ et soit $M'(x'\,;y')$ l'image de $M$ par la translation de vecteur $k\vec{j}$ : on a alors</p>
+<div class="maths">\[
+\overrightarrow{MM'}=k\vec{j}
+\iff
+\begin{pmatrix}x'-x\\y'-f(x)\end{pmatrix}
+=\begin{pmatrix}0\\k\end{pmatrix},
+\]</div>
+<p>d'où</p>
+<div class="maths">\[
+\begin{cases}
+x'=x\\
+y'=f(x)+k=g(x)
+\end{cases}
+\]</div>
+<p>d'où $M'\in\mathcal{C}_{g}$.</p>
+<p>Quel que soit $M\in\mathcal{C}_{f}$, alors $M'\in\mathcal{C}_{g}$.</p>
+<p><strong>Conclusion :</strong> la fonction définie sur $\R$ par $f(x)=x^{2}+k$ a pour représentation graphique la translation de vecteur $k\vec{j}$ de la parabole de la fonction carré.</p>
+<figure class="figure-cours"><img src="img/premiere-spe-ch01-fig02.png" alt="figure 2 du cours"></figure>
+<figure class="figure-cours"><img src="img/premiere-spe-ch01-fig03.png" alt="figure 3 du cours"></figure>
+<h3>b) Translation horizontale</h3>
+<p>Soit $g(x)=f(x+k)$.</p>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Translation horizontale</span><div class="boite-corps"><p>La translation de vecteur $-k\vec{i}$ transforme la courbe $\mathcal{C}_{f}$ en la courbe $\mathcal{C}_{g}$.</p></div></section>
+<p>En effet, soit $M\bigl(x\,;f(x)\bigr)\in\mathcal{C}_{f}$ et soit $M'(x'\,;y')$ l'image de $M$ par la translation de vecteur $-k\vec{i}$ : on a alors</p>
+<div class="maths">\[
+\overrightarrow{MM'}=k\vec{j}
+\iff
+\begin{pmatrix}x'-x\\y'-f(x)\end{pmatrix}
+=\begin{pmatrix}-k\\0\end{pmatrix},
+\]</div>
+<p>d'où</p>
+<div class="maths">\[
+\begin{cases}
+x'=x-k\\
+y'=f(x)=f(x'+k)=g(x')
+\end{cases}
+\]</div>
+<p>d'où $M'\in\mathcal{C}_{g}$.</p>
+<p>Quel que soit $M\in\mathcal{C}_{f}$, alors $M'\in\mathcal{C}_{g}$.</p>
+<figure class="figure-cours"><img src="img/premiere-spe-ch01-fig04.png" alt="figure 4 du cours"></figure>
+<p><strong>Conclusion :</strong> la fonction définie sur $\R$ par $f(x)=(x+k)^{2}$ a pour représentation graphique la translation de vecteur $-k\vec{i}$ de la parabole de la fonction carré.</p>
+<h3>c) Réflexion par rapport à l'axe des abscisses</h3>
+<p>Soit $g(x)=-f(x)$.</p>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Réflexion</span><div class="boite-corps"><p>La symétrie par rapport à l'axe des abscisses transforme la courbe $\mathcal{C}_{f}$ en la courbe $\mathcal{C}_{g}$.</p></div></section>
+<p>En effet, soit $M\bigl(x\,;f(x)\bigr)\in\mathcal{C}_{f}$ et soit $M'(x'\,;y')$ l'image de $M$ par la symétrie axiale $(Ox)$ : on a alors</p>
+<div class="maths">\[
+\begin{cases}
+x'=x\\
+y'=-y=-f(x)=g(x)
+\end{cases}
+\]</div>
+<p>Quel que soit $M\in\mathcal{C}_{f}$, alors $M'\in\mathcal{C}_{g}$.</p>
+<p><strong>Conclusion :</strong> la fonction définie sur $\R$ par $f(x)=-x^{2}$ a pour représentation graphique la parabole de la fonction carré inversée.</p>
+<h3>d) Étirement ou compression verticale</h3>
+<p>Soit $f(x)=ax^{2}$.</p>
+<ul><li>si $|a|&gt;1$, on étire verticalement la parabole ;</li><li>si $|a|&lt;1$, on compresse verticalement la parabole.</li></ul>
+<figure class="figure-cours"><img src="img/premiere-spe-ch01-fig05.png" alt="figure 5 du cours"></figure>
+<h2 id="s3"><span class="num-section">III.</span> La fonction polynôme du second degré</h2>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Fonction polynôme du second degré</span><div class="boite-corps"><p>Une <strong>fonction polynôme du second degré</strong> est une fonction définie sur $\R$ dont une expression est de la forme</p>
+<div class="maths">\[
+ax^{2}+bx+c,
+\]</div>
+<p>où $a$, $b$ et $c$ sont des réels tels que $a\neq 0$. Sa courbe représentative $\mathcal{P}$ est une <strong>parabole</strong>.</p></div></section>
+<h3>3.1  La forme canonique</h3>
+<p><strong>Activité 3 : « Vers la forme canonique »</strong></p>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Forme canonique</span><div class="boite-corps"><p>Toute fonction polynôme du second degré admet une expression dite <strong>forme canonique</strong>. Il existe deux réels $\alpha$ et $\beta$ tels que, pour tout réel $x$,</p>
+<div class="maths">\[
+f(x)=a(x-\alpha)^{2}+\beta .
+\]</div>
+<p>La courbe $\mathcal{C}_{f}$ est donc une parabole ayant pour sommet $S(\alpha\,;\beta)$ et pour axe de symétrie la droite d'équation $x=\alpha$.</p></div></section>
+<p>Rappel : $(u+v)^{2}=u^{2}+2uv+v^{2}$, donc $u^{2}+2uv=(u+v)^{2}-v^{2}$.</p>
+<p><strong>Preuve :</strong></p>
+<div class="maths">\[\begin{aligned}
+f(x)&=ax^{2}+bx+c=a\left(x^{2}+\frac{b}{a}x\right)+c
+=a\left(x^{2}+2x\frac{b}{2a}\right)+c\\
+&=a\left[\left(x+\frac{b}{2a}\right)^{2}-\left(\frac{b}{2a}\right)^{2}\right]+c\\
+&=a\left(x+\frac{b}{2a}\right)^{2}-\frac{ab^{2}}{4a^{2}}+c
+=a\left(x+\frac{b}{2a}\right)^{2}+c-\frac{b^{2}}{4a}.
+\end{aligned}\]</div>
+<p>En posant</p>
+<div class="maths">\[
+\alpha=-\frac{b}{2a}
+\qquad\text{et}\qquad
+\beta=c-\frac{b^{2}}{4a},
+\]</div>
+<p>on a le résultat souhaité.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Forme canonique de $5x^{2}-4x+3$</span><div class="boite-corps"><div class="maths">\[
+f(x)=5x^{2}-4x+3=5\left(x-\frac{2}{5}\right)^{2}+\frac{11}{5} .
+\]</div></div></section>
+<p>Pour tracer la courbe de $\mathcal{C}_{f}$, on peut appliquer les transformations vues précédemment : avec le coefficient $a$, selon le signe, on inverse ou non la parabole ; si $|a|&gt;1$, on resserre la parabole sur l'axe des ordonnées, puis on applique une translation horizontale de vecteur $\alpha\vec{i}$, puis une translation verticale de vecteur $\beta\vec{j}$.</p>
+<p>On constate donc que l'axe de symétrie de la fonction carré est translaté du vecteur $\alpha\vec{i}$ : la parabole a donc pour axe de symétrie l'équation $x=\alpha$.</p>
+<p>Le sommet de la fonction carré $O(0\,;0)$ est transformé par les deux translations successives de vecteur $\alpha\vec{i}$ puis $\beta\vec{j}$ en point $S(\alpha\,;\beta)$.</p>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Sommet et axe de symétrie</span><div class="boite-corps"><p>La parabole $\mathcal{P}$ d'une fonction $f(x)=ax^{2}+bx+c$ admet :</p>
+<ul><li>le point $S(\alpha\,;\beta)$ comme sommet ;</li><li>la droite d'équation $x=\alpha$ comme axe de symétrie.</li></ul></div></section>
+<p><strong>Application :</strong> tracer la courbe de la fonction $f(x)=5x^{2}-4x+3$.</p>
+<p><strong>Application :</strong> voici la représentation graphique d'une fonction polynôme du second degré $f$ définie sur $\R$. Sans résoudre de système, déterminer une expression de $f$.</p>
+<p><img class="img-cours" src="img/premiere-spe-ch01-application-parabole.png" alt=""></p>
+<p>On connaît les points $S(-1\,;-8)$ et $A(0\,;-6)$ : on utilise la forme canonique.</p>
+<p>Donc $\alpha=-1$ et $\beta=-8$.</p>
+<p>$f$ a pour expression $f(x)=a(x+1)^{2}-8$.</p>
+<p>On utilise $f(0)=-6$ pour déterminer $a=2$.</p>
+<h3>3.2  Existence de racine de la fonction polynôme du second degré</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Racine</span><div class="boite-corps"><p>Soit $f$ un polynôme : un nombre réel $u$ est une <strong>racine</strong> de $f$ si</p>
+<div class="maths">\[
+f(u)=0 .
+\]</div>
+<p>La fonction polynôme admet des racines si la parabole traverse l'axe des abscisses.</p></div></section>
+<p><strong>Activité 4 :</strong> identifier le signe de $a$ et de $\beta$ sur chacune des paraboles suivantes.</p>
+<p><img class="img-cours" src="img/premiere-spe-ch01-activite4-paraboles.png" alt=""></p>
+<p>Indiquer dans le tableau suivant le nombre de racines et le signe de $a\beta$.</p>
+<table class="tableau"><tr><td></td><td>$a&gt;0$</td><td>$a&lt;0$</td></tr><tr><td>$\beta&lt;0$</td><td>$2$ racines et $a\beta&lt;0$</td><td>Pas de racine et $a\beta&gt;0$</td></tr><tr><td>$\beta=0$</td><td>$1$ racine et $a\beta=0$</td><td>$1$ racine et $a\beta=0$</td></tr><tr><td>$\beta&gt;0$</td><td>Pas de racine et $a\beta&gt;0$</td><td>$2$ racines et $a\beta&lt;0$</td></tr></table>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Discriminant</span><div class="boite-corps"><p>On appelle <strong>discriminant</strong> $\Delta$ du polynôme du second degré le nombre</p>
+<div class="maths">\[
+\Delta=b^{2}-4ac .
+\]</div></div></section>
+<p>Montrer que $\Delta=-4a\beta$.</p>
+<p><strong>Conclusion :</strong> on a un algorithme simple pour déterminer l'existence de racines.</p>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Existence des racines</span><div class="boite-corps"><p>Soit $\Delta$ le discriminant de la fonction polynôme du second degré $f(x)=ax^{2}+bx+c$.</p>
+<ul><li>Si $\Delta&lt;0$, alors la fonction $f$ n'a pas de racine.</li><li>Si $\Delta=0$, alors la fonction $f$ a une solution réelle.</li><li>Si $\Delta&gt;0$, alors l'équation a deux solutions réelles distinctes.</li></ul></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$f(x)=3x^{2}+x-2$</span><div class="boite-corps"><div class="maths">\[
+f(x)=3x^{2}+x-2
+\qquad
+\Delta=b^{2}-4ac=1^{2}-4\times 3\times(-1)=13&gt;0 .
+\]</div>
+<p>Le discriminant est positif : $f$ admet deux racines.</p></div></section>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Programme Python : nombre de racines</span><div class="boite-corps"><p>Sous Python, écrire une fonction qui détermine le nombre de racines d'une fonction polynôme du second degré.</p></div></section>
+<h3>3.3  Calcul des racines de la fonction polynôme du second degré</h3>
+<p>Soit $f$ une fonction polynôme du second degré $f(x)=ax^{2}+bx+c=a(x-\alpha)^{2}+\beta$, avec</p>
+<div class="maths">\[
+\alpha=-\frac{b}{2a}
+\qquad\text{et}\qquad
+\beta=c-\frac{b^{2}}{4a}=-\frac{\Delta}{4a} .
+\]</div>
+<p>Donc</p>
+<div class="maths">\[
+f(x)=a\left[(x-\alpha)^{2}+\frac{\beta}{a}\right]
+=a\left[(x-\alpha)^{2}-\frac{\Delta}{4a^{2}}\right] .
+\]</div>
+<p><strong>1<sup>er</sup> cas : $\Delta&lt;0$.</strong></p>
+<p>$-4\Delta&gt;0$, donc $(x-\alpha)^{2}-4\Delta&gt;0$. Conclusion : $f$ n'a pas de racine.</p>
+<p><strong>2<sup>ème</sup> cas : $\Delta=0$.</strong></p>
+<p>On a donc</p>
+<div class="maths">\[
+f(x)=a(x-\alpha)^{2}-\frac{\Delta}{4a}=a(x-\alpha)^{2} .
+\]</div>
+<p>Donc</p>
+<div class="maths">\[
+f(x)=0\iff a(x-\alpha)^{2}=0\iff x=\alpha \quad\text{(produit nul)} .
+\]</div>
+<p>$f$ admet une unique racine $x_{0}=\alpha=-\dfrac{b}{2a}$, dite <strong>double</strong>, et on peut factoriser $f$ sous la forme</p>
+<div class="maths">\[
+f(x)=a\left(x+\frac{b}{2a}\right)^{2} .
+\]</div>
+<p><strong>3<sup>ème</sup> cas : $\Delta&gt;0$.</strong></p>
+<p>$\dfrac{\Delta}{4a^{2}}$ est donc un carré : c'est le carré de $\dfrac{\sqrt{\Delta}}{2a}$ ; l'expression $(x-\alpha)^{2}-\dfrac{\Delta}{4a^{2}}$ est donc une différence de $2$ carrés. Je peux la factoriser :</p>
+<div class="maths">\[
+(x-\alpha)^{2}-\frac{\Delta}{4a^{2}}
+=\left(x-\alpha-\frac{\sqrt{\Delta}}{2a}\right)
+\left(x-\alpha+\frac{\sqrt{\Delta}}{2a}\right)
+\]</div>
+<div class="maths">\[
+f(x)=a\left(x-\alpha-\frac{\sqrt{\Delta}}{2a}\right)
+\left(x-\alpha+\frac{\sqrt{\Delta}}{2a}\right) .
+\]</div>
+<p>Résoudre</p>
+<div class="maths">\[
+f(x)=0\iff a\left(x-\alpha-\frac{\sqrt{\Delta}}{2a}\right)
+\left(x-\alpha+\frac{\sqrt{\Delta}}{2a}\right)=0
+\]</div>
+<div class="maths">\[
+\iff x-\alpha-\frac{\sqrt{\Delta}}{2a}=0 \text{ ou }
+x-\alpha+\frac{\sqrt{\Delta}}{2a}=0
+\iff x=\alpha+\frac{\sqrt{\Delta}}{2a} \text{ ou }
+x=\alpha-\frac{\sqrt{\Delta}}{2a} .
+\]</div>
+<p>$f$ admet deux racines</p>
+<div class="maths">\[
+x_{1}=\alpha+\frac{\sqrt{\Delta}}{2a}=-\frac{b}{2a}+\frac{\sqrt{\Delta}}{2a}
+\qquad\text{ou}\qquad
+x_{2}=\alpha-\frac{\sqrt{\Delta}}{2a}=-\frac{b}{2a}-\frac{\sqrt{\Delta}}{2a},
+\]</div>
+<p>et on peut factoriser $f$ sous la forme</p>
+<div class="maths">\[
+f(x)=a\left(x+\frac{b}{2a}+\frac{\sqrt{\Delta}}{2a}\right)
+\left(x+\frac{b}{2a}-\frac{\sqrt{\Delta}}{2a}\right) .
+\]</div>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Récapitulatif</span><div class="boite-corps"><p>On considère une fonction du second degré $f(x)=ax^{2}+bx+c$.</p>
+<ul><li>Si $\Delta&lt;0$ : le trinôme n'a pas de racine réelle. Il n'est pas factorisable dans $\R$.</li><li><p>Si $\Delta=0$ : le trinôme a une racine double $x_{0}=\alpha=-\dfrac{b}{2a}$.</p>
+<p>Pour tout réel $x$, $f(x)=a\left(x+\dfrac{b}{2a}\right)^{2}$.</p></li><li><p>Si $\Delta&gt;0$ : le trinôme a deux racines réelles distinctes</p>
+<div class="maths">        \[
+        x_{1}=\frac{-b+\sqrt{\Delta}}{2a}
+        \qquad\text{et}\qquad
+        x_{2}=\frac{-b-\sqrt{\Delta}}{2a} .
+        \]</div>
+<p>Pour tout réel $x$, $f(x)=a(x-x_{1})(x-x_{2})$.</p></li></ul></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$f(x)=-2x^{2}+3x-2$</span><div class="boite-corps"><div class="maths">\[
+f(x)=-2x^{2}+3x-2
+\qquad
+\Delta=b^{2}-4ac=(-2)^{2}-4\times(-2)\times(-2)=-12&lt;0
+\]</div>
+<p>La fonction $f$ n'a pas de racine et n'est pas factorisable.</p></div></section>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Programme Python : racines</span><div class="boite-corps"><p>Sous Python, écrire une fonction qui détermine le nombre de racines et les valeurs des racines lorsqu'elles existent, d'une fonction polynôme du second degré.</p></div></section>
+<h3>3.4  Signe de la fonction polynôme du second degré</h3>
+<p>Si $\Delta\geqslant 0$, on peut factoriser sous la forme</p>
+<div class="maths">\[
+f(x)=a(x-x_{1})(x-x_{2}) \quad(\text{si } \Delta=0,\ x_{1}=x_{2}) .
+\]</div>
+<p>On peut alors dresser un tableau de signes :</p>
+<figure class="figure-cours"><img src="img/premiere-spe-ch01-fig06.png" alt="figure 6 du cours"></figure>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$f(x)=(x-1)(x+2)$</span><div class="boite-corps"><figure class="figure-cours"><img src="img/premiere-spe-ch01-fig07.png" alt="figure 7 du cours"></figure></div></section>
+<p>Si $\Delta&lt;0$, la fonction reste de signe constant : elle garde le signe de $a$.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$f(x)=-2x^{2}+3x-2$</span><div class="boite-corps"><div class="maths">\[
+f(x)=-2x^{2}+3x-2
+\qquad
+\Delta=b^{2}-4ac=(-2)^{2}-4\times(-2)\times(-2)=-12&lt;0
+\]</div>
+<p>La fonction $f$ garde le signe de $a=-2$ : elle est strictement négative.</p></div></section>
+<h3>3.5  Sens de variation de la fonction polynôme du second degré</h3>
+<p>Pour étudier les variations d'une fonction polynôme du second degré, on utilise la forme canonique</p>
+<div class="maths">\[
+f(x)=ax^{2}+bx+c=a(x-\alpha)^{2}+\beta .
+\]</div>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Variations</span><div class="boite-corps"><p>Soit $f(x)=ax^{2}+bx+c=a(x-\alpha)^{2}+\beta$.</p>
+<ul><li>Si $a&gt;0$, alors $f$ est décroissante sur $\left]-\infty\,;\alpha\right]$ et croissante sur $\left[\alpha\,;+\infty\right[$.</li><li>Si $a&lt;0$, alors $f$ est croissante sur $\left]-\infty\,;\alpha\right]$ et décroissante sur $\left[\alpha\,;+\infty\right[$.</li></ul></div></section>
+<figure class="figure-cours"><img src="img/premiere-spe-ch01-fig08.png" alt="figure 8 du cours"></figure>
+<figure class="figure-cours"><img src="img/premiere-spe-ch01-fig09.png" alt="figure 9 du cours"></figure>
+<p><strong>Preuve :</strong> soit $a&lt;0$.</p>
+<p><strong>Sur l'intervalle $\left]-\infty\,;\alpha\right]$ :</strong> $u$ et $v$ sont deux réels tels que $u&lt;v\leqslant\alpha$, donc $u-\alpha&lt;v-\alpha\leqslant 0$.</p>
+<p>Ainsi $(u-\alpha)^{2}&gt;(v-\alpha)^{2}$, puisque la fonction carré est décroissante sur $\left]-\infty\,;0\right]$.</p>
+<p>$a(u-\alpha)^{2}&lt;a(v-\alpha)^{2}$, puisque $a&lt;0$, donc $a(u-\alpha)^{2}+\beta&lt;a(v-\alpha)^{2}+\beta$, soit $f(u)&lt;f(v)$.</p>
+<p>$f$ est donc croissante sur $\left]-\infty\,;\alpha\right]$.</p>
+<p><strong>Sur l'intervalle $\left[\alpha\,;+\infty\right[$ :</strong> $u$ et $v$ sont deux réels tels que $\alpha\leqslant u&lt;v$, donc $0\leqslant u-\alpha&lt;v-\alpha$.</p>
+<p>Ainsi $(u-\alpha)^{2}&lt;(v-\alpha)^{2}$, puisque la fonction carré est croissante sur $\left[0\,;+\infty\right[$.</p>
+<p>$a(u-\alpha)^{2}&gt;a(v-\alpha)^{2}$, puisque $a&lt;0$, donc $a(u-\alpha)^{2}+\beta&gt;a(v-\alpha)^{2}+\beta$, soit $f(u)&gt;f(v)$.</p>
+<p>$f$ est donc décroissante sur $\left[\alpha\,;+\infty\right[$.</p>
+  <p style="margin-top:2.5rem"><a href="../index.html#premiere-spe">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

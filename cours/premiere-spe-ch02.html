@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 2 : Équation et inéquation du second degré — Première spécialité</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#premiere-spe">← Retour au site</a></p>
+  <h1>Chapitre 2 : Équation et inéquation du second degré</h1>
+  <p class="sous-titre">Première spécialité · Chapitre 2 — Équation et inéquation du second degré · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Équation et inéquation du second degré</span><a class="onglet" href="../pdf/premiere-spe/2-equation-et-inequation-du-second-degre.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/premiere-spe/td01-equations-second-degre.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/premiere-spe/td02-inequations-second-degre.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../pdf/premiere-spe/fiche-methode-inequations.pdf" target="_blank" rel="noopener">Fiche méthode</a><a class="onglet" href="../quiz/premiere-spe-2.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Équation du second degré</a></li><li><a href="#s2">II Signe du trinôme</a></li><li><a href="#s3">III Application : résolution d'inéquation</a></li><li><a href="#s4">IV Produit et somme des racines</a></li></ol></nav>
+<h2 id="s1"><span class="num-section">I.</span> Équation du second degré</h2>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Équation du second degré</span><div class="boite-corps"><p>Une <strong>équation du second degré</strong> (trinôme du second degré) est une équation du type</p>
+<div class="maths">\[
+ax^{2}+bx+c=0
+\]</div>
+<p>avec $a$, $b$ et $c$ trois nombres réels, et $a$ non nul.</p></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Discriminant</span><div class="boite-corps"><p>On appelle <strong>discriminant</strong> de l'équation $ax^{2}+bx+c=0$ le nombre réel</p>
+<div class="maths">\[
+\Delta=b^{2}-4ac .
+\]</div></div></section>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Forme canonique</span><div class="boite-corps"><p>Pour tout $x$ réel, on a</p>
+<div class="maths">\[
+ax^{2}+bx+c=a\left(x+\frac{b}{2a}\right)^{2}-\frac{\Delta}{4a} .
+\]</div>
+<p>On appelle cette forme la <strong>forme canonique</strong>.</p></div></section>
+<p><strong>Preuve :</strong></p>
+<div class="maths">\[\begin{aligned}
+ax^{2}+bx+c&=a\left(x^{2}+\frac{b}{a}x\right)+c
+=a\left(x^{2}+2\frac{b}{2a}x+\frac{b^{2}}{4a^{2}}-\frac{b^{2}}{4a^{2}}\right)+c\\
+&=a\left(x+\frac{b}{2a}\right)^{2}-\frac{b^{2}}{4a}+c
+=a\left(x+\frac{b}{2a}\right)^{2}-\frac{\Delta}{4a} .
+\end{aligned}\]</div>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Forme canonique de $x^{2}+8x+7$</span><div class="boite-corps"><p>La forme canonique de $f(x)=x^{2}+8x+7$ est</p>
+<div class="maths">\[
+f(x)=(x+4)^{2}-9 .
+\]</div></div></section>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Nombre de solutions</span><div class="boite-corps"><p>L'équation $ax^{2}+bx+c=0$ admet :</p>
+<ul><li>si $\Delta&lt;0$ : aucune solution réelle ;</li><li>si $\Delta=0$ : une solution réelle $x_{0}=-\dfrac{b}{2a}$ ;</li><li><p>si $\Delta&gt;0$ : deux solutions réelles distinctes</p>
+<div class="maths">        \[
+        x_{1}=\frac{-b+\sqrt{\Delta}}{2a}
+        \qquad
+        x_{2}=\frac{-b-\sqrt{\Delta}}{2a} .
+        \]</div></li></ul>
+<p>De plus, on peut factoriser l'expression du second degré sous la forme</p>
+<div class="maths">\[
+ax^{2}+bx+c=a(x-x_{1})(x-x_{2}) .
+\]</div></div></section>
+<p>On peut résumer le théorème précédent avec le tableau suivant :</p>
+<figure class="figure-cours"><img src="img/premiere-spe-ch02-fig01.png" alt="figure 1 du cours"></figure>
+<p><strong>Preuve :</strong></p>
+<div class="maths">\[
+ax^{2}+bx+c=0
+\iff a\left[\left(x+\frac{b}{2a}\right)^{2}-\frac{\Delta}{4a^{2}}\right]=0
+\iff \left(x+\frac{b}{2a}\right)^{2}-\frac{\Delta}{4a^{2}}=0 .
+\]</div>
+<p><strong>1<sup>er</sup> cas : $\Delta=0$.</strong></p>
+<p>Résoudre $ax^{2}+bx+c=0$, c'est résoudre</p>
+<div class="maths">\[
+a\left(x+\frac{b}{2a}\right)^{2}=0
+\iff \left(x+\frac{b}{2a}\right)^{2}=0
+\iff x+\frac{b}{2a}=0
+\iff x=-\frac{b}{2a} .
+\]</div>
+<p><strong>2<sup>ème</sup> cas : $\Delta&lt;0$.</strong></p>
+<p>Résoudre</p>
+<div class="maths">\[
+ax^{2}+bx+c=0\iff a\left[\left(x+\frac{b}{2a}\right)^{2}-\frac{\Delta}{4a^{2}}\right]=0
+\iff \left(x+\frac{b}{2a}\right)^{2}-\frac{\Delta}{4a^{2}}=0 .
+\]</div>
+<p>Mais $\Delta&lt;0\iff-\Delta&gt;0\iff-\dfrac{\Delta}{4a^{2}}&gt;0$ ; on a donc la somme de deux nombres strictement positifs : l'équation n'a pas de solution.</p>
+<p><strong>3<sup>ème</sup> cas : $\Delta&gt;0$.</strong></p>
+<div class="maths">\[
+\left(x+\frac{b}{2a}\right)^{2}-\frac{\Delta}{4a^{2}}=0 :
+\]</div>
+<p>on a une différence de deux carrés que l'on peut factoriser !</p>
+<div class="maths">\[
+\left(x+\frac{b}{2a}\right)^{2}-\frac{\Delta}{4a^{2}}=0
+\iff
+\left(x+\frac{b}{2a}-\frac{\sqrt{\Delta}}{2a}\right)
+\left(x+\frac{b}{2a}+\frac{\sqrt{\Delta}}{2a}\right)=0 .
+\]</div>
+<p>Un produit de facteurs est nul si, et seulement si, l'un des facteurs est nul !</p>
+<div class="maths">\[
+ax^{2}+bx+c=0
+\iff x+\frac{b}{2a}-\frac{\sqrt{\Delta}}{2a}=0 \text{ ou }
+x+\frac{b}{2a}+\frac{\sqrt{\Delta}}{2a}=0
+\iff x=-\frac{b}{2a}\pm\frac{\sqrt{\Delta}}{2a} .
+\]</div>
+<h2 id="s2"><span class="num-section">II.</span> Signe du trinôme</h2>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Signe du trinôme</span><div class="boite-corps"><div class="maths">\[
+ax^{2}+bx+c=a\left[\left(x+\frac{b}{2a}\right)^{2}-\frac{\Delta}{4a^{2}}\right]
+\]</div>
+<ul><li>Si $\Delta&lt;0$, alors $\left(x+\dfrac{b}{2a}\right)^{2}-\dfrac{\Delta}{4a^{2}}&gt;0$ et donc le signe de $ax^{2}+bx+c$ est le signe de « $a$ ».</li><li>Si $\Delta=0$, alors $ax^{2}+bx+c=a\left[\left(x+\dfrac{b}{2a}\right)^{2}\right]$ est du signe de « $a$ » pour $x\neq-\dfrac{b}{2a}$.</li><li>Si $\Delta&gt;0$, alors $ax^{2}+bx+c=a(x-x_{1})(x-x_{2})$ : supposons que $x_{1}&lt;x_{2}$.</li></ul></div></section>
+<figure class="figure-cours"><img src="img/premiere-spe-ch02-fig02.png" alt="figure 2 du cours"></figure>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$f(x)=x^{2}-x-6$</span><div class="boite-corps"><p>On considère la fonction trinôme $f(x)=x^{2}-x-6$. On a $\Delta=25$, donc le trinôme admet deux racines réelles distinctes, qui sont $-2$ et $3$.</p>
+<p>Comme $a=1&gt;0$, on a le tableau de signes suivant.</p>
+<figure class="figure-cours"><img src="img/premiere-spe-ch02-fig03.png" alt="figure 3 du cours"></figure></div></section>
+<h2 id="s3"><span class="num-section">III.</span> Application : résolution d'inéquation</h2>
+<div class="maths">\[
+ax^{2}+bx+c&lt;dx^{2}+ex+f
+\]</div>
+<p><strong>Méthode :</strong> pour résoudre une inéquation, on se ramène à une comparaison à zéro et on étudie alors le signe de l'expression algébrique.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$5x^{2}-2x+7&lt;-2x^{2}+3x+4$</span><div class="boite-corps"><p>Résoudre</p>
+<div class="maths">\[
+5x^{2}-2x+7&lt;-2x^{2}+3x+4 .
+\]</div>
+<div class="maths">\[
+5x^{2}-2x+7&lt;-2x^{2}+3x+4
+\iff 5x^{2}+2x^{2}-2x-3x+7-4&lt;0
+\iff 7x^{2}-5x+3&lt;0 .
+\]</div>
+<p>On n'a plus qu'à étudier le signe du trinôme $7x^{2}-5x+3$.</p>
+<p>Le trinôme n'a pas de racine. Le discriminant est strictement négatif, le signe du trinôme est donc celui de « $a$ ». Le trinôme est donc strictement positif.</p>
+<p>On peut conclure que l'ensemble de solution de l'inéquation est vide.</p></div></section>
+<h2 id="s4"><span class="num-section">IV.</span> Produit et somme des racines</h2>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Somme et produit des racines</span><div class="boite-corps"><p>Si le trinôme admet deux racines, alors la somme $S$ et le produit $P$ des racines vérifient :</p>
+<div class="maths">\[
+S=x_{1}+x_{2}=-\frac{b}{a}
+\qquad\text{et}\qquad
+P=x_{1}\times x_{2}=\frac{c}{a} .
+\]</div></div></section>
+<p><strong>Preuve :</strong> soit $ax^{2}+bx+c$ un trinôme qui admet deux racines $x_{1}$ et $x_{2}$ ; on a alors</p>
+<div class="maths">\[
+ax^{2}+bx+c=a(x-x_{1})(x-x_{2}) .
+\]</div>
+<p>On développe la forme factorisée :</p>
+<div class="maths">\[
+a(x-x_{1})(x-x_{2})=a\left(x^{2}-x_{1}x-x_{2}x+x_{1}x_{2}\right)
+=ax^{2}-a(x_{1}+x_{2})x+ax_{1}x_{2}=ax^{2}-aSx+aP .
+\]</div>
+<p>On a bien, par identification, $aP=c$ et $-aS=b$, donc $P=\dfrac{c}{a}$ et $S=-\dfrac{b}{a}$.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$f(x)=x^{2}-x-6$</span><div class="boite-corps"><div class="maths">\[
+f(x)=x^{2}-x-6=(x+2)(x-3)
+\]</div>
+<p>on a $x_{1}=-2$ et $x_{2}=3$ :</p>
+<div class="maths">\[
+S=x_{1}+x_{2}=-2+3=1=-\frac{-1}{1}=-\frac{b}{a}
+\qquad\text{et}\qquad
+P=x_{1}\times x_{2}=-2\times 3=-6=c .
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Réciproque</span><div class="boite-corps"><p>Deux nombres réels ont pour somme $S$ et pour produit $P$ si, et seulement si, ils sont solutions de l'équation</p>
+<div class="maths">\[
+x^{2}-Sx+P=0 \quad\text{avec } S^{2}-4P\geqslant 0 .
+\]</div></div></section>
+<p><strong>Preuve :</strong> soient $u$ et $v$ deux nombres réels de somme $S=u+v$ et de produit $P=uv$.</p>
+<p>L'équation $x^{2}-Sx+P=0$ admet deux solutions, car $\Delta\geqslant 0$. En effet,</p>
+<div class="maths">\[
+\Delta=S^{2}-4P=(u+v)^{2}-4uv=u^{2}+v^{2}+2uv-4uv=u^{2}+v^{2}-2uv=(u-v)^{2}\geqslant 0 .
+\]</div>
+<p>On a alors</p>
+<div class="maths">\[
+Su=(u+v)u=u^{2}+vu=u^{2}+P, \quad\text{donc}\quad u^{2}-Su+P=0
+\]</div>
+<p>$u$ est donc solution de l'équation $x^{2}-Sx+P=0$.</p>
+<p>De même,</p>
+<div class="maths">\[
+Sv=(u+v)v=uv+v^{2}=P+v^{2}, \quad\text{donc}\quad v^{2}-Sv+P=0
+\]</div>
+<p>$v$ est donc solution de l'équation $x^{2}-Sx+P=0$.</p>
+<p>Donc $u$ et $v$ sont les deux solutions de $x^{2}-Sx+P=0$.</p>
+<p><strong>Réciproquement</strong>, soient $u$ et $v$ les deux solutions de $x^{2}-Sx+P=0$.</p>
+<p>On a donc $\Delta=S^{2}-4P$. Les solutions sont</p>
+<div class="maths">\[
+\frac{S}{2}\pm\frac{\sqrt{S^{2}-4P}}{2} .
+\]</div>
+<p>On calcule la somme</p>
+<div class="maths">\[
+u+v=\frac{S}{2}-\frac{\sqrt{S^{2}-4P}}{2}+\frac{S}{2}+\frac{\sqrt{S^{2}-4P}}{2}=S .
+\]</div>
+<p>Le produit</p>
+<div class="maths">\[
+uv=\left(\frac{S}{2}-\frac{\sqrt{S^{2}-4P}}{2}\right)
+\left(\frac{S}{2}+\frac{\sqrt{S^{2}-4P}}{2}\right)
+=\frac{S^{2}}{4}-\frac{S^{2}-4P}{4}=\frac{4P}{4}=P .
+\]</div>
+  <p style="margin-top:2.5rem"><a href="../index.html#premiere-spe">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

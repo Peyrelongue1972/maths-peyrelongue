@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 4 : Fonctions --- nombre dérivé — Première spécialité</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "taua": "{\\tau_{f}}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#premiere-spe">← Retour au site</a></p>
+  <h1>Chapitre 4 : Fonctions --- nombre dérivé</h1>
+  <p class="sous-titre">Première spécialité · Chapitre 4 — Nombre dérivé · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Nombre dérivé</span><a class="onglet" href="../pdf/premiere-spe/4-nombre-derive.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/premiere-spe/td01-nombre-derive.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/premiere-spe/td02-nombre-derive.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../pdf/premiere-spe/td03-nombre-derive.pdf" target="_blank" rel="noopener">TD n°3</a><a class="onglet" href="../pdf/premiere-spe/td01-nombre-derive-corrige.pdf" target="_blank" rel="noopener">TD n°1 · Nombre dérivé</a><a class="onglet" href="../quiz/premiere-spe-4.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Nombre dérivé</a></li><li><a href="#s2">II Tangente à une courbe en un point</a></li><li><a href="#s3">III Dérivation sur un intervalle – fonction dérivée</a></li><li><a href="#s4">IV Opérations sur les fonctions dérivables</a></li></ol></nav>
+<h2 id="s1"><span class="num-section">I.</span> Nombre dérivé</h2>
+<h3>1.1  Taux d'accroissement</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Taux d'accroissement</span><div class="boite-corps"><p>Soit $f$ une fonction définie sur un intervalle $I$ de $\R$, $a$ un point de $I$ et $h$ un réel non nul tel que $a+h$ soit dans $I$.</p>
+<p>On appelle <strong>taux d'accroissement</strong> de $f$ entre $a$ et $a+h$ le nombre réel</p>
+<div class="maths">\[
+\frac{f(a+h)-f(a)}{(a+h)-a}=\frac{f(a+h)-f(a)}{h} .
+\]</div>
+<p>On le note $\taua[a\,;a+h]$.</p></div></section>
+<figure class="figure-cours"><img src="img/premiere-spe-ch04-fig01.png" alt="figure 1 du cours"></figure>
+<p><strong>Remarque :</strong></p>
+<ol><li>Le taux d'accroissement correspond au coefficient directeur de la sécante $(AB)$.</li><li>Le taux d'accroissement donne la tendance globale de la fonction entre deux points. Si la fonction décrit un déplacement, alors le taux d'accroissement correspond à la vitesse moyenne.</li></ol>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Fonction affine</span><div class="boite-corps"><p>Soit $f(x)=mx+p$. Calculons le taux d'accroissement de la fonction affine sur l'intervalle $[a\,;a+h]$ :</p>
+<div class="maths">\[
+\taua[a\,;a+h]=\frac{f(a+h)-f(a)}{h}
+=\frac{m(a+h)+p-(ma+p)}{h}=\frac{mh}{h}=m .
+\]</div>
+<p><strong>Conclusion :</strong> le taux d'accroissement de la fonction affine est constant et correspond au coefficient directeur de la fonction affine.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Fonction carré</span><div class="boite-corps"><p>Soit $f(x)=x^{2}$. Calculons le taux d'accroissement de la fonction carré sur l'intervalle $[a\,;a+h]$ :</p>
+<div class="maths">\[
+\taua[a\,;a+h]=\frac{f(a+h)-f(a)}{h}
+=\frac{(a+h)^{2}-a^{2}}{h}=\frac{a^{2}+2ah+h^{2}-a^{2}}{h}=2a+h .
+\]</div>
+<p><strong>Conclusion :</strong> le taux d'accroissement de la fonction carré dépend de l'emplacement de l'intervalle. Plus $a$ est grand, plus l'accroissement est fort (logique : la courbe accélère).</p></div></section>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">$f(x)=x^{2}+2x+1$ sur $[1\,;1+h]$</span><div class="boite-corps"><p>Soit $f(x)=x^{2}+2x+1$. Calculer le taux d'accroissement sur l'intervalle $[1\,;1+h]$.</p></div></section>
+<h3>1.2  Nombre dérivé en $a$</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Nombre dérivé</span><div class="boite-corps"><p>Soit $f$ une fonction définie sur un intervalle $I$ de $\R$, $a$ un point de $I$ et $h$ un réel non nul tel que $a+h$ soit dans $I$.</p>
+<p>On dit que $f$ est <strong>dérivable en $a$</strong> si le taux d'accroissement $\dfrac{f(a+h)-f(a)}{h}$ tend vers un nombre réel lorsque $h$ tend vers $0$. Ce nombre est appelé <strong>nombre dérivé</strong> de $f$ en $a$ et est noté $f'(a)$.</p>
+<p>On écrit alors</p>
+<div class="maths">\[
+f'(a)=\lim_{h\to 0}\frac{f(a+h)-f(a)}{h} .
+\]</div></div></section>
+<p><strong>Remarque :</strong></p>
+<ol><li>Lorsque $h$ tend vers $0$, le point $B$ se rapproche infiniment de $A$, et la sécante devient la <strong>tangente</strong> à la courbe $\mathcal{C}_{f}$ au point $A$.</li><li>Le nombre dérivé correspond alors à la <strong>pente de la tangente</strong> en $A$ à la courbe.</li></ol>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Nombre dérivé de la fonction affine</span><div class="boite-corps"><p>Soit $f(x)=mx+p$ : calculons le nombre dérivé de la fonction affine en $a$.</p>
+<p><strong>1)</strong> Il faut d'abord calculer le taux d'accroissement sur $[a\,;a+h]$ :</p>
+<div class="maths">\[
+\taua[a\,;a+h]=\frac{f(a+h)-f(a)}{h}
+=\frac{m(a+h)+p-(ma+p)}{h}=\frac{mh}{h}=m .
+\]</div>
+<p><strong>2)</strong> On calcule la limite quand $h$ se rapproche de zéro :</p>
+<div class="maths">\[
+f'(a)=\lim_{h\to 0}\frac{f(a+h)-f(a)}{h}=\lim_{h\to 0}m=m .
+\]</div>
+<p>Le nombre dérivé $f'(a)$ de la fonction affine est indépendant de $a$ : il est toujours égal au coefficient directeur.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Nombre dérivé de la fonction carré</span><div class="boite-corps"><p>Soit $f(x)=x^{2}$ : calculons le nombre dérivé de la fonction carré en $a$.</p>
+<p><strong>1)</strong> Il faut d'abord calculer le taux d'accroissement sur $[a\,;a+h]$ :</p>
+<div class="maths">\[
+\taua[a\,;a+h]=\frac{f(a+h)-f(a)}{h}
+=\frac{(a+h)^{2}-a^{2}}{h}=\frac{a^{2}+2ah+h^{2}-a^{2}}{h}=2a+h .
+\]</div>
+<p><strong>2)</strong> On calcule la limite du taux d'accroissement quand $h$ se rapproche de zéro :</p>
+<div class="maths">\[
+f'(a)=\lim_{h\to 0}\frac{f(a+h)-f(a)}{h}=\lim_{h\to 0}(2a+h)=2a .
+\]</div>
+<p><strong>Conclusion :</strong> le nombre dérivé de la fonction carré dépend de $a$. Plus $a$ est grand, plus le nombre dérivé est grand (logique : la courbe accélère).</p></div></section>
+<h2 id="s2"><span class="num-section">II.</span> Tangente à une courbe en un point</h2>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Tangente</span><div class="boite-corps"><p>Soit $a$ un réel et $f$ une fonction dérivable en $a$. On appelle <strong>tangente</strong> à la courbe représentative de $f$ au point $A$ d'abscisse $a$ la droite passant par le point de coordonnées $(a\,;f(a))$ et de coefficient directeur $f'(a)$.</p></div></section>
+<figure class="figure-cours"><img src="img/premiere-spe-ch04-fig02.png" alt="figure 2 du cours"></figure>
+<p><strong>Équation de la tangente :</strong></p>
+<p>L'équation de la droite tangente à $\mathcal{C}_{f}$ au point $A$ est :</p>
+<div class="maths">\[
+y=f(a)+f'(a)(x-a) .
+\]</div>
+<h2 id="s3"><span class="num-section">III.</span> Dérivation sur un intervalle – fonction dérivée</h2>
+<h3>3.1  Définition</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Fonction dérivée</span><div class="boite-corps"><p>Soit $f$ une fonction définie sur un intervalle $I$ de $\R$. Si, pour tout $a$ de $I$, $f$ est dérivable en $a$, on dit que $f$ est <strong>dérivable sur $I$</strong>.</p>
+<p>La fonction qui, à tout $x$ de $I$, associe le nombre dérivé de $f$ sur $x$, est appelée <strong>fonction dérivée</strong> de $f$ et est notée $f'$.</p></div></section>
+<h3>3.2  Exemples</h3>
+<h3>a) Fonction dérivée de la fonction constante $f(x)=k$</h3>
+<p>Soit $x$ un nombre réel quelconque.</p>
+<p>Le taux d'accroissement entre $x$ et $x+h$ est</p>
+<div class="maths">\[
+\taua[x\,;x+h]=\frac{f(x+h)-f(x)}{x+h-x}=\frac{k-k}{h}=0 .
+\]</div>
+<p>Le taux d'accroissement de la fonction constante entre $x$ et $x+h$ est nul quel que soit $h$, et donc notamment quand $h$ devient très petit, il reste nul.</p>
+<p>Donc $f'(x)=0$ pour tout $x$ réel.</p>
+<p>La fonction dérivée de la fonction constante est donc nulle.</p>
+<h3>b) Fonction dérivée de la fonction affine $f(x)=mx+p$</h3>
+<p>Soit $a$ un nombre réel quelconque.</p>
+<p>Le taux d'accroissement entre $a$ et $a+h$ est :</p>
+<div class="maths">\[
+\taua[a\,;a+h]=\frac{f(a+h)-f(a)}{h}
+=\frac{m(a+h)+p-(ma+p)}{h}=\frac{mh}{h}=m .
+\]</div>
+<p>Le taux d'accroissement de la fonction affine entre $a$ et $a+h$ est égal au coefficient directeur $m$, quelle que soit la valeur de $h$, et donc notamment quand $h$ devient très petit, il reste constant égal à $m$.</p>
+<p>La limite du taux d'accroissement de la fonction affine en « $a$ » existe : le nombre dérivé est donc défini, et pour tout nombre réel $a$, $f'(a)=m$.</p>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Dérivée d'une fonction affine</span><div class="boite-corps"><p>La fonction affine est dérivable sur $\R$ et sa fonction dérivée est $f'(x)=m$.</p></div></section>
+<h3>c) Fonction dérivée de la fonction carré $f(x)=x^{2}$</h3>
+<p>Soit $a$ un nombre réel quelconque et $h&gt;0$.</p>
+<p>Le taux d'accroissement entre $a$ et $a+h$ est :</p>
+<div class="maths">\[
+\taua[a\,;a+h]=\frac{f(a+h)-f(a)}{h}
+=\frac{(a+h)^{2}-a^{2}}{h}=\frac{a^{2}+2ah+h^{2}-a^{2}}{h}
+=\frac{h(2a+h)}{h}=2a+h .
+\]</div>
+<div class="maths">\[
+\lim_{h\to 0}\frac{f(a+h)-f(a)}{h}=2a .
+\]</div>
+<p>La limite du taux d'accroissement de la fonction carré en « $a$ » existe : le nombre dérivé est donc défini, et pour tout nombre réel $a$, $f'(a)=2a$.</p>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Dérivée de la fonction carré</span><div class="boite-corps"><p>La fonction carré est dérivable sur $\R$ et sa fonction dérivée est $f'(x)=2x$.</p></div></section>
+<h3>d) Fonction dérivée de la fonction inverse $f(x)=\dfrac{1}{x}$</h3>
+<p>La fonction inverse est définie sur $\R^{*}$.</p>
+<p>Soit $a\in\R^{*}$ et $h$ un nombre réel strictement positif.</p>
+<p>Le taux d'accroissement entre $a$ et $a+h$ est :</p>
+<div class="maths">\[
+\taua[a\,;a+h]=\frac{f(a+h)-f(a)}{h}
+=\frac{\frac{1}{a+h}-\frac{1}{a}}{h}
+=\frac{\frac{a}{a(a+h)}-\frac{a+h}{a(a+h)}}{h}
+=\frac{\frac{-h}{a(a+h)}}{h}=-\frac{1}{a(a+h)} .
+\]</div>
+<div class="maths">\[
+\lim_{h\to 0}\frac{f(a+h)-f(a)}{h}=-\frac{1}{a^{2}} .
+\]</div>
+<p>La limite du taux d'accroissement de la fonction inverse en « $a$ » existe : le nombre dérivé est donc défini, et pour tout nombre réel non nul $a$,</p>
+<div class="maths">\[
+f'(a)=-\frac{1}{a^{2}} .
+\]</div>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Dérivée de la fonction inverse</span><div class="boite-corps"><p>La fonction inverse est dérivable sur $\R^{*}$ et sa fonction dérivée est</p>
+<div class="maths">\[
+f'(x)=-\frac{1}{x^{2}} .
+\]</div></div></section>
+<h3>e) Fonction dérivée de la fonction racine carrée $f(x)=\sqrt{x}$</h3>
+<p>La fonction racine carrée est définie sur $\R^{+}$.</p>
+<p>Soit $a\in\R^{+}$ et $h$ un nombre réel strictement positif.</p>
+<p>Le taux d'accroissement entre $a$ et $a+h$ est :</p>
+<div class="maths">\[\begin{aligned}
+\taua[a\,;a+h]&=\frac{f(a+h)-f(a)}{h}
+=\frac{\sqrt{a+h}-\sqrt{a}}{h}
+=\frac{\left(\sqrt{a+h}-\sqrt{a}\right)\left(\sqrt{a+h}+\sqrt{a}\right)}
+{h\left(\sqrt{a+h}+\sqrt{a}\right)}\\
+&=\frac{\sqrt{a+h}^{2}-\sqrt{a}^{2}}{h\left(\sqrt{a+h}+\sqrt{a}\right)}
+=\frac{h}{h\left(\sqrt{a+h}+\sqrt{a}\right)}
+=\frac{1}{\sqrt{a+h}+\sqrt{a}} .
+\end{aligned}\]</div>
+<p><strong>1<sup>er</sup> cas : $a=0$.</strong></p>
+<div class="maths">\[
+\frac{f(a+h)-f(a)}{h}=\frac{1}{\sqrt{h}},
+\]</div>
+<p>alors la limite du taux d'accroissement en $0$ n'existe pas.</p>
+<p>Donc le nombre dérivé $f'(0)$ n'est pas défini : la fonction racine carrée n'est pas dérivable en $0$.</p>
+<p><strong>Remarque :</strong></p>
+<div class="maths">\[
+\lim_{h\to 0}\frac{f(0+h)-f(0)}{h}=+\infty .
+\]</div>
+<p>La représentation graphique de la fonction racine carrée a néanmoins une tangente en $0$, qui est verticale !</p>
+<p><strong>2<sup>ème</sup> cas : $a&gt;0$.</strong></p>
+<div class="maths">\[
+\lim_{h\to 0}\frac{f(a+h)-f(a)}{h}=\frac{1}{2\sqrt{a}} .
+\]</div>
+<p>La limite du taux d'accroissement de la fonction racine carrée en « $a&gt;0$ » existe. Le nombre dérivé est donc défini, et pour tout nombre réel non nul $a$,</p>
+<div class="maths">\[
+f'(a)=\frac{1}{2\sqrt{a}} .
+\]</div>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Dérivée de la fonction racine carrée</span><div class="boite-corps"><p>La fonction racine carrée est dérivable sur $\R^{+\,*}$ et sa fonction dérivée est</p>
+<div class="maths">\[
+f'(x)=\frac{1}{2\sqrt{x}} .
+\]</div></div></section>
+<h3>3.3  Fonctions dérivées des fonctions usuelles</h3>
+<table class="tableau"><tr><td></td><td>Fonction $f$ définie par :</td><td>Ensemble de définition $\mathcal{D}_{f}$</td><td>Fonction dérivée $f'$ définie par :</td><td>Ensemble de dérivabilité $\mathcal{D}_{f'}$</td></tr><tr><td><strong>1.</strong></td><td>$f(x)=k$, avec $k\in\R$</td><td>$\R$</td><td>$f'(x)=0$</td><td>$\R$</td></tr><tr><td><strong>2.</strong></td><td>$f(x)=mx+p$, avec $m$ et $p$ réels</td><td>$\R$</td><td>$f'(x)=m$</td><td>$\R$</td></tr><tr><td><strong>3.</strong></td><td>$f(x)=x^{2}$</td><td>$\R$</td><td>$f'(x)=2x$</td><td>$\R$</td></tr><tr><td><strong>4.</strong></td><td>$f(x)=x^{n}$, avec $n\in\N^{*}$</td><td>$\R$</td><td>$f'(x)=nx^{n-1}$</td><td>$\R$</td></tr><tr><td><strong>5.</strong></td><td>$f(x)=\dfrac{1}{x}$</td><td>$\R\setminus\{0\}$</td><td>$f'(x)=-\dfrac{1}{x^{2}}$</td><td>$\R\setminus\{0\}$</td></tr><tr><td><strong>6.</strong></td><td>$f(x)=\dfrac{1}{x^{n}}$ avec $n\in\N^{*}$</td><td>$\R\setminus\{0\}$</td><td>$f'(x)=-\dfrac{n}{x^{n+1}}$</td><td>$\R\setminus\{0\}$</td></tr><tr><td><strong>7.</strong></td><td>$f(x)=\sqrt{x}$</td><td>$[0\,;+\infty[$</td><td>$f'(x)=\dfrac{1}{2\sqrt{x}}$</td><td>$]0\,;+\infty[$</td></tr></table>
+<h2 id="s4"><span class="num-section">IV.</span> Opérations sur les fonctions dérivables</h2>
+<table class="tableau"><tr><td></td><td>Type d'opération</td><td>Fonction à dériver</td><td>Fonction dérivée</td></tr><tr><td><strong>1.</strong></td><td>Dérivée d'une somme</td><td>$u+v$</td><td>$(u+v)'=u'+v'$</td></tr><tr><td><strong>2.</strong></td><td>Dérivée d'un produit par une constante</td><td>$k\times u$</td><td>$(k\times u)'=k\times u'$</td></tr><tr><td><strong>3.</strong></td><td>Dérivée d'un produit</td><td>$u\times v$</td><td>$(u\times v)'=u'\times v+u\times v'$</td></tr><tr><td><strong>4.</strong></td><td>Dérivée d'un inverse</td><td>$\dfrac{1}{v}$ avec $v(x)\neq 0$ pour tout $x\in I$</td><td>$\left(\dfrac{1}{v}\right)'=\dfrac{-v'}{v^{2}}$</td></tr><tr><td><strong>5.</strong></td><td>Dérivée d'un quotient</td><td>$\dfrac{u}{v}$ avec $v(x)\neq 0$ pour tout $x\in I$</td><td>$\left(\dfrac{u}{v}\right)'=\dfrac{u'\times v-u\times v'}{v^{2}}$</td></tr><tr><td><strong>6.</strong></td><td>Dérivée de $f(x)=g(ax+b)$, avec $a\neq 0$ : soit $I$ l'intervalle tel que, pour tout $x\in I$, $ax+b\in J$. La fonction $f$ est définie et dérivable sur $J$ et $f'(x)=a\times g'(ax+b)$.</td></tr></table>
+<h3>4.1  Produit d'une fonction dérivable par une constante</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Produit par une constante</span><div class="boite-corps"><p>Si $u$ est une fonction dérivable sur un intervalle $I$ de $\R$, et $k$ une constante, alors $k\,u$ est dérivable sur $I$ et</p>
+<div class="maths">\[
+(k\,u)'=k\,u' .
+\]</div></div></section>
+<p><strong>Preuve :</strong></p>
+<div class="maths">\[
+\taua[x\,;x+h]=\frac{f(x+h)-f(x)}{h}
+=\frac{ku(x+h)-ku(x)}{h}=\frac{k\bigl(u(x+h)-u(x)\bigr)}{h}
+=k\,\tau_{u}[x\,;x+h]
+\]</div>
+<div class="maths">\[
+f'(x)=\lim_{h\to 0}\taua[x\,;x+h]=\lim_{h\to 0}k\,\tau_{u}[x\,;x+h]=ku'(x) .
+\]</div>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$f(x)=3x^{7}$</span><div class="boite-corps"><p>Soit $f$ la fonction définie sur $\R$ par $f(x)=3x^{7}$.</p>
+<p>La fonction $f$ est sous la forme $k\,u$ avec $u(x)=x^{7}$ et $k=3$.</p>
+<p>La fonction $u$ est dérivable sur $\R$, avec $u'(x)=7x^{6}$.</p>
+<p>Donc $f$ est dérivable sur $\R$ et $f'(x)=21x^{6}$.</p></div></section>
+<h3>4.2  Somme de deux fonctions dérivables</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Somme</span><div class="boite-corps"><p>Si $u$ et $v$ sont deux fonctions dérivables sur un même intervalle $I$ de $\R$, alors $f=u+v$ est dérivable sur $I$ et</p>
+<div class="maths">\[
+f'=(u+v)'=u'+v' .
+\]</div></div></section>
+<p><strong>Preuve :</strong></p>
+<div class="maths">\[\begin{aligned}
+\taua[x\,;x+h]&=\frac{f(x+h)-f(x)}{h}
+=\frac{\bigl(u(x+h)+v(x+h)\bigr)-\bigl(u(x)+v(x)\bigr)}{h}\\
+&=\frac{u(x+h)-u(x)}{h}+\frac{v(x+h)-v(x)}{h}
+=\tau_{u}[x\,;x+h]+\tau_{v}[x\,;x+h]
+\end{aligned}\]</div>
+<div class="maths">\[
+f'(x)=\lim_{h\to 0}\taua[x\,;x+h]
+=\lim_{h\to 0}\tau_{u}[x\,;x+h]+\lim_{h\to 0}\tau_{v}[x\,;x+h]
+=u'(x)+v'(x) .
+\]</div>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$f(x)=x^{2}+\dfrac{1}{x}$</span><div class="boite-corps"><p>Soit $f$ la fonction définie sur $\R^{*}$ par $f(x)=x^{2}+\dfrac{1}{x}$.</p>
+<p>La fonction $f$ est sous la forme $u+v$ avec $u=x^{2}$ et $v=\dfrac{1}{x}$. Les fonctions $u$ et $v$ sont dérivables sur $\R$ et $\R^{*}$, avec $u'=2x$ et $v'=-\dfrac{1}{x^{2}}$.</p>
+<p>Donc $f$ est dérivable sur $\R^{*}$ et</p>
+<div class="maths">\[
+f'(x)=2x-\frac{1}{x^{2}} .
+\]</div></div></section>
+<h3>4.3  Produit de deux fonctions dérivables</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Produit</span><div class="boite-corps"><p>Si $u$ et $v$ sont deux fonctions dérivables sur un même intervalle $I$ de $\R$, alors $u\,v$ est dérivable sur $I$ et</p>
+<div class="maths">\[
+(u\,v)'=u'\times v+u\times v' .
+\]</div></div></section>
+<p><strong>Preuve :</strong></p>
+<div class="maths">\[\begin{aligned}
+\taua[x\,;x+h]&=\frac{f(x+h)-f(x)}{h}
+=\frac{u(x+h)v(x+h)-u(x)v(x)}{h}\\
+&=\frac{u(x+h)v(x+h)-u(x)v(x+h)+u(x)v(x+h)-u(x)v(x)}{h}\\
+&=\frac{v(x+h)\bigl[u(x+h)-u(x)\bigr]+u(x)\bigl[v(x+h)-v(x)\bigr]}{h}\\
+&=v(x+h)\,\tau_{u}[x\,;x+h]+u(x)\,\tau_{v}[x\,;x+h]
+\end{aligned}\]</div>
+<div class="maths">\[
+f'(x)=\lim_{h\to 0}\taua[x\,;x+h]
+=\lim_{h\to 0}v(x+h)\,\tau_{u}[x\,;x+h]+\lim_{h\to 0}u(x)\,\tau_{v}[x\,;x+h]
+=v(x)u'(x)+u(x)v'(x).
+\]</div>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$f(x)=x^{2}(x+5)$</span><div class="boite-corps"><p>Soit $f$ la fonction définie sur $\R$ par $f(x)=x^{2}(x+5)$.</p>
+<p>La fonction $f$ est sous la forme $u\,v$ avec $u=x^{2}$ et $v=x+5$. Les fonctions $u$ et $v$ sont dérivables sur $\R$, avec $u'=2x$ et $v'=1$.</p>
+<p>Donc $f$ est dérivable sur $\R$ et</p>
+<div class="maths">\[
+f'(x)=2x(x+5)+x^{2} .
+\]</div></div></section>
+<p><strong>Remarque :</strong> attention, la dérivée d'un produit n'est jamais le produit des dérivées !</p>
+<h3>4.4  Inverse d'une fonction dérivable</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Inverse</span><div class="boite-corps"><p>Si $u$ est une fonction dérivable sur un même intervalle $I$ de $\R$, et si, pour tout $x$ de $I$, $u(x)\neq 0$, alors $\dfrac{1}{u}$ est dérivable sur $I$ et</p>
+<div class="maths">\[
+\left(\frac{1}{u}\right)'=\frac{-u'}{u^{2}} .
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$f(x)=\dfrac{1}{1-x^{2}}$</span><div class="boite-corps"><p>Soit $f$ la fonction définie sur $\left]-1\,;1\right[$ par $f(x)=\dfrac{1}{1-x^{2}}$.</p>
+<p>La fonction $f$ est sous la forme $\dfrac{1}{u}$ avec $u=1-x^{2}$. La fonction $u$ est dérivable et ne s'annule pas sur $\left]-1\,;1\right[$, avec $u'=-2x$.</p>
+<p>Donc $f$ est dérivable sur $\left]-1\,;1\right[$ et</p>
+<div class="maths">\[
+f'(x)=\frac{2x}{\left(1-x^{2}\right)^{2}} .
+\]</div></div></section>
+<h3>4.5  Quotient de deux fonctions dérivables</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Quotient</span><div class="boite-corps"><p>Si $u$ et $v$ sont deux fonctions dérivables sur un même intervalle $I$ de $\R$, et si $v$ ne s'annule pas sur $I$, alors $\dfrac{u}{v}$ est dérivable sur $I$ et</p>
+<div class="maths">\[
+\left(\frac{u}{v}\right)'=\frac{u'\times v-v'\times u}{v^{2}} .
+\]</div></div></section>
+<p><strong>Preuve :</strong></p>
+<div class="maths">\[\begin{aligned}
+\taua[x\,;x+h]&=\frac{f(x+h)-f(x)}{h}
+=\frac{\dfrac{u(x+h)}{v(x+h)}-\dfrac{u(x)}{v(x)}}{h}
+=\frac{\dfrac{u(x+h)v(x)-v(x+h)u(x)}{v(x+h)v(x)}}{h}\\
+&=\frac{u(x+h)v(x)-u(x)v(x)+u(x)v(x)-u(x)v(x+h)}{h\,v(x)v(x+h)}\\
+&=\frac{v(x)\bigl[u(x+h)-u(x)\bigr]-u(x)\bigl[v(x+h)-v(x)\bigr]}
+{h\,v(x)v(x+h)}\\
+&=\frac{\dfrac{v(x)\bigl[u(x+h)-u(x)\bigr]}{h}
+-\dfrac{u(x)\bigl[v(x+h)-v(x)\bigr]}{h}}{v(x)v(x+h)}\\
+&=\frac{v(x)\tau_{u}[x\,;x+h]-u(x)\tau_{v}[x\,;x+h]}{v(x)v(x+h)}
+\end{aligned}\]</div>
+<div class="maths">\[
+f'(x)=\lim_{h\to 0}\taua[x\,;x+h]
+=\frac{\lim_{h\to 0}v(x)\tau_{u}[x\,;x+h]-\lim_{h\to 0}u(x)\tau_{v}[x\,;x+h]}
+{\lim_{h\to 0}v(x)v(x+h)}
+=\frac{vu'-uv'}{v^{2}} .
+\]</div>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$f(x)=\dfrac{2x+3}{1+x^{2}}$</span><div class="boite-corps"><p>Soit $f$ la fonction définie sur $\R$ par $f(x)=\dfrac{2x+3}{1+x^{2}}$.</p>
+<p>La fonction $f$ est sous la forme $\dfrac{u}{v}$ avec $u=2x+3$ et $v=1+x^{2}$. Les fonctions $u$ et $v$ sont dérivables sur $\R$, avec $u'=2$ et $v'=2x$.</p>
+<p>Donc $f$ est dérivable sur $\R$ et</p>
+<div class="maths">\[
+f'(x)=\frac{2\left(1+x^{2}\right)-(2x+3)\times 2x}{\left(1+x^{2}\right)^{2}} .
+\]</div></div></section>
+  <p style="margin-top:2.5rem"><a href="../index.html#premiere-spe">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

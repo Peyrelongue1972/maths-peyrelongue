@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 7 : Primitives — Terminale spécialité</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#terminale-spe">← Retour au site</a></p>
+  <h1>Chapitre 7 : Primitives</h1>
+  <p class="sous-titre">Terminale spécialité · Chapitre 7 — Primitives · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Primitives</span><a class="onglet" href="../pdf/terminale-spe/7-primitives.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/terminale-spe/td01-primitives.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/terminale-spe/td02-primitives.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../pdf/terminale-spe/fiche-ap-primitives.pdf" target="_blank" rel="noopener">Fiche</a><a class="onglet" href="../quiz/terminale-spe-7.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Définitions</a></li><li><a href="#s2">II Calculs de primitives</a></li></ol></nav>
+<p>Dans tout le chapitre, $a$ et $b$ sont deux réels d'un intervalle $I$, bornes incluses, tels que $a\leqslant b$.</p>
+<h2 id="s1"><span class="num-section">I.</span> Définitions</h2>
+<h3>Définition</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Primitive d'une fonction</span><div class="boite-corps"><p>Soit $f$ une fonction définie sur un intervalle $I$.</p>
+<p>On appelle <strong>primitive de $f$ sur $I$</strong> toute fonction $F$ définie et dérivable sur $I$ vérifiant</p>
+<div class="maths">\[
+F'(x)=f(x)\quad\text{pour tout } x\in I .
+\]</div></div></section>
+<p><strong>Remarque.</strong>  Le mot « primitive » fait écho à la fonction dérivée : l'idée est celle d'une fonction « initiale » ou « origine » dont la fonction dérivée est connue.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Une première primitive</span><div class="boite-corps"><p>Soit $f$ la fonction définie sur $\R$ par $f(x)=2x$. La fonction $F : x\longmapsto x^{2}$ est une primitive de $f$ sur $\R$ : en effet $F'(x)=2x=f(x)$.</p></div></section>
+<h3>1.2  Ensemble des primitives</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Primitives d'une même fonction</span><div class="boite-corps"><p>Soit $f$ une fonction admettant une primitive $F$ sur $I$. Alors toute primitive $G$ de $f$ sur $I$ est de la forme</p>
+<div class="maths">\[
+G=F+k,\quad\text{avec } k\in\R .
+\]</div>
+<p>Autrement dit, deux primitives d'une même fonction sur un intervalle $I$ diffèrent d'une constante.</p></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p><strong>Sens direct.</strong>  Si $G(x)=F(x)+k$ sur $I$, alors $G'(x)=F'(x)=f(x)$ : $G$ est bien une primitive de $f$ sur $I$.</p>
+<p><strong>Réciproquement.</strong>  Soit $G$ une primitive de $f$ sur $I$. On a $G'(x)=f(x)=F'(x)$, d'où $G'(x)-F'(x)=0$, c'est-à-dire</p>
+<div class="maths">\[
+(G-F)'(x)=0\quad\text{pour tout } x\in I .
+\]</div>
+<p>La dérivée de $G-F$ est nulle sur l'intervalle $I$ : la fonction $G-F$ est donc constante sur $I$. Il existe ainsi un réel $k$ tel que $G(x)-F(x)=k$ pour tout $x\in I$, soit $G=F+k$.</p></div></section>
+<p><strong>Remarque.</strong>  Une fonction qui admet une primitive en admet donc une infinité.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Une infinité de primitives</span><div class="boite-corps"><p>Si $F : x\longmapsto x^{2}$ est une primitive de $f : x\longmapsto 2x$ sur $\R$, alors $G(x)=x^{2}+3$ est aussi une primitive de $f$.</p></div></section>
+<h3>1.3  Primitive vérifiant une condition initiale</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Condition initiale</span><div class="boite-corps"><p>Soit $f$ une fonction admettant des primitives sur l'intervalle $I$. Il existe une <strong>unique</strong> primitive $F$ de $f$ sur $I$ telle que</p>
+<div class="maths">\[
+F(x_{0})=y_{0},
+\]</div>
+<p>où $x_{0}\in I$ et $y_{0}$ est un réel donné.</p></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>Pour les fonctions continues, l'existence est assurée par le théorème \ref{thm:existence} ; démontrons l'unicité.</p>
+<p>Supposons qu'il existe deux primitives $F$ et $G$ de $f$ sur $I$ vérifiant la condition initiale, c'est-à-dire telles que $F(x_{0})=y_{0}$ et $G(x_{0})=y_{0}$.</p>
+<p>D'après le théorème \ref{thm:ensemble}, il existe $k\in\R$ tel que $G(x)=F(x)+k$ pour tout $x\in I$. En particulier en $x_{0}$ :</p>
+<div class="maths">\[
+G(x_{0})=F(x_{0})+k \;\Longrightarrow\; y_{0}=y_{0}+k
+\;\Longrightarrow\; k=0 .
+\]</div>
+<p>Ainsi $G=F$ : la primitive vérifiant la condition initiale est unique.</p></div></section>
+<h3>1.4  Existence d'une primitive</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème d'existence (admis)</span><div class="boite-corps"><p>Toute fonction continue sur un intervalle $I$ admet des primitives sur $I$.</p></div></section>
+<p><strong>Remarque.</strong>  La continuité est une condition <em>suffisante</em> mais non nécessaire : il existe des fonctions non continues qui admettent des primitives. De plus, c'est un théorème d'existence, mais il ne donne pas d'expression des primitives.</p>
+<h2 id="s2"><span class="num-section">II.</span> Calculs de primitives</h2>
+<h3>Primitives des fonctions usuelles</h3>
+<p>Les fonctions $f$ suivantes sont définies et dérivables sur l'intervalle $I$ ; $n$ est un entier relatif différent de $-1$. On prend comme constante d'intégration $k=0$ et $a\in\R$.</p>
+<p></p>
+<section class="boite boite-info"><p> <strong>Obtention de primitives par lecture inverse du tableau des dérivées</strong></p>
+<p></p>
+<table class="tableau"><tr><td>Fonction $f$</td><td>Primitive $F$</td><td>Intervalle</td></tr><tr><td>$f(x)=a$</td><td>$F(x)=ax$</td><td>$\R$</td></tr><tr><td>$f(x)=x$</td><td>$F(x)=\dfrac{x^{2}}{2}$</td><td>$\R$</td></tr><tr><td>$f(x)=x^{n}$</td><td>$F(x)=\dfrac{x^{n+1}}{n+1}$</td><td>$\R$</td></tr><tr><td>$f(x)=\dfrac{1}{x}$</td><td>$F(x)=\ln|x|$</td><td>$]-\infty\,;0[\ \text{ou}\ ]0\,;+\infty[$</td></tr><tr><td>$f(x)=\dfrac{1}{x^{n}}$, $n\neq 1$</td><td>$F(x)=\dfrac{-1}{(n-1)x^{n-1}}$</td><td>$]-\infty\,;0[\ \text{ou}\ ]0\,;+\infty[$</td></tr><tr><td>$f(x)=\dfrac{1}{\sqrt{x}}$</td><td>$F(x)=2\sqrt{x}$</td><td>$]0\,;+\infty[$</td></tr><tr><td>$f(x)=\sin x$</td><td>$F(x)=-\cos x$</td><td>$\R$</td></tr><tr><td>$f(x)=\cos x$</td><td>$F(x)=\sin x$</td><td>$\R$</td></tr><tr><td>$f(x)=\e^{x}$</td><td>$F(x)=\e^{x}$</td><td>$\R$</td></tr><tr><td class="vide"></td><td colspan="2" class="note-tableau"></td></tr></table></section>
+<p><strong>Remarque.</strong>  Pour obtenir <em>toutes</em> les primitives d'une fonction $f$ donnée, il suffit de rajouter une constante à l'une d'entre elles.</p>
+<p><strong>Remarque.</strong>  Pour $n&lt;0$, la fonction $x\mapsto x^{n}$ n'est pas définie sur $\R$ : on travaille alors sur $]-\infty\,;0[$ ou sur $]0\,;+\infty[$ (voir la ligne consacrée à $\dfrac{1}{x^{n}}$).</p>
+<h3>Primitives des fonctions composées</h3>
+<p>Dans le tableau ci-dessous, $u$ et $v$ sont des fonctions dérivables sur un intervalle $I$, et $k$ désigne une constante réelle.</p>
+<p></p>
+<section class="boite boite-info"><p> <strong>Primitives des fonctions composées</strong></p>
+<p></p>
+<table class="tableau"><tr><td>Fonction $f$ définie par</td><td>Primitives $F$ de $f$ sur $I$</td></tr><tr><td>$f(x)=c\,u'(x)$ \ ($c\in\R$)</td><td>$F(x)=c\,u(x)+k$</td></tr><tr><td>$f(x)=u'(x)+v'(x)$</td><td>$F(x)=u(x)+v(x)+k$</td></tr><tr><td>$ f(x)=u'(x)\times[u(x)]^{n} \quad {\scriptstyle n\in\mathbb{N}}$</td><td>$F(x)=\dfrac{[u(x)]^{n+1}}{n+1}+k$</td></tr><tr><td>$f(x)=\dfrac{u'(x)}{[u(x)]^{n}} \quad {\scriptstyle n\in\mathbb{N},\ n\geqslant 2,\ u(x)\neq 0\ \text{sur } I}$</td><td>$F(x)=-\dfrac{1}{(n-1)[u(x)]^{n-1}}+k$</td></tr><tr><td>$f(x)=\dfrac{u'(x)}{\sqrt{u(x)}} \quad {\scriptstyle u(x)&gt;0\ \text{sur } I}$</td><td>$F(x)=2\sqrt{u(x)}+k$</td></tr><tr><td>$ f(x)=u'(x)\times v'[u(x)] \quad {\scriptstyle v\circ u\ \text{dérivable sur } I}$</td><td>$F(x)=v\circ u+k=v\bigl(u(x)\bigr)+k$</td></tr><tr><td>$ f(x)=\dfrac{u'(x)}{u(x)} \quad {\scriptstyle u(x)\neq 0\ \text{sur } I}$</td><td>$F(x)=\ln\left(|u(x)|\right)+k$</td></tr><tr><td>$f(x)=u'\,\e^{u(x)}$</td><td>$F(x)=\e^{u(x)}+k$</td></tr><tr><td>$f(x)=u'(x)\cos\bigl(u(x)\bigr)$</td><td>$F(x)=\sin\bigl(u(x)\bigr)+k$</td></tr><tr><td>$f(x)=u'(x)\sin\bigl(u(x)\bigr)$</td><td>$F(x)=-\cos\bigl(u(x)\bigr)+k$</td></tr><tr><td colspan="2" class="note-tableau"></td></tr></table></section>
+<p><strong>Remarque.</strong>  <em>En particulier</em> :</p>
+<ol><li><p>Les fonctions $x\longmapsto \cos(ax+b)$ et $x\longmapsto \sin(ax+b)$, avec $a\neq 0$, admettent pour primitives respectives</p>
+<div class="maths">        \[
+        x\longmapsto \frac{1}{a}\sin(ax+b)
+        \qquad\text{et}\qquad
+        x\longmapsto -\frac{1}{a}\cos(ax+b).
+        \]</div></li><li>En réalité, une primitive de toute fonction de la forme $\dfrac{u'}{u}$ est une fonction de la forme $\ln(u)$.</li></ol>
+<h3>Application des tableaux</h3>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Application du tableau des fonctions de référence</span><div class="boite-corps"><ol><li>Sur $\R$, $f(x)=x^{7}$, donc $F(x)=\dfrac{x^{8}}{8}$.</li><li>Sur $]0\,;+\infty[$, $f(x)=\dfrac{1}{x^{5}}$, donc $F(x)=-\dfrac{1}{4x^{4}}$.</li></ol></div></section>
+<p>On dérive $F$ « dans sa tête » pour vérifier le résultat.</p>
+<p><strong>Remarque.</strong>  On peut toujours utiliser la formule $\dfrac{x^{n+1}}{n+1}$ avec $n\in\mathbb{Z}$ :</p>
+<div class="maths">\[
+f(x)=\frac{1}{x^{5}}=x^{-5}
+\quad\text{d'où}\quad
+F(x)=\frac{x^{-5+1}}{-5+1}=\frac{x^{-4}}{-4}=-\frac{1}{4x^{4}} .
+\]</div>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Exemples d'application du tableau des opérations sur les primitives :</span><div class="boite-corps"><ol><li><p><strong>Polynômes :</strong> on intègre terme à terme.</p>
+<div class="maths">\[
+f(x)=x^{4}-2x^{3}+5
+\quad\Longrightarrow\quad
+F(x)=\frac{x^{5}}{5}-\frac{2x^{4}}{4}+5x+k
+=\frac{x^{5}}{5}-\frac{x^{4}}{2}+5x+k,\quad k\in\R .
+\]</div></li><li><p><strong>Forme $u'u^{n}$ :</strong> $f(x)=5x^{4}\left(x^{5}+3\right)^{7}$.</p>
+<p>On pose $u(x)=x^{5}+3$ et $u'(x)=5x^{4}$, d'où $f=u'\times u^{7}$ et $F=\dfrac{u^{8}}{8}+k$ :</p>
+<div class="maths">\[
+F(x)=\frac{\left(x^{5}+3\right)^{8}}{8}+k,\quad k\in\R .
+\]</div></li><li><p><strong>Forme $\dfrac{u'}{u}$ :</strong> $f(x)=\dfrac{2x}{x^{2}+1}$.</p>
+<p>On pose $u(x)=x^{2}+1$ et $u'(x)=2x$, d'où $f=\dfrac{u'}{u}$ et $F=\ln|u|+k$ :</p>
+<div class="maths">\[
+F(x)=\ln\left|x^{2}+1\right|+k=\ln\left(x^{2}+1\right)+k,\quad k\in\R,
+\]</div>
+<p>car $x^{2}+1&gt;0$ sur $\R$.</p></li><li><p><strong>Forme $\dfrac{u'}{u^{n}}$ :</strong> $f(x)=\dfrac{x+1}{\left(x^{2}+2x-5\right)^{5}}$.</p>
+<p>On pose $u(x)=x^{2}+2x-5$ et $u'(x)=2x+2$, d'où $f=\dfrac{1}{2}\times\dfrac{u'}{u^{5}}$ et $F=\dfrac{1}{2}\times\left(-\dfrac{1}{4u^{4}}\right)$ :</p>
+<div class="maths">\[
+F(x)=-\frac{1}{8}\times\frac{1}{\left(x^{2}+2x-5\right)^{4}}+k,\quad k\in\R .
+\]</div></li><li><p><strong>Forme $\dfrac{u'}{\sqrt{u}}$ :</strong> $f(x)=\dfrac{2x}{\sqrt{x^{2}+5}}$.</p>
+<p>On pose $u(x)=x^{2}+5$ et $u'(x)=2x$, d'où $f=\dfrac{u'}{\sqrt{u}}$ et $F=2\sqrt{u}+k$ :</p>
+<div class="maths">\[
+F(x)=2\sqrt{x^{2}+5}+k,\quad k\in\R .
+\]</div></li><li><p><strong>Forme $u'\e^{u}$ :</strong> $f(x)=2x\,\e^{x^{2}}$.</p>
+<p>On pose $u(x)=x^{2}$ et $u'(x)=2x$, d'où $f=u'\e^{u}$ et $F=\e^{u}+k$ :</p>
+<div class="maths">\[
+F(x)=\e^{x^{2}}+k,\quad k\in\R .
+\]</div></li></ol></div></section>
+  <p style="margin-top:2.5rem"><a href="../index.html#terminale-spe">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 9 : Intégration — Terminale complémentaire</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "dt": "{\\,\\mathrm{d}t}", "aire": "{\\mathrm{aire}}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#terminale-complementaire">← Retour au site</a></p>
+  <h1>Chapitre 9 : Intégration</h1>
+  <p class="sous-titre">Terminale complémentaire · Chapitre 9 — Intégration · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Intégration</span><a class="onglet" href="../pdf/terminale-complementaire/9-integration.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/terminale-complementaire/td01-integration.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/terminale-complementaire/fiche-methode-integration.pdf" target="_blank" rel="noopener">Fiche méthode</a><a class="onglet" href="../pdf/terminale-complementaire/td02-integration-aires.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../quiz/terminale-complementaire-9.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Définition</a></li><li><a href="#s2">II Primitives et intégrale</a></li><li><a href="#s3">III Propriétés de l'intégrale</a></li><li><a href="#s4">IV Intégration par parties</a></li></ol></nav>
+<h2 id="s1"><span class="num-section">I.</span> Définition</h2>
+<h3>1.1  Définition</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Intégrale d'une fonction positive</span><div class="boite-corps"><p>Soit $f$ une fonction continue et positive sur un intervalle $[a\,;b]$. Soit $\mathcal{C}_{f}$ sa représentation graphique dans un repère orthonormal $(O,I,J)$.</p>
+<p>On appelle :</p>
+<ul><li><strong>unité d'aire</strong> (u.a.) : l'aire du rectangle construit à partir des points $O$, $I$ et $J$ ;</li><li><strong>domaine sous la courbe</strong> : le domaine délimité par la courbe $\mathcal{C}_{f}$, l'axe des abscisses et les droites d'équation $x=a$ et $x=b$ ;</li><li><strong>intégrale de $f$ sur $[a\,;b]$</strong> : la mesure de l'aire en u.a. du domaine situé sous la courbe $\mathcal{C}_{f}$.</li></ul>
+<p>On note $\displaystyle\int_{a}^{b}f(x)\dx$.</p></div></section>
+<p><strong>Remarque.</strong>  Le signe $\int$ de l'intégrale est un signe de somme : $f(x)\times \mathrm{d}x$ est l'aire d'un rectangle de hauteur $f(x)$ et de largeur $\mathrm{d}x$. Comme $x$ varie de $a$ à $b$, l'intégrale est une somme de petits rectangles sous la courbe $\mathcal{C}_{f}$.</p>
+<figure class="figure-cours"><img src="img/terminale-complementaire-ch09-fig01.png" alt="figure 1 du cours"></figure>
+<p><strong>Cas particulier.</strong>  Si $a=b$, alors $\displaystyle\int_{a}^{a}f(x)\dx=0$.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Aire d'un triangle</span><div class="boite-corps"><p>On définit la fonction $f$ sur $\R$ par $f(x)=2-x$.</p>
+<p>Le domaine $\mathcal{D}$ ci-dessous est un triangle rectangle de base $5$ et de hauteur $5$. D'où</p>
+<div class="maths">\[
+\int_{-3}^{2}f(x)\dx=\frac{5\times 5}{2}=12{,}5\ \text{u.a.}
+\]</div></div></section>
+<figure class="figure-cours"><img src="img/terminale-complementaire-ch09-fig02.png" alt="figure 2 du cours"></figure>
+<h3>1.2  Variable muette</h3>
+<p>La variable sous le signe intégrale est dite <strong>muette</strong> : on peut la changer par une autre variable.</p>
+<div class="maths">\[
+\int_{a}^{b}f(x)\dx=\int_{a}^{b}f(u)\mathrm{d}u
+=\int_{a}^{b}f(r)\mathrm{d}r=\int_{a}^{b}f(t)\dt .
+\]</div>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Fonction négative</span><div class="boite-corps"><p>Si $f$ est une fonction continue et négative sur $[a\,;b]$, alors l'aire du domaine $\mathcal{D}$ en u.a. est</p>
+<div class="maths">\[
+\aire(\mathcal{D})=\int_{a}^{b}-f(x)\dx .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>Si $f$ est continue et négative sur $[a\,;b]$, alors $-f$ est une fonction continue et positive sur $[a\,;b]$. On note $\mathcal{D}'$ le domaine délimité par $\mathcal{C}_{-f}$. On a</p>
+<div class="maths">\[
+\aire(\mathcal{D}')=\int_{a}^{b}-f(x)\dx .
+\]</div>
+<p>Par symétrie par rapport à l'axe des abscisses, les aires des domaines $\mathcal{D}$ et $\mathcal{D}'$ sont égales, donc</p>
+<div class="maths">\[
+\aire(\mathcal{D})=\aire(\mathcal{D}')=\int_{a}^{b}-f(x)\dx .
+\]</div></div></section>
+<figure class="figure-cours"><img src="img/terminale-complementaire-ch09-fig03.png" alt="figure 3 du cours"></figure>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Fonction affine négative sur un intervalle</span><div class="boite-corps"><p>On définit la fonction $f$ sur $\R$ par $f(x)=5-2x$. On note $\mathcal{C}_{f}$ sa courbe représentative dans un repère orthonormé d'unité $2$&nbsp;cm.</p>
+<ol><li>Calculer l'aire du domaine $\mathcal{D}$ délimité par $\mathcal{C}_{f}$, l'axe des abscisses et les droites d'équation $x=-6$ et $x=1$, en u.a., puis en cm$^{2}$.</li><li>En déduire la valeur de l'intégrale $\displaystyle\int_{-6}^{1}f(x)\dx$.</li></ol></div></section>
+<h3>Méthode : calculer une aire</h3>
+<ol><li>Justifier la continuité et la positivité de $f$ sur $[a\,;b]$.</li><li><p>Tracer éventuellement $\mathcal{C}_{f}$.</p>
+<ol><li>Appliquer les formules de calcul d'aire.</li><li>Convertir 1 u.a. dans l'unité demandée.</li></ol></li><li>Si $f$ est une fonction négative, faire le lien entre l'aire du domaine et l'intégrale.</li></ol>
+<p><strong>Correction.</strong></p>
+<p><strong>1.</strong>  $f$ est une fonction affine, donc elle est continue sur $\R$.</p>
+<p>$f$ est décroissante car $m=-2&lt;0$ et $f(1)=3$, donc sur $[-6\,;1]$ on a $f(x)\geqslant 3&gt;0$.</p>
+<p><strong>2.</strong>  On trace $\mathcal{C}_{f}$.</p>
+<figure class="figure-cours"><img src="img/terminale-complementaire-ch09-fig04.png" alt="figure 4 du cours"></figure>
+<p>$\mathcal{D}$ forme un trapèze, donc</p>
+<div class="maths">\[
+\aire(\mathcal{D})=\frac{(B+b)\times h}{2}
+\]</div>
+<div class="maths">\[
+\aire(\mathcal{D})=\frac{(B+b)\times h}{2}
+=\frac{\bigl(f(-6)+f(1)\bigr)\bigl(1-(-6)\bigr)}{2}
+=(17+3)\times\frac{7}{2}=70\ \text{u.a.}
+\]</div>
+<p>1 u.a. est l'aire d'un carré de $2$&nbsp;cm, donc $1\ \text{u.a.}=4\ \text{cm}^{2}$, et</p>
+<div class="maths">\[
+\aire(\mathcal{D})=280\ \text{cm}^{2}.
+\]</div>
+<p>$f$ est positive, donc</p>
+<div class="maths">\[
+\int_{-6}^{1}f(x)\dx=\aire(\mathcal{D})=70 .
+\]</div>
+<h3>1.3  Intégrale de Riemann</h3>
+<p>Soit $f$ une fonction continue et monotone que l'on suppose croissante.</p>
+<p>L'idée de Riemann est d'encadrer l'aire du domaine délimité par $\mathcal{C}_{f}$ par deux séries de rectangles.</p>
+<p>On divise l'intervalle $[0\,;1]$ en $n$ parties $\left[\frac{i}{n}\,;\frac{i+1}{n}\right]$, avec $i$ un entier qui parcourt $\{0\,;1\,;\dots\,;n-1\}$.</p>
+<p>Sur $\left[\frac{i}{n}\,;\frac{i+1}{n}\right]$, comme $f$ est croissante,</p>
+<div class="maths">\[
+f\left(\frac{i}{n}\right)\leqslant f(t)\leqslant f\left(\frac{i+1}{n}\right).
+\]</div>
+<p>Donc</p>
+<div class="maths">\[
+f\left(\frac{i}{n}\right)\times\frac{1}{n}
+\leqslant\int_{\frac{i}{n}}^{\frac{i+1}{n}}f(t)\dt
+\leqslant f\left(\frac{i+1}{n}\right)\times\frac{1}{n}.
+\]</div>
+<p>En faisant la somme de chacun des termes pour $i$ allant de $0$ à $n-1$, on obtient :</p>
+<div class="maths">\[
+\frac{1}{n}\sum_{i=0}^{i=n-1}f\left(\frac{i}{n}\right)
+\leqslant\int_{a}^{b}f(t)\dt
+\leqslant\frac{1}{n}\sum_{i=0}^{i=n-1}f\left(\frac{i+1}{n}\right).
+\]</div>
+<figure class="figure-cours"><img src="img/terminale-complementaire-ch09-fig05.png" alt="figure 5 du cours"></figure>
+<p>$S_{n}=\frac{1}{n}\sum_{i=0}^{i=n-1}f\left(\frac{i}{n}\right)$ et $T_{n}=\frac{1}{n}\sum_{i=0}^{i=n-1}f\left(\frac{i+1}{n}\right)$ sont appelés <strong>sommes de Riemann</strong>.</p>
+<p><strong>Théorème admis.</strong>  Lorsque la fonction $f$ est <strong>continue</strong>, les sommes $S_{n}$ et $T_{n}$ de Riemann convergent vers la même limite, qui correspond à l'intégrale de $f$ sur $I$.</p>
+<h2 id="s2"><span class="num-section">II.</span> Primitives et intégrale</h2>
+<h3>2.1  Dérivée de $x\longmapsto \int_{a}^{x}f(t)\dt$</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Primitive qui s'annule en $a$</span><div class="boite-corps"><p>Soient $f$ une fonction continue, positive et monotone sur un intervalle $I$, et $a\in I$. La fonction $F_{a}$, définie sur $I$ par</p>
+<div class="maths">\[
+F_{a}(x)=\int_{a}^{x}f(t)\dt,
+\]</div>
+<p>est la primitive de $f$ qui s'annule en $a$.</p></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>On va supposer que $f$ est croissante sur $I$ (si elle est décroissante, on travaille avec $-f$).</p>
+<p>Montrons que $F_{a}'=f$.</p>
+<p>Soient $x\in I$ et $h&gt;0$ : on va calculer $\lim\limits_{h\to 0}\dfrac{F_{a}(x+h)-F_{a}(x)}{h}$.</p>
+<div class="maths">\[
+\frac{F_{a}(x+h)-F_{a}(x)}{h}
+=\frac{1}{h}\left(\int_{a}^{x+h}f(t)\dt-\int_{a}^{x}f(t)\dt\right)
+=\frac{1}{h}\int_{x}^{x+h}f(t)\dt .
+\]</div>
+<p>Pour $t\in[x\,;x+h]$, on a $f(x)\leqslant f(t)\leqslant f(x+h)$ car $f$ est croissante.</p>
+<p>Donc $\displaystyle\int_{x}^{x+h}f(t)\dt$ est minoré par l'aire du rectangle de hauteur $f(x)$ et de largeur $h$ : $f(x)\times h$.</p>
+<p>Et $\displaystyle\int_{x}^{x+h}f(t)\dt$ est majoré par l'aire du rectangle de hauteur $f(x+h)$ et de largeur $h$ : $f(x+h)\times h$.</p>
+<p>Donc</p>
+<div class="maths">\[
+f(x)\leqslant\frac{F_{a}(x+h)-F_{a}(x)}{h}\leqslant f(x+h).
+\]</div>
+<p>On sait que la fonction $f$ est continue, donc $\lim\limits_{h\to 0}f(x+h)=f(x)$.</p>
+<p>D'après le théorème d'encadrement, $\lim\limits_{h\to 0}\dfrac{F_{a}(x+h)-F_{a}(x)}{h}=f(x)$, donc $F_{a}'=f$.</p></div></section>
+<p><strong>Théorème fondamental.</strong>  Soient $f$ une fonction continue sur un intervalle $I$ et $a\in I$. La fonction $F_{a}$, définie sur $I$ par $F_{a}(x)=\displaystyle\int_{a}^{x}f(t)\dt$, est la primitive de $f$ qui s'annule en $a$.</p>
+<h3>2.2  Existence de primitive</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Existence</span><div class="boite-corps"><p>Toute fonction $f$ continue sur un intervalle $I$ admet des primitives sur l'intervalle $I$.</p></div></section>
+<h3>2.3  Calcul d'intégrale à l'aide d'une primitive</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Lien primitive – intégrale</span><div class="boite-corps"><p>Soient $F$ et $f$ deux fonctions telles que $F$ soit une primitive de $f$ sur $[a\,;b]$.</p>
+<p>On a alors</p>
+<div class="maths">\[
+\int_{a}^{b}f(t)\dt=F(b)-F(a).
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>Soit $F_{a}(x)=\displaystyle\int_{a}^{x}f(t)\dt$. $F_{a}$ est la primitive de $f$ qui s'annule en $a$, donc $F_{a}(x)=F(x)+k$.</p>
+<p>Or</p>
+<div class="maths">\[
+\int_{a}^{b}f(t)\dt=F_{a}(b)=F(b)+k
+\qquad\text{et}\qquad
+\int_{a}^{a}f(t)\dt=0=F_{a}(a)=F(a)+k .
+\]</div>
+<p>D'où $k=-F(a)$, donc</p>
+<div class="maths">\[
+\int_{a}^{b}f(t)\dt=F(b)-F(a).
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Calcul d'une intégrale de polynôme</span><div class="boite-corps"><p>Calculer $\displaystyle\int_{1}^{5}x^{3}\dx$.</p>
+<p>Une primitive de la fonction $x\longmapsto x^{3}$ est $F(x)=\dfrac{x^{4}}{4}$.</p>
+<p>D'où</p>
+<div class="maths">\[
+\int_{1}^{5}x^{3}\dx=F(5)-F(1)=\frac{5^{4}}{4}-\frac{1}{4}
+=\frac{625}{4}-\frac{1}{4}=156\ \text{u.a.}
+\]</div></div></section>
+<h2 id="s3"><span class="num-section">III.</span> Propriétés de l'intégrale</h2>
+<h3>3.1  Propriétés « vectorielles »</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Premières propriétés</span><div class="boite-corps"><p>Soit $f$ une fonction continue sur un intervalle $I$. Alors :</p>
+<ul><li>Pour tout $a\in I$, $\displaystyle\int_{a}^{a}f(x)\dx=0$.</li><li>Pour tous $a$, $b\in I$, $\displaystyle\int_{b}^{a}f(x)\dx=-\int_{a}^{b}f(x)\dx$.</li><li><p><strong>Relation de Chasles</strong> : pour tous $a$, $b$, $c\in I$,</p>
+<div class="maths">        \[
+        \int_{a}^{b}f(x)\dx=\int_{a}^{c}f(x)\dx+\int_{c}^{b}f(x)\dx .
+        \]</div></li></ul></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>Soit $F$ une primitive de $f$.</p>
+<ul><li>$\displaystyle\int_{a}^{a}f(x)\dx=F(a)-F(a)=0$.</li><li>$\displaystyle\int_{b}^{a}f(x)\dx=F(a)-F(b)=-\int_{a}^{b}f(x)\dx$.</li><li>$\displaystyle\int_{a}^{c}f(x)\dx+\int_{c}^{b}f(x)\dx =F(c)-F(a)+F(b)-F(c)=F(b)-F(a)=\int_{a}^{b}f(x)\dx$.</li></ul></div></section>
+<figure class="figure-cours"><img src="img/terminale-complementaire-ch09-fig06.png" alt="figure 6 du cours"></figure>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Valeur absolue</span><div class="boite-corps"><div class="maths">\[
+\int_{-2}^{3}|x|\dx
+=\int_{-2}^{0}|x|\dx+\int_{0}^{3}|x|\dx
+=\int_{-2}^{0}-x\dx+\int_{0}^{3}x\dx
+\]</div>
+<div class="maths">\[
+=\left[-\frac{x^{2}}{2}\right]_{-2}^{0}+\left[\frac{x^{2}}{2}\right]_{0}^{3}
+=-0+\frac{4}{2}+\frac{9}{2}-0=\frac{13}{2}.
+\]</div></div></section>
+<h3>3.2  Linéarité de l'intégrale</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Linéarité</span><div class="boite-corps"><p>Soient $f$ et $g$ deux fonctions continues sur $I$, et $a$, $b$ deux réels appartenant à $I$. Soient $\alpha$ et $\beta$ deux réels. Alors</p>
+<div class="maths">\[
+\int_{a}^{b}\bigl(\alpha f(x)+\beta g(x)\bigr)\dx
+=\alpha\int_{a}^{b}f(x)\dx+\beta\int_{a}^{b}g(x)\dx .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>Soit $F$ une primitive de $f$ et $G$ une primitive de $g$.</p>
+<div class="maths">\[\begin{aligned}
+\alpha\int_{a}^{b}f(x)\dx+\beta\int_{a}^{b}g(x)\dx
+  &=\alpha\bigl(F(b)-F(a)\bigr)+\beta\bigl(G(b)-G(a)\bigr)\\
+  &=(\alpha F+\beta G)(b)-(\alpha F+\beta G)(a)\\
+  &=\int_{a}^{b}\bigl(\alpha f(x)+\beta g(x)\bigr)\dx .
+\end{aligned}\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Calcul avec exponentielle et logarithme</span><div class="boite-corps"><p>Calculer $\displaystyle I=\int_{2}^{4}\left(5\e^{x}-\frac{3}{x-1}\right)\dx$.</p>
+<div class="maths">\[
+I=\int_{2}^{4}\left(5\e^{x}-\frac{3}{x-1}\right)\dx
+=5\int_{2}^{4}\e^{x}\dx-3\int_{2}^{4}\left(\frac{1}{x-1}\right)\dx
+\]</div>
+<div class="maths">\[
+I=5\left[\e^{x}\right]_{2}^{4}-3\left[\ln(x-1)\right]_{2}^{4}
+=5\left(\e^{4}-\e^{2}\right)-3\bigl(\ln 3-\ln 1\bigr)
+=5\e^{2}\left(\e^{2}-1\right)-3\ln 3 .
+\]</div></div></section>
+<h3>3.3  Positivité de l'intégrale</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Positivité</span><div class="boite-corps"><p>Si $f$ est une fonction continue et positive sur $[a\,;b]$ avec $a\leqslant b$, alors</p>
+<div class="maths">\[
+\int_{a}^{b}f(x)\dx\geqslant 0 .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>Si $f\geqslant 0$, alors $\displaystyle\int_{a}^{b}f(x)\dx$ est l'aire sous $\mathcal{C}_{f}$, donc elle est positive !</p></div></section>
+<p><strong>Attention !!!</strong>  On peut aussi avoir $\displaystyle\int_{a}^{b}f(x)\dx\geqslant 0$ sans que $f$ demeure positive sur $[a\,;b]$.</p>
+<p><strong>Contre-exemple.</strong>  Soit $f$ la fonction définie sur $\R$ par $f(x)=2x-1$.</p>
+<p> <strong>a.</strong>  Calculer $\displaystyle\int_{0}^{3}f(x)\dx$ :</p>
+<div class="maths">\[
+\int_{0}^{3}f(x)\dx=\left[x^{2}-x\right]_{0}^{3}=6&gt;0 .
+\]</div>
+<p><strong>b.</strong>  Étudier le signe de $f$ sur $[0\,;3]$ :</p>
+<div class="maths">\[
+f(x)&lt;0\ \text{sur}\ \left[0\,;\frac{1}{2}\right[
+\qquad\text{et}\qquad
+f(x)\geqslant 0\ \text{sur}\ \left[\frac{1}{2}\,;3\right].
+\]</div>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Corollaire : croissance</span><div class="boite-corps"><p>Soient $f$ et $g$ deux fonctions continues sur $I=[a\,;b]$.</p>
+<p>Si pour tout réel $x\in[a\,;b]$, $f(x)\leqslant g(x)$, alors</p>
+<div class="maths">\[
+\int_{a}^{b}f(x)\dx\leqslant\int_{a}^{b}g(x)\dx .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>$g(x)-f(x)\geqslant 0$, donc d'après la positivité de l'intégrale, $\displaystyle\int_{a}^{b}\bigl(g(x)-f(x)\bigr)\dx\geqslant 0$ et, par linéarité, on obtient $\displaystyle\int_{a}^{b}g(x)\dx-\int_{a}^{b}f(x)\dx\geqslant 0$, d'où le résultat.</p></div></section>
+<p><strong>Remarque.</strong>  Ce théorème permet de comparer deux intégrales sans forcément les calculer, ou d'encadrer une intégrale.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Encadrer une intégrale</span><div class="boite-corps"><p>Encadrer :</p>
+<div class="maths">\[
+\int_{0}^{1}\e^{t^{2}}\dt .
+\]</div></div></section>
+<h3>3.4  Inégalité de la moyenne</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Inégalité de la moyenne</span><div class="boite-corps"><p>Soit $f$ une fonction continue sur $I=[a\,;b]$ avec $a\leqslant b$, et soient $m$ et $M$ deux nombres réels tels que, pour tout $x\in I$, $m\leqslant f(x)\leqslant M$. Alors</p>
+<div class="maths">\[
+m\leqslant\frac{1}{b-a}\int_{a}^{b}f(x)\dx\leqslant M .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>On intègre l'inégalité :</p>
+<div class="maths">\[
+\int_{a}^{b}m\dx\leqslant\int_{a}^{b}f(x)\dx\leqslant\int_{a}^{b}M\dx
+\]</div>
+<div class="maths">\[
+m\left[x\right]_{a}^{b}\leqslant\int_{a}^{b}f(x)\dx
+\leqslant M\left[x\right]_{a}^{b}
+\iff m(b-a)\leqslant\int_{a}^{b}f(x)\dx\leqslant M(b-a)
+\]</div>
+<div class="maths">\[
+\iff m\leqslant\frac{1}{b-a}\int_{a}^{b}f(x)\dx\leqslant M .
+\]</div></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Valeur moyenne</span><div class="boite-corps"><p>Lorsque $a&lt;b$, le nombre $\displaystyle\frac{1}{b-a}\int_{a}^{b}f(x)\dx$ est appelé <strong>valeur moyenne</strong> de $f$ sur $[a\,;b]$.</p></div></section>
+<p><strong>Interprétation graphique.</strong>  Lorsque $f$ est positive, la valeur moyenne correspond à la hauteur du rectangle de côté $b-a$ et de même aire que $\mathcal{D}$.</p>
+<figure class="figure-cours"><img src="img/terminale-complementaire-ch09-fig07.png" alt="figure 7 du cours"></figure>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Valeur moyenne de la fonction cube</span><div class="boite-corps"><p>La valeur moyenne de la fonction cube sur $[1\,;3]$ est</p>
+<div class="maths">\[
+\frac{1}{3-1}\int_{1}^{3}x^{3}\dx
+=\frac{1}{2}\left[\frac{x^{4}}{4}\right]_{1}^{3}
+=\frac{1}{2}\left(\frac{81-1}{4}\right)=10 .
+\]</div></div></section>
+<h3>3.5  Calcul d'aire</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Aire et intégrale d'une fonction de signe variable</span><div class="boite-corps"><p>Si $f$ est une fonction continue sur $[a\,;b]$, positive sur $[a\,;c]$ et négative sur $[c\,;b]$ (avec $a&lt;c&lt;b$), alors</p>
+<div class="maths">\[
+\int_{a}^{b}f(x)\dx=\aire(\mathcal{D}_{1})-\aire(\mathcal{D}_{2}),
+\]</div>
+<p>où $\mathcal{D}_{1}$ est le domaine compris entre sa courbe représentative, l'axe des abscisses et les droites d'équation $x=a$ et $x=c$, et où $\mathcal{D}_{2}$ est celui délimité par $\mathcal{C}_{f}$, l'axe des abscisses et les droites d'équation $x=c$ et $x=b$.</p></div></section>
+<figure class="figure-cours"><img src="img/terminale-complementaire-ch09-fig08.png" alt="figure 8 du cours"></figure>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Aire entre deux courbes</span><div class="boite-corps"><p>Soient $f$ et $g$ deux fonctions continues sur $I$ telles que, pour tout $x\in I$, $f(x)\geqslant g(x)$. Soit $\mathcal{D}$ le domaine délimité par les courbes représentatives de $f$ et de $g$ sur $[a\,;b]$.</p>
+<p>Alors l'aire de $\mathcal{D}$, en u.a., est égale à</p>
+<div class="maths">\[
+\int_{a}^{b}\bigl(f-g\bigr)(x)\dx .
+\]</div></div></section>
+<figure class="figure-cours"><img src="img/terminale-complementaire-ch09-fig09.png" alt="figure 9 du cours"></figure>
+<h2 id="s4"><span class="num-section">IV.</span> Intégration par parties</h2>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Formule d'intégration par parties</span><div class="boite-corps"><p>On considère deux fonctions $u$ et $v$ dérivables sur un intervalle $I$ telles que $u'$ et $v'$ soient continues sur $I$. Soient $a$ et $b$ deux réels de $I$ tels que $a&lt;b$. Alors</p>
+<div class="maths">\[
+\int_{a}^{b}u'(x)v(x)\dx
+=\bigl[u(x)v(x)\bigr]_{a}^{b}-\int_{a}^{b}u(x)v'(x)\dx .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><div class="maths">\[
+\bigl[u(x)v(x)\bigr]_{a}^{b}=\int_{a}^{b}(u\times v)'(x)\dx
+=\int_{a}^{b}\bigl(u'v+uv'\bigr)(x)\dx
+=\int_{a}^{b}u'(x)v(x)\dx+\int_{a}^{b}u(x)v'(x)\dx
+\]</div>
+<div class="maths">\[
+\iff\int_{a}^{b}u'(x)v(x)\dx
+=\bigl[u(x)v(x)\bigr]_{a}^{b}-\int_{a}^{b}u(x)v'(x)\dx .
+\]</div></div></section>
+<p><strong>Méthode.</strong>  Lorsque le calcul d'une intégrale n'est pas possible directement avec une primitive, on peut utiliser une intégration par parties.</p>
+<ul><li>Choisir judicieusement $u'$ et $v$ en justifiant la dérivabilité et la continuité des fonctions.</li><li>Utiliser la formule d'intégration par parties.</li><li>Calculer les intégrales pour conclure.</li></ul>
+<p><strong>Application.</strong>  Calculer $\displaystyle\int_{0}^{1}x\e^{x}\dx$.</p>
+<p> Posons $u'(x)=\e^{x}$ et $v(x)=x$, donc $u(x)=\e^{x}$ et $v'(x)=1$.</p>
+<p><strong>Idée :</strong> 1) j'intègre, 2) je dérive ! On choisit de dériver la fonction qui peut disparaître, donc le plus souvent on dérive le polynôme (mais pas toujours !).</p>
+<div class="maths">\[
+\int_{0}^{1}x\e^{x}\dx
+=\bigl[\e^{x}x\bigr]_{0}^{1}-\int_{0}^{1}1\times\e^{x}\dx
+=\e-0-\bigl[\e^{x}\bigr]_{0}^{1}
+=\e-(\e-1)=1 .
+\]</div>
+  <p style="margin-top:2.5rem"><a href="../index.html#terminale-complementaire">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

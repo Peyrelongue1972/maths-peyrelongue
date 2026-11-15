@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 7 : Information chiffrée — Seconde</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#seconde">← Retour au site</a></p>
+  <h1>Chapitre 7 : Information chiffrée</h1>
+  <p class="sous-titre">Seconde · Chapitre 7 — Information chiffrée · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Information chiffrée</span><a class="onglet" href="../pdf/seconde/7-information-chiffree.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../quiz/seconde-7.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Proportions</a></li><li><a href="#s2">II Évolutions</a></li><li><a href="#s3">III Indices</a></li></ol></nav>
+<h2 id="s1"><span class="num-section">I.</span> Proportions</h2>
+<p>Soit un ensemble $A$ ayant $n_{A}$ éléments, inclus dans un ensemble plus grand $E$ ayant $n_{E}$ éléments.</p>
+<figure class="figure-cours"><img src="img/seconde-ch07-fig01.png" alt="figure 1 du cours"></figure>
+<h3>1.1  Calculer une proportion $p$ d'un ensemble $A$ inclus dans un ensemble $E$</h3>
+<p>Pour calculer la proportion d'éléments de $A$ compris dans l'ensemble $E$, on calcule le rapport du nombre d'éléments :</p>
+<div class="maths">\[
+p=\frac{n_{A}}{n_{E}} .
+\]</div>
+<p>Pour exprimer la proportion en pourcentage, on écrit la fraction avec $100$ au dénominateur.</p>
+<p><strong>Exemple :</strong> si $p=\dfrac{n_{A}}{n_{E}}=0{,}37=\dfrac{37}{100}=37\,\%$.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Proportion de gauchers</span><div class="boite-corps"><p>Il y a $15$ gauchers dans un groupe de $90$ joueurs de tennis. Quelle est la proportion de gauchers dans le groupe ?</p>
+<div class="maths">\[
+N=\frac{15}{90}=\frac{1}{6}
+\qquad\text{et en pourcentage}\qquad
+\frac{1}{6}\approx 0{,}1667=\frac{16{,}67}{100}=16{,}67\,\% .
+\]</div></div></section>
+<h3>1.2  Calculer un pourcentage d'une quantité</h3>
+<p><strong>Exemple :</strong> $38\,\%$ de $40$ est égal à $R=\dfrac{38}{100}\times 40$.</p>
+<p>Calculer $p\,\%$ de $N$, c'est calculer $\dfrac{p}{100}\times N$.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Filles d'un club d'escrime</span><div class="boite-corps"><p>Il y a $45\,\%$ de filles dans un club d'escrime de $300$ membres. Combien y a-t-il de filles dans le club ?</p>
+<div class="maths">\[
+N=\frac{45}{100}\times 300=135 .
+\]</div></div></section>
+<h3>1.3  Savoir retrouver $n_{E}$ à partir de $p$ et de $n_{A}$</h3>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Élèves malades</span><div class="boite-corps"><p>$24$ élèves sont malades, ce qui représente dans l'établissement $5\,\%$ de l'effectif. Combien y a-t-il d'élèves ?</p></div></section>
+<table class="tableau"><tr><td>$5\,\%$</td><td>$\longrightarrow$</td><td>$24$ élèves</td></tr><tr><td>$100\,\%$</td><td>$\longrightarrow$</td><td>$X$ élèves</td></tr></table>
+<p>Produit en croix :</p>
+<div class="maths">\[
+\frac{5}{100}\times X=\frac{100}{100}\times 24
+\quad\Longrightarrow\quad
+X=\frac{24}{\left(\dfrac{5}{100}\right)}
+=\frac{24\times 100}{5}=480 .
+\]</div>
+<p><strong>Autre méthode :</strong> $n_{A}=24$, $n_{E}$ est inconnu et $p=5\,\%=\dfrac{5}{100}=0{,}05$.</p>
+<p>On a, par définition, $p=\dfrac{n_{A}}{n_{E}}$, soit :</p>
+<div class="maths">\[
+p\times n_{E}=\frac{n_{A}}{n_{E}}\times n_{E}
+\iff p\times n_{E}=n_{A}
+\iff n_{E}=\frac{n_{A}}{p}
+\qquad\text{donc}\qquad
+n_{E}=\frac{24}{0{,}05}=480 .
+\]</div>
+<h3>1.4  Proportions enchaînées</h3>
+<p>Soient $A$, $B$ et $E$ trois ensembles tels que $B\subset A\subset E$. Si $p_{1}$ est la proportion de $B$ dans $A$ et si $p_{2}$ est la proportion de $A$ dans $E$, alors la proportion de $B$ dans $E$ est $p_{1}\times p_{2}$.</p>
+<p><strong>Preuve :</strong> on a $p_{1}=\dfrac{n_{B}}{n_{A}}$ et $p_{2}=\dfrac{n_{A}}{n_{E}}$, d'où</p>
+<div class="maths">\[
+p_{1}\times p_{2}=\frac{n_{B}}{n_{A}}\times\frac{n_{A}}{n_{E}}
+=\frac{n_{B}}{n_{E}} :
+\]</div>
+<p>c'est la proportion de $B$ dans $E$.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Garçons et sport</span><div class="boite-corps"><p>$13\,\%$ des élèves sont des garçons et $20\,\%$ des garçons font du sport. La proportion des garçons qui font du sport parmi tous les élèves est de :</p>
+<div class="maths">\[
+0{,}13\times 0{,}2=0{,}026=2{,}6\,\% .
+\]</div></div></section>
+<h2 id="s2"><span class="num-section">II.</span> Évolutions</h2>
+<h3>2.1  Taux d'évolution</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Taux d'évolution</span><div class="boite-corps"><p>On appelle <strong>taux d'évolution</strong> (ou taux de variation) le pourcentage de variation entre deux valeurs, l'une de départ et l'autre d'arrivée.</p>
+<p>La variation $t$ en pourcentage entre $V_{d}$, valeur de départ, et $V_{a}$, valeur d'arrivée, est</p>
+<div class="maths">\[
+t=\frac{V_{a}-V_{d}}{V_{d}} .
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Masse d'un joueur de rugby</span><div class="boite-corps"><p>Après un an d'entraînement, un joueur de rugby est passé de $80$ kg à $100$ kg. Quel est le taux de variation de sa masse ?</p>
+<div class="maths">\[
+t=\frac{100-80}{80}=0{,}25=\frac{25}{100}=25\,\% .
+\]</div></div></section>
+<h3>2.2  Le coefficient multiplicateur</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Coefficient multiplicateur</span><div class="boite-corps"><p>Le <strong>coefficient multiplicateur</strong> $C_{M}$ est le rapport de la valeur d'arrivée $V_{a}$ sur la valeur de départ $V_{d}$ :</p>
+<div class="maths">\[
+C_{M}=\frac{V_{a}}{V_{d}} .
+\]</div></div></section>
+<h3>2.3  Le coefficient multiplicateur et le taux $t$</h3>
+<div class="maths">\[
+C_{M}=1+t .
+\]</div>
+<p><strong>Preuve :</strong></p>
+<div class="maths">\[
+C_{M}=\frac{V_{a}}{V_{d}}
+=\frac{V_{a}-V_{d}+V_{d}}{V_{d}}
+=\frac{V_{a}-V_{d}}{V_{d}}+\frac{V_{d}}{V_{d}}
+=t+1 .
+\]</div>
+<figure class="figure-cours"><img src="img/seconde-ch07-fig02.png" alt="figure 2 du cours"></figure>
+<p><strong>Exemple :</strong></p>
+<ul><li>pour une augmentation de $12\,\%$, le taux $t=12\,\%$ et le coefficient multiplicateur $C_{M}=1{,}12$ ;</li><li>pour une baisse de $12\,\%$, le taux $t=-12\,\%$ et le coefficient multiplicateur $C_{M}=0{,}88$.</li></ul>
+<ul><li>Pour trouver $V_{a}$, on multiplie $V_{d}$ par $(1+t)$ : $V_{a}=(1+t)\times V_{d}$.</li><li>Pour trouver $V_{d}$, on multiplie $V_{a}$ par $\dfrac{1}{1+t}$ : $V_{a}\times\dfrac{1}{1+t}=V_{d}$.</li><li><p>Pour trouver le taux d'évolution :</p>
+<ul><li><strong>Méthode 1 :</strong> $t=\dfrac{V_{a}-V_{d}}{V_{d}}$ ;</li><li><strong>Méthode 2 :</strong> on calcule le coefficient multiplicateur $C_{M}=\dfrac{V_{a}}{V_{d}}$, puis $t=C_{M}-1$.</li></ul></li></ul>
+<h3>2.4  Taux global correspondant à plusieurs évolutions successives</h3>
+<figure class="figure-cours"><img src="img/seconde-ch07-fig03.png" alt="figure 3 du cours"></figure>
+<ul><li><p>Il faut multiplier les coefficients multiplicateurs entre eux :</p>
+<div class="maths">        \[
+        C_{M\text{global}}=C_{M_{1}}\times C_{M_{2}}\times\dots\times C_{M_{n}}
+        \]</div>
+<div class="maths">        \[
+        \left(1+t_{g}\right)=\left(1+t_{1}\right)\times\dots\times
+        \left(1+t_{n}\right)
+        \qquad\text{donc}\qquad
+        t_{g}=\left(1+t_{1}\right)\times\dots\times\left(1+t_{n}\right)-1 .
+        \]</div></li></ul>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Hausse de 20 % puis de 20 %</span><div class="boite-corps"><p>Calculer le taux global d'une hausse de $20\,\%$ suivie d'une hausse de $20\,\%$ :</p>
+<div class="maths">\[
+t_{g}=(1+0{,}2)\times(1+0{,}2)-1=0{,}44=44\,\% .
+\]</div></div></section>
+<h3>2.5  Calculer un taux moyen correspondant à $n$ évolutions successives, connaissant le taux global</h3>
+<figure class="figure-cours"><img src="img/seconde-ch07-fig04.png" alt="figure 4 du cours"></figure>
+<p>On écrit :</p>
+<div class="maths">\[
+\left(1+t_{m}\right)^{n}=1+t_{g}
+\qquad\text{d'où}\qquad
+t_{m}=\left(1+t_{g}\right)^{\frac{1}{n}}-1 .
+\]</div>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Hausse annuelle de 15 %</span><div class="boite-corps"><p>Pour une hausse annuelle de $15\,\%$, on cherche le taux moyen mensuel appliqué :</p>
+<div class="maths">\[
+t_{m}=(1+0{,}15)^{\frac{1}{12}}-1=0{,}0117 .
+\]</div>
+<p>Le taux moyen mensuel est de $1{,}17\,\%$ par mois.</p></div></section>
+<h3>2.6  Taux d'évolution réciproque</h3>
+<p>On cherche à obtenir le taux d'évolution $t_{r}$ qui annule une évolution $t_{x}$.</p>
+<p>Une évolution d'un taux $t_{x}$ revient à multiplier par $(1+t_{x})$ : pour revenir en arrière, il faut diviser par $(1+t_{x})$ :</p>
+<div class="maths">\[
+1+t_{r}=\frac{1}{1+t_{x}}
+\qquad\text{et donc}\qquad
+t_{r}=\frac{1}{1+t_{x}}-1=-\frac{t_{x}}{1+t_{x}} .
+\]</div>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Évolution réciproque de +20 %</span><div class="boite-corps"><p>Soit une évolution de $+20\,\%$. Il faudra effectuer une évolution de</p>
+<div class="maths">\[
+t_{r}=-\frac{0{,}2}{1{,}2}=-\frac{1}{6}\approx -16{,}67\,\%
+\]</div>
+<p>pour annuler la hausse de $20\,\%$.</p></div></section>
+<h2 id="s3"><span class="num-section">III.</span> Indices</h2>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Indice</span><div class="boite-corps"><p>Un <strong>indice</strong> est la valeur d'une grandeur par rapport à une grandeur de référence.</p></div></section>
+<p>Les indices permettent de mesurer l'évolution d'une grandeur relativement à une grandeur de départ (la base). Cela revient à imaginer que la base de l'indice vaut « $100$ » et que les autres grandeurs sont calculées relativement à cette grandeur de référence.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Indices d'une série</span><div class="boite-corps"><p>On considère la série suivante, où $2007$ est prise comme année de référence.</p>
+<table class="tableau"><tr><td>Année</td><td>$2006$</td><td>$2007$</td><td>$2008$</td><td>$2009$</td></tr><tr><td>Valeur</td><td>$32$</td><td>$40$</td><td>$36$</td><td>$46$</td></tr><tr><td>Indice</td><td>$80$</td><td>$100$</td><td>$90$</td><td>$115$</td></tr></table>
+<p>On donne $100$ comme valeur à l'année de référence, et on rapporte toutes les autres valeurs <strong>proportionnellement</strong> : par exemple, $\dfrac{32}{40}\times 100=80$ et $\dfrac{46}{40}\times 100=115$.</p></div></section>
+<ul><li>Un indice de $115$ indique une hausse de $15\,\%$ par rapport à l'année de référence $2007$.</li><li>Un indice de $90$ indique une baisse de $10\,\%$ par rapport à l'année de référence ($2007$).</li></ul>
+<p><strong>ATTENTION :</strong> entre $2008$ et $2009$, il n'y a pas une augmentation de $115-90=25\,\%$, mais de $27{,}8\,\%$.</p>
+<p>En effet, le taux d'évolution est</p>
+<div class="maths">\[
+t=\frac{46}{36}-1\approx 0{,}2778=27{,}8\,\% .
+\]</div>
+<p>De même, entre $2006$ et $2007$, il n'y a pas une augmentation de $100-80=20\,\%$, mais de $25\,\%$ :</p>
+<div class="maths">\[
+t=\frac{40}{32}-1=0{,}25=25\,\% .
+\]</div>
+<p>La base indicielle sert à mesurer les variations par rapport à l'année de référence !</p>
+  <p style="margin-top:2.5rem"><a href="../index.html#seconde">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

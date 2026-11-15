@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 2 : Complément sur la dérivation — Terminale spécialité</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#terminale-spe">← Retour au site</a></p>
+  <h1>Chapitre 2 : Complément sur la dérivation</h1>
+  <p class="sous-titre">Terminale spécialité · Chapitre 2 — Complément sur la dérivation · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Complément sur la dérivation</span><a class="onglet" href="../pdf/terminale-spe/2-complement-sur-la-derivation.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/terminale-spe/td01-derivation-et-convexite.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/terminale-spe/td02-convexite.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../pdf/terminale-spe/fiche-ap-complement-derivation.pdf" target="_blank" rel="noopener">Fiche</a><a class="onglet" href="../quiz/terminale-spe-2.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Rappels sur la dérivation</a></li><li><a href="#s2">II Composée de deux fonctions</a></li><li><a href="#s3">III Formules de dérivation d'une fonction composée</a></li><li><a href="#s4">IV Convexité</a></li></ol></nav>
+<h2 id="s1"><span class="num-section">I.</span> Rappels sur la dérivation</h2>
+<h3>Nombre dérivé</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Nombre dérivé</span><div class="boite-corps"><p>Soit $f$ une fonction définie sur un intervalle $I$ et $a\in\R$.</p>
+<p>On appelle <strong>nombre dérivé</strong> en $a$,</p>
+<div class="maths">\[
+f'(a)=\lim_{h\to 0}\frac{f(a+h)-f(a)}{h},
+\]</div>
+<p>si elle existe.</p>
+<p>Si $f'(a)$ existe, alors la fonction $f$ est <strong>dérivable en $a$</strong>.</p></div></section>
+<p><strong>Interprétation géométrique.</strong>  Le nombre dérivé $f'(a)$ de la fonction $f$ en un point $M\bigl(a\,;f(a)\bigr)$ correspond à la pente de la tangente à la courbe au point $M$.</p>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Équation de la tangente</span><div class="boite-corps"><p>L'équation de la tangente au point $A\bigl(a\,;f(a)\bigr)$ :</p>
+<div class="maths">\[
+T : y=f'(a)(x-a)+f(a).
+\]</div></div></section>
+<h3>Les fonctions dérivées de référence</h3>
+<table class="tableau"><tr><td>Fonction</td><td>$D_{f}$</td><td>Dérivée</td><td>$D_{f'}$</td></tr><tr><td>$f(x)=k$</td><td>$\R$</td><td>$f'(x)=0$</td><td>$\R$</td></tr><tr><td>$f(x)=x$</td><td>$\R$</td><td>$f'(x)=1$</td><td>$\R$</td></tr><tr><td>$f(x)=x^{n}$, $n\in\N^{*}$</td><td>$\R$</td><td>$f'(x)=n\,x^{n-1}$</td><td>$\R$</td></tr><tr><td>$f(x)=\dfrac{1}{x}$</td><td>$\R^{*}$</td><td>$f'(x)=-\dfrac{1}{x^{2}}$</td><td>$\R^{*}$</td></tr><tr><td>$f(x)=\dfrac{1}{x^{n}}$, $n\in\N^{*}$</td><td>$\R^{*}$</td><td>$f'(x)=-\dfrac{n}{x^{n+1}}$</td><td>$\R^{*}$</td></tr><tr><td>$f(x)=\sqrt{x}$</td><td>$[0\,;+\infty[$</td><td>$f'(x)=\dfrac{1}{2\sqrt{x}}$</td><td>$]0\,;+\infty[$</td></tr><tr><td>$f(x)=\e^{x}$</td><td>$\R$</td><td>$f'(x)=\e^{x}$</td><td>$\R$</td></tr><tr><td>$f(x)=\sin x$</td><td>$\R$</td><td>$f'(x)=\cos x$</td><td>$\R$</td></tr><tr><td>$f(x)=\cos x$</td><td>$\R$</td><td>$f'(x)=-\sin x$</td><td>$\R$</td></tr></table>
+<h3>Opérations sur les fonctions dérivées</h3>
+<table class="tableau"><tr><td>Dérivée de la somme</td><td>$(u+v)'=u'+v'$</td></tr><tr><td>Dérivée du produit par un scalaire</td><td>$(ku)'=ku'$</td></tr><tr><td>Dérivée du produit</td><td>$(uv)'=u'v+uv'$</td></tr><tr><td>Dérivée de l'inverse</td><td>$\left(\dfrac{1}{u}\right)'=-\dfrac{u'}{u^{2}}$</td></tr><tr><td>Dérivée du quotient</td><td>$\left(\dfrac{u}{v}\right)'=\dfrac{u'v-uv'}{v^{2}}$</td></tr></table>
+<h3>Sens de variation, extremum local et dérivée</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Lien entre le signe de $f'$ et les variations de $f$</span><div class="boite-corps"><p>Soit $f$ une fonction dérivable sur un intervalle $I$.</p>
+<ul><li>Si, pour tout réel $x$ de $I$, $f'(x)&gt;0$ sauf en un nombre fini de points où elle s'annule, alors la fonction $f$ est strictement croissante sur $I$.</li><li>Si, pour tout réel $x$ de $I$, $f'(x)&lt;0$ sauf en un nombre fini de points où elle s'annule, alors la fonction $f$ est strictement décroissante sur $I$.</li><li>Si, pour tout réel $x$ de $I$, $f'(x)=0$, alors $f$ est constante.</li></ul></div></section>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Extremum local</span><div class="boite-corps"><p>Soit $f$ une fonction dérivable sur un intervalle $I$ ouvert et $a\in I$.</p>
+<ul><li>Si $f$ admet un extremum en $a$, alors $f'(a)=0$.</li><li>Si $f'(a)=0$ et si $f'$ change de signe en $a$, alors $f$ admet un extremum en $a$.</li></ul></div></section>
+<p><strong>Contre-exemple.</strong>  $f(x)=x^{3}$ :   $f'(0)=0$ et pourtant $f(0)$ n'est pas un extremum !</p>
+<h2 id="s2"><span class="num-section">II.</span> Composée de deux fonctions</h2>
+<h3>Définition</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Composée de deux fonctions</span><div class="boite-corps"><p>Soient $u$ une fonction définie sur un intervalle $I$ à valeurs dans un intervalle $J$, et $v$ une fonction définie sur l'intervalle $J$.</p>
+<p>La <strong>composée de $u$ par $v$</strong>, notée $v\circ u$, est la fonction définie par</p>
+<div class="maths">\[
+v\circ u\,(x)=v\bigl(u(x)\bigr).
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Reconnaître une composée</span><div class="boite-corps"><p>On considère la fonction $f$ définie par $f(x)=\sqrt{x-3}$.</p>
+<p>La fonction $f$ est la composée de deux fonctions $u$ et $v$ telles que</p>
+<div class="maths">\[
+f : x\ \overset{u}{\longmapsto}\ x-3\ \overset{v}{\longmapsto}\
+\sqrt{x-3} .
+\]</div>
+<p>Les fonctions $u$ et $v$ sont définies par $u(x)=x-3$ et $v(x)=\sqrt{x}$.</p>
+<p>On dit que la fonction $f$ est la composée de $u$ par $v$ et on note</p>
+<div class="maths">\[
+f(x)=v\circ u\,(x)=v\bigl(u(x)\bigr)=\sqrt{x-3}.
+\]</div></div></section>
+<h3>Identifier la composée de deux fonctions</h3>
+<p>On considère la fonction $f$ définie par $f(x)=\dfrac{1}{x^{2}}$.</p>
+<p>Identifier la composée de deux fonctions dans la fonction $f$.</p>
+<p>Dans $f$, on reconnaît la fonction inverse et la fonction carré.</p>
+<p>Si on pose $u(x)=x^{2}$ et $v(x)=\dfrac{1}{x}$, on a alors</p>
+<div class="maths">\[
+f(x)=\frac{1}{x^{2}}=\frac{1}{u(x)}=v\bigl(u(x)\bigr)=v\circ u\,(x).
+\]</div>
+<p>La fonction $f$ est la composée de la fonction carré par la fonction inverse.</p>
+<h3>2.3  Composer deux fonctions</h3>
+<p>On considère les fonctions $u$ et $v$ définies par $u(x)=x^{2}+x$ et $v(x)=\dfrac{x}{x+1}$.</p>
+<p>Exprimer les fonctions $v\circ u$ et $u\circ v$ en fonction de $x$.</p>
+<p>On a $u(x)=x^{2}+x$ et $v(x)=\dfrac{x}{x+1}$.</p>
+<div class="maths">\[
+v\circ u\,(x)=v\bigl(u(x)\bigr)=\frac{x^{2}+x}{x^{2}+x+1},
+\]</div>
+<div class="maths">\[
+u\circ v\,(x)=u\bigl(v(x)\bigr)=\left(\frac{x}{x+1}\right)^{2}+\frac{x}{x+1}.
+\]</div>
+<h2 id="s3"><span class="num-section">III.</span> Formules de dérivation d'une fonction composée</h2>
+<h3>Dérivation d'une fonction composée</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Dérivée de $v\circ u$</span><div class="boite-corps"><p>Soient $u$ une fonction définie et dérivable sur un intervalle $I$ à valeurs dans un intervalle $J$, et $v$ une fonction définie et dérivable sur l'intervalle $J$. Alors la fonction $v\circ u$ est dérivable sur $I$ et</p>
+<div class="maths">\[
+(v\circ u)'=v'(u)\times u',
+\]</div>
+<p>c'est-à-dire que, pour tout $x\in I$, on a</p>
+<div class="maths">\[
+(v\circ u)'(x)=v'\bigl(u(x)\bigr)\times u'(x).
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>Soit $x\in I$ et $h&gt;0$ : $v\circ u$ est dérivable en $x$ si $\dfrac{v\circ u\,(x+h)-v\circ u\,(x)}{h}$ admet une limite lorsque $h$ tend vers $0$.</p>
+<div class="maths">\[
+\frac{v\circ u\,(x+h)-v\circ u\,(x)}{h}
+=\frac{u(x+h)-u(x)}{h}\times
+\frac{v\circ u\,(x+h)-v\circ u\,(x)}{u(x+h)-u(x)}
+\]</div>
+<div class="maths">\[
+=\frac{u(x+h)-u(x)}{h}\times
+\frac{v\bigl(u(x+h)\bigr)-v\bigl(u(x)\bigr)}{u(x+h)-u(x)} .
+\]</div>
+<p>Or la fonction $u$ est dérivable pour tout $x\in I$, donc</p>
+<div class="maths">\[
+\lim_{h\to 0}\frac{u(x+h)-u(x)}{h}=u'(x).
+\]</div>
+<p>Posons $H=u(x+h)-u(x)$, donc $u(x+h)=u(x)+H$.</p>
+<p>La fonction $u$ est continue, donc $\lim\limits_{h\to 0}u(x+h)=u(x)$, et donc</p>
+<div class="maths">\[
+\lim_{h\to 0}H=\lim_{h\to 0}\bigl(u(x+h)-u(x)\bigr)=0 .
+\]</div>
+<p>Or la fonction $v$ est dérivable sur $J$, donc</p>
+<div class="maths">\[
+\lim_{h\to 0}\frac{v\bigl(u(x+h)\bigr)-v\bigl(u(x)\bigr)}{u(x+h)-u(x)}
+=\lim_{H\to 0}\frac{v\bigl(u(x)+H\bigr)-v\bigl(u(x)\bigr)}{H}
+=v'\bigl(u(x)\bigr).
+\]</div>
+<p>Finalement,</p>
+<div class="maths">\[
+\lim_{h\to 0}\frac{v\circ u\,(x+h)-v\circ u\,(x)}{h}
+=\lim_{h\to 0}\frac{u(x+h)-u(x)}{h}\times
+\lim_{h\to 0}\frac{v\bigl(u(x+h)\bigr)-v\bigl(u(x)\bigr)}{u(x+h)-u(x)}
+=u'(x)\times v'\bigl(u(x)\bigr).
+\]</div></div></section>
+<h3>Cas particuliers de fonctions composées</h3>
+<table class="tableau"><tr><td>Fonction</td><td>Dérivée</td></tr><tr><td>$u^{n}$ avec $n\in\mathbb{Z}^{*}$</td><td>$n\,u'\,u^{n-1}$</td></tr><tr><td>$\e^{u}$</td><td>$u'\,\e^{u}$</td></tr><tr><td>$\sqrt{u}$</td><td>$\dfrac{u'}{2\sqrt{u}}$</td></tr><tr><td>$\ln u$</td><td>$\dfrac{u'}{u}$</td></tr><tr><td>$\cos u$</td><td>$-u'\sin u$</td></tr><tr><td>$\sin u$</td><td>$u'\cos u$</td></tr></table>
+<h3>Déterminer la dérivée de fonctions composées</h3>
+<p>Déterminer les dérivées des fonctions définies par :</p>
+<div class="maths">\[
+\textbf{a)}\ f(x)=\left(2x^{2}+3x-3\right)^{4}
+\qquad
+\textbf{b)}\ g(x)=2\,\e^{\frac{1}{x}}
+\qquad
+\textbf{c)}\ h(x)=\ln\left(2x-x^{2}\right)
+\]</div>
+<p><strong>a)</strong>  On pose $f(x)=\bigl(u(x)\bigr)^{4}$ avec $u(x)=2x^{2}+3x-3$, d'où $u'(x)=4x+3$.</p>
+<div class="maths">\[\begin{aligned}
+f'(x) &=4\,u'(x)\,\bigl(u(x)\bigr)^{3}\\
+      &=4\,(4x+3)\left(2x^{2}+3x-3\right)^{3}.
+\end{aligned}\]</div>
+<p><strong>b)</strong>  On pose $g(x)=2\,\e^{u(x)}$ avec $u(x)=\dfrac{1}{x}$, d'où $u'(x)=-\dfrac{1}{x^{2}}$.</p>
+<div class="maths">\[\begin{aligned}
+g'(x) &=2\,u'(x)\,\e^{u(x)}\\
+      &=2\times\left(-\frac{1}{x^{2}}\right)\e^{\frac{1}{x}}\\
+      &=-\frac{2}{x^{2}}\,\e^{\frac{1}{x}} .
+\end{aligned}\]</div>
+<p><strong>c)</strong>  On pose $h(x)=\ln\bigl(u(x)\bigr)$ avec $u(x)=2x-x^{2}$, d'où $u'(x)=2-2x$.</p>
+<div class="maths">\[\begin{aligned}
+h'(x) &=\frac{u'(x)}{u(x)}\\
+      &=\frac{2-2x}{2x-x^{2}} .
+\end{aligned}\]</div>
+<h3>Déterminer la dérivée d'une fonction composée (cas général)</h3>
+<p>Déterminer la dérivée de la fonction $f$ définie sur $\R$ par $f(x)=\sqrt{x^{2}+1}$.</p>
+<p>On considère les fonctions $u$ et $v$ définies par $u(x)=x^{2}+1$ et $v(x)=\sqrt{x}$.</p>
+<p>Alors $f(x)=\sqrt{x^{2}+1}=v\bigl(u(x)\bigr)$.</p>
+<p>On a $u'(x)=2x$ et $v'(x)=\dfrac{1}{2\sqrt{x}}$.</p>
+<p>Donc</p>
+<div class="maths">\[
+f'(x)=u'(x)\times v'\bigl(u(x)\bigr)
+=2x\times\frac{1}{2\sqrt{x^{2}+1}}
+=\frac{x}{\sqrt{x^{2}+1}} .
+\]</div>
+<h2 id="s4"><span class="num-section">IV.</span> Convexité</h2>
+<h3>Dérivée seconde</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Dérivée seconde</span><div class="boite-corps"><p>Soit $f$ une fonction dérivable sur un intervalle $I$. On note $f'$ sa fonction dérivée.</p>
+<p>Lorsque $f'$ est dérivable sur $I$, on note $f''$ sa dérivée. $f''$ est appelée la <strong>dérivée seconde</strong> de $f$ sur $I$.</p></div></section>
+<p><strong>Remarque.</strong>  $f''$ se lit « $f$ seconde ».</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Dérivée seconde d'un polynôme</span><div class="boite-corps"><p>Soit $f$ la fonction polynôme définie sur $\R$ par $f(x)=3x^{3}+2x+5$.</p>
+<p>$f$ est dérivable sur $\R$, car c'est une fonction polynôme :</p>
+<div class="maths">\[
+f'(x)=9x^{2}+2 .
+\]</div>
+<p>$f'$ est dérivable sur $\R$, car c'est une fonction polynôme :</p>
+<div class="maths">\[
+f''(x)=18x .
+\]</div></div></section>
+<h3>4.2  Fonctions convexes</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Fonction convexe, fonction concave</span><div class="boite-corps"><p>Soit $f$ une fonction définie sur un intervalle $I$ et $\mathcal{C}_{f}$ la représentation graphique de la fonction $f$ dans un repère orthogonal.</p>
+<ul><li>Dire que $f$ est <strong>convexe</strong> sur $I$ signifie que, pour tout point $A$ et $B$ distincts de $\mathcal{C}_{f}$, le segment $[AB]$ est <em>au-dessus</em> de la courbe $\mathcal{C}_{f}$ entre les points $A$ et $B$.</li><li>Dire que $f$ est <strong>concave</strong> sur $I$ signifie que, pour tout point $A$ et $B$ distincts de $\mathcal{C}_{f}$, le segment $[AB]$ est <em>en dessous</em> de la courbe $\mathcal{C}_{f}$ entre les points $A$ et $B$.</li></ul></div></section>
+<figure class="figure-cours"><img src="img/terminale-spe-ch02-fig01.png" alt="figure 1 du cours"></figure>
+<p><strong>Exemple.</strong>  La fonction carré est une fonction convexe sur $\R$. La fonction racine $x\longmapsto\sqrt{x}$ est concave sur $\R^{+}$.</p>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Caractérisation par les cordes</span><div class="boite-corps"><p>Soit $f$ une fonction définie sur un intervalle $I$ contenant $a$ et $b$ ($a&lt;b$), et $t\in]0\,;1[$.</p>
+<ul><li>Si $f$ est convexe, alors $f\bigl[ta+(1-t)b\bigr]\leqslant t\,f(a)+(1-t)f(b)$.</li><li>Si $f$ est concave, alors $f\bigl[ta+(1-t)b\bigr]\geqslant t\,f(a)+(1-t)f(b)$.</li></ul></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>Cas où $f$ est convexe.</p>
+<p>Soient $A\bigl(a\,;f(a)\bigr)$, $B\bigl(b\,;f(b)\bigr)$ et $M\bigl(x\,;f(x)\bigr)$.</p>
+<p>Soit $x\in[a\,;b]$ : on peut paramétrer $x$ avec la variable $t$ :</p>
+<div class="maths">\[
+x=ta+(1-t)b\quad\text{avec } t\in]0\,;1[ .
+\]</div>
+<p>$M$ a pour ordonnée $y_{M}=f(x)=f\bigl(ta+(1-t)b\bigr)$.</p>
+<p>$N$ est le point de la droite $(AB)$ d'abscisse $x=ta+(1-t)b$.</p>
+<p>La droite $(AB)$ a pour équation</p>
+<div class="maths">\[
+y=\frac{f(b)-f(a)}{b-a}(x-a)+f(a).
+\]</div>
+<p>Donc</p>
+<div class="maths">\[\begin{aligned}
+y_{N}
+&=\frac{f(b)-f(a)}{b-a}\bigl(ta+(1-t)b-a\bigr)+f(a)\\
+&=\frac{f(b)-f(a)}{b-a}\,(b-a)(1-t)+f(a)\\
+&=(1-t)f(b)+t\,f(a).
+\end{aligned}\]</div>
+<p>Comme $f$ est convexe, $y_{M}\leqslant y_{N}$, donc</p>
+<div class="maths">\[
+f\bigl[ta+(1-t)b\bigr]\leqslant t\,f(a)+(1-t)f(b).
+\]</div></div></section>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Corollaire : inégalité au point milieu</span><div class="boite-corps"><p>Soit $f$ une fonction définie sur un intervalle $I$ contenant $a$ et $b$ ($a&lt;b$) et $t\in]0\,;1[$.</p>
+<ul><li>Si $f$ est convexe, alors $f\left[\dfrac{a+b}{2}\right]\leqslant\dfrac{f(a)+f(b)}{2}$.</li><li>Si $f$ est concave, alors $f\left[\dfrac{a+b}{2}\right]\geqslant\dfrac{f(a)+f(b)}{2}$.</li></ul></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>Prendre $t=\dfrac{1}{2}$ dans le théorème précédent.</p></div></section>
+<p><strong>Application.</strong></p>
+<div class="maths">\[
+(a+b)^{2}\leqslant 2\left(a^{2}+b^{2}\right),
+\qquad
+\e^{\frac{a+b}{2}}\leqslant\frac{\e^{a}+\e^{b}}{2},
+\qquad
+|a+b|\leqslant|a|+|b| .
+\]</div>
+<h3>Convexité et tangente</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Position de la courbe par rapport à ses tangentes (admis)</span><div class="boite-corps"><p>Soit $f$ une fonction dérivable sur un intervalle $I$ et $\mathcal{C}_{f}$ la représentation graphique de la fonction $f$ dans un repère.</p>
+<ul><li>Dire que $f$ est <strong>convexe</strong> sur $I$ signifie que, sur l'intervalle $I$, la courbe $\mathcal{C}_{f}$ est au-dessus de chacune de ses tangentes.</li><li>Dire que $f$ est <strong>concave</strong> sur $I$ signifie que, sur l'intervalle $I$, la courbe $\mathcal{C}_{f}$ est en dessous de chacune de ses tangentes.</li></ul></div></section>
+<figure class="figure-cours"><img src="img/terminale-spe-ch02-fig02.png" alt="figure 2 du cours"></figure>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Quatre propositions équivalentes</span><div class="boite-corps"><p>Soit $f$ une fonction définie et deux fois dérivable sur un intervalle $I$. Les quatre propositions suivantes sont équivalentes :</p>
+<ol><li>$f$ est convexe sur $I$ ;</li><li>la courbe $\mathcal{C}_{f}$ représentative de $f$ est entièrement située au-dessus de ses tangentes ;</li><li>$f'$ est croissante sur $I$ ;</li><li>$f''\geqslant 0$ sur $I$.</li></ol></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p><strong>Montrons que $3\Longrightarrow 2$.</strong></p>
+<p>Soit $f$ une fonction définie et dérivable sur un intervalle $I$ et $a\in I$. Soit $T$ la tangente à $\mathcal{C}_{f}$ au point d'abscisse $a$ :</p>
+<div class="maths">\[
+T : y=f'(a)(x-a)+f(a).
+\]</div>
+<p>Pour montrer que $\mathcal{C}_{f}$ est au-dessus de $T$, on va étudier la fonction $g=f-T$ :</p>
+<div class="maths">\[
+g(x)=f(x)-f'(a)(x-a)-f(a).
+\]</div>
+<p>La fonction $g$ est dérivable, $g'(x)=f'(x)-f'(a)$ et $g'(a)=0$.</p>
+<p>La fonction $f'$ est croissante, donc $\forall x\geqslant a$, $f'(x)\geqslant f'(a)$, d'où $g'(x)\geqslant 0$ pour $x\geqslant a$ ; et $\forall x\in I$ avec $x&lt;a$, $f'(x)&lt;f'(a)$, d'où $g'(x)&lt;0$ pour $x&lt;a$.</p>
+<p>Donc la fonction $g$ est croissante pour $x\geqslant a$ et décroissante pour $x&lt;a$.</p>
+<p>Pour tout $x\in I$ avec $x\geqslant a$, $g(x)\geqslant g(a)$ ; et pour tout $x&lt;a$, $g(x)&gt;g(a)$ ; or $g(a)=0$.</p>
+<p>Finalement, $\forall a\in I$, $g(x)\geqslant 0$ : donc $\mathcal{C}_{f}$ est au-dessus de $T$.</p>
+<p><strong>Conclusion.</strong>  $f'$ est croissante sur $I$ $\Longrightarrow$ la courbe $\mathcal{C}_{f}$ représentative de $f$ est entièrement située au-dessus de ses tangentes.</p>
+<p>Or les propriétés 1 et 2 sont équivalentes (admises) et les propriétés 3 et 4 sont équivalentes (propriété de la dérivation).</p></div></section>
+<h3>Point d'inflexion</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Point d'inflexion</span><div class="boite-corps"><p>$f$ est une fonction dérivable sur $I$ et $a\in I$. $\mathcal{C}_{f}$ est la représentation graphique de la fonction $f$ dans un repère.</p>
+<p>Dire que $A\bigl(a\,;f(a)\bigr)$ est un <strong>point d'inflexion</strong> de $\mathcal{C}_{f}$ signifie qu'au point $A$ la courbe $\mathcal{C}_{f}$ traverse sa tangente.</p></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Caractérisation</span><div class="boite-corps"><p>$f$ est une fonction deux fois dérivable sur $I$. $\mathcal{C}_{f}$ est la représentation graphique de la fonction $f$ dans un repère.</p>
+<p>$A\bigl(a\,;f(a)\bigr)$ est un point d'inflexion de $\mathcal{C}_{f}$ si et seulement si $f''$ s'annule en $a$ et change de signe.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Point d'inflexion de la fonction cube</span><div class="boite-corps"><p>$f : x\longmapsto x^{3}$</p>
+<div class="maths">\[
+f'(x)=3x^{2},\qquad f''(x)=6x .
+\]</div></div></section>
+<figure class="figure-cours"><img src="img/terminale-spe-ch02-fig03.png" alt="figure 3 du cours"></figure>
+<figure class="figure-cours"><img src="img/terminale-spe-ch02-fig04.png" alt="figure 4 du cours"></figure>
+  <p style="margin-top:2.5rem"><a href="../index.html#terminale-spe">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

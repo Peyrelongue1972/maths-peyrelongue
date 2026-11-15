@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 12 : Fonction circulaire — Première spécialité</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#premiere-spe">← Retour au site</a></p>
+  <h1>Chapitre 12 : Fonction circulaire</h1>
+  <p class="sous-titre">Première spécialité · Chapitre 11 — Fonction circulaire · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Fonction circulaire</span><a class="onglet" href="../pdf/premiere-spe/11-fonction-circulaire.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/premiere-spe/fiche-activite-fonction-cosinus.pdf" target="_blank" rel="noopener">Fiche activité</a><a class="onglet" href="../pdf/premiere-spe/fiche-activite-fonction-sinus.pdf" target="_blank" rel="noopener">Fiche activité · sinus</a><a class="onglet" href="../pdf/premiere-spe/td01-fonction-trigonometrique.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../quiz/premiere-spe-11.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Définition</a></li><li><a href="#s2">II Périodicité</a></li><li><a href="#s3">III Parité</a></li><li><a href="#s4">IV Sens de variation</a></li><li><a href="#s5">V Représentation graphique</a></li></ol></nav>
+<p>Dans ce chapitre, on se place dans un repère orthogonal $\left(O\,;I\,,J\right)$.</p>
+<h2 id="s1"><span class="num-section">I.</span> Définition</h2>
+<p>Si on considère les fonctions définies sur $\R$ par :</p>
+<ul><li>$f(x)=\cos(x)$ : la fonction <strong>cosinus</strong> ;</li><li>$g(x)=\sin(x)$ : la fonction <strong>sinus</strong>.</li></ul>
+<figure class="figure-cours"><img src="img/premiere-spe-ch11-fig01.png" alt="figure 1 du cours"></figure>
+<p><strong>Représentation graphique de la fonction cosinus</strong></p>
+<figure class="figure-cours"><img src="img/premiere-spe-ch11-fig02.png" alt="figure 2 du cours"></figure>
+<p><strong>Représentation graphique de la fonction sinus</strong></p>
+<figure class="figure-cours"><img src="img/premiere-spe-ch11-fig03.png" alt="figure 3 du cours"></figure>
+<h2 id="s2"><span class="num-section">II.</span> Périodicité</h2>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Fonction périodique</span><div class="boite-corps"><p>Soit $f$ une fonction définie sur $\R$. S'il existe $T$, un nombre réel tel que, pour tout $t$ réel,</p>
+<div class="maths">\[
+f(t+T)=f(t),
+\]</div>
+<p>on dira que $f$ est <strong>périodique</strong> de période $T$.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Cosinus et sinus</span><div class="boite-corps"><p>Pour tout réel $x$,</p>
+<div class="maths">\[
+\cos(x+2k\pi)=\cos(x)
+\qquad\text{et}\qquad
+\sin(x+2k\pi)=\sin(x) .
+\]</div></div></section>
+<p>On dit alors que les fonctions sinus et cosinus sont périodiques de période $2\pi$, ou $2\pi$-périodiques. Il suffit donc d'étudier les fonctions cosinus et sinus, non pas sur $\R$, mais sur l'intervalle $\left[-\pi\,;\pi\right]$, qui correspond à la période de la fonction.</p>
+<p><strong>Interprétation graphique :</strong> soit une fonction $f$ périodique de période $2\pi$ et $\mathcal{C}$ sa courbe représentative dans le repère orthogonal $(O,I,J)$.</p>
+<p>Comme $f(x)=f(x+2\pi)$, les points $M$ et $M'$ de la courbe $\mathcal{C}$ d'abscisses respectives $x$ et $x+2\pi$ ont même ordonnée : donc $M'$ est l'image de $M$ par la translation de vecteur $2\pi\times\vect{OI}$.</p>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Invariance par translation</span><div class="boite-corps"><p>Les courbes représentatives des fonctions sinus et cosinus sont invariantes par translation de vecteur $2\pi\times\vect{OI}$.</p></div></section>
+<h2 id="s3"><span class="num-section">III.</span> Parité</h2>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Fonctions paire et impaire</span><div class="boite-corps"><p>Soit $f$ une fonction définie sur $\R$ :</p>
+<ul><li>si, pour tout $t$ réel, $f(-t)=f(t)$, on dira que $f$ est <strong>paire</strong> ;</li><li>si, pour tout $t$ réel, $f(-t)=-f(t)$, on dira que $f$ est <strong>impaire</strong>.</li></ul></div></section>
+<p>Pour tout réel $x$ : $\cos(-x)=\cos(x)$ ; on dit alors que la <strong>fonction cosinus est paire</strong>. La courbe représentative de $\cos(x)$ est symétrique par rapport à l'axe des ordonnées $(OJ)$.</p>
+<p>En effet, les points $M$ et $M'$ d'abscisses respectives $x$ et $-x$ ont même ordonnée.</p>
+<p>Pour tout réel $x$ : $\sin(-x)=-\sin(x)$ ; on dit alors que la <strong>fonction sinus est impaire</strong>. Les points $M$ et $M'$ d'abscisses respectives $x$ et $-x$ ont des ordonnées opposées. La courbe représentative de sinus présente donc une symétrie centrale par rapport à l'origine.</p>
+<p>En utilisant les propriétés de parité, on peut réduire l'étude de cosinus et sinus à $[0\,;\pi]$.</p>
+<figure class="figure-cours"><img src="img/premiere-spe-ch11-fig04.png" alt="figure 4 du cours"></figure>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Symétries</span><div class="boite-corps"><ol><li>La courbe représentative de la fonction cosinus est symétrique par rapport à l'axe des ordonnées du repère.</li><li>La courbe représentative de la fonction sinus est symétrique par rapport à l'origine du repère.</li></ol></div></section>
+<h2 id="s4"><span class="num-section">IV.</span> Sens de variation</h2>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Dérivées</span><div class="boite-corps"><ol><li>La fonction dérivée de $f(x)=\cos(x)$ est la fonction $f'(x)=-\sin(x)$.</li><li>La fonction dérivée de $f(x)=\sin(x)$ est la fonction $f'(x)=\cos(x)$.</li></ol></div></section>
+<figure class="figure-cours"><img src="img/premiere-spe-ch11-fig05.png" alt="figure 5 du cours"></figure>
+<figure class="figure-cours"><img src="img/premiere-spe-ch11-fig06.png" alt="figure 6 du cours"></figure>
+<h2 id="s5"><span class="num-section">V.</span> Représentation graphique</h2>
+<section class="boite boite-meth"><span class="boite-titre">Méthode</span> <span class="boite-sous-titre">Représentation graphique</span><div class="boite-corps"><p>Pour obtenir les représentations graphiques respectives des fonctions cosinus et sinus sur $\R$ :</p>
+<ul><li>on trace d'abord leurs représentations graphiques respectives sur $[0\,;\pi]$, en plaçant notamment les points d'intersection avec l'axe des abscisses, ceux correspondant aux extrema et ceux correspondant aux valeurs aux bornes $0$ et $\pi$ ;</li><li>on complète sur $\left[-\pi\,;0\right]$ par symétrie : une symétrie axiale d'axe $(OJ)$ pour la fonction cosinus, et une symétrie centrale de centre $O$ pour la fonction sinus ;</li><li>on complète enfin sur $\R$ en utilisant l'invariance des courbes par translation de vecteur $2\pi\times\vect{OI}$.</li></ul></div></section>
+  <p style="margin-top:2.5rem"><a href="../index.html#premiere-spe">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

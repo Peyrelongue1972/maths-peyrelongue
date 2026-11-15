@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 4 : Les vecteurs — Seconde</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "AB": "{\\overrightarrow{AB}}", "CD": "{\\overrightarrow{CD}}", "AC": "{\\overrightarrow{AC}}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#seconde">← Retour au site</a></p>
+  <h1>Chapitre 4 : Les vecteurs</h1>
+  <p class="sous-titre">Seconde · Chapitre 4 — Les vecteurs · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Les vecteurs</span><a class="onglet" href="../pdf/seconde/4-les-vecteurs.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../quiz/seconde-4.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Translation et vecteur</a></li><li><a href="#s2">II Égalité de deux vecteurs</a></li><li><a href="#s3">III Représentant d'un vecteur</a></li><li><a href="#s4">IV Vecteurs particuliers</a></li><li><a href="#s5">V Sommes de vecteurs</a></li><li><a href="#s6">VI Vecteurs colinéaires et applications en géométrie</a></li></ol></nav>
+<h2 id="s1"><span class="num-section">I.</span> Translation et vecteur</h2>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Vecteur du plan</span><div class="boite-corps"><p>Si l'on a choisi une unité de longueur dans le plan, un <strong>vecteur</strong> $\vec{u}$ du plan est caractérisé par trois propriétés :</p>
+<ul><li>une <strong>direction</strong> ;</li><li>un <strong>sens</strong> ;</li><li>une <strong>longueur</strong> (sa norme).</li></ul></div></section>
+<p><strong>Représentation d'un vecteur :</strong></p>
+<p>Si $A$ et $B$ ne sont pas confondus, on représente le vecteur $\AB$ par une flèche d'origine $A$ et d'extrémité $B$.</p>
+<figure class="figure-cours"><img src="img/seconde-ch04-fig01.png" alt="figure 1 du cours"></figure>
+<p><strong>Remarque :</strong></p>
+<ol><li><p>Visuellement, ce vecteur donne l'idée d'un déplacement qui indique :</p>
+<ul><li>la direction, celle de la droite $(AB)$ ;</li><li>le sens, de $A$ vers $B$ ;</li><li>la longueur $AB$.</li></ul></li><li>La longueur d'un vecteur est aussi appelée la <strong>norme</strong> de ce vecteur. On écrira : $AB=\|\AB\|$.</li><li><p>Il ne faut pas confondre sens et direction. Une droite définit une seule direction : ici, la direction de la droite $(AB)$. Une direction étant choisie, il existe deux sens possibles :</p>
+<ul><li>aller de $A$ vers $B$ ;</li><li>aller de $B$ vers $A$.</li></ul></li></ol>
+<p>La notion de sens n'a donc pas de signification si l'on n'a pas préalablement choisi une direction.</p>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Savoir construire un vecteur</span><div class="boite-corps"><p>On donne un vecteur $\AB$ et deux points distincts $C$ et $D$.</p>
+<ul><li>Construire le point $E$ tel que $\AB=\overrightarrow{CE}$, en utilisant un milieu.</li><li>Construire le point $F$ tel que $\AB=\overrightarrow{DF}$, en utilisant le compas.</li><li>Prouver que $CEFD$ est un parallélogramme.</li></ul></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Translation</span><div class="boite-corps"><p>Soit $\vec{u}$ un vecteur du plan. La <strong>translation</strong> de vecteur $\vec{u}$ est la transformation du plan qui, à tout point $M$ du plan, associe l'unique point $M'$ tel que</p>
+<div class="maths">\[
+\overrightarrow{MM'}=\vec{u} .
+\]</div>
+<p>On dit que $M'$ est l'image de $M$ par la translation de vecteur $\vec{u}$.</p></div></section>
+<h2 id="s2"><span class="num-section">II.</span> Égalité de deux vecteurs</h2>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Vecteurs égaux</span><div class="boite-corps"><p>On dit que <strong>deux vecteurs sont égaux</strong> lorsqu'ils ont même direction, même sens et même norme.</p></div></section>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Égalité et parallélogramme</span><div class="boite-corps"><p>$\AB=\CD$ si et seulement si le quadrilatère $ABDC$ est un parallélogramme.</p></div></section>
+<p><strong>Démonstration :</strong> la démonstration d'une propriété comportant un « si et seulement si » se fait en deux temps.</p>
+<ul><li><p>On démontre <strong>la propriété directe</strong> : si $\AB=\CD$, alors $ABDC$ est un parallélogramme.</p>
+<p>Si $\AB=\CD$, par définition, la translation qui transforme $A$ en $B$ transforme $C$ en $D$. Par conséquent, $[AD]$ et $[BC]$ ont le même milieu (par définition de la translation).</p>
+<p>Un quadrilatère dont les diagonales se coupent en leur milieu est un parallélogramme. Donc $ABDC$ est un parallélogramme.</p></li><li><p>On démontre <strong>la propriété réciproque</strong> : si $ABDC$ est un parallélogramme, alors $\AB=\CD$.</p>
+<p>Si $ABDC$ est un parallélogramme, alors ses diagonales se coupent en leur milieu. Donc $[AD]$ et $[BC]$ ont le même milieu.</p>
+<p>Donc la translation de vecteur $\AB$ transforme $C$ en $D$, soit $\AB=\CD$.</p></li></ul>
+<figure class="figure-cours"><img src="img/seconde-ch04-fig02.png" alt="figure 2 du cours"></figure>
+<p><strong>Élément de logique</strong></p>
+<p>La proposition $P_{1}$ : « $ABCD$ est un parallélogramme ».</p>
+<p>La proposition $P_{2}$ : $\AB=\CD$.</p>
+<p>On a : $P_{1}$ est une <strong>condition nécessaire</strong> pour $P_{2}$, et $P_{2}$ est une <strong>condition suffisante</strong> pour $P_{1}$.</p>
+<p>Lorsque l'on a une équivalence entre les deux propositions, on note $P_{1}\iff P_{2}$ :</p>
+<div class="maths">\[
+ABCD \text{ est un parallélogramme } \iff \AB=\CD .
+\]</div>
+<h2 id="s3"><span class="num-section">III.</span> Représentant d'un vecteur</h2>
+<p>Si $\AB=\CD=\overrightarrow{EF}$, alors on dit que ces vecteurs sont des <strong>représentants</strong> d'un même vecteur, que l'on note $\vec{u}$.</p>
+<p>Un vecteur admet une infinité de représentants.</p>
+<figure class="figure-cours"><img src="img/seconde-ch04-fig03.png" alt="figure 3 du cours"></figure>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Unicité du point</span><div class="boite-corps"><p>Soit $O$ un point du plan et un vecteur donné. Il existe un <strong>point $M$ unique</strong> tel que $\overrightarrow{OM}=\vec{u}$.</p></div></section>
+<figure class="figure-cours"><img src="img/seconde-ch04-fig04.png" alt="figure 4 du cours"></figure>
+<h2 id="s4"><span class="num-section">IV.</span> Vecteurs particuliers</h2>
+<p><strong>Vecteur nul :</strong> lorsque $A$ et $B$ sont confondus, $\AB$ se note $\vec{AA}$ ; on dit que $\vec{AA}$ est le <strong>vecteur nul</strong>, noté $\vec{0}$.</p>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Vecteur nul</span><div class="boite-corps"><div class="maths">\[
+\AB=\vec{0}\iff A=B .
+\]</div></div></section>
+<p><strong>Le vecteur opposé :</strong> le <strong>vecteur opposé</strong> au vecteur $\AB$ est le vecteur associé à la translation qui transforme $B$ en $A$. Il a même direction et même norme que le vecteur $\AB$, mais il est de sens opposé.</p>
+<p>On le note $\overrightarrow{BA}$ ou encore $-\AB$.</p>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Caractérisation du milieu</span><div class="boite-corps"><p>$I$ est le <strong>milieu</strong> du segment $[AB]$ si, et seulement si</p>
+<div class="maths">\[
+\overrightarrow{AI}=\overrightarrow{IB} .
+\]</div></div></section>
+<figure class="figure-cours"><img src="img/seconde-ch04-fig05.png" alt="figure 5 du cours"></figure>
+<p><strong>Preuve :</strong> si $I$ est le milieu de $[AB]$, alors les droites $(AI)$ et $(IB)$ ont même direction et même sens (de $A$ vers $I$ et de $I$ vers $B$) et $IA=IB$ : donc les deux vecteurs $\overrightarrow{AI}$ et $\overrightarrow{IB}$ ont même direction, même sens et même norme, ils sont donc égaux.</p>
+<p><strong>Réciproquement :</strong> si $\overrightarrow{AI}=\overrightarrow{IB}$, alors $(AI)$ et $(IB)$ sont parallèles, et donc confondues car elles ont un point en commun ; et, comme $IA=IB$, $I$ est donc le milieu de $[AB]$.</p>
+<h2 id="s5"><span class="num-section">V.</span> Sommes de vecteurs</h2>
+<p><strong>Définition et construction :</strong></p>
+<figure class="figure-cours"><img src="img/seconde-ch04-fig06.png" alt="figure 6 du cours"></figure>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Somme de deux vecteurs</span><div class="boite-corps"><p>Soient $\vec{u}$ et $\vec{v}$ deux vecteurs. La <strong>somme</strong> des vecteurs $\vec{u}$ et $\vec{v}$ est le vecteur associé à la translation résultant de l'enchaînement des translations de vecteur $\vec{u}$ et de vecteur $\vec{v}$.</p>
+<p>On l'écrit $\vec{u}+\vec{v}$.</p></div></section>
+<p><strong>Pour construire le vecteur $\vec{u}+\vec{v}$, on « met les vecteurs bout à bout » :</strong></p>
+<p>Soit $\AB$ un représentant de $\vec{u}$ et $\overrightarrow{BC}$ un représentant de $\vec{v}$.</p>
+<p>Le vecteur $\AC$ est alors un représentant de $\vec{u}+\vec{v}$.</p>
+<figure class="figure-cours"><img src="img/seconde-ch04-fig07.png" alt="figure 7 du cours"></figure>
+<p><strong>Exercices :</strong></p>
+<figure class="figure-cours"><img src="img/seconde-ch04-fig08.png" alt="figure 8 du cours"></figure>
+<p>Construire les sommes suivantes :   $\vec{u}+\vec{v}$ \ ; \ $\vec{u}+\vec{w}$ \ ; \ $\vec{u}+\vec{v}+\vec{w}$.</p>
+<p>Construire les points $D$ et $E$ tels que :</p>
+<div class="maths">\[
+\overrightarrow{AD}=\overrightarrow{AB}+\AC
+\qquad ; \qquad
+\overrightarrow{BE}=\overrightarrow{BA}+\overrightarrow{CB} .
+\]</div>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Relation de Chasles</span><div class="boite-corps"><p>Pour tous points $A$, $B$ et $C$ :</p>
+<div class="maths">\[
+\AB+\overrightarrow{BC}=\AC .
+\]</div></div></section>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Réduire des sommes de vecteurs</span><div class="boite-corps"><p>Réduire les sommes de vecteurs en utilisant la relation de Chasles :</p>
+<ul><li>$\AB-\AC=$</li><li>$\AB-\AC-\overrightarrow{BA}+\overrightarrow{BC}=$</li><li>$\overrightarrow{AM}+\overrightarrow{NP}-\overrightarrow{AD} +\overrightarrow{MN}-\overrightarrow{BP}+\overrightarrow{BC}=$</li></ul></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Règle du parallélogramme</span><div class="boite-corps"><p>Pour tous points $A$, $B$, $C$ et $D$ :</p>
+<div class="maths">\[
+\AB+\AC=\overrightarrow{AD}
+\iff ABDC \text{ est un parallélogramme.}
+\]</div></div></section>
+<figure class="figure-cours"><img src="img/seconde-ch04-fig09.png" alt="figure 9 du cours"></figure>
+<h2 id="s6"><span class="num-section">VI.</span> Vecteurs colinéaires et applications en géométrie</h2>
+<h3>6.1  Vecteurs colinéaires</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Vecteurs colinéaires</span><div class="boite-corps"><p>Deux vecteurs sont <strong>colinéaires</strong> s'ils ont la même direction.</p></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Caractérisation par un réel</span><div class="boite-corps"><p>Deux vecteurs non nuls $\vec{u}$ et $\vec{v}$ sont colinéaires si, et seulement si, il existe un réel $k$ tel que</p>
+<div class="maths">\[
+\vec{u}=k\,\vec{v} .
+\]</div></div></section>
+<figure class="figure-cours"><img src="img/seconde-ch04-fig10.png" alt="figure 10 du cours"></figure>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Vecteurs colinéaires</span><div class="boite-corps"><p>Citer les vecteurs colinéaires de la figure ci-dessus.</p>
+<p>Trouver une relation vectorielle reliant les vecteurs colinéaires à chaque fois que cela est possible.</p></div></section>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Point défini par une relation</span><div class="boite-corps"><ol><li><p>$A$ et $B$ sont deux points distincts, $M$ est le point tel que</p>
+<div class="maths">        \[
+        \frac{1}{2}\,\AB-\frac{1}{3}\,\overrightarrow{BM}=\vec{0} .
+        \]</div>
+<p>Exprimer $\overrightarrow{AM}$ en fonction de $\AB$. En déduire que $\AB$ et $\overrightarrow{AM}$ sont colinéaires. Placer le point $M$.</p></li><li>$A$ et $B$ sont deux points distincts, $M$ est le point tel que $3\,\AB-2\,\overrightarrow{AM}=\vec{0}$. Justifier que $\AB$ et $\overrightarrow{AM}$ sont colinéaires. Placer le point $M$.</li></ol></div></section>
+<h3>6.2  Droites parallèles</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Parallélisme et colinéarité</span><div class="boite-corps"><p>Les droites $(AB)$ et $(CD)$ sont parallèles si, et seulement si, les vecteurs $\AB$ et $\CD$ sont colinéaires.</p></div></section>
+<p><strong>Preuve :</strong></p>
+<ol><li>Si $(AB)$ et $(CD)$ sont parallèles, alors $\AB$ et $\CD$ ont donc même direction : ils sont colinéaires.</li><li><strong>Réciproquement</strong>, si les vecteurs $\AB$ et $\CD$ sont colinéaires, les droites $(AB)$ et $(CD)$ ont alors même direction : elles sont donc parallèles.</li></ol>
+<h3>6.3  Points alignés</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Alignement et colinéarité</span><div class="boite-corps"><p>Les points $A$, $B$ et $C$ sont alignés si, et seulement si, $\AB$ et $\AC$ sont colinéaires.</p></div></section>
+<p><strong>Preuve :</strong> si les points $A$, $B$ et $C$ sont alignés, alors les droites $(AB)$ et $(AC)$ sont parallèles et, d'après le théorème précédent, les vecteurs $\AB$ et $\AC$ sont colinéaires.</p>
+<p><strong>Réciproquement</strong>, si les vecteurs $\AB$ et $\AC$ sont colinéaires, les droites $(AB)$ et $(AC)$ sont donc parallèles ; elles sont aussi sécantes au point $A$, elles sont donc confondues : les points $A$, $B$ et $C$ sont donc alignés.</p>
+<h3>6.4  Milieu d'un segment</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Milieu et vecteurs</span><div class="boite-corps"><p>Soient $A$ et $B$ deux points du plan.</p>
+<ul><li>$I$ est le milieu de $[AB]$ <strong>si et seulement si</strong> $\AB=2\,\overrightarrow{AI}$.</li><li>$I$ est le milieu de $[AB]$ <strong>si et seulement si</strong>, pour tout point $M$, $\overrightarrow{MA}+\overrightarrow{MB}=2\,\overrightarrow{MI}$.</li></ul></div></section>
+  <p style="margin-top:2.5rem"><a href="../index.html#seconde">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 5 : La fonction affine et ses applications — Seconde</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#seconde">← Retour au site</a></p>
+  <h1>Chapitre 5 : La fonction affine et ses applications</h1>
+  <p class="sous-titre">Seconde · Chapitre 5 — La fonction affine · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">La fonction affine</span><a class="onglet" href="../pdf/seconde/5-la-fonction-affine.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../quiz/seconde-5.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Définition</a></li><li><a href="#s2">II Sens de variation d'une fonction affine</a></li><li><a href="#s3">III Signe d'une fonction affine</a></li><li><a href="#s4">IV Application aux signes de produits</a></li></ol></nav>
+<h2 id="s1"><span class="num-section">I.</span> Définition</h2>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Fonction affine</span><div class="boite-corps"><p>Les fonctions affines sont les fonctions définies sur l'ensemble $\R$ par</p>
+<div class="maths">\[
+f(x)=mx+p,
+\]</div>
+<p>avec $m$ et $p$ deux paramètres réels.</p></div></section>
+<p><strong>Cas particuliers :</strong></p>
+<ul><li>si $m=0$, alors, pour tout réel $x$, $f(x)=p$ : la fonction est <strong>constante</strong> ;</li><li>si $p=0$, alors, pour tout réel $x$, $f(x)=mx$ : la fonction est <strong>linéaire</strong>.</li></ul>
+<p>Les fonctions linéaires sont les seules fonctions dont le tableau de valeurs est un tableau de proportionnalité.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Identifier des fonctions affines</span><div class="boite-corps"><p>Identifier les fonctions affines ci-dessous :</p>
+<div class="maths">\[
+f(x)=\sqrt{3}\,x+0{,}5
+\qquad
+g(x)=3-2x
+\qquad
+h(x)=5-\frac{1}{x}
+\qquad
+q(x)=(x+1)^{2}-x^{2} .
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriété 1 (admise, démontrée en fin d'année)</span><div class="boite-corps"><p>Dans un repère du plan, la fonction affine définie, pour tout nombre réel $x$, par $f(x)=mx+p$ est représentée par une droite $D$.</p>
+<p>Cette droite passe par le point $B(0\,;p)$.</p>
+<p>Pour tous les points distincts $A\left(x_{A}\,;f(x_{A})\right)$ et $B\left(x_{B}\,;f(x_{B})\right)$ de $D$, on a :</p>
+<div class="maths">\[
+m=\frac{f(x_{B})-f(x_{A})}{x_{B}-x_{A}}
+\qquad\text{et}\qquad
+p=f(x_{A})-m\,x_{A} .
+\]</div></div></section>
+<figure class="figure-cours"><img src="img/seconde-ch05-fig01.png" alt="figure 1 du cours"></figure>
+<p><strong>Preuve :</strong> $A\in\mathcal{C}_{f}$, donc $f(x_{A})=m\,x_{A}+p$ ; de même $B\in\mathcal{C}_{f}$, donc $f(x_{B})=m\,x_{B}+p$.</p>
+<p>En soustrayant membre à membre :</p>
+<div class="maths">\[
+f(x_{B})-f(x_{A})=m\,x_{B}-m\,x_{A}=m\left(x_{B}-x_{A}\right) .
+\]</div>
+<p>Comme $x_{A}\neq x_{B}$, on en déduit</p>
+<div class="maths">\[
+m=\frac{f(x_{B})-f(x_{A})}{x_{B}-x_{A}} .
+\]</div>
+<p>On peut alors isoler $p$ : $p=f(x_{A})-m\,x_{A}$.</p>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Ordonnée à l'origine et coefficient directeur</span><div class="boite-corps"><p>On appelle $p$ l'<strong>ordonnée à l'origine</strong> : le point $N$ de coordonnées $(0\,;p)$ appartient à la droite $D$.</p>
+<p>On appelle $m$ le <strong>coefficient directeur</strong> de la droite.</p></div></section>
+<h2 id="s2"><span class="num-section">II.</span> Sens de variation d'une fonction affine</h2>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Fonction croissante, fonction décroissante</span><div class="boite-corps"><p>Une fonction $f$ est <strong>croissante</strong> sur un intervalle $I$ si elle conserve l'ordre.</p>
+<p>Une fonction $f$ est <strong>décroissante</strong> sur un intervalle $I$ si elle inverse l'ordre.</p>
+<p>$f$ est <strong>strictement croissante</strong> sur $I$ si, pour tous $x$ et $y$ de $I$ tels que $x&lt;y$, on a $f(x)&lt;f(y)$.</p>
+<p>$f$ est <strong>strictement décroissante</strong> sur $I$ si, pour tous $x$ et $y$ de $I$ tels que $x&lt;y$, on a $f(x)&gt;f(y)$.</p></div></section>
+<p><strong>Graphiquement :</strong> une fonction strictement croissante monte constamment, et une fonction strictement décroissante descend constamment.</p>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Fonction monotone</span><div class="boite-corps"><p>Une fonction est <strong>monotone</strong> sur un intervalle $I$ si elle est uniquement croissante sur $I$, ou uniquement décroissante sur $I$, ou uniquement constante sur $I$.</p></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Sens de variation d'une fonction affine</span><div class="boite-corps"><p>Soit $f$ une fonction affine définie sur $\R$ par $f(x)=mx+p$.</p>
+<ul><li>si $m&gt;0$, alors $f$ est strictement croissante sur $\R$ ;</li><li>si $m&lt;0$, alors $f$ est strictement décroissante sur $\R$ ;</li><li>si $m=0$, alors $f$ est constante sur $\R$.</li></ul></div></section>
+<p><strong>Démonstration :</strong> soient $x_{1}$ et $x_{2}$ deux nombres réels quelconques tels que $x_{1}&lt;x_{2}$.</p>
+<p><strong>A. Premier cas : soit $m&gt;0$.</strong></p>
+<div class="maths">\[
+x_{1}&lt;x_{2}\ \Rightarrow\ m\,x_{1}&lt;m\,x_{2}\ \text{car } m&gt;0
+\ \Rightarrow\ m\,x_{1}+p&lt;m\,x_{2}+p
+\ \Rightarrow\ f(x_{1})&lt;f(x_{2}) .
+\]</div>
+<p><strong>Conclusion :</strong> pour tous nombres $x_{1}$ et $x_{2}$ tels que $x_{1}&lt;x_{2}$, on a $f(x_{1})&lt;f(x_{2})$.</p>
+<p>Les images varient dans le même sens que les antécédents : la fonction est donc strictement croissante.</p>
+<p><strong>B. Deuxième cas : soit $m&lt;0$.</strong></p>
+<div class="maths">\[
+x_{1}&lt;x_{2}\ \Rightarrow\ m\,x_{1}&gt;m\,x_{2}\ \text{car } m&lt;0
+\ \Rightarrow\ m\,x_{1}+p&gt;m\,x_{2}+p
+\ \Rightarrow\ f(x_{1})&gt;f(x_{2}) .
+\]</div>
+<p><strong>Conclusion :</strong> pour tous nombres $x_{1}$ et $x_{2}$ tels que $x_{1}&lt;x_{2}$, on a $f(x_{1})&gt;f(x_{2})$.</p>
+<p>Les images varient en sens inverse des antécédents : la fonction est donc strictement décroissante.</p>
+<p><strong>C. Troisième cas : $m=0$.</strong></p>
+<div class="maths">\[
+\forall x\in\R,\quad f(x)=p .
+\]</div>
+<p>La fonction est constante.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$f(x)=-3x+5$</span><div class="boite-corps"><p>Soit $f$ une fonction définie sur $\R$ par $f(x)=-3x+5$.</p>
+<p>La fonction $f$ est une fonction affine et son coefficient directeur est négatif : la fonction est donc strictement décroissante.</p>
+<figure class="figure-cours"><img src="img/seconde-ch05-fig02.png" alt="figure 2 du cours"></figure></div></section>
+<h2 id="s3"><span class="num-section">III.</span> Signe d'une fonction affine</h2>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Signe d'une fonction</span><div class="boite-corps"><p>Si $f(x)\leqslant 0$ sur un intervalle $I$, la fonction $f$ est de signe <strong>négatif</strong> sur $I$.</p>
+<p>Si $f(x)\geqslant 0$ sur un intervalle $I$, la fonction $f$ est de signe <strong>positif</strong> sur $I$.</p></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Tableau de signe</span><div class="boite-corps"><p>Un <strong>tableau de signe</strong> fait la synthèse du signe de la fonction sur son domaine de définition.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Représentation graphique</span><div class="boite-corps"><p>Soit la fonction $f$ dont la représentation graphique $\mathcal{C}_{f}$ est donnée ci-dessous. On lit sur cette courbe le signe de $f(x)$.</p>
+<figure class="figure-cours"><img src="img/seconde-ch05-fig03.png" alt="figure 3 du cours"></figure></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Signe de $mx+p$</span><div class="boite-corps"><p>Soient $m$ et $p$ deux réels, avec $m$ non nul. Les tableaux suivants résument le signe de l'expression $m\,x+p$ :</p>
+<div class="maths">\[
+m\,x+p=0\iff m\,x=-p\iff x=-\frac{p}{m} .
+\]</div>
+<p><strong>Lorsque $m&gt;0$</strong>, la fonction affine $f(x)=m\,x+p$ est croissante et s'annule pour $x=-\dfrac{p}{m}$ :</p>
+<figure class="figure-cours"><img src="img/seconde-ch05-fig04.png" alt="figure 4 du cours"></figure>
+<p><strong>Lorsque $m&lt;0$</strong>, la fonction affine $f(x)=m\,x+p$ est décroissante et s'annule pour $x=-\dfrac{p}{m}$ :</p>
+<figure class="figure-cours"><img src="img/seconde-ch05-fig05.png" alt="figure 5 du cours"></figure></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$f(x)=5x+3$</span><div class="boite-corps"><p>Soit $f(x)=5x+3$ : $f$ est une fonction affine, elle s'annule pour $x=-\dfrac{3}{5}$ et son tableau de signe est :</p>
+<figure class="figure-cours"><img src="img/seconde-ch05-fig06.png" alt="figure 6 du cours"></figure></div></section>
+<h2 id="s4"><span class="num-section">IV.</span> Application aux signes de produits</h2>
+<p><strong>Règle des signes dans $\R$ :</strong> soient $a$ et $b$ deux nombres réels.</p>
+<div class="maths">\[
+\begin{array}{ll}
+a&lt;0 \text{ et } b&lt;0 \ \Rightarrow\ ab&gt;0
+& \qquad
+a&gt;0 \text{ et } b&gt;0 \ \Rightarrow\ ab&gt;0\\[4pt]
+a&lt;0 \text{ et } b&gt;0 \ \Rightarrow\ ab&lt;0
+& \qquad
+a&gt;0 \text{ et } b&lt;0 \ \Rightarrow\ ab&lt;0
+\end{array}
+\]</div>
+<p>Pour étudier le signe d'un produit ou d'un quotient, il suffit d'étudier le signe de chacun des facteurs du produit. On peut faire cela dans un tableau de signe, en intégrant chacun des facteurs et en ajoutant sur la dernière ligne du tableau le produit.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$A(x)=(3x+5)(2x-7)$</span><div class="boite-corps"><p>Étudions $A(x)=(3x+5)(2x-7)$.</p>
+<p>$a(x)=3x+5$ est une fonction affine croissante, car $m=3$, qui s'annule pour $x=-\dfrac{5}{3}$.</p>
+<p>$b(x)=2x-7$ est une fonction affine croissante, car $m=2$, qui s'annule pour $x=\dfrac{7}{2}$.</p>
+<figure class="figure-cours"><img src="img/seconde-ch05-fig07.png" alt="figure 7 du cours"></figure>
+<p>On vient lire dans le tableau le signe du produit :</p>
+<div class="maths">\[
+A(x)\geqslant 0 \text{ sur } \left]-\infty\,;-\frac{5}{3}\right]\cup
+\left[\frac{7}{2}\,;+\infty\right[ .
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$B(x)=(-3x+5)(4+2x)$</span><div class="boite-corps"><p>Étudions $B(x)=(-3x+5)(4+2x)$.</p>
+<p>$a(x)=-3x+5$ est une fonction affine décroissante, car $m=-3$, qui s'annule pour $x=\dfrac{5}{3}$.</p>
+<p>$b(x)=4+2x$ est une fonction affine croissante, car $m=2$, qui s'annule pour $x=-2$.</p>
+<figure class="figure-cours"><img src="img/seconde-ch05-fig08.png" alt="figure 8 du cours"></figure>
+<p>On vient lire dans le tableau le signe du produit :</p>
+<div class="maths">\[
+B(x)\geqslant 0 \text{ sur } \left[-2\,;\frac{5}{3}\right] .
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$Q(x)=\dfrac{-2x+5}{x-4}$</span><div class="boite-corps"><p>Étudions le signe de $Q(x)=\dfrac{-2x+5}{x-4}$.</p>
+<p>On remarque que la fonction $Q$ est définie lorsque le dénominateur est non nul : son domaine de définition est $D_{f}=\left]-\infty\,;4\right[\cup\left]4\,;+\infty\right[$.</p>
+<p>On rappelle que $4$ est donc une valeur interdite !</p>
+<p>$N(x)=-2x+5$ est une fonction affine décroissante, car $m=-2$, qui s'annule en $x=\dfrac{5}{2}$.</p>
+<p>$D(x)=x-4$ est une fonction affine croissante, car $m=1$, qui s'annule en $4$.</p>
+<figure class="figure-cours"><img src="img/seconde-ch05-fig09.png" alt="figure 9 du cours"></figure>
+<p>La <strong>double barre</strong> en $x=4$ signale la valeur interdite : le quotient n'est pas défini pour $x=4$, ce qui sépare les deux intervalles $\left]-\infty\,;4\right[$ et $\left]4\,;+\infty\right[$.</p></div></section>
+  <p style="margin-top:2.5rem"><a href="../index.html#seconde">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

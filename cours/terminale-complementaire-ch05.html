@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 5 : Fonction logarithme népérien — Terminale complémentaire</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#terminale-complementaire">← Retour au site</a></p>
+  <h1>Chapitre 5 : Fonction logarithme népérien</h1>
+  <p class="sous-titre">Terminale complémentaire · Chapitre 5 — Logarithme népérien · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Logarithme népérien</span><a class="onglet" href="../pdf/terminale-complementaire/5-logarithme-neperien.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/terminale-complementaire/td01-logarithme-neperien.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/terminale-complementaire/td02-exp-ln.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../quiz/terminale-complementaire-5.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Définition</a></li><li><a href="#s2">II Propriétés de la fonction logarithme népérien</a></li><li><a href="#s3">III Étude de la fonction logarithme népérien</a></li><li><a href="#s4">IV Études de fonctions contenant des logarithmes</a></li><li><a href="#s5">V Fonctions composées de la forme $\ln u$</a></li><li><a href="#s6">VI La fonction logarithme décimal</a></li></ol></nav>
+<h2 id="s1"><span class="num-section">I.</span> Définition</h2>
+<p>Pour tout réel $a$ de $]0\,;+\infty[$, l'équation $\e^{x}=a$ admet une unique solution dans $\R$.</p>
+<p><strong>Preuve.</strong></p>
+<p><strong>Existence :</strong> la fonction $\e^{x}$ est continue et strictement croissante sur $\R$, à valeurs dans $]0\,;+\infty[$ ; donc, pour tout $a&gt;0$, d'après le théorème des valeurs intermédiaires, il existe une solution de $\e^{x}=a$.</p>
+<p><strong>Unicité :</strong> supposons qu'il existe deux solutions différentes $x$ et $y$ ; on a donc soit $x&gt;y$, et comme $f$ est strictement croissante, $f(x)&gt;f(y)=a$, donc $f(x)&gt;a$, c'est impossible. La solution est donc unique.</p>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Logarithme népérien</span><div class="boite-corps"><p>On appelle <strong>logarithme népérien</strong> d'un réel strictement positif $a$ l'unique solution de l'équation $\e^{x}=a$. On la note $\ln a$.</p>
+<p>La <strong>fonction logarithme népérien</strong>, notée $\ln$, est la fonction :</p>
+<div class="maths">\[
+\ln : \left]0\,;+\infty\right[\longrightarrow\R,\qquad x\longmapsto \ln x .
+\]</div></div></section>
+<figure class="figure-cours"><img src="img/terminale-complementaire-ch05-fig01.png" alt="figure 1 du cours"></figure>
+<p><strong>Remarques.</strong></p>
+<p>Les fonctions $\exp$ et $\ln$ sont des fonctions réciproques l'une de l'autre.</p>
+<p>Les courbes représentatives des fonctions $\exp$ et $\ln$ <strong>sont symétriques</strong> par rapport à la droite d'équation $y=x$.</p>
+<p>Dans le domaine scientifique, on utilise la fonction logarithme décimal, notée $\log$, définie par :</p>
+<div class="maths">\[
+\log x=\frac{\ln x}{\ln 10}.
+\]</div>
+<figure class="figure-cours"><img src="img/terminale-complementaire-ch05-fig02.png" alt="figure 2 du cours"></figure>
+<p><strong>Conséquences :</strong></p>
+<ol><li>Pour $x&gt;0$ : $y=\ln x\iff x=\e^{y}$.</li><li>$\ln 1=0$ ; $\ln e=1$ ; $\ln\dfrac{1}{e}=-1$.</li><li>$\ln \e^{x}=x$.</li><li>Pour $x&gt;0$ : $\e^{\ln x}=x$.</li></ol>
+<h2 id="s2"><span class="num-section">II.</span> Propriétés de la fonction logarithme népérien</h2>
+<h3>Relation fonctionnelle</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Logarithme d'un produit</span><div class="boite-corps"><p>Pour tous réels $a$ et $b$ strictement positifs, on a :</p>
+<div class="maths">\[
+\ln(a\times b)=\ln a+\ln b .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><div class="maths">\[
+\e^{\ln(a\times b)}=a\times b=\e^{\ln a}\times \e^{\ln b}
+=\e^{\ln a+\ln b} .
+\]</div>
+<p>Donc</p>
+<div class="maths">\[
+\ln(a\times b)=\ln a+\ln b .
+\]</div></div></section>
+<p><strong>Remarque.</strong>  Cette formule permet de transformer un produit en somme.</p>
+<p>Ainsi, celui qui aurait à effectuer $36\times 62$ appliquerait cette formule, soit :</p>
+<div class="maths">\[
+\log(36\times 62)=\log(36)+\log(62)\approx 1{,}5563+1{,}7924
+\]</div>
+<p>(voir table ci-dessous).</p>
+<p>L'addition étant beaucoup plus simple à effectuer que la multiplication, on trouve facilement :</p>
+<div class="maths">\[
+\log(36\times 62)\approx 3{,}3487 .
+\]</div>
+<p>En cherchant dans la table le logarithme égal à $3{,}3487$, on trouve $2232$, soit :</p>
+<div class="maths">\[
+36\times 62=2232 .
+\]</div>
+<table class="tableau"><tr><td>$x$</td><td>$\log(x)$</td></tr><tr><td>$1$</td><td>$0$</td></tr><tr><td>$2$</td><td>$0{,}3010$</td></tr><tr><td>$3$</td><td>$0{,}4771$</td></tr><tr><td>$\dots$</td><td></td></tr><tr><td>$34$</td><td>$1{,}5315$</td></tr><tr><td>$35$</td><td>$1{,}5441$</td></tr><tr><td>$\dots$</td><td></td></tr><tr><td>$62$</td><td>$1{,}7924$</td></tr><tr><td>$\dots$</td><td></td></tr><tr><td>$2231$</td><td>$3{,}3485$</td></tr><tr><td>$2232$</td><td>$3{,}3487$</td></tr><tr><td>$\dots$</td><td></td></tr></table>
+<h3>Conséquences</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriétés algébriques</span><div class="boite-corps"><p>Pour tous réels $a$ et $b$ strictement positifs, on a :</p>
+<ol><li>$\ln\dfrac{1}{a}=-\ln a$ ;</li><li>$\ln\dfrac{a}{b}=\ln a-\ln b$ ;</li><li>$\ln\sqrt{a}=\dfrac{1}{2}\ln a$ ;</li><li>$\ln a^{n}=n\ln a$ avec $n$ entier relatif ;</li><li>$\ln a^{x}=x\ln a$ avec $x$ réel.</li></ol></div></section>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Simplifier une expression contenant des logarithmes</span><div class="boite-corps"><div class="maths">\[
+A=\ln(3-\sqrt{5})+\ln(3+\sqrt{5})
+\qquad
+B=3\ln 2+\ln 5-2\ln 3
+\qquad
+C=\ln \e^{2}-\ln\frac{2}{\e}
+\]</div></div></section>
+<p><strong>Correction.</strong></p>
+<div class="maths">\[\begin{aligned}
+A&=\ln(3-\sqrt{5})+\ln(3+\sqrt{5})
+=\ln\bigl((3-\sqrt{5})(3+\sqrt{5})\bigr)
+=\ln(9-5)=\ln 4 .\\[4pt]
+B&=3\ln 2+\ln 5-2\ln 3
+=\ln 2^{3}+\ln 5-\ln 3^{2}
+=\ln\frac{2^{3}\times 5}{3^{2}}=\ln\frac{40}{9}.\\[4pt]
+C&=\ln \e^{2}-\ln\frac{2}{\e}
+=2\ln \e-\ln 2+\ln \e
+=2-\ln 2+1=3-\ln 2 .
+\end{aligned}\]</div>
+<h3>Équations et inéquations</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Égalités et inégalités</span><div class="boite-corps"><p>Pour tous réels $a$ et $b$ strictement positifs, on a :</p>
+<ol><li>$\ln a=\ln b\iff a=b$ ;</li><li>$\ln a&lt;\ln b\iff a&lt;b$.</li></ol></div></section>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Résoudre une équation ou une inéquation</span><div class="boite-corps"><ol><li>$\ln x=7$, \ $I=]0\,;+\infty[$</li><li>$\e^{x+5}=10$, \ $I=\R$</li><li>$3\ln x-4=8$, \ $I=]0\,;+\infty[$</li><li>$\ln(6x-1)\geqslant 2$, \ $I=\left[\frac{1}{6}\,;+\infty\right[$</li><li>$\e^{x}+5&gt;4\,\e^{x}$, \ $I=\R$</li></ol></div></section>
+<p><strong>Correction.</strong></p>
+<p><strong>a)</strong>  $\ln x=7\iff \ln x=\ln \e^{7}\iff x=\e^{7}$. L'ensemble solution est donc $S=\{\e^{7}\}$.</p>
+<p><strong>b)</strong>  $\e^{x+5}=10\iff \e^{x+5}=\e^{\ln 10}\iff x+5=\ln 10$.</p>
+<div class="maths">\[
+x=\ln 10-5 .
+\]</div>
+<p>L'ensemble solution est donc $S=\{\ln 10-5\}$.</p>
+<p><strong>c)</strong>  $3\ln x-4=8\iff 3\ln x=12\iff \ln x=4$ $\iff \ln x=\ln \e^{4}\iff x=\e^{4}$. L'ensemble solution est donc $S=\{\e^{4}\}$.</p>
+<p><strong>d)</strong>  $\ln(6x-1)\geqslant 2\iff \ln(6x-1)\geqslant \ln \e^{2}$ $\iff 6x-1\geqslant \e^{2}\iff 6x\geqslant \e^{2}+1$</p>
+<div class="maths">\[
+x\geqslant\frac{\e^{2}+1}{6} .
+\]</div>
+<p>L'ensemble solution est donc $\left[\dfrac{\e^{2}+1}{6}\,;+\infty\right[$.</p>
+<p><strong>e)</strong>  $\e^{x}+5&gt;4\e^{x}\iff \e^{x}-4\e^{x}&gt;-5\iff -3\e^{x}&gt;-5$ $\iff \e^{x}&lt;\dfrac{-5}{-3}$ (inverse le sens) $\iff \e^{x}&lt;\dfrac{5}{3}\iff \e^{x}&lt;\e^{\ln\frac{5}{3}}$ $\iff x&lt;\ln\dfrac{5}{3}$.</p>
+<p>L'ensemble solution est donc $S=\left]-\infty\,;\ln\dfrac{5}{3}\right[$.</p>
+<h2 id="s3"><span class="num-section">III.</span> Étude de la fonction logarithme népérien</h2>
+<h3>Dérivabilité</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Dérivée</span><div class="boite-corps"><p>La fonction logarithme népérien est dérivable sur $\left]0\,;+\infty\right[$ et</p>
+<div class="maths">\[
+(\ln x)'=\frac{1}{x}.
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Dériver $\dfrac{\ln x}{x}$</span><div class="boite-corps"><p>Dériver la fonction suivante sur l'intervalle $\left]0\,;+\infty\right[$ : $f(x)=\dfrac{\ln x}{x}$.</p>
+<div class="maths">\[
+f'(x)=\frac{\frac{1}{x}\times x-\ln x\times 1}{x^{2}}
+=\frac{1-\ln x}{x^{2}} .
+\]</div></div></section>
+<h3>Variations</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Croissance</span><div class="boite-corps"><p>La fonction logarithme népérien est strictement croissante sur $\left]0\,;+\infty\right[$.</p></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>$(\ln x)'=\dfrac{1}{x}&gt;0$.</p></div></section>
+<p>On dresse le tableau de variations de la fonction logarithme népérien :</p>
+<figure class="figure-cours"><img src="img/terminale-complementaire-ch05-fig03.png" alt="figure 3 du cours"></figure>
+<h3>Limites aux bornes</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Limites</span><div class="boite-corps"><div class="maths">\[
+\lim_{x\to+\infty}\ln x=+\infty
+\qquad\text{et}\qquad
+\lim_{x\to 0}\ln x=-\infty .
+\]</div></div></section>
+<h3>Courbe représentative</h3>
+<p><strong>Valeurs particulières :</strong></p>
+<div class="maths">\[
+\ln 1=0, \qquad \ln e=1 .
+\]</div>
+<figure class="figure-cours"><img src="img/terminale-complementaire-ch05-fig04.png" alt="figure 4 du cours"></figure>
+<h2 id="s4"><span class="num-section">IV.</span> Études de fonctions contenant des logarithmes</h2>
+<h3>Étudier les variations d'une fonction</h3>
+<p>Déterminer les variations de la fonction $f$ définie sur $\left]0\,;+\infty\right[$ par</p>
+<div class="maths">\[
+f(x)=3-x+2\ln x .
+\]</div>
+<p>Sur $\left]0\,;+\infty\right[$, on a :</p>
+<div class="maths">\[
+f'(x)=-1+\frac{2}{x}=\frac{2-x}{x}.
+\]</div>
+<p>Comme $x&gt;0$, $f'(x)$ est du signe de $2-x$.</p>
+<p>La fonction $f$ est donc strictement croissante sur $]0\,;2]$ et strictement décroissante sur $[2\,;+\infty[$.</p>
+<p>On dresse le tableau de variations :</p>
+<figure class="figure-cours"><img src="img/terminale-complementaire-ch05-fig05.png" alt="figure 5 du cours"></figure>
+<div class="maths">\[
+f(2)=3-2+2\ln 2=1+2\ln 2 .
+\]</div>
+<h3>Étudier la position relative de la courbe de la fonction logarithme et de la droite d'équation $y=x$</h3>
+<p>Étudier la position relative de la courbe de la fonction logarithme et de la droite d'équation $y=x$.</p>
+<p>On considère la fonction $g$ définie sur $\left]0\,;+\infty\right[$ par</p>
+<div class="maths">\[
+g(x)=x-\ln x .
+\]</div>
+<div class="maths">\[
+g'(x)=1-\frac{1}{x}=\frac{x-1}{x}.
+\]</div>
+<p>Comme $x&gt;0$, $g'(x)$ est du signe de $x-1$.</p>
+<p>On a également :</p>
+<div class="maths">\[
+g(1)=1-\ln 1=1 .
+\]</div>
+<p>On dresse ainsi le tableau de variations :</p>
+<figure class="figure-cours"><img src="img/terminale-complementaire-ch05-fig06.png" alt="figure 6 du cours"></figure>
+<p>On en déduit que, pour tout $x$ de $\left]0\,;+\infty\right[$, on a $g(x)=x-\ln x\geqslant 1&gt;0$, soit $x&gt;\ln x$.</p>
+<h2 id="s5"><span class="num-section">V.</span> Fonctions composées de la forme $\ln u$</h2>
+<h3>Dérivée de $\ln u$</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Dérivée de $\ln u$ (admise)</span><div class="boite-corps"><p>Soit $u$ une fonction dérivable et strictement positive ($u&gt;0$) sur un intervalle $I$ de $\R$.</p>
+<p>La fonction $f:x\longmapsto \ln(u(x))$ est dérivable sur $I$ et on a</p>
+<div class="maths">\[
+f'(x)=\frac{u'(x)}{u(x)}.
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Dériver $\ln(x^{2}+1)$</span><div class="boite-corps"><p>Si $f(x)=\ln(x^{2}+1)$, $f$ est de la forme $f(x)=\ln\bigl(u(x)\bigr)$ avec $u(x)=x^{2}+1$.</p>
+<p>Pour calculer $f'(x)$, je calcule $u'$ : $u'(x)=2x$.</p>
+<p>Et on trouve</p>
+<div class="maths">\[
+f'(x)=\frac{2x}{x^{2}+1}.
+\]</div></div></section>
+<h3>Primitive des fonctions de la forme $u'/u$</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Primitives de $\dfrac{u'}{u}$</span><div class="boite-corps"><p>Soit $u$ une fonction dérivable et strictement positive ($u&gt;0$) sur un intervalle $I$ de $\R$.</p>
+<p>Les primitives de la fonction $g:x\longmapsto \dfrac{u'(x)}{u(x)}$ sont les fonctions</p>
+<div class="maths">\[
+G:x\longmapsto \ln\bigl(u(x)\bigr)+k .
+\]</div></div></section>
+<p><strong>Preuve :</strong> je dérive $G$ : $G'(x)=\dfrac{u'(x)}{u(x)}=g(x)$.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Primitive et intégrale</span><div class="boite-corps"><p>Soit $f(x)=\dfrac{4x^{3}}{x^{4}+5}$ : je remarque que le numérateur est la dérivée du dénominateur, donc $f$ est de la forme $u'/u$ avec $u(x)=x^{4}+5$ et</p>
+<div class="maths">\[
+u'(x)=\left(x^{4}+5\right)'=4x^{3} .
+\]</div>
+<p>Les primitives de $f$ sont les fonctions</p>
+<div class="maths">\[
+F:x\longmapsto \ln\left(x^{4}+5\right)+k .
+\]</div>
+<p>Et</p>
+<div class="maths">\[
+\int_{0}^{1}\frac{4x^{3}}{x^{4}+5}\dx=F(1)-F(0)=\ln(6)-\ln(5)=\ln\frac{6}{5}.
+\]</div></div></section>
+<h2 id="s6"><span class="num-section">VI.</span> La fonction logarithme décimal</h2>
+<h3>Définition et propriétés algébriques</h3>
+<p>On appelle fonction logarithme décimal la fonction, notée $\log$, définie sur $\left]0\,;+\infty\right[$ par :</p>
+<div class="maths">\[
+f:x\longmapsto \log x=\frac{\ln(x)}{\ln(10)} .
+\]</div>
+<p>D'où</p>
+<div class="maths">\[
+\log(1)=\frac{\ln(1)}{\ln(10)}=0,
+\qquad
+\log(10)=1,
+\qquad
+\log\left(10^{k}\right)=k .
+\]</div>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriétés</span><div class="boite-corps"><p>Pour $a&gt;0$ et $b&gt;0$ :</p>
+<div class="maths">\[
+\log(ab)=\log a+\log b
+\qquad
+\log\left(a^{n}\right)=n\log a
+\]</div>
+<div class="maths">\[
+\log\left(\frac{a}{b}\right)=\log a-\log b
+\qquad
+\log\left(10^{x}\right)=x\quad\text{pour tout } x \text{ réel}.
+\]</div></div></section>
+<p>$10^{x}$ est la fonction réciproque de $\log(x)$.</p>
+  <p style="margin-top:2.5rem"><a href="../index.html#terminale-complementaire">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

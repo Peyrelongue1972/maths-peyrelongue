@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 11 : Lois discrètes — Terminale complémentaire</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "prob": "{\\mathbb{P}}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#terminale-complementaire">← Retour au site</a></p>
+  <h1>Chapitre 11 : Lois discrètes</h1>
+  <p class="sous-titre">Terminale complémentaire · Chapitre 8 — Lois discrètes · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Lois discrètes</span><a class="onglet" href="../pdf/terminale-complementaire/8-lois-discretes.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/terminale-complementaire/td01-loi-binomiale.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../quiz/terminale-complementaire-8.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Variable aléatoire et loi de probabilité</a></li><li><a href="#s2">II Loi uniforme et loi de Bernoulli</a></li><li><a href="#s3">III Schéma de Bernoulli et loi binomiale</a></li><li><a href="#s4">IV Loi géométrique</a></li></ol></nav>
+<h2 id="s1"><span class="num-section">I.</span> Variable aléatoire et loi de probabilité</h2>
+<h3>Variable aléatoire</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Variable aléatoire</span><div class="boite-corps"><p>Une <strong>variable aléatoire</strong> $X$ est une <strong>fonction</strong> définie sur un univers $\Omega$ et à valeurs dans $\R$.</p>
+<p>Si $x_{1},x_{2},\dots,x_{r}$ désignent les valeurs prises par $X$, on note « $X=x_{i}$ » l'événement « $X$ prend la valeur $x_{i}$ ».</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Le jeu du dé</span><div class="boite-corps"><p>On considère le jeu suivant : on lance un dé à six faces.</p>
+<ul><li>si le résultat est pair, on gagne $2$&nbsp;euros ;</li><li>si le résultat est $1$, on gagne $3$&nbsp;euros ;</li><li>si le résultat est $3$ ou $5$, on perd $4$&nbsp;euros.</li></ul>
+<p>On a défini une variable aléatoire $X$ sur $\Omega=\{1\,;2\,;3\,;4\,;5\,;6\}$ qui peut prendre les valeurs $2$, $3$ ou $-4$.</p>
+<p>On a donc : $X(1)=3$, $X(2)=2$, $X(3)=-4$, $X(4)=2$, $X(5)=-4$, $X(6)=2$.</p></div></section>
+<h3>Loi de probabilité</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Loi de probabilité</span><div class="boite-corps"><p>Soit une variable aléatoire $X$ définie sur un univers $\Omega$ et prenant les valeurs $x_{1},x_{2},\dots,x_{r}$.</p>
+<p>La <strong>loi de probabilité</strong> de $X$ associe à toute valeur $x_{i}$ la probabilité $\prob(X=x_{i})$.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Loi de probabilité du jeu</span><div class="boite-corps"><p>On considère la variable aléatoire $X$ définie dans l'exemple précédent.</p>
+<p>Chaque issue du lancer de dé est équiprobable et égale à $\dfrac{1}{6}$.</p>
+<p>La probabilité que la variable aléatoire prenne la valeur $2$ est égale à $\dfrac{1}{6}+\dfrac{1}{6}+\dfrac{1}{6}=\dfrac{1}{2}$.</p>
+<p>On note : $\prob(X=2)=\dfrac{1}{2}$. De même : $\prob(X=3)=\dfrac{1}{6}$ et $\prob(X=-4)=\dfrac{1}{6}+\dfrac{1}{6}=\dfrac{1}{3}$.</p>
+<p>On peut résumer les résultats dans un tableau :</p>
+<table class="tableau"><tr><td>$x_{i}$</td><td>$-4$</td><td>$2$</td><td>$3$</td></tr><tr><td>$\prob(X=x_{i})$</td><td>$\dfrac{1}{3}$</td><td>$\dfrac{1}{2}$</td><td>$\dfrac{1}{6}$</td></tr></table>
+<p>Ce tableau résume la loi de probabilité de la variable aléatoire $X$.</p>
+<p><strong>Remarque.</strong>  $\prob(X=x_{i})$ peut se noter $p_{i}$.</p></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Somme des probabilités</span><div class="boite-corps"><p>La somme de toutes les probabilités $\prob(X=x_{i})$ doit toujours être égale à $1$.</p></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><div class="maths">\[
+\prob(X=x_{1})+\prob(X=x_{2})+\dots+\prob(X=x_{r})=\prob(\Omega)=1 .
+\]</div>
+<p>Dans l'exemple traité plus haut :</p>
+<div class="maths">\[
+p_{1}+p_{2}+p_{3}=\frac{1}{3}+\frac{1}{2}+\frac{1}{6}=1 .
+\]</div></div></section>
+<h2 id="s2"><span class="num-section">II.</span> Loi uniforme et loi de Bernoulli</h2>
+<h3>Loi uniforme discrète sur $\{1\,;2\,;\dots\,;n\}$</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Loi uniforme discrète</span><div class="boite-corps"><p>$X$ est une variable aléatoire qui prend ses valeurs dans l'ensemble $\{1\,;2\,;\dots\,;n\}$ avec $n\in\N^{*}$.</p>
+<p>Dire que la loi de probabilité de $X$ suit la <strong>loi uniforme</strong> sur $\{1\,;2\,;\dots\,;n\}$ signifie que toutes les valeurs prises par $X$ sont équiprobables. Ainsi, pour tout entier naturel $k$ de l'ensemble $\{1\,;2\,;\dots\,;n\}$ :</p>
+<div class="maths">\[
+\prob(X=k)=\frac{1}{n}.
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Espérance</span><div class="boite-corps"><p>Soit $X$ une variable aléatoire qui suit la loi uniforme sur $\{1\,;2\,;\dots\,;n\}$ : alors l'espérance de $X$ vaut</p>
+<div class="maths">\[
+E(X)=\frac{n+1}{2}.
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><div class="maths">\[\begin{aligned}
+E(X)&=x_{1}\times\prob(X=x_{1})+\dots+x_{n}\times\prob(X=x_{n})\\
+&=1\times\frac{1}{n}+2\times\frac{1}{n}+\dots+n\times\frac{1}{n}
+=\frac{1+2+\dots+n}{n}
+=\frac{\frac{n(n+1)}{2}}{n}=\frac{n+1}{2}.
+\end{aligned}\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Dé équilibré</span><div class="boite-corps"><p>Soit un dé équilibré et $X$ la variable aléatoire qui indique le numéro de la face. $X$ prend les valeurs $\{1\,;2\,;\dots\,;6\}$ et suit une loi uniforme, donc</p>
+<div class="maths">\[
+E(X)=\frac{6+1}{2}=3{,}5 .
+\]</div></div></section>
+<h3>Épreuve et loi de Bernoulli</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Épreuve de Bernoulli</span><div class="boite-corps"><p>Une <strong>épreuve de Bernoulli</strong> est une expérience aléatoire à deux issues. L'une est souvent appelée succès et notée $S$, l'autre est souvent appelée échec et notée $\overline{S}$.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Parité d'un dé</span><div class="boite-corps"><p>L'épreuve consiste à observer la parité d'un lancer de dé : il y a deux issues, pair ou impair.</p></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Loi de Bernoulli</span><div class="boite-corps"><p>On considère une épreuve de Bernoulli où la probabilité de succès est $p$. $X$ est la variable aléatoire qui prend la valeur $1$ en cas de succès et $0$ en cas d'échec.</p>
+<p>La loi de probabilité de $X$ est appelée <strong>loi de Bernoulli de paramètre $p$</strong>.</p>
+<table class="tableau"><tr><td>$x_{i}$</td><td>$0$</td><td>$1$</td></tr><tr><td>$\prob(X=x_{i})$</td><td>$1-p$</td><td>$p$</td></tr></table></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Espérance, variance, écart-type</span><div class="boite-corps"><p>$X$ est une variable aléatoire qui suit la loi de Bernoulli de paramètre $p$.</p>
+<div class="maths">\[
+E(X)=p,
+\qquad
+V(X)=p(1-p),
+\qquad
+\sigma(X)=\sqrt{p(1-p)} .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><div class="maths">\[
+E(X)=0\times(1-p)+1\times p=p .
+\]</div>
+<div class="maths">\[
+V(X)=E\left(\bigl(X-E(X)\bigr)^{2}\right)
+=(0-p)^{2}(1-p)+(1-p)^{2}\times p
+=p^{2}(1-p)+p(1-p)^{2}
+\]</div>
+<div class="maths">\[
+V(X)=p(1-p)\bigl[p+1-p\bigr]=p(1-p) .
+\]</div>
+<div class="maths">\[
+\sigma(X)=\sqrt{V(X)}=\sqrt{p(1-p)} .
+\]</div></div></section>
+<h2 id="s3"><span class="num-section">III.</span> Schéma de Bernoulli et loi binomiale</h2>
+<h3>Schéma de Bernoulli</h3>
+<p>On considère une expérience aléatoire qui consiste à <strong>répéter $n$ fois une même épreuve de Bernoulli</strong> (épreuve à deux issues : $S$ succès et $\overline{S}$ échec). On note $p=\prob(S)$ et $\prob(\overline{S})$.</p>
+<p>Lorsque cette épreuve est répétée de <strong>manière identique et indépendante</strong>, on obtient un <strong>schéma de Bernoulli de paramètre $n$ et $p$</strong>.</p>
+<p>À ce schéma de Bernoulli, on associe une variable aléatoire $X$ qui compte les succès.</p>
+<figure class="figure-cours"><img src="img/terminale-complementaire-ch08-fig01.png" alt="figure 1 du cours"></figure>
+<p><strong>Formule de calcul de $\prob(X=k)$</strong></p>
+<p>Avec pour $k$ succès parmi $n$ tirages, on a aussi $(n-k)$ échecs : il y a plusieurs chemins réalisant cet événement. La probabilité sur une branche avec uniquement $k$ succès est de $p^{k}(1-p)^{n-k}$. Il faut ensuite dénombrer (compter) les branches avec uniquement $k$ succès.</p>
+<figure class="figure-cours"><img src="img/terminale-complementaire-ch08-fig02.png" alt="figure 2 du cours"></figure>
+<h3>Coefficients binomiaux</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Coefficient binomial</span><div class="boite-corps"><p>On représente à l'aide d'un arbre de probabilité un schéma de Bernoulli constitué de $n$ épreuves. Pour tout entier $k$ avec $0\leqslant k\leqslant n$, le nombre de chemins réalisant $k$ succès est noté $\dbinom{n}{k}$.</p>
+<p>La notation $\dbinom{n}{k}$ se lit « $k$ parmi $n$ ». Ces nombres sont appelés <strong>coefficients binomiaux</strong>. La formule de calcul n'est pas au programme.</p></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriétés</span><div class="boite-corps"><p>Pour tout entier $n\geqslant 1$ :</p>
+<ul><li>$\dbinom{n}{0}=\dbinom{n}{n}=1$ ;</li><li>pour tout entier $k$ avec $0\leqslant k\leqslant n$, $\dbinom{n}{k}=\dbinom{n}{n-k}$ (par symétrie).</li></ul></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>et un seul chemin qui réalise $n$ succès.</p>
+<p>Il y a autant de chemins sur l'arbre qui réalisent $k$ succès que de chemins qui réalisent $k$ échecs, c'est-à-dire $n-k$ succès.</p></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Formule de Pascal (admise)</span><div class="boite-corps"><p>Pour tous entiers naturels $n$ et $k$ tels que $n\geqslant 1$ et $0\leqslant k\leqslant n-1$ :</p>
+<div class="maths">\[
+\binom{n}{k}+\binom{n}{k+1}=\binom{n+1}{k+1}.
+\]</div></div></section>
+<p><strong>Application : le triangle de Pascal.</strong></p>
+<section class="boite boite-info"><p>$\dbinom{n}{k}$ est le coefficient binomial qui compte le nombre de chemins pour avoir $k$ succès.</p>
+<p>Le triangle de Pascal permet de calculer les coefficients binomiaux.</p>
+<table class="tableau"><tr><td>$n$</td><td>Triangle</td><td>$\binom{n}{0}$</td><td>$\binom{n}{1}$</td><td>$\binom{n}{2}$</td><td>$\binom{n}{3}$</td><td>$\binom{n}{4}$</td><td>$\binom{n}{5}$</td></tr><tr><td>$1$</td><td>$1\quad 1$</td><td>$1$</td><td>$1$</td><td></td><td></td><td></td><td></td></tr><tr><td>$2$</td><td>$1\quad 2\quad 1$</td><td>$1$</td><td>$2$</td><td>$1$</td><td></td><td></td><td></td></tr><tr><td>$3$</td><td>$1\quad 3\quad 3\quad 1$</td><td>$1$</td><td>$3$</td><td>$3$</td><td>$1$</td><td></td><td></td></tr><tr><td>$4$</td><td>$1\quad 4\quad 6\quad 4\quad 1$</td><td>$1$</td><td>$4$</td><td>$6$</td><td>$4$</td><td>$1$</td><td></td></tr><tr><td>$5$</td><td>$1\quad 5\quad 10\quad 10\quad 5\quad 1$</td><td>$1$</td><td>$5$</td><td>$10$</td><td>$10$</td><td>$5$</td><td>$1$</td></tr><tr><td class="vide"></td><td colspan="7" class="note-tableau"></td></tr></table></section>
+<h3>La loi binomiale</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Loi binomiale</span><div class="boite-corps"><p>La variable aléatoire $X$ qui compte les succès dans un schéma de Bernoulli de paramètre $n$ et $p$ suit la <strong>loi binomiale de paramètres $n$ et $p$</strong>, notée $\mathcal{B}(n\,;p)$.</p>
+<p>La variable aléatoire $X$ prend des valeurs entières entre $0$ et $n$ et</p>
+<div class="maths">\[
+\prob(X=k)=\binom{n}{k}p^{k}(1-p)^{n-k}.
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Calcul d'une probabilité</span><div class="boite-corps"><p>$n=5$, $k=3$, $p=0{,}1$ :</p>
+<div class="maths">\[\begin{aligned}
+\prob(X=3)&=\binom{5}{3}p^{3}(1-p)^{5-3}=10\,p^{3}(1-p)^{2}\\
+&=10\times 0{,}1^{3}\times(0{,}9)^{2}=0{,}0081 .
+\end{aligned}\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Espérance, variance, écart-type (admises)</span><div class="boite-corps"><p>$X$ est une variable aléatoire qui suit la loi binomiale de paramètres $n$ et $p$.</p>
+<div class="maths">\[
+E(X)=np,
+\qquad
+V(X)=np(1-p),
+\qquad
+\sigma(X)=\sqrt{np(1-p)} .
+\]</div></div></section>
+<h2 id="s4"><span class="num-section">IV.</span> Loi géométrique</h2>
+<h3>Définition</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Loi géométrique</span><div class="boite-corps"><p>On répète une épreuve de Bernoulli dont la probabilité de succès est $p$. $X$ est la variable aléatoire qui compte le nombre d'épreuves nécessaires pour avoir le premier succès.</p>
+<p>La loi de probabilité de la variable aléatoire $X$ est appelée <strong>loi géométrique de paramètre $p$</strong>.</p></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Loi de probabilité</span><div class="boite-corps"><p>$X$ est une variable aléatoire qui suit la loi géométrique de paramètre $p$. Pour tout entier naturel $k\geqslant 1$ :</p>
+<div class="maths">\[
+\prob(X=k)=p(1-p)^{k-1}.
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>L'événement $\{X=k\}$ est réalisé lorsque l'on obtient $k-1$ échecs suivis d'un succès.</p>
+<p>Donc</p>
+<div class="maths">\[
+\prob(X=k)=(1-p)^{k-1}\times p .
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Espérance</span><div class="boite-corps"><p>$X$ est une variable aléatoire qui suit la loi géométrique de paramètre $p$.</p>
+<div class="maths">\[
+E(X)=\frac{1}{p}.
+\]</div></div></section>
+<h3>Loi géométrique : une loi sans mémoire</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Queue de la loi</span><div class="boite-corps"><p>$X$ est une variable aléatoire qui suit une loi géométrique de paramètre $p$.</p>
+<div class="maths">\[
+\prob(X&gt;n)=(1-p)^{n}.
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Absence de mémoire</span><div class="boite-corps"><p>$X$ est une variable aléatoire qui suit une loi géométrique de paramètre $p$. Alors</p>
+<div class="maths">\[
+\prob_{X&gt;n}(X&gt;n+k)=\prob(X&gt;k).
+\]</div></div></section>
+<p>On dit qu'une loi géométrique est une <strong>loi sans mémoire</strong>. Cela signifie que devoir attendre plus de $5$ essais pour obtenir un succès a la même probabilité que l'on parte de la 1<sup>re</sup> épreuve ou de n'importe quelle $i$<sup>ème</sup> épreuve, sachant que l'on n'a pas obtenu de succès pour les $i$ premières épreuves.</p>
+<p>C'est une caractéristique des lois géométriques.</p>
+  <p style="margin-top:2.5rem"><a href="../index.html#terminale-complementaire">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

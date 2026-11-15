@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 3 : Nombres complexes 
+{\large Applications} — Maths expertes</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "ii": "{\\mathrm{i}}", "argz": "{\\mathrm{arg}}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#maths-expertes">← Retour au site</a></p>
+  <h1>Chapitre 3 : Nombres complexes 
+{\large Applications}</h1>
+  <p class="sous-titre">Maths expertes · Chapitre 3 — Nombres complexes applications · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Nombres complexes applications</span><a class="onglet" href="../pdf/maths-expertes/Chapitre_III_Nombre_complexe_II.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/maths-expertes/td01-polynomes-complexes.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/maths-expertes/fiche-methode-racines.pdf" target="_blank" rel="noopener">Fiche méthode</a><a class="onglet" href="../quiz/maths-expertes-3.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Équations polynomiales de degré supérieur à 2</a></li><li><a href="#s2">II Polynômes dans $\C$</a></li><li><a href="#s3">III Géométrie</a></li></ol></nav>
+<h2 id="s1"><span class="num-section">I.</span> Équations polynomiales de degré supérieur à 2</h2>
+<p>Dans cette partie, $a$, $b$ et $c$ désignent trois nombres réels avec $a\neq 0$, et $z$ est un nombre complexe. On cherche à résoudre dans $\C$ l'équation</p>
+<div class="maths">\[
+az^{2}+bz+c=0 .
+\]</div>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Discriminant</span><div class="boite-corps"><p>On appelle <strong>discriminant</strong> du trinôme $az^{2}+bz+c$ le nombre réel, noté $\Delta$, défini par</p>
+<div class="maths">\[
+\Delta=b^{2}-4ac .
+\]</div></div></section>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Résolution dans $\C$</span><div class="boite-corps"><p>Soit $(E) : az^{2}+bz+c=0$ une équation du second degré d'inconnue $z\in\C$.</p>
+<ol><li><p>Si $\Delta&gt;0$, alors $(E)$ admet deux solutions réelles distinctes :</p>
+<div class="maths">        \[
+        z_{1}=\frac{-b-\sqrt{\Delta}}{2a}
+        \quad\text{et}\quad
+        z_{2}=\frac{-b+\sqrt{\Delta}}{2a} .
+        \]</div></li><li><p>Si $\Delta=0$, alors $(E)$ admet une solution réelle :</p>
+<div class="maths">        \[
+        z_{0}=-\frac{b}{2a} .
+        \]</div></li><li><p>Si $\Delta&lt;0$, alors $(E)$ admet deux solutions complexes conjuguées :</p>
+<div class="maths">        \[
+        z_{1}=\frac{-b-i\sqrt{-\Delta}}{2a}
+        \quad\text{et}\quad
+        z_{2}=\frac{-b+i\sqrt{-\Delta}}{2a} .
+        \]</div></li></ol></div></section>
+<p><strong>Remarque :</strong> si $\Delta&lt;0$, on calcule la première solution $z_{1}$ avec une des deux formules, et la deuxième solution $z_{2}$ en utilisant $z_{2}=\overline{z_{1}}$.</p>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><div class="maths">\[
+az^{2}+bz+c=a\left(z+\frac{b}{2a}\right)^{2}+c-\frac{b^{2}}{4a}
+=a\left(z+\frac{b}{2a}\right)^{2}-\frac{b^{2}-4ac}{4a^{2}}
+=a\left[\left(z+\frac{b}{2a}\right)^{2}-\frac{\Delta}{4a^{2}}\right] .
+\]</div>
+<p><strong>Si $\Delta&gt;0$</strong>, on a une différence de deux carrés et l'on peut factoriser $(E)$ :</p>
+<div class="maths">\[\begin{aligned}
+(E)&\iff a\left[z+\frac{b}{2a}-\frac{\sqrt{\Delta}}{2a}\right]
+\left[z+\frac{b}{2a}+\frac{\sqrt{\Delta}}{2a}\right]=0\\
+&\iff z+\frac{b}{2a}-\frac{\sqrt{\Delta}}{2a}=0 \text{ ou }
+z+\frac{b}{2a}+\frac{\sqrt{\Delta}}{2a}=0
+\iff z=\frac{-b-\sqrt{\Delta}}{2a} \text{ ou } z=\frac{-b+\sqrt{\Delta}}{2a}.
+\end{aligned}\]</div>
+<p><strong>Si $\Delta=0$</strong>, $(E)\iff a\left(z+\dfrac{b}{2a}\right)^{2}=0\iff z=-\dfrac{b}{2a}$.</p>
+<p><strong>Si $\Delta&lt;0$</strong>,</p>
+<div class="maths">\[\begin{aligned}
+(E)&\iff a\left[\left(z+\frac{b}{2a}\right)^{2}+\frac{-\Delta}{4a^{2}}\right]=0
+\iff a\left[\left(z+\frac{b}{2a}\right)^{2}-i^{2}\frac{-\Delta}{4a^{2}}\right]=0\\
+&\iff a\left[z+\frac{b}{2a}-i\frac{\sqrt{-\Delta}}{2a}\right]
+\left[z+\frac{b}{2a}+i\frac{\sqrt{-\Delta}}{2a}\right]=0\\
+&\iff z+\frac{b}{2a}-\frac{i\sqrt{-\Delta}}{2a}=0 \text{ ou }
+z+\frac{b}{2a}+\frac{i\sqrt{-\Delta}}{2a}=0\\
+&\iff z=\frac{-b-i\sqrt{-\Delta}}{2a} \text{ ou } z=\frac{-b+i\sqrt{-\Delta}}{2a}.
+\end{aligned}\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$z^{2}-z+1=0$</span><div class="boite-corps"><p>Pour résoudre $z^{2}-z+1=0$, on calcule le discriminant du trinôme $az^{2}+bz+c$ :</p>
+<div class="maths">\[
+\Delta=1-4\times 1=-3 .
+\]</div>
+<p>Puisque $\Delta&lt;0$, l'équation admet deux solutions complexes :</p>
+<div class="maths">\[
+z_{1}=\frac{1}{2}+i\frac{\sqrt{3}}{2}
+\qquad\text{et}\qquad
+z_{2}=\overline{z_{1}}=\frac{1}{2}-i\frac{\sqrt{3}}{2} .
+\]</div></div></section>
+<h2 id="s2"><span class="num-section">II.</span> Polynômes dans $\C$</h2>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Fonction polynôme</span><div class="boite-corps"><p>Soit $n$ un entier naturel et soient $a_{0},a_{1},\dots,a_{n}$ des nombres réels avec $a_{n}\neq 0$.</p>
+<p>On appelle <strong>fonction polynôme de degré $n$ à coefficients réels</strong> (ou plus simplement <strong>polynôme de degré $n$</strong>) la fonction $P$ définie sur $\C$ par</p>
+<div class="maths">\[
+P(z)=\sum_{k=0}^{k=n}a_{k}z^{k} .
+\]</div>
+<p>L'équation $P(z)=0$ est appelée <strong>équation polynomiale de degré $n$</strong>.</p></div></section>
+<h3>Identification d'un polynôme</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Polynôme nul</span><div class="boite-corps"><p>Soit $p_{n}$ un polynôme à coefficients complexes de degré $n\in\N$.</p>
+<p>Si, pour tout complexe $z$, $p_{n}(z)=0$, alors ses $n+1$ coefficients sont nuls.</p>
+<p><strong>Un polynôme est nul si, et seulement si, tous ses coefficients sont nuls.</strong></p></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>Pour $n=1$, $p_{1}(z)=a_{1}z+a_{0}=0$ pour tout $z$, donc en particulier pour $z=0$ : $p_{1}(0)=a_{0}=0$ ; et pour $z=1$ : $p_{1}(1)=a_{1}\times 1+a_{0}=a_{1}=0$.</p>
+<p><strong>Cas général :</strong> soit $H_{n}$ : soit $n\in\N$ ; si, pour tout complexe $z$, $p_{n}(z)=0$, alors ses $n+1$ coefficients sont nuls.</p>
+<p><strong>Initialisation :</strong> la proposition $H_{0}$ est vraie.</p>
+<p><strong>Hérédité :</strong> on suppose $H_{n}$ vraie ; soit $p_{n+1}$ un polynôme de degré $n+1$ tel que $\forall z\in\C$, $p_{n+1}(z)=0$ :</p>
+<div class="maths">\[
+p_{n+1}(z)=a_{n+1}z^{n+1}+a_{n}z^{n}+\dots+a_{1}z+a_{0}=0 .
+\]</div>
+<p>Donc $p_{n+1}(2z)=0$, or $p_{n+1}(2z)=a_{n+1}(2z)^{n+1}+a_{n}(2z)^{n}+\dots+a_{1}2z+a_{0} =\sum_{k=0}^{k=n+1}a_{k}2^{k}z^{k}$.</p>
+<div class="maths">\[
+0=2^{n+1}p_{n+1}(z)-p_{n+1}(2z)
+=\sum_{k=0}^{k=n}a_{k}\left(2^{n+1}-2^{k}\right)z^{k}=0 .
+\]</div>
+<p>On a ici un polynôme de degré $n$ toujours nul : on applique l'hypothèse de récurrence</p>
+<div class="maths">\[
+a_{k}\left(2^{n+1}-2^{k}\right)=0 \quad\text{pour } 0\leqslant k\leqslant n
+\]</div>
+<p>$\iff a_{k}=0$ pour $0\leqslant k\leqslant n$, d'où $p_{n+1}(z)=a_{n+1}z^{n+1}=0$ pour tout $z$, donc $a_{n+1}=0$.</p>
+<p><strong>Conclusion :</strong> de l'initialisation et de l'hérédité, on peut conclure que la propriété est vraie quel que soit le rang $n$.</p></div></section>
+<p><strong>Corollaire :</strong> deux polynômes à coefficients complexes de même degré sont égaux si, et seulement si, tous leurs coefficients des termes de même degré sont égaux.</p>
+<p><strong>Notation :</strong> on note $\deg(P)$ le degré du polynôme $P$.</p>
+<h3>Factorisation de $z^{n}-a^{n}$</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Lemme</span><div class="boite-corps"><p>Soient $n\geqslant 1$ un entier et $z$ un complexe. Alors</p>
+<div class="maths">\[
+z^{n}-1=(z-1)\sum_{k=0}^{k=n-1}z^{k} .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><div class="maths">\[
+zp(z)=z+z^{2}+\dots+z^{n-1}+z^{n} .
+\]</div>
+<p>D'où $zp(z)-p(z)=z^{n}-1$, soit $p(z)(z-1)=z^{n}-1$, d'où le résultat.</p></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Factorisation</span><div class="boite-corps"><p>Soient $z$ et $a$ deux nombres complexes.</p>
+<p>Pour tout entier naturel $n$ non nul,</p>
+<div class="maths">\[
+z^{n}-a^{n}=(z-a)\sum_{k=0}^{k=n-1}z^{n-1-k}a^{k} .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><div class="maths">\[\begin{aligned}
+z^{n}-a^{n}&=a^{n}\left(\left(\frac{z}{a}\right)^{n}-1\right)
+=a^{n}\times\left(\frac{z}{a}-1\right)
+\left(1+\frac{z}{a}+\left(\frac{z}{a}\right)^{2}+\dots+\left(\frac{z}{a}\right)^{n-1}\right)\\
+&=a^{n-1}(z-a)\left(1+\frac{z}{a}+\left(\frac{z}{a}\right)^{2}
++\dots+\left(\frac{z}{a}\right)^{n-1}\right)\\
+&=(z-a)\left(a^{n-1}+za^{n-2}+z^{2}a^{n-3}+\dots+z^{n-2}a+z^{n-1}\right).
+\end{aligned}\]</div></div></section>
+<p><strong>Pour $n=2$ :</strong> $z^{2}-a^{2}=(z-a)(z+a)$.</p>
+<p><strong>Pour $n=3$ :</strong> $z^{3}-a^{3}=(z-a)\left(z^{2}+az+a^{2}\right)$.</p>
+<h3>Racine d'un polynôme</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Racine et factorisation</span><div class="boite-corps"><p>Soit $P$ un polynôme à coefficients complexes, de degré l'entier $n\geqslant 1$. Les deux propositions sont équivalentes :</p>
+<ol><li>il existe un complexe $a$ tel que $P(a)=0$ ;</li><li>il existe un polynôme $Q$ de degré $n-1$ tel que, pour tout complexe $z$, $P(z)=(z-a)Q(z)$.</li></ol></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>$P(z)=a_{n}z^{n}+\dots+a_{1}z+a_{0}$.</p>
+<p>(i) $\Longrightarrow$ (ii) : puisque $P(a)=0$, on a</p>
+<div class="maths">\[
+P(z)=P(z)-P(a)=\sum_{k=0}^{k=n}a_{k}z^{k}-\sum_{k=0}^{k=n}a_{k}a^{k}
+=\sum_{k=0}^{k=n}a_{k}\left(z^{k}-a^{k}\right)
+=\sum_{k=1}^{k=n}a_{k}\left(z^{k}-a^{k}\right).
+\]</div>
+<p>D'autre part, $z^{k}-a^{k}=(z-a)\sum_{j=0}^{j=k-1}z^{k-j-1}a^{j}$.</p>
+<p>D'où</p>
+<div class="maths">\[
+P(z)=\sum_{k=1}^{k=n}a_{k}(z-a)\sum_{j=0}^{j=k-1}z^{k-j-1}a^{j}
+=(z-a)\sum_{k=1}^{k=n}a_{k}\sum_{j=0}^{j=k-1}z^{k-j-1}a^{j}=(z-a)Q(z),
+\]</div>
+<p>avec</p>
+<div class="maths">\[
+Q(z)=\sum_{k=1}^{k=n}a_{k}\sum_{j=0}^{j=k-1}z^{k-j-1}a^{j}
+=\sum_{k=1}^{k=n}a_{k}\left(z^{k-1}+az^{k-2}+\dots+a^{k-1}\right)
+\]</div>
+<p>de degré $n-1$.</p>
+<p>(ii) $\Longrightarrow$ (i) : s'il existe $a$ tel que, pour tout $z\in\C$, $P(z)=(z-a)Q(z)$, alors $P(a)=0$.</p></div></section>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Racine réelle et factorisation</span><div class="boite-corps"><p>Nous considérons le polynôme $P$ défini sur $\C$ par :</p>
+<div class="maths">\[
+P(z)=z^{3}+(1+i)z^{2}+(4-i)z+12-6i .
+\]</div>
+<ol><li>Trouver une racine réelle $a$.</li><li>Factoriser par $(z-a)$.</li></ol></div></section>
+<p>Soit $a$ une racine réelle :</p>
+<div class="maths">\[
+P(a)=0\iff a^{3}+(1+i)a^{2}+(4-i)a+12-6i=0
+\iff
+\begin{cases}
+a^{3}+a^{2}+4a+12=0\\
+a^{2}-a-6=0
+\end{cases}
+\]</div>
+<p>On résout $a^{2}-a-6=0$ : $a_{1}=-2$ est une racine évidente ; $P=a_{1}\times a_{2}=-6$, d'où $a_{2}=3$.</p>
+<p>$3$ n'est pas une solution de la première équation. On teste $-2$ : $-2$ est solution de la première équation.</p>
+<p>Par conséquent, $-2$ est l'unique racine réelle de $P$.</p>
+<p>D'après la proposition précédente, on peut factoriser $P$ sous la forme $P(z)=(z+2)Q(z)$, avec $Q$ de degré $2$ :</p>
+<div class="maths">\[
+\forall z\in\C,\ P(z)=(z+2)\left(az^{2}+bz+c\right)
+\quad\text{avec } a\in\C^{*},\ b\in\C \text{ et } c\in\C .
+\]</div>
+<p>En observant le coefficient de plus haut degré et de la constante, on constate que $a=1$ et $2c=12-6i$.</p>
+<p>Donc $Q(z)=z^{2}+bz+6-3i$.</p>
+<div class="maths">\[
+P(z)=(z+2)Q(z)\quad\forall z,
+\]</div>
+<p>et en particulier pour $z=-1$ :</p>
+<div class="maths">\[
+P(-1)=Q(-1)\iff -1+1+i-4+i+12-6i=(1-b+6-3i)
+\iff 8-4i=7-3i-b
+\]</div>
+<div class="maths">\[
+\iff b=-1+i .
+\]</div>
+<p>Finalement</p>
+<div class="maths">\[
+P(z)=(z+2)\left(z^{2}+(-1+i)z+6-3i\right).
+\]</div>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Nombre de racines</span><div class="boite-corps"><p>Un polynôme $P$ non nul de degré $n$ admet au plus $n$ racines.</p></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p><strong>Initialisation :</strong> si $n=0$, $P$ est constant non nul : il admet aucune racine ; la propriété est vraie au rang $0$.</p>
+<p><strong>Hérédité :</strong> nous supposons qu'un polynôme de degré $n$ admet au plus $n$ racines. Soit $P$ un polynôme de degré $n+1$.</p>
+<p><strong>1<sup>er</sup> cas :</strong> $P(z)=0$ n'a pas de solution, donc $P$ n'a aucune racine, donc $P$ admet au plus $n+1$ racines. La propriété est vraie au rang $n+1$.</p>
+<p><strong>2<sup>ème</sup> cas :</strong> $P(z)=0$ admet une solution $a$, donc $P$ est divisible par $(z-a)$ et $P(z)=(z-a)Q(z)$ avec $Q$ de degré $n$.</p>
+<div class="maths">\[
+P(z)=0\iff (z-a)Q(z)=0\iff z-a=0 \text{ ou } Q(z)=0 .
+\]</div>
+<p>On applique l'hypothèse de récurrence : $Q$ est de degré $n$, donc admet au plus $n$ racines.</p>
+<p>Il en résulte que $P$, de degré $n+1$, admet au plus $n+1$ racines.</p>
+<p>De l'initialisation et de l'hérédité, nous pouvons conclure qu'un polynôme de degré $n$ admet au plus $n$ racines.</p></div></section>
+<h3>Racines $n$-ièmes</h3>
+<h3>Racines $n$-ièmes de l'unité</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Racines $n$-ièmes de l'unité</span><div class="boite-corps"><p>Soit $n$ un entier naturel non nul. Dans $\C$, l'équation $(E) : z^{n}=1$ admet $n$ solutions distinctes, qui sont les nombres complexes $u_{k}$ définis par</p>
+<div class="maths">\[
+u_{k}=\e^{i\frac{2k\pi}{n}}
+\quad\text{avec } k \text{ entier tel que } 0\leqslant k\leqslant n-1 .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>d'où $|z|=1$.</p>
+<p>Ainsi, on peut poser $z=\e^{i\theta}$, car $z$ est un nombre complexe de module $1$.</p>
+<p>L'équation $(E)$ devient</p>
+<div class="maths">\[
+\e^{in\theta}=1=\e^{i0}\iff n\theta=2k\pi
+\iff \theta=\frac{2k\pi}{n} \quad\text{avec } k\in\Z .
+\]</div>
+<p><strong>Réciproquement</strong>, nous vérifions que</p>
+<div class="maths">\[
+\left(\e^{i\frac{2k\pi}{n}}\right)^{n}=\e^{i2k\pi}
+=\left(\e^{i2\pi}\right)^{k}=1 .
+\]</div>
+<p>L'ensemble des solutions de $(E)$ est $U_{n}=\left\{\e^{i\frac{2k\pi}{n}},\ k\in\Z\right\}$.</p>
+<p>Il nous reste à prouver que $(E)$ admet $n$ racines distinctes. On effectue la division euclidienne de $k$ par $n$ :</p>
+<div class="maths">\[
+k=nq+r \quad\text{avec } q\in\Z \text{ et } r \text{ entier tel que }
+0\leqslant r\leqslant n-1 .
+\]</div>
+<div class="maths">\[
+\e^{i\frac{2k\pi}{n}}=\e^{i\frac{2(nq+r)\pi}{n}}
+=\e^{i2q\pi}\e^{i\frac{2r\pi}{n}}
+=\left(\e^{i2\pi}\right)^{q}\e^{i\frac{2r\pi}{n}}
+=\e^{i\frac{2r\pi}{n}} .
+\]</div>
+<p>Ainsi $z^{n}=1$ admet $n$ solutions distinctes, qui sont les nombres $u_{k}=\e^{i\frac{2k\pi}{n}}$ avec $k$ entier tel que $0\leqslant k\leqslant n-1$.</p></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Racines $n$-ièmes de l'unité</span><div class="boite-corps"><p>Les $n$ nombres complexes $u_{k}=\e^{i\frac{2k\pi}{n}}$ avec $k$ entier tel que $0\leqslant k\leqslant n-1$ sont les <strong>racines $n$-ièmes de l'unité</strong>.</p>
+<p>L'ensemble $U_{n}$ des racines de l'unité est défini par</p>
+<div class="maths">\[
+U_{n}=\left\{\e^{i\frac{2k\pi}{n}},\ k\in\Z \text{ et } 0\leqslant k\leqslant n-1
+\right\} .
+\]</div></div></section>
+<p><strong>Remarque :</strong> les éléments de $U_{n}$ sont de module $1$ ; ainsi, un point du plan d'affixe $u_{k}$ est situé sur le cercle unité centré à l'origine du repère.</p>
+<h2 id="s3"><span class="num-section">III.</span> Géométrie</h2>
+<p>Le plan est muni d'un repère orthonormé direct $(O,\vec{u},\vec{v})$, nommé <strong>plan complexe</strong>.</p>
+<p>Remarque : sens direct $(\vec{u},\vec{v})=\dfrac{\pi}{2}+2k\pi$.</p>
+<h3>Affixe d'un point et affixe d'un vecteur</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Affixe</span><div class="boite-corps"><p>Soit $M$ le point du plan de coordonnées $(x\,;y)$.</p>
+<ol><li>On appelle <strong>affixe de $M$</strong> le nombre complexe $z$ défini par $z=x+iy$.</li><li>On appelle <strong>affixe du vecteur</strong> $\overrightarrow{OM}$ le nombre complexe $z$.</li><li>Un vecteur $\vec{w}$ a pour affixe $z$ lorsque $\vec{w}=\overrightarrow{OM}$, où $M$ est le point d'affixe $z$.</li></ol></div></section>
+<figure class="figure-cours"><img src="img/maths-expertes-ch03-fig01.png" alt="figure 1 du cours"></figure>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Trois affixes</span><div class="boite-corps"><p>Les points $U$, $V$ et $A$ ont pour affixes respectives $z_{U}=1$, $z_{V}=i$ et $z_{A}=-2+i$.</p></div></section>
+<p><strong>Remarque :</strong> un nombre complexe $z=x+iy$ peut représenter indifféremment un point $M(x\,;y)$ ou un vecteur $\vec{w}(x\,;y)$.</p>
+<p>L'axe des abscisses est appelé axe des réels et l'axe des ordonnées est appelé axe des imaginaires purs.</p>
+<h3>Propriétés</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Affixes de somme et de produit par un réel</span><div class="boite-corps"><p>Soient $\vec{v_{1}}$ et $\vec{v_{2}}$ deux vecteurs du plan complexe d'affixes respectives $z_{1}$ et $z_{2}$.</p>
+<ol><li>Le vecteur $\vec{v_{1}}+\vec{v_{2}}$ a pour affixe $z_{1}+z_{2}$.</li><li>Soit $\lambda\in\R$ : alors le vecteur $\lambda\vec{v_{1}}$ a pour affixe $\lambda z_{1}$.</li></ol></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>formes algébriques sont données par $z_{1}=x_{1}+iy_{1}$ et $z_{2}=x_{2}+iy_{2}$. Ainsi</p>
+<div class="maths">\[
+\vec{v_{1}}\begin{pmatrix}x_{1}\\y_{1}\end{pmatrix}
+\qquad\text{et}\qquad
+\vec{v_{2}}\begin{pmatrix}x_{2}\\y_{2}\end{pmatrix} .
+\]</div>
+<p>Le vecteur $\vec{v_{1}}+\vec{v_{2}}$ a pour coordonnées $\begin{pmatrix}x_{1}+x_{2}\\y_{1}+y_{2}\end{pmatrix}$, donc</p>
+<div class="maths">\[
+z_{\vec{v_{1}}+\vec{v_{2}}}=x_{1}+x_{2}+i(y_{1}+y_{2})=z_{1}+z_{2} .
+\]</div>
+<p>Soit $\lambda\in\R$ : alors le vecteur $\lambda\vec{v_{1}}$ a pour coordonnées $\begin{pmatrix}\lambda x_{1}\\\lambda y_{1}\end{pmatrix}$, donc pour affixe $z_{\lambda\vec{v_{1}}}=\lambda x_{1}+i\lambda y_{1}=\lambda z_{1}$.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$5\vec{v_{1}}-\vec{v_{2}}$</span><div class="boite-corps"><p>Soient $\vec{v_{1}}$ et $\vec{v_{2}}$ deux vecteurs du plan complexe d'affixe respective $z_{1}=i+5$ et $z_{2}=1-i$.</p>
+<p>Le vecteur $5\vec{v_{1}}-\vec{v_{2}}$ a pour affixe $5z_{1}-z_{2}=24+6i$.</p></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Vecteur $\overrightarrow{AB}$ et milieu</span><div class="boite-corps"><p>Soient $A$ et $B$ deux points du plan complexe d'affixe respective $z_{A}$ et $z_{B}$.</p>
+<ol><li>Le vecteur $\overrightarrow{AB}$ a pour affixe $z_{B}-z_{A}$.</li><li>Le point $I$ d'affixe $z_{I}$ est le milieu de $[AB]$ si, et seulement si, $z_{I}=\dfrac{z_{A}+z_{B}}{2}$.</li></ol></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>ont pour affixes respectives $z_{A}$ et $z_{B}$.</p>
+<p>D'après la relation de Chasles, $\overrightarrow{AB}=\overrightarrow{AO}+\overrightarrow{OB} =-\overrightarrow{OA}+\overrightarrow{OB}$, d'où $z_{\overrightarrow{AB}}=z_{B}-z_{A}$.</p>
+<p>$I$ est milieu de $[AB]\iff \overrightarrow{AI}=\overrightarrow{IB} \iff z_{I}-z_{A}=z_{B}-z_{I}\iff z_{I}=\dfrac{z_{A}+z_{B}}{2}$.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Milieu et vecteur</span><div class="boite-corps"><p>Soient $A$ et $B$ deux points du plan complexe d'affixe respective $z_{A}=2-3i$ et $z_{B}=-1+4i$.</p>
+<p>Alors le vecteur $\overrightarrow{AB}$ a pour affixe $z_{B}-z_{A}=-1+4i-2+3i=-3+7i$.</p>
+<p>Et $I$ milieu de $[AB]$ a pour affixe $z_{I}=\dfrac{z_{A}+z_{B}}{2}=\dfrac{1+i}{2}$.</p></div></section>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Point $D$ tel que $\overrightarrow{AD}=3\overrightarrow{AB}</span><div class="boite-corps"><p>-\overrightarrow{BC}$}{exo:AD} Soient $A$, $B$ et $C$ trois points du plan complexe d'affixe respective $z_{A}=5-2i$, $z_{B}=-1-i$ et $z_{C}=3+4i$. Déterminer l'affixe du point $D$ tel que</p>
+<div class="maths">\[
+\overrightarrow{AD}=3\overrightarrow{AB}-\overrightarrow{BC} .
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Distance</span><div class="boite-corps"><p>Soient $A$ et $B$ deux points du plan complexe d'affixe respective $z_{A}$ et $z_{B}$. La distance $AB$ est égale à</p>
+<div class="maths">\[
+AB=|z_{B}-z_{A}| .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><div class="maths">\[\begin{aligned}
+|z_{B}-z_{A}|&=\left|x_{B}+iy_{B}-(x_{A}+iy_{A})\right|
+=\left|(x_{B}-x_{A})+i(y_{B}-y_{A})\right|\\
+&=\sqrt{(x_{B}-x_{A})^{2}+(y_{B}-y_{A})^{2}}=AB .
+\end{aligned}\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Médiatrice et cercle</span><div class="boite-corps"><p>Soient $A$ et $B$ deux points du plan complexe d'affixe respective $z_{A}$ et $z_{B}$.</p>
+<ol><li>L'ensemble $(E_{1})$ des points $M$ du plan d'affixe $z$ vérifiant $|z-z_{A}|=|z-z_{B}|$ est la médiatrice de $[AB]$.</li><li>Soit $R\in\R^{+}$ : alors l'ensemble $(E_{2})$ des points $M$ du plan d'affixe $z$ vérifiant $|z-z_{A}|=R$ est le cercle de centre $A$ et de rayon $R$.</li></ol></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><ol><li>$M\in E_{1}\iff |z-z_{A}|=|z-z_{B}|\iff AM=MB\iff M$ appartient à la médiatrice de $[AB]$.</li><li>$M\in E_{2}\iff |z-z_{A}|=R\iff AM=R\iff M$ appartient au cercle de centre $A$ et de rayon $R$.</li></ol></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Angles</span><div class="boite-corps"><p>Soient $A$, $B$ et $C$ trois points deux à deux distincts d'affixe respective $z_{A}$, $z_{B}$ et $z_{C}$.</p>
+<ol><li>$\left(\vec{u}\,;\overrightarrow{AB}\right) =\argz(z_{B}-z_{A})+2k\pi$ avec $k\in\Z$ ;</li><li>$\left(\overrightarrow{AB}\,;\overrightarrow{AC}\right) =\argz\left(\dfrac{z_{C}-z_{A}}{z_{B}-z_{A}}\right)+2k\pi$.</li></ol></div></section>
+<p><strong>Rappel :</strong> soit $z$ un nombre complexe non nul de point image $M$ dans le plan complexe $(O,\vec{u},\vec{v})$ ; l'argument de $z$, noté $\argz(z)$, correspond à l'angle orienté $\left(\vec{u}\,;\overrightarrow{OM}\right)$ :</p>
+<ol><li>$\argz(-z)=\argz(z)+\pi$ \ $[2\pi]$ et $\argz(\overline{z})=-\argz(z)$ \ $[2\pi]$ ;</li><li>$z$ est un nombre réel si, et seulement si, $\argz(z)\equiv 0$ \ $[2\pi]$ ou $\pi$ \ $[2\pi]$ ;</li><li>$z$ est imaginaire pur si, et seulement si, $\argz(z)\equiv\dfrac{\pi}{2}$ \ $[2\pi]$ ou $-\dfrac{\pi}{2}$ \ $[2\pi]$ ;</li><li>$\argz\left(\dfrac{z}{z'}\right)\equiv\argz(z)-\argz(z')$ \ $[2\pi]$.</li></ol>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><ol><li><p>$\overrightarrow{AB}$ a pour affixe $z_{B}-z_{A}$. On considère le point $M$ d'affixe $z_{B}-z_{A}$.</p>
+<p>Alors $\overrightarrow{OM}=\overrightarrow{AB}$, donc $\left(\vec{u}\,;\overrightarrow{AB}\right) =\left(\vec{u}\,;\overrightarrow{OM}\right)$ \ $[2\pi]$, or $\left(\vec{u}\,;\overrightarrow{OM}\right)=\argz(z_{M})+2k\pi =\argz(z_{B}-z_{A})+2k\pi$. D'où le résultat.</p></li><li><p>D'après la relation de Chasles sur les angles orientés, on a :</p>
+<div class="maths">\[\begin{aligned}        
+        \left(\overrightarrow{AB}\,;\overrightarrow{AC}\right)
+        &=\left(\overrightarrow{AB}\,;\vec{u}\right)
+        +\left(\vec{u}\,;\overrightarrow{AC}\right)\\
+        &=-\left(\vec{u}\,;\overrightarrow{AB}\right)
+        +\left(\vec{u}\,;\overrightarrow{AC}\right)
+        \equiv\argz(z_{C}-z_{A})-\argz(z_{B}-z_{A})\\
+        &\equiv\argz\left(\frac{z_{C}-z_{A}}{z_{B}-z_{A}}\right) \ [2\pi] .
+        \end{aligned}\]</div></li></ol></div></section>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Nature du triangle $ABC$</span><div class="boite-corps"><p>Soient $A$, $B$ et $C$ trois points d'affixe respective $a=-1-i$, $b=3$ et $c=-2+3i$. Déterminer la nature du triangle $ABC$.</p></div></section>
+<p>En calculant le nombre complexe $\dfrac{b-a}{c-a}$, on peut conclure rapidement :</p>
+<ul><li>si le module est $1$, alors $AB=AC$ ;</li><li>si l'argument est $0$ modulo $\pi$, alors les points sont alignés ;</li><li>si l'argument est $\pm\dfrac{\pi}{2}$ \ $[2\pi]$, les droites $(AB)$ et $(AC)$ sont perpendiculaires.</li></ul>
+  <p style="margin-top:2.5rem"><a href="../index.html#maths-expertes">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

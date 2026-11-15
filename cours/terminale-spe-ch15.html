@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 15 : Somme de variables aléatoires — Terminale spécialité</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "prob": "{\\mathbb{P}}", "Esp": "{\\mathrm{E}}", "Var": "{\\mathrm{V}}", "Om": "{\\Omega}", "Bin": "{\\mathcal{B}}", "norme": ["{\\left\\|#1\\right\\|}", 1], "Pcond": ["{P_{#1}\\left(#2\\right)}", 2], "suite": ["{\\left(#1\\right)}", 1], "limn": "{\\lim\\limits_{n\\to+\\infty}}", "limx": ["{\\lim\\limits_{x\\to #1}}", 1]} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#terminale-spe">← Retour au site</a></p>
+  <h1>Chapitre 15 : Somme de variables aléatoires</h1>
+  <p class="sous-titre">Terminale spécialité · Chapitre 15 — Somme de variables aléatoires · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Somme de variables aléatoires</span><a class="onglet" href="../pdf/terminale-spe/15-somme-de-variables-aleatoires.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/terminale-spe/td01-somme-va.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../quiz/terminale-spe-15.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Variable aléatoire</a></li><li><a href="#s2">II Somme de variables aléatoires</a></li><li><a href="#s3">III Échantillon de $n$ variables aléatoires identiques et indépendantes</a></li></ol></nav>
+<h2 id="s1"><span class="num-section">I.</span> Variable aléatoire</h2>
+<h3>Définition</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Variable aléatoire</span><div class="boite-corps"><p>Soit $\Om$ l'ensemble des issues d'une expérience aléatoire ($\Om$ est l'<strong>univers</strong>). Une <strong>variable aléatoire</strong> sur $\Om$ est une fonction définie sur $\Om$ à valeurs dans $\R$.</p></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Probabilité d'un événement $\{X=x_{i}\}$</span><div class="boite-corps"><p>La <strong>probabilité</strong> de l'événement $\{X=x_{i}\}$ est la somme des probabilités des issues de $\Om$ auxquelles on associe le réel $x_{i}$.</p></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Loi de probabilité</span><div class="boite-corps"><p>Soit $X$ une variable aléatoire définie sur $\Om$. Définir la <strong>loi de probabilité</strong> de la variable aléatoire $X$, c'est associer à chaque valeur $x_{i}$ prise par $X$ la probabilité de l'événement $\{X=x_{i}\}$.</p>
+<p>On présente souvent la loi de probabilité de $X$ sous la forme d'un tableau.</p></div></section>
+<h3>Espérance d'une variable aléatoire réelle</h3>
+<p>L'<strong>espérance</strong> de $X$ est le nombre réel, noté $E(X)$, défini par</p>
+<div class="maths">\[
+E(X)=\sum p_{i}x_{i}=p_{1}x_{1}+p_{2}x_{2}+\dots+p_{r}x_{r} .
+\]</div>
+<p>C'est une moyenne pondérée par la loi de probabilité. $E(X)$ peut s'interpréter comme la valeur moyenne des valeurs prises par $X$ lorsque l'expérience aléatoire est répétée un très grand nombre de fois.</p>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Linéarité de l'espérance</span><div class="boite-corps"><p>Soit $X$ une variable aléatoire et soient $a$ et $b$ des réels. Alors :</p>
+<div class="maths">\[
+E(aX+b)=a\times E(X)+b .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><div class="maths">\[\begin{aligned}
+E(aX+b)&=\sum p_{i}(ax_{i}+b)=p_{1}(ax_{1}+b)+p_{2}(ax_{2}+b)+\dots+p_{r}(ax_{r}+b)\\
+&=ap_{1}\times x_{1}+p_{1}b+ap_{2}\times x_{2}+p_{2}b+\dots+ap_{r}\times x_{r}+p_{r}b\\
+&=a\left(p_{1}x_{1}+p_{2}x_{2}+\dots+p_{r}x_{r}\right)+b\left(p_{1}+p_{2}+\dots+p_{r}\right)\\
+&=a\,E(X)+b .
+\end{aligned}\]</div></div></section>
+<p><strong>Rappel :</strong> on a utilisé la propriété $p_{1}+p_{2}+\dots+p_{r}=1$.</p>
+<h3>Variance et écart-type</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Variance et écart-type</span><div class="boite-corps"><p>Soit une variable aléatoire $X$ de loi de probabilité $(x_{i}\,;p_{i})$, $i$ allant de $1$ à $n$.</p>
+<p>La <strong>variance</strong> de la loi de probabilité de $X$ est :</p>
+<div class="maths">\[
+\Var(X)=p_{1}\left(x_{1}-E(X)\right)^{2}+p_{2}\left(x_{2}-E(X)\right)^{2}
++\dots+p_{n}\left(x_{n}-E(X)\right)^{2}
+=\sum_{i=1}^{n}p_{i}\left(x_{i}-E(X)\right)^{2} .
+\]</div>
+<p>L'<strong>écart-type</strong> de la loi de probabilité de $X$ est :</p>
+<div class="maths">\[
+\sigma(X)=\sqrt{\Var(X)} .
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Formule de König</span><div class="boite-corps"><div class="maths">\[
+\Var(X)=E\left(X^{2}\right)-\left[E(X)\right]^{2} .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><div class="maths">\[\begin{aligned}
+\Var(X)&=\sum_{i=1}^{n}p_{i}\left(x_{i}-E(X)\right)^{2}
+=\sum_{i=1}^{n}p_{i}\left[x_{i}^{2}-2x_{i}E(X)+\left(E(X)\right)^{2}\right]\\
+\Var(X)&=\sum_{i=1}^{n}p_{i}x_{i}^{2}-2\sum_{i=1}^{n}p_{i}x_{i}E(X)
++\sum_{i=1}^{n}p_{i}\left(E(X)\right)^{2}\\
+\Var(X)&=E\left(X^{2}\right)-2\,E(X)\sum_{i=1}^{n}p_{i}x_{i}
++\left(E(X)\right)^{2}\sum_{i=1}^{n}p_{i}
+=E\left(X^{2}\right)-2\left(E(X)\right)^{2}+\left(E(X)\right)^{2}\\
+&=E\left(X^{2}\right)-\left[E(X)\right]^{2} .
+\end{aligned}\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Espérance et variance d'une variable affine</span><div class="boite-corps"><p>Soit une variable aléatoire $X$ définie sur un univers $\Om$, et soient $a$ et $b$ deux nombres réels.</p>
+<div class="maths">\[
+E(aX+b)=a\,E(X)+b
+\qquad\qquad
+\Var(aX+b)=a^{2}\,\Var(X) .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><div class="maths">\[
+\Var(aX+b)=\sum p_{i}\left(ax_{i}+b-\left(aE(X)+b\right)\right)^{2}
+=\sum p_{i}\left(ax_{i}-aE(X)\right)^{2}
+=a^{2}\sum p_{i}\left(x_{i}-E(X)\right)^{2}=a^{2}\Var(X) .
+\]</div></div></section>
+<h2 id="s2"><span class="num-section">II.</span> Somme de variables aléatoires</h2>
+<p><strong>Rappels sur les événements</strong></p>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Événements incompatibles et indépendants</span><div class="boite-corps"><ul><li>Deux événements $A$ et $B$ sont <strong>incompatibles</strong> $\iff A\cap B=\varnothing\iff \prob(A\cap B)=0$.</li><li>Deux événements $A$ et $B$ sont <strong>indépendants</strong> $\iff \prob(A\cap B)=\prob(A)\times\prob(B)$.</li></ul></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Réunion de deux événements (admise)</span><div class="boite-corps"><p>Soient $A$ et $B$ deux événements. Alors</p>
+<div class="maths">\[
+\prob(A\cup B)=\prob(A)+\prob(B)-\prob(A\cap B) .
+\]</div></div></section>
+<h3>2.1  Définition</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Somme de deux variables aléatoires</span><div class="boite-corps"><p>Soient $X$ et $Y$ deux variables aléatoires définies sur un même univers $\Om$ et soit $a$ un réel.</p>
+<ul><li>La variable aléatoire $Z$ définie pour tout élément $\omega\in\Om$ par $Z(\omega)=X(\omega)+Y(\omega)$ est notée $X+Y$, et est appelée la <strong>somme des variables aléatoires</strong> $X$ et $Y$.</li><li>La variable aléatoire définie pour tout élément $\omega\in\Om$ par $\omega\longmapsto a\,X(\omega)$ est notée $aX$.</li></ul></div></section>
+<p><strong>Remarques :</strong></p>
+<ul><li>On définit de la même manière la somme de $n$ variables aléatoires, avec $n\in\N$ et $n\geqslant 3$.</li><li>On peut définir de la même manière la variable aléatoire $X-Y$.</li></ul>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Deux dés</span><div class="boite-corps"><p>On lance deux dés, l'un tétraédrique numéroté de $1$ à $4$ et l'autre cubique numéroté de $1$ à $6$. On appelle $X$ et $Y$ les variables aléatoires associées respectivement aux résultats du dé tétraédrique et du dé cubique.</p>
+<ul><li>$X+Y$ est la variable aléatoire qui prend les valeurs de $2$ à $10$.</li><li>$2X$ est la variable aléatoire qui prend les valeurs $2$, $4$, $6$, $8$.</li></ul></div></section>
+<p><strong>Remarque :</strong> on peut généraliser la somme de variables aléatoires à $n$ variables. Par exemple, on lance $3$ dés cubiques de couleurs différentes et l'on note $X$, $Y$ et $Z$ les résultats des dés de chaque couleur. On peut considérer la variable $X+Y+Z$, qui prend les valeurs de $3$ à $18$.</p>
+<h3>2.2  Espérance d'une somme</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Espérance d'une somme (admise)</span><div class="boite-corps"><p>Soient $X$ et $Y$ deux variables aléatoires. Alors :</p>
+<div class="maths">\[
+E(X+Y)=E(X)+E(Y) .
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Deux lois binomiales</span><div class="boite-corps"><p>Soit $X$ une variable aléatoire suivant la loi binomiale de paramètres $n=200$ et $p=0{,}2$.</p>
+<p>Soit $Y$ une variable aléatoire suivant la loi binomiale de paramètres $m=100$ et $q=0{,}5$.</p>
+<p>On a donc :</p>
+<div class="maths">\[
+E(X+Y)=E(X)+E(Y)=np+mq=200\times 0{,}2+100\times 0{,}5=90 .
+\]</div></div></section>
+<p><strong>Remarques :</strong></p>
+<ul><li>$X$ et $Y$ suivent une loi binomiale, mais pas $X+Y$.</li><li>Les valeurs prises par $X$ sont toutes les valeurs entières entre $0$ et $200$, et les valeurs prises par $Y$ toutes les valeurs entières entre $0$ et $100$. En revanche, les valeurs prises par $Z=X+Y$ ne sont pas nécessairement toutes les valeurs entières entre $0$ et $300$.</li></ul>
+<h3>Variance d'une somme</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Variance d'une somme (admise)</span><div class="boite-corps"><p>Soient $X$ et $Y$ deux variables aléatoires <strong>indépendantes</strong>. Alors :</p>
+<div class="maths">\[
+\Var(X+Y)=\Var(X)+\Var(Y) .
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Variance de la somme</span><div class="boite-corps"><p>Dans l'exemple précédent, en supposant que les variables $X$ et $Y$ sont indépendantes, on a :</p>
+<div class="maths">\[
+\Var(X+Y)=\Var(X)+\Var(Y)=np(1-p)+mq(1-q)
+=200\times 0{,}2\times 0{,}8+100\times 0{,}5\times 0{,}5=57 .
+\]</div>
+<p>On a alors :</p>
+<div class="maths">\[
+\sigma(X+Y)=\sqrt{\Var(X+Y)}=\sqrt{57}
+\]</div>
+<p>(écart-type de $X+Y$).</p></div></section>
+<h2 id="s3"><span class="num-section">III.</span> Échantillon de $n$ variables aléatoires identiques et indépendantes</h2>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Échantillon, variable somme, variable moyenne</span><div class="boite-corps"><p>Soient $n$ un entier naturel non nul et $X$ une variable aléatoire définie sur un univers $\Om$.</p>
+<ul><li>Un <strong>échantillon de taille</strong> $n$ de la loi de probabilité de $X$ est une liste $\left(X_{1}\,;X_{2}\,;\dots\,;X_{n}\right)$ de variables aléatoires indépendantes et identiques, et suivant toutes la loi de probabilité de $X$.</li><li><p>La <strong>variable aléatoire somme</strong> $S_{n}$ d'un échantillon de taille $n$ de la loi de $X$ est définie par</p>
+<div class="maths">        \[
+        S_{n}=\sum_{i=1}^{n}X_{i}=X_{1}+X_{2}+\dots+X_{n} .
+        \]</div></li><li><p>La <strong>variable aléatoire moyenne</strong> $M_{n}$ d'un échantillon de taille $n$ de la loi de $X$ est définie par</p>
+<div class="maths">        \[
+        M_{n}=\frac{1}{n}S_{n}=\frac{1}{n}\sum_{i=1}^{n}X_{i} .
+        \]</div></li></ul></div></section>
+<h3>Échantillon de $n$ variables aléatoires identiques et indépendantes de loi binomiale</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Somme de variables de Bernoulli</span><div class="boite-corps"><p>Soient $n$ variables aléatoires indépendantes $X_{1}$, $X_{2}$, …, $X_{n}$ suivant la même loi de Bernoulli $\Bin(p)$.</p>
+<p>La variable aléatoire $S_{n}=X_{1}+X_{2}+\dots+X_{n}$ suit alors la loi binomiale $\Bin(n\,;p)$.</p></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>Soient les variables $X_{i}$ suivant une même loi de Bernoulli $\Bin(p)$, qui prend la valeur $1$ pour un succès, avec $i\in\llbracket 1\,;n\rrbracket$. Comme les variables $X_{i}$ sont indépendantes, leur somme $X_{1}+X_{2}+\dots+X_{n}$ prendra comme valeur le nombre de succès pour $n$ expériences de Bernoulli : donc $S_{n}=X_{1}+X_{2}+\dots+X_{n}$ suit la loi binomiale $\Bin(n\,;p)$.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Somme de dix variables de Bernoulli</span><div class="boite-corps"><p>Soit $X_{i}$ suivant une loi de Bernoulli $\Bin(0{,}13)$ pour $i\in\llbracket 1\,;10\rrbracket$ : alors $S_{10}=X_{1}+X_{2}+\dots+X_{10}$ suit la loi binomiale $\Bin(10\,;0{,}13)$.</p></div></section>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Décomposition d'une loi binomiale</span><div class="boite-corps"><p>Toute variable aléatoire $X$ suivant la loi binomiale $\Bin(n\,;p)$ peut se décomposer en une somme de $n$ variables indépendantes $S_{n}$ :</p>
+<div class="maths">\[
+S_{n}=X_{1}+X_{2}+\dots+X_{n},
+\]</div>
+<p>où $X_{i}$, avec $i\in\llbracket 1\,;n\rrbracket$, suit une même loi de Bernoulli $\Bin(p)$.</p></div></section>
+<p><strong>Remarque :</strong> ce théorème permet de démontrer l'expression de l'espérance et de la variance d'une loi binomiale $\Bin(n\,;p)$.</p>
+<p>En effet, si $X$ suit la loi binomiale $\Bin(n\,;p)$, on peut décomposer $X$ en somme de $n$ variables indépendantes suivant la loi de Bernoulli $\Bin(p)$, d'espérance $p$ et de variance $p(1-p)$.</p>
+<div class="maths">\[
+E(X)=E\left(X_{1}+X_{2}+\dots+X_{n}\right)
+\overset{\text{linéarité}}{=}
+\underbrace{E\left(X_{1}\right)+E\left(X_{2}\right)+\dots+E\left(X_{n}\right)}
+_{n \text{ variables suivant } \Bin(p)}
+=np .
+\]</div>
+<div class="maths">\[
+\Var(X)=\Var\left(X_{1}+X_{2}+\dots+X_{n}\right)
+\overset{\text{additivité}}{=}
+\underbrace{\Var\left(X_{1}\right)+\Var\left(X_{2}\right)+\dots+\Var\left(X_{n}\right)}
+_{n \text{ variables indépendantes suivant } \Bin(p)}
+=np(1-p) .
+\]</div>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Loi binomiale $\Bin(5\,;0{,}3)$</span><div class="boite-corps"><p>Soit $X$ suivant la loi binomiale $\Bin(5\,;0{,}3)$ : on peut décomposer $X$ en somme de $5$ variables suivant la loi de Bernoulli $\Bin(0{,}3)$.</p></div></section>
+<h3>Échantillon de $n$ variables aléatoires identiques et indépendantes</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Espérance et variance de la somme</span><div class="boite-corps"><p>Soient $n$ un entier naturel non nul, $X$ une variable aléatoire définie sur un univers $\Om$, et $S_{n}$ la variable aléatoire somme d'un échantillon de taille $n$ de la loi de $X$. On a alors :</p>
+<div class="maths">\[
+E\left(S_{n}\right)=n\,E(X)
+\qquad
+\Var\left(S_{n}\right)=n\,\Var(X)
+\qquad
+\sigma\left(S_{n}\right)=\sqrt{n}\times\sigma(X) .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><ul><li><p>D'après la linéarité de l'espérance vue précédemment, on a :</p>
+<div class="maths">        \[
+        E\left(S_{n}\right)=E\left(X_{1}+X_{2}+\dots+X_{n}\right)
+        =E\left(X_{1}\right)+E\left(X_{2}\right)+\dots+E\left(X_{n}\right) .
+        \]</div>
+<p>Or toutes les variables $X_{i}$ suivent la même loi que $X$ et ont donc la même espérance que $X$. Donc $E\left(S_{n}\right)=E(X)+E(X)+\dots+E(X)=n\,E(X)$.</p></li><li><p>De la même manière, les variables $X_{i}$ étant indépendantes, on a :</p>
+<div class="maths">        \[
+        \Var\left(S_{n}\right)=\Var\left(X_{1}+X_{2}+\dots+X_{n}\right)
+        =\Var\left(X_{1}\right)+\Var\left(X_{2}\right)+\dots+\Var\left(X_{n}\right) .
+        \]</div>
+<p>Or toutes les variables $X_{i}$ suivent la même loi que $X$ et ont donc la même variance que $X$. Donc $\Var\left(S_{n}\right)=\Var(X)+\Var(X)+\dots+\Var(X)=n\,\Var(X)$.</p></li><li><p>Enfin, $\Var\left(S_{n}\right)=n\,\Var(X)$ et $\sigma\left(S_{n}\right)=\sqrt{\Var\left(S_{n}\right)}$. Donc</p>
+<div class="maths">        \[
+        \sigma\left(S_{n}\right)=\sqrt{n\,\Var(X)}=\sqrt{n}\times\sqrt{\Var(X)}
+        =\sqrt{n}\times\sigma(X) .
+        \]</div></li></ul></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Taille d'échantillon</span><div class="boite-corps"><p>Soit $X$ une variable aléatoire dont la loi de probabilité est donnée par le tableau suivant.</p>
+<table class="tableau"><tr><td>$x_{i}$</td><td>$-10$</td><td>$5$</td><td>$20$</td></tr><tr><td>$p\left(X=x_{i}\right)$</td><td>$\dfrac{1}{4}$</td><td>$\dfrac{11}{20}$</td><td>$\dfrac{1}{5}$</td></tr></table>
+<p>On considère un échantillon $\left(X_{1}\,;X_{2}\,;\dots\,;X_{n}\right)$ de la loi suivie par $X$ et la variable aléatoire moyenne $M_{n}$.</p>
+<p>Déterminer la taille de l'échantillon $n$ à partir de laquelle la variance de $M_{n}$ devient inférieure à $0{,}05$.</p>
+<p>On calcule l'espérance et la variance de $X$ :</p>
+<div class="maths">\[
+E(X)=\frac{1}{20}\left(-50+55+80\right)=\frac{85}{20}=\frac{17}{4} .
+\]</div>
+<div class="maths">\[
+\Var(X)=\frac{1}{20}\left(500+275+1600\right)-\left(\frac{17}{4}\right)^{2}
+=\frac{475}{4}-\frac{289}{16}=\frac{1611}{16}\approx 100{,}7 .
+\]</div>
+<div class="maths">\[
+\Var\left(M_{n}\right)&lt;0{,}05
+\iff \frac{\Var(X)}{n}&lt;0{,}05
+\iff n&gt;\frac{\Var(X)}{0{,}05}\approx 2\,014 .
+\]</div>
+<p>À partir d'un échantillon de $2\,014$ variables, la variance de $M_{n}$ est inférieure à $0{,}05$.</p></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Espérance et variance de la moyenne</span><div class="boite-corps"><p>Soient $n$ un entier naturel non nul, $X$ une variable aléatoire définie sur un univers $\Om$, et $M_{n}$ la variable aléatoire moyenne d'un échantillon de taille $n$ de la loi de $X$. On a alors :</p>
+<div class="maths">\[
+E\left(M_{n}\right)=E(X)
+\qquad
+\Var\left(M_{n}\right)=\frac{\Var(X)}{n}
+\qquad
+\sigma\left(M_{n}\right)=\frac{\sigma(X)}{\sqrt{n}} .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><ul><li>$E\left(M_{n}\right)=E\left(\dfrac{1}{n}S_{n}\right) =\dfrac{1}{n}E\left(S_{n}\right) =\dfrac{1}{n}\times n\,E(X)=E(X)$.</li><li><p>On rappelle un résultat sur la variance : pour tout réel $a$, $\Var(aX)=a^{2}\Var(X)$. Ainsi :</p>
+<div class="maths">        \[
+        \Var\left(M_{n}\right)=\Var\left(\frac{1}{n}S_{n}\right)
+        =\frac{1}{n^{2}}\Var\left(S_{n}\right)
+        =\frac{1}{n^{2}}\times n\,\Var(X)=\frac{\Var(X)}{n} .
+        \]</div></li><li>Enfin, $\sigma\left(M_{n}\right)=\sqrt{\Var\left(M_{n}\right)} =\sqrt{\dfrac{\Var(X)}{n}} =\dfrac{\sqrt{\Var(X)}}{\sqrt{n}}=\dfrac{\sigma(X)}{\sqrt{n}}$.</li></ul></div></section>
+  <p style="margin-top:2.5rem"><a href="../index.html#terminale-spe">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

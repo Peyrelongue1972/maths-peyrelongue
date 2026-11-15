@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre III : Probabilités conditionnelles — Terminale STMG</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "prob": "{\\mathbb{P}}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#terminale-stmg">← Retour au site</a></p>
+  <h1>Chapitre III : Probabilités conditionnelles</h1>
+  <p class="sous-titre">Terminale STMG · Chapitre 3 — Probabilités conditionnelles · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Probabilités conditionnelles</span><a class="onglet" href="../pdf/terminale-stmg/iii-probabilites-conditionnelles.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/terminale-stmg/td01-probabilites-conditionnelles.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/terminale-stmg/td02-probabilites-conditionnelles.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../pdf/terminale-stmg/fiche-ap-probabilites-conditionnelles.pdf" target="_blank" rel="noopener">Fiche d&#x27;AP</a><a class="onglet" href="../quiz/terminale-stmg-3.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Notion de probabilité conditionnelle</a></li><li><a href="#s2">II Arbre pondéré</a></li><li><a href="#s3">III Probabilités et indépendance</a></li></ol></nav>
+<h2 id="s1"><span class="num-section">I.</span> Notion de probabilité conditionnelle</h2>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Tirage d'une carte</span><div class="boite-corps"><p>On tire une carte au hasard dans un jeu de $32$ cartes.</p>
+<p>Soit $A$ l'événement « Le résultat est un cœur ». Soit $B$ l'événement « Le résultat est un as ».</p>
+<ol><li>Déterminer la probabilité de l'événement « Le résultat est l'as de cœur ».</li><li>Sachant que vous avez un cœur, quelle est la probabilité d'avoir un as ?</li></ol></div></section>
+<p><strong>Réponse.</strong>  L'événement « Le résultat est l'as de cœur » correspond à $A\cap B$.</p>
+<p>Alors</p>
+<div class="maths">\[
+\prob(A)=\frac{8}{32}=\frac{1}{4}
+\qquad\text{et}\qquad
+\prob(A\cap B)=\frac{1}{32}.
+\]</div>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Probabilité conditionnelle</span><div class="boite-corps"><p>Soit $A$ et $B$ deux événements avec $\prob(A)\neq 0$.</p>
+<p>On appelle <strong>probabilité conditionnelle</strong> de $B$ sachant $A$, la probabilité que l'événement $B$ se réalise sachant que l'événement $A$ est réalisé. Elle est notée $\prob_{A}(B)$ et est définie par</p>
+<div class="maths">\[
+\prob_{A}(B)=\frac{\prob(A\cap B)}{\prob(A)}.
+\]</div></div></section>
+<p>Donc la probabilité que le résultat soit un as sachant qu'on a tiré un cœur est :</p>
+<div class="maths">\[
+\prob_{A}(B)=\frac{\prob(A\cap B)}{\prob(A)}
+=\frac{\frac{1}{32}}{\frac{1}{4}}=\frac{1}{8}.
+\]</div>
+<p>On peut retrouver intuitivement ce résultat : en effet, sachant que le résultat est un cœur, on a une chance sur $8$ d'obtenir l'as parmi les cœurs.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Un sac de boules</span><div class="boite-corps"><p>Un sac contient $50$ boules, dont $20$ boules rouges et $30$ boules noires, où il est marqué soit « Gagné », soit « Perdu ».</p>
+<ul><li>Sur $15$ boules rouges, il est marqué Gagné.</li><li>Sur $9$ boules noires, il est marqué Gagné.</li></ul>
+<p>On tire au hasard une boule dans le sac. Soit $R$ l'événement « On tire une boule rouge » et $G$ l'événement « On tire une boule marquée Gagné ».<br> 1) Quelle est la probabilité de tirer une boule rouge?<br> 2) Que signifie l'évènement $R\cap G$? <br> 2) Calculer $P(R\cap G)$.<br> 3) Calculer la probabilité conditionnelle de tirer une boule "gagné" sachant que la boule est rouge</p></div></section>
+<p><strong>Correction.</strong><br> <strong>1)</strong>  \[ \prob(R)=\frac{20}{50}=\frac{2}{5}=0{,}4\] <strong>2)</strong>  $R\cap G$ est l'événement « On tire une boule rouge marquée Gagné ».</p>
+<p><strong>3)</strong> \[ \prob(R\cap G)=\frac{15}{50}=\frac{3}{10}=0{,}3 . \] <strong>4)</strong>  Donc la probabilité qu'on tire une boule marquée Gagné sachant qu'elle est rouge est</p>
+<div class="maths">\[
+\prob_{R}(G)=\frac{\prob(R\cap G)}{\prob(R)}=\frac{0{,}3}{0{,}4}
+=\frac{3}{4}=0{,}75 .
+\]</div>
+<p><strong>Remarque.</strong>  La probabilité conditionnelle suit les règles et lois de probabilités vues pour les probabilités simples. On a en particulier :</p>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriétés</span><div class="boite-corps"><ul><li>$0\leqslant\prob_{A}(B)\leqslant 1$ ;</li><li>$\prob_{A}\bigl(\overline{B}\bigr)=1-\prob_{A}(B)$ ;</li><li>$\prob(A\cap B)=\prob(A)\times\prob_{A}(B)$.</li></ul></div></section>
+<h2 id="s2"><span class="num-section">II.</span> Arbre pondéré</h2>
+<h3>Exemple</h3>
+<p>On reprend le 2<sup>e</sup> exemple étudié au paragraphe I.</p>
+<p>L'expérience aléatoire peut être schématisée par un <strong>arbre pondéré</strong> (ou arbre de probabilité) :</p>
+<figure class="figure-cours"><img src="img/terminale-stmg-ch03-fig01.png" alt="figure 1 du cours"></figure>
+<h3>Règles</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Règle 1</span><div class="boite-corps"><p>La somme des probabilités des branches issues d'un même nœud est égale à $1$.</p></div></section>
+<p><strong>Exemples.</strong></p>
+<ul><li>À partir du nœud « On tire une boule », on a : $\prob(R)+\prob(\overline{R})=0{,}4+0{,}6=1$.</li><li>À partir du nœud « Boule rouge », on a : $\prob_{R}(\overline{G})=1-\prob_{R}(G)=1-0{,}75=0{,}25$.</li></ul>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Règle 2</span><div class="boite-corps"><p>La probabilité d'une « feuille » (extrémité d'un chemin) est égale au produit des probabilités du chemin aboutissant à cette feuille.</p></div></section>
+<p><strong>Exemple.</strong>  On considère la feuille $R\cap G$. On a :</p>
+<div class="maths">\[
+\prob(R\cap G)=\prob(R)\times\prob_{R}(G)=0{,}4\times0{,}75=0{,}3 .
+\]</div>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Règle 3 : formule des probabilités totales</span><div class="boite-corps"><p>La probabilité d'un événement associé à plusieurs « feuilles » est égale à la somme des probabilités de chacune de ces « feuilles ».</p></div></section>
+<p><strong>Exemple.</strong>  L'événement « On tire une boule marquée Gagné » est associé aux feuilles $R\cap G$ et $\overline{R}\cap G$. On a :</p>
+<div class="maths">\[
+\prob(R\cap G)=0{,}3
+\qquad\text{et}\qquad
+\prob\bigl(\overline{R}\cap G\bigr)=\frac{9}{50}=0{,}18
+\]</div>
+<p>(probabilité de tirer une boule noire marquée Gagné).</p>
+<p>Donc</p>
+<div class="maths">\[
+\prob(G)=\prob(R\cap G)+\prob\bigl(\overline{R}\cap G\bigr)=0{,}3+0{,}18=0{,}48 .
+\]</div>
+<h3>Exercice : calculer la probabilité d'un événement associé à plusieurs feuilles</h3>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span><div class="boite-corps"><p>Lors d'une épidémie chez des bovins, on s'est aperçu que, si la maladie est diagnostiquée suffisamment tôt chez un animal, on peut le guérir ; sinon la maladie est mortelle.</p>
+<p>Un test est mis au point et essayé sur un échantillon d'animaux dont $2$ % est porteur de la maladie. On obtient les résultats suivants :</p>
+<ul><li>si un animal est porteur de la maladie, le test est positif dans $85$ % des cas ;</li><li>si un animal est sain, le test est négatif dans $95$ % des cas.</li></ul>
+<p>On choisit de prendre ces fréquences observées comme probabilités pour toute la population, et d'utiliser le test pour un dépistage préventif de la maladie.</p>
+<p>On note respectivement $M$ et $T$ les événements « Être porteur de la maladie » et « Avoir un test positif ».<br> <strong>1)</strong>  Un animal est choisi au hasard. Quelle est la probabilité que son test soit positif ?</p>
+<p><strong>2)</strong>  Si le test du bovin est positif, quelle est la probabilité qu'il soit malade ?</p></div></section>
+<figure class="figure-cours"><img src="img/terminale-stmg-ch03-fig02.png" alt="figure 2 du cours"></figure>
+<p><strong>Correction.</strong></p>
+<p><strong>1)</strong>  La probabilité que le test soit positif est associée aux deux feuilles $M\cap T$ et $\overline{M}\cap T$.</p>
+<p>D'après l'arbre de probabilité, on a :</p>
+<div class="maths">\[\begin{aligned}
+\prob(T)&=\prob(M\cap T)+\prob\bigl(\overline{M}\cap T\bigr)
+\quad\text{(formule des probabilités totales)}\\
+&=0{,}02\times0{,}85+0{,}98\times0{,}05\\
+&=0{,}066 .
+\end{aligned}\]</div>
+<p>La probabilité que le test soit positif est égale à $6{,}6$ %.</p>
+<p><strong>2)</strong> </p>
+<div class="maths">\[
+\prob_{T}(M)=\frac{\prob(T\cap M)}{\prob(T)}
+=\frac{0{,}02\times0{,}85}{0{,}066}\approx 0{,}26 .
+\]</div>
+<p>La probabilité que le bovin soit malade sachant que le test est positif est d'environ $26$ %.</p>
+<h2 id="s3"><span class="num-section">III.</span> Probabilités et indépendance</h2>
+<h3>Définition</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Événements indépendants</span><div class="boite-corps"><p>On dit que deux événements $A$ et $B$ de probabilité non nulle sont <strong>indépendants</strong> lorsque</p>
+<div class="maths">\[
+\prob_{A}(B)=\prob(B)
+\quad\text{ou}\quad
+\prob_{B}(A)=\prob(A).
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span><div class="boite-corps"><p>On tire une carte au hasard dans un jeu de $32$ cartes. Soit $R$ l'événement « On tire un roi » et $T$ l'événement « On tire un trèfle ».<br> <strong>a)</strong>   Calculer la probabilité d'avoir un roi. <strong>b)</strong>   Calculer la probabilité d'avoir un roi sachant que la carte est un trèfle. <strong>c)</strong>   En déduire que les évènements T et R ne sont pas indépendants.</p></div></section>
+<p><strong>Correction :</strong> <strong>a)</strong> </p>
+<p>On a</p>
+<div class="maths">\[
+\prob(R)=\frac{4}{32}=\frac{1}{8}.
+\]</div>
+<p>Par ailleurs, $\prob_{T}(R)$ est la probabilité de tirer un roi parmi les trèfles. On a alors</p>
+<div class="maths">\[
+\prob_{T}(R)=\frac{1}{8}.
+\]</div>
+<p>Ainsi $\prob_{T}(R)=\prob(R)$ : les événements $R$ et $T$ sont donc <strong>indépendants</strong>.</p>
+<p> <strong>b)</strong>  On reprend l'expérience précédente en ajoutant deux jokers au jeu de cartes. Ainsi</p>
+<div class="maths">\[
+\prob(R)=\frac{4}{34}=\frac{2}{17},
+\qquad
+\prob_{T}(R)=\frac{1}{8}.
+\]</div>
+<p>Ainsi $\prob_{T}(R)\neq\prob(R)$ : les événements $R$ et $T$ ne sont donc <strong>pas indépendants</strong>.</p>
+<h3>Exercice : utiliser l'indépendance de deux événements</h3>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span><div class="boite-corps"><p>Dans une population, un individu est atteint par la maladie $a$ avec une probabilité égale à $0{,}005$ et par la maladie $b$ avec une probabilité égale à $0{,}01$.</p>
+<p>On choisit au hasard un individu de cette population. Soit $A$ l'événement « L'individu a la maladie $a$ » et $B$ l'événement « L'individu a la maladie $b$ ». On suppose que les événements $A$ et $B$ sont indépendants.</p>
+<ol><li>Calculer la probabilité qu'un individu soit atteint par les deux maladies.</li><li>Calculer $\prob(A\cup B)$. Interpréter le résultat.</li></ol></div></section>
+<p><strong>Correction.</strong></p>
+<p><strong>1)</strong>  La probabilité qu'un individu soit atteint par les deux maladies est $\prob(A\cap B)$.</p>
+<p>Or, d'après la formule de probabilité conditionnelle, $\prob_{B}(A)=\dfrac{\prob(A\cap B)}{\prob(B)}$, soit</p>
+<div class="maths">\[\begin{aligned}
+\prob(A\cap B)
+&=\prob_{B}(A)\times\prob(B)\\
+&=\prob(A)\times\prob(B)\quad\text{car } A \text{ et } B \text{ sont
+  indépendants}\\
+&=0{,}005\times 0{,}01\\
+&=0{,}00005 .
+\end{aligned}\]</div>
+<p>La probabilité qu'un individu soit atteint par les deux maladies est égale à $0{,}00005$.</p>
+<p><strong>2)</strong>  On a</p>
+<div class="maths">\[\begin{aligned}
+\prob(A\cup B)&=\prob(A)+\prob(B)-\prob(A\cap B)\\
+&=0{,}005+0{,}01-0{,}00005\\
+&=0{,}01495 .
+\end{aligned}\]</div>
+<p>La probabilité qu'un individu choisi au hasard ait au moins une des deux maladies est égale à $0{,}01495$.</p>
+<figure class="figure-cours"><img src="img/terminale-stmg-ch03-fig03.png" alt="figure 3 du cours"></figure>
+  <p style="margin-top:2.5rem"><a href="../index.html#terminale-stmg">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 8 : Calcul numérique — Seconde</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#seconde">← Retour au site</a></p>
+  <h1>Chapitre 8 : Calcul numérique</h1>
+  <p class="sous-titre">Seconde · Chapitre 8 — Calcul numérique · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Calcul numérique</span><a class="onglet" href="../pdf/seconde/8-calcul-numerique.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/seconde/td01-calcul-de-puissances.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/seconde/td02-racine-carree.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../pdf/seconde/td03-calcul-fractionnaire.pdf" target="_blank" rel="noopener">TD n°3</a><a class="onglet" href="../pdf/seconde/bilan-calcul-numerique.pdf" target="_blank" rel="noopener">Bilan</a><a class="onglet" href="../quiz/seconde-8.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Ordre des opérations dans $\R$</a></li><li><a href="#s2">II Nombres premiers</a></li><li><a href="#s3">III Opérations sur les fractions</a></li><li><a href="#s4">IV Puissances entières</a></li><li><a href="#s5">V Notation scientifique</a></li><li><a href="#s6">VI Racines carrées</a></li></ol></nav>
+<h2 id="s1"><span class="num-section">I.</span> Ordre des opérations dans $\R$</h2>
+<p>Pour déterminer la valeur d'une expression arithmétique, on effectue les différentes opérations suivant l'<strong>ordre</strong> indiqué par les règles suivantes.</p>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Priorités opératoires</span><div class="boite-corps"><ol><li>Les opérations à l'intérieur d'une paire de parenthèses qui ne contient pas de parenthèses ;</li><li>les puissances ;</li><li>les multiplications et les divisions, de gauche à droite ;</li><li>les additions et les soustractions, de gauche à droite.</li></ol></div></section>
+<h2 id="s2"><span class="num-section">II.</span> Nombres premiers</h2>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Nombre premier</span><div class="boite-corps"><p>Un nombre $n\in\N^{*}$ est un <strong>nombre premier</strong> s'il a exactement deux diviseurs distincts dans $\N^{*}$ : $1$ et $n$.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span><div class="boite-corps"><p>$17=17\times1=1\times17$ : il n'y a pas d'autre décomposition possible, donc $17$ est premier.</p>
+<p>$6=6\times1=1\times6$, mais aussi $6=2\times3$ : donc $6$ n'est pas premier.</p></div></section>
+<section class="boite boite-rem"><span class="boite-titre">Remarque</span><div class="boite-corps"><ol><li><strong>Euclide</strong> : « Il existe une infinité de nombres premiers. »</li><li>Si un nombre n'est pas premier, on dit qu'il est <strong>composé</strong>. Exemples : $4\,;6\,;8\ldots$ sont composés.</li><li>Le nombre $1$ n'est pas premier, car il n'a qu'un seul diviseur : lui-même.</li></ol></div></section>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème fondamental de l'arithmétique (admis)</span><div class="boite-corps"><p>Tout entier naturel supérieur ou égal à $2$ peut être écrit comme un produit de nombres premiers, et ce, de façon unique (à l'ordre des facteurs près).</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Décompositions</span><div class="boite-corps"><p>Décomposons $18$ et $100$ en produit de nombres premiers, par divisions successives par les nombres premiers dans l'ordre croissant $2\,;3\,;5\,;7\,;11\,;13\,;17\,;\ldots$</p>
+<table class="tableau"><tr><td>$18$</td><td>$2$</td></tr><tr><td>$9$</td><td>$3$</td></tr><tr><td>$3$</td><td>$3$</td></tr><tr><td>$1$</td><td></td></tr></table>
+<table class="tableau"><tr><td>$100$</td><td>$2$</td></tr><tr><td>$50$</td><td>$2$</td></tr><tr><td>$25$</td><td>$5$</td></tr><tr><td>$5$</td><td>$5$</td></tr><tr><td>$1$</td><td></td></tr></table>
+<div class="maths">\[
+18=2\times3^{2}
+\qquad\text{et}\qquad
+100=2^{2}\times5^{2} .
+\]</div></div></section>
+<h2 id="s3"><span class="num-section">III.</span> Opérations sur les fractions</h2>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Les quatre opérations</span><div class="boite-corps"><p>Pour tous $a$, $c\in\Z$ et $b$, $d\in\N^{*}$ :</p>
+<table class="tableau"><tr><td><strong>L'addition</strong></td><td>$\dfrac{a}{b}+\dfrac{c}{d}=\dfrac{ad+bc}{bd}$</td></tr><tr><td><strong>La soustraction</strong></td><td>$\dfrac{a}{b}-\dfrac{c}{d}=\dfrac{ad-bc}{bd}$</td></tr><tr><td><strong>La multiplication</strong></td><td>$\dfrac{a}{b}\times\dfrac{c}{d}=\dfrac{a\times c}{b\times d}$</td></tr><tr><td><strong>La division</strong></td><td>$\dfrac{a}{b}\div\dfrac{c}{d}=\dfrac{a}{b}\times\dfrac{d}{c}$</td></tr></table>
+<p><em>On réduit au même dénominateur pour additionner ou soustraire ; diviser revient à multiplier par l'inverse.</em></p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span><div class="boite-corps"><div class="maths">\[
+\frac{1}{3}+\frac{4}{5}=\frac{1\times5+4\times3}{15}=\frac{17}{15}
+\qquad
+\frac{2}{7}-\frac{3}{2}=\frac{2\times2-3\times7}{14}=\frac{4-21}{14}=-\frac{17}{14}
+\qquad
+\frac{1}{5}\times\frac{2}{7}=\frac{2}{35}
+\]</div>
+<div class="maths">\[
+\frac{3}{7}\div\frac{5}{4}=\frac{3}{7}\times\frac{4}{5}=\frac{12}{35} .
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Égalité de deux fractions</span><div class="boite-corps"><p>Deux fractions sont égales si, et seulement si, le produit du numérateur de la première par le dénominateur de la seconde est égal au produit du dénominateur de la première par le numérateur de la seconde (produit en croix) :</p>
+<div class="maths">\[
+\frac{a}{b}=\frac{c}{d}
+\qquad\Longleftrightarrow\qquad
+a\times d=b\times c .
+\]</div></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Simplifier, irréductible</span><div class="boite-corps"><p><strong>Simplifier</strong> une fraction, c'est diviser son numérateur et son dénominateur par le même nombre entier non nul.</p>
+<p>Une fraction est dite <strong>irréductible</strong> lorsqu'il n'est plus possible de la simplifier ; sinon, on l'appelle <strong>réductible</strong>.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span><div class="boite-corps"><p>$\dfrac{3}{7}$ est une fraction irréductible, tandis que $\dfrac{7}{21}$ est réductible car on peut simplifier par $7$ : $\dfrac{7}{21}=\dfrac{1}{3}$.</p></div></section>
+<h2 id="s4"><span class="num-section">IV.</span> Puissances entières</h2>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Puissance d'exposant entier naturel</span><div class="boite-corps"><p>Soit $a$ un nombre réel et $n$ un entier naturel non nul. On définit</p>
+<div class="maths">\[
+a^{n}=\underbrace{a\times a\times\cdots\times a}_{n\ \text{facteurs}} .
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span><div class="boite-corps"><p>$3^{4}=3\times3\times3\times3=81$.</p></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Conventions</span><div class="boite-corps"><ul><li>Si $a\neq0$, alors $a^{0}=1$   ($0^{0}$ n'est pas défini).</li><li><p>Si $a$ est un nombre réel non nul et $n$ un entier naturel non nul :</p>
+<div class="maths">        \[
+        a^{-n}=\left(\frac{1}{a}\right)^{n}=\frac{1}{a^{n}}
+        =\frac{1}{\underbrace{a\times a\times\cdots\times a}_{n\ \text{facteurs}}} .
+        \]</div></li></ul></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriétés des puissances entières</span><div class="boite-corps"><p>Quels que soient les nombres réels $a$ et $b$ non nuls et les entiers relatifs $n$ et $m$ :</p>
+<table class="tableau"><tr><td><strong>1.</strong></td><td>$\left(a^{n}\right)^{m}=a^{n\times m}$</td><td>Exemple : $\left(3^{5}\right)^{7}=3^{35}$</td></tr><tr><td><strong>2.</strong></td><td>$a^{n}\times a^{m}=a^{n+m}$</td><td>Exemple : $3^{5}\times3^{7}=3^{12}$</td></tr><tr><td><strong>3.</strong></td><td>$\dfrac{a^{n}}{a^{m}}=a^{n-m}$</td><td>Exemple : $\dfrac{3^{5}}{3^{7}}=3^{-2}$</td></tr><tr><td><strong>4.</strong></td><td>$(a\times b)^{n}=a^{n}\times b^{n}$</td><td>Exemple : $(3\times7)^{5}=3^{5}\times7^{5}$</td></tr><tr><td><strong>5.</strong></td><td>$\left(\dfrac{a}{b}\right)^{n}=\dfrac{a^{n}}{b^{n}}$</td><td></td></tr></table></div></section>
+<section class="boite boite-rem"><span class="boite-titre">Remarque</span><div class="boite-corps"><p>En général : $(a+b)^{n}\neq a^{n}+b^{n}$. Par exemple, $(2+3)^{2}=25$ alors que $2^{2}+3^{2}=13$.</p></div></section>
+<h2 id="s5"><span class="num-section">V.</span> Notation scientifique</h2>
+<p><strong>Rappels sur les puissances de $10$ :</strong></p>
+<div class="maths">\[
+10^{-3}=0{,}001\ ;\quad 10^{-2}=0{,}01\ ;\quad 10^{-1}=0{,}1\ ;\quad 10^{0}=1\ ;\quad
+10^{1}=10\ ;\quad 10^{2}=100\ ;\quad 10^{3}=1\,000 .
+\]</div>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Notation scientifique</span><div class="boite-corps"><p>Tout nombre réel $x$ positif peut s'écrire sous la forme</p>
+<div class="maths">\[
+x=a\times10^{n}
+\qquad\text{avec}\qquad
+1\leqslant a&lt;10
+\qquad\text{et}\qquad
+n\in\Z .
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span><div class="boite-corps"><div class="maths">\[
+0{,}000\,087\,84=8{,}784\times10^{-5}
+\qquad\text{avec } 1\leqslant8{,}784&lt;10 \text{ et } n=-5
+\]</div>
+<div class="maths">\[
+25\,000=2{,}5\times10^{4}
+\qquad\text{avec } 1\leqslant2{,}5&lt;10 \text{ et } n=4 .
+\]</div></div></section>
+<section class="boite boite-rem"><span class="boite-titre">Remarque</span><div class="boite-corps"><p>L'écriture scientifique est une écriture <strong>compacte</strong> : elle donne un ordre de grandeur des quantités. Elle est donc particulièrement utile pour écrire des nombres très grands ou très petits. Elle est aussi présente sur les calculatrices.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Illustrations</span><div class="boite-corps"><p>La distance de la Terre à Saturne est d'environ $1\,270\,000\,000$ km ; elle peut aussi s'écrire en notation scientifique : $1{,}27\times10^{9}$ km.</p>
+<p>La masse d'un atome d'oxygène est de $0{,}000\,000\,000\,000\,000\,000\,000\,026$ gramme, ce qui s'écrit en notation scientifique : $2{,}6\times10^{-23}$ g.</p></div></section>
+<h2 id="s6"><span class="num-section">VI.</span> Racines carrées</h2>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Racine carrée</span><div class="boite-corps"><p>Soit $a$ un nombre réel positif ou nul ($a\in\R^{+}$). La <strong>racine carrée</strong> de $a$, notée $\sqrt{a}$, est l'unique nombre réel <strong>positif</strong> dont le carré est égal à $a$ :</p>
+<div class="maths">\[
+\left(\sqrt{a}\right)^{2}=a
+\qquad\text{et}\qquad
+\sqrt{a}\geqslant0 .
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span><div class="boite-corps"><p>$\sqrt{4}=2$ car $4=2^{2}$   (la racine carrée de $4$ vaut $2$) ;</p>
+<p>$\sqrt{9}=3$ car $9=3^{2}$   (la racine carrée de $9$ vaut $3$).</p></div></section>
+<section class="boite boite-rem"><span class="boite-titre">Remarque</span><div class="boite-corps"><ol><li>Le symbole $\sqrt{\phantom{x}}$ s'appelle le <strong>radical</strong> ; l'expression sous ce symbole s'appelle le <strong>radicande</strong>.</li><li>Insistons sur le fait qu'une racine carrée est, par définition, <strong>un nombre réel positif</strong>.</li><li>La racine carrée d'un nombre réel négatif n'est pas définie dans $\R$ ($\sqrt{-4}$ n'existe pas).</li><li>En général : $\sqrt{a+b}\neq\sqrt{a}+\sqrt{b}$.</li></ol></div></section>
+<p>\newpage</p>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriétés de la racine carrée</span><div class="boite-corps"><p>Soient $a$, $b\in\R^{+}$ et $n\in\N$ :</p>
+<table class="tableau"><tr><td><strong>1.</strong></td><td>$\sqrt{a\times b}=\sqrt{a}\times\sqrt{b}$</td><td>$\sqrt{4\times9}=\sqrt{4}\times\sqrt{9}$</td></tr><tr><td><strong>2.</strong></td><td>$\sqrt{\dfrac{1}{b}}=\dfrac{1}{\sqrt{b}}$ avec $b&gt;0$</td><td>$\sqrt{\dfrac{1}{3}}=\dfrac{1}{\sqrt{3}}$</td></tr><tr><td><strong>3.</strong></td><td>$\sqrt{\dfrac{a}{b}}=\dfrac{\sqrt{a}}{\sqrt{b}}$ avec $b&gt;0$</td><td>$\sqrt{\dfrac{2}{3}}=\dfrac{\sqrt{2}}{\sqrt{3}}$</td></tr><tr><td><strong>4.</strong></td><td>$\sqrt{a^{n}}=\left(\sqrt{a}\right)^{n}$</td><td>$\sqrt{2^{3}}=\sqrt{2}^{\,3}$</td></tr><tr><td><strong>5.</strong></td><td>$\sqrt{a^{2}}=\abs{a}$ pour tout $a\in\R$</td><td>$\sqrt{(-5)^{2}}=\abs{-5}=5$ ; $\sqrt{\left(1-\sqrt{5}\right)^{2}}=\abs{1-\sqrt{5}}=\sqrt{5}-1$</td></tr></table></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Rendre rationnel un dénominateur</span><div class="boite-corps"><p>Par convention, on ne laisse pas de radicaux au dénominateur.</p>
+<div class="maths">\[
+\frac{1}{\sqrt{3}}=\frac{\sqrt{3}}{\sqrt{3}\times\sqrt{3}}=\frac{\sqrt{3}}{3}
+\qquad\qquad
+\frac{1}{\sqrt{3}-1}=\frac{\sqrt{3}+1}{\left(\sqrt{3}-1\right)\left(\sqrt{3}+1\right)}
+=\frac{\sqrt{3}+1}{3-1}=\frac{\sqrt{3}+1}{2} .
+\]</div>
+<p><em>Rappel :</em> $(a+b)(a-b)=a^{2}-b^{2}$.</p></div></section>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Inégalité triangulaire</span><div class="boite-corps"><p>Pour tous réels $a$ et $b$ positifs :</p>
+<div class="maths">\[
+\sqrt{a+b}\leqslant\sqrt{a}+\sqrt{b} .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>Soit $ABC$ un triangle rectangle en $A$, avec $AB=\sqrt{a}$ et $AC=\sqrt{b}$.</p>
+<p>D'après le théorème de Pythagore :</p>
+<div class="maths">\[
+BC^{2}=AB^{2}+AC^{2}
+\iff BC^{2}=\left(\sqrt{a}\right)^{2}+\left(\sqrt{b}\right)^{2}=a+b
+\iff BC=\sqrt{a+b} .
+\]</div>
+<p>Or, en géométrie euclidienne, le chemin le plus court entre deux points est la ligne droite, c'est-à-dire que $BC\leqslant AB+AC$. On obtient donc</p>
+<div class="maths">\[
+\sqrt{a+b}\leqslant\sqrt{a}+\sqrt{b} .
+\]</div></div></section>
+  <p style="margin-top:2.5rem"><a href="../index.html#seconde">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

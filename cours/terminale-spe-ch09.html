@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 9 : Suite – Théorème de convergence — Terminale spécialité</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "numberline": ["{\\hb@xt@\\@tempdima{#1\\hfil}\\hspace{0.35em}}", 1], "limx": ["{\\lim_{x\\to #1}}", 1], "norme": ["{\\left\\|#1\\right\\|}", 1], "prob": "{P}", "Pcond": ["{P_{#1}\\left(#2\\right)}", 2], "suite": ["{\\left(#1\\right)}", 1], "limn": "{\\lim\\limits_{n\\to+\\infty}}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#terminale-spe">← Retour au site</a></p>
+  <h1>Chapitre 9 : Suite – Théorème de convergence</h1>
+  <p class="sous-titre">Terminale spécialité · Chapitre 9 — Théorème de convergence · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Théorème de convergence</span><a class="onglet" href="../pdf/terminale-spe/9-theoreme-de-convergence.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/terminale-spe/td01-suites-convergence-monotone.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/terminale-spe/td02-convergence-suites-adjacentes.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../quiz/terminale-spe-9.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Suite divergente</a></li><li><a href="#s2">II Convergence monotone</a></li><li><a href="#s3">III Application de la continuité aux suites</a></li><li><a href="#s4">IV Théorème du point fixe</a></li></ol></nav>
+<h2 id="s1"><span class="num-section">I.</span> Suite divergente</h2>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Suites monotones non bornées</span><div class="boite-corps"><ul><li>Une suite croissante non majorée est divergente vers $+\infty$.</li><li>Une suite décroissante non minorée est divergente vers $-\infty$.</li></ul></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>Soit $(u_n)$ une suite croissante et non majorée, et soit $A&gt;0$.</p>
+<p>Comme $(u_n)$ n'est pas majorée, il existe $N\in\N$ tel que $u_N&gt;A$.</p>
+<p>Comme $(u_n)$ est croissante, pour tout $n\ge N$, on a $u_n\ge u_N$.</p>
+<p>Donc, pour tout $n\ge N$, $u_n\ge A$.</p>
+<p>Ainsi, pour tout $A&gt;0$, il existe $N\in\N$ tel que, pour tout $n\ge N$, $u_n&gt;A$ ; autrement dit,</p>
+<div class="maths">\[
+\lim_{n\to+\infty}u_n=+\infty. \qedhere
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Suite polynomiale</span><div class="boite-corps"><p>La suite $(u_n)_{n\in\N}$ définie par $u_n=n^2$ est croissante et non majorée ; elle a donc pour limite $+\infty$.</p></div></section>
+<h2 id="s2"><span class="num-section">II.</span> Convergence monotone</h2>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème de convergence monotone (admis)</span><div class="boite-corps"><ul><li>Toute suite $(u_n)_{n\in\N}$ croissante et majorée est une suite convergente.</li><li>Toute suite $(u_n)_{n\in\N}$ décroissante et minorée est une suite convergente.</li></ul></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Deux suites convergentes</span><div class="boite-corps"><ul><li><p>La suite $(u_n)$ définie, pour tout entier naturel $n$, par</p>
+<div class="maths">        \[
+        u_n=1+\frac{1}{n+1}
+        \]</div>
+<p>est décroissante et minorée par $1$. Le théorème de convergence monotone permet alors d'affirmer que la suite $(u_n)$ est convergente.</p></li><li><p>La suite $(u_n)$ définie, pour tout entier naturel $n$, par</p>
+<div class="maths">        \[
+        u_n=5-\frac{1}{n+1}
+        \]</div>
+<p>est croissante et majorée par $5$. Le théorème de convergence monotone permet alors d'affirmer que la suite $(u_n)$ est convergente.</p></li></ul></div></section>
+<h2 id="s3"><span class="num-section">III.</span> Application de la continuité aux suites</h2>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Limite de la suite image</span><div class="boite-corps"><p>Soient $f$ une fonction continue sur un intervalle $I$ et $(u_n)$ une suite d'éléments de $I$ convergeant vers $a\in I$. Alors</p>
+<div class="maths">\[
+\lim_{n\to+\infty}f(u_n)=f\!\left(\lim_{n\to+\infty}u_n\right)=f(a).
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>Soit $\varepsilon&gt;0$ quelconque.</p>
+<p>La fonction $f$ est continue sur $I$, donc continue en $a$ : il existe $\mu&gt;0$ tel que, pour tout $x\in I$,</p>
+<div class="maths">\[
+|x-a|&lt;\mu \implies |f(x)-f(a)|&lt;\varepsilon.
+\]</div>
+<p>De plus, $\lim\limits_{n\to+\infty}u_n=a$ : il existe $N\in\N$ tel que, pour tout $n\ge N$,</p>
+<div class="maths">\[
+|u_n-a|&lt;\mu.
+\]</div>
+<p>Pour un tel entier $n$, on a $u_n\in I$ et $|u_n-a|&lt;\mu$, donc</p>
+<div class="maths">\[
+|f(u_n)-f(a)|&lt;\varepsilon.
+\]</div>
+<p>Conclusion : pour tout $\varepsilon&gt;0$, il existe $N\in\N$ tel que, pour tout $n\ge N$,</p>
+<div class="maths">\[
+|f(u_n)-f(a)|&lt;\varepsilon
+\quad\Longleftrightarrow\quad
+\lim_{n\to+\infty}f(u_n)=f(a). \qedhere
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Continuité en un point</span><div class="boite-corps"><p>Soit $f$ la fonction définie sur $\R$ par $f(x)=(x+1)^2$ et soit $(u_n)$ la suite définie, pour tout $n\in\N^*$, par</p>
+<div class="maths">\[
+u_n=2+\frac{1}{n}.
+\]</div>
+<p>Alors</p>
+<div class="maths">\[
+\lim_{n\to+\infty}u_n=2
+\qquad\text{et}\qquad
+f \text{ est continue en } 2,
+\]</div>
+<p>donc</p>
+<div class="maths">\[
+\lim_{n\to+\infty}f(u_n)
+=f\!\left(\lim_{n\to+\infty}u_n\right)
+=f(2)=9.
+\]</div></div></section>
+<p><strong>Remarque.</strong> Ce théorème sera le plus souvent utilisé en contre-exemple pour montrer qu'une fonction n'est pas continue.</p>
+<h2 id="s4"><span class="num-section">IV.</span> Théorème du point fixe</h2>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème du point fixe</span><div class="boite-corps"><p>Soient $f$ une fonction définie et continue sur un intervalle $I$ telle que $f(I)\subset I$, et $(u_n)$ la suite définie par un réel $u_0\in I$ et, pour tout $n\in\N$, $u_{n+1}=f(u_n)$.</p>
+<p>Si $(u_n)$ converge vers $\ell\in I$, alors $\ell$ est solution de l'équation $f(x)=x$.</p></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>On considère une fonction $f$ définie et continue sur un intervalle $I$ et à valeurs dans $I$. Soit $(u_n)$ une suite définie par un réel $u_0\in I$ et, pour tout $n\in\N$, $u_{n+1}=f(u_n)$.</p>
+<p>Par le théorème d'unicité de la limite,</p>
+<div class="maths">\[
+\lim_{n\to+\infty}u_n=\lim_{n\to+\infty}u_{n+1}.
+\]</div>
+<p>Par continuité de la fonction $f$, on a</p>
+<div class="maths">\[
+\lim_{n\to+\infty}f(u_n)=f\!\left(\lim_{n\to+\infty}u_n\right),
+\]</div>
+<p>donc</p>
+<div class="maths">\[
+\lim_{n\to+\infty}u_{n+1}=f(\ell)
+\quad\Longleftrightarrow\quad
+\ell=f(\ell). \qedhere
+\]</div></div></section>
+<p><strong>Remarque.</strong> $\ell$ n'est pas forcément l'unique solution de $f(x)=x$. Il faut alors écarter les solutions qui ne conviennent pas.</p>
+<h3>Application</h3>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Suite définie par récurrence</span><div class="boite-corps"><p>Soit $(u_n)$ la suite définie par</p>
+<div class="maths">\[
+\begin{cases}
+u_0=3,\\[2pt]
+u_{n+1}=f(u_n),\quad n\in\N,
+\end{cases}
+\qquad\text{avec}\qquad
+f(x)=\sqrt{x+3}
+\]</div>
+<p>définie sur $[{-3}\,;\,+\infty[$.</p>
+<ol><li>Résoudre $f(x)=x$ sur $[{-3}\,;\,+\infty[$.</li><li>Étudier les variations de la fonction $f$.</li><li><p>Montrer par récurrence que</p>
+<div class="maths">        \[
+        \forall n\in\N,\qquad 0&lt;u_{n+1}&lt;u_n&lt;3.
+        \]</div></li><li>En déduire que la suite $(u_n)$ est convergente.</li><li>Déterminer sa limite $\ell$.</li></ol></div></section>
+<h3>Correction</h3>
+<ol><li><p><strong>Résolution de $f(x)=x$.</strong></p>
+<p>Pour $x\in[{-3}\,;\,+\infty[$,</p>
+<div class="maths">\[
+f(x)=x
+\iff \sqrt{x+3}=x
+\Longrightarrow x^2=x+3
+\iff x^2-x-3=0.
+\]</div>
+<p>Le discriminant vaut</p>
+<div class="maths">\[
+\Delta=1+12=13,
+\]</div>
+<p>donc</p>
+<div class="maths">\[
+x_1=\frac{1-\sqrt{13}}{2}
+\quad\text{et}\quad
+x_2=\frac{1+\sqrt{13}}{2}.
+\]</div>
+<p>En élevant au carré, nous avons perdu l'équivalence. Il faut donc vérifier les solutions. Or l'équation $\sqrt{x+3}=x$ impose $x\ge 0$ ; comme $x_1&lt;0$ et $x_2&gt;0$, seule $x_2$ convient. Ainsi</p>
+<div class="maths">\[
+S=\left\{\frac{1+\sqrt{13}}{2}\right\}.
+\]</div></li><li><p><strong>Variations de $f$.</strong></p>
+<p>La fonction $f$ est définie et continue sur $[{-3}\,;\,+\infty[$ et dérivable sur $]{-3}\,;\,+\infty[$.</p>
+<p>Pour $x$ dans $]{-3}\,;\,+\infty[$,</p>
+<div class="maths">\[
+f'(x)=\frac{1}{2\sqrt{x+3}}&gt;0.
+\]</div>
+<p>On obtient donc le tableau de variations suivant sur $[0\,;\,3]$ :</p>
+<figure class="figure-cours"><img src="img/terminale-spe-ch09-fig01.png" alt="figure 1 du cours"></figure>
+<p>La fonction $f$ est strictement croissante sur $[0\,;\,3]$ et l'intervalle $[0\,;\,3]$ est stable, car</p>
+<div class="maths">\[
+f([0\,;\,3])=[\sqrt{3}\,;\,\sqrt{6}]\subset[0\,;\,3].
+\]</div></li><li><p><strong>Démonstration par récurrence.</strong></p>
+<p>Soit la propriété</p>
+<div class="maths">\[
+P(n)\ :\qquad 0&lt;u_{n+1}&lt;u_n&lt;3.
+\]</div>
+<p><strong>Initialisation.</strong> Montrons la propriété $P(n)$ au rang $0$. On a $u_0=3$ et $u_1=\sqrt{6}$, donc</p>
+<div class="maths">\[
+0&lt;u_1=\sqrt{6}&lt;u_0=3.
+\]</div>
+<p>La propriété $P(0)$ est vraie.</p>
+<p><strong>Hérédité.</strong> Soit $k\in\N$. Supposons la propriété $P(k)$ vraie et montrons qu'elle est vraie au rang $k+1$. D'après l'hypothèse de récurrence,</p>
+<div class="maths">\[
+0&lt;u_{k+1}&lt;u_k&lt;3.
+\]</div>
+<p>On applique la fonction $f$, qui est strictement croissante sur $[0\,;\,3]$ :</p>
+<div class="maths">\[
+f(0)&lt;f(u_{k+1})&lt;f(u_k)&lt;f(3).
+\]</div>
+<p>Comme $f(0)=\sqrt{3}$, $f(u_{k+1})=u_{k+2}$, $f(u_k)=u_{k+1}$ et $f(3)=\sqrt{6}$, on obtient</p>
+<div class="maths">\[
+\sqrt{3}&lt;u_{k+2}&lt;u_{k+1}&lt;\sqrt{6}&lt;3,
+\]</div>
+<p>et donc, <em>a fortiori</em>,</p>
+<div class="maths">\[
+0&lt;u_{k+2}&lt;u_{k+1}&lt;3.
+\]</div>
+<p>La propriété $P(k+1)$ est vraie.</p>
+<p><strong>Conclusion.</strong> La propriété est initialisée au rang $0$ et est héréditaire ; d'après le principe de récurrence, elle est vraie pour tout entier naturel $n$ :</p>
+<div class="maths">\[
+\forall n\in\N,\qquad 0&lt;u_{n+1}&lt;u_n&lt;3.
+\]</div></li><li><p><strong>Convergence de la suite.</strong></p>
+<p>La suite $(u_n)$ est strictement décroissante car, pour tout $n\in\N$,</p>
+<div class="maths">\[
+u_{n+1}&lt;u_n.
+\]</div>
+<p>Elle est minorée par $0$ car, pour tout $n\in\N$,</p>
+<div class="maths">\[
+u_n&gt;0.
+\]</div>
+<p>D'après le théorème de convergence monotone, la suite $(u_n)$ est convergente. Notons $L$ sa limite.</p></li><li><p><strong>Détermination de la limite.</strong></p>
+<p>On a</p>
+<div class="maths">\[
+\begin{cases}
+u_{n+1}=f(u_n),\\[2pt]
+f \text{ est continue sur } I \text{ et } f(I)\subset I,\\[2pt]
+\lim\limits_{n\to+\infty}u_n=L.
+\end{cases}
+\]</div>
+<p>D'après le théorème du point fixe, $L=f(L)$. D'après la question 1, la seule solution possible est donc</p>
+<div class="maths">\[
+\boxed{L=\frac{1+\sqrt{13}}{2}}.
+\]</div></li></ol>
+  <p style="margin-top:2.5rem"><a href="../index.html#terminale-spe">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

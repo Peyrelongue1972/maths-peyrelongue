@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre VI : Fonction logarithme décimal — Terminale STMG</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "logd": "{\\log}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#terminale-stmg">← Retour au site</a></p>
+  <h1>Chapitre VI : Fonction logarithme décimal</h1>
+  <p class="sous-titre">Terminale STMG · Chapitre 6 — Logarithme décimal · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Logarithme décimal</span><a class="onglet" href="../pdf/terminale-stmg/vii-logarithme-decimal.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/terminale-stmg/td01-logarithme-decimal.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/terminale-stmg/td02-logarithme-decimal.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../quiz/terminale-stmg-6.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Définition de la fonction logarithme décimal</a></li><li><a href="#s2">II Propriétés de la fonction logarithme décimal</a></li></ol></nav>
+<section class="boite boite-info"><p>En 1614, un mathématicien écossais, <em>John Napier</em> (1550 ; 1617), plus connu sous le nom francisé de <em>Neper</em>, publie « Mirifici logarithmorum canonis descriptio ».</p>
+<p>Dans cet ouvrage, qui est la finalité d'un travail de $20$ ans, <em>Neper</em> présente un outil permettant de simplifier les calculs opératoires : le logarithme.</p>
+<p><em>Neper</em> construit le mot à partir des mots grecs « logos » (logique) et arithmos (nombre).</p>
+<p>Toutefois cet outil ne trouvera son essor qu'après la mort de Neper. Les mathématiciens anglais <em>Henri Briggs</em> (1561 ; 1630) et <em>William Oughtred</em> (1574 ; 1660) reprennent et prolongent les travaux de Neper. Les mathématiciens de l'époque établissent alors des tables de logarithmes de plus en plus précises.</p>
+<p>L'intérêt d'établir ces tables logarithmiques est de permettre de substituer une multiplication par une addition (paragraphe II). Ceci peut paraître dérisoire aujourd'hui, mais il faut comprendre qu'à cette époque, les calculatrices n'existent évidemment pas, les nombres décimaux ne sont pas d'usage courant et les opérations posées telles que nous les utilisons ne sont pas encore connues. Et pourtant l'astronomie, la navigation ou le commerce demandent d'effectuer des opérations de plus en plus complexes.</p></section>
+<h2 id="s1"><span class="num-section">I.</span> Définition de la fonction logarithme décimal</h2>
+<h3>1.1  Définition</h3>
+<p>Soit la fonction $f$ définie sur $\R$ par $f(x)=10^{x}$.</p>
+<p>L'équation $10^{x}=b$, avec $b&gt;0$, admet une unique solution dans $\R$. Cette solution se note $\log b$.</p>
+<figure class="figure-cours"><img src="img/terminale-stmg-ch06-fig01.png" alt="figure 1 du cours"></figure>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Logarithme décimal</span><div class="boite-corps"><p>On appelle <strong>logarithme décimal</strong> d'un réel strictement positif $b$, l'unique solution de l'équation $10^{x}=b$. On la note $\log b$.</p>
+<p>La <strong>fonction logarithme décimal</strong>, notée $\log$, est la fonction :</p>
+<div class="maths">\[
+\log : \left]0\,;+\infty\right[\longrightarrow\R,\qquad x\longmapsto \log x .
+\]</div></div></section>
+<p><strong>Conséquences.</strong></p>
+<ol><li>Pour $b&gt;0$ : $10^{x}=b$ revient à écrire $x=\log b$.</li><li>$\log 10^{x}=x$.</li><li>Pour $x&gt;0$ : $10^{\log x}=x$.</li></ol>
+<h3>1.2  Sens de variation</h3>
+<figure class="figure-cours"><img src="img/terminale-stmg-ch06-fig02.png" alt="figure 2 du cours"></figure>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Croissance</span><div class="boite-corps"><p>La fonction logarithme décimal $x\longmapsto \log x$ est croissante sur $\left]0\,;+\infty\right[$.</p></div></section>
+<p>\fbox{<strong>Valeurs particulières :</strong>   $\log 1=0$ ;   $\log 10=1$ ;   $\log\dfrac{1}{10}=-1$}</p>
+<h2 id="s2"><span class="num-section">II.</span> Propriétés de la fonction logarithme décimal</h2>
+<h3>2.1  Propriétés algébriques</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriétés algébriques</span><div class="boite-corps"><ul><li>Pour $a&gt;0$ et $b&gt;0$ : $\log(a\times b)=\log(a)+\log(b)$.</li><li>Pour $a&gt;0$ et $n\in\N$ : $\log\left(a^{n}\right)=n\log(a)$.</li><li>Pour $b&gt;0$ : $\log\left(\dfrac{1}{b}\right)=-\log(b)$.</li><li>Pour $a&gt;0$ et $b&gt;0$ : $\log\left(\dfrac{a}{b}\right)=\log(a)-\log(b)$.</li></ul></div></section>
+<p><strong>Simplifier les expressions suivantes :</strong></p>
+<div class="maths">\[\begin{aligned}
+A&=\log(4-\sqrt{5})+\log(4+\sqrt{5})\\
+B&=2\log 3+\log 2-4\log 3\\
+C&=\log 10^{3}-\log\frac{1}{5}
+\end{aligned}\]</div>
+<p><strong>Correction.</strong></p>
+<div class="maths">\[\begin{aligned}
+A&=\log(4-\sqrt{5})+\log(4+\sqrt{5})\\
+ &=\log\Bigl((4-\sqrt{5})\times(4+\sqrt{5})\Bigr)\\
+ &=\log(16-5)=\log 11 .
+\end{aligned}\]</div>
+<div class="maths">\[\begin{aligned}
+B&=2\log 3+\log 2-4\log 3\\
+ &=\log 3^{2}+\log 2-\log\left(3^{4}\right)\\
+ &=\log\left(3^{2}\times 2\right)-\log\left(3^{4}\right)\\
+ &=\log\frac{3^{2}\times 2}{3^{4}}=\log\frac{2}{9}.
+\end{aligned}\]</div>
+<div class="maths">\[\begin{aligned}
+C&=\log 10^{3}-\log\frac{1}{5}\\
+ &=\log 10^{3}+\log 5\\
+ &=3\log 10+\log 5=3\times 1+\log 5=3+\log 5 .
+\end{aligned}\]</div>
+<p><strong>Remarque.</strong>  La première formule permet de transformer un produit en somme.</p>
+<h3>2.2  Équations et inéquations</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Égalité</span><div class="boite-corps"><p>Pour tout $a&gt;0$ et $b&gt;0$ :</p>
+<div class="maths">\[
+\log(a)=\log(b)\iff a=b .
+\]</div></div></section>
+<p><strong>Application.</strong>  Résoudre dans $\R$ l'équation $7^{x}=5$.</p>
+<div class="maths">\[\begin{aligned}
+7^{x}=5 &\iff \log 7^{x}=\log 5\\
+        &\iff x\log 7=\log 5
+\iff x=\frac{\log 5}{\log 7}.
+\end{aligned}\]</div>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Inégalité</span><div class="boite-corps"><p>Pour tout $a&gt;0$ et $b&gt;0$ :</p>
+<div class="maths">\[
+\log(a)&lt;\log(b)\iff a&lt;b .
+\]</div>
+<p>(la fonction logarithme décimal est croissante, donc elle conserve l'ordre)</p></div></section>
+<p><strong>Application.</strong>  Résoudre dans $\left]0\,;+\infty\right[$ l'inéquation $x^{7}&lt;3$.</p>
+<div class="maths">\[\begin{aligned}
+x^{7}&lt;3
+&\iff \log\left(x^{7}\right)&lt;\log 3\\
+&\iff 7\log x&lt;\log 3
+\iff \log x&lt;\frac{1}{7}\log 3\\
+&\iff \log x&lt;\log\left(3^{\frac{1}{7}}\right)
+\iff x&lt;3^{\frac{1}{7}} .
+\end{aligned}\]</div>
+<p>L'ensemble solution est $\left]0\,;3^{\frac{1}{7}}\right[$.</p>
+<p><strong>Remarque.</strong>  $3^{\frac{1}{7}}$ se lit « racine septième de $3$ » et peut se noter $\sqrt[7]{3}$.</p>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Taux d'évolution moyen</span><div class="boite-corps"><p>$8$ augmentations successives de $t$ % correspondent à une augmentation globale de $30$ %. Donner une valeur approchée du taux moyen $t$.</p></div></section>
+<p><strong>Correction.</strong>  Le problème revient à résoudre dans $\left]0\,;+\infty\right[$ l'équation :</p>
+<div class="maths">\[
+\left(1+\frac{t}{100}\right)^{8}=1{,}3 .
+\]</div>
+<div class="maths">\[\begin{aligned}
+\log\left(1+\frac{t}{100}\right)^{8}&=\log 1{,}3\\
+8\log\left(1+\frac{t}{100}\right)&=\log 1{,}3\\
+\log\left(1+\frac{t}{100}\right)&=\frac{1}{8}\log 1{,}3\\
+\log\left(1+\frac{t}{100}\right)&=\log\left(1{,}3^{\frac{1}{8}}\right)\\
+1+\frac{t}{100}&=1{,}3^{\frac{1}{8}}\\
+\frac{t}{100}&=1{,}3^{\frac{1}{8}}-1\\
+t&=100\times\left(1{,}3^{\frac{1}{8}}-1\right)\\
+t&\approx 3{,}3 .
+\end{aligned}\]</div>
+<p>Une augmentation globale de $30$ % correspond à $8$ augmentations successives d'environ $3{,}3$ %.</p>
+<section class="boite boite-info"><p><strong>On retrouve la propriété suivante, directement établie dans le chapitre « Fonctions exponentielles » :</strong></p>
+<div class="maths">\[
+\text{Si } x^{n}=a \text{ alors } x=a^{\frac{1}{n}} .
+\]</div></section>
+  <p style="margin-top:2.5rem"><a href="../index.html#terminale-stmg">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 5 : Probabilités conditionnelles — Première spécialité</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "prob": "{\\mathbb{P}}", "Card": "{\\mathrm{Card}}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#premiere-spe">← Retour au site</a></p>
+  <h1>Chapitre 5 : Probabilités conditionnelles</h1>
+  <p class="sous-titre">Première spécialité · Chapitre 5 — Probabilités conditionnelles · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Probabilités conditionnelles</span><a class="onglet" href="../pdf/premiere-spe/5-probabilites-conditionnelles.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/premiere-spe/td01-probabilite-conditionnelle.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/premiere-spe/td02-arbre-independance.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../quiz/premiere-spe-5.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Définition</a></li><li><a href="#s2">II Arbre pondéré</a></li><li><a href="#s3">III Probabilités et indépendance</a></li></ol></nav>
+<p>Les probabilités conditionnelles apparaissent dans les travaux de Bayes et de Moivre, écrits en anglais au XVIII<sup>e</sup> siècle, même si c'est Laplace qui en a élaboré la notion. Les questions traitées par ces auteurs peuvent parfois surprendre (exemple : quelle est la probabilité que le soleil se lève demain, sachant qu'il s'est levé depuis le commencement du monde ?) ; néanmoins, les probabilités conditionnelles sont omniprésentes dans la vie courante et leur utilisation inappropriée mène facilement à de fausses affirmations.</p>
+<h2 id="s1"><span class="num-section">I.</span> Définition</h2>
+<p>On considère une expérience aléatoire dans l'univers, noté $\Omega$, fini, et à partir duquel on définit une loi de probabilité. Soient $A$ et $B$ deux événements de l'univers $\Omega$.</p>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Vocabulaire ensembliste</span><div class="boite-corps"><ul><li>L'événement <strong>$A$ inter $B$</strong>, noté $A\cap B$, est l'ensemble des événements élémentaires contenus à la fois dans $A$ <strong>ET</strong> dans $B$ simultanément.</li><li>L'événement <strong>$A$ union $B$</strong>, noté $A\cup B$, est l'ensemble des événements élémentaires contenus dans $A$ <strong>OU</strong> dans $B$.</li><li>L'événement <strong>contraire</strong> de $A$, noté $\overline{A}$, est composé des événements élémentaires contenus dans l'univers $\Omega$ qui ne sont pas contenus dans $A$.</li><li>On appelle <strong>cardinal</strong> de $A$, noté $\Card(A)$ ou $\#A$, l'effectif de l'événement $A$, c'est-à-dire le nombre d'événements élémentaires contenus dans $A$.</li></ul></div></section>
+<p><strong>Tableau d'effectif</strong></p>
+<table class="tableau"><tr><td></td><td>$A$</td><td>$\overline{A}$</td><td>TOTAL</td></tr><tr><td>$B$</td><td>$\Card(A\cap B)$</td><td>$\Card(\overline{A}\cap B)$</td><td>$\Card(B)$</td></tr><tr><td>$\overline{B}$</td><td>$\Card(A\cap\overline{B})$</td><td>$\Card(\overline{A}\cap\overline{B})$</td><td>$\Card(\overline{B})$</td></tr><tr><td>TOTAL</td><td>$\Card(A)$</td><td>$\Card(\overline{A})$</td><td>$\Card(\Omega)$</td></tr></table>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Un échantillon de $160$ personnes</span><div class="boite-corps"><p>Nous considérons un échantillon $\Omega$ de $160$ personnes. Le tableau qui suit donne la répartition femmes-hommes selon deux critères d'âge.</p>
+<p>Nous désignons par :</p>
+<p>$F$ l'événement : « interroger une femme »,</p>
+<p>$A$ l'événement : « interroger une personne d'au plus $25$ ans ».</p>
+<table class="tableau"><tr><td></td><td>$F$=Femme</td><td>$\overline{F}$=Homme</td><td>Total</td></tr><tr><td>$A$ : « au plus $25$ ans »</td><td>$40$</td><td>$5$</td><td>$45$</td></tr><tr><td>$\overline{A}$ « $26$ ans ou plus »</td><td>$80$</td><td>$35$</td><td>$115$</td></tr><tr><td>Total</td><td>$120$</td><td>$40$</td><td>$160$</td></tr></table>
+<p>La probabilité de l'événement $F$ est</p>
+<div class="maths">\[
+\prob(F)=\frac{\Card(F)}{\Card(\Omega)}=\frac{120}{160}=\frac{3}{4} .
+\]</div>
+<p>La probabilité d'interroger une femme d'au plus $25$ ans est l'événement $A\cap F$ :</p>
+<div class="maths">\[
+\prob(A\cap F)=\frac{40}{160}=\frac{1}{4} .
+\]</div>
+<p>On suppose que l'on sait que la personne interrogée est une femme : on dira que l'événement $F$ est réalisé. Quel est alors la probabilité d'interroger une personne d'au plus $25$ ans sachant que $F$ est réalisé ? On notera cette probabilité $\prob_{F}(A)$.</p>
+<p>L'univers est alors restreint à $F\cap\Omega=F$, de cardinal $120$.</p>
+<p>L'ensemble des issues favorables est restreint à $F\cap A$, de cardinal $40$.</p>
+<div class="maths">\[
+\prob_{F}(A)=\frac{\Card(F\cap A)}{\Card(F)}=\frac{40}{120}=\frac{1}{3}
+=\frac{\prob(F\cap A)}{\prob(F)} .
+\]</div></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Probabilité conditionnelle</span><div class="boite-corps"><p>Soit $A$ et $B$ deux événements inclus dans l'ensemble $\Omega$ avec $\prob(A)\neq 0$.</p>
+<p>On appelle <strong>probabilité conditionnelle</strong> de $B$ sachant $A$ la probabilité que l'événement $B$ se réalise sachant que l'événement $A$ est réalisé. Elle est notée $\prob_{A}(B)$ et est définie par :</p>
+<div class="maths">\[
+\prob_{A}(B)=\frac{\prob(A\cap B)}{\prob(A)} .
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Jeu de $32$ cartes</span><div class="boite-corps"><p>On tire une carte au hasard dans un jeu de $32$ cartes.</p>
+<ul><li>Soit $A$ l'événement « Le résultat est un cœur ».</li><li>Soit $B$ l'événement « Le résultat est un as ».</li></ul>
+<p>Donc $A\cap B$ est l'événement « Le résultat est l'as de cœur ».</p>
+<p>Alors</p>
+<div class="maths">\[
+\prob(A)=\frac{8}{32}=\frac{1}{4}
+\qquad\text{et}\qquad
+\prob(A\cap B)=\frac{1}{32} .
+\]</div>
+<p>Donc la probabilité que le résultat soit un as sachant qu'on a tiré un cœur est :</p>
+<div class="maths">\[
+\prob_{A}(B)=\frac{\prob(A\cap B)}{\prob(A)}
+=\frac{1}{32}\div\frac{1}{4}=\frac{1}{8} .
+\]</div></div></section>
+<p><strong>Remarque :</strong> le calcul de la probabilité conditionnelle de $B$ sachant $A$ revient à restreindre l'univers $\Omega$ à l'ensemble $A$.</p>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriété 1</span><div class="boite-corps"><p>La probabilité $\prob_{A}(B)$ vérifie bien</p>
+<div class="maths">\[
+0\leqslant \prob_{A}(B)\leqslant 1
+\qquad\text{et}\qquad
+\prob_{A}(B)+\prob_{A}\bigl(\overline{B}\bigr)=1 .
+\]</div></div></section>
+<p><strong>Preuve :</strong> on sait que $A\cap B\subset A$, donc $0\leqslant \prob(A\cap B)\leqslant \prob(A)$.</p>
+<p>Puisque $\prob(A)&gt;0$, il vient $0\leqslant\dfrac{\prob(A\cap B)}{\prob(A)}\leqslant\dfrac{\prob(A)}{\prob(A)}=1$, d'où $0\leqslant \prob_{A}(B)\leqslant 1$.</p>
+<p>Pour tous $A$ et $B$, $(A\cap B)\cup(A\cap\overline{B})=A$ et $(A\cap B)\cap(A\cap\overline{B})=\varnothing$.</p>
+<p>Donc $\prob(A)=\prob\bigl((A\cap B)\cup(A\cap\overline{B})\bigr) =\prob(A\cap B)+\prob(A\cap\overline{B})$ et, puisque $\prob(A)\neq 0$,</p>
+<div class="maths">\[
+\frac{\prob(A\cap B)}{\prob(A)}+\frac{\prob(A\cap\overline{B})}{\prob(A)}=1,
+\]</div>
+<p>soit $\prob_{A}(B)+\prob_{A}(\overline{B})=1$.</p>
+<figure class="figure-cours"><img src="img/premiere-spe-ch05-fig01.png" alt="figure 1 du cours"></figure>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriété 2</span><div class="boite-corps"><p>Si $A$ et $B$ sont deux événements de probabilité non nulle, alors</p>
+<div class="maths">\[
+\prob(A\cap B)=\prob(A)\times\prob_{A}(B)=\prob(B)\times\prob_{B}(A) .
+\]</div></div></section>
+<p><strong>Preuve :</strong> par définition, $\prob_{A}(B)=\dfrac{\prob(A\cap B)}{\prob(A)}$, d'où $\prob(A\cap B)=\prob(A)\times\prob_{A}(B)$.</p>
+<p>De même, $\prob_{B}(A)=\dfrac{\prob(A\cap B)}{\prob(B)}$, d'où $\prob(A\cap B)=\prob(B)\times\prob_{B}(A)$.</p>
+<p>On a bien :</p>
+<div class="maths">\[
+\prob(A)\times\prob_{A}(B)=\prob(B)\times\prob_{B}(A) .
+\]</div>
+<h2 id="s2"><span class="num-section">II.</span> Arbre pondéré</h2>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Un sac de boules</span><div class="boite-corps"><p>Un sac contient $50$ boules, dont $20$ boules rouges et $30$ boules noires, où il est marqué soit « Gagné », soit « Perdu ».</p>
+<ul><li>Sur $15$ boules rouges, il est marqué Gagné.</li><li>Sur $9$ boules noires, il est marqué Gagné.</li></ul>
+<p>On tire au hasard une boule dans le sac.</p>
+<ul><li>Soit $R$ l'événement « On tire une boule rouge ».</li><li>Soit $G$ l'événement « On tire une boule marquée Gagné ».</li></ul>
+<p>Donc $R\cap G$ est l'événement « On tire une boule rouge marquée Gagné ».</p>
+<p>Alors</p>
+<div class="maths">\[
+\prob(R)=\frac{\Card(R)}{\Card(\Omega)}=\frac{20}{50}=\frac{2}{5}=0{,}4
+\]</div>
+<p>et</p>
+<div class="maths">\[
+\prob(R\cap G)=\frac{\Card(R\cap G)}{\Card(\Omega)}=\frac{15}{50}=\frac{3}{10}=0{,}3 .
+\]</div>
+<p>Donc la probabilité qu'on tire une boule marquée Gagné sachant qu'elle est rouge est :</p>
+<div class="maths">\[
+\prob_{R}(G)=\frac{\prob(R\cap G)}{\prob(R)}=\frac{0{,}3}{0{,}4}=\frac{3}{4}=0{,}75 .
+\]</div>
+<p>L'expérience aléatoire peut être schématisée par un arbre pondéré (ou arbre de probabilité) :</p>
+<figure class="figure-cours"><img src="img/premiere-spe-ch05-fig02.png" alt="figure 2 du cours"></figure></div></section>
+<p><strong>Propriétés 3 :</strong></p>
+<p><strong>Règle 1 :</strong> la somme des probabilités des branches issues d'un même nœud est égale à $1$.</p>
+<p><strong>Exemples :</strong></p>
+<ul><li>À partir du nœud « On tire une boule », on a : $\prob(R)+\prob(\overline{R})=0{,}4+0{,}6=1$.</li><li>À partir du nœud « Boule rouge », on a : $\prob_{R}(\overline{G})=1-\prob_{R}(G)=1-0{,}75=0{,}25$.</li></ul>
+<p><strong>Règle 2 :</strong> la probabilité d'une « feuille » (extrémité d'un chemin) est égale au produit des probabilités du chemin aboutissant à cette feuille. (<strong>Formule de Bayes</strong>).</p>
+<p><strong>Exemple :</strong> on considère la feuille $R\cap G$. On a :</p>
+<div class="maths">\[
+\prob(R\cap G)=\prob(R)\times\prob_{R}(G)=0{,}4\times0{,}75=0{,}3 .
+\]</div>
+<p><strong>Règle 3 (formule des probabilités totales) :</strong> la probabilité d'un événement associé à plusieurs « feuilles » est égale à la somme des probabilités de chacune de ces « feuilles ».</p>
+<p><strong>Exemple :</strong> l'événement « On tire une boule marquée Gagné » est associé aux feuilles $R\cap G$ et $\overline{R}\cap G$. On a :</p>
+<div class="maths">\[
+\prob(R\cap G)=0{,}3
+\qquad\text{et}\qquad
+\prob\bigl(\overline{R}\cap G\bigr)=\frac{9}{50}=0{,}18
+\]</div>
+<p>(probabilité de tirer une boule noire marquée Gagné).</p>
+<p>Donc</p>
+<div class="maths">\[
+\prob(G)=\prob(R\cap G)+\prob\bigl(\overline{R}\cap G\bigr)=0{,}3+0{,}18=0{,}48 .
+\]</div>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Partition</span><div class="boite-corps"><p>On dit que $A$, $B$, $C$ forment une <strong>partition</strong> de l'univers $\Omega$ si :</p>
+<ul><li>$A\cup B\cup C=\Omega$ ;</li><li>$A\cap B=\varnothing$ et $B\cap C=\varnothing$ et $A\cap C=\varnothing$.</li></ul></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Une partition de $\Omega$</span><div class="boite-corps"><p>$A$ et $\overline{A}$ forment une partition de $\Omega$.</p></div></section>
+<figure class="figure-cours"><img src="img/premiere-spe-ch05-fig03.png" alt="figure 3 du cours"></figure>
+<p><strong>Remarque :</strong> dans un arbre de probabilité, on crée une partition de l'univers $\Omega$. On obtient dans l'exemple ci-dessus $4$ événements $R\cap G$, $R\cap\overline{G}$, $\overline{R}\cap G$, $\overline{R}\cap\overline{G}$. Ces $4$ événements sont disjoints deux à deux et dont l'union est $\Omega$ : c'est une partition de l'union $\Omega$.</p>
+<p><strong>Intérêt d'une partition :</strong> si deux événements sont incompatibles $A\cap B=\varnothing$, alors la probabilité de l'union est la somme des probabilités ! En effet $\prob(A\cap B)=0$, donc $\prob(A\cup B)=\prob(A)+\prob(B)$.</p>
+<p><strong>Formule des probabilités totales</strong></p>
+<p>Supposons que l'univers $\Omega$ possède une partition en trois événements $A$, $B$ et $C$, et que nous connaissions les probabilités conditionnelles d'un événement $D$ sachant $A$, $B$ et $C$. On sait :</p>
+<ul><li>$D=(A\cap D)\cup(B\cap D)\cup(C\cap D)$ ;</li><li>$(A\cap D)$, $(B\cap D)$ et $(C\cap D)$ sont disjoints deux à deux.</li></ul>
+<p>Donc</p>
+<div class="maths">\[
+\prob(D)=\prob(A\cap D)+\prob(B\cap D)+\prob(C\cap D) .
+\]</div>
+<p>D'où</p>
+<div class="maths">\[
+\prob(D)=\prob_{A}(D)\times\prob(A)+\prob_{B}(D)\times\prob(B)
++\prob_{C}(D)\times\prob(C) .
+\]</div>
+<figure class="figure-cours"><img src="img/premiere-spe-ch05-fig04.png" alt="figure 4 du cours"></figure>
+<p><strong>Traduction sur un arbre pondéré :</strong> sur un arbre pondéré, la probabilité d'un événement $D$ associé à plusieurs feuilles est égale à la somme des probabilités de chacune de ces feuilles.</p>
+<h2 id="s3"><span class="num-section">III.</span> Probabilités et indépendance</h2>
+<h3>3.1  Indépendance de deux événements</h3>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Roi et trèfle</span><div class="boite-corps"><p>On tire une carte au hasard dans un jeu de $32$ cartes.</p>
+<ul><li>Soit $R$ l'événement « On tire un roi ».</li><li>Soit $T$ l'événement « On tire un trèfle ».</li></ul>
+<p>Alors $R\cap T$ est l'événement « On tire le roi de trèfle ».</p>
+<p>On a :</p>
+<div class="maths">\[
+\prob(R)=\frac{4}{32}=\frac{1}{8},
+\qquad
+\prob(T)=\frac{8}{32}=\frac{1}{4}
+\qquad\text{et}\qquad
+\prob(R\cap T)=\frac{1}{32} .
+\]</div>
+<p>Donc</p>
+<div class="maths">\[
+\prob(R)\times\prob(T)=\frac{1}{8}\times\frac{1}{4}=\frac{1}{32}=\prob(R\cap T) .
+\]</div></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Événements indépendants</span><div class="boite-corps"><p>On dit que deux événements $A$ et $B$ de probabilité non nulle sont <strong>indépendants</strong> lorsque</p>
+<div class="maths">\[
+\prob(A\cap B)=\prob(A)\times\prob(B) .
+\]</div></div></section>
+<p><strong>Retour à l'exemple 3 :</strong> les événements $R$ et $T$ précédents sont donc indépendants.</p>
+<p>Ainsi, par exemple, $\prob_{T}(R)=\prob(R)$ : ce qui se traduit par la probabilité de tirer un roi parmi les trèfles et égale à la probabilité de tirer un roi parmi toutes les cartes.</p>
+<p><strong>Contre-exemple :</strong> on reprend l'expérience précédente en ajoutant deux jokers au jeu de cartes.</p>
+<p>Ainsi :</p>
+<div class="maths">\[
+\prob(R)=\frac{4}{34}=\frac{2}{17},
+\qquad
+\prob(T)=\frac{8}{34}=\frac{4}{17}
+\qquad\text{et}\qquad
+\prob(R\cap T)=\frac{1}{34} .
+\]</div>
+<p>Donc</p>
+<div class="maths">\[
+\prob(R)\times\prob(T)=\frac{2}{17}\times\frac{4}{17}=\frac{8}{289}
+\neq\prob(R\cap T) .
+\]</div>
+<p>Les événements $R$ et $T$ ne sont donc pas indépendants.</p>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Utiliser l'indépendance de deux événements</span><div class="boite-corps"><p>Dans une population, un individu est atteint par la maladie $m$ avec une probabilité égale à $0{,}005$ et par la maladie $n$ avec une probabilité égale à $0{,}01$.</p>
+<p>On choisit au hasard un individu de cette population.</p>
+<ul><li>Soit $M$ l'événement « L'individu a la maladie $m$ ».</li><li>Soit $N$ l'événement « L'individu a la maladie $n$ ».</li></ul>
+<p>On suppose que les événements $M$ et $N$ sont indépendants.</p>
+<p>Calculer la probabilité de l'événement $E$ « L'individu a au moins une des deux maladies ».</p></div></section>
+<div class="maths">\[\begin{aligned}
+\prob(E)&=\prob(M\cup N)=\prob(M)+\prob(N)-\prob(M\cap N)\\
+&=\prob(M)+\prob(N)-\prob(M)\times\prob(N),
+\quad\text{car les événements } M \text{ et } N \text{ sont indépendants.}\\
+&=0{,}005+0{,}01-0{,}005\times 0{,}01=0{,}01495 .
+\end{aligned}\]</div>
+<p>La probabilité qu'un individu choisi au hasard ait au moins une des deux maladies est égale à $0{,}01495$.</p>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriété 5</span><div class="boite-corps"><p>Si $A$ et $B$ sont indépendants, alors $\overline{A}$ et $B$ sont indépendants.</p></div></section>
+<p><strong>Démonstration :</strong></p>
+<div class="maths">\[\begin{aligned}
+\prob(\overline{A}\cap B)&=\prob(B\cap\overline{A})
+=\prob(B)\times\prob_{B}(\overline{A})
+=\prob(B)\times\left(1-\prob_{B}(A)\right)\\
+&=\prob(B)\times\left(1-\prob(A)\right)
+\quad\text{car } A \text{ et } B \text{ sont indépendants}\\
+&=\prob(B)\times\prob(\overline{A}) .
+\end{aligned}\]</div>
+<p>Donc $\overline{A}$ et $B$ sont indépendants.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Bison futé</span><div class="boite-corps"><p>Lors d'un week-end prolongé, <em>Bison futé</em> annonce qu'il y a $42$ % de risque de tomber dans un bouchon sur l'autoroute A6 et $63$ % sur l'autoroute A7.</p>
+<p>Soit $A$ l'événement « On tombe dans un bouchon sur l'autoroute A6. »</p>
+<p>Soit $B$ l'événement « On tombe dans un bouchon sur l'autoroute A7. »</p>
+<p>On suppose que les événements $A$ et $B$ sont indépendants.</p>
+<p>Alors les événements $\overline{A}$ et $B$ sont également indépendants et on a :</p>
+<div class="maths">\[
+\prob(\overline{A}\cap B)=\prob(\overline{A})\times\prob(B)=0{,}58\times0{,}63=0{,}3654 .
+\]</div>
+<p>On peut interpréter ce résultat : la probabilité de tomber dans un bouchon sur l'autoroute A7 mais pas sur l'autoroute A6 est égale à $36{,}54$ %.</p></div></section>
+<h3>3.2  Succession de deux épreuves indépendantes</h3>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Lancers de dé et tirages</span><div class="boite-corps"><p><strong>1)</strong> On lance un dé plusieurs fois de suite et on note à chaque fois le résultat. On répète ainsi la même expérience (lancer un dé) et les expériences sont indépendantes l'une de l'autre (un lancer n'influence pas le résultat d'un autre lancer).</p>
+<p><strong>2)</strong> Une urne contient $2$ boules blanches et $3$ boules noires. On tire au hasard une boule et on la remet dans l'urne.</p>
+<p>On répète cette expérience $10$ fois de suite. Ces expériences sont identiques et indépendantes.</p></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Expériences identiques et indépendantes</span><div class="boite-corps"><p>Plusieurs expériences sont <strong>identiques et indépendantes</strong> si :</p>
+<ul><li>elles ont les mêmes issues ;</li><li>chaque issue possède la même probabilité.</li></ul></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriété 6</span><div class="boite-corps"><p>On considère une expérience aléatoire à deux issues $A$ et $B$ avec les probabilités $\prob(A)$ et $\prob(B)$. Si on répète l'expérience deux fois de suite :</p>
+<ul><li>la probabilité d'obtenir l'issue $A$ suivie de l'issue $B$ est égale à $\prob(A)\times\prob(B)$ ;</li><li>la probabilité d'obtenir l'issue $B$ suivie de l'issue $A$ est égale à $\prob(B)\times\prob(A)$ ;</li><li>la probabilité d'obtenir deux fois l'issue $A$ est égale à $\prob(A)^{2}$ ;</li><li>la probabilité d'obtenir deux fois l'issue $B$ est égale à $\prob(B)^{2}$.</li></ul></div></section>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Répétition d'expériences identiques et indépendantes</span><div class="boite-corps"><p>Représenter la répétition d'expériences identiques et indépendantes dans un arbre.</p>
+<p>On considère l'expérience suivante :</p>
+<p>Une urne contient $3$ boules blanches et $2$ boules rouges. On tire au hasard une boule et on la remet dans l'urne. On répète l'expérience deux fois de suite.</p>
+<ol><li>Représenter l'ensemble des issues de ces expériences dans un arbre.</li><li><p>Déterminer la probabilité :</p>
+<ol><li>d'obtenir deux boules blanches ;</li><li>une boule blanche et une boule rouge ;</li><li>au moins une boule blanche.</li></ol></li></ol></div></section>
+<p><strong>1)</strong> On note $A$ l'issue « On tire une boule blanche » et $B$ l'issue « On tire une boule rouge ».</p>
+<div class="maths">\[
+\prob(A)=\frac{3}{5}=0{,}6
+\qquad\text{et}\qquad
+\prob(B)=\frac{2}{5}=0{,}4 .
+\]</div>
+<p>On résume les issues de l'expérience dans un arbre de probabilité :</p>
+<figure class="figure-cours"><img src="img/premiere-spe-ch05-fig05.png" alt="figure 5 du cours"></figure>
+<p><strong>2) a)</strong> Obtenir deux boules blanches correspond à l'issue $(A\,;A)$ :</p>
+<div class="maths">\[
+P_{1}=0{,}36 \quad\text{(d'après l'arbre)} .
+\]</div>
+<p><strong>b)</strong> Obtenir une boule blanche et une boule rouge correspond aux issues $(A\,;B)$ et $(B\,;A)$ :</p>
+<div class="maths">\[
+P_{2}=0{,}24+0{,}24=0{,}48 .
+\]</div>
+<p><strong>c)</strong> Obtenir au moins une boule blanche correspond aux issues $(A\,;B)$, $(A\,;A)$ et $(B\,;A)$ :</p>
+<div class="maths">\[
+P_{3}=0{,}24+0{,}36+0{,}24=0{,}84 .
+\]</div>
+<p><strong>Remarques :</strong></p>
+<ul><li>Pour une expérience dont le nombre d'issues est supérieur à $2$, le principe reste le même.</li><li>Pour une expérience dont le nombre de répétitions est supérieur à $2$, le principe reste le même.</li></ul>
+  <p style="margin-top:2.5rem"><a href="../index.html#premiere-spe">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre II : Fonction inverse — Terminale STMG</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#terminale-stmg">← Retour au site</a></p>
+  <h1>Chapitre II : Fonction inverse</h1>
+  <p class="sous-titre">Terminale STMG · Chapitre 2 — Fonction inverse · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Fonction inverse</span><a class="onglet" href="../pdf/terminale-stmg/ii-fonction-inverse.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/terminale-stmg/exercices-fonction-inverse.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/terminale-stmg/synthese-fonction-inverse.pdf" target="_blank" rel="noopener">Synthèse</a><a class="onglet" href="../pdf/terminale-stmg/td02-fonction-inverse-derivee-et-variations.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../quiz/terminale-stmg-2.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Définition</a></li><li><a href="#s2">II Notion de limite</a></li><li><a href="#s3">III Limite de la fonction inverse</a></li></ol></nav>
+<h2 id="s1"><span class="num-section">I.</span> Définition</h2>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Fonction inverse</span><div class="boite-corps"><p>La <strong>fonction inverse</strong> est la fonction définie sur $\left]-\infty\,;0\right[\cup\left]0\,;+\infty\right[$ par</p>
+<div class="maths">\[
+f : x\longmapsto \frac{1}{x}.
+\]</div></div></section>
+<p><strong>Remarque.</strong>  $0$ est une valeur interdite pour cette fonction !</p>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Dérivée</span><div class="boite-corps"><p>La fonction inverse est dérivable sur $\left]-\infty\,;0\right[\cup\left]0\,;+\infty\right[$ et</p>
+<div class="maths">\[
+f'(x)=-\frac{1}{x^{2}}.
+\]</div></div></section>
+<p>Comme $x^{2}$ est strictement positif sur $\left]-\infty\,;0\right[\cup\left]0\,;+\infty\right[$, on en déduit que la fonction dérivée est strictement négative.</p>
+<figure class="figure-cours"><img src="img/terminale-stmg-ch02-fig01.png" alt="figure 1 du cours"></figure>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Courbe représentative (admis)</span><div class="boite-corps"><p>Sa courbe représentative est une <strong>hyperbole</strong>.</p></div></section>
+<figure class="figure-cours"><img src="img/terminale-stmg-ch02-fig02.png" alt="figure 2 du cours"></figure>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Parité</span><div class="boite-corps"><p>La fonction inverse est une fonction <strong>impaire</strong>.</p></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><div class="maths">\[
+f(-x)=\frac{1}{-x}=-\frac{1}{x}=-f(x)
+\qquad
+\forall x\in\left]-\infty\,;0\right[\cup\left]0\,;+\infty\right[ .
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Symétrie centrale</span><div class="boite-corps"><p>La courbe $\mathcal{C}_{f}$ représentant la fonction inverse est symétrique par rapport à l'origine.</p></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>Soit $M$ appartenant à $\mathcal{C}$ : $M$ a pour coordonnées $\begin{pmatrix}x\\ \frac{1}{x}\end{pmatrix}$.</p>
+<p>Le point $M'$ symétrique de $M$ par rapport à l'origine a donc pour coordonnées $\begin{pmatrix}-x\\ -\frac{1}{x}\end{pmatrix}$.</p>
+<p>Les coordonnées de $M'$ vérifient $f(x)=\dfrac{1}{x}$ : $M'$ appartient aussi à la courbe $\mathcal{C}$.</p></div></section>
+<figure class="figure-cours"><img src="img/terminale-stmg-ch02-fig03.png" alt="figure 3 du cours"></figure>
+<p><strong>Remarque.</strong>  La fonction inverse est une fonction impaire, ce qui est une condition suffisante pour prouver la symétrie centrale de la courbe de la fonction inverse.</p>
+<h2 id="s2"><span class="num-section">II.</span> Notion de limite</h2>
+<p>On considère la fonction $f$ définie sur $\R^{*}$ par</p>
+<div class="maths">\[
+f(x)=2+\frac{1}{x}.
+\]</div>
+<p>Cette fonction est dérivable comme somme de deux fonctions dérivables sur $\R^{*}$.</p>
+<div class="maths">\[
+u(x)=2 \quad u'(x)=0
+\qquad
+v(x)=\frac{1}{x} \quad v'(x)=-\frac{1}{x^{2}}
+\]</div>
+<div class="maths">\[
+f'(x)=u'(x)+v'(x)=-\frac{1}{x^{2}}&lt;0 .
+\]</div>
+<p>On peut dresser le tableau de variation :</p>
+<figure class="figure-cours"><img src="img/terminale-stmg-ch02-fig04.png" alt="figure 4 du cours"></figure>
+<p>La fonction $f$ est strictement décroissante sur les deux intervalles ouverts.</p>
+<p>On se place sur $\left]0\,;+\infty\right[$ et on observe le comportement de la fonction lorsque $x$ grandit.</p>
+<p>On remarque au préalable que $f(x)&gt;2$ sur l'intervalle $\left]0\,;+\infty\right[$.</p>
+<p>En effet, sur $\left]0\,;+\infty\right[$ : $x&gt;0$ $\iff \dfrac{1}{x}&gt;0$ $\iff 2+\dfrac{1}{x}&gt;2$ $\iff f(x)&gt;2$.</p>
+<h3>Étude du comportement pour $x$ très grand</h3>
+<p>Pour $x=100$, $f(100)=2{,}01$ et, comme $f$ est strictement décroissante, on a :</p>
+<div class="maths">\[
+\forall x&gt;100,\quad 2&lt;f(x)&lt;f(100)=2{,}01
+\]</div>
+<p>(propriété de décroissance de la fonction $f$).</p>
+<p>Pour $x=10\,000$, $f(10\,000)=2{,}0001$ et, comme $f$ est strictement décroissante, on a :</p>
+<div class="maths">\[
+\forall x&gt;10\,000,\quad 2&lt;f(x)&lt;f(10\,000)=2{,}0001 .
+\]</div>
+<p>On voit intuitivement que, lorsque $x$ grandit, la fonction diminue vers $2$ : pour $x&gt;10\,000$, la fonction est bloquée entre $2$ et $2{,}0001$, et elle diminue toujours mais ne peut pas passer sous $2$.</p>
+<p><strong>Donc elle aura $2$ pour limite en plus l'infini :</strong></p>
+<div class="maths">\[
+\lim_{x\to+\infty}f(x)=2 .
+\]</div>
+<section class="boite boite-info"><p><strong>Interprétation graphique :</strong></p>
+<p>La fonction $f$, lorsque $x$ devient grand, devient presque constante, ici égale à $2$ ; donc graphiquement la courbe va ressembler à une droite horizontale : on parle d'<strong>asymptote horizontale</strong> à la courbe $\mathcal{C}_{f}$.</p>
+<p>On dira que la droite d'équation $y=2$ est une asymptote horizontale à $\mathcal{C}_{f}$.</p></section>
+<h3>Étude du comportement pour $x$ très petit positif</h3>
+<p>Pour $x=0{,}01$, $f(0{,}01)=102$ et, comme $f$ est strictement décroissante, on a :</p>
+<div class="maths">\[
+\forall\,0&lt;x&lt;0{,}01,\quad f(x)&gt;f(0{,}01)=102 .
+\]</div>
+<p>Pour $x=0{,}0001$, $f(0{,}0001)=10\,002$ et, comme $f$ est strictement décroissante, on a :</p>
+<div class="maths">\[
+\forall\,0&lt;x&lt;0{,}0001,\quad f(x)&gt;f(0{,}0001)=10\,002 .
+\]</div>
+<p>Pour $x=10^{-6}$, $f\left(10^{-6}\right)=1\,000\,002$ et, comme $f$ est strictement décroissante, on a :</p>
+<div class="maths">\[
+\forall\,0&lt;x&lt;10^{-6},\quad f(x)&gt;f\left(10^{-6}\right)=10^{6}+2 .
+\]</div>
+<p>Lorsque $x$ s'approche de zéro par la droite, il est possible de rendre $f(x)$ aussi grand que l'on souhaite.</p>
+<p>On dira que la fonction admet une limite infinie en zéro. On notera :</p>
+<div class="maths">\[
+\lim_{\substack{x\to 0\\ x&gt;0}}f(x)=+\infty .
+\]</div>
+<section class="boite boite-info"><p><strong>Interprétation graphique :</strong></p>
+<p>La fonction $f$, lorsque $x$ devient très proche de zéro, monte verticalement ; donc graphiquement la courbe va ressembler à une droite verticale : on parle d'<strong>asymptote verticale</strong> à la courbe $\mathcal{C}_{f}$.</p>
+<p>On dira que la droite d'équation $x=0$ est une asymptote verticale à $\mathcal{C}_{f}$.</p></section>
+<figure class="figure-cours"><img src="img/terminale-stmg-ch02-fig05.png" alt="figure 5 du cours"></figure>
+<h2 id="s3"><span class="num-section">III.</span> Limite de la fonction inverse</h2>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Limites de la fonction inverse</span><div class="boite-corps"><ul><li>$\lim\limits_{x\to+\infty}\dfrac{1}{x}=0^{+}$ : la limite de la fonction inverse en plus l'infini est zéro, mais zéro strictement positif, que l'on note $0^{+}$.</li><li>$\lim\limits_{x\to-\infty}\dfrac{1}{x}=0^{-}$ : la limite de la fonction inverse en moins l'infini est zéro, mais zéro strictement négatif, que l'on note $0^{-}$.</li><li>$\lim\limits_{\substack{x\to 0\\ x&gt;0}}\dfrac{1}{x}=+\infty$ : la limite de la fonction inverse lorsque $x$ tend vers $0^{+}$ est de plus l'infini.</li><li>$\lim\limits_{\substack{x\to 0\\ x&lt;0}}\dfrac{1}{x}=-\infty$ : la limite de la fonction inverse lorsque $x$ tend vers $0^{-}$ est de moins l'infini.</li></ul></div></section>
+<p><strong>Interprétation géométrique de ces limites.</strong></p>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Asymptotes</span><div class="boite-corps"><ul><li>La fonction inverse admet une <strong>asymptote horizontale</strong> d'équation $y=0$ en plus et moins l'infini.</li><li>La fonction inverse admet une <strong>asymptote verticale</strong> en $0$, d'équation $x=0$.</li></ul></div></section>
+  <p style="margin-top:2.5rem"><a href="../index.html#terminale-stmg">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

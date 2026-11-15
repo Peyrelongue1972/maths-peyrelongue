@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre IV : Fonction exponentielle de base $a$ — Terminale STMG</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#terminale-stmg">← Retour au site</a></p>
+  <h1>Chapitre IV : Fonction exponentielle de base $a$</h1>
+  <p class="sous-titre">Terminale STMG · Chapitre 4 — Exponentielle de base a · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Exponentielle de base a</span><a class="onglet" href="../pdf/terminale-stmg/iv-exponentielle-de-base-a.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/terminale-stmg/vbis-exponentielle-suite.pdf" target="_blank" rel="noopener">Cours — suite</a><a class="onglet" href="../pdf/terminale-stmg/td01-exponentielle-base-a.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/terminale-stmg/td02-exponentielle-base-a.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../quiz/terminale-stmg-4.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Définition de la fonction exponentielle de base $a$</a></li><li><a href="#s2">II Étude de la fonction exponentielle</a></li><li><a href="#s3">III Application : le taux d'évolution moyen</a></li></ol></nav>
+<h2 id="s1"><span class="num-section">I.</span> Définition de la fonction exponentielle de base $a$</h2>
+<h3>1.1  Définition</h3>
+<p>Soit $a&gt;0$ : la suite géométrique de premier terme $u_{0}=1$ et de raison $a$ admet comme forme générale</p>
+<div class="maths">\[
+u_{n}=a^{n}.
+\]</div>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Fonction exponentielle de base $a$</span><div class="boite-corps"><p>Soit $a$ un nombre réel strictement positif. On appelle <strong>fonction exponentielle de base $a$</strong> la fonction $f$ définie sur $\R$ par</p>
+<div class="maths">\[
+f(x)=a^{x}.
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Deux fonctions exponentielles</span><div class="boite-corps"><ul><li>La fonction $f(x)=1{,}5^{x}$ est appelée fonction exponentielle de base $1{,}5$.</li><li>La fonction $f(x)=0{,}75^{x}$ est appelée fonction exponentielle de base $0{,}75$.</li></ul></div></section>
+<p><strong>Remarque.</strong>  Comme $a&gt;0$, pour tout réel $x$ on a $a^{x}&gt;0$.</p>
+<figure class="figure-cours"><img src="img/terminale-stmg-ch04-fig01.png" alt="figure 1 du cours"></figure>
+<h3>1.2  Propriétés algébriques</h3>
+<p>Les règles de calcul sur les exponentielles de base $a$ sont les mêmes que pour les puissances entières.</p>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriétés algébriques</span><div class="boite-corps"><p>Pour tout $a&gt;0$, $b&gt;0$, $x\in\R$ et $y\in\R$ :</p>
+<div class="maths">\[
+a^{x+y}=a^{x}\times a^{y}
+\qquad
+a^{-x}=\frac{1}{a^{x}}
+\qquad
+a^{x-y}=\frac{a^{x}}{a^{y}}
+\]</div>
+<div class="maths">\[
+\left(a^{x}\right)^{y}=a^{xy}
+\qquad
+(ab)^{x}=a^{x}\times b^{x}
+\qquad
+\left(\frac{a}{b}\right)^{x}=\frac{a^{x}}{b^{x}}
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Calculs avec des exposants réels</span><div class="boite-corps"><div class="maths">\[
+7^{2}\times 7^{0{,}15}=7^{2{,}15}
+\qquad
+3{,}25^{3}\times 3{,}25^{-0{,}25}\times 3{,}25^{0{,}4}=3{,}25^{3{,}15}
+\]</div>
+<div class="maths">\[
+\frac{\left(5^{2{,}5}\right)^{2}}{5^{2{,}4}}=5^{5}\times 5^{-2{,}4}=5^{2{,}6}
+\]</div>
+<div class="maths">\[
+(3\times 5)^{4{,}1}\times 3^{-2}\times 5^{3}
+=3^{4{,}1}\times 3^{-2}\times 5^{4{,}1}\times 5^{3}
+=3^{2{,}1}\times 5^{7{,}1}
+\]</div></div></section>
+<h2 id="s2"><span class="num-section">II.</span> Étude de la fonction exponentielle</h2>
+<h3>2.1  Rappel : sens de variation d'une suite géométrique</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Suite géométrique</span><div class="boite-corps"><p>Soit $(u_{n})$ une suite de raison $a$ et de premier terme $u_{0}$ strictement positif.</p>
+<ul><li>Si $a&gt;1$, alors la suite $(u_{n})$ est strictement croissante.</li><li>Si $0&lt;a&lt;1$, alors la suite $(u_{n})$ est strictement décroissante.</li><li>Si $a=1$, alors la suite $(u_{n})$ est constante.</li></ul></div></section>
+<h3>2.2  Sens de variation de la fonction $f:x\mapsto a^{x}$</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Variations de $x\mapsto a^{x}$</span><div class="boite-corps"><p>Soit $a$ un nombre réel strictement positif.</p>
+<ul><li>Si $a&gt;1$, alors la fonction $f:x\mapsto a^{x}$ est strictement croissante.</li><li>Si $0&lt;a&lt;1$, alors la fonction $f:x\mapsto a^{x}$ est strictement décroissante.</li><li>Si $a=1$, alors la fonction $f:x\mapsto a^{x}$ est constante.</li></ul></div></section>
+<figure class="figure-cours"><img src="img/terminale-stmg-ch04-fig02.png" alt="figure 2 du cours"></figure>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Sens de variation</span><div class="boite-corps"><ul><li>$f(x)=2{,}5^{x}$ est une fonction strictement croissante car $2{,}5&gt;1$.</li><li>$f(x)=0{,}5^{x}$ est une fonction strictement décroissante car $0&lt;0{,}5&lt;1$.</li></ul></div></section>
+<p><strong>Remarque.</strong>  Toutes les fonctions exponentielles de base $a$ passent par le point de coordonnées $J(0\,;1)$.</p>
+<h3>2.3  Sens de variation des fonctions $f:x\mapsto k\times a^{x}$</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Facteur multiplicatif</span><div class="boite-corps"><p>Soit $a$ un nombre réel strictement positif et $k$ un nombre réel non nul.</p>
+<ul><li>Si $k&gt;0$, alors la fonction $f:x\mapsto k\times a^{x}$ a le même sens de variation que la fonction $x\mapsto a^{x}$.</li><li>Si $k&lt;0$, alors la fonction $f:x\mapsto k\times a^{x}$ a un sens contraire de variation à celui de la fonction $x\mapsto a^{x}$.</li></ul></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Facteur négatif</span><div class="boite-corps"><p>$f(x)=-3\times 2{,}5^{x}$ est une fonction strictement décroissante : car $2{,}5&gt;1$ donc $x\mapsto 2{,}5^{x}$ est strictement croissante, mais $-3&lt;0$, donc la fonction $f$ a un sens contraire de variation.</p></div></section>
+<h2 id="s3"><span class="num-section">III.</span> Application : le taux d'évolution moyen</h2>
+<h3>3.1  Rappel : taux d'évolution globale</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Coefficients multiplicateurs</span><div class="boite-corps"><p>Lors d'évolutions successives, les coefficients multiplicateurs se multiplient.</p></div></section>
+<figure class="figure-cours"><img src="img/terminale-stmg-ch04-fig03.png" alt="figure 3 du cours"></figure>
+<p>On a</p>
+<div class="maths">\[
+C_{global}=(1+t_{1})\times(1+t_{2})\times\dots\times(1+t_{n})
+=C_{1}\times C_{2}\times\dots\times C_{n}.
+\]</div>
+<p>Le taux global $T$ correspond à</p>
+<div class="maths">\[
+1+T=C_{global}.
+\]</div>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Hausse puis baisse</span><div class="boite-corps"><p>Une quantité augmente d'abord de $10$ % puis baisse de $5$ %.</p>
+<div class="maths">\[
+C_{1}=1+0{,}1=1{,}1
+\qquad
+C_{2}=1-0{,}05=0{,}95
+\]</div>
+<div class="maths">\[
+C_{global}=1{,}1\times0{,}95=1{,}045=1+T
+\quad\text{donc}\quad
+T=1{,}045-1=0{,}045=4{,}5\,\%.
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Taux global</span><div class="boite-corps"><p>Le taux global d'évolution correspondant à $n$ évolutions successives de taux d'évolution $t_{1}$, $t_{2}$, …, $t_{n}$ est le nombre $T$ tel que</p>
+<div class="maths">\[
+1+T=(1+t_{1})\times(1+t_{2})\times\dots\times(1+t_{n}).
+\]</div></div></section>
+<h3>3.2  Taux d'évolution moyen</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Taux moyen pour deux évolutions</span><div class="boite-corps"><p>Le taux d'évolution moyen $t$ correspondant à deux évolutions successives de taux d'évolution respectifs $t_{1}$ et $t_{2}$ est le taux qui, répété $2$ fois, donnerait le même taux global.</p>
+<p>Pour l'obtenir, on doit donc résoudre l'équation :</p>
+<div class="maths">\[
+(1+t)^{2}=(1+t_{1})(1+t_{2})=1+T .
+\]</div>
+<p>Donc</p>
+<div class="maths">\[
+1+t=\sqrt{1+T}.
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Action Total</span><div class="boite-corps"><p>L'action de la société Total a augmenté de $5$ % en 2025 et de $11$ % en 2026.</p>
+<p>Le taux global $T$ est égal à</p>
+<div class="maths">\[
+T=(1+t_{1})(1+t_{2})-1=1{,}05\times1{,}11-1=0{,}26=26\,\%.
+\]</div>
+<p>Donc le taux moyen $t$ vérifie :</p>
+<div class="maths">\[
+1+t=\sqrt{1+T}=\sqrt{1{,}26}\approx0{,}123 .
+\]</div>
+<p>Donc le taux moyen $t$ est égal à environ $12{,}3$ %.</p></div></section>
+<p><strong>Remarque.</strong>  Il s'agit d'une « moyenne », mais pas au sens habituel : c'est une <strong>moyenne géométrique</strong> ! La moyenne habituelle est appelée moyenne arithmétique.</p>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Taux moyen pour $n$ évolutions</span><div class="boite-corps"><p>Le taux d'évolution moyen $t$ correspondant à $n$ évolutions successives de taux d'évolution respectifs $t_{1}$, $t_{2}$, …, $t_{n}$ est le taux qui, répété $n$ fois, donnerait le même taux global.</p>
+<p>Pour l'obtenir, on doit donc résoudre l'équation :</p>
+<div class="maths">\[
+(1+t)^{n}=(1+t_{1})(1+t_{2})\dots(1+t_{n})=1+T .
+\]</div>
+<p>Donc</p>
+<div class="maths">\[
+1+t=(1+T)^{\frac{1}{n}}.
+\]</div></div></section>
+<p><strong>Remarque.</strong>  La puissance $\dfrac{1}{n}$ annule les effets de la puissance $n$ :</p>
+<div class="maths">\[
+\left(a^{n}\right)^{\frac{1}{n}}=a^{\frac{n}{n}}=a^{1}=a .
+\]</div>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Trois années de hausse</span><div class="boite-corps"><p>L'action Total augmente de $30$ % en 2027.</p>
+<p>Donc le taux moyen vérifie l'équation :</p>
+<div class="maths">\[
+(1+t)^{3}=1{,}05\times1{,}11\times1{,}3=1{,}638 .
+\]</div>
+<p>Donc</p>
+<div class="maths">\[
+1+t=1{,}638^{\frac{1}{3}}\approx1{,}179 .
+\]</div>
+<p>D'où le taux moyen est de $17{,}9$ %.</p></div></section>
+  <p style="margin-top:2.5rem"><a href="../index.html#terminale-stmg">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>
