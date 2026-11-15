@@ -36,10 +36,11 @@ body{
   border-radius:10px; background:#fff; color:var(--texte);
 }
 .recherche input:focus{outline:2px solid #3182ce; outline-offset:1px; border-color:#3182ce}
-.chips{display:flex; gap:.4rem; flex-wrap:wrap}
+.chips{display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:.45rem}
+@media (max-width:700px){.chips{grid-template-columns:repeat(2, minmax(0, 1fr))}}
 .chip{
   border:1px solid var(--bord); background:#fff; color:var(--doux); cursor:pointer;
-  padding:.45rem .8rem; border-radius:999px; font-size:.85rem; font-weight:600;
+  padding:.45rem .8rem; border-radius:999px; font-size:.85rem; font-weight:600; text-align:center;
   transition:all .15s ease;
 }
 .chip:hover{border-color:var(--couleur,#3182ce);
@@ -54,7 +55,10 @@ body{
   color:var(--couleur-fonce,var(--couleur))}
 .niveau-entete p{margin:.15rem 0 0; color:var(--doux); font-size:.92rem}
 
-.grille{display:grid; gap:.9rem; grid-template-columns:repeat(auto-fill,minmax(255px,1fr))}
+.grille{display:grid; gap:.9rem; grid-template-columns:repeat(4, minmax(0, 1fr))}
+@media (max-width:900px){.grille{grid-template-columns:repeat(3, minmax(0, 1fr))}}
+@media (max-width:700px){.grille{grid-template-columns:repeat(2, minmax(0, 1fr))}}
+@media (max-width:480px){.grille{grid-template-columns:1fr}}
 .carte{
   background:var(--carte); border:1px solid var(--bord); border-radius:14px;
   padding:1rem 1.1rem; box-shadow:var(--ombre); display:flex; flex-direction:column;
@@ -106,3 +110,20 @@ body{
   .carte{break-inside:avoid; box-shadow:none}
   .entete{background:#fff; color:#000}
 }
+
+/* onglets des pages de cours : quatre par ligne */
+main.cours .onglets{display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:.45rem}
+main.cours .onglet{justify-content:center; text-align:center}
+@media (max-width:700px){main.cours .onglets{grid-template-columns:repeat(2, minmax(0, 1fr))}}
+
+/* boutons Quiz en rose */
+a.btn[href*="quiz/"], a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168}
+a.btn[href*="quiz/"]:hover, a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+
+    /* les liens gardent la même couleur, visités ou non */
+    .carte h4 a:link,.carte h4 a:visited{color:inherit;text-decoration:none}
+    .carte h4 a:hover,.carte h4 a:focus{color:inherit;text-decoration:underline;text-underline-offset:.15em}
+    .onglet:link,.onglet:visited{color:inherit}
+    .onglet.actif:link,.onglet.actif:visited{color:#fff}
+    body a:link,body a:visited{color:inherit}
+    
