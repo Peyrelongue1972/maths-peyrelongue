@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz — Géométrie — Niveau 2</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['$', '$']], macros: {"prob": "{\\mathbb{P}}", "R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathcal{D}}", "e": "{\\mathrm{e}}", "vect": ["{\\overrightarrow{#1}}", 1]} }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.quiz-entete{max-width:820px;margin:0 auto 1.4rem}
+.quiz-entete h1{margin:.2rem 0 .3rem;font-size:1.6rem}
+.quiz-entete p{margin:.2rem 0;opacity:.85}
+.barre{height:10px;border-radius:6px;background:#e8edf3;overflow:hidden;margin:.8rem 0}
+.barre > span{display:block;height:100%;width:0;background:var(--couleur,#3182ce);transition:width .25s}
+.quiz-score{font-weight:600}
+.question{max-width:820px;margin:0 auto 1rem;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1rem 1.2rem;box-shadow:0 2px 8px rgba(16,42,67,.06)}
+.question h3{margin:.1rem 0 .7rem;font-size:1.02rem;font-weight:600;line-height:1.45}
+.question .num{display:inline-block;min-width:1.9rem;height:1.9rem;line-height:1.9rem;
+  text-align:center;border-radius:50%;background:var(--couleur,#3182ce);
+  color:var(--sur-couleur,#fff);font-size:.85rem;margin-right:.5rem;font-weight:700}
+.choix{display:grid;gap:.5rem}
+.choix button{text-align:left;padding:.6rem .8rem;border-radius:10px;border:1px solid #d7e0ea;
+  background:#fbfdff;cursor:pointer;font-size:.98rem;font-family:inherit;line-height:1.4}
+.choix button:hover:not(:disabled){border-color:var(--couleur,#3182ce);background:#f2f8ff}
+.choix button:disabled{cursor:default}
+.choix button.juste{background:#e6f7ee;border-color:#2f9e63;color:#166534;font-weight:600}
+.choix button.faux{background:#fdeaea;border-color:#d64545;color:#8a1c1c}
+.choix button.oublie{border-color:#2f9e63;border-style:dashed}
+.figure{margin:.6rem 0 .2rem;text-align:center}
+.figure img{max-width:min(100%,420px);height:auto;border:1px solid #dfe6ee;border-radius:10px;background:#fff;padding:4px}
+.expl{margin:.7rem 0 0;font-size:.92rem;background:#f4f7fb;border-left:3px solid var(--couleur,#3182ce);
+  padding:.5rem .7rem;border-radius:6px;display:none}
+.expl.visible{display:block}
+.fin{max-width:820px;margin:1.4rem auto;text-align:center;background:#fff;border:1px solid #dfe6ee;
+  border-radius:14px;padding:1.2rem}
+.fin strong{font-size:1.25rem}
+.fin .btn{margin:.7rem .3rem 0}
+</style>
+</head>
+<body style="--couleur:#dd6b20; --couleur-fonce:#dd6b20; --sur-couleur:#fff">
+<main style="padding:2rem 1.2rem 3rem">
+  <header class="quiz-entete">
+    <p><a href="../index.html">← Retour au site</a></p>
+    <h1>Quiz — Géométrie — Niveau 2</h1>
+    <p>AP Concours · chapitre 2-n2 · 20 questions tirées au hasard parmi 48</p>
+    <p class="quiz-score">Score : <span id="score">0 / 20</span></p>
+    <div class="barre"><span id="barre"></span></div>
+  </header>
+
+  <article class="question" data-bonne="4">
+    <h3><span class="num">1</span>Gaspard le cafard se déplace uniquement sur les lignes d'un quadrillage dont les carrés ont un côté de longueur $1$. S'il se trouve sur un croisement du quadrillage, combien de croisements sont pour lui à distance $3$ (le long des lignes) ?</h3>
+    <div class="choix"><button type="button" data-i="0">$10$</button><button type="button" data-i="1">une autre réponse</button><button type="button" data-i="2">$4$</button><button type="button" data-i="3">$9$</button><button type="button" data-i="4">$12$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>D) $12$.</strong> Depuis un croisement, il y a $4$ directions et $3$ croisements à distance $3$ dans chacune (en restant sur les lignes) : $4\times3=12$.</p>
+  </article>
+  <article class="question" data-bonne="4">
+    <h3><span class="num">2</span>Un quart de cercle de rayon $4$ et de centre $B$ et un quart de cercle de rayon $3$ et de centre $D$ sont construits à l'intérieur du rectangle $ABCD$ ; le sommet $C$ appartient au grand quart de cercle. Si les deux cercles sont tangents, que vaut $\lvert AB\rvert$ ?</h3>
+    <div class="choix"><button type="button" data-i="0">$6$</button><button type="button" data-i="1">$3\sqrt3$</button><button type="button" data-i="2">$\sqrt{26}$</button><button type="button" data-i="3">$5$</button><button type="button" data-i="4">$\sqrt{33}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>E) $\sqrt{33}$.</strong> $BC=4$ (rayon du grand quart de cercle) et les deux cercles sont tangents donc $BD=4+3=7$ ; dans le triangle rectangle en $C$, $AB^{2}=BD^{2}-BC^{2}=49-16=33$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">3</span>Les angles consécutifs d'un quadrilatère (non croisé) ont comme amplitudes, en degrés, $x$, $2x$, $3x$ et $4x$, dans cet ordre.</h3>
+    <div class="choix"><button type="button" data-i="0">ce quadrilatère est nécessairement un losange</button><button type="button" data-i="1">un tel quadrilatère ne peut exister</button><button type="button" data-i="2">ce quadrilatère est nécessairement un trapèze</button><button type="button" data-i="3">ce quadrilatère est un quadrilatère quelconque</button><button type="button" data-i="4">ce quadrilatère est nécessairement un rectangle</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>D) un trapèze.</strong> $x+2x+3x+4x=360$ donne $x=36$°, donc les angles sont $36$, $72$, $108$, $144$ : deux angles consécutifs supplémentaires, ce qui caractérise un trapèze.</p>
+  </article>
+  <article class="question" data-bonne="4">
+    <h3><span class="num">4</span>Le côté du carré $ABCD$ est $24$. Le point $E$ est situé sur le côté $AD$, le point $F$ sur le côté $BC$ et le point $G$ sur le côté $CD$. Si $\lvert DG\rvert=10$ et si $EF$ est perpendiculaire à $AG$, quelle est la longueur de $EF$ ?</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q299.png" alt="figure de la question 4"></div>
+    <div class="choix"><button type="button" data-i="0">$28$</button><button type="button" data-i="1">$24$</button><button type="button" data-i="2">aucune de ces réponses</button><button type="button" data-i="3">$30$</button><button type="button" data-i="4">$26$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>B) $26$.</strong> En posant $E(0 ;e)$ et $F(24 ;f)$, la perpendicularité $EF\perp AG$ donne $24\times10+24(f-e)=0$, donc $f-e=-10$ et $EF=\sqrt{24^{2}+10^{2}}=26$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">5</span>Les points $A$, $B$ et $C$ sont chacun au tiers d'une arête du cube représenté ci-contre. Si l'arête du cube vaut $12$, quelle est l'aire du triangle $ABC$ ?</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q300.png" alt="figure de la question 5"></div>
+    <div class="choix"><button type="button" data-i="0">$24\sqrt3$</button><button type="button" data-i="1">$48\sqrt3$</button><button type="button" data-i="2">$28\sqrt3$</button><button type="button" data-i="3">$56\sqrt3$</button><button type="button" data-i="4">$48\sqrt2$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>E) $56\sqrt3$.</strong> Avec $A(4 ;12 ;12)$, $B(0 ;4 ;0)$, $C(12 ;0 ;8)$, le triangle est équilatéral de côté $\sqrt{224}$ et son aire vaut $\frac{\sqrt3}{4}\times224=56\sqrt3$.</p>
+  </article>
+  <article class="question" data-bonne="4">
+    <h3><span class="num">6</span>Des carrés noir et gris sont positionnés à l'intérieur d'un grand carré comme indiqué sur la figure ci-contre. Quel est le rapport de l'aire du carré noir à celle du carré gris ?</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q302.png" alt="figure de la question 6"></div>
+    <div class="choix"><button type="button" data-i="0">$1$</button><button type="button" data-i="1">$\dfrac43$</button><button type="button" data-i="2">$\dfrac87$</button><button type="button" data-i="3">$\dfrac32$</button><button type="button" data-i="4">$\dfrac98$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>D) $\frac98$.</strong> Le carré noir occupe le quart du grand carré et le losange gris les $\frac{2}{9}$ : le rapport vaut $\frac{1/4}{2/9}=\frac98$.</p>
+  </article>
+  <article class="question" data-bonne="4">
+    <h3><span class="num">7</span>Les segments $[OA]$ et $[OB]$ sont perpendiculaires et de même longueur. Ces deux segments sont les diamètres de deux demi-cercles qui se recoupent en $C$. Le quart de cercle $AB$ est centré en $O$. L'aire de la région colorée en gris clair est $S_1$ et celle de la région colorée en gris foncé est $S_2$. Laquelle des affirmations suivantes est correcte ?</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q303.png" alt="figure de la question 7"></div>
+    <div class="choix"><button type="button" data-i="0">$\sqrt2 S_2<S_1$</button><button type="button" data-i="1">$S_2<S_1\leqslant\sqrt2 S_2$</button><button type="button" data-i="2">$\dfrac{1}{\sqrt2}S_2\leqslant S_1<S_2$</button><button type="button" data-i="3">$S_1<\dfrac{1}{\sqrt2}S_2$</button><button type="button" data-i="4">$S_1=S_2$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>C) $S_1=S_2$.</strong> Chaque triangle $OAC$ et $OBC$ a pour aire $\frac12R^{2}\sin\alpha$ ; les deux demi-disques se partagent donc le quart de disque de façon que $S_1=S_2=\frac{R^{2}}{2}\left(\frac{\pi}{2}-1\right)$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">8</span>Sur la figure ci-contre, quatre petits cercles de même rayon, tangents l'un à l'autre, sont disposés le long d'un diamètre du grand cercle. Le cercle grisé est tangent extérieurement à deux de ces petits cercles et intérieurement au grand cercle. Quel est le rapport du rayon du cercle grisé à celui des petits cercles ?</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q304.png" alt="figure de la question 8"></div>
+    <div class="choix"><button type="button" data-i="0">$\dfrac{\pi}{2}$</button><button type="button" data-i="1">$\dfrac85$</button><button type="button" data-i="2">$\dfrac{64}{25}$</button><button type="button" data-i="3">$\dfrac32$</button><button type="button" data-i="4">une autre réponse</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>A) $\frac85$.</strong> En notant $\rho$ le rayon du cercle grisé, la tangence donne $\frac{R^{2}}{16}+(R-\rho)^{2}=(\rho+\frac R4)^{2}$, d'où $\rho=\frac{2R}{5}$ et $\frac{\rho}{R/4}=\frac85$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">9</span>Deux carrés sont l'un circonscrit et l'autre inscrit à un cercle. Que vaut le rapport de l'aire du grand carré à celle du petit ?</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q305.png" alt="figure de la question 9"></div>
+    <div class="choix"><button type="button" data-i="0">$\pi$</button><button type="button" data-i="1">$2$</button><button type="button" data-i="2">$\sqrt2$</button><button type="button" data-i="3">$\pi/2$</button><button type="button" data-i="4">$3/2$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>B) $2$.</strong> Grand carré : côté $2r$, aire $4r^{2}$ ; petit carré : côté $r\sqrt2$, aire $2r^{2}$ ; le rapport vaut $2$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">10</span>Dans un demi-cercle de centre $O$ et de diamètre $[AB]$ est inscrit un triangle $ABC$ où le point $C$ est mobile. Le rayon $[OC]$ détermine deux triangles $OAC$ et $OBC$. Si $\alpha$ désigne l'angle au centre $\widehat{AOC}$, quelle est l'affirmation vraie ?</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q307.png" alt="figure de la question 10"></div>
+    <div class="choix"><button type="button" data-i="0">les deux triangles ont toujours la même aire</button><button type="button" data-i="1">le triangle $OAC$ a une aire strictement supérieure à celle de $OBC$ si et seulement si $\alpha<90$°</button><button type="button" data-i="2">le triangle $OAC$ a toujours une aire strictement inférieure à celle de $OBC$</button><button type="button" data-i="3">le triangle $OAC$ a toujours une aire strictement supérieure à celle de $OBC$</button><button type="button" data-i="4">le triangle $OAC$ a une aire strictement inférieure à celle de $OBC$ si et seulement si $\alpha<90$°</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>E) les deux triangles ont toujours la même aire.</strong> $\mathcal{A}(OAC)=\frac12R^{2}\sin\alpha$ et $\mathcal{A}(OBC)=\frac12R^{2}\sin(180°-\alpha)$, quantités égales.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">11</span>Dans la figure ci-dessous, si $RPCQ$ est un parallélogramme, quelle est la longueur $\lvert AQ\rvert$ ?</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q308.png" alt="figure de la question 11"></div>
+    <div class="choix"><button type="button" data-i="0">$3{,}6$</button><button type="button" data-i="1">$8{,}4$</button><button type="button" data-i="2">$6$</button><button type="button" data-i="3">$12$</button><button type="button" data-i="4">$8$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>D) $8{,}4$.</strong> $RPCQ$ parallélogramme donne $RQ=PC=7$ et $RQ\parallel BC$, donc $\frac{AQ}{AC}=\frac{7}{12}$ ; avec $RP=QC=6$ on obtient $AC=14{,}4$ puis $AQ=8{,}4$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">12</span>Le triangle $ABC$ est isocèle de base $[AC]$. Les points $P$ et $Q$ sur $[BC]$ et $[BA]$ respectivement sont tels que $\lvert AC\rvert=\lvert AP\rvert=\lvert PQ\rvert=\lvert QB\rvert$. Que mesure, en degrés, l'angle $\widehat B$ ?</h3>
+    <div class="choix"><button type="button" data-i="0">$\dfrac{181}{7}$</button><button type="button" data-i="1">$26$</button><button type="button" data-i="2">$\dfrac{180}{7}$</button><button type="button" data-i="3">$30$</button><button type="button" data-i="4">$28$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>A) $\frac{180}{7}$.</strong> En notant $\beta$ l'angle $\widehat B$ et en utilisant les trois triangles isocèles successifs, on obtient $7\beta=180$, donc $\beta=\frac{180}{7}\approx25{,}7$°.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">13</span>Quel est le rayon du cercle tangent extérieurement à quatre cercles de même rayon $r$ tangents l'un à l'autre comme sur la figure ci-contre ?</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q310.png" alt="figure de la question 13"></div>
+    <div class="choix"><button type="button" data-i="0">$(\sqrt2+1)r$</button><button type="button" data-i="1">$\dfrac52r$</button><button type="button" data-i="2">$\sqrt5 r$</button><button type="button" data-i="3">$2\sqrt2 r$</button><button type="button" data-i="4">$(4-\sqrt2)r$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>B) $(\sqrt2+1)r$.</strong> Les centres des quatre cercles forment un carré de côté $2r$ ; la distance d'un centre au centre de la figure vaut $r\sqrt2$, donc le grand cercle a pour rayon $r\sqrt2+r$.</p>
+  </article>
+  <article class="question" data-bonne="4">
+    <h3><span class="num">14</span>Un cube dont les arêtes mesurent $8$ cm a été coupé par un plan. La section est un hexagone régulier. L'une des parties est le polyèdre ci-contre. Quelle est, en centimètres, la longueur totale des arêtes de ce polyèdre ?</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q312.png" alt="figure de la question 14"></div>
+    <div class="choix"><button type="button" data-i="0">$24(2+\sqrt3)$</button><button type="button" data-i="1">$24$</button><button type="button" data-i="2">$24\sqrt2$</button><button type="button" data-i="3">$24(3+\sqrt2)$</button><button type="button" data-i="4">$24(2+\sqrt2)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>A) $24(2+\sqrt2)$.</strong> La pièce a $3$ arêtes de $8$, $6$ demi-arêtes de $4$ et $6$ côtés d'hexagone de $4\sqrt2$ : $24+24+24\sqrt2=24(2+\sqrt2)$.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">15</span>Les demi-cercles de centres $B$ et $D$ et de rayon $3$ sont tangents en $C$. La tangente au demi-cercle de diamètre $[AC]$ issue de $D$ coupe en $P$ la tangente au demi-cercle de diamètre $[CE]$ issue de $B$. Que vaut l'aire du triangle $BDP$ ?</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q313.png" alt="figure de la question 15"></div>
+    <div class="choix"><button type="button" data-i="0">$3\sqrt3$</button><button type="button" data-i="1">$\dfrac{6\sqrt3-3}{2}$</button><button type="button" data-i="2">une autre réponse</button><button type="button" data-i="3">$5$</button><button type="button" data-i="4">$\dfrac92$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>A) $3\sqrt3$.</strong> Les demi-cercles ont pour rayon $3$ et sont tangents en $C$, donc $BD=6$. La tangente issue de $D$ au cercle de centre $B$ donne $DP=\sqrt{BD^{2}-3^{2}}=\sqrt{27}=3\sqrt3$ et $BP=3$, avec $(BP)\perp(DP)$. Le triangle $BDP$ est donc rectangle en $P$ et son aire vaut $\frac12\times3\times3\sqrt3=3\sqrt3$. Les deux tangentes se coupent d'ailleurs en $P(6 ;\sqrt3)$, au-dessus de $C$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">16</span>Un « hand spinner » (le trait gras sur la figure) est formé de $6$ cercles de même rayon $r$ tangents entre eux, et tangents à un $7$<sup>e</sup> cercle central de même rayon. Quel est le périmètre de ce « hand spinner » ?</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q315.png" alt="figure de la question 16"></div>
+    <div class="choix"><button type="button" data-i="0">$6\pi r^{2}$</button><button type="button" data-i="1">$8\pi$</button><button type="button" data-i="2">$3\pi r$</button><button type="button" data-i="3">$8\pi r$</button><button type="button" data-i="4">$6\pi r$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>E) $8\pi r$.</strong> Chaque cercle extérieur est tangent à deux voisins ; l'arc apparent mesure $240$°, donc le périmètre vaut $6\times\frac{240}{360}\times2\pi r=8\pi r$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">17</span>Le triangle $ABC$ est rectangle en $A$ avec $\lvert AB\rvert=12$ et $\lvert AC\rvert=5$. La droite $d$ est la bissectrice de l'angle $\widehat A$. Le triangle $ADE$ est l'image de $ABC$ par la symétrie orthogonale d'axe $d$. Les côtés $BC$ et $DE$ se coupent en $F$. Que vaut l'aire du quadrilatère non convexe $ABFD$ ?</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q316.png" alt="figure de la question 17"></div>
+    <div class="choix"><button type="button" data-i="0">$\dfrac{480}{13}$</button><button type="button" data-i="1">$\dfrac{780}{17}$</button><button type="button" data-i="2">$\dfrac{119}{5}$</button><button type="button" data-i="3">$\dfrac{720}{17}$</button><button type="button" data-i="4">$48$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>D) $\dfrac{720}{17}$.</strong> La symétrie d'axe $d$ échange les droites $AB$ et $AC$, donc $AE=AC=5$ et $AD=AB=12$. En posant $A(0 ;0)$, $B(12 ;0)$, $C(0 ;5)$, $E(5 ;0)$, $D(0 ;12)$, les droites $(ED)$ et $(CB)$ se coupent en $F\left(\frac{420}{119} ;\frac{420}{119}\right)$, qui est bien sur la bissectrice. L'aire du quadrilatère non convexe $ABFD$ vaut alors $12x_F=\frac{5 040}{119}=\frac{720}{17}$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">18</span>Dans un triangle $ABC$, la médiane issue de $A$ est perpendiculaire à la médiane issue de $B$. Si $\lvert BC\rvert=8$ et $\lvert AC\rvert=6$, que vaut $\lvert AB\rvert$ ?</h3>
+    <div class="choix"><button type="button" data-i="0">$3\sqrt2$</button><button type="button" data-i="1">$2\sqrt5$</button><button type="button" data-i="2">$\dfrac{11}{\sqrt5}$</button><button type="button" data-i="3">$\dfrac92$</button><button type="button" data-i="4">$5$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>B) $2\sqrt5$.</strong> En notant $b=AB$ et $c=AC=6$, la perpendicularité des deux médianes donne $c^{2}-2b^{2}-b\cdot c=0$ avec $b\cdot c=\frac{b^{2}+36-64}{2}$, d'où $b^{2}=20$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">19</span>Le côté du petit carré vaut le tiers du côté du carré moyen ; le côté du carré moyen vaut la moitié du côté du grand carré. Si l'aire du petit carré est $11$ cm$^{2}$, quelle est l'aire du grand carré, en cm$^{2}$ ?</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q319.png" alt="figure de la question 19"></div>
+    <div class="choix"><button type="button" data-i="0">$121$</button><button type="button" data-i="1">$4356$</button><button type="button" data-i="2">$66$</button><button type="button" data-i="3">$396$</button><button type="button" data-i="4">une autre réponse</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>C) $396$.</strong> Le grand côté vaut $6$ fois le petit, donc l'aire du grand carré est $36$ fois celle du petit : $36\times11=396$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">20</span>D'après la figure (imprécise) ci-dessous, que vaut l'amplitude de l'angle $\widehat{AEF}$ ?</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q320.png" alt="figure de la question 20"></div>
+    <div class="choix"><button type="button" data-i="0">$53{,}57$°</button><button type="button" data-i="1">$53{,}5$°</button><button type="button" data-i="2">$53{,}6$°</button><button type="button" data-i="3">$53{,}7$°</button><button type="button" data-i="4">$53{,}8$°</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>C) $53{,}6$°.</strong> Dans le triangle $ABC$, $\widehat B=23{,}9$° et $\widehat C=66{,}1$°. Le triangle $DFB$ est rectangle en $D$ donc $(DF)\perp(BC)$. Les angles $\widehat{DFE}=77{,}6$° et $\widehat{FDE}=27{,}6$° donnent $\widehat{DEF}=74{,}8$° ; comme $A$, $E$, $C$ sont alignés et que $\widehat{DEC}=51{,}6$°, il reste $\widehat{AEF}=180-74{,}8-51{,}6=53{,}6$°.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">21</span>Un rectangle de $10$ sur $12$ est inscrit à un demi-cercle ; le côté mesurant $12$ est placé sur le diamètre. Quelle est l'aire du demi-disque ? (La figure n'est pas à l'échelle.)</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q323.png" alt="figure de la question 21"></div>
+    <div class="choix"><button type="button" data-i="0">$\dfrac{169\pi}{2}$</button><button type="button" data-i="1">$13\pi$</button><button type="button" data-i="2">$49\pi$</button><button type="button" data-i="3">$68\pi$</button><button type="button" data-i="4">$169\pi$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>C) $68\pi$.</strong> Le rectangle occupe la moitié supérieure : ses coins hauts sont à $6$ du milieu et à $10$ du diamètre, donc $R^{2}=36+100=136$ et l'aire du demi-disque vaut $\frac{136\pi}{2}=68\pi$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">22</span>À l'intérieur du carré $ABCD$ de côté $1$, il y a quatre quarts de disque, deux grands et deux petits. Chaque petit quart de disque est tangent aux deux grands et les deux grands quarts de disque sont tangents entre eux. Que vaut l'aire de la surface ombrée ?</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q324.png" alt="figure de la question 22"></div>
+    <div class="choix"><button type="button" data-i="0">$\dfrac{\pi}{4}$</button><button type="button" data-i="1">$\dfrac{(2-\sqrt2)\pi}{2}$</button><button type="button" data-i="2">$\dfrac{\sqrt2\pi}{4}$</button><button type="button" data-i="3">$\dfrac{(\sqrt2+1)\pi}{8}$</button><button type="button" data-i="4">$\dfrac{(\sqrt2-1)\pi}{2}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>D) $\dfrac{(2-\sqrt2)\pi}{2}$.</strong> Les deux grands quarts de disque sont tangents entre eux, donc leur rayon vaut la moitié de la diagonale : $R=\frac{\sqrt2}{2}$. Un petit quart de disque est tangent aux deux grands, donc son rayon vaut $r=1-\frac{\sqrt2}{2}$. L'aire ombrée est la somme des quatre quarts de disque : \[ \frac{\pi}{4}\left(2R^{2}+2r^{2}\right)=\frac{\pi}{2}\left(\frac12+\left(1-\frac{\sqrt2}{2}\right)^{2}\right)=\frac{(2-\sqrt2)\pi}{2}.\]</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">23</span>Dans la figure, le cercle de centre $C$ et de rayon $1$ est tangent à la droite $AB$ et coupe le segment $[AC]$ en $D$. De plus, $\lvert AB\rvert=2\lvert BC\rvert$. Alors $\lvert AD\rvert=$</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q325.png" alt="figure de la question 23"></div>
+    <div class="choix"><button type="button" data-i="0">$\sqrt5-1$</button><button type="button" data-i="1">n'est pas déterminé par les données</button><button type="button" data-i="2">$1{,}5$</button><button type="button" data-i="3">$\dfrac12$</button><button type="button" data-i="4">$\sqrt5+1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>A) $\sqrt5-1$.</strong> $BC=1$ et $AB=2$ : le triangle est rectangle en $B$, donc $AC=\sqrt5$ et $AD=AC-CD=\sqrt5-1$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">24</span>Quelle est la longueur du côté du carré $ABCD$ ?</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q326.png" alt="figure de la question 24"></div>
+    <div class="choix"><button type="button" data-i="0">$\sqrt{338}$</button><button type="button" data-i="1">$13$</button><button type="button" data-i="2">$\sqrt{194}$</button><button type="button" data-i="3">$14$</button><button type="button" data-i="4">$\sqrt{97}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>A) $13$.</strong> Les segments $[AE]$ et $[FC]$ sont parallèles et $[EF]$ leur est perpendiculaire : le déplacement total de $A$ vers $C$ se décompose donc en $8+9=17$ dans une direction et $7$ dans la direction perpendiculaire. Ainsi $AC^{2}=17^{2}+7^{2}=338$, et comme $AC$ est la diagonale du carré, le côté vaut $\frac{\sqrt{338}}{\sqrt2}=\sqrt{169}=13$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">25</span>Le segment $[AB]$ est tangent en son milieu $M$ à un cercle. Les perpendiculaires à $AB$ en $A$ et $B$ coupent le cercle en $D$ et $C$, comme sur la figure. Quel doit être le rapport de la longueur du segment $[AB]$ au rayon du cercle pour que $ABCD$ soit un carré ?</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q327.png" alt="figure de la question 25"></div>
+    <div class="choix"><button type="button" data-i="0">$\sqrt2$</button><button type="button" data-i="1">$\dfrac85$</button><button type="button" data-i="2">$\dfrac45$</button><button type="button" data-i="3">$1$</button><button type="button" data-i="4">$2$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>D) $\frac85$.</strong> En posant $t=\frac{AB}{R}$ et $AB=2a$, la condition $AD=AB$ donne $t=1-\sqrt{1-t^{2}/4}$, soit $t=\frac85$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">26</span>$\dfrac{2020^{2}+2020}{2020}=$</h3>
+    <div class="choix"><button type="button" data-i="0">$2020^{2}+1$</button><button type="button" data-i="1">une autre réponse</button><button type="button" data-i="2">$2021$</button><button type="button" data-i="3">$2020^{2}$</button><button type="button" data-i="4">$4040$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>A) $2021$.</strong> $\frac{2020^{2}+2020}{2020}=2020+1=2021$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">27</span>Deux des côtés d'un triangle mesurent $10$ cm et $22$ cm ; ils forment un angle aigu. L'aire du triangle est $88$ cm$^{2}$. Quelle est la longueur du troisième côté, en centimètres ?</h3>
+    <div class="choix"><button type="button" data-i="0">$2\sqrt{46}$</button><button type="button" data-i="1">$6\sqrt{10}$</button><button type="button" data-i="2">$17{,}6$</button><button type="button" data-i="3">$8\sqrt5$</button><button type="button" data-i="4">$13\sqrt2$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>E) $8\sqrt5$.</strong> $\frac12\times10\times22\times\sin\theta=88$ donne $\sin\theta=0{,}8$ et $\cos\theta=0{,}6$ ; alors $c^{2}=100+484-2\times10\times22\times0{,}6=320$.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">28</span>Deux carrés de côté $2$ ont même centre et tout côté de l'un forme un angle de $45$° avec les côtés de l'autre. Quelle est l'aire de leur partie commune octogonale ?</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q336.png" alt="figure de la question 28"></div>
+    <div class="choix"><button type="button" data-i="0">$3-2\sqrt2$</button><button type="button" data-i="1">$8(\sqrt2-1)$</button><button type="button" data-i="2">$16\sqrt2-20$</button><button type="button" data-i="3">$8(\sqrt2+1)$</button><button type="button" data-i="4">$16(\sqrt2-1)$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>C) $8(\sqrt2-1)$.</strong> L'intersection est un octogone régulier dont l'aire vaut $8(\sqrt2-1)$ pour un carré de côté $2$.</p>
+  </article>
+  <article class="question" data-bonne="4">
+    <h3><span class="num">29</span>Pauline a dessiné la grille rectangulaire ci-contre, qui est divisée en $15$ cases de même grandeur. Combien de carrés de $4$ cases contiennent une case noire ?</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q338.png" alt="figure de la question 29"></div>
+    <div class="choix"><button type="button" data-i="0">$4$</button><button type="button" data-i="1">$6$</button><button type="button" data-i="2">$5$</button><button type="button" data-i="3">$8$</button><button type="button" data-i="4">$7$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>D) $7$.</strong> La grille $5\times3$ contient $8$ carrés de $4$ cases ; un seul (celui des colonnes $4$-$5$, lignes $1$-$2$) ne contient aucune case noire.</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">30</span>Dans la figure, le côté de chacun des petits carrés vaut $1$ et les arcs de cercles sont des demi-cercles. Que vaut l'aire de la surface ombrée ?</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q339.png" alt="figure de la question 30"></div>
+    <div class="choix"><button type="button" data-i="0">$6-\pi$</button><button type="button" data-i="1">$\pi$</button><button type="button" data-i="2">$3$</button><button type="button" data-i="3">$9-2\pi$</button><button type="button" data-i="4">$3\pi-6$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>B) $\pi$.</strong> Les demi-cercles se compensent : l'aire ombrée est celle d'un demi-disque de rayon $1$, soit $\frac{\pi}{2}$ comptée deux fois, donc $\pi$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">31</span>Ce grand cube était formé de $64$ petits cubes identiques. Trois tunnels rectilignes ont été creusés, qui le traversent de part en part. Les zones ombrées représentent leurs extrémités. Combien reste-t-il de petits cubes ?</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q340.png" alt="figure de la question 31"></div>
+    <div class="choix"><button type="button" data-i="0">$53$</button><button type="button" data-i="1">une autre réponse</button><button type="button" data-i="2">$54$</button><button type="button" data-i="3">$51$</button><button type="button" data-i="4">$52$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>D) $54$.</strong> $64-10=54$ : les trois tunnels retirent $3\times4=12$ cubes, dont $3$ paires comptées deux fois, soit $12-3+1=10$ cubes distincts.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">32</span>Considérons les points de coordonnées $A=(0 ;1)$, $B=(2 ;3)$ et $C=(1 ;1)$ dans un repère orthonormé d'origine $O$.</h3>
+    <div class="choix"><button type="button" data-i="0">les droites $AB$ et $OC$ sont perpendiculaires</button><button type="button" data-i="1">les droites $AB$ et $OC$ sont sécantes avec un angle de $45$°</button><button type="button" data-i="2">les droites $AB$ et $OC$ sont parallèles distinctes</button><button type="button" data-i="3">les droites $AB$ et $OC$ sont confondues</button><button type="button" data-i="4">les droites $AB$ et $OC$ sont sécantes avec un angle de $30$°</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>E) parallèles distinctes.</strong> $AB$ a pour coefficient directeur $\frac{3-1}{2-0}=1$ et $OC$ aussi, mais $AB$ passe par $(0 ;1)$ et non par $O$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">33</span>Dans cette figure (imprécise), $\lvert AD\rvert=\lvert BC\rvert$. Quelle est l'amplitude de l'angle $\widehat{DAC}$ ?</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q342.png" alt="figure de la question 33"></div>
+    <div class="choix"><button type="button" data-i="0">$70$°</button><button type="button" data-i="1">$95$°</button><button type="button" data-i="2">$125$°</button><button type="button" data-i="3">$100$°</button><button type="button" data-i="4">$110$°</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>C) $100$°.</strong> Dans le triangle $ABC$, $\widehat{ABC}=55$° et $\widehat{BCA}=70$° donnent $\widehat{BAC}=55$° : on a donc $\lvert AC\rvert=\lvert BC\rvert$. Comme l'énoncé donne $\lvert AD\rvert=\lvert BC\rvert$, le triangle $ACD$ est isocèle en $A$ : ses angles à la base valent $\widehat{ACD}=\widehat{CDA}=40$°, d'où \[ \widehat{DAC}=180-40-40=100°.\]</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">34</span>Soit $R$ le rayon du grand cercle et $r$ celui du petit cercle dans la figure ci-contre. Sachant que $R-r=5$ et $R+r=10$, que vaut l'aire de la partie ombrée ?</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q343.png" alt="figure de la question 34"></div>
+    <div class="choix"><button type="button" data-i="0">$50\pi$</button><button type="button" data-i="1">$15\pi$</button><button type="button" data-i="2">$10\pi$</button><button type="button" data-i="3">$25\pi$</button><button type="button" data-i="4">$5\pi$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>E) $50\pi$.</strong> $R=7{,}5$ et $r=2{,}5$ ; l'aire de la couronne vaut $\pi(R^{2}-r^{2})=\pi(56{,}25-6{,}25)=50\pi$.</p>
+  </article>
+  <article class="question" data-bonne="4">
+    <h3><span class="num">35</span>Laquelle des affirmations suivantes à propos d'un triangle quelconque est <strong>fausse</strong> ?</h3>
+    <div class="choix"><button type="button" data-i="0">si le point d'intersection des médiatrices est sur un côté du triangle, alors le triangle est rectangle</button><button type="button" data-i="1">le point d'intersection des médianes n'est jamais extérieur au triangle</button><button type="button" data-i="2">si le point d'intersection des hauteurs est extérieur au triangle, alors le point d'intersection des médiatrices est extérieur au triangle</button><button type="button" data-i="3">si une hauteur, une médiatrice et une médiane sont confondues, alors le triangle est équilatéral</button><button type="button" data-i="4">si le point d'intersection des hauteurs est sur un côté du triangle, alors il est également sur un second côté du triangle</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>B).</strong> Si l'orthocentre est sur un côté, le triangle est rectangle et il n'est alors que sur ce seul côté.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">36</span>Ce drapeau est un rectangle de longueur $1{,}6$ m et de largeur $1$ m composé d'une croix blanche sur fond noir. L'aire de la croix blanche est égale aux $\frac{3}{10}$ de l'aire totale du drapeau. Les deux bandes blanches qui se croisent ont la même largeur. Quelle est, en millimètres, la largeur de chacune de ces bandes blanches ?</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q346.png" alt="figure de la question 36"></div>
+    <div class="choix"><button type="button" data-i="0">$1300-100\sqrt{217}$</button><button type="button" data-i="1">une autre réponse</button><button type="button" data-i="2">$200$</button><button type="button" data-i="3">$2400$</button><button type="button" data-i="4">$\dfrac{2400}{13}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>B) $200$ mm.</strong> L'aire totale vaut $16 000$ cm$^{2}$ et la croix $4 800$ cm$^{2}$ : $160x+100x-x^{2}=4 800$ donne $x=20$ cm.</p>
+  </article>
+  <article class="question" data-bonne="0">
+    <h3><span class="num">37</span>Les arêtes d'un grand cube mesurent $a$ cm, avec $a$ entier et $a>2$. Toutes les faces de ce cube sont entièrement peintes puis ce cube est soigneusement découpé en $a^{3}$ petits cubes dont les arêtes mesurent $1$ cm. Il y a $6$ fois plus de petits cubes peints sur une face que de petits cubes peints sur deux faces. Que vaut $a$ ?</h3>
+    <div class="choix"><button type="button" data-i="0">$14$</button><button type="button" data-i="1">$6$</button><button type="button" data-i="2">$10$</button><button type="button" data-i="3">$12$</button><button type="button" data-i="4">$8$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>E) $14$.</strong> Les cubes peints sur une face sont $6(a-2)^{2}$ et ceux peints sur deux faces $12(a-2)$ ; l'égalité donne $a-2=12$, donc $a=14$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">38</span>Dans cette figure, $AQPB$ et $ASRC$ sont des carrés et $AQS$ est un triangle équilatéral. Si $\lvert QS\rvert=4$, que vaut $\lvert BC\rvert$ ?</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q350.png" alt="figure de la question 38"></div>
+    <div class="choix"><button type="button" data-i="0">$16$</button><button type="button" data-i="1">$8$</button><button type="button" data-i="2">$4\sqrt3$</button><button type="button" data-i="3">$6\sqrt2$</button><button type="button" data-i="4">une autre valeur</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>B) $4\sqrt3$.</strong> Les carrés sont construits sur les côtés : $AQ=AB$ et $AS=AC$. Comme $AQS$ est équilatéral, $AQ=AS=QS=4$, donc $AB=AC=4$ et $\widehat{QAS}=60$°. Les carrés étant extérieurs au triangle, l'angle au sommet vaut $\widehat{BAC}=180-60=120$°, d'où \[ BC=2\times4\times\sin60=4\sqrt3.\]</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">39</span>Sur le cercle circonscrit à un triangle équilatéral $ABC$, le point $D$ est diamétralement opposé au point $B$. Quelle est, en degrés, l'amplitude de l'angle $\widehat{ADB}$ ?</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q353.png" alt="figure de la question 39"></div>
+    <div class="choix"><button type="button" data-i="0">$90$</button><button type="button" data-i="1">$75$</button><button type="button" data-i="2">$45$</button><button type="button" data-i="3">$60$</button><button type="button" data-i="4">$30$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>C) $60$°.</strong> $[BD]$ est un diamètre donc $\widehat{BAD}=90$° ; les angles $\widehat{ADB}$ et $\widehat{ACB}$ interceptent le même arc $AB$, d'où $60$°.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">40</span>Parmi les quatre dessins suivants, combien peuvent être tracés sans lever le crayon et sans repasser par un même trait ?</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q355.png" alt="figure de la question 40"></div>
+    <div class="choix"><button type="button" data-i="0">$4$</button><button type="button" data-i="1">$2$</button><button type="button" data-i="2">$0$</button><button type="button" data-i="3">$3$</button><button type="button" data-i="4">$1$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>D) $3$.</strong> Un dessin est traçable d'un seul trait si et seulement s'il a $0$ ou $2$ sommets impairs ; c'est le cas de trois des quatre dessins.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">41</span>Dans le rectangle $ABCD$, $\lvert AB\rvert=60$. Le point $M$ est milieu de $[AB]$, le point $N$ est sur $[AD]$ avec $\lvert AN\rvert=20$. Quelle est la longueur de $[AD]$ si le triangle $MNC$ est rectangle en $N$ ?</h3>
+    <div class="choix"><button type="button" data-i="0">une autre valeur</button><button type="button" data-i="1">$120$</button><button type="button" data-i="2">$70$</button><button type="button" data-i="3">$110$</button><button type="button" data-i="4">$90$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>C) $110$.</strong> $M(30 ;0)$, $N(0 ;20)$, $C(60 ;h)$ ; la perpendicularité en $N$ donne $1 800-20h+400=0$, donc $h=110$.</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">42</span>Un grand carré a été partagé en six petits carrés et un rectangle d'aire $168$ cm$^{2}$. Quelle est, en centimètres carrés, l'aire du grand carré ?</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q360.png" alt="figure de la question 42"></div>
+    <div class="choix"><button type="button" data-i="0">$361$</button><button type="button" data-i="1">$289$</button><button type="button" data-i="2">$324$</button><button type="button" data-i="3">$441$</button><button type="button" data-i="4">$400$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>B) $324$.</strong> Les trois carrés du bord droit ont pour côté $a/3$ et les trois carrés du bas pour côté $2a/9$ (leur somme vaut bien $3\times\frac{2a}{9}=\frac{2a}{3}$, la largeur disponible). Le rectangle restant a donc pour dimensions $\frac{2a}{3}$ et $a-\frac{2a}{9}=\frac{7a}{9}$, d'où \[ \frac{2a}{3}\times\frac{7a}{9}=\frac{14a^{2}}{27}=168 \quad\Longrightarrow\quad a^{2}=\frac{168\times27}{14}=324.\] L'aire du grand carré est donc $a^{2}=324$ cm$^{2}$.</p>
+  </article>
+  <article class="question" data-bonne="4">
+    <h3><span class="num">43</span>Quel est le rapport de l'aire du quart de disque à celle du demi-disque sur la figure ci-dessous ?</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q364.png" alt="figure de la question 43"></div>
+    <div class="choix"><button type="button" data-i="0">$\sqrt5$</button><button type="button" data-i="1">$\pi$</button><button type="button" data-i="2">$\dfrac52$</button><button type="button" data-i="3">$3$</button><button type="button" data-i="4">$2$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>E) $2$.</strong> Le demi-disque est inscrit dans le quart de disque : son diamètre est le rayon du quart de disque, donc si le quart de disque a pour rayon $R$, le demi-disque a pour rayon $r=\frac{R}{2}$. Le rapport des aires vaut alors \[ \frac{\frac{\pi R^{2}}{4}}{\frac{\pi r^{2}}{2}} =\frac{R^{2}}{4}\times\frac{2}{r^{2}} =\frac{R^{2}}{2\left(\frac{R}{2}\right)^{2}} =2.\]</p>
+  </article>
+  <article class="question" data-bonne="1">
+    <h3><span class="num">44</span>Le sol d'une cave, représenté ci-contre, est pavé de carreaux de forme carrée, excepté aux trois endroits indiqués en noir, où une colonne carrée s'élève jusqu'au plafond. Le cercle indique la position d'une lampe. Quelle est l'aire de la surface au sol qui est éclairée par cette lampe (aire mesurée en nombre de carreaux) ?</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q365.png" alt="figure de la question 44"></div>
+    <div class="choix"><button type="button" data-i="0">$13$</button><button type="button" data-i="1">$14$</button><button type="button" data-i="2">$17$</button><button type="button" data-i="3">$7{,}5$</button><button type="button" data-i="4">$14{,}5$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>C) $14$ carreaux.</strong> Le comptage des cases atteintes par la lumière, colonnes par colonnes, donne $14$ carreaux.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">45</span>Dans le demi-cercle de diamètre $[AB]$ est inscrit un carré $IJKL$, avec les sommets $I$ et $J$ sur le segment $[AB]$. Que vaut le rapport de l'aire du carré à l'aire du demi-disque ?</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q367.png" alt="figure de la question 45"></div>
+    <div class="choix"><button type="button" data-i="0">$\dfrac{2\sqrt5}{3\pi}$</button><button type="button" data-i="1">$\dfrac{8}{\pi}$</button><button type="button" data-i="2">$\dfrac{3}{2\pi}$</button><button type="button" data-i="3">$\dfrac{8}{5\pi}$</button><button type="button" data-i="4">$\dfrac{\sqrt2}{\pi}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>B) $\frac{8}{5\pi}$.</strong> Le carré de côté $s$ inscrit dans le demi-cercle de rayon $R$ vérifie $s^{2}=4R^{2}/5$ ; le rapport vaut $\frac{4R^{2}/5}{\pi R^{2}/2}=\frac{8}{5\pi}$.</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">46</span>Les segments $[CE]$, $[CF]$, $[CG]$ et $[CH]$ partagent le carré $ABCD$ en cinq parties de même aire, comme sur la figure. Que vaut le rapport $\dfrac{\lvert EG\rvert}{\lvert CF\rvert}$ ?</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q368.png" alt="figure de la question 46"></div>
+    <div class="choix"><button type="button" data-i="0">$\dfrac{5\sqrt2}{7}$</button><button type="button" data-i="1">$\dfrac12$</button><button type="button" data-i="2">$\dfrac{\sqrt{10}}{7}$</button><button type="button" data-i="3">$\sqrt{\dfrac{10}{41}}$</button><button type="button" data-i="4">$\dfrac{\sqrt{34}}{12}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>A) $\sqrt{\dfrac{10}{41}}$.</strong> Les cinq aires valant $\frac{1}{5}$ de celle du carré (côté $1$), les triangles successifs donnent $E(0 ;0{,}6)$, $F(0 ;0{,}2)$, $G(0{,}2 ;0)$ et $H(0{,}6 ;0)$. Alors \[ EG^{2}=0{,}2^{2}+0{,}6^{2}=\frac{2}{5}, \qquad CF^{2}=1^{2}+0{,}8^{2}=\frac{41}{25}, \] d'où \[ \frac{EG}{CF}=\sqrt{\frac{2/5}{41/25}}=\sqrt{\frac{10}{41}}.\]</p>
+  </article>
+  <article class="question" data-bonne="3">
+    <h3><span class="num">47</span>Sur la figure ci-dessous, $ABCD$ est un rectangle tel que $\lvert AB\rvert=3$ et $\lvert BC\rvert=2$. Le demi-cercle de diamètre $[AB]$ est tangent aux quarts de cercles de centres $C$ et $D$ en $Q$ et $P$ respectivement. Que vaut l'aire de la surface ombrée ?</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q369.png" alt="figure de la question 47"></div>
+    <div class="choix"><button type="button" data-i="0">$\sqrt{13} \pi$</button><button type="button" data-i="1">$\dfrac{5\pi}{3}$</button><button type="button" data-i="2">$\dfrac{8\pi}{5}$</button><button type="button" data-i="3">$\dfrac{13\pi}{8}$</button><button type="button" data-i="4">$\dfrac{20\pi}{13}$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>B) $\dfrac{13\pi}{8}$.</strong> Le demi-cercle a pour rayon $\frac{AB}{2}=\frac32$. Le quart de cercle de centre $C$ est tangent au demi-cercle, donc \[ r_{C}=\sqrt{1{,}5^{2}+2^{2}}-1{,}5=2{,}5-1{,}5=1, \] et de même $r_{D}=1$. L'aire ombrée est la somme des trois secteurs : \[ \frac{\pi\left(\frac32\right)^{2}}{2}+2\times\frac{\pi\times1^{2}}{4} =\frac{9\pi}{8}+\frac{2\pi}{4} =\frac{9\pi}{8}+\frac{4\pi}{8} =\frac{13\pi}{8}.\]</p>
+  </article>
+  <article class="question" data-bonne="2">
+    <h3><span class="num">48</span>Deux demi-droites de même origine font un angle de $60$°. Elles sont tangentes à un cercle de rayon $1$ en $T$ et $T'$. Quelle est l'aire de la surface délimitée par ces deux demi-droites et le petit arc $TT'$ ?</h3>
+    <div class="figure"><img src="../quiz-figures/geo2-q370.png" alt="figure de la question 48"></div>
+    <div class="choix"><button type="button" data-i="0">$2\sqrt3-\dfrac{\pi}{6}$</button><button type="button" data-i="1">$\sqrt3-\dfrac{\pi}{6}$</button><button type="button" data-i="2">$\sqrt3-\dfrac{\pi}{3}$</button><button type="button" data-i="3">$2\sqrt3-\dfrac{\pi}{3}$</button><button type="button" data-i="4">$\sqrt3$</button></div>
+    <p class="expl"><strong>Réponse :</strong> <strong>A) $\sqrt3-\frac{\pi}{3}$.</strong> Le secteur angulaire a pour aire $\sqrt3$ et l'on retire le secteur circulaire d'angle $120$° et de rayon $1$, d'aire $\frac{2\pi}{3}$... soit $\sqrt3-\frac{\pi}{3}$.</p>
+  </article>
+  <script>
+  (function () {
+    var n = 20;
+    var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+    if (cartes.length > n) {
+      for (var i = cartes.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = cartes[i]; cartes[i] = cartes[j]; cartes[j] = t;
+      }
+      var gardees = cartes.slice(0, n), parent = cartes[0].parentNode,
+          ancre = document.getElementById('fin');
+      gardees.forEach(function (c) { parent.insertBefore(c, ancre); });
+      cartes.slice(n).forEach(function (c) { c.remove(); });
+    }
+  })();
+  </script>
+  <section class="fin" id="fin" hidden>
+    <strong>Quiz terminé</strong>
+    <p id="fin-texte"></p>
+    <button class="btn" type="button" id="recommencer">Recommencer</button>
+    <a class="btn btn-secondaire" href="../index.html">Retour au site</a>
+  </section>
+</main>
+<script>
+(function () {
+  var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+  var total = cartes.length, bonnes = 0, repondues = 0;
+  var scoreEl = document.getElementById('score');
+  var barre = document.getElementById('barre');
+  var fin = document.getElementById('fin');
+
+  function majScore() {
+    scoreEl.textContent = bonnes + ' / ' + total;
+    barre.style.width = (100 * repondues / total) + '%';
+    if (repondues === total) {
+      fin.hidden = false;
+      var msg = bonnes === total ? 'Sans faute, bravo !'
+        : bonnes >= 0.8 * total ? 'Très bon score, continuez comme ça.'
+        : bonnes >= 0.5 * total ? 'C\'est correct, mais quelques révisions s\'imposent.'
+        : 'À retravailler : reprenez le cours et les exercices du chapitre.';
+      document.getElementById('fin-texte').textContent = msg;
+    }
+  }
+
+  cartes.forEach(function (carte) {
+    var bonne = parseInt(carte.dataset.bonne, 10);
+    var boutons = Array.prototype.slice.call(carte.querySelectorAll('.choix button'));
+    var expl = carte.querySelector('.expl');
+    boutons.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        if (carte.dataset.fait) return;
+        carte.dataset.fait = '1';
+        repondues++;
+        if (i === bonne) {
+          b.classList.add('juste');
+          bonnes++;
+        } else {
+          b.classList.add('faux');
+          boutons[bonne].classList.add('oublie');
+        }
+        boutons.forEach(function (x) { x.disabled = true; });
+        expl.classList.add('visible');
+        majScore();
+      });
+    });
+  });
+
+  document.getElementById('recommencer').addEventListener('click', function () {
+    window.location.reload();
+  });
+})();
+</script>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

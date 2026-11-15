@@ -151,6 +151,22 @@
     <div class="choix"><button type="button" data-i="0">sont orthogonales</button><button type="button" data-i="1">sont toujours coplanaires avec toute droite</button><button type="button" data-i="2">se coupent</button><button type="button" data-i="3">ont des vecteurs directeurs colinéaires</button></div>
     <p class="expl"><strong>Réponse :</strong> Le parallélisme se lit sur les vecteurs directeurs.</p>
   </article>
+  <script>
+  (function () {
+    var n = 20;
+    var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+    if (cartes.length > n) {
+      for (var i = cartes.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = cartes[i]; cartes[i] = cartes[j]; cartes[j] = t;
+      }
+      var gardees = cartes.slice(0, n), parent = cartes[0].parentNode,
+          ancre = document.getElementById('fin');
+      gardees.forEach(function (c) { parent.insertBefore(c, ancre); });
+      cartes.slice(n).forEach(function (c) { c.remove(); });
+    }
+  })();
+  </script>
   <section class="fin" id="fin" hidden>
     <strong>Quiz terminé</strong>
     <p id="fin-texte"></p>

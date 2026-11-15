@@ -141,6 +141,22 @@
     <div class="choix"><button type="button" data-i="0">un seul diviseur</button><button type="button" data-i="1">au moins deux diviseurs</button><button type="button" data-i="2">deux diviseurs dont $2$</button><button type="button" data-i="3">deux diviseurs distincts, $1$ et lui-même</button></div>
     <p class="expl"><strong>Réponse :</strong> C'est la définition : ses seuls diviseurs sont $1$ et lui-même, ce qui exclut $1$ (un seul diviseur).</p>
   </article>
+  <script>
+  (function () {
+    var n = 18;
+    var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+    if (cartes.length > n) {
+      for (var i = cartes.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = cartes[i]; cartes[i] = cartes[j]; cartes[j] = t;
+      }
+      var gardees = cartes.slice(0, n), parent = cartes[0].parentNode,
+          ancre = document.getElementById('fin');
+      gardees.forEach(function (c) { parent.insertBefore(c, ancre); });
+      cartes.slice(n).forEach(function (c) { c.remove(); });
+    }
+  })();
+  </script>
   <section class="fin" id="fin" hidden>
     <strong>Quiz terminé</strong>
     <p id="fin-texte"></p>

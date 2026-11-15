@@ -151,6 +151,22 @@
     <div class="choix"><button type="button" data-i="0">toujours $0{,}5$</button><button type="button" data-i="1">la somme des probabilités des chemins favorables</button><button type="button" data-i="2">la différence des chemins</button><button type="button" data-i="3">le produit de toutes les branches</button></div>
     <p class="expl"><strong>Réponse :</strong> On additionne les chemins qui réalisent l'événement.</p>
   </article>
+  <script>
+  (function () {
+    var n = 20;
+    var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+    if (cartes.length > n) {
+      for (var i = cartes.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = cartes[i]; cartes[i] = cartes[j]; cartes[j] = t;
+      }
+      var gardees = cartes.slice(0, n), parent = cartes[0].parentNode,
+          ancre = document.getElementById('fin');
+      gardees.forEach(function (c) { parent.insertBefore(c, ancre); });
+      cartes.slice(n).forEach(function (c) { c.remove(); });
+    }
+  })();
+  </script>
   <section class="fin" id="fin" hidden>
     <strong>Quiz terminé</strong>
     <p id="fin-texte"></p>

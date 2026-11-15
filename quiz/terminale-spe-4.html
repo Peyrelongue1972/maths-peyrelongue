@@ -151,6 +151,22 @@
     <div class="choix"><button type="button" data-i="0">l'échec</button><button type="button" data-i="1">l'issue la plus probable</button><button type="button" data-i="2">toujours un gain d'argent</button><button type="button" data-i="3">l'une des deux issues, choisie par convention</button></div>
     <p class="expl"><strong>Réponse :</strong> Le succès est l'issue que l'on étudie.</p>
   </article>
+  <script>
+  (function () {
+    var n = 20;
+    var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+    if (cartes.length > n) {
+      for (var i = cartes.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = cartes[i]; cartes[i] = cartes[j]; cartes[j] = t;
+      }
+      var gardees = cartes.slice(0, n), parent = cartes[0].parentNode,
+          ancre = document.getElementById('fin');
+      gardees.forEach(function (c) { parent.insertBefore(c, ancre); });
+      cartes.slice(n).forEach(function (c) { c.remove(); });
+    }
+  })();
+  </script>
   <section class="fin" id="fin" hidden>
     <strong>Quiz terminé</strong>
     <p id="fin-texte"></p>

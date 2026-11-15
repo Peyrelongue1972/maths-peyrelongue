@@ -151,6 +151,22 @@
     <div class="choix"><button type="button" data-i="0">ils ont la même norme</button><button type="button" data-i="1">leur somme est nulle</button><button type="button" data-i="2">ils sont perpendiculaires</button><button type="button" data-i="3">il existe un réel $k$ tel que $ec{v}=kec{u}$</button></div>
     <p class="expl"><strong>Réponse :</strong> C'est la caractérisation par un coefficient de proportionnalité.</p>
   </article>
+  <script>
+  (function () {
+    var n = 20;
+    var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+    if (cartes.length > n) {
+      for (var i = cartes.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = cartes[i]; cartes[i] = cartes[j]; cartes[j] = t;
+      }
+      var gardees = cartes.slice(0, n), parent = cartes[0].parentNode,
+          ancre = document.getElementById('fin');
+      gardees.forEach(function (c) { parent.insertBefore(c, ancre); });
+      cartes.slice(n).forEach(function (c) { c.remove(); });
+    }
+  })();
+  </script>
   <section class="fin" id="fin" hidden>
     <strong>Quiz terminé</strong>
     <p id="fin-texte"></p>

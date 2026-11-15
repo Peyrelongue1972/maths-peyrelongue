@@ -151,6 +151,22 @@
     <div class="choix"><button type="button" data-i="0">aucune solution</button><button type="button" data-i="1">$x=0$ seulement</button><button type="button" data-i="2">$x=0$ ou $x=1$</button><button type="button" data-i="3">$x=1$ seulement</button></div>
     <p class="expl"><strong>Réponse :</strong> $x^{2}-x=0$ s'écrit $x(x-1)=0$.</p>
   </article>
+  <script>
+  (function () {
+    var n = 20;
+    var cartes = Array.prototype.slice.call(document.querySelectorAll('.question'));
+    if (cartes.length > n) {
+      for (var i = cartes.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = cartes[i]; cartes[i] = cartes[j]; cartes[j] = t;
+      }
+      var gardees = cartes.slice(0, n), parent = cartes[0].parentNode,
+          ancre = document.getElementById('fin');
+      gardees.forEach(function (c) { parent.insertBefore(c, ancre); });
+      cartes.slice(n).forEach(function (c) { c.remove(); });
+    }
+  })();
+  </script>
   <section class="fin" id="fin" hidden>
     <strong>Quiz terminé</strong>
     <p id="fin-texte"></p>
