@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coût de revient — fiche méthode (Terminale STMG)</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.cours{max-width:980px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.7rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.4rem}
+.onglets{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.45rem;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;justify-content:center;gap:.35rem;padding:.35rem .85rem;
+  border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet.actif{background:var(--couleur,#3182ce);border-color:var(--couleur,#3182ce);color:#fff;font-weight:600}
+h2{font-size:1.2rem;margin:1.8rem 0 .6rem;padding-bottom:.3rem;border-bottom:2px solid var(--couleur,#3182ce)}
+h3{font-size:1.02rem;margin:1.2rem 0 .4rem}
+table{border-collapse:collapse;width:100%;margin:.7rem 0 1.1rem;font-size:.94rem;background:#fff}
+th,td{border:1px solid var(--bord);padding:.45rem .6rem;text-align:center}
+th{background:#f1e7f7;font-weight:600}
+td.g,tfoot td{background:#fbf7fd;font-weight:600}
+.formule{background:#fbf7fd;border-left:4px solid var(--couleur,#3182ce);padding:.6rem .9rem;margin:.6rem 0;border-radius:0 8px 8px 0}
+.etapes{counter-reset:et;list-style:none;padding:0}
+.etapes li{counter-increment:et;margin:.5rem 0;padding-left:2.2rem;position:relative}
+.etapes li::before{content:counter(et);position:absolute;left:0;top:0;width:1.6rem;height:1.6rem;border-radius:50%;
+  background:var(--couleur,#3182ce);color:#fff;font-weight:700;font-size:.85rem;display:flex;align-items:center;justify-content:center}
+.note{background:#fffbea;border:1px solid #f0e0a0;border-radius:10px;padding:.7rem .9rem;margin:.8rem 0}
+
+.feuille{overflow-x:auto;margin:.9rem 0 1.3rem}
+table.feuille-t{border-collapse:collapse;font-size:.9rem;background:#fff;min-width:620px}
+table.feuille-t th,table.feuille-t td{border:1px solid #cfd6e0;padding:.35rem .55rem;text-align:center;vertical-align:middle}
+table.feuille-t thead th{background:#e8e8ee;color:#333;font-weight:700;font-size:.82rem}
+table.feuille-t td.entete-l{background:#f4f4f7;font-weight:700;white-space:nowrap;text-align:left}
+table.feuille-t td.cellule{min-width:86px}
+table.feuille-t td.cellule .ref{display:block;font-size:.68rem;color:#8a8a99;line-height:1}
+table.feuille-t td.cellule .formule{display:block;font-family:ui-monospace,Consolas,monospace;font-size:.78rem;color:#b5317e;line-height:1.15}
+table.feuille-t td.cellule .valeur{display:block;font-weight:700;color:#1a365d;line-height:1.2}
+table.feuille-t td.cellule.libelle{text-align:left;font-weight:600;color:#222}
+table.feuille-t td.cellule.total{background:#fbf7fd}
+.legende{font-size:.86rem;color:#444;margin:.2rem 0 .9rem}
+.legende span.f{font-family:ui-monospace,Consolas,monospace;color:#b5317e;font-weight:700}
+
+.enonce{background:#f7f4fb;border:1px solid #d9cbe8;border-radius:12px;padding:1rem 1.2rem;margin:1rem 0}
+.enonce h3{margin-top:0}
+.enonce ul{margin:.4rem 0 .8rem 1.1rem}
+.enonce ol.q{margin:.5rem 0 0 1.1rem}
+.enonce ol.q li{margin:.35rem 0}
+.enonce table{font-size:.9rem}
+code{background:#f4f0f8;padding:.05rem .3rem;border-radius:4px;font-size:.9em}
+</style>
+</head>
+<body style="--couleur:#6b46c1">
+<main class="cours">
+  <p><a href="../index.html#terminale-stmg">← Retour au site</a></p>
+  <h1>Coût de revient — fiche méthode</h1>
+  <p class="sous-titre">Terminale STMG · comptabilité · méthode des coûts complets</p>
+  <nav class="onglets" aria-label="Documents du chapitre">
+    <span class="onglet actif">Fiche méthode (web)</span>
+    <a class="onglet" href="../pdf/terminale-stmg/fiche-methode-cout-de-revient.pdf" target="_blank" rel="noopener">Fiche méthode (PDF)</a>
+    <a class="onglet" href="../pdf/terminale-stmg/fiche-methode-cout-de-revient-eleve.pdf" target="_blank" rel="noopener">Version élève (à trous)</a>
+    <a class="onglet" href="../pdf/terminale-stmg/td01-cout-de-revient-bd.pdf" target="_blank" rel="noopener">TD n°1 — Dossier BD</a>
+    <a class="onglet" href="../pdf/terminale-stmg/td02-cout-de-revient-recyclerie.pdf" target="_blank" rel="noopener">TD n°2 — Dossier recyclerie</a>
+    <a class="onglet" href="../pdf/terminale-stmg/td01-cout-de-revient-bd-corrige.pdf" target="_blank" rel="noopener">Corrigé TD n°1</a>
+    <a class="onglet" href="../pdf/terminale-stmg/td02-cout-de-revient-recyclerie-corrige.pdf" target="_blank" rel="noopener">Corrigé TD n°2</a>
+    <a class="onglet" href="../index.html#terminale-stmg">Retour au sommaire</a>
+  </nav>
+
+  <h2>1. Le principe des coûts complets</h2>
+  <p>Le coût complet d'un produit est la somme de <strong>toutes</strong> les charges qu'il a
+  consommées, de son achat jusqu'à sa vente :</p>
+  <div class="formule">
+    <strong>Coût complet = charges directes + charges indirectes</strong>
+  </div>
+  <table>
+    <thead><tr><th>Type de charge</th><th>Définition</th><th>Exemple</th></tr></thead>
+    <tbody>
+      <tr><td>Charge <strong>directe</strong></td><td>affectée sans calcul au produit</td><td>matière première, main-d'œuvre directe</td></tr>
+      <tr><td>Charge <strong>indirecte</strong></td><td>commune à plusieurs produits : il faut la répartir</td><td>loyer, électricité, administration</td></tr>
+    </tbody>
+  </table>
+  <p>Les charges indirectes sont regroupées dans des <strong>centres d'analyse</strong>, puis réparties
+  à l'aide d'une <strong>unité d'œuvre</strong> (une unité qui mesure l'activité du centre).</p>
+  <div class="formule">
+    <strong>Coût d'une unité d'œuvre</strong> = montant du centre ÷ nombre d'unités d'œuvre du centre
+  </div>
+
+  <h2>2. Le tableau de répartition des charges indirectes</h2>
+  <p>On construit un tableau à quatre lignes : montant à répartir, unité d'œuvre, nombre d'unités
+  d'œuvre, coût d'une unité d'œuvre.</p>
+
+  <h2>3. Les trois coûts à calculer, dans l'ordre</h2>
+  <table>
+    <thead><tr><th>Coût</th><th>Ce qu'il contient</th></tr></thead>
+    <tbody>
+      <tr><td class="g">Coût d'achat</td><td>+ prix d'achat des matières<br>+ charges indirectes du centre Approvisionnement</td></tr>
+      <tr><td class="g">Coût de production</td><td>+ coût d'achat<br>+ charges directes de production<br>+ charges indirectes (Tricotage, Montage…)</td></tr>
+      <tr><td class="g">Coût de revient</td><td>+ coût de production<br>+ charges indirectes du centre Distribution / Administration</td></tr>
+      <tr><td class="g">Résultat analytique</td><td>= chiffre d'affaires − coût de revient</td></tr>
+    </tbody>
+  </table>
+  <div class="formule">
+    <strong>Coût unitaire</strong> = montant total ÷ quantité &nbsp;•&nbsp;
+    <strong>Résultat</strong> = CA − coût de revient
+  </div>
+
+  <h2>4. Exemple corrigé — entreprise SOCKET (« Soufrières »)</h2>
+  <p><em>Énoncé.</em> Chaussettes « Soufrières » vendues 25 € HT ; billes de gel : 2 € par paire ;
+  charges directes de montage : 15 000 € ; production et vente : 10 000 paires ; 3 000 kg de laine
+  pour le tricotage ; 1 200 heures de main-d'œuvre pour le montage.</p>
+
+  <div class="enonce">
+    <h3>Énoncé de l'application</h3>
+    <p>Vous êtes comptable pour l'entreprise <strong>SOCKET</strong>, qui produit des chaussettes de
+    randonnée haut de gamme. La direction souhaite connaître le coût de revient d'un modèle de paire
+    de chaussettes, les « Soufrières », vendu <strong>25 € HT</strong>. Ce modèle dispose d'un élément
+    technique unique : des billes de gel intégrées pour faciliter la marche.</p>
+
+    <p>On vous communique les informations suivantes :</p>
+    <ul>
+      <li>coût d'achat des billes de gel : <strong>2 € par paire</strong> ;</li>
+      <li>coût de production direct lié au montage des chaussettes : <strong>15 000 €</strong> ;</li>
+      <li>quantité de paires de « Soufrières » produites et vendues : <strong>10 000</strong>.</li>
+    </ul>
+
+    <p>On vous transmet également le tableau de répartition des charges indirectes :</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Centres d'analyse</th>
+          <th>Approvisionnement</th>
+          <th colspan="2">Production</th>
+          <th>Distribution / Administration</th>
+        </tr>
+        <tr>
+          <th></th><th></th><th>Tricotage</th><th>Montage</th><th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="g">Montant à répartir</td><td>37 000 €</td><td>50 000 €</td><td>57 000 €</td><td>63 000 €</td></tr>
+        <tr><td class="g">Unité d'œuvre</td><td>kg de laine acheté</td><td>kg de laine utilisé</td><td>heure de main-d'œuvre</td><td>paire de chaussettes vendue</td></tr>
+        <tr><td class="g">Nombre d'unités d'œuvre</td><td>5 400</td><td>5 400</td><td>4 000</td><td>45 000</td></tr>
+        <tr><td class="g">Coût d'une unité d'œuvre</td><td>…</td><td>…</td><td>…</td><td>…</td></tr>
+      </tbody>
+    </table>
+
+    <p>Afin de calculer le coût de production, il vous est précisé que SOCKET utilise
+    <strong>3 000 kg de laine</strong> pour le tricotage des Soufrières, qui nécessitent
+    <strong>1 200 heures de main-d'œuvre</strong> pour le montage.</p>
+
+    <ol class="q">
+      <li><strong>Complétez</strong> le tableau de répartition des charges indirectes sur tableur, en
+      utilisant les formules adaptées.</li>
+      <li><strong>Calculez</strong> le coût de revient d'une paire de Soufrières sur tableur, en vous
+      appuyant sur les tableaux fournis et en utilisant les formules adaptées.</li>
+      <li><strong>Concluez</strong> sur la rentabilité des chaussettes Soufrières.</li>
+      <li><strong>Proposez</strong> une solution de réduction des coûts afin d'accroître le résultat.</li>
+    </ol>
+  </div>
+
+
+  <h3>a) Tableau de répartition des charges indirectes</h3>
+  <table>
+    <thead>
+      <tr><th>Centres d'analyse</th><th>Approvisionnement</th><th>Tricotage</th><th>Montage</th><th>Distribution / Administration</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="g">Montant à répartir</td><td>37 000 €</td><td>50 000 €</td><td>57 000 €</td><td>63 000 €</td></tr>
+      <tr><td class="g">Unité d'œuvre</td><td>kg de laine acheté</td><td>kg de laine utilisé</td><td>heure de main-d'œuvre</td><td>paire vendue</td></tr>
+      <tr><td class="g">Nombre d'unités d'œuvre</td><td>5 400</td><td>5 400</td><td>4 000</td><td>45 000</td></tr>
+      <tr><td class="g">Coût d'une unité d'œuvre</td><td>6,8519 €</td><td>9,2593 €</td><td>14,25 €</td><td>1,40 €</td></tr>
+    </tbody>
+  </table>
+  <p><em>Détail :</em> 37 000 ÷ 5 400 ≈ 6,8519 &nbsp;·&nbsp; 50 000 ÷ 5 400 ≈ 9,2593 &nbsp;·&nbsp;
+  57 000 ÷ 4 000 = 14,25 &nbsp;·&nbsp; 63 000 ÷ 45 000 = 1,40.</p>
+
+  <h3>b) Coût d'achat des 10 000 paires</h3>
+  <table>
+    <thead><tr><th>Éléments</th><th>Quantité</th><th>Coût unitaire</th><th>Montant</th></tr></thead>
+    <tbody>
+      <tr><td>Achat des billes de gel</td><td>10 000</td><td>2,00 €</td><td>20 000,00 €</td></tr>
+      <tr><td>Charges indirectes — approvisionnement</td><td>10 000</td><td>6,8519 €</td><td>68 518,52 €</td></tr>
+      <tr><td class="g">Coût d'achat</td><td>10 000</td><td>8,8519 €</td><td>88 518,52 €</td></tr>
+    </tbody>
+  </table>
+
+  <h3>c) Coût de production des 10 000 paires</h3>
+  <table>
+    <thead><tr><th>Éléments</th><th>Quantité</th><th>Coût unitaire</th><th>Montant</th></tr></thead>
+    <tbody>
+      <tr><td>Coût d'achat</td><td>10 000</td><td>8,8519 €</td><td>88 518,52 €</td></tr>
+      <tr><td>Charges directes — montage</td><td>10 000</td><td>1,50 €</td><td>15 000,00 €</td></tr>
+      <tr><td>Charges indirectes — tricotage (3 000 kg)</td><td>3 000</td><td>9,2593 €</td><td>27 777,78 €</td></tr>
+      <tr><td>Charges indirectes — montage (1 200 h)</td><td>1 200</td><td>14,25 €</td><td>17 100,00 €</td></tr>
+      <tr><td class="g">Coût de production</td><td>10 000</td><td>14,8396 €</td><td>148 396,30 €</td></tr>
+    </tbody>
+  </table>
+
+  <h3>d) Coût de revient et résultat</h3>
+  <table>
+    <thead><tr><th>Éléments</th><th>Quantité</th><th>Coût unitaire</th><th>Montant</th></tr></thead>
+    <tbody>
+      <tr><td>Coût de production</td><td>10 000</td><td>14,8396 €</td><td>148 396,30 €</td></tr>
+      <tr><td>Charges indirectes — distribution / administration</td><td>10 000</td><td>1,40 €</td><td>14 000,00 €</td></tr>
+      <tr><td class="g">Coût de revient</td><td>10 000</td><td>16,2396 €</td><td>162 396,30 €</td></tr>
+      <tr><td>Chiffre d'affaires (10 000 × 25 €)</td><td>10 000</td><td>25,00 €</td><td>250 000,00 €</td></tr>
+      <tr><td class="g">Résultat analytique</td><td>10 000</td><td>8,7604 €</td><td>87 603,70 €</td></tr>
+    </tbody>
+  </table>
+  <div class="note">
+    <strong>Conclusion.</strong> Le coût de revient unitaire (16,24 €) est inférieur au prix de vente
+    (25 €) : la production des « Soufrières » est <strong>rentable</strong> et dégage un résultat
+    analytique de <strong>87 603,70 €</strong> pour 10 000 paires.
+  </div>
+
+  <h2>5. La méthode en six étapes</h2>
+  <ol class="etapes">
+    <li><strong>Lire l'énoncé</strong> et repérer charges directes, charges indirectes, quantités produites et vendues.</li>
+    <li><strong>Remplir le tableau de répartition</strong> : montants, unités d'œuvre, nombre d'unités d'œuvre.</li>
+    <li><strong>Calculer le coût d'une unité d'œuvre</strong> pour chaque centre (montant ÷ nombre d'unités).</li>
+    <li><strong>Calculer le coût d'achat</strong> (prix d'achat + centre Approvisionnement).</li>
+    <li><strong>Calculer le coût de production</strong> (coût d'achat + charges directes + centres de production).</li>
+    <li><strong>Calculer le coût de revient puis le résultat</strong> (coût de production + Distribution / Administration, puis CA − coût de revient).</li>
+  </ol>
+
+
+
+  <h2>6. Les formules dans un tableur</h2>
+  <p>On repère chaque cellule par sa <strong>colonne</strong> (A, B, C, D…) et sa
+  <strong>ligne</strong> (1, 2, 3…). Une formule commence toujours par <code>=</code> et
+  <strong>utilise des références</strong> de cellules : on peut ainsi la recopier sans la réécrire.</p>
+  <p class="legende">Dans les feuilles ci-dessous, la formule saisie apparaît en
+  <span class="f">rose</span> au-dessus du résultat affiché par le tableur, en <strong>bleu</strong>.</p>
+
+  <h3>a) Tableau de répartition : le coût d'une unité d'œuvre</h3>
+  <div class="feuille">
+<table class="feuille-t">
+<thead><tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th></tr></thead>
+<tbody>
+<tr><th>3</th><td class="cellule libelle">Centres d'analyse</td><td class="cellule"><span class="entete-l">Approvisionnement</span></td><td class="cellule"><span class="entete-l">Tricotage</span></td><td class="cellule"><span class="entete-l">Montage</span></td><td class="cellule"><span class="entete-l">Distribution</span></td></tr>
+<tr><th>5</th><td class="cellule libelle">Montant à répartir</td><td class="cellule"><span class="valeur">37 000 €</span></td><td class="cellule"><span class="valeur">50 000 €</span></td><td class="cellule"><span class="valeur">57 000 €</span></td><td class="cellule"><span class="valeur">63 000 €</span></td></tr>
+<tr><th>6</th><td class="cellule libelle">Unité d'œuvre</td><td class="cellule">kg laine acheté</td><td class="cellule">kg laine utilisé</td><td class="cellule">heure MO</td><td class="cellule">paire vendue</td></tr>
+<tr><th>7</th><td class="cellule libelle">Nombre d'unités d'œuvre</td><td class="cellule"><span class="valeur">5 400</span></td><td class="cellule"><span class="valeur">5 400</span></td><td class="cellule"><span class="valeur">4 000</span></td><td class="cellule"><span class="valeur">45 000</span></td></tr>
+<tr><th>8</th><td class="cellule libelle total">Coût d'une unité d'œuvre</td><td class="cellule total"><span class="formule">=B5/B7</span><span class="valeur">6,8519 €</span></td><td class="cellule total"><span class="formule">=C5/C7</span><span class="valeur">9,2593 €</span></td><td class="cellule total"><span class="formule">=D5/D7</span><span class="valeur">14,25 €</span></td><td class="cellule total"><span class="formule">=E5/E7</span><span class="valeur">1,40 €</span></td></tr>
+</tbody>
+</table>
+</div>
+  <p class="legende">Une seule formule saisie en <strong>B8</strong> puis recopiée vers la droite :
+  les références se décalent seules (=C5/C7, =D5/D7, =E5/E7).</p>
+
+  <h3>b) Coût d'achat : quantité × coût unitaire</h3>
+  <div class="feuille">
+<table class="feuille-t">
+<thead><tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th></tr></thead>
+<tbody>
+<tr><th>11</th><td class="cellule libelle"></td><td class="cellule">Quantités</td><td class="cellule">Coût unitaire</td><td class="cellule">Montant</td></tr>
+<tr><th>12</th><td class="cellule libelle">Achat des billes de gel</td><td class="cellule"><span class="valeur">10 000</span></td><td class="cellule"><span class="valeur">2,00 €</span></td><td class="cellule"><span class="formule">=B12*C12</span><span class="valeur">20 000,00 €</span></td></tr>
+<tr><th>13</th><td class="cellule libelle">Charges indirectes — approvisionnement</td><td class="cellule"><span class="valeur">10 000</span></td><td class="cellule"><span class="formule">=B8</span><span class="valeur">6,8519 €</span></td><td class="cellule"><span class="formule">=B13*C13</span><span class="valeur">68 518,52 €</span></td></tr>
+<tr><th>14</th><td class="cellule libelle total">Coût d'achat</td><td class="cellule total"><span class="formule">=B12</span><span class="valeur">10 000</span></td><td class="cellule total"><span class="formule">=D14/B14</span><span class="valeur">8,8519 €</span></td><td class="cellule total"><span class="formule">=D12+D13</span><span class="valeur">88 518,52 €</span></td></tr>
+</tbody>
+</table>
+</div>
+  <p class="legende">En <strong>C13</strong>, on ne recopie pas le nombre : on écrit <strong>=B8</strong>,
+  qui renvoie au coût de l'unité d'œuvre. Si la donnée change, toute la feuille se recalcule.</p>
+
+  <h3>c) Coût de production et coût de revient</h3>
+  <div class="feuille">
+<table class="feuille-t">
+<thead><tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th></tr></thead>
+<tbody>
+<tr><th>17</th><td class="cellule libelle"></td><td class="cellule">Quantités</td><td class="cellule">Coût unitaire</td><td class="cellule">Montant</td></tr>
+<tr><th>18</th><td class="cellule libelle">Coût d'achat</td><td class="cellule"><span class="formule">=B14</span><span class="valeur">10 000</span></td><td class="cellule"><span class="formule">=C14</span><span class="valeur">8,8519 €</span></td><td class="cellule"><span class="formule">=D14</span><span class="valeur">88 518,52 €</span></td></tr>
+<tr><th>19</th><td class="cellule libelle">Charges directes — montage</td><td class="cellule"><span class="valeur">10 000</span></td><td class="cellule"><span class="formule">=D19/B19</span><span class="valeur">1,50 €</span></td><td class="cellule"><span class="valeur">15 000,00 €</span></td></tr>
+<tr><th>20</th><td class="cellule libelle">Charges indirectes — tricotage (3 000 kg)</td><td class="cellule"><span class="valeur">3 000</span></td><td class="cellule"><span class="formule">=C8</span><span class="valeur">9,2593 €</span></td><td class="cellule"><span class="formule">=B20*C20</span><span class="valeur">27 777,78 €</span></td></tr>
+<tr><th>21</th><td class="cellule libelle">Charges indirectes — montage (1 200 h)</td><td class="cellule"><span class="valeur">1 200</span></td><td class="cellule"><span class="formule">=D8</span><span class="valeur">14,25 €</span></td><td class="cellule"><span class="formule">=B21*C21</span><span class="valeur">17 100,00 €</span></td></tr>
+<tr><th>22</th><td class="cellule libelle total">Coût de production</td><td class="cellule total"><span class="formule">=B22</span><span class="valeur">10 000</span></td><td class="cellule total"><span class="formule">=D22/B22</span><span class="valeur">14,8396 €</span></td><td class="cellule total"><span class="formule">=SOMME(D18:D21)</span><span class="valeur">148 396,30 €</span></td></tr>
+<tr><th>26</th><td class="cellule libelle">Coût de production</td><td class="cellule"><span class="formule">=B22</span><span class="valeur">10 000</span></td><td class="cellule"><span class="formule">=C22</span><span class="valeur">14,8396 €</span></td><td class="cellule"><span class="formule">=D22</span><span class="valeur">148 396,30 €</span></td></tr>
+<tr><th>27</th><td class="cellule libelle">Charges indirectes — distribution</td><td class="cellule"><span class="valeur">10 000</span></td><td class="cellule"><span class="formule">=E8</span><span class="valeur">1,40 €</span></td><td class="cellule"><span class="formule">=B27*C27</span><span class="valeur">14 000,00 €</span></td></tr>
+<tr><th>28</th><td class="cellule libelle total">Coût de revient</td><td class="cellule total"><span class="formule">=B28</span><span class="valeur">10 000</span></td><td class="cellule total"><span class="formule">=D28/B28</span><span class="valeur">16,2396 €</span></td><td class="cellule total"><span class="formule">=D26+D27</span><span class="valeur">162 396,30 €</span></td></tr>
+</tbody>
+</table>
+</div>
+  <p class="legende"><strong>=SOMME(D18:D21)</strong> additionne une plage de cellules ; le coût
+  unitaire <strong>=D22/B22</strong> se déduit du montant et de la quantité.</p>
+
+  <h3>d) Résultat analytique</h3>
+  <div class="feuille">
+<table class="feuille-t">
+<thead><tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th></tr></thead>
+<tbody>
+<tr><th>31</th><td class="cellule libelle"></td><td class="cellule">Quantités</td><td class="cellule">Coût unitaire</td><td class="cellule">Montant</td></tr>
+<tr><th>32</th><td class="cellule libelle">Chiffre d'affaires</td><td class="cellule"><span class="valeur">10 000</span></td><td class="cellule"><span class="valeur">25,00 €</span></td><td class="cellule"><span class="formule">=B32*C32</span><span class="valeur">250 000,00 €</span></td></tr>
+<tr><th>33</th><td class="cellule libelle">Coût de revient</td><td class="cellule"><span class="formule">=B28</span><span class="valeur">10 000</span></td><td class="cellule"><span class="formule">=C28</span><span class="valeur">16,2396 €</span></td><td class="cellule"><span class="formule">=B33*C33</span><span class="valeur">162 396,30 €</span></td></tr>
+<tr><th>34</th><td class="cellule libelle total">Résultat</td><td class="cellule total"><span class="valeur">10 000</span></td><td class="cellule total"><span class="formule">=C32-C33</span><span class="valeur">8,7604 €</span></td><td class="cellule total"><span class="formule">=D32-D33</span><span class="valeur">87 603,70 €</span></td></tr>
+</tbody>
+</table>
+</div>
+
+  <div class="note">
+    <strong>Les cinq formules à retenir</strong>
+    <table>
+      <thead><tr><th>Ce que l'on calcule</th><th>Formule du tableur</th></tr></thead>
+      <tbody>
+        <tr><td>Coût d'une unité d'œuvre</td><td><code>=B5/B7</code> — montant ÷ nombre d'unités d'œuvre</td></tr>
+        <tr><td>Montant d'une ligne</td><td><code>=B12*C12</code> — quantité × coût unitaire</td></tr>
+        <tr><td>Total d'un coût</td><td><code>=SOMME(D18:D21)</code> ou <code>=D12+D13</code></td></tr>
+        <tr><td>Coût unitaire</td><td><code>=D14/B14</code> — montant ÷ quantité</td></tr>
+        <tr><td>Résultat analytique</td><td><code>=D32-D33</code> — chiffre d'affaires − coût de revient</td></tr>
+      </tbody>
+    </table>
+    <p style="margin:.5rem 0 0"><strong>Bon réflexe :</strong> une formule contenant une
+    <strong>référence</strong> (=B8, =C14, =D22) vaut mieux qu'un nombre recopié à la main.</p>
+  </div>
+
+  <h2>7. Pour s'entraîner</h2>
+  <p>Reprendre l'énoncé de l'application SOCKET en modifiant une donnée (par exemple le prix des
+  billes de gel, ou le nombre de paires vendues) et vérifier l'effet sur le coût de revient unitaire
+  et sur le résultat analytique.</p>
+
+  <p style="margin-top:1.8rem"><a href="../index.html#terminale-stmg">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>
