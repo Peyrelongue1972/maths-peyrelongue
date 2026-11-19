@@ -72,7 +72,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
   <h1>Les fonctions – limites</h1>
   <p class="sous-titre">Terminale complémentaire · Chapitre 2 — Les fonctions - limites · cours de Frederik de Peyrelongue</p>
 <nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Les fonctions - limites</span><a class="onglet" href="../pdf/terminale-complementaire/2-les-fonctions-limites.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/terminale-complementaire/td02-recherche-de-limites.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../quiz/terminale-complementaire-2.html" target="_blank" rel="noopener">Quiz</a></nav>
-<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Rappels sur la dérivation</a></li><li><a href="#s2">II Limite d'une fonction à l'infini</a></li><li><a href="#s3">III Limite d'une fonction en un réel $A$</a></li><li><a href="#s4">IV Opérations sur les limites</a></li></ol></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Rappels sur la dérivation</a></li><li><a href="#s2">II Limite d'une fonction à l'infini</a></li><li><a href="#s3">III Limite d'une fonction en un réel $A$</a></li><li><a href="#s4">IV Opérations sur les limites</a></li><li><a href="#s5">V Théorèmes de comparaison et croissances comparées</a></li></ol></nav>
 <h2 id="s1"><span class="num-section">I.</span> Rappels sur la dérivation</h2>
 <p>Le nombre dérivé $f'(a)$ de la fonction $f$ en un point $M\bigl(a\,;f(a)\bigr)$ correspond à la pente de la tangente à la courbe au point $M$.</p>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Équation de la tangente</span><div class="boite-corps"><p>L'équation de la tangente au point $A\bigl(a\,;f(a)\bigr)$ :</p>
@@ -102,7 +102,7 @@ T : y=f'(a)(x-a)+f(a) .
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Asymptote horizontale</span><div class="boite-corps"><ul><li>La droite d'équation $y=L$ est <strong>asymptote horizontale</strong> à la courbe représentative de la fonction $f$ en $+\infty$ si $\limx{x}{+\infty} f(x)=L$.</li><li>La droite d'équation $y=L$ est <strong>asymptote horizontale</strong> à la courbe représentative de la fonction $f$ en $-\infty$ si $\limx{x}{-\infty} f(x)=L$.</li></ul></div></section>
 <figure class="figure-cours"><img src="img/terminale-complementaire-ch02-fig03.png" alt="figure 3 du cours"></figure>
 <p><strong>Remarque :</strong> lorsque $x$ tend vers $+\infty$, la courbe de la fonction « se rapproche » de son asymptote. La distance $MN$ tend vers $0$.</p>
-<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$f(x)=5+\dfrac{1}{x}$</span><div class="boite-corps"><p>Lorsque $x$ devient très grand, la fonction $f$ se rapproche de $5$ de plus en plus, sans le toucher :</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$f(x)=5+\dfrac{1}{x}$</span><div class="boite-corps"><p>{ex:cinq} Lorsque $x$ devient très grand, la fonction $f$ se rapproche de $5$ de plus en plus, sans le toucher :</p>
 <div class="maths">\[
 \limx{x}{+\infty} f(x)=5 .
 \]</div>
@@ -117,7 +117,7 @@ T : y=f'(a)(x-a)+f(a) .
 \limx{x}{+\infty} f(x)=-\infty .
 \]</div></div></section>
 <figure class="figure-cours"><img src="img/terminale-complementaire-ch02-fig04.png" alt="figure 4 du cours"></figure>
-<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$f(x)=x^{2}$</span><div class="boite-corps"><p>La fonction définie par $f(x)=x^{2}$ a pour limite $+\infty$ lorsque $x$ tend vers $+\infty$.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$f(x)=x^{2}$</span><div class="boite-corps"><p>{ex:carre} La fonction définie par $f(x)=x^{2}$ a pour limite $+\infty$ lorsque $x$ tend vers $+\infty$.</p>
 <p>En effet, les valeurs de la fonction deviennent aussi grandes que l'on souhaite dès que $x$ est suffisamment grand.</p>
 <p>Si on prend un réel $a$ quelconque, l'intervalle $]a\,;+\infty[$ contient toutes les valeurs de la fonction dès que $x$ est suffisamment grand.</p></div></section>
 <h3>Limites des fonctions usuelles</h3>
@@ -164,7 +164,7 @@ T : y=f'(a)(x-a)+f(a) .
 \]</div>
 <h3>Limite d'un quotient</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Limite d'un quotient de fonction</span><div class="boite-corps"><p> $\infty$ désigne $+\infty$ ou $-\infty$</p>
-<table class="tableau"><tr><td>$\limx{x}{\alpha} f(x)=$</td><td>$L$</td><td>$L\neq 0$</td><td>$L$</td><td>$\infty$</td><td>$\infty$</td></tr><tr><td>$\limx{x}{\alpha} g(x)=$</td><td>$L'\neq 0$</td><td>$0$</td><td>$\infty$</td><td>$L$</td><td>$\infty$</td></tr><tr><td>$\limx{x}{\alpha} \dfrac{f(x)}{g(x)}=$</td><td>$\dfrac{L}{L'}$</td><td>$\infty$</td><td>$0$</td><td>$0$</td><td>F.I.</td></tr></table>
+<table class="tableau"><tr><td>$\limx{x}{\alpha} f(x)=$</td><td>$L$</td><td>$L\neq 0$</td><td>$L$</td><td>$\infty$</td><td>$\infty$</td></tr><tr><td>$\limx{x}{\alpha} g(x)=$</td><td>$L'\neq 0$</td><td>$0$</td><td>$\infty$</td><td>$L$</td><td>$\infty$</td></tr><tr><td>$\limx{x}{\alpha} \dfrac{f(x)}{g(x)}=$</td><td>$\dfrac{L}{L'}$</td><td>$\infty$</td><td>$0$</td><td>$\infty$</td><td>F.I.</td></tr></table>
 <p>On applique la règle des signes pour déterminer si le quotient est $+\infty$ ou $-\infty$.</p></div></section>
 <p><strong>Exemple :</strong> $\limx{x}{3}\dfrac{1-2x}{x-3}$ ?</p>
 <p>$\limx{x}{3} 1-2x=-5$.</p>
@@ -254,6 +254,88 @@ T : y=f'(a)(x-a)+f(a) .
 <div class="maths">\[
 \limx{x}{-\infty}\frac{3x^{2}+2}{4x-1}=-\infty .
 \]</div>
+<h2 id="s5"><span class="num-section">V.</span> Théorèmes de comparaison et croissances comparées</h2>
+<h3>Théorème de comparaison</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">de comparaison</span><div class="boite-corps"><p>Soient $f$ et $g$ deux fonctions définies au voisinage de $A$ (réel ou infini).</p>
+<ul><li>Si $f(x)\geqslant g(x)$ au voisinage de $A$ et si $\limx{x}{A} g(x)=+\infty$, alors $\limx{x}{A} f(x)=+\infty$.</li><li>Si $f(x)\leqslant g(x)$ au voisinage de $A$ et si $\limx{x}{A} g(x)=-\infty$, alors $\limx{x}{A} f(x)=-\infty$.</li></ul></div></section>
+<section class="boite boite-info"><span class="boite-titre">Info</span> <span class="boite-sous-titre">Méthode d'application</span><div class="boite-corps"><p>On <strong>minore</strong> (ou majore) la fonction par une fonction plus simple dont on sait calculer la limite, puis on conclut à l'aide du théorème.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Application : fonction avec un sinus</span><div class="boite-corps"><p>On considère la fonction $f$ définie sur $\mathbb{R}$ par $f(x)=x+\sin(x)$. Pour tout réel $x$, on a $-1\leqslant \sin(x)\leqslant 1$, donc</p>
+<div class="maths">\[
+f(x)=x+\sin(x)\geqslant x-1 .
+\]</div>
+<p>Or $\limx{x}{+\infty}(x-1)=+\infty$. Par comparaison, on en déduit :</p>
+<div class="maths">\[
+\limx{x}{+\infty} f(x)=+\infty .
+\]</div>
+<p>De la même manière, $f(x)\leqslant x+1$ et $\limx{x}{-\infty}(x+1)=-\infty$, donc $\limx{x}{-\infty} f(x)=-\infty$.</p></div></section>
+<h3>Théorème des gendarmes (encadrement)</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">des gendarmes (encadrement)</span><div class="boite-corps"><p>Soient $f$, $g$ et $h$ trois fonctions définies au voisinage de $A$. Si, au voisinage de $A$,</p>
+<div class="maths">\[
+g(x)\leqslant f(x)\leqslant h(x)
+\qquad\text{et}\qquad
+\limx{x}{A} g(x)=\limx{x}{A} h(x)=\ell ,
+\]</div>
+<p>alors</p>
+<div class="maths">\[
+\limx{x}{A} f(x)=\ell .
+\]</div></div></section>
+<section class="boite boite-info"><span class="boite-titre">Info</span> <span class="boite-sous-titre">Méthode d'application</span><div class="boite-corps"><p>On <strong>encadre</strong> la fonction entre deux fonctions qui ont la <strong>même limite</strong> $\ell$ : la fonction « prise en sandwich » a alors nécessairement pour limite $\ell$.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Application : sinus divisé par $x$</span><div class="boite-corps"><p>On considère la fonction $f$ définie sur $\left]0\,;+\infty\right[$ par $f(x)=\dfrac{\sin(x)}{x}$. Pour tout $x&gt;0$, on a $-1\leqslant \sin(x)\leqslant 1$, donc en divisant par $x&gt;0$ :</p>
+<div class="maths">\[
+-\frac{1}{x}\leqslant \frac{\sin(x)}{x}\leqslant \frac{1}{x} .
+\]</div>
+<p>Or $\limx{x}{+\infty}\left(-\dfrac{1}{x}\right)=0$ et $\limx{x}{+\infty}\dfrac{1}{x}=0$. D'après le théorème des gendarmes :</p>
+<div class="maths">\[
+\limx{x}{+\infty}\frac{\sin(x)}{x}=0 .
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Application : fonction affine encadrée</span><div class="boite-corps"><p>On considère $f(x)=3+\dfrac{\cos(x)}{x}$ sur $\left]0\,;+\infty\right[$. Comme $-1\leqslant \cos(x)\leqslant 1$, on obtient</p>
+<div class="maths">\[
+3-\frac{1}{x}\leqslant f(x)\leqslant 3+\frac{1}{x} .
+\]</div>
+<p>Les deux fonctions encadrantes tendent vers $3$ quand $x$ tend vers $+\infty$ ; donc</p>
+<div class="maths">\[
+\limx{x}{+\infty} f(x)=3 .
+\]</div></div></section>
+<h3>Théorèmes de croissances comparées</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">de croissances comparées</span><div class="boite-corps"><p>Au voisinage de $+\infty$, la fonction exponentielle « l'emporte » sur toute puissance de $x$, et toute puissance de $x$ « l'emporte » sur le logarithme :</p>
+<div class="maths">\[
+\limx{x}{+\infty}\frac{\mathrm{e}^{x}}{x^{n}}=+\infty
+\qquad
+\limx{x}{+\infty}\frac{x^{n}}{\mathrm{e}^{x}}=0
+\qquad
+\limx{x}{+\infty}\frac{\ln(x)}{x^{n}}=0
+\]</div>
+<p>pour tout entier $n\geqslant 1$. De plus, au voisinage de $-\infty$ :</p>
+<div class="maths">\[
+\limx{x}{-\infty}x^{n}\mathrm{e}^{x}=0 .
+\]</div></div></section>
+<section class="boite boite-info"><span class="boite-titre">Info</span> <span class="boite-sous-titre">Méthode d'application</span><div class="boite-corps"><p>Pour lever une indétermination du type « $\dfrac{\infty}{\infty}$ » ou « $\infty\times0$ » avec une exponentielle ou un logarithme, on fait apparaître un quotient de la forme $\dfrac{\mathrm{e}^{x}}{x^{n}}$, $\dfrac{x^{n}}{\mathrm{e}^{x}}$ ou $\dfrac{\ln(x)}{x^{n}}$, puis on applique les théorèmes de croissances comparées.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Application : quotient avec une exponentielle</span><div class="boite-corps"><p>Calculons la limite en $+\infty$ de $f(x)=\dfrac{x+1}{\mathrm{e}^{x}}$. On sépare les deux termes :</p>
+<div class="maths">\[
+f(x)=\frac{x}{\mathrm{e}^{x}}+\frac{1}{\mathrm{e}^{x}} .
+\]</div>
+<p>Or, par croissances comparées, $\limx{x}{+\infty}\dfrac{x}{\mathrm{e}^{x}}=0$ et $\limx{x}{+\infty}\dfrac{1}{\mathrm{e}^{x}}=0$. Par limite d'une somme :</p>
+<div class="maths">\[
+\limx{x}{+\infty}\frac{x+1}{\mathrm{e}^{x}}=0 .
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Application : produit avec une exponentielle en $-\infty$</span><div class="boite-corps"><p>Calculons la limite en $-\infty$ de $f(x)=(x^{2}+3x)\,\mathrm{e}^{x}$. On factorise par $x^{2}$ :</p>
+<div class="maths">\[
+f(x)=x^{2}\left(1+\frac{3}{x}\right)\mathrm{e}^{x}
+=x^{2}\mathrm{e}^{x}\times\left(1+\frac{3}{x}\right).
+\]</div>
+<p>Or $\limx{x}{-\infty}x^{2}\mathrm{e}^{x}=0$ (croissances comparées) et $\limx{x}{-\infty}\left(1+\dfrac{3}{x}\right)=1$. Par limite d'un produit :</p>
+<div class="maths">\[
+\limx{x}{-\infty} f(x)=0 .
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Application : logarithme divisé par $x$</span><div class="boite-corps"><p>Calculons la limite en $+\infty$ de $f(x)=\dfrac{\ln(x)+2}{x}$. On sépare :</p>
+<div class="maths">\[
+f(x)=\frac{\ln(x)}{x}+\frac{2}{x} .
+\]</div>
+<p>Par croissances comparées, $\limx{x}{+\infty}\dfrac{\ln(x)}{x}=0$, et $\limx{x}{+\infty}\dfrac{2}{x}=0$. Par limite d'une somme :</p>
+<div class="maths">\[
+\limx{x}{+\infty}\frac{\ln(x)+2}{x}=0 .
+\]</div></div></section>
+<section class="boite boite-rem"><span class="boite-titre">Remarque</span><div class="boite-corps"><p><strong>Attention :</strong> les théorèmes de croissances comparées ne dispensent pas de vérifier la forme de l'expression : il faut d'abord <strong>transformer</strong> l'écriture (factoriser, séparer, diviser) pour faire apparaître un quotient comparable à ceux du théorème.</p></div></section>
   <p style="margin-top:2.5rem"><a href="../index.html#terminale-complementaire">← Retour au site</a></p>
 </main>
 <script src="../assets/acces.js"></script>
