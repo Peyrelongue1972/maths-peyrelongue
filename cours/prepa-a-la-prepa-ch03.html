@@ -74,7 +74,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 <nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Convergence des suites réelles</span><a class="onglet" href="../pdf/prepa-a-la-prepa/3-convergence-des-suites-reelles.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/prepa-a-la-prepa/td01-convergence-des-suites.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/prepa-a-la-prepa/td02-suites-recurrentes-et-point-fixe.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../pdf/prepa-a-la-prepa/fiche-methode-newton.pdf" target="_blank" rel="noopener">Fiche méthode</a></nav>
 <nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Structure d'ordre de l'ensemble des réels</a></li><li><a href="#s2">II Convergence de suites</a></li><li><a href="#s3">III Théorèmes d'existence de limite</a></li></ol></nav>
 <h2 id="s1"><span class="num-section">I.</span> Structure d'ordre de l'ensemble des réels</h2>
-<h3>Relation d'ordre</h3>
+<h3><span class="num-section">I.1</span> Relation d'ordre</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Relation d'ordre</span><div class="boite-corps"><ul><li>Une relation d'ordre est une relation <strong>réflexive</strong>, <strong>antisymétrique</strong> et <strong>transitive</strong>.</li><li>Un ensemble muni d'une relation d'ordre est un <strong>ensemble ordonné</strong>.</li></ul></div></section>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Caractérisation</span><div class="boite-corps"><p>La relation $\leqslant$ sur un ensemble $E$ est une relation d'ordre si, et seulement si :</p>
 <ul><li>$x\leqslant x$ pour tout $x\in E$  <em>(réflexivité)</em> ;</li><li>$x\leqslant y$ et $y\leqslant x\ \Rightarrow\ x=y$  <em>(antisymétrie)</em> ;</li><li>$\forall x,y,z\in E$, $x\leqslant y$ et $y\leqslant z\ \Rightarrow\ x\leqslant z$  <em>(transitivité)</em>.</li></ul></div></section>
@@ -82,7 +82,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Éléments comparables</span><div class="boite-corps"><ul><li>Deux éléments $a$ et $b$ d'un ensemble $E$ sont dits <strong>comparables</strong> si $a\leqslant b$ ou $b\leqslant a$.</li><li>Si dans un ensemble ordonné il existe deux éléments non comparables, l'ordre est dit <strong>partiel</strong>, sinon il est <strong>total</strong>.</li></ul></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Ordre partiel</span><div class="boite-corps"><p>Soit $E$ un ensemble. La relation d'inclusion $\subset$ sur l'ensemble $\mathcal{P}(E)$ des parties de $E$ est une relation d'ordre partielle. En effet, il n'est pas possible de comparer toutes les parties de $E$ : il suffit de prendre deux sous-ensembles $A$ et $B$ d'intersection non vide, dont aucun n'est inclus dans l'autre.</p></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Ordre total</span><div class="boite-corps"><p>$\R$ muni de la relation d'ordre $\leqslant$ est totalement ordonné.</p></div></section>
-<h3>Parties d'un ensemble ordonné</h3>
+<h3><span class="num-section">I.2</span> Parties d'un ensemble ordonné</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Majorant, minorant, bornes</span><div class="boite-corps"><p>Soit $A$ une partie d'un ensemble ordonné $E$ dont la relation d'ordre est notée $\leqslant$.</p>
 <ul><li>Un élément $a$ de $E$ est un <strong>majorant</strong> de $A$ si $\forall x\in A$, $x\leqslant a$.</li><li>Un élément $a$ de $E$ est un <strong>minorant</strong> de $A$ si $\forall x\in A$, $a\leqslant x$.</li><li>Une partie $A$ est <strong>majorée</strong> si elle possède un majorant, <strong>minorée</strong> si elle possède un minorant, et <strong>bornée</strong> si elle possède un majorant et un minorant.</li></ul></div></section>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Maximum et minimum</span><div class="boite-corps"><ul><li>Un élément $a$ de $E$ est le <strong>maximum</strong> de $A$, noté $\max(A)$, s'il appartient à $A$ et est un majorant de $A$.</li><li>Un élément $a$ de $E$ est le <strong>minimum</strong> de $A$, noté $\min(A)$, s'il appartient à $A$ et est un minorant de $A$.</li></ul></div></section>
@@ -97,11 +97,11 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 \]</div>
 <p>Mais $\max(A)$ appartient à $M(A)$, donc $\max(A)$ est le minimum de $M(A)$ : c'est bien la borne supérieure de $A$.</p></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span><div class="boite-corps"><p>$A=\left\{\frac{1}{n}\ ;\ n\in\N^{*}\right\}$. $A$ admet un maximum $1$, donc une borne supérieure $1$. $A$ n'admet pas de minimum, mais une borne inférieure $0$.</p></div></section>
-<h3>Intervalles</h3>
+<h3><span class="num-section">I.3</span> Intervalles</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Intervalles</span><div class="boite-corps"><p>Soit $E$ un ensemble ordonné dont la relation d'ordre est notée $\leqslant$, et soient $a$ et $b$ deux éléments de $E$ tels que $a\leqslant b$.</p>
 <ul><li><strong>Intervalles ouverts :</strong> $\left]a\,;b\right[=\{x\in E\ ;\ a&lt;x&lt;b\}$ ; $\left]a\,;+\infty\right[=\{x\in E\ ;\ a&lt;x\}$ ; $\left]-\infty\,;b\right[=\{x\in E\ ;\ x&lt;b\}$ ; $\left]-\infty\,;+\infty\right[=E$.</li><li><strong>Intervalles fermés :</strong> $[a\,;b]=\{x\in E\ ;\ a\leqslant x\leqslant b\}$ ; $[a\,;+\infty[=\{x\in E\ ;\ a\leqslant x\}$ ; $\left]-\infty\,;b\right]=\{x\in E\ ;\ x\leqslant b\}$.</li><li><strong>Intervalles semi-ouverts :</strong> $[a\,;b[=\{x\in E\ ;\ a\leqslant x&lt;b\}$ ; $\left]a\,;b\right]=\{x\in E\ ;\ a&lt;x\leqslant b\}$.</li></ul></div></section>
 <section class="boite boite-rem"><span class="boite-titre">Remarque</span><div class="boite-corps"><p>L'ensemble vide est un ouvert de $E$ : $\varnothing=\left]a\,;a\right[$.</p></div></section>
-<h3>Définition axiomatique de $\R$</h3>
+<h3><span class="num-section">I.4</span> Définition axiomatique de $\R$</h3>
 <p>Nous donnons une définition axiomatique de l'ensemble des réels.</p>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Axiome 1</span><div class="boite-corps"><p>L'ensemble $\R$ muni de la loi d'addition $+$ et de la loi $\times$ a une structure de corps commutatif dont $0$ et $1$ sont les éléments neutres respectifs de chacune des lois.</p></div></section>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Axiome 2</span><div class="boite-corps"><p>Si l'on munit $\R$ de la relation d'ordre $\leqslant$, on obtient une structure ordonnée dont les lois sont compatibles avec la structure d'ordre. Pour tous réels $a$, $b$ et $c$ :</p>
@@ -120,7 +120,7 @@ a\leqslant b\ \text{et}\ c\geqslant 0\ \Rightarrow\ a\times c\leqslant b\times c
 \bigcap_{n\in\N}[a_{n}\,;b_{n}]\neq\varnothing .
 \]</div></div></section>
 <section class="boite boite-rem"><span class="boite-titre">Remarque</span><div class="boite-corps"><p>L'ensemble des nombres rationnels vérifie les axiomes 1, 2 et 3, mais pas l'axiome 4.</p></div></section>
-<h3>Valeur absolue et distance sur $\R$</h3>
+<h3><span class="num-section">I.5</span> Valeur absolue et distance sur $\R$</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Valeur absolue</span><div class="boite-corps"><p>Soit $x$ un nombre réel. On appelle <strong>valeur absolue</strong> de $x$, notée $\abs{x}$, le nombre réel défini par</p>
 <div class="maths">\[
 \abs{x}=\max\{-x\,;x\}
@@ -144,7 +144,7 @@ x & \text{si } x\geqslant 0,\\
 <p>Réciproquement, s'il existe $M$ tel que $\abs{x}\leqslant M$ pour tout $x\in A$, alors $-M\leqslant x\leqslant M$ et $A$ est bornée.</p></div></section>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Distance sur $\R$</span><div class="boite-corps"><p>L'application $d:\R^{2}\to\R^{+}$ définie par $d(x,y)=\abs{x-y}$ est une distance : elle vérifie</p>
 <ol><li>$\forall (x,y)\in\R^{2}$, $d(x,y)=d(y,x)$  <em>(symétrie)</em> ;</li><li>$d(x,y)=0\iff x=y$  <em>(séparation)</em> ;</li><li>$\forall (x,y,z)\in\R^{3}$, $d(x,z)\leqslant d(x,y)+d(y,z)$  <em>(inégalité triangulaire)</em>.</li></ol></div></section>
-<h3>Théorème de la borne supérieure</h3>
+<h3><span class="num-section">I.6</span> Théorème de la borne supérieure</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème de la borne supérieure</span><div class="boite-corps"><ul><li><p>Toute partie $A$ non vide et majorée de $\R$ admet une borne supérieure $\sup(A)$, qui vérifie :</p>
 <div class="maths">        \[
         \forall x\in A,\ x\leqslant\sup(A)
@@ -175,7 +175,7 @@ a+(p_{n+1}-1)2^{-(n+1)}\geqslant a+(2p_{n}-2)2^{-(n+1)}=a+(p_{n}-1)2^{-n} .
 <p>Comme $a+p_{n}2^{-n}\in M(A)$ et que $\ell\leqslant a+p_{n}2^{-n}$, tout élément $x$ de $A$ vérifie $x\leqslant a+p_{n}2^{-n}$, donc $x\leqslant\ell$ en faisant tendre $n$ vers $+\infty$ : $\ell$ est un majorant de $A$.</p>
 <p>Comme $a+(p_{n}-1)2^{-n}\notin M(A)$, il existe $x_{n}\in A$ tel que $x_{n}&gt;a+(p_{n}-1)2^{-n}$. Or $\ell\geqslant a+(p_{n}-1)2^{-n}$, donc $\ell-x_{n}&lt;2^{-n}$ : tout intervalle $\left]\ell-\varepsilon\,;\ell\right]$ contient un élément de $A$.</p>
 <p>Ainsi $\ell$ est le plus petit des majorants de $A$ : $\ell=\sup(A)$.</p></div></section>
-<h3>Application : partie entière et densité de $\Q$ dans $\R$</h3>
+<h3><span class="num-section">I.7</span> Application : partie entière et densité de $\Q$ dans $\R$</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Partie entière</span><div class="boite-corps"><p>Pour tout nombre réel $x$, il existe un unique entier relatif $n$ tel que</p>
 <div class="maths">\[
 n\leqslant x&lt;n+1 .
@@ -195,7 +195,7 @@ a&lt;\frac{p}{q}\leqslant a+\frac{1}{q}&lt;a+(b-a)=b .
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Sous-groupes additifs de $\R$</span><div class="boite-corps"><p>Les sous-groupes additifs de $\R$ sont :</p>
 <ul><li>ou bien de la forme $a\Z$ ;</li><li>ou bien denses dans $\R$.</li></ul></div></section>
 <h2 id="s2"><span class="num-section">II.</span> Convergence de suites</h2>
-<h3>Définition</h3>
+<h3><span class="num-section">II.1</span> Définition</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Convergence d'une suite</span><div class="boite-corps"><p>Soit $(u_{n})_{n\geqslant 0}$ une suite réelle et soit $\ell\in\R$. On dit que $(u_{n})$ <strong>converge vers</strong> $\ell$ si</p>
 <div class="maths">\[
 \forall\varepsilon&gt;0,\ \exists N\in\N,\ \forall n\geqslant N,\ \abs{u_{n}-\ell}\leqslant\varepsilon .
@@ -224,7 +224,7 @@ a&lt;\frac{p}{q}\leqslant a+\frac{1}{q}&lt;a+(b-a)=b .
 \forall A\in\R,\ \exists N\in\N,\ \forall n\geqslant N,\ u_{n}\leqslant A ,
 \]</div>
 <p>et on note $\limn u_{n}=-\infty$.</p></div></section>
-<h3>Opérations sur les limites</h3>
+<h3><span class="num-section">II.2</span> Opérations sur les limites</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Opérations</span><div class="boite-corps"><p>Soient $(u_{n})$ et $(v_{n})$ deux suites convergentes respectivement vers $\ell$ et $\ell'$, et soient $a$ et $b$ deux nombres réels. Alors</p>
 <ul><li>$\limn \left(au_{n}+bv_{n}\right)=a\ell+b\ell'$ ;</li><li>$\limn \left(u_{n}\times v_{n}\right)=\ell\times\ell'$ ;</li><li>si $\ell\neq 0$, $\limn \dfrac{1}{u_{n}}=\dfrac{1}{\ell}$.</li></ul></div></section>
 <section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>Soit $\varepsilon&gt;0$. Comme $\limn u_{n}=\ell$, il existe $N_{1}\in\N$ tel que, pour tout $n\geqslant N_{1}$, $\abs{u_{n}-\ell}\leqslant\dfrac{\varepsilon}{2\abs{a}}$ (en supposant $a\neq0$). De même, il existe $N_{2}\in\N$ tel que, pour tout $n\geqslant N_{2}$, $\abs{v_{n}-\ell'}\leqslant\dfrac{\varepsilon}{2\abs{b}}$.</p>
@@ -241,7 +241,7 @@ a&lt;\frac{p}{q}\leqslant a+\frac{1}{q}&lt;a+(b-a)=b .
 <table class="tableau"><tr><td>$\lim u_{n}\backslash\lim v_{n}$</td><td>$\ell'\neq0$</td><td>$0$</td><td>$+\infty$</td><td>$-\infty$</td></tr><tr><td>$\ell&gt;0$</td><td>$\ell\ell'$</td><td>$0$</td><td>$+\infty$</td><td>$-\infty$</td></tr><tr><td>$\ell&lt;0$</td><td>$\ell\ell'$</td><td>$0$</td><td>$-\infty$</td><td>$+\infty$</td></tr><tr><td>$+\infty$</td><td>selon le signe de $\ell'$</td><td><strong>F.I.</strong></td><td>$+\infty$</td><td>$-\infty$</td></tr><tr><td>$-\infty$</td><td>selon le signe de $\ell'$</td><td><strong>F.I.</strong></td><td>$-\infty$</td><td>$+\infty$</td></tr></table>
 <p><strong>Limites de $\left(\dfrac{1}{u_{n}}\right)$</strong><br></p>
 <table class="tableau"><tr><td>$\lim u_{n}$</td><td>$\ell\neq0$</td><td>$0$ avec signe constant</td><td>$+\infty$ ou $-\infty$</td></tr><tr><td>$\lim \dfrac{1}{u_{n}}$</td><td>$\dfrac{1}{\ell}$</td><td>$+\infty$ ou $-\infty$ selon le signe</td><td>$0$</td></tr></table>
-<h3>Théorèmes de comparaison</h3>
+<h3><span class="num-section">II.3</span> Théorèmes de comparaison</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Comparaison (limite infinie)</span><div class="boite-corps"><p>Soient deux suites $(u_{n})$ et $(v_{n})$. Si, à partir d'un certain rang,</p>
 <div class="maths">\[
 u_{n}\leqslant v_{n}
@@ -285,14 +285,14 @@ L-\varepsilon\leqslant u_{n}\leqslant v_{n}\leqslant w_{n}\leqslant L+\varepsilo
 -\frac{1}{n+1}\leqslant\frac{\sin(n)}{n+1}\leqslant\frac{1}{n+1} .
 \]</div>
 <p>Or $\limn \e^{-n}=0$ et $\limn \dfrac{1}{n+1}=0$, donc, par le théorème des gendarmes, $\limn u_{n}=0$.</p></div></section>
-<h3>Limites des suites géométriques</h3>
+<h3><span class="num-section">II.4</span> Limites des suites géométriques</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Suites géométriques</span><div class="boite-corps"><p>Soit $q$ un nombre réel.</p>
 <ul><li>Si $q&gt;1$, alors $\limn q^{n}=+\infty$ ;</li><li>si $-1&lt;q&lt;1$, alors $\limn q^{n}=0$ ;</li><li>si $q=1$, alors $\limn q^{n}=1$ ;</li><li>si $q\leqslant -1$, la suite $\left(q^{n}\right)$ n'admet pas de limite.</li></ul></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span><div class="boite-corps"><p>$\limn 2^{n}=+\infty$ car $2&gt;1$ ; $\limn 0{,}3^{n}=0$ car $-1&lt;0{,}3&lt;1$.</p></div></section>
 <section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>Rappelons que, pour $a&gt;0$ et $n\in\N$ : $(1+a)^{n}\geqslant 1+na$.</p>
 <ul><li>Si $q&gt;1$, posons $a=q-1&gt;0$ : alors $q^{n}=(1+a)^{n}\geqslant 1+na$. Or $\limn na=+\infty$, donc $\limn (1+na)=+\infty$ et, par comparaison, $\limn q^{n}=+\infty$.</li><li>Si $0&lt;q&lt;1$, alors $\dfrac{1}{q}&gt;1$, donc $\limn \left(\dfrac{1}{q}\right)^{n}=+\infty$ et, par quotient, $\limn q^{n}=0$.</li><li>Si $-1&lt;q&lt;0$, alors $0&lt;\abs{q}&lt;1$, donc $\abs{q}^{n}\to 0$. Or $-\abs{q}^{n}\leqslant q^{n}\leqslant\abs{q}^{n}$ : par encadrement, $\limn q^{n}=0$.</li><li>Si $q=1$, $q^{n}=1$ pour tout $n$ : $\limn q^{n}=1$.</li><li>Si $q=-1$, la suite extraite paire vaut $1$ et la suite extraite impaire vaut $-1$ : les deux suites extraites n'ont pas la même limite, donc $\left(q^{n}\right)$ diverge.</li><li>Si $q&lt;-1$, alors $q^{2n}=\abs{q}^{2n}$ diverge vers $+\infty$ et $q^{2n+1}=-\abs{q}^{2n+1}$ diverge vers $-\infty$ : les suites extraites paires et impaires ne peuvent pas converger vers une même limite, donc $\left(q^{n}\right)$ n'admet pas de limite.</li></ul></div></section>
 <h2 id="s3"><span class="num-section">III.</span> Théorèmes d'existence de limite</h2>
-<h3>Suites monotones</h3>
+<h3><span class="num-section">III.1</span> Suites monotones</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème de convergence monotone</span><div class="boite-corps"><ol><li>Une suite croissante non majorée tend vers $+\infty$.</li><li>Une suite décroissante non minorée tend vers $-\infty$.</li><li>Une suite croissante et majorée est convergente.</li><li>Une suite décroissante et minorée est convergente.</li></ol></div></section>
 <section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><ol><li><p>Soit $(u_{n})$ une suite croissante non majorée :</p>
 <div class="maths">        \[
@@ -318,7 +318,7 @@ u_{n+1}=\sqrt{u_{n}v_{n}}
 v_{n+1}=\frac{u_{n}+v_{n}}{2} .
 \]</div>
 <ol><li>Montrer que $u_{n}&gt;0$ et $v_{n}&gt;0$ pour tout entier $n$.</li><li>Montrer que, pour tout entier $n$, $v_{n+1}-u_{n+1}=\dfrac{\left(\sqrt{u_{n}}-\sqrt{v_{n}}\right)^{2}}{4}$.</li><li>Montrer que, pour tout entier $n$, $v_{n+1}-v_{n}=\dfrac{u_{n}-v_{n}}{2}$.</li><li>Montrer que, pour tout entier $n$, $u_{n+1}-u_{n}=\left(\sqrt{u_{n}}-\sqrt{v_{n}}\right)\sqrt{u_{n}}$.</li><li>Conclure.</li></ol></div></section>
-<h3>Suites bornées et valeurs d'adhérence</h3>
+<h3><span class="num-section">III.2</span> Suites bornées et valeurs d'adhérence</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Valeur d'adhérence</span><div class="boite-corps"><p>Un nombre réel $a$ est une <strong>valeur d'adhérence</strong> d'une suite $(u_{n})$ si, pour tout $\varepsilon&gt;0$, l'intervalle $\left]a-\varepsilon\,;a+\varepsilon\right[$ contient une infinité de termes de la suite :</p>
 <div class="maths">\[
 \forall\varepsilon&gt;0,\ \forall N,\ \exists n&gt;N,\ u_{n}\in\left]a-\varepsilon\,;a+\varepsilon\right[ .
@@ -329,7 +329,7 @@ v_{n+1}=\frac{u_{n}+v_{n}}{2} .
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span><div class="boite-corps"><p>La suite $(u_{2n})$ est une suite extraite de $(u_{n})$.</p></div></section>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span><div class="boite-corps"><p>Une suite bornée admet au moins une valeur d'adhérence.</p></div></section>
 <section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>On peut construire par récurrence une suite strictement croissante extraite qui est bornée, donc convergente.</p></div></section>
-<h3>Critère de Cauchy</h3>
+<h3><span class="num-section">III.3</span> Critère de Cauchy</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Suite de Cauchy</span><div class="boite-corps"><p>Une suite $(u_{n})$ est <strong>de Cauchy</strong> si</p>
 <div class="maths">\[
 \forall\varepsilon&gt;0,\ \exists N,\ \forall n,p&gt;N,\ \abs{u_{n}-u_{p}}&lt;\varepsilon .
@@ -349,7 +349,7 @@ v_{n+1}=\frac{u_{n}+v_{n}}{2} .
 \]</div>
 <p>D'où le résultat.</p></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Application</span><div class="boite-corps"><p>Montrer que la suite $s_{n}=1+\dfrac{1}{2}+\dfrac{1}{3}+\cdots+\dfrac{1}{n}$ n'est pas convergente.</p></div></section>
-<h3>Théorème du point fixe</h3>
+<h3><span class="num-section">III.4</span> Théorème du point fixe</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème du point fixe (première forme)</span><div class="boite-corps"><p>Soit $f:I\to\R$ une fonction continue sur un intervalle $I$ et soit $(u_{n})$ la suite définie par $u_{0}\in I$ et $u_{n+1}=f(u_{n})$. Si la suite $(u_{n})$ converge vers un réel $\ell\in I$, alors $\ell$ est un <strong>point fixe</strong> de $f$ :</p>
 <div class="maths">\[
 f(\ell)=\ell .
@@ -390,7 +390,7 @@ f(\ell)=\ell .
 <p><strong>3. Existence.</strong> L'existence du point fixe découle de ce qui précède : pour tout $u_{0}\in I$, la suite $\left(u_{n}\right)$ est convergente ; soit $\ell$ sa limite. L'application $f$ est contractante donc continue sur $I$, et $\ell\in I$ car $I$ est un intervalle fermé et $u_{n}\in I$ pour tout $n$. D'après le théorème du point fixe (première forme), $\ell$ est un point fixe de $f$.</p></div></section>
 <section class="boite boite-rem"><span class="boite-titre">Remarque</span><div class="boite-corps"><p>En pratique, pour étudier une suite récurrente $u_{n+1}=f(u_{n})$ :</p>
 <ol><li>on cherche les points fixes : on résout $f(x)=x$ ;</li><li>on montre que $I$ est stable : $f(I)\subset I$, et que $u_{n}\in I$ pour tout $n$ ;</li><li>on majore $\abs{f'(x)}$ sur $I$ par un réel $k&lt;1$ ; l'inégalité des accroissements finis donne alors $\abs{f(x)-f(y)}\leqslant k\abs{x-y}$ ;</li><li>on conclut à la convergence vers le point fixe et on majore l'erreur.</li></ol></div></section>
-<h3>Exercice d'application</h3>
+<h3><span class="num-section">III.5</span> Exercice d'application</h3>
 <section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Suite récurrente et point fixe</span><div class="boite-corps"><p>On considère la fonction $f$ définie sur $[1\,;2]$ par</p>
 <div class="maths">\[
 f(x)=\frac{3x+4}{x+3},

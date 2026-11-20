@@ -74,7 +74,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 <nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Arithmétique (partie I)</span><a class="onglet" href="../pdf/maths-expertes/Chapitre_II_Arithmétique_Partie_I.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/maths-expertes/td01-divisibilite.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/maths-expertes/td02-division-euclidienne.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../pdf/maths-expertes/td03-congruences.pdf" target="_blank" rel="noopener">TD n°3</a><a class="onglet" href="../pdf/maths-expertes/td04-pgcd-bezout.pdf" target="_blank" rel="noopener">TD n°4</a><a class="onglet" href="../quiz/maths-expertes-2.html" target="_blank" rel="noopener">Quiz</a></nav>
 <nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Divisibilité dans $\Z$</a></li><li><a href="#s2">II Congruences</a></li><li><a href="#s3">III PGCD</a></li><li><a href="#s4">IV Théorème de Gauss</a></li></ol></nav>
 <h2 id="s1"><span class="num-section">I.</span> Divisibilité dans $\Z$</h2>
-<h3>Diviseur d'un entier relatif</h3>
+<h3><span class="num-section">I.1</span> Diviseur d'un entier relatif</h3>
 <p><strong>Exemple :</strong> $35=5\times 7\iff 35\div 7=5$.</p>
 <p>On dit alors indifféremment que : $7$ divise $35$, $7$ est un diviseur de $35$ ou $35$ est un multiple de $7$.</p>
 <p>On désigne par $\Div(35)$ l'ensemble des diviseurs dans $\N$ de $35$ ; nous avons alors</p>
@@ -179,7 +179,7 @@ x=5\\ y=2 .
 <p>Les solutions possibles sont : $-4$ ; $-10$ ; $-3$ ; $3$.</p>
 <p>Pour $n=-4$ : $2n+7=-1$ et $n-3=-7$ ; $-1\mid-7$, donc $-4$ est bien une solution.</p>
 <p>On doit effectuer le calcul pour toutes les autres solutions.</p>
-<h3>Division euclidienne dans $\N$</h3>
+<h3><span class="num-section">I.2</span> Division euclidienne dans $\N$</h3>
 <p><strong>Axiome (du plus petit élément).</strong> Toute partie $B$ non vide de $\N$ admet un plus petit élément $p$, ce qui signifie</p>
 <div class="maths">\[
 \exists p\in\N,\quad \forall b\in B,\ b\geqslant p \text{ et } p\in B .
@@ -261,7 +261,7 @@ A=(3k+2)(3k+2-2)(3k+2+2)=3k(3k+2)(3k+4)=3q''
 \]</div>
 <p>avec $q''=k(3k+2)(3k+4)$, donc $3\mid A$.</p>
 <p>On peut conclure que, pour tout $n$ entier, $3\mid A$.</p>
-<h3>Division euclidienne d'un entier relatif par un entier naturel non nul</h3>
+<h3><span class="num-section">I.3</span> Division euclidienne d'un entier relatif par un entier naturel non nul</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Division euclidienne dans $\Z$</span><div class="boite-corps"><p>Pour tout entier relatif $a$ et tout entier naturel $b$ non nul, il existe un unique couple d'entiers $(q\,;r)$ tel que</p>
 <div class="maths">\[
 a=bq+r \quad\text{et}\quad 0\leqslant r&lt;b .
@@ -281,7 +281,7 @@ a=bq+r \quad\text{et}\quad 0\leqslant r&lt;b .
 <p>Pour $b=17$, on a $17q=-51\iff q=-3$.</p>
 <p>Pour $b=51$, on a $51q=-51\iff q=-1$.</p>
 <h2 id="s2"><span class="num-section">II.</span> Congruences</h2>
-<h3>Définition</h3>
+<h3><span class="num-section">II.1</span> Définition</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Congruence modulo $m$</span><div class="boite-corps"><p>Soient $m$ un entier naturel non nul, et $a$ et $b$ deux entiers relatifs.</p>
 <p>On dit que $a$ et $b$ sont <strong>congrus modulo $m$</strong> lorsqu'ils ont le même reste dans la division euclidienne par $m$.</p>
 <p>On dit aussi que $a$ est <strong>congru à $b$ modulo $m$</strong>.</p></div></section>
@@ -291,7 +291,7 @@ a=bq+r \quad\text{et}\quad 0\leqslant r&lt;b .
 <div class="maths">\[
 a\equiv b\ [m] \text{ si, et seulement si, } m\mid(a-b).
 \]</div></div></section>
-<h3>Congruences et opérations</h3>
+<h3><span class="num-section">II.2</span> Congruences et opérations</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Transitivité</span><div class="boite-corps"><p>Soient $a$, $b$ et $c$ trois entiers relatifs et $m$ un entier naturel non nul.</p>
 <p>Si $a\equiv b\ [m]$ et $b\equiv c\ [m]$, alors $a\equiv c\ [m]$. (La relation de congruence est transitive.)</p></div></section>
 <section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>division euclidienne que $b$ et, comme le reste est unique, $a$ et $c$ ont donc le même reste par la division euclidienne par $m$. D'où le résultat.</p></div></section>
@@ -311,7 +311,7 @@ a\equiv b\ [m] \text{ si, et seulement si, } m\mid(a-b).
 <p>Par synthèse, $n(n+1)(2n+1)\equiv 0\ [3]$.</p>
 <p>$2\mid n(n+1)(2n+1)$ et $3\mid n(n+1)(2n+1)$.</p>
 <p>Donc $6\mid n(n+1)(2n+1)$.</p>
-<h3>Inverse modulo $m$</h3>
+<h3><span class="num-section">II.3</span> Inverse modulo $m$</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Inversible modulo $m$</span><div class="boite-corps"><p>Soient $a$ un entier relatif et $m$ un entier naturel non nul.</p>
 <p>On dit que $a$ est <strong>inversible modulo $m$</strong> lorsqu'il existe un entier $b$ tel que $a\times b\equiv 1\ [m]$.</p></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Inverse de $7$ modulo $5$</span><div class="boite-corps"><p>$7$ est inversible modulo $5$, car $7\times 3=1\ [5]$. $3$ est un inverse de $7$ modulo $5$.</p></div></section>
@@ -326,7 +326,7 @@ a\equiv b\ [m] \text{ si, et seulement si, } m\mid(a-b).
 <table class="tableau"><tr><td>$c\equiv\dots\ [6]$</td><td>$0$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td></tr><tr><td>$4c\equiv\dots\ [6]$</td><td>$0$</td><td>$4$</td><td>$8\equiv 2\ [6]$</td><td>$12\equiv 0\ [6]$</td><td>$16\equiv 4\ [6]$</td><td>$20\equiv 2\ [6]$</td></tr></table>
 <p>Il n'existe pas d'entier $c$ tel que $4c\equiv 1\ [6]$ : donc $4$ n'admet pas d'inverse modulo $6$.</p>
 <h2 id="s3"><span class="num-section">III.</span> PGCD</h2>
-<h3>Définition et propriétés</h3>
+<h3><span class="num-section">III.1</span> Définition et propriétés</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Axiome</span><div class="boite-corps"><p>Toute partie non vide et majorée de $\N$ admet <strong>un unique</strong> plus grand élément.</p></div></section>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">PGCD</span><div class="boite-corps"><p>Soient $a$ et $b$ deux entiers relatifs non simultanément nuls. L'ensemble des diviseurs communs à $a$ et $b$ est une partie non vide de $\Z$ (elle contient $1$) et majorée (par le maximum entre $|a|$ et $|b|$). Cet ensemble admet un plus grand élément, appelé <strong>Plus Grand Diviseur Commun</strong> de $a$ et $b$, noté $\PGCD(a\,;b)$ :</p>
 <div class="maths">\[
@@ -362,7 +362,7 @@ n-1\mid n^{3}-n \quad\text{donc}\quad
 <div class="maths">\[
 n\in\{25\,;75\,;125\,;225\,;325\,;375\,;425\,;475\,;575\,;625\,;675\} .
 \]</div>
-<h3>Algorithme d'Euclide</h3>
+<h3><span class="num-section">III.2</span> Algorithme d'Euclide</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Lemme d'Euclide</span><div class="boite-corps"><p>Soient $a$ et $b$ deux entiers naturels non nuls et $r$ le reste de la division euclidienne de $a$ par $b$. Alors :</p>
 <ul><li>$\Div(a)\cap\Div(b)=\Div(b)\cap\Div(r)$ ;</li><li>$\PGCD(a\,;b)=\PGCD(b\,;r)$.</li></ul></div></section>
 <section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>$r$ induit l'existence d'un entier $q$ tel que</p>
@@ -456,7 +456,7 @@ a=bq+r \quad\text{avec}\quad 0\leqslant r&lt;b .
 \]</div>
 <p>donc $\pgcd(m\,;6)=1$.</p>
 <p>On en déduit que $m\in\{1\,;5\,;7\}$, donc $n\in\{45\,;225\,;315\}$.</p>
-<h3>Nombres premiers entre eux</h3>
+<h3><span class="num-section">III.3</span> Nombres premiers entre eux</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Premiers entre eux</span><div class="boite-corps"><p>Soient $a$ et $b$ deux entiers relatifs non nuls.</p>
 <p>On dit que $a$ et $b$ sont <strong>premiers entre eux</strong> lorsque leurs seuls diviseurs communs sont $1$ et $-1$.</p></div></section>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Caractérisation</span><div class="boite-corps"><p>$a$ et $b$ sont premiers entre eux si, et seulement si, $\PGCD(a\,;b)=1$.</p></div></section>
@@ -488,7 +488,7 @@ a=bq+r \quad\text{avec}\quad 0\leqslant r&lt;b .
 <div class="maths">\[
 S=\{(18\,;126)\,;(54\,;90)\,;(90\,;54)\,;(126\,;18)\} .
 \]</div>
-<h3>Théorème de Bézout</h3>
+<h3><span class="num-section">III.4</span> Théorème de Bézout</h3>
 <p><strong>Rappel :</strong> tout sous-ensemble non vide de $\N$ admet un plus petit élément.</p>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème de Bézout</span><div class="boite-corps"><p>Soit $(a\,;b)$ un couple d'entiers relatifs non nuls.</p>
 <p>Les deux propositions suivantes sont équivalentes :</p>
@@ -532,7 +532,7 @@ r=a-mq=a-(u_{0}a+v_{0}b)q=(1-qu_{0})a+(-v_{0}q)b .
 &=5\times(29-2\times 12)-2\times 12=5\times 29-12\times 12 .
 \end{aligned}\]</div>
 <p>On a trouvé $u=5$ et $v=-12$.</p>
-<h3>Identité de Bézout et application aux équations diophantiennes</h3>
+<h3><span class="num-section">III.5</span> Identité de Bézout et application aux équations diophantiennes</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Identité de Bézout</span><div class="boite-corps"><p>Pour tout couple $(a\,;b)$ d'entiers relatifs non nuls, il existe un couple $(u\,;v)$ d'entiers tel que</p>
 <div class="maths">\[
 au+bv=\pgcd(a\,;b).
@@ -563,7 +563,7 @@ au+bv=\pgcd(a\,;b).
 30\times 10\equiv 1\ [23] .
 \]</div>
 <h2 id="s4"><span class="num-section">IV.</span> Théorème de Gauss</h2>
-<h3>Théorème</h3>
+<h3><span class="num-section">IV.1</span> Théorème</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème de Gauss</span><div class="boite-corps"><p>Soient $a$, $b$ et $c$ trois entiers relatifs non nuls.</p>
 <p>Si $a\mid bc$ et si $a$ et $b$ sont premiers entre eux, alors $a\mid c$.</p></div></section>
 <section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>entre eux.</p>
@@ -592,7 +592,7 @@ au+bv=\pgcd(a\,;b).
 <div class="maths">\[
 S=\{(7k\,;5k),\ k\in\Z\} .
 \]</div>
-<h3>Corollaire du théorème de Gauss</h3>
+<h3><span class="num-section">IV.2</span> Corollaire du théorème de Gauss</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Corollaire de Gauss</span><div class="boite-corps"><p>Soient $a$, $b$ et $c$ trois entiers relatifs non nuls. Si $b$ et $c$ sont premiers entre eux et divisent tous les deux $a$, alors $bc$ divise $a$.</p></div></section>
 <section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>existe donc deux entiers $b'$ et $c'$ tels que $a=bb'$ et $a=cc'$, alors $bb'=cc'$.</p>
 <p>Comme $b$ et $c$ sont premiers entre eux, on a, d'après Gauss, $b\mid c'$ et $c\mid b'$.</p>
@@ -603,7 +603,7 @@ S=\{(7k\,;5k),\ k\in\Z\} .
 <p>Il est évident que $5\mid 5n^{2}(n^{2}+11)$ ; montrons que $6\mid 5n^{2}(n^{2}+11)$.</p>
 <table class="tableau"><tr><td>$n\equiv\dots\ [6]$</td><td>$0$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td></tr><tr><td>$n^{2}\equiv\dots\ [6]$</td><td>$0$</td><td>$1$</td><td>$4$</td><td>$3$</td><td>$4$</td><td>$1$</td></tr><tr><td>$5n^{2}\equiv\dots\ [6]$</td><td>$0$</td><td>$5$</td><td>$2$</td><td>$3$</td><td>$2$</td><td>$5$</td></tr><tr><td>$n^{2}+11$</td><td>$5$</td><td>$0$</td><td>$3$</td><td>$2$</td><td>$3$</td><td>$0$</td></tr><tr><td>$\equiv\dots\ [6]$</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>$P$</td><td>$0$</td><td>$0$</td><td>$0$</td><td>$0$</td><td>$0$</td><td>$0$</td></tr></table>
 <p>Donc $5n^{2}(n^{2}+11)$ est un multiple de $6$ et de $5$. $5$ et $6$ sont premiers entre eux, donc le corollaire de Gauss permet d'affirmer que $30\mid 5n^{2}(n^{2}+11)$.</p>
-<h3>Équation diophantienne</h3>
+<h3><span class="num-section">IV.3</span> Équation diophantienne</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Équation diophantienne</span><div class="boite-corps"><p>On appelle <strong>équation diophantienne</strong> une équation à coefficients entiers dont on cherche une solution entière (ou rationnelle).</p></div></section>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Condition d'existence</span><div class="boite-corps"><p>Soit $ax+by=c$ une équation diophantienne : si $\pgcd(a,b)$ ne divise pas $c$, alors l'équation n'a pas de solution dans $\Z^{2}$.</p></div></section>
 <section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>$d\times(a'x+b'y)=c$, donc $d\mid c$ ; si $d$ ne divise pas $c$, l'équation dans $\Z^{2}$ est impossible.</p></div></section>

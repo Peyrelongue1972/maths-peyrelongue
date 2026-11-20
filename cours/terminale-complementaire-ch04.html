@@ -74,7 +74,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 <nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Continuité et convexité</span><a class="onglet" href="../pdf/terminale-complementaire/4-continuite-et-convexite.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/terminale-complementaire/td01-complement-derivation-convexite.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../quiz/terminale-complementaire-4.html" target="_blank" rel="noopener">Quiz</a></nav>
 <nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Continuité</a></li><li><a href="#s2">II Théorème des valeurs intermédiaires</a></li><li><a href="#s3">III Convexité</a></li></ol></nav>
 <h2 id="s1"><span class="num-section">I.</span> Continuité</h2>
-<h3>Définition</h3>
+<h3><span class="num-section">I.1</span> Définition</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Définition intuitive</span><div class="boite-corps"><p>une fonction est continue sur un intervalle, si sa courbe représentative peut se tracer sans lever le crayon.</p></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Courbes continues et discontinues</span><div class="boite-corps"><figure class="figure-cours"><img src="img/terminale-complementaire-ch04-fig01.png" alt="figure 1 du cours"></figure>
 <p>La courbe de la fonction $f$ peut se tracer sans lever le crayon : elle est donc continue sur l'intervalle $[-2\,;2]$.</p>
@@ -84,17 +84,17 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 <ul><li>$f$ est continue en $a$ si $\lim\limits_{x\to a}f(x)=f(a)$.</li><li>$f$ est continue sur $I$ si $f$ est continue en tout point de $I$.</li></ul></div></section>
 <p><strong>Contre-exemple :</strong></p>
 <figure class="figure-cours"><img src="img/terminale-complementaire-ch04-fig02.png" alt="figure 2 du cours"></figure>
-<h3>Domaine de continuité des fonctions de référence</h3>
+<h3><span class="num-section">I.2</span> Domaine de continuité des fonctions de référence</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Continuité des fonctions usuelles</span><div class="boite-corps"><ul><li>Les <strong>fonctions polynômes</strong> sont continues sur $\R$.</li><li>La <strong>fonction racine carrée</strong> est continue sur $[0\,;+\infty[$.</li><li>La <strong>fonction exponentielle</strong> est continue sur $\R$.</li><li>La <strong>fonction logarithme népérien</strong> est continue sur $]0\,;+\infty[$.</li><li>La <strong>fonction inverse</strong> est continue sur $]-\infty\,;0[$ <em>et sur</em> $]0\,;+\infty[$.</li><li>Les <strong>fonctions affines</strong> sont continues sur $\R$.</li></ul></div></section>
-<h3>Opérations sur les fonctions continues</h3>
+<h3><span class="num-section">I.3</span> Opérations sur les fonctions continues</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span><div class="boite-corps"><p>Les opérations algébriques conservent la continuité. Si $f$ et $g$ sont deux fonctions continues sur un intervalle $I$ :</p>
 <table class="tableau"><tr><td><strong>Opération</strong></td><td><strong>Propriété</strong></td><td><strong>Condition</strong></td></tr><tr><td><strong>Somme</strong></td><td>$f+g$ est continue sur $I$</td><td>Aucune</td></tr><tr><td><strong>Produit</strong></td><td>$f\times g$ est continue sur $I$</td><td>Aucune</td></tr><tr><td><strong>Quotient</strong></td><td>$\dfrac{f}{g}$ est continue sur $I$</td><td>$g(x)\neq 0$ pour tout $x\in I$</td></tr><tr><td><strong>Composée</strong></td><td>$g\circ f$ est continue</td><td>$f$ continue sur $I$ et $g$ continue sur $f(I)$</td></tr></table></div></section>
-<h3>Dérivabilité et continuité</h3>
+<h3><span class="num-section">I.4</span> Dérivabilité et continuité</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Dérivable implique continue (admis)</span><div class="boite-corps"><p>Si une fonction $f$ est dérivable sur un intervalle $I$, alors elle est continue sur cet intervalle.</p></div></section>
 <p><strong>La réciproque est fausse.</strong></p>
 <p><strong>Contre-exemple :</strong> la fonction racine carrée est continue en $0$ mais n'est pas dérivable en $0$.</p>
 <h2 id="s2"><span class="num-section">II.</span> Théorème des valeurs intermédiaires</h2>
-<h3>Propriété fondamentale des fonctions continues</h3>
+<h3><span class="num-section">II.1</span> Propriété fondamentale des fonctions continues</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème des valeurs intermédiaires (admis)</span><div class="boite-corps"><p>Soit $f$ une fonction continue sur un intervalle $I$.</p>
 <p>Soient $a\in I$ et $b\in I$ avec $a&lt;b$.</p>
 <p>Pour tout réel $k$ compris entre $f(a)$ et $f(b)$, il existe au moins un réel $c$ compris entre $a$ et $b$ tel que</p>
@@ -103,7 +103,7 @@ f(c)=k .
 \]</div></div></section>
 <p><strong>Autre formulation :</strong> si $k$ est compris entre $f(a)$ et $f(b)$, alors l'équation $f(x)=k$ a au moins une solution dans l'intervalle $[a\,;b]$.</p>
 <figure class="figure-cours"><img src="img/terminale-complementaire-ch04-fig03.png" alt="figure 3 du cours"></figure>
-<h3>Fonctions continues strictement monotones</h3>
+<h3><span class="num-section">II.2</span> Fonctions continues strictement monotones</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Corollaire du TVI</span><div class="boite-corps"><p>Si $f$ est continue et strictement monotone sur $[a\,;b]$, alors, pour tout réel $k$ compris entre $f(a)$ et $f(b)$, l'équation $f(x)=k$ admet une <strong>unique</strong> solution dans $[a\,;b]$.</p></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Nombre de solutions</span><div class="boite-corps"><p>Soit la fonction $f(x)=x^{3}-3x^{2}-1$ définie sur $\R$. Quel est le nombre de solutions de l'équation $f(x)=4$ sur $\R$ ?</p></div></section>
 <p><strong>Méthode :</strong></p>
@@ -117,15 +117,15 @@ f'(x)=3x^{2}-6x=3x(x-2).
 <p>Sur $[2\,;+\infty[$, $f$ est <strong>continue et strictement croissante</strong> et $4$ est une valeur intermédiaire : donc, d'après le corollaire du théorème des valeurs intermédiaires, il existe un unique réel $c$ tel que $f(c)=4$.</p>
 <p>Donc l'équation n'admet qu'une seule solution sur $\R$.</p>
 <h2 id="s3"><span class="num-section">III.</span> Convexité</h2>
-<h3>Définition</h3>
+<h3><span class="num-section">III.1</span> Définition</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Fonctions convexe et concave</span><div class="boite-corps"><p>Soit $f$ une fonction définie sur un intervalle $I$ et $\mathcal{C}_{f}$ la représentation graphique de la fonction $f$ dans un repère.</p>
 <ul><li>Dire que $f$ est <strong>convexe</strong> sur $I$ signifie que, pour tout point $A$ et $B$ distincts de $\mathcal{C}_{f}$, le segment $[AB]$ est <strong>au-dessus</strong> de la courbe $\mathcal{C}_{f}$ entre les points $A$ et $B$.</li><li>Dire que $f$ est <strong>concave</strong> sur $I$ signifie que, pour tout point $A$ et $B$ distincts de $\mathcal{C}_{f}$, le segment $[AB]$ est <strong>en dessous</strong> de la courbe $\mathcal{C}_{f}$ entre les points $A$ et $B$.</li></ul></div></section>
 <figure class="figure-cours"><img src="img/terminale-complementaire-ch04-fig05.png" alt="figure 5 du cours"></figure>
-<h3>Cas d'une fonction dérivable</h3>
+<h3><span class="num-section">III.2</span> Cas d'une fonction dérivable</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Convexité et tangentes</span><div class="boite-corps"><p>Soit $f$ une fonction dérivable sur un intervalle $I$ et $\mathcal{C}_{f}$ la représentation graphique de la fonction $f$ dans un repère.</p>
 <ul><li>Dire que $f$ est convexe sur $I$ signifie que, sur l'intervalle $I$, la courbe $\mathcal{C}_{f}$ est <strong>au-dessus de chacune de ses tangentes</strong>.</li><li>Dire que $f$ est concave sur $I$ signifie que, sur l'intervalle $I$, la courbe $\mathcal{C}_{f}$ est <strong>en dessous de chacune de ses tangentes</strong>.</li></ul></div></section>
 <figure class="figure-cours"><img src="img/terminale-complementaire-ch04-fig06.png" alt="figure 6 du cours"></figure>
-<h3>Dérivée seconde et convexité</h3>
+<h3><span class="num-section">III.3</span> Dérivée seconde et convexité</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Dérivée seconde</span><div class="boite-corps"><p>Soit $f$ une fonction dérivable sur $I$. Dire que $f$ est <strong>deux fois dérivable</strong> sur $I$ signifie que la fonction $f'$ est elle-même dérivable sur $I$. La dérivée de $f'$ se note $f''$ et est appelée <strong>dérivée seconde</strong> de $f$.</p></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Dérivée seconde de $f(x)=3x^{5}$</span><div class="boite-corps"><p>$f(x)=3x^{5}$ : la fonction $f$ est dérivable sur $\R$ car c'est un polynôme.</p>
 <div class="maths">\[
@@ -141,7 +141,7 @@ f''(x)=60x^{3} .
 <p>En effet, $f'(x)=2x$ et $f''(x)=2&gt;0$ ; donc la fonction $f'$ est strictement croissante sur $\R$, donc $f$ est une fonction convexe.</p></div></section>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Corollaire : signe de $f''$</span><div class="boite-corps"><p>$f$ est une fonction deux fois dérivable sur $I$.</p>
 <ul><li>$f$ est convexe sur $I$ si, et seulement si, pour tout réel $x$ de $I$, $f''(x)\geqslant 0$.</li><li>$f$ est concave sur $I$ si, et seulement si, pour tout réel $x$ de $I$, $f''(x)\leqslant 0$.</li></ul></div></section>
-<h3>Point d'inflexion</h3>
+<h3><span class="num-section">III.4</span> Point d'inflexion</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Point d'inflexion</span><div class="boite-corps"><p>$f$ est une fonction dérivable sur $I$ et $a\in I$. $\mathcal{C}_{f}$ est la représentation graphique de la fonction $f$ dans un repère.</p>
 <p>Dire que $A(a\,;f(a))$ est un <strong>point d'inflexion</strong> de $\mathcal{C}_{f}$ signifie qu'au point $A$, la courbe $\mathcal{C}_{f}$ <strong>traverse</strong> sa tangente.</p></div></section>
 <figure class="figure-cours"><img src="img/terminale-complementaire-ch04-fig07.png" alt="figure 7 du cours"></figure>

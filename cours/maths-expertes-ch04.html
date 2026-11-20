@@ -155,7 +155,7 @@ A=
 a_{i,j}=b_{i,j} .
 \]</div></div></section>
 <h2 id="s2"><span class="num-section">II.</span> Addition – Multiplication par un réel</h2>
-<h3>Addition</h3>
+<h3><span class="num-section">II.1</span> Addition</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Addition matricielle</span><div class="boite-corps"><p>Soient $A=(a_{i,j})$ et $B=(b_{i,j})$ deux matrices de même dimension $n\times p$.</p>
 <p>L'addition de ces deux matrices restitue une matrice somme, notée $A+B=(s_{i,j})$, de dimension $n\times p$, définie par :</p>
 <div class="maths">\[
@@ -195,7 +195,7 @@ A+B=
 <div class="maths">\[
 A-B=A+(-B).
 \]</div></div></section>
-<h3>Multiplication d'une matrice par un réel</h3>
+<h3><span class="num-section">II.2</span> Multiplication d'une matrice par un réel</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Multiplication par un réel</span><div class="boite-corps"><p>Soit $A=(a_{i,j})$ une matrice de dimension $n\times p$ et $k$ un nombre réel. Le produit de $A$ par $k$ est la matrice notée $kA$, de même dimension, définie par :</p>
 <div class="maths">\[
 kA=\left(k\,a_{i,j}\right).
@@ -237,8 +237,8 @@ e_{3}=\begin{pmatrix}0\\0\\1\end{pmatrix}
 <div class="maths">\[
 X=ae_{1}+be_{2}+ce_{3} .
 \]</div></div></section>
-<h3>Multiplication matricielle</h3>
-<h3>Multiplication d'une matrice ligne par une matrice colonne</h3>
+<h3><span class="num-section">II.3</span> Multiplication matricielle</h3>
+<h3><span class="num-section">II.4</span> Multiplication d'une matrice ligne par une matrice colonne</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Ligne par colonne</span><div class="boite-corps"><p>Soient $n\in\N^{*}$, $A=(a_{1},\dots,a_{n})$ une matrice ligne de dimension $1\times n$ et</p>
 <div class="maths">\[
 B=\begin{pmatrix}b_{1}\\b_{2}\\\vdots\\b_{n}\end{pmatrix}
@@ -271,7 +271,7 @@ BA=\begin{pmatrix}2\\1\\3\end{pmatrix}\times
 \end{pmatrix}
 \]</div></div></section>
 <p><strong>Remarque :</strong> la multiplication n'est pas commutative, $AB\neq BA$.</p>
-<h3>Multiplication d'une matrice $n\times p$ par une matrice colonne</h3>
+<h3><span class="num-section">II.5</span> Multiplication d'une matrice $n\times p$ par une matrice colonne</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Matrice par colonne</span><div class="boite-corps"><p>Soient $n\in\N^{*}$, $A=(a_{i,j})$ une matrice de dimension $n\times p$ et</p>
 <div class="maths">\[
 B=\begin{pmatrix}b_{1}\\b_{2}\\\vdots\\b_{p}\end{pmatrix}
@@ -303,7 +303,7 @@ AB=\begin{pmatrix}
 \end{pmatrix}
 =\begin{pmatrix}0\\-3\end{pmatrix}
 \]</div></div></section>
-<h3>Multiplication d'une matrice ligne par une matrice $n\times p$</h3>
+<h3><span class="num-section">II.6</span> Multiplication d'une matrice ligne par une matrice $n\times p$</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Colonne par matrice</span><div class="boite-corps"><p>Soient $n\in\N^{*}$, $A=(a_{i,j})$ une matrice de dimension $n\times p$ et $B=(b_{1}\ \dots\ b_{n})$ une matrice ligne de dimension $1\times n$.</p>
 <p>Le <strong>produit de $B$ par $A$</strong>, noté $BA$, restitue une matrice ligne $C=(c_{1}\ \dots\ c_{p})$ de dimension $1\times p$ telle que</p>
 <div class="maths">\[
@@ -325,7 +325,7 @@ BA=\begin{pmatrix}1 & 3 & 5\end{pmatrix}
 \begin{pmatrix}1 & -1\\2 & -2\\3 & 1\end{pmatrix}
 =\begin{pmatrix}26 & -2\end{pmatrix}
 \]</div></div></section>
-<h3>Multiplication de deux matrices quelconques</h3>
+<h3><span class="num-section">II.7</span> Multiplication de deux matrices quelconques</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Produit matriciel</span><div class="boite-corps"><p>Soient $A=(a_{i,j})$ une matrice de dimension $n\times p$ et $B=(b_{j,k})$ une matrice de dimension $p\times q$.</p>
 <p>Le <strong>produit de $A$ par $B$</strong>, noté $AB$, est la matrice $C=(c_{i,k})$ de dimension $n\times q$ telle que</p>
 <div class="maths">\[
@@ -349,7 +349,7 @@ AB=\begin{pmatrix}1 & 2 & 3\\4 & 3 & 7\end{pmatrix}
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriétés du produit</span><div class="boite-corps"><p>Soient $A$, $B$, $C$ trois matrices dont les dimensions sont compatibles avec la multiplication matricielle, et soit $k$ un réel. Nous disposons des propriétés suivantes :</p>
 <ul><li>$A(BC)=(AB)C$ : associativité ;</li><li>$(A+B)C=AC+BC$ et $C(A+B)=CA+CB$ : distributivité de la multiplication sur l'addition ;</li><li>$(kA)B=A(kB)=k(AB)$.</li></ul></div></section>
 <h2 id="s3"><span class="num-section">III.</span> Matrices carrées</h2>
-<h3>Matrices carrées particulières</h3>
+<h3><span class="num-section">III.1</span> Matrices carrées particulières</h3>
 <p><strong>Matrice diagonale :</strong> soit $n$ un entier naturel non nul et $A=(a_{i,j})$ une matrice carrée d'ordre $n$.</p>
 <p>Si $a_{i,j}=0$ pour tout $i\neq j$, alors $A$ est une <strong>matrice diagonale</strong>.</p>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Matrice diagonale</span><div class="boite-corps"><div class="maths">\[
@@ -407,7 +407,7 @@ A^{k}=A\times A\times A\times\dots\times A .
 (A+B)^{2}=A^{2}+AB+BA+B^{2}
 \]</div>
 <p>et on ne peut pas simplifier, car $AB\neq BA$ le plus souvent !</p>
-<h3>Inverse de matrice</h3>
+<h3><span class="num-section">III.2</span> Inverse de matrice</h3>
 <p><strong>Remarque :</strong> dans $\R^{*}$, tout élément $a$ admet un inverse $\dfrac{1}{a}$ ; ce n'est pas le cas dans $\Mn$. Cette propriété de $\R^{*}$ n'est pas transmise à l'ensemble des matrices !</p>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Une matrice non inversible</span><div class="boite-corps"><p>Soit $A=\begin{pmatrix}1 & -1\\1 & -1\end{pmatrix}$ : on cherche une matrice $X=\begin{pmatrix}x & y\\z & t\end{pmatrix}$ tel que $AX=I_{2}$.</p>
 <div class="maths">\[
@@ -491,7 +491,7 @@ AB\times B^{-1}A^{-1}=A\times I_{n}\times A^{-1}=A\times A^{-1}=I_{n}
 B^{-1}A^{-1}AB=B^{-1}I_{n}B=B^{-1}B=I_{n} .
 \]</div>
 <p>Donc $B^{-1}A^{-1}$ est la matrice inverse de $AB$.</p></div></section>
-<h3>Inversion de matrice et résolution de système</h3>
+<h3><span class="num-section">III.3</span> Inversion de matrice et résolution de système</h3>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Écriture matricielle d'un système</span><div class="boite-corps"><div class="maths">\[
 \begin{cases}
 3x+2y+3z=a\\
@@ -581,12 +581,12 @@ z=c
 0 & 0 & 1
 \end{pmatrix}
 \]</div>
-<h3>Inverse d'une matrice diagonale</h3>
+<h3><span class="num-section">III.4</span> Inverse d'une matrice diagonale</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Inverse d'une matrice diagonale</span><div class="boite-corps"><p>Soit $D$ une matrice diagonale, de diagonale principale $d_{1},d_{2},\dots,d_{n}$. Si tous les réels $d_{i}$ sont non nuls, alors la matrice $D$ est inversible et sa matrice inverse $D^{-1}$ est une matrice diagonale qui a comme coefficients diagonaux</p>
 <div class="maths">\[
 \frac{1}{d_{1}},\ \frac{1}{d_{2}},\ \dots,\ \frac{1}{d_{n}} .
 \]</div></div></section>
-<h3>Cas particulier des matrices carrées d'ordre 2</h3>
+<h3><span class="num-section">III.5</span> Cas particulier des matrices carrées d'ordre 2</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Déterminant d'ordre 2</span><div class="boite-corps"><p>Soit $A=\begin{pmatrix}a & c\\b & d\end{pmatrix}$ une matrice appartenant à $\Mdeux$.</p>
 <p>Le <strong>déterminant</strong> de $A$, noté $\detm(A)$, est le réel défini par</p>
 <div class="maths">\[

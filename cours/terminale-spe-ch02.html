@@ -72,7 +72,7 @@
 <nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Complément sur la dérivation</span><a class="onglet" href="../pdf/terminale-spe/2-complement-sur-la-derivation.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/terminale-spe/td01-derivation-et-convexite.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/terminale-spe/td02-convexite.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../pdf/terminale-spe/fiche-ap-complement-derivation.pdf" target="_blank" rel="noopener">Fiche</a><a class="onglet" href="../quiz/terminale-spe-2.html" target="_blank" rel="noopener">Quiz</a></nav>
 <nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Rappels sur la dérivation</a></li><li><a href="#s2">II Composée de deux fonctions</a></li><li><a href="#s3">III Formules de dérivation d'une fonction composée</a></li><li><a href="#s4">IV Convexité</a></li></ol></nav>
 <h2 id="s1"><span class="num-section">I.</span> Rappels sur la dérivation</h2>
-<h3>Nombre dérivé</h3>
+<h3><span class="num-section">I.1</span> Nombre dérivé</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Nombre dérivé</span><div class="boite-corps"><p>Soit $f$ une fonction définie sur un intervalle $I$ et $a\in\R$.</p>
 <p>On appelle <strong>nombre dérivé</strong> en $a$,</p>
 <div class="maths">\[
@@ -85,18 +85,18 @@ f'(a)=\lim_{h\to 0}\frac{f(a+h)-f(a)}{h},
 <div class="maths">\[
 T : y=f'(a)(x-a)+f(a).
 \]</div></div></section>
-<h3>Les fonctions dérivées de référence</h3>
+<h3><span class="num-section">I.2</span> Les fonctions dérivées de référence</h3>
 <table class="tableau"><tr><td>Fonction</td><td>$D_{f}$</td><td>Dérivée</td><td>$D_{f'}$</td></tr><tr><td>$f(x)=k$</td><td>$\R$</td><td>$f'(x)=0$</td><td>$\R$</td></tr><tr><td>$f(x)=x$</td><td>$\R$</td><td>$f'(x)=1$</td><td>$\R$</td></tr><tr><td>$f(x)=x^{n}$, $n\in\N^{*}$</td><td>$\R$</td><td>$f'(x)=n\,x^{n-1}$</td><td>$\R$</td></tr><tr><td>$f(x)=\dfrac{1}{x}$</td><td>$\R^{*}$</td><td>$f'(x)=-\dfrac{1}{x^{2}}$</td><td>$\R^{*}$</td></tr><tr><td>$f(x)=\dfrac{1}{x^{n}}$, $n\in\N^{*}$</td><td>$\R^{*}$</td><td>$f'(x)=-\dfrac{n}{x^{n+1}}$</td><td>$\R^{*}$</td></tr><tr><td>$f(x)=\sqrt{x}$</td><td>$[0\,;+\infty[$</td><td>$f'(x)=\dfrac{1}{2\sqrt{x}}$</td><td>$]0\,;+\infty[$</td></tr><tr><td>$f(x)=\e^{x}$</td><td>$\R$</td><td>$f'(x)=\e^{x}$</td><td>$\R$</td></tr><tr><td>$f(x)=\sin x$</td><td>$\R$</td><td>$f'(x)=\cos x$</td><td>$\R$</td></tr><tr><td>$f(x)=\cos x$</td><td>$\R$</td><td>$f'(x)=-\sin x$</td><td>$\R$</td></tr></table>
-<h3>Opérations sur les fonctions dérivées</h3>
+<h3><span class="num-section">I.3</span> Opérations sur les fonctions dérivées</h3>
 <table class="tableau"><tr><td>Dérivée de la somme</td><td>$(u+v)'=u'+v'$</td></tr><tr><td>Dérivée du produit par un scalaire</td><td>$(ku)'=ku'$</td></tr><tr><td>Dérivée du produit</td><td>$(uv)'=u'v+uv'$</td></tr><tr><td>Dérivée de l'inverse</td><td>$\left(\dfrac{1}{u}\right)'=-\dfrac{u'}{u^{2}}$</td></tr><tr><td>Dérivée du quotient</td><td>$\left(\dfrac{u}{v}\right)'=\dfrac{u'v-uv'}{v^{2}}$</td></tr></table>
-<h3>Sens de variation, extremum local et dérivée</h3>
+<h3><span class="num-section">I.4</span> Sens de variation, extremum local et dérivée</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Lien entre le signe de $f'$ et les variations de $f$</span><div class="boite-corps"><p>Soit $f$ une fonction dérivable sur un intervalle $I$.</p>
 <ul><li>Si, pour tout réel $x$ de $I$, $f'(x)&gt;0$ sauf en un nombre fini de points où elle s'annule, alors la fonction $f$ est strictement croissante sur $I$.</li><li>Si, pour tout réel $x$ de $I$, $f'(x)&lt;0$ sauf en un nombre fini de points où elle s'annule, alors la fonction $f$ est strictement décroissante sur $I$.</li><li>Si, pour tout réel $x$ de $I$, $f'(x)=0$, alors $f$ est constante.</li></ul></div></section>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Extremum local</span><div class="boite-corps"><p>Soit $f$ une fonction dérivable sur un intervalle $I$ ouvert et $a\in I$.</p>
 <ul><li>Si $f$ admet un extremum en $a$, alors $f'(a)=0$.</li><li>Si $f'(a)=0$ et si $f'$ change de signe en $a$, alors $f$ admet un extremum en $a$.</li></ul></div></section>
 <p><strong>Contre-exemple.</strong>  $f(x)=x^{3}$ :   $f'(0)=0$ et pourtant $f(0)$ n'est pas un extremum !</p>
 <h2 id="s2"><span class="num-section">II.</span> Composée de deux fonctions</h2>
-<h3>Définition</h3>
+<h3><span class="num-section">II.1</span> Définition</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Composée de deux fonctions</span><div class="boite-corps"><p>Soient $u$ une fonction définie sur un intervalle $I$ à valeurs dans un intervalle $J$, et $v$ une fonction définie sur l'intervalle $J$.</p>
 <p>La <strong>composée de $u$ par $v$</strong>, notée $v\circ u$, est la fonction définie par</p>
 <div class="maths">\[
@@ -113,7 +113,7 @@ f : x\ \overset{u}{\longmapsto}\ x-3\ \overset{v}{\longmapsto}\
 <div class="maths">\[
 f(x)=v\circ u\,(x)=v\bigl(u(x)\bigr)=\sqrt{x-3}.
 \]</div></div></section>
-<h3>Identifier la composée de deux fonctions</h3>
+<h3><span class="num-section">II.2</span> Identifier la composée de deux fonctions</h3>
 <p>On considère la fonction $f$ définie par $f(x)=\dfrac{1}{x^{2}}$.</p>
 <p>Identifier la composée de deux fonctions dans la fonction $f$.</p>
 <p>Dans $f$, on reconnaît la fonction inverse et la fonction carré.</p>
@@ -133,7 +133,7 @@ v\circ u\,(x)=v\bigl(u(x)\bigr)=\frac{x^{2}+x}{x^{2}+x+1},
 u\circ v\,(x)=u\bigl(v(x)\bigr)=\left(\frac{x}{x+1}\right)^{2}+\frac{x}{x+1}.
 \]</div>
 <h2 id="s3"><span class="num-section">III.</span> Formules de dérivation d'une fonction composée</h2>
-<h3>Dérivation d'une fonction composée</h3>
+<h3><span class="num-section">III.1</span> Dérivation d'une fonction composée</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Dérivée de $v\circ u$</span><div class="boite-corps"><p>Soient $u$ une fonction définie et dérivable sur un intervalle $I$ à valeurs dans un intervalle $J$, et $v$ une fonction définie et dérivable sur l'intervalle $J$. Alors la fonction $v\circ u$ est dérivable sur $I$ et</p>
 <div class="maths">\[
 (v\circ u)'=v'(u)\times u',
@@ -174,9 +174,9 @@ u\circ v\,(x)=u\bigl(v(x)\bigr)=\left(\frac{x}{x+1}\right)^{2}+\frac{x}{x+1}.
 \lim_{h\to 0}\frac{v\bigl(u(x+h)\bigr)-v\bigl(u(x)\bigr)}{u(x+h)-u(x)}
 =u'(x)\times v'\bigl(u(x)\bigr).
 \]</div></div></section>
-<h3>Cas particuliers de fonctions composées</h3>
+<h3><span class="num-section">III.2</span> Cas particuliers de fonctions composées</h3>
 <table class="tableau"><tr><td>Fonction</td><td>Dérivée</td></tr><tr><td>$u^{n}$ avec $n\in\mathbb{Z}^{*}$</td><td>$n\,u'\,u^{n-1}$</td></tr><tr><td>$\e^{u}$</td><td>$u'\,\e^{u}$</td></tr><tr><td>$\sqrt{u}$</td><td>$\dfrac{u'}{2\sqrt{u}}$</td></tr><tr><td>$\ln u$</td><td>$\dfrac{u'}{u}$</td></tr><tr><td>$\cos u$</td><td>$-u'\sin u$</td></tr><tr><td>$\sin u$</td><td>$u'\cos u$</td></tr></table>
-<h3>Déterminer la dérivée de fonctions composées</h3>
+<h3><span class="num-section">III.3</span> Déterminer la dérivée de fonctions composées</h3>
 <p>Déterminer les dérivées des fonctions définies par :</p>
 <div class="maths">\[
 \textbf{a)}\ f(x)=\left(2x^{2}+3x-3\right)^{4}
@@ -201,7 +201,7 @@ g'(x) &=2\,u'(x)\,\e^{u(x)}\\
 h'(x) &=\frac{u'(x)}{u(x)}\\
       &=\frac{2-2x}{2x-x^{2}} .
 \end{aligned}\]</div>
-<h3>Déterminer la dérivée d'une fonction composée (cas général)</h3>
+<h3><span class="num-section">III.4</span> Déterminer la dérivée d'une fonction composée (cas général)</h3>
 <p>Déterminer la dérivée de la fonction $f$ définie sur $\R$ par $f(x)=\sqrt{x^{2}+1}$.</p>
 <p>On considère les fonctions $u$ et $v$ définies par $u(x)=x^{2}+1$ et $v(x)=\sqrt{x}$.</p>
 <p>Alors $f(x)=\sqrt{x^{2}+1}=v\bigl(u(x)\bigr)$.</p>
@@ -213,7 +213,7 @@ f'(x)=u'(x)\times v'\bigl(u(x)\bigr)
 =\frac{x}{\sqrt{x^{2}+1}} .
 \]</div>
 <h2 id="s4"><span class="num-section">IV.</span> Convexité</h2>
-<h3>Dérivée seconde</h3>
+<h3><span class="num-section">IV.1</span> Dérivée seconde</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Dérivée seconde</span><div class="boite-corps"><p>Soit $f$ une fonction dérivable sur un intervalle $I$. On note $f'$ sa fonction dérivée.</p>
 <p>Lorsque $f'$ est dérivable sur $I$, on note $f''$ sa dérivée. $f''$ est appelée la <strong>dérivée seconde</strong> de $f$ sur $I$.</p></div></section>
 <p><strong>Remarque.</strong>  $f''$ se lit « $f$ seconde ».</p>
@@ -267,7 +267,7 @@ f\bigl[ta+(1-t)b\bigr]\leqslant t\,f(a)+(1-t)f(b).
 \qquad
 |a+b|\leqslant|a|+|b| .
 \]</div>
-<h3>Convexité et tangente</h3>
+<h3><span class="num-section">IV.3</span> Convexité et tangente</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Position de la courbe par rapport à ses tangentes (admis)</span><div class="boite-corps"><p>Soit $f$ une fonction dérivable sur un intervalle $I$ et $\mathcal{C}_{f}$ la représentation graphique de la fonction $f$ dans un repère.</p>
 <ul><li>Dire que $f$ est <strong>convexe</strong> sur $I$ signifie que, sur l'intervalle $I$, la courbe $\mathcal{C}_{f}$ est au-dessus de chacune de ses tangentes.</li><li>Dire que $f$ est <strong>concave</strong> sur $I$ signifie que, sur l'intervalle $I$, la courbe $\mathcal{C}_{f}$ est en dessous de chacune de ses tangentes.</li></ul></div></section>
 <figure class="figure-cours"><img src="img/terminale-spe-ch02-fig02.png" alt="figure 2 du cours"></figure>
@@ -289,7 +289,7 @@ g(x)=f(x)-f'(a)(x-a)-f(a).
 <p>Finalement, $\forall a\in I$, $g(x)\geqslant 0$ : donc $\mathcal{C}_{f}$ est au-dessus de $T$.</p>
 <p><strong>Conclusion.</strong>  $f'$ est croissante sur $I$ $\Longrightarrow$ la courbe $\mathcal{C}_{f}$ représentative de $f$ est entièrement située au-dessus de ses tangentes.</p>
 <p>Or les propriétés 1 et 2 sont équivalentes (admises) et les propriétés 3 et 4 sont équivalentes (propriété de la dérivation).</p></div></section>
-<h3>Point d'inflexion</h3>
+<h3><span class="num-section">IV.4</span> Point d'inflexion</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Point d'inflexion</span><div class="boite-corps"><p>$f$ est une fonction dérivable sur $I$ et $a\in I$. $\mathcal{C}_{f}$ est la représentation graphique de la fonction $f$ dans un repère.</p>
 <p>Dire que $A\bigl(a\,;f(a)\bigr)$ est un <strong>point d'inflexion</strong> de $\mathcal{C}_{f}$ signifie qu'au point $A$ la courbe $\mathcal{C}_{f}$ traverse sa tangente.</p></div></section>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Caractérisation</span><div class="boite-corps"><p>$f$ est une fonction deux fois dérivable sur $I$. $\mathcal{C}_{f}$ est la représentation graphique de la fonction $f$ dans un repère.</p>

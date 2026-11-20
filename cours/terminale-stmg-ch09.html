@@ -93,7 +93,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 <figure class="figure-cours"><img src="img/terminale-stmg-ch09-fig02.png" alt="figure 2 du cours"></figure>
 <h2 id="s2"><span class="num-section">II.</span> Ajustement affine</h2>
 <p>Dans certaines situations, le nuage de points semble donner un ensemble de points presque alignés. On va alors dans ces cas faire un ajustement affine, c'est-à-dire trouver une droite d'équation $y=ax+b$ qui permet de représenter cette série.</p>
-<h3>Interpolation, extrapolation</h3>
+<h3><span class="num-section">II.1</span> Interpolation, extrapolation</h3>
 <p>L'objectif est, à partir des valeurs d'une série statistique à deux variables, d'obtenir des approximations pour des valeurs inconnues de cette série.</p>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Budget pour un chiffre d'affaires de $80$ Mio</span><div class="boite-corps"><p>Quelle serait le budget publicitaire pour un chiffre d'affaires de $80$ Mio ?</p>
 <p>Ici, on est dans le domaine d'étude de la série : le chiffre d'affaires a été étudié entre $40$ Mio et $95$ Mio. L'estimation que l'on donnera sera une <strong>interpolation</strong>.</p></div></section>
@@ -102,15 +102,15 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Interpolation et extrapolation</span><div class="boite-corps"><p>L'<strong>interpolation</strong> et l'<strong>extrapolation</strong> sont des méthodes qui consistent à estimer une valeur inconnue dans une série statistique.</p>
 <ul><li>Pour une interpolation, le calcul est réalisé dans le domaine d'étude fourni par les valeurs de la série.</li><li>Pour une extrapolation, le calcul est réalisé en dehors du domaine d'étude.</li></ul></div></section>
 <p><strong>Remarque.</strong>  La méthode d'extrapolation est parfois contestable, car en dehors du domaine d'étude fourni par les valeurs de la série, rien ne nous assure que le modèle mathématique mis en œuvre soit encore valable.</p>
-<h3>Droite d'ajustement</h3>
+<h3><span class="num-section">II.2</span> Droite d'ajustement</h3>
 <p>Pour obtenir de telles estimations, il faudra déterminer une droite passant « le plus près possible » des points du nuage.</p>
 <p>L'interpolation ou l'extrapolation consiste à effectuer l'estimation par lecture graphique sur la droite ou par calcul à l'aide de l'équation de la droite.</p>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Droite d'ajustement</span><div class="boite-corps"><p>Lorsque les points d'un nuage sont sensiblement alignés, on peut construire une droite, appelée <strong>droite d'ajustement</strong> (ou <strong>droite de régression</strong>), passant « au plus près » de ces points.</p></div></section>
 <figure class="figure-cours"><img src="img/terminale-stmg-ch09-fig03.png" alt="figure 3 du cours"></figure>
-<h3>Méthode à main levée</h3>
+<h3><span class="num-section">II.3</span> Méthode à main levée</h3>
 <p>Sans technique particulière, on trace « au jugé » une droite passant « au plus près » des points du nuage, puis on détermine l'équation de cette droite $y=ax+b$.</p>
 <p>On peut alors utiliser cette droite pour faire des estimations de valeur théorique de $y$ pour $x=9$, par exemple.</p>
-<h3>Méthode des points moyens (ajustement de Mayer)</h3>
+<h3><span class="num-section">II.4</span> Méthode des points moyens (ajustement de Mayer)</h3>
 <p>Cet ajustement consiste à déterminer la droite passant par deux points moyens du nuage de points.</p>
 <section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Droite de Mayer</span><div class="boite-corps"><p>Déterminer la droite d'ajustement par la méthode des points moyens. On reprend les données du paragraphe I.</p>
 <ol><li><p>Soit $G_{1}$ le point moyen associé aux trois premiers points du nuage et $G_{2}$ le point moyen associé aux trois derniers points du nuage.</p>
@@ -137,7 +137,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 <p><strong>b)</strong>  Le budget publicitaire qu'il faudrait prévoir pour obtenir un chiffre d'affaire de $100\,000$&nbsp;\euro{} est de $20\,000$&nbsp;\euro.</p>
 <figure class="figure-cours"><img src="img/terminale-stmg-ch09-fig05.png" alt="figure 5 du cours"></figure>
 <p><strong>c)</strong>  Les lectures graphiques sont réalisées ici en dehors du domaine d'étude : on parle donc d'<strong>extrapolation</strong>.</p>
-<h3>Méthode des moindres carrés</h3>
+<h3><span class="num-section">II.5</span> Méthode des moindres carrés</h3>
 <p>Cette méthode porte le nom de « moindres carrés » car elle consiste à rechercher la position de la droite d'ajustement telle que la somme des carrés des longueurs donnant les distances respectives entre la droite et les points soit minimale.</p>
 <p>Le principe consiste donc à déterminer les coefficients $a$ et $b$ d'une droite d'équation $y=ax+b$ de sorte qu'elle passe le « plus près possible » des points du nuage.</p>
 <p>Pour chaque abscisse $x_{i}$, on calcule la distance $M_{i}P_{i}$ entre le point du nuage et le point de la droite, soit :</p>

@@ -78,7 +78,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 <p><strong>Remarque :</strong> $1$ n'est pas un nombre premier, car il n'admet qu'un seul diviseur positif, lui-même.</p>
 <p>$0$ n'est pas non plus un nombre premier, car il admet une infinité de diviseurs.</p>
 <p><strong>Exemple :</strong> la liste des nombres premiers inférieurs à $100$ est la suivante : $2, 3, 5, 7, 11, 13, 17, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97$.</p>
-<h3>Test de primalité</h3>
+<h3><span class="num-section">I.1</span> Test de primalité</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Diviseur premier</span><div class="boite-corps"><p>Tout entier naturel supérieur ou égal à $2$ est divisible par un nombre premier.</p></div></section>
 <section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>On note $P_{n}$ la proposition : « Tout entier naturel compris entre $2$ et $n$ admet un diviseur premier » (récurrence forte).</p>
 <p><strong>Initialisation :</strong> pour $n=2$ : $2$ est divisible par $2$, qui est premier, donc on en déduit que $P_{2}$ est vraie.</p>
@@ -93,7 +93,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 <p>Comme $7&lt;\sqrt{53}&lt;8$, on doit tester tous les nombres premiers strictement inférieurs à $8$, à savoir $2$ ; $3$ ; $5$ et $7$.</p>
 <ul><li>D'après les critères de divisibilité, il est clair que $53$ n'est ni divisible par $2$, ni par $3$, ni par $5$.</li><li>$7$ ne divise pas $53$, car le reste de la division euclidienne de $53$ par $7$ est $4$.</li></ul>
 <p>Finalement, aucun de ces nombres ne divise $53$, donc $53$ est premier.</p>
-<h3>Une infinité de nombres premiers</h3>
+<h3><span class="num-section">I.2</span> Une infinité de nombres premiers</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Infinité des nombres premiers</span><div class="boite-corps"><p>Il existe une infinité de nombres premiers.</p></div></section>
 <section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>nombre premier, et ainsi qu'il y a « $n$ » nombres premiers $N_{1},N_{2},\dots,N_{n}$.</p>
 <p>On pose</p>
@@ -104,7 +104,7 @@ P_{n}=N_{1}\times N_{2}\times\dots\times N_{n}+1 .
 <p>Donc $P_{n}$ a uniquement $1$ et $P_{n}$ comme diviseurs : c'est un nombre premier, ce qui est absurde, car $N_{n}$ est le plus grand.</p>
 <p><strong>Conclusion :</strong> il existe une infinité de nombres premiers.</p></div></section>
 <h2 id="s2"><span class="num-section">II.</span> Décomposition en produit de facteurs premiers</h2>
-<h3>Existence et unicité de la décomposition</h3>
+<h3><span class="num-section">II.1</span> Existence et unicité de la décomposition</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Décomposition</span><div class="boite-corps"><p>Tout entier $n$ supérieur ou égal à $2$ se décompose en produit de facteurs premiers.</p>
 <p>Plus précisément, si $n\geqslant 2$, il existe des nombres premiers $p_{1},p_{2},\dots,p_{k}$ et des entiers naturels non nuls $\alpha_{1},\alpha_{2},\dots,\alpha_{k}$ tels que</p>
 <div class="maths">\[
@@ -117,10 +117,10 @@ n=p_{1}^{\alpha_{1}}\times p_{2}^{\alpha_{2}}\times\dots\times p_{k}^{\alpha_{k}
 <div class="maths">\[
 1086=2^{1}\times 3^{1}\times 181 .
 \]</div></div></section>
-<h3>Application à la détermination des diviseurs d'un entier</h3>
+<h3><span class="num-section">II.2</span> Application à la détermination des diviseurs d'un entier</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Diviseurs</span><div class="boite-corps"><p>Soit $n$ un entier naturel supérieur ou égal à $2$, dont la décomposition en produit de facteurs premiers est la suivante : $n=p_{1}^{\alpha_{1}}\times p_{2}^{\alpha_{2}}\times\dots\times p_{k}^{\alpha_{k}}$. Alors :</p>
 <ul><li>les diviseurs de $n$ sont exactement les nombres de la forme $p_{1}^{\beta_{1}}\times p_{2}^{\beta_{2}}\times\dots\times p_{k}^{\beta_{k}}$, avec $0\leqslant\beta_{i}\leqslant\alpha_{i}$ ;</li><li>le nombre de diviseurs de $n$ est égal à $(\alpha_{1}+1)\times(\alpha_{2}+1)\times\dots\times(\alpha_{k}+1)$.</li></ul></div></section>
-<h3>Application à la détermination du PGCD et du PPCM</h3>
+<h3><span class="num-section">II.3</span> Application à la détermination du PGCD et du PPCM</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">PGCD et PPCM</span><div class="boite-corps"><p>Soient $m$ et $n$ deux entiers naturels supérieurs ou égaux à $2$. On suppose, quitte à utiliser des exposants nuls, que $m$ et $n$ peuvent s'écrire sous forme de produit de facteurs premiers de la manière suivante :</p>
 <div class="maths">\[
 n=p_{1}^{\alpha_{1}}\times p_{2}^{\alpha_{2}}\times\dots\times p_{k}^{\alpha_{k}}
@@ -150,7 +150,7 @@ p_{k}^{\max(\alpha_{k};\beta_{k})}
 \PPCM(12600\,;36750)=2^{3}\times 3^{2}\times 5^{3}\times 7^{2}=441000
 \]</div></div></section>
 <h2 id="s3"><span class="num-section">III.</span> Le petit théorème de Fermat</h2>
-<h3>Première démonstration</h3>
+<h3><span class="num-section">III.1</span> Première démonstration</h3>
 <p>Montrer que, si $p$ est premier, alors</p>
 <div class="maths">\[
 (a+b)^{p}=\sum_{k=0}^{k=p}\binom{p}{k}a^{k}b^{n-k}\equiv a^{p}+b^{p}\ [p] .
@@ -204,7 +204,7 @@ n^{17}=n^{15}\times n^{2}\equiv n^{5}\times n^{2}=(n^{3})^{2}\times n
 \]</div>
 <p>Donc $3\mid n^{17}-n$.</p>
 <p>Les entiers $3$ et $17$ sont premiers entre eux et divisent $n^{17}-n$ : en appliquant le corollaire du théorème de Gauss, on conclut que $51$ divise $n^{17}-n$.</p>
-<h3>Autre démonstration</h3>
+<h3><span class="num-section">III.2</span> Autre démonstration</h3>
 <section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><div class="maths">\[
 N=(1\times a)\times(2\times a)\times\dots\times\bigl((p-2)\times a\bigr)
 \times\bigl((p-1)\times a\bigr)

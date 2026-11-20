@@ -73,7 +73,7 @@
 <nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Orthogonalité</a></li><li><a href="#s2">II Géométrie analytique</a></li><li><a href="#s3">III Distance d'un point à un plan</a></li></ol></nav>
 <p><strong>Terminale spécialité — Mathématiques</strong><br> <strong>Chapitre 13</strong><br> <strong>Géométrie analytique dans l'espace</strong><br> <em>Orthogonalité, produit scalaire, équations de plans et distances</em></p>
 <h2 id="s1"><span class="num-section">I.</span> Orthogonalité</h2>
-<h3>Définition</h3>
+<h3><span class="num-section">I.1</span> Définition</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span><div class="boite-corps"><p><strong>Deux droites sont dites orthogonales</strong> lorsque leurs parallèles respectives passant par un même point sont perpendiculaires.</p>
 <p><strong>Deux vecteurs non nuls sont orthogonaux</strong> lorsque les droites dirigées par ces vecteurs sont orthogonales.</p>
 <p><strong>Une droite est orthogonale à un plan</strong> lorsqu'elle est orthogonale à toutes les droites de ce plan.</p></div></section>
@@ -92,7 +92,7 @@
 <p><em>Correction.</em> Comme les triangles $EAB$ et $EBC$ sont isocèles en $E$, on peut en déduire que $EA=EB=EC$, donc le triangle $EAC$ est isocèle en $E$.</p>
 <p>Or $O$ est le milieu du segment $[AC]$, donc $[EO]$ est la médiane issue de $E$ du triangle $EAC$. Or la médiane est aussi la hauteur dans un triangle isocèle : ainsi $(EO)\perp(AC)$. De la même façon, comme $EBC$ est isocèle en $E$, on en déduit que $(EO)\perp(BD)$.</p>
 <p>Par conséquent, $(EO)$ est orthogonale à deux droites sécantes du plan $(ABC)$, donc $(EO)$ est orthogonale au plan $(ABC)$.</p></div></section>
-<h3>Produit scalaire</h3>
+<h3><span class="num-section">I.2</span> Produit scalaire</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span><div class="boite-corps"><p>Soient $\vec{u}$ et $\vec{v}$ deux vecteurs de l'espace. Lorsqu'ils ne sont pas nuls, on définit leur <strong>produit scalaire</strong> par</p>
 <div class="maths">\[
 \vec{u}\cdot\vec{v}=\|\vec{u}\|\times\|\vec{v}\|\times\cos\left(\vec{u}\,;\vec{v}\right).
@@ -136,7 +136,7 @@
 <div class="maths">\[
 \vec{u}\cdot\vec{v}=\frac{\|\vec{u}+\vec{v}\|^{2}-\|\vec{u}-\vec{v}\|^{2}}{4} .
 \]</div></div></section>
-<h3>Orthogonalité et produit scalaire</h3>
+<h3><span class="num-section">I.3</span> Orthogonalité et produit scalaire</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span><div class="boite-corps"><p>Deux vecteurs $\vec{u}$ et $\vec{v}$ sont orthogonaux si, et seulement si, leur produit scalaire est nul.</p></div></section>
 <section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>Supposons que $\vec{u}$ et $\vec{v}$ soient orthogonaux. Si $\vec{u}=\vec{0}$ ou $\vec{v}=\vec{0}$, alors $\vec{u}\cdot\vec{v}=0$. Sinon, on a $\cos\left(\vec{u}\,;\vec{v}\right)=0$ et l'on en déduit $\vec{u}\cdot\vec{v}=0$.</p>
 <p>Réciproquement, supposons que $\vec{u}\cdot\vec{v}=0$. Si $\vec{u}=\vec{0}$ ou $\vec{v}=\vec{0}$, alors $\vec{u}$ et $\vec{v}$ sont orthogonaux. Sinon, $\vec{u}\cdot\vec{v}=\|\vec{u}\|\times\|\vec{v}\|\times\cos\left(\vec{u}\,;\vec{v}\right)$ ; comme $\vec{u}$ et $\vec{v}$ ne sont pas nuls, leur norme non plus, on en déduit que $\cos\left(\vec{u}\,;\vec{v}\right)=0$, donc que les vecteurs $\vec{u}$ et $\vec{v}$ sont orthogonaux.</p></div></section>
@@ -151,7 +151,7 @@
 <p>La droite $(EF)$ est orthogonale au plan $(BCG)$, donc $\vect{BG}\cdot\vect{EF}=0$.</p>
 <p>Finalement $\vect{BG}\cdot\vect{EC}=0$, d'où le résultat.</p></div></section>
 <h2 id="s2"><span class="num-section">II.</span> Géométrie analytique</h2>
-<h3>Distance dans l'espace</h3>
+<h3><span class="num-section">II.1</span> Distance dans l'espace</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span><div class="boite-corps"><p>Une <strong>base orthonormée</strong> est donnée par trois vecteurs $\vec{\imath}$, $\vec{\jmath}$ et $\vec{k}$ linéairement indépendants, de même norme $\|\vec{\imath}\|=\|\vec{\jmath}\|=\|\vec{k}\|$ et orthogonaux deux à deux :</p>
 <div class="maths">\[
 \vec{\imath}\cdot\vec{\jmath}=\vec{\imath}\cdot\vec{k}=\vec{k}\cdot\vec{\jmath}=0 .
@@ -181,7 +181,7 @@
 <div class="maths">\[
 (x-a)^{2}+(y-b)^{2}+(z-c)^{2}=R^{2} .
 \]</div></div></section>
-<h3>Équation cartésienne du plan</h3>
+<h3><span class="num-section">II.2</span> Équation cartésienne du plan</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span><div class="boite-corps"><p>L'espace est muni d'un repère orthonormé $\left(O\,;\vec{\imath},\vec{\jmath},\vec{k}\right)$.</p>
 <p>On considère un vecteur $\vec{n}\begin{pmatrix}a\\b\\c\end{pmatrix}$ et un point $A\left(x_{A}\,;y_{A}\,;z_{A}\right)$.</p>
 <p>Le plan qui passe par le point $A$ et de vecteur normal $\vec{n}$ admet pour équation cartésienne</p>
@@ -216,7 +216,7 @@ d=-ax_{A}-by_{A}-cz_{A} .
 \iff \boxed{x-y+z-1=0}
 \]</div></div></section>
 <h2 id="s3"><span class="num-section">III.</span> Distance d'un point à un plan</h2>
-<h3>Projeté orthogonal</h3>
+<h3><span class="num-section">III.1</span> Projeté orthogonal</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span><div class="boite-corps"><p>Le <strong>projeté orthogonal</strong> d'un point $A$ sur une droite $d$ ou un plan $(P)$ est le point d'intersection $H$ de la droite $d$ ou du plan $(P)$ et de la perpendiculaire à cette droite ou à ce plan passant par le point $A$.</p></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span><div class="boite-corps"><p>$M'$ est le projeté orthogonal de $M$ sur le plan $P$ et $N'$ est le projeté orthogonal de $N$ sur $d$.</p>
 <p><img class="img-cours" src="img/terminale-spe-ch13-projete-orthogonal.png" alt=""></p></div></section>
@@ -266,7 +266,7 @@ t=-\dfrac{1}{11}
 \end{cases}
 \]</div>
 <p>Donc $A'\left(\dfrac{8}{11}\,;\dfrac{12}{11}\,;\dfrac{10}{11}\right)$ est le projeté orthogonal de $A$ sur $(P)$.</p></div></section>
-<h3>Distance d'un point à un plan</h3>
+<h3><span class="num-section">III.2</span> Distance d'un point à un plan</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span><div class="boite-corps"><p>Soient un plan $(P)$ de l'espace et un point $A$. La <strong>distance du point au plan</strong> est la plus petite des longueurs $AM$ où $M$ appartient à $(P)$.</p></div></section>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span><div class="boite-corps"><p>Soit $H$ le projeté orthogonal de $A$ sur $P$ ; alors $d\left(A\,;(P)\right)=AH$.</p></div></section>
 <section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>Soit $H$ le projeté orthogonal du point $A$ sur le plan $(P)$ et $M$ un point de $(P)$ distinct de $H$.</p>
@@ -304,7 +304,7 @@ d\left(A\,;\mathcal{P}\right)
 =\frac{\left|\vect{AM}\cdot\vec{n}\right|}{\|\vec{n}\|}
 =\frac{\left|ax_{A}+by_{A}+cz_{A}+d\right|}{\sqrt{a^{2}+b^{2}+c^{2}}} .
 \]</div></div></section>
-<h3>Distance d'un point à une droite</h3>
+<h3><span class="num-section">III.3</span> Distance d'un point à une droite</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span><div class="boite-corps"><p>Soient une droite $(d)$ de l'espace et un point $A$. La <strong>distance du point $A$ à la droite</strong> $(d)$ est la plus petite des longueurs $AM$ où $M$ appartient à $(d)$.</p></div></section>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span><div class="boite-corps"><p>Si l'on note $H$ le projeté orthogonal de $A$ sur la droite $(d)$, alors $d\left(A\,;(d)\right)=AH$.</p></div></section>
 <section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>Soit $M$ appartenant à $(d)$ différent de $H$ : alors $AHM$ est un triangle rectangle en $H$, donc $AM^{2}=AH^{2}+HM^{2}$, d'où $AM&gt;AH$ et le résultat.</p>

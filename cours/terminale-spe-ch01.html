@@ -73,7 +73,7 @@
 <nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Raisonnement par récurrence</a></li><li><a href="#s2">II Représentation graphique d'une suite</a></li><li><a href="#s3">III Sens de variation d'une suite</a></li><li><a href="#s4">IV Suites majorées, minorées, bornées</a></li><li><a href="#s5">V Suites arithmétiques</a></li><li><a href="#s6">VI Suites géométriques</a></li></ol></nav>
 <p>\newpage</p>
 <h2 id="s1"><span class="num-section">I.</span> Raisonnement par récurrence</h2>
-<h3>L'effet domino</h3>
+<h3><span class="num-section">I.1</span> L'effet domino</h3>
 <p>On considère une file illimitée de dominos placés côte à côte. La règle veut que lorsqu'un domino tombe, alors il fait tomber le domino suivant, et ceci à n'importe quel niveau de la file. Alors, si le premier domino tombe, on est assuré que tous les dominos de la file tombent.</p>
 <figure class="figure-cours"><img src="img/terminale-spe-ch01-fig01.png" alt="figure 1 du cours"></figure>
 <p>Si on suppose qu'un domino n° $k$ tombe, alors le domino suivant n° $(k+1)$ tombe également. C'est ce qu'on appelle le principe d'<strong>hérédité</strong>.</p>
@@ -82,7 +82,7 @@
 <ul><li>vraie au rang $n_{0}$   (<strong>Initialisation</strong>),</li><li>héréditaire à partir du rang $n_{0}$   (<strong>Hérédité</strong>),</li></ul>
 <p>alors la propriété $P_{n}$ est vraie pour tout entier $n\geqslant n_{0}$.</p></div></section>
 <p>Dans l'exemple, le premier domino tombe (initialisation). Ici $n_{0}=1$. L'hérédité est vérifiée (voir plus haut). On en déduit que tous les dominos tombent.</p>
-<h3>Méthode : démontrer une propriété par récurrence</h3>
+<h3><span class="num-section">I.2</span> Méthode : démontrer une propriété par récurrence</h3>
 <section class="boite boite-meth"><span class="boite-titre">Méthode</span><div class="boite-corps"><p>Démontrer par récurrence que, pour tout entier naturel $n$ non nul, on a $2^{n}&gt;n$.</p>
 <p>Soit la propriété $P(n)$ :   $2^{n}&gt;n$.</p>
 <p><strong>Initialisation.</strong></p>
@@ -107,7 +107,7 @@
 <div class="maths">\[
 \forall n\in\N^{*},\quad 2^{n}&gt;n .
 \]</div></div></section>
-<h3>Application</h3>
+<h3><span class="num-section">I.3</span> Application</h3>
 <section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Suite définie par récurrence</span><div class="boite-corps"><p>On considère la suite $(u_{n})$ définie par</p>
 <div class="maths">\[
 \begin{cases}
@@ -124,7 +124,7 @@ u_{0}=2
 \end{cases}
 \]</div>
 <p>Démontrer par récurrence que la suite $(u_{n})$ est croissante.</p></div></section>
-<h3>Inégalité de Bernoulli</h3>
+<h3><span class="num-section">I.4</span> Inégalité de Bernoulli</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Inégalité de Bernoulli</span><div class="boite-corps"><p>Soit un nombre réel $a$ positif. Pour tout entier naturel $n$, on a</p>
 <div class="maths">\[
 (1+a)^{n}\geqslant 1+na .
@@ -151,7 +151,7 @@ u_{0}=2
 \end{aligned}\]</div>
 <p>Donc $(1+a)^{k+1}\geqslant 1+(k+1)a$.</p>
 <p><strong>Conclusion.</strong>  De l'initialisation ($P_{0}$ est vraie) et de l'hérédité ($P_{k}$ vraie $\Longrightarrow$ $P_{k+1}$ vraie), par le principe de récurrence, pour tout entier $n$ la propriété $P_{n}$ est vraie.</p></div></section>
-<h3>Le rôle de l'initialisation</h3>
+<h3><span class="num-section">I.5</span> Le rôle de l'initialisation</h3>
 <p><strong>L'initialisation</strong> est indispensable dans une démonstration par récurrence, sinon on peut démontrer des propriétés fausses !</p>
 <p>En effet, démontrons par exemple que la propriété « $2^{n}$ est divisible par $3$ » est héréditaire sans vérifier l'initialisation.</p>
 <p>Supposons que, pour un certain entier $k$, « $2^{k}$ est divisible par $3$ ». Donc il existe un entier $p$ tel que $2^{k}=3p$.</p>
@@ -163,7 +163,7 @@ u_{0}=2
 \end{aligned}\]</div>
 <p>Donc $2^{k+1}$ est divisible par $3$. L'hérédité est vérifiée et pourtant la propriété n'est jamais vraie ($2^{0}=1$ n'est pas divisible par $3$).</p>
 <h2 id="s2"><span class="num-section">II.</span> Représentation graphique d'une suite</h2>
-<h3>Suite définie de manière explicite</h3>
+<h3><span class="num-section">II.1</span> Suite définie de manière explicite</h3>
 <p>Soit $f$ une fonction définie sur $\N$ et $(u_{n})$ la suite définie par $u_{n}=f(n)$.</p>
 <p>Dans un repère du plan, on représente une suite par un nuage de points de coordonnées $(n\,;u_{n})$.</p>
 <section class="boite boite-meth"><span class="boite-titre">Méthode</span> <span class="boite-sous-titre">Représenter une suite explicite</span><div class="boite-corps"><p>Pour représenter une suite $u$ dans un repère, on place :</p>
@@ -172,17 +172,17 @@ u_{0}=2
 <p>On construit le tableau de valeurs avec les premiers termes de la suite :</p></div></section>
 <table class="tableau"><tr><td>$n$</td><td>$0$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$6$</td><td>$7$</td><td>$8$</td></tr><tr><td>$u_{n}$</td><td>$-3$</td><td>$-2{,}5$</td><td>$-1$</td><td>$1{,}5$</td><td>$5$</td><td>$9{,}5$</td><td>$15$</td><td>$21{,}5$</td><td>$29$</td></tr><tr><td class="vide"></td><td colspan="9" class="note-tableau"></td></tr></table>
 <figure class="figure-cours"><img src="img/terminale-spe-ch01-fig02.png" alt="figure 2 du cours"></figure>
-<h3>Suite définie par récurrence</h3>
+<h3><span class="num-section">II.2</span> Suite définie par récurrence</h3>
 <p>Soit $f$ une fonction définie sur $\N$ et $(u_{n})$ la suite définie par la relation de récurrence $u_{n+1}=f(u_{n})$ et le premier terme $u_{0}$.</p>
 <section class="boite boite-meth"><span class="boite-titre">Méthode</span> <span class="boite-sous-titre">1<sup>re</sup> méthode</span><div class="boite-corps"><p>Pour représenter cette suite, il est possible de calculer les termes un à un : $u_{1}$, $u_{2}$, …, $u_{n}$, et de se placer dans un repère orthonormal pour placer les points $U_{k}$ de coordonnées $(k\,;u_{k})$.</p></div></section>
 <section class="boite boite-meth"><span class="boite-titre">Méthode</span> <span class="boite-sous-titre">2<sup>ème</sup> méthode : la construction graphique</span><div class="boite-corps"><figure class="figure-cours"><img src="img/terminale-spe-ch01-fig03.png" alt="figure 3 du cours"></figure>
 <ul><li>Tracer la courbe représentant la fonction $f$.</li><li>Tracer la droite d'équation $y=x$ : chaque point de cette droite possède une abscisse égale à l'ordonnée.</li><li>Placer le point de coordonnées $(0\,;u_{0})$, le premier terme de la suite.</li><li>À l'aide de la droite $\Delta : y=x$, on cherche l'antécédent de $u_{0}$ qui est $u_{0}$, que l'on obtient par projection orthogonale sur l'axe des abscisses.</li><li>On obtient alors $u_{1}$ comme image de $u_{0}$ par la fonction $f$ : en effet $u_{1}=f(u_{0})$.</li><li>On va itérer le même processus : on cherche l'antécédent de $u_{1}$ par la fonction $y=x$ ; l'antécédent est $u_{1}$ et on l'obtient par projection orthogonale sur l'axe des abscisses. Puis on peut obtenir $u_{2}$ comme image de $u_{1}$ par la fonction $f$. Et ainsi de suite : de proche en proche, on obtient tous les termes de la suite sans effectuer de calcul !!!</li></ul></div></section>
 <h2 id="s3"><span class="num-section">III.</span> Sens de variation d'une suite</h2>
-<h3>Définition</h3>
+<h3><span class="num-section">III.1</span> Définition</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Suite croissante, suite décroissante</span><div class="boite-corps"><p>Soit un entier $p$ et une suite numérique $(u_{n})$.</p>
 <p>La suite $(u_{n})$ est dite <strong>croissante à partir du rang $p$</strong> si, pour $n\geqslant p$, on a $u_{n+1}\geqslant u_{n}$.</p>
 <p>La suite $(u_{n})$ est dite <strong>décroissante à partir du rang $p$</strong> si, pour $n\geqslant p$, on a $u_{n+1}\leqslant u_{n}$.</p></div></section>
-<h3>Méthode d'étude du sens de variation</h3>
+<h3><span class="num-section">III.2</span> Méthode d'étude du sens de variation</h3>
 <section class="boite boite-meth"><span class="boite-titre">Méthode</span> <span class="boite-sous-titre">1.</span><div class="boite-corps"><p>Pour tout $n$ de $\N$, on donne la suite $(u_{n})$ définie par $u_{n}=n^{2}-4n+4$.</p>
 <p>Démontrer que la suite $(u_{n})$ est croissante à partir d'un certain rang.</p>
 <ol><li>Calculer $u_{n+1}-u_{n}$.</li><li>Déterminer le signe de $u_{n+1}-u_{n}$.</li><li>Conclure.</li></ol></div></section>
@@ -195,7 +195,7 @@ u_{0}=2
 <section class="boite boite-meth"><span class="boite-titre">Méthode</span> <span class="boite-sous-titre">4.</span><div class="boite-corps"><p>Soit $f$ une fonction <strong>strictement croissante</strong> définie sur $\N$ et $(u_{n})$ la suite définie par la relation de récurrence $u_{n+1}=f(u_{n})$ et le premier terme $u_{0}$.</p>
 <ul><li>Calculer les deux premiers termes de la suite.</li><li>Conjecturer un sens de variation.</li><li>Utiliser une récurrence pour affirmer votre conjecture.</li></ul></div></section>
 <h2 id="s4"><span class="num-section">IV.</span> Suites majorées, minorées, bornées</h2>
-<h3>Définitions</h3>
+<h3><span class="num-section">IV.1</span> Définitions</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Suites majorées, minorées, bornées</span><div class="boite-corps"><ul><li>Une suite $(u_{n})$ est <strong>majorée</strong> par un réel $M$ lorsque, pour tout entier naturel $n$, $u_{n}\leqslant M$. On dit que $M$ est un <strong>majorant</strong> de $(u_{n})$.</li><li>Une suite $(u_{n})$ est <strong>minorée</strong> par un réel $m$ lorsque, pour tout entier naturel $n$, $u_{n}\geqslant m$. On dit que $m$ est un <strong>minorant</strong> de $(u_{n})$.</li><li>Une suite est <strong>bornée</strong> lorsqu'elle est à la fois majorée et minorée.</li></ul></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Suite minorée</span><div class="boite-corps"><p>$u_{n}=2+\dfrac{1}{n}$ pour tout $n\in\N^{*}$.</p>
 <div class="maths">\[
@@ -211,7 +211,7 @@ u_{0}=2
 <p>On a, pour tout $x\in\R$, $-1\leqslant\cos(x)\leqslant 1$, donc pour tout $n\in\N$, $-1\leqslant\cos(n)\leqslant 1$, soit $-1\leqslant u_{n}\leqslant 1$.</p>
 <p>La suite $(u_{n})$ est bornée, car elle est minorée par $-1$ et majorée par $1$.</p></div></section>
 <h2 id="s5"><span class="num-section">V.</span> Suites arithmétiques</h2>
-<h3>Définition</h3>
+<h3><span class="num-section">V.1</span> Définition</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Suite arithmétique</span><div class="boite-corps"><p>Une <strong>suite arithmétique</strong> est une suite de nombres dans laquelle on passe d'un terme au suivant en ajoutant toujours le même nombre, appelé la <strong>raison</strong> (souvent notée $r$) :</p>
 <div class="maths">\[
 \forall n\in\N,\quad u_{n+1}=u_{n}+r .
@@ -227,7 +227,7 @@ u_{0}=2
 \]</div>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Sens de variation</span><div class="boite-corps"><p>Soit $(u_{n})$ une suite arithmétique de raison $r$. Alors :</p>
 <ul><li>si $r&gt;0$, la suite $(u_{n})$ est strictement croissante ;</li><li>si $r&lt;0$, la suite $(u_{n})$ est strictement décroissante ;</li><li>si $r=0$, la suite $(u_{n})$ est constante.</li></ul></div></section>
-<h3>Somme des termes d'une suite arithmétique</h3>
+<h3><span class="num-section">V.2</span> Somme des termes d'une suite arithmétique</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Somme des termes</span><div class="boite-corps"><p>Soit $(u_{n})$ une suite arithmétique de raison $r$ et $S_{n}$ la somme définie par</p>
 <div class="maths">\[
 S_{n}=u_{0}+u_{1}+\dots+u_{n} .
@@ -242,7 +242,7 @@ S_{n}=u_{0}+u_{1}+\dots+u_{n} .
 u_{p}+\dots+u_{n}=\frac{u_{p}+u_{n}}{2}\times(n+1-p).
 \]</div>
 <h2 id="s6"><span class="num-section">VI.</span> Suites géométriques</h2>
-<h3>Définition</h3>
+<h3><span class="num-section">VI.1</span> Définition</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Suite géométrique</span><div class="boite-corps"><p>Une suite $(u_{n})$ est dite <strong>géométrique</strong> lorsqu'il existe un nombre réel non nul $q$, qu'on appelle la raison de la suite, tel que, pour tout entier naturel $n$,</p>
 <div class="maths">\[
 u_{n+1}=q\times u_{n} .
@@ -261,7 +261,7 @@ u_{n+1}=q\times u_{n} .
 <ul><li><p>si $u_{0}&gt;0$ :</p>
 <ul><li>si $q&gt;1$, la suite $(u_{n})$ est strictement croissante ;</li><li>si $q&lt;1$, la suite $(u_{n})$ est strictement décroissante ;</li><li>si $q=1$, la suite $(u_{n})$ est constante.</li></ul></li><li><p>si $u_{0}&lt;0$ :</p>
 <ul><li>si $q&gt;1$, la suite $(u_{n})$ est strictement décroissante ;</li><li>si $q&lt;1$, la suite $(u_{n})$ est strictement croissante ;</li><li>si $q=1$, la suite $(u_{n})$ est constante.</li></ul></li></ul></div></section>
-<h3>Somme des termes d'une suite géométrique</h3>
+<h3><span class="num-section">VI.2</span> Somme des termes d'une suite géométrique</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Somme des termes</span><div class="boite-corps"><p>Soit $(u_{n})$ une suite géométrique de raison $q\neq 1$ et $S_{n}$ la somme définie par</p>
 <div class="maths">\[
 S_{n}=u_{0}+u_{1}+\dots+u_{n} .

@@ -3,12 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Chapitre 10 : Géométrie dans l&#x27;espace 
-\large Terminale spécialité — Terminale spécialité</title>
+<title>Chapitre 10 : Géométrie dans l&#x27;espace  Terminale spécialité — Terminale spécialité</title>
 <link rel="stylesheet" href="../assets/style.css">
 <script>
   window.MathJax = {
-    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}"} },
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "norme": ["{\\left\\|#1\\right\\|}", 1], "prob": "{P}", "Pcond": ["{P_{#1}\\left(#2\\right)}", 2], "suite": ["{\\left(#1\\right)}", 1], "limn": "{\\lim\\limits_{n\\to+\\infty}}", "limx": ["{\\lim\\limits_{x\\to #1}}", 1]} },
     options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
   };
 </script>
@@ -21,6 +20,9 @@
   border-bottom:2px solid var(--couleur,#2b6cb0)}
 .cours h2 .num-section{color:var(--couleur,#2b6cb0)}
 .cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours h3 .num-section{color:var(--couleur,#2b6cb0);margin-right:.15em}
+.cours .fbox{display:inline-block;border:1px solid var(--bord,#cfd6e0);border-radius:8px;
+  padding:.15em .55em;background:#fffdf5}
 .cours p{margin:.65rem 0;text-align:justify}
 .cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
 .cours li{margin:.28rem 0}
@@ -53,6 +55,8 @@
 .mini-fig{max-height:1.44rem;vertical-align:middle}
 .minipage{margin:.8rem 0}
 .verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 .img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
 .onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
 .onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
@@ -68,31 +72,30 @@
 <body style="--couleur:#2b6cb0">
 <main class="cours">
   <p><a href="../index.html#terminale-spe">← Retour au site</a></p>
-  <h1>Chapitre 10 : Géométrie dans l&#x27;espace 
-\large Terminale spécialité</h1>
+  <h1>Chapitre 10 : Géométrie dans l&#x27;espace  Terminale spécialité</h1>
   <p class="sous-titre">Terminale spécialité · Chapitre 10 — Géométrie dans l&#x27;espace · cours de Frederik de Peyrelongue</p>
-<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Géométrie dans l&#x27;espace</span><a class="onglet" href="../pdf/terminale-spe/10-geometrie-dans-l-espace.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/terminale-spe/td01-geometrie-vectorielle.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/terminale-spe/td02-equations-parametriques.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../pdf/terminale-spe/fiche-ap-vecteurs-droites-plans.pdf" target="_blank" rel="noopener">Fiche</a><a class="onglet" href="../pdf/terminale-spe/fiche-methode-geometrie.pdf" target="_blank" rel="noopener">Fiche méthode</a><a class="onglet" href="../quiz/terminale-spe-10.html" target="_blank" rel="noopener">Quiz</a></nav>
-<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Positions relatives de droites et de plans de l'espace</a></li><li><a href="#s2">II III  Droites et plans de l'espace</a></li><li><a href="#s3">III Bases et repères de l'espace</a></li><li><a href="#s4">IV Représentation paramétrique</a></li></ol></nav>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Géométrie dans l&#x27;espace</span><a class="onglet" href="../pdf/terminale-spe/10-geometrie-dans-l-espace.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/terminale-spe/fiche-ap-vecteurs-droites-plans.pdf" target="_blank" rel="noopener">Fiche AP</a><a class="onglet" href="../pdf/terminale-spe/fiche-methode-geometrie.pdf" target="_blank" rel="noopener">Fiche méthode</a><a class="onglet" href="../pdf/terminale-spe/td01-geometrie-vectorielle.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/terminale-spe/td02-equations-parametriques.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../quiz/terminale-spe-10.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Positions relatives de droites et de plans de l'espace</a></li><li><a href="#s2">II Droites et plans de l'espace</a></li><li><a href="#s3">III Bases et repères de l'espace</a></li><li><a href="#s4">IV Représentation paramétrique</a></li></ol></nav>
 <h2 id="s1"><span class="num-section">I.</span> Positions relatives de droites et de plans de l'espace</h2>
-<h3>Positions relatives de deux droites</h3>
+<h3 id="s1-1"><span class="num-section">I.1</span> Positions relatives de deux droites</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Deux droites de l'espace</span><div class="boite-corps"><p>Deux droites de l'espace sont soit <strong>coplanaires</strong> (contenues dans un même plan), soit <strong>non coplanaires</strong>.</p></div></section>
 <table class="tableau"><tr><td><img class="img-cours" src="img/terminale-spe-ch10-image1.png" alt=""></td><td><img class="img-cours" src="img/terminale-spe-ch10-image2.png" alt=""></td><td><img class="img-cours" src="img/terminale-spe-ch10-image3.png" alt=""></td><td><img class="img-cours" src="img/terminale-spe-ch10-image4.png" alt=""></td></tr><tr><td>sécantes</td><td>strictement parallèles</td><td>confondues</td><td>non coplanaires</td></tr></table>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Les droites d'un cube</span><div class="boite-corps"><p>$ABCDEFGH$ est un cube.</p>
 <ul><li>Les droites $(EG)$ et $(FG)$ appartiennent au même plan $(EFG)$ et sont sécantes en $G$.</li><li>Les droites $(AD)$ et $(FG)$ appartiennent au même plan $(ADFG)$ et sont parallèles.</li><li>Les droites $(AD)$ et $(CG)$ sont non coplanaires.</li></ul></div></section>
-<p>\fig[0.36\textwidth]{image5.png}</p>
-<h3>1.2  Positions relatives de deux plans</h3>
+<p><img class="img-cours" src="img/terminale-spe-ch10-image5.png" alt=""></p>
+<h3 id="s1-2"><span class="num-section">I.2</span> Positions relatives de deux plans</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Deux plans de l'espace</span><div class="boite-corps"><p>Deux plans de l'espace sont soit <strong>sécants</strong>, soit <strong>parallèles</strong>.</p></div></section>
 <table class="tableau"><tr><td><img class="img-cours" src="img/terminale-spe-ch10-plans-secants.png" alt=""></td><td><img class="img-cours" src="img/terminale-spe-ch10-plans-paralleles.png" alt=""></td><td><img class="img-cours" src="img/terminale-spe-ch10-plans-confondus.png" alt=""></td></tr><tr><td>sécants suivant la droite $d$</td><td>strictement parallèles</td><td>confondus</td></tr></table>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Les plans d'un parallélépipède</span><div class="boite-corps"><p>$ABCDEFGH$ est un parallélépipède rectangle.</p>
 <ul><li>Les plans $(BCG)$ et $(BCE)$ sont sécants suivant la droite $(BC)$.</li><li>Les plans $(ABC)$ et $(EFG)$ sont parallèles.</li></ul></div></section>
-<p>\fig[0.34\textwidth]{image9.png}</p>
-<h3>Positions relatives d'une droite et d'un plan</h3>
+<p><img class="img-cours" src="img/terminale-spe-ch10-pave-plan-ehcb.png" alt=""></p>
+<h3 id="s1-3"><span class="num-section">I.3</span> Positions relatives d'une droite et d'un plan</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Une droite et un plan</span><div class="boite-corps"><p>Une droite et un plan de l'espace sont soit <strong>sécants</strong>, soit <strong>parallèles</strong>.</p></div></section>
 <table class="tableau"><tr><td><img class="img-cours" src="img/terminale-spe-ch10-droite-plan-secants.png" alt=""></td><td><img class="img-cours" src="img/terminale-spe-ch10-droite-plan-incluse.png" alt=""></td><td><img class="img-cours" src="img/terminale-spe-ch10-droite-plan-paralleles.png" alt=""></td></tr><tr><td>sécants en un point $I$</td><td>$d$ est incluse dans $P$</td><td>strictement parallèles</td></tr></table>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Droite et plan dans un cube</span><div class="boite-corps"><p>$ABCDEFGH$ est un cube.</p>
 <ul><li>La droite $(GI)$ et le plan $(ABC)$ sont sécants en $I$.</li><li>La droite $(EG)$ est incluse dans le plan $(EFG)$.</li><li>La droite $(EG)$ et le plan $(ABC)$ sont parallèles.</li></ul></div></section>
-<p>\fig[0.32\textwidth]{image13.png}</p>
-<h3>Combinaisons linéaires de vecteurs de l'espace</h3>
+<p><img class="img-cours" src="img/terminale-spe-ch10-cube-gi.png" alt=""></p>
+<h3 id="s1-4"><span class="num-section">I.4</span> Combinaisons linéaires de vecteurs de l'espace</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Combinaison linéaire</span><div class="boite-corps"><p>Soit $\vec{u}$, $\vec{v}$ et $\vec{w}$ trois vecteurs de l'espace.</p>
 <p>Tout vecteur de la forme $a\vec{u}+b\vec{v}+c\vec{w}$, avec $a$, $b$ et $c$ réels, est appelé <strong>combinaison linéaire</strong> des vecteurs $\vec{u}$, $\vec{v}$ et $\vec{w}$.</p></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Combinaisons linéaires dans un cube</span><div class="boite-corps"><p>À l'aide du cube $ABCDEFGH$, représenter les vecteurs $\vec{a}$ et $\vec{b}$ donnés par</p>
@@ -101,19 +104,19 @@
 \qquad
 \vec{b}=2\vect{AB}+\vect{BD}-\vect{FC}.
 \]</div></div></section>
-<p><img class="img-cours" src="img/terminale-spe-ch10-image15.png" alt=""> <img class="img-cours" src="img/terminale-spe-ch10-image16.png" alt=""></p>
+<p><img class="img-cours" src="img/terminale-spe-ch10-cube-combinaisons.png" alt=""></p>
 <p><strong>Correction.</strong></p>
 <ul><li><p>$\vec{a}=\vect{AB}+\vect{CG}+\vect{FH}$.</p>
 <p>À l'aide du cube, on construit un chemin d'origine $A$ et formé des vecteurs $\vect{AB}$, $\vect{CG}$ (soit $\vect{BF}$) et $\vect{FH}$. On obtient $\vec{a}=\vect{AH}$.</p></li><li><p>$\vec{b}=2\vect{AB}+\vect{BD}-\vect{FC}=2\vect{AB}+\vect{BD}+\vect{CF}$.</p>
 <p>On construit de même un chemin d'origine $A$ : on obtient $\vec{b}=\vect{AF}$.</p></li></ul>
-<h2 id="s2"><span class="num-section">II.</span> III  Droites et plans de l'espace</h2>
-<h3>3.1  Direction d'une droite de l'espace</h3>
+<h2 id="s2"><span class="num-section">II.</span> Droites et plans de l'espace</h2>
+<h3 id="s2-1"><span class="num-section">II.1</span> Direction d'une droite de l'espace</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Vecteur directeur</span><div class="boite-corps"><p>On appelle <strong>vecteur directeur</strong> de $d$ tout vecteur non nul qui possède la même direction que la droite $d$.</p></div></section>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Appartenance à une droite</span><div class="boite-corps"><p>Soit une droite $d$ passant par un point $A$ et de vecteur directeur $\vec{u}$. Un point $M$ appartient à la droite $d$ si et seulement si les vecteurs $\vect{AM}$ et $\vec{u}$ sont colinéaires.</p></div></section>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Droites parallèles</span><div class="boite-corps"><p>Deux droites de l'espace de vecteurs directeurs $\vec{u}$ et $\vec{v}$ sont parallèles si et seulement si les vecteurs $\vec{u}$ et $\vec{v}$ sont colinéaires.</p></div></section>
-<h3>Direction d'un plan de l'espace</h3>
+<h3 id="s2-2"><span class="num-section">II.2</span> Direction d'un plan de l'espace</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Deux vecteurs déterminent une direction de plan</span><div class="boite-corps"><p>Deux vecteurs non nuls et non colinéaires déterminent la direction d'un plan.</p></div></section>
-<p><img class="img-cours" src="img/terminale-spe-ch10-image21.png" alt=""></p>
+<p><img class="img-cours" src="img/terminale-spe-ch10-vecteurs-translation.png" alt=""><br> { les vecteurs $\vec{u}$ et $\vec{v}$ de l'espace, translatés avec la même origine $A$ dans le plan $\mathcal{P}$}</p>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Appartenance à un plan</span><div class="boite-corps"><p>Soit un plan $P$ passant par un point $A$ et dirigé par deux vecteurs $\vec{u}$ et $\vec{v}$ non colinéaires.</p>
 <p>Un point $M$ appartient au plan $P$ si et seulement si</p>
 <div class="maths">\[
@@ -140,7 +143,7 @@
 <p>$P$ et $P'$ n'ont aucun point en commun et sont donc parallèles.</p></div></section>
 <p><strong>Conséquence.</strong> Pour démontrer que deux plans sont parallèles, il suffit de montrer que deux vecteurs non colinéaires de l'un des plans sont respectivement colinéaires à deux vecteurs non colinéaires de l'autre.</p>
 <h2 id="s3"><span class="num-section">III.</span> Bases et repères de l'espace</h2>
-<h3>Vecteurs coplanaires et bases de l'espace</h3>
+<h3 id="s3-1"><span class="num-section">III.1</span> Vecteurs coplanaires et bases de l'espace</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Vecteurs coplanaires</span><div class="boite-corps"><p>Trois vecteurs de l'espace sont <strong>coplanaires</strong> s'ils possèdent des représentants appartenant à un même plan.</p></div></section>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Caractérisation des vecteurs coplanaires</span><div class="boite-corps"><p>Trois vecteurs $\vec{u}$, $\vec{v}$ et $\vec{w}$ de l'espace sont coplanaires s'il existe un couple de réels $(x\,;y)$ tel que</p>
 <div class="maths">\[
@@ -177,7 +180,7 @@
 <p>Les trois différences $x'-x$, $y'-y$ et $z'-z$ sont donc nulles.</p></div></section>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Base de l'espace</span><div class="boite-corps"><p>Soit $\vec{\imath}$, $\vec{\jmath}$ et $\vec{k}$ trois vecteurs non coplanaires de l'espace.</p>
 <p>On appelle <strong>base de l'espace</strong> le triplet $\left(\vec{\imath}\,;\vec{\jmath}\,;\vec{k}\right)$.</p></div></section>
-<h3>Repère de l'espace</h3>
+<h3 id="s3-2"><span class="num-section">III.2</span> Repère de l'espace</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Repère de l'espace</span><div class="boite-corps"><p>Soit $\vec{\imath}$, $\vec{\jmath}$ et $\vec{k}$ trois vecteurs non coplanaires de l'espace. $O$ est un point de l'espace.</p>
 <p>On appelle <strong>repère de l'espace</strong> le quadruplet $\left(O\,;\vec{\imath}\,;\vec{\jmath}\,;\vec{k}\right)$.</p></div></section>
 <p><strong>Remarques.</strong> $O$ est appelé l'origine du repère.</p>
@@ -187,7 +190,7 @@
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Coordonnées et milieu</span><div class="boite-corps"><p>Soit deux points de l'espace $A\begin{pmatrix}x_A\\y_A\\z_A\end{pmatrix}$ et $B\begin{pmatrix}x_B\\y_B\\z_B\end{pmatrix}$.</p>
 <ul><li>Les coordonnées du vecteur $\vect{AB}$ sont $\begin{pmatrix}x_B-x_A\\y_B-y_A\\z_B-z_A\end{pmatrix}$.</li><li>Les coordonnées du milieu du segment $[AB]$ sont $\begin{pmatrix}\dfrac{x_A+x_B}{2}\\[6pt]\dfrac{y_A+y_B}{2}\\[6pt]\dfrac{z_A+z_B}{2}\end{pmatrix}$.</li></ul></div></section>
 <h2 id="s4"><span class="num-section">IV.</span> Représentation paramétrique</h2>
-<h3>Représentation paramétrique d'une droite</h3>
+<h3 id="s4-1"><span class="num-section">IV.1</span> Représentation paramétrique d'une droite</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Représentation paramétrique d'une droite</span><div class="boite-corps"><p>Soit une droite $d$ définie par un point $A\left(x_{A}\,;y_{A}\,;z_{A}\right)$ et un vecteur directeur $\vec{u}\left(a\,;b\,;c\right)$.</p>
 <p>La droite $d$ admet alors un système d'équations paramétriques, appelé <strong>représentation paramétrique</strong>, de la forme :</p>
 <div class="maths">\[
@@ -218,7 +221,7 @@ z=z_{A}+ct
 \end{cases}
 \]</div></div></section>
 <section class="boite boite-rem"><span class="boite-titre">Remarque</span><div class="boite-corps"><ul><li>Pour une demi-droite, $t\in\left]-\infty\,;\alpha\right]$ ou $t\in\left[\alpha\,;+\infty\right[$ et, pour un segment, $t\in\left[\alpha\,;\beta\right]$.</li><li>La représentation paramétrique d'une droite n'est pas unique : on peut prendre un autre point sur la droite et un autre vecteur directeur colinéaire au premier.</li></ul></div></section>
-<h3>Applications</h3>
+<h3 id="s4-2"><span class="num-section">IV.2</span> Applications</h3>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span><div class="boite-corps"><p>Donner une représentation paramétrique de la droite $d$ définie par :</p>
 <div class="maths">\[
 A\left(2\,;1\,;-1\right) \quad\text{et}\quad \vec{u}\left(0\,;1\,;-1\right).
@@ -336,7 +339,7 @@ t=3\\
 \end{cases}
 \]</div>
 <p>Les droites $d_{1}$ et $d_{2}$ sont sécantes en $I\left(0\,;-3\,;1\right)$.</p></div></section>
-<h3>Représentation paramétrique d'un plan</h3>
+<h3 id="s4-3"><span class="num-section">IV.3</span> Représentation paramétrique d'un plan</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Représentation paramétrique d'un plan</span><div class="boite-corps"><p>Soit un plan $(P)$ défini par un point $A\left(x_{A}\,;y_{A}\,;z_{A}\right)$ et deux vecteurs non colinéaires $\vec{u}\left(a\,;b\,;c\right)$ et $\vec{v}\left(\alpha\,;\beta\,;\gamma\right)$.</p>
 <p>Le plan $(P)$ admet alors un système d'équations paramétriques, appelé <strong>représentation paramétrique</strong>, de la forme :</p>
 <div class="maths">\[

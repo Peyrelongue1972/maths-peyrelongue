@@ -72,7 +72,7 @@
 <nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Calcul intégral</span><a class="onglet" href="../pdf/terminale-spe/14-calcul-integral.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/terminale-spe/td01-calcul-integral.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/terminale-spe/td02-calcul-integral.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../pdf/terminale-spe/fiche-methode-integration.pdf" target="_blank" rel="noopener">Fiche méthode</a><a class="onglet" href="../quiz/terminale-spe-14.html" target="_blank" rel="noopener">Quiz</a></nav>
 <nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Définition</a></li><li><a href="#s2">II Primitives et intégrale</a></li><li><a href="#s3">III Propriétés de l'intégrale</a></li><li><a href="#s4">IV Intégration par parties</a></li></ol></nav>
 <h2 id="s1"><span class="num-section">I.</span> Définition</h2>
-<h3>Définition</h3>
+<h3><span class="num-section">I.1</span> Définition</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Intégrale d'une fonction positive</span><div class="boite-corps"><p>Soit $f$ une fonction continue et positive sur un intervalle $[a\,;b]$. Soit $\mathcal{C}_{f}$ sa représentation graphique dans un repère orthonormal $(O,I,J)$.</p>
 <p>On appelle :</p>
 <ul><li><strong>unité d'aire</strong> (u.a.) : l'aire du rectangle construit à partir des points $O$, $I$ et $J$ ;</li><li><strong>domaine sous la courbe</strong> : le domaine délimité par la courbe $\mathcal{C}_{f}$, l'axe des abscisses et les droites d'équation $x=a$ et $x=b$ ;</li><li><strong>intégrale de $f$ sur $[a\,;b]$</strong> : la mesure de l'aire en u.a. du domaine situé sous la courbe $\mathcal{C}_{f}$.</li></ul>
@@ -86,7 +86,7 @@
 \int_{-3}^{2}f(x)\dx=\frac{5\times 5}{2}=12{,}5\ \text{u.a.}
 \]</div></div></section>
 <figure class="figure-cours"><img src="img/terminale-spe-ch14-fig02.png" alt="figure 2 du cours"></figure>
-<h3>Variable muette</h3>
+<h3><span class="num-section">I.2</span> Variable muette</h3>
 <p>La variable sous le signe intégrale est dite <strong>muette</strong> : on peut la changer par une autre variable.</p>
 <div class="maths">\[
 \int_{a}^{b}f(x)\dx=\int_{a}^{b}f(u)\mathrm{d}u
@@ -131,7 +131,7 @@
 <div class="maths">\[
 \int_{-6}^{1}f(x)\dx=\aire(\mathcal{D})=70 .
 \]</div>
-<h3>Intégrale de Riemann</h3>
+<h3><span class="num-section">I.3</span> Intégrale de Riemann</h3>
 <p>Soit $f$ une fonction continue et monotone que l'on suppose croissante.</p>
 <p>L'idée de Riemann est d'encadrer l'aire du domaine délimité par $\mathcal{C}_{f}$ par deux séries de rectangles.</p>
 <p>On divise l'intervalle $[0\,;1]$ en $n$ parties $\left[\frac{i}{n}\,;\frac{i+1}{n}\right]$, avec $i$ un entier qui parcourt $\{0\,;1\,;\dots\,;n-1\}$.</p>
@@ -155,7 +155,7 @@ f\left(\frac{i}{n}\right)\times\frac{1}{n}
 <p>$S_{n}=\frac{1}{n}\sum_{i=0}^{i=n-1}f\left(\frac{i}{n}\right)$ et $T_{n}=\frac{1}{n}\sum_{i=0}^{i=n-1}f\left(\frac{i+1}{n}\right)$ sont appelés <strong>sommes de Riemann</strong>.</p>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème admis.</span><div class="boite-corps"><p>Lorsque la fonction $f$ est <strong>continue</strong>, les sommes $S_{n}$ et $T_{n}$ de Riemann convergent vers la même limite, qui correspond à l'intégrale de $f$ sur $I$.</p></div></section>
 <h2 id="s2"><span class="num-section">II.</span> Primitives et intégrale</h2>
-<h3>Dérivée de $x\longmapsto \int_{a}^{x}f(t)\dt$</h3>
+<h3><span class="num-section">II.1</span> Dérivée de $x\longmapsto \int_{a}^{x}f(t)\dt$</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Primitive qui s'annule en $a$</span><div class="boite-corps"><p>Soient $f$ une fonction continue, positive et monotone sur un intervalle $I$, et $a\in I$. La fonction $F_{a}$, définie sur $I$ par</p>
 <div class="maths">\[
 F_{a}(x)=\int_{a}^{x}f(t)\dt,
@@ -179,9 +179,9 @@ f(x)\leqslant\frac{F_{a}(x+h)-F_{a}(x)}{h}\leqslant f(x+h).
 <p>On sait que la fonction $f$ est continue, donc $\lim\limits_{h\to 0}f(x+h)=f(x)$.</p>
 <p>D'après le théorème d'encadrement, $\lim\limits_{h\to 0}\dfrac{F_{a}(x+h)-F_{a}(x)}{h}=f(x)$, donc $F_{a}'=f$.</p></div></section>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème fondamental.</span><div class="boite-corps"><p>Soient $f$ une fonction continue sur un intervalle $I$ et $a\in I$. La fonction $F_{a}$, définie sur $I$ par $F_{a}(x)=\displaystyle\int_{a}^{x}f(t)\dt$, est la primitive de $f$ qui s'annule en $a$.</p></div></section>
-<h3>Existence de primitive</h3>
+<h3><span class="num-section">II.2</span> Existence de primitive</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Existence</span><div class="boite-corps"><p>Toute fonction $f$ continue sur un intervalle $I$ admet des primitives sur l'intervalle $I$.</p></div></section>
-<h3>Calcul d'intégrale à l'aide d'une primitive</h3>
+<h3><span class="num-section">II.3</span> Calcul d'intégrale à l'aide d'une primitive</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Lien primitive – intégrale</span><div class="boite-corps"><p>Soient $F$ et $f$ deux fonctions telles que $F$ soit une primitive de $f$ sur $[a\,;b]$.</p>
 <p>On a alors</p>
 <div class="maths">\[
@@ -206,7 +206,7 @@ f(x)\leqslant\frac{F_{a}(x+h)-F_{a}(x)}{h}\leqslant f(x+h).
 =\frac{625}{4}-\frac{1}{4}=156\ \text{u.a.}
 \]</div></div></section>
 <h2 id="s3"><span class="num-section">III.</span> Propriétés de l'intégrale</h2>
-<h3>Propriétés « vectorielles »</h3>
+<h3><span class="num-section">III.1</span> Propriétés « vectorielles »</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Premières propriétés</span><div class="boite-corps"><p>Soit $f$ une fonction continue sur un intervalle $I$. Alors :</p>
 <ul><li>Pour tout $a\in I$, $\displaystyle\int_{a}^{a}f(x)\dx=0$.</li><li>Pour tous $a$, $b\in I$, $\displaystyle\int_{b}^{a}f(x)\dx=-\int_{a}^{b}f(x)\dx$.</li><li><p><strong>Relation de Chasles</strong> : pour tous $a$, $b$, $c\in I$,</p>
 <div class="maths">        \[
@@ -224,7 +224,7 @@ f(x)\leqslant\frac{F_{a}(x+h)-F_{a}(x)}{h}\leqslant f(x+h).
 =\left[-\frac{x^{2}}{2}\right]_{-2}^{0}+\left[\frac{x^{2}}{2}\right]_{0}^{3}
 =-0+\frac{4}{2}+\frac{9}{2}-0=\frac{13}{2}.
 \]</div></div></section>
-<h3>Linéarité de l'intégrale</h3>
+<h3><span class="num-section">III.2</span> Linéarité de l'intégrale</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Linéarité</span><div class="boite-corps"><p>Soient $f$ et $g$ deux fonctions continues sur $I$, et $a$, $b$ deux réels appartenant à $I$. Soient $\alpha$ et $\beta$ deux réels. Alors</p>
 <div class="maths">\[
 \int_{a}^{b}\bigl(\alpha f(x)+\beta g(x)\bigr)\dx
@@ -247,7 +247,7 @@ I=5\left[\e^{x}\right]_{2}^{4}-3\left[\ln(x-1)\right]_{2}^{4}
 =5\left(\e^{4}-\e^{2}\right)-3\bigl(\ln 3-\ln 1\bigr)
 =5\e^{2}\left(\e^{2}-1\right)-3\ln 3 .
 \]</div></div></section>
-<h3>Positivité de l'intégrale</h3>
+<h3><span class="num-section">III.3</span> Positivité de l'intégrale</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Positivité</span><div class="boite-corps"><p>Si $f$ est une fonction continue et positive sur $[a\,;b]$ avec $a\leqslant b$, alors</p>
 <div class="maths">\[
 \int_{a}^{b}f(x)\dx\geqslant 0 .
@@ -276,7 +276,7 @@ f(x)\geqslant 0\ \text{sur}\ \left[\frac{1}{2}\,;3\right].
 <div class="maths">\[
 \int_{0}^{1}\e^{t^{2}}\dt .
 \]</div></div></section>
-<h3>Inégalité de la moyenne</h3>
+<h3><span class="num-section">III.4</span> Inégalité de la moyenne</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Inégalité de la moyenne</span><div class="boite-corps"><p>Soit $f$ une fonction continue sur $I=[a\,;b]$ avec $a\leqslant b$, et soient $m$ et $M$ deux nombres réels tels que, pour tout $x\in I$, $m\leqslant f(x)\leqslant M$. Alors</p>
 <div class="maths">\[
 m\leqslant\frac{1}{b-a}\int_{a}^{b}f(x)\dx\leqslant M .
@@ -302,7 +302,7 @@ m\left[x\right]_{a}^{b}\leqslant\int_{a}^{b}f(x)\dx
 =\frac{1}{2}\left[\frac{x^{4}}{4}\right]_{1}^{3}
 =\frac{1}{2}\left(\frac{81-1}{4}\right)=10 .
 \]</div></div></section>
-<h3>Calcul d'aire</h3>
+<h3><span class="num-section">III.5</span> Calcul d'aire</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Aire et intégrale d'une fonction de signe variable</span><div class="boite-corps"><p>Si $f$ est une fonction continue sur $[a\,;b]$, positive sur $[a\,;c]$ et négative sur $[c\,;b]$ (avec $a&lt;c&lt;b$), alors</p>
 <div class="maths">\[
 \int_{a}^{b}f(x)\dx=\aire(\mathcal{D}_{1})-\aire(\mathcal{D}_{2}),

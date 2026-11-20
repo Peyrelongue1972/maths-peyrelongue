@@ -74,12 +74,12 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 <nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Somme de variables aléatoires</span><a class="onglet" href="../pdf/terminale-spe/15-somme-de-variables-aleatoires.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/terminale-spe/td01-somme-va.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../quiz/terminale-spe-15.html" target="_blank" rel="noopener">Quiz</a></nav>
 <nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Variable aléatoire</a></li><li><a href="#s2">II Somme de variables aléatoires</a></li><li><a href="#s3">III Échantillon de $n$ variables aléatoires identiques et indépendantes</a></li></ol></nav>
 <h2 id="s1"><span class="num-section">I.</span> Variable aléatoire</h2>
-<h3>Définition</h3>
+<h3><span class="num-section">I.1</span> Définition</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Variable aléatoire</span><div class="boite-corps"><p>Soit $\Om$ l'ensemble des issues d'une expérience aléatoire ($\Om$ est l'<strong>univers</strong>). Une <strong>variable aléatoire</strong> sur $\Om$ est une fonction définie sur $\Om$ à valeurs dans $\R$.</p></div></section>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Probabilité d'un événement $\{X=x_{i}\}$</span><div class="boite-corps"><p>La <strong>probabilité</strong> de l'événement $\{X=x_{i}\}$ est la somme des probabilités des issues de $\Om$ auxquelles on associe le réel $x_{i}$.</p></div></section>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Loi de probabilité</span><div class="boite-corps"><p>Soit $X$ une variable aléatoire définie sur $\Om$. Définir la <strong>loi de probabilité</strong> de la variable aléatoire $X$, c'est associer à chaque valeur $x_{i}$ prise par $X$ la probabilité de l'événement $\{X=x_{i}\}$.</p>
 <p>On présente souvent la loi de probabilité de $X$ sous la forme d'un tableau.</p></div></section>
-<h3>Espérance d'une variable aléatoire réelle</h3>
+<h3><span class="num-section">I.2</span> Espérance d'une variable aléatoire réelle</h3>
 <p>L'<strong>espérance</strong> de $X$ est le nombre réel, noté $E(X)$, défini par</p>
 <div class="maths">\[
 E(X)=\sum p_{i}x_{i}=p_{1}x_{1}+p_{2}x_{2}+\dots+p_{r}x_{r} .
@@ -96,7 +96,7 @@ E(aX+b)&=\sum p_{i}(ax_{i}+b)=p_{1}(ax_{1}+b)+p_{2}(ax_{2}+b)+\dots+p_{r}(ax_{r}
 &=a\,E(X)+b .
 \end{aligned}\]</div></div></section>
 <p><strong>Rappel :</strong> on a utilisé la propriété $p_{1}+p_{2}+\dots+p_{r}=1$.</p>
-<h3>Variance et écart-type</h3>
+<h3><span class="num-section">I.3</span> Variance et écart-type</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Variance et écart-type</span><div class="boite-corps"><p>Soit une variable aléatoire $X$ de loi de probabilité $(x_{i}\,;p_{i})$, $i$ allant de $1$ à $n$.</p>
 <p>La <strong>variance</strong> de la loi de probabilité de $X$ est :</p>
 <div class="maths">\[
@@ -160,7 +160,7 @@ E(X+Y)=E(X)+E(Y)=np+mq=200\times 0{,}2+100\times 0{,}5=90 .
 \]</div></div></section>
 <p><strong>Remarques :</strong></p>
 <ul><li>$X$ et $Y$ suivent une loi binomiale, mais pas $X+Y$.</li><li>Les valeurs prises par $X$ sont toutes les valeurs entières entre $0$ et $200$, et les valeurs prises par $Y$ toutes les valeurs entières entre $0$ et $100$. En revanche, les valeurs prises par $Z=X+Y$ ne sont pas nécessairement toutes les valeurs entières entre $0$ et $300$.</li></ul>
-<h3>Variance d'une somme</h3>
+<h3><span class="num-section">II.3</span> Variance d'une somme</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Variance d'une somme (admise)</span><div class="boite-corps"><p>Soient $X$ et $Y$ deux variables aléatoires <strong>indépendantes</strong>. Alors :</p>
 <div class="maths">\[
 \Var(X+Y)=\Var(X)+\Var(Y) .
@@ -184,7 +184,7 @@ E(X+Y)=E(X)+E(Y)=np+mq=200\times 0{,}2+100\times 0{,}5=90 .
 <div class="maths">        \[
         M_{n}=\frac{1}{n}S_{n}=\frac{1}{n}\sum_{i=1}^{n}X_{i} .
         \]</div></li></ul></div></section>
-<h3>Échantillon de $n$ variables aléatoires identiques et indépendantes de loi binomiale</h3>
+<h3><span class="num-section">III.1</span> Échantillon de $n$ variables aléatoires identiques et indépendantes de loi binomiale</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Somme de variables de Bernoulli</span><div class="boite-corps"><p>Soient $n$ variables aléatoires indépendantes $X_{1}$, $X_{2}$, …, $X_{n}$ suivant la même loi de Bernoulli $\Bin(p)$.</p>
 <p>La variable aléatoire $S_{n}=X_{1}+X_{2}+\dots+X_{n}$ suit alors la loi binomiale $\Bin(n\,;p)$.</p></div></section>
 <section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>Soient les variables $X_{i}$ suivant une même loi de Bernoulli $\Bin(p)$, qui prend la valeur $1$ pour un succès, avec $i\in\llbracket 1\,;n\rrbracket$. Comme les variables $X_{i}$ sont indépendantes, leur somme $X_{1}+X_{2}+\dots+X_{n}$ prendra comme valeur le nombre de succès pour $n$ expériences de Bernoulli : donc $S_{n}=X_{1}+X_{2}+\dots+X_{n}$ suit la loi binomiale $\Bin(n\,;p)$.</p></div></section>
@@ -211,7 +211,7 @@ _{n \text{ variables indépendantes suivant } \Bin(p)}
 =np(1-p) .
 \]</div>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Loi binomiale $\Bin(5\,;0{,}3)$</span><div class="boite-corps"><p>Soit $X$ suivant la loi binomiale $\Bin(5\,;0{,}3)$ : on peut décomposer $X$ en somme de $5$ variables suivant la loi de Bernoulli $\Bin(0{,}3)$.</p></div></section>
-<h3>Échantillon de $n$ variables aléatoires identiques et indépendantes</h3>
+<h3><span class="num-section">III.2</span> Échantillon de $n$ variables aléatoires identiques et indépendantes</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Espérance et variance de la somme</span><div class="boite-corps"><p>Soient $n$ un entier naturel non nul, $X$ une variable aléatoire définie sur un univers $\Om$, et $S_{n}$ la variable aléatoire somme d'un échantillon de taille $n$ de la loi de $X$. On a alors :</p>
 <div class="maths">\[
 E\left(S_{n}\right)=n\,E(X)

@@ -74,7 +74,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 <nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Géométrie</span><a class="onglet" href="../pdf/premiere-spe/12-geometrie.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/premiere-spe/fiche-activite-formule-mediane.pdf" target="_blank" rel="noopener">Fiche activité</a><a class="onglet" href="../pdf/premiere-spe/td01-geometrie-reperee.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../quiz/premiere-spe-12.html" target="_blank" rel="noopener">Quiz</a></nav>
 <nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Équation de droite</a></li><li><a href="#s2">II Équation du cercle</a></li><li><a href="#s3">III Théorème de la médiane</a></li><li><a href="#s4">IV Résolution de problèmes géométriques</a></li></ol></nav>
 <h2 id="s1"><span class="num-section">I.</span> Équation de droite</h2>
-<h3>Définition – équation cartésienne d'une droite</h3>
+<h3><span class="num-section">I.1</span> Définition – équation cartésienne d'une droite</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Droite $(AB)$</span><div class="boite-corps"><p>Soient $A$ et $B$ deux points du plan : on appelle <strong>droite $(AB)$</strong> l'ensemble des points $M$ du plan alignés avec les points $A$ et $B$.</p></div></section>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Vecteur directeur</span><div class="boite-corps"><p>On appelle <strong>vecteur directeur</strong> de la droite $(AB)$ tout vecteur $\vec{v}$ qui a la même direction que la droite $(AB)$.</p></div></section>
 <figure class="figure-cours"><img src="img/premiere-spe-ch12-fig01.png" alt="figure 1 du cours"></figure>
@@ -110,12 +110,12 @@ ax+by+c=0 .
 <p>Tout point $M$ du plan de coordonnées $M(x\,;y)$ qui vérifie l'équation $ax+by+c=0$ appartient à la droite $D$.</p></div></section>
 <figure class="figure-cours"><img src="img/premiere-spe-ch12-fig02.png" alt="figure 2 du cours"></figure>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Corollaire</span><div class="boite-corps"><p>Soit $D$ une droite ayant pour équation cartésienne $ax+by+c=0$ ; alors le vecteur $\vec{u}\binom{-b}{a}$ est un vecteur directeur de la droite $D$.</p></div></section>
-<h3>Équation réduite de droite</h3>
+<h3><span class="num-section">I.2</span> Équation réduite de droite</h3>
 <p><strong>Droite verticale :</strong> $x=k$. La droite est verticale, donc le vecteur directeur est colinéaire avec $\vec{\jmath}$ : donc $\vec{u}\binom{0}{a}$.</p>
 <p><strong>Droite horizontale :</strong> $y=k$. La droite est horizontale, donc le vecteur directeur est colinéaire avec $\vec{\imath}$ : donc $\vec{u}\binom{-b}{0}$.</p>
 <p><strong>Droite oblique :</strong> $y=mx+p$, donc $a\neq 0$ et $b\neq 0$, donc $m=-\dfrac{b}{a}$ et $p=-\dfrac{c}{a}$.</p>
 <p>Un vecteur directeur d'une droite oblique est $\vec{u}\binom{1}{m}$.</p>
-<h3>Vecteur normal</h3>
+<h3><span class="num-section">I.3</span> Vecteur normal</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Vecteur normal</span><div class="boite-corps"><p>Un <strong>vecteur normal</strong> à une droite $D$ quelconque du plan est un vecteur non nul et orthogonal à un vecteur directeur de $D$.</p></div></section>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Orthogonalité</span><div class="boite-corps"><p>deux droites du plan sont perpendiculaires si, et seulement si, un vecteur normal de l'une est orthogonal à un vecteur normal de l'autre.</p></div></section>
 <section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>est un vecteur directeur de $d$ et $\vec{v}$ de $d'$, alors $\vec{u}$ et $\vec{v}$ sont orthogonaux. $\vec{v}$ étant normal à $d$ et $\vec{u}$ à $d'$, la propriété est vérifiée.</p>
@@ -123,7 +123,7 @@ ax+by+c=0 .
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Corollaire</span><div class="boite-corps"><p>$D$ et $D'$ deux droites non verticales ayant pour coefficient directeur respectivement $m$ et $m'$ sont perpendiculaires si, et seulement si, $m\times m'=-1$.</p></div></section>
 <section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>vecteur directeur de $D'$ est $\vec{u}\,'\binom{1}{m'}$.</p>
 <p>$D$ et $D'$ sont perpendiculaires $\iff$ $\vec{u}$ et $\vec{u}\,'$ sont orthogonaux $\iff$ $\vec{u}\cdot\vec{u}\,'=0$ $\iff$ $1+m\times m'=0$ $\iff$ $m\times m'=-1$.</p></div></section>
-<h3>Équation cartésienne et vecteur normal</h3>
+<h3><span class="num-section">I.4</span> Équation cartésienne et vecteur normal</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Équation cartésienne et vecteur normal</span><div class="boite-corps"><p>Soient $a$, $b$ et $c$ trois réels tels que $a$ et $b$ ne soient pas simultanément nuls. La droite d'équation cartésienne $ax+by+c=0$ admet pour vecteur normal le vecteur $\vec{n}\binom{a}{b}$.</p>
 <p><strong>Réciproquement</strong>, toute droite ayant pour vecteur normal le vecteur non nul $\vec{n}\binom{a}{b}$ admet une équation cartésienne de la forme $ax+by+c=0$.</p></div></section>
 <p>Rappel : la droite d'équation $ax+by+c=0$ admet pour vecteur directeur $\vec{u}\binom{-b}{a}$.</p>
@@ -131,7 +131,7 @@ ax+by+c=0 .
 <p>Soit $\vec{n}\binom{a}{b}$ : alors $\vec{u}\cdot\vec{n}=a\times(-b)+a\times b=0$, donc $\vec{n}$ et $\vec{u}$ sont orthogonaux.</p>
 <p><strong>Réciproquement</strong>, on considère une droite de vecteur normal $\vec{n}\binom{a}{b}$.</p>
 <p>Soit $\vec{u}\binom{-b}{a}$ : alors $\vec{n}$ et $\vec{u}$ sont orthogonaux, donc $\vec{u}$ est un vecteur directeur de $(d)$, dont l'équation est donc $ax+by+c=0$, où « $c$ » est une constante à déterminer.</p></div></section>
-<h3>Application et méthode</h3>
+<h3><span class="num-section">I.5</span> Application et méthode</h3>
 <p>Dans un repère orthonormé, déterminer, de deux façons différentes, une équation cartésienne de la droite $d$ passant par le point $A(5\,;-1)$ et de vecteur normal $\vec{n}\binom{2}{-3}$.</p>
 <p>On utilise le fait que le vecteur de coordonnées $\vec{n}\binom{a}{b}$ est un vecteur normal à la droite $D$ d'équation</p>
 <div class="maths">\[
@@ -146,7 +146,7 @@ D : ax+by+c=0 .
 \iff 2x-3y-13=0 .
 \]</div>
 <h2 id="s2"><span class="num-section">II.</span> Équation du cercle</h2>
-<h3>Connaissant le centre et le rayon</h3>
+<h3><span class="num-section">II.1</span> Connaissant le centre et le rayon</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Cercle</span><div class="boite-corps"><p>On appelle <strong>cercle</strong> de centre $\Omega$ et de rayon $r&gt;0$ l'ensemble des points $M$ du plan qui sont à la distance $r$ du centre. On le note $\mathcal{C}\left(\Omega\,,r\right)$.</p>
 <p>Autrement dit, l'ensemble des points $M(x\,;y)$ tel que $\Omega M=r$ est le cercle $\mathcal{C}\left(\Omega\,,r\right)$.</p></div></section>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span><div class="boite-corps"><p>soient $a$ et $b$ deux réels. Une équation du cercle de centre $\Omega(a\,;b)$ et de rayon $r$ est</p>
@@ -164,7 +164,7 @@ D : ax+by+c=0 .
 <div class="maths">\[
 x^{2}+2x+y^{2}-6y+6=0 .
 \]</div></div></section>
-<h3>Connaissant un diamètre</h3>
+<h3><span class="num-section">II.2</span> Connaissant un diamètre</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Diamétre d'un cercle</span><div class="boite-corps"><p>soient $A$ et $B$ deux points fixés. Le lieu des points $M$ du plan tel que $\left(\vect{MA}\,,\vect{MB}\right)=\dfrac{\pi}{2}\ [\pi]$ est le cercle de diamètre $[AB]$.</p></div></section>
 <figure class="figure-cours"><img src="img/premiere-spe-ch12-fig03.png" alt="figure 3 du cours"></figure>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Corollaire :</span><div class="boite-corps"><p>soient $A$ et $B$ deux points fixés. L'ensemble des points $M(x\,;y)$ du plan tel que $\vect{MA}\cdot\vect{MB}=0$ est le cercle de diamètre $[AB]$.</p></div></section>
@@ -201,8 +201,8 @@ x^{2}+2x+y^{2}-6y+6=0 .
 \]</div>
 <p>Soit $I$ le milieu de $[AB]$ : $x_{I}=\dfrac{x_{A}+x_{B}}{2}$ et $y_{I}=\dfrac{y_{A}+y_{B}}{2}$.</p>
 <p>On reconnaît l'équation du cercle $\mathcal{C}$ de centre $I$ et de rayon $R=\dfrac{AB}{2}$.</p></div></section>
-<h3>Application et méthode</h3>
-<h3>a) Déterminer un cercle à partir d'une équation</h3>
+<h3><span class="num-section">II.3</span> Application et méthode</h3>
+<h3><span class="num-section">II.4</span> a) Déterminer un cercle à partir d'une équation</h3>
 <p>L'ensemble des points $M(x\,;y)$ vérifiant l'équation $x^{2}+y^{2}+3x+y-\dfrac{93}{2}=0$ est un cercle.</p>
 <p>Pour le définir, il faut trouver son centre et son rayon.</p>
 <section class="boite boite-meth"><span class="boite-titre">Méthode</span> <span class="boite-sous-titre">obtenir les coordonnées du centre et le rayon du cercle</span><div class="boite-corps"><p>Pour obtenir les coordonnées du centre et le rayon du cercle donné par une équation développée, il faut :</p>
@@ -222,7 +222,7 @@ y^{2}+y=\left(y+\frac{1}{2}\right)^{2}-\frac{1}{4} .
 \left(x+\frac{3}{2}\right)^{2}+\left(y+\frac{1}{2}\right)^{2}=49=7^{2} .
 \]</div>
 <p>Donc le cercle a pour centre $\Omega\left(-\dfrac{3}{2}\,;-\dfrac{1}{2}\right)$ et pour rayon $7$.</p>
-<h3>b) Intersection d'un cercle avec une droite parallèle à un axe</h3>
+<h3><span class="num-section">II.5</span> b) Intersection d'un cercle avec une droite parallèle à un axe</h3>
 <section class="boite boite-info"><p><strong>Propriété :</strong> un cercle et une droite parallèle à un axe du repère ont $0$, $1$ ou $2$ points d'intersection.</p></section>
 <p><strong>Application :</strong> soit le cercle d'équation $x^{2}+y^{2}-4x+2y-4=0$ et la droite d'équation $x=-1$.</p>
 <p>On remplace la valeur donnée par l'équation de la droite dans l'équation du cercle et on résout l'équation du second degré obtenue.</p>
@@ -235,7 +235,7 @@ y^{2}+y=\left(y+\frac{1}{2}\right)^{2}-\frac{1}{4} .
 \]</div>
 <p>Le point d'intersection a pour coordonnées $(-1\,;-1)$. Et la droite est tangente au cercle.</p>
 <h2 id="s3"><span class="num-section">III.</span> Théorème de la médiane</h2>
-<h3>Médiane et centre de gravité</h3>
+<h3><span class="num-section">III.1</span> Médiane et centre de gravité</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Médiane</span><div class="boite-corps"><p>Dans un triangle, la <strong>médiane</strong> issue d'un sommet est la droite qui passe par ce sommet et par le milieu du côté opposé.</p></div></section>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Centre de gravité</span><div class="boite-corps"><p>On appelle <strong>centre de gravité</strong> d'un triangle $ABC$ l'unique point $G$ tel que</p>
 <div class="maths">\[
@@ -269,7 +269,7 @@ y^{2}+y=\left(y+\frac{1}{2}\right)^{2}-\frac{1}{4} .
 <div class="maths">\[
 AG=\frac{2}{3}AA',\quad BG=\frac{2}{3}BB'\quad\text{et}\quad CG=\frac{2}{3}CC' .
 \]</div></div></section>
-<h3>Application et méthode</h3>
+<h3><span class="num-section">III.2</span> Application et méthode</h3>
 <section class="boite boite-meth"><span class="boite-titre">Méthode</span><div class="boite-corps"><p>Dans un exercice de géométrie vectorielle :</p>
 <ul><li>on traduit les données de l'énoncé en relations vectorielles ;</li><li>on transforme ces données pour arriver au résultat donné ;</li><li>il est souvent utile de penser à la relation de Chasles en introduisant un point (milieu ou centre de gravité, par exemple).</li></ul></div></section>
 <section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Centre de gravité du triangle $A'B'C'$</span><div class="boite-corps"><p>Soit $ABC$ un triangle et $A'$, $B'$ et $C'$ les milieux des côtés $[BC]$, $[AC]$ et $[AB]$. On note $G$ le centre de gravité de $ABC$. Montrer que $G$ est le centre de gravité de $A'B'C'$.</p></div></section>
@@ -291,7 +291,7 @@ AG=\frac{2}{3}AA',\quad BG=\frac{2}{3}BB'\quad\text{et}\quad CG=\frac{2}{3}CC' .
 =\vec{0} .
 \]</div>
 <p>Donc $\vect{GA'}+\vect{GB'}+\vect{GC'}=\vec{0}+\vec{0}=\vec{0}$ : $G$ est bien le centre de gravité de $A'B'C'$.</p>
-<h3>Théorème de la médiane</h3>
+<h3><span class="num-section">III.3</span> Théorème de la médiane</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème de la médiane II</span><div class="boite-corps"><p>Soit $ABC$ un triangle. On note $I$ le milieu du segment $[BC]$. Alors :</p>
 <ol><li>$\vect{AB}\cdot\vect{AC}=AI^{2}-\dfrac{BC^{2}}{4}$ ;</li><li>$AB^{2}-AC^{2}=2\,\vect{AI}\cdot\vect{CB}$ ;</li><li>$AB^{2}+AC^{2}=2\,AI^{2}+\dfrac{BC^{2}}{2}$.</li></ol></div></section>
 <section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><div class="maths">\[
@@ -329,7 +329,7 @@ OB^{2}+OC^{2}=2\,OM^{2}+\frac{BC^{2}}{2},
 \]</div>
 <p>d'où $BC=20$.</p></div></section>
 <h2 id="s4"><span class="num-section">IV.</span> Résolution de problèmes géométriques</h2>
-<h3>Problème de lieux géométriques</h3>
+<h3><span class="num-section">IV.1</span> Problème de lieux géométriques</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Lieu géométrique</span><div class="boite-corps"><p>Un <strong>lieu géométrique</strong> est un ensemble de points qui satisfont une même condition.</p></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Trois lieux classiques</span><div class="boite-corps"><p>L'ensemble des points $M$ qui vérifient :</p>
 <ul><li>$MA=MB$ est la médiatrice du segment $[AB]$ ;</li><li>$\vect{AM}=k\,\vect{AB}$ est la droite $(AB)$ ou une partie de celle-ci, suivant les valeurs de $k$ ;</li><li>$\Omega M=r$ (avec $r&gt;0$) est le cercle de centre $\Omega$ et de rayon $r$.</li></ul></div></section>

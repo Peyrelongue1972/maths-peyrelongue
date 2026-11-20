@@ -72,7 +72,7 @@
 <nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Équations différentielles</span><a class="onglet" href="../pdf/terminale-spe/8-equations-differentielles.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/terminale-spe/td01-equations-differentielles.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/terminale-spe/td02-equations-differentielles.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../pdf/terminale-spe/fiche-ap-primitives-equa-diff.pdf" target="_blank" rel="noopener">Fiche</a><a class="onglet" href="../quiz/terminale-spe-8.html" target="_blank" rel="noopener">Quiz</a></nav>
 <nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Notion d'équation différentielle</a></li><li><a href="#s2">II Équations différentielles linéaires</a></li><li><a href="#s3">III Équations différentielles du type $y'=ay+b$</a></li><li><a href="#s4">IV Équation différentielle $y'=ay+f$ avec $a\neq 0$</a></li></ol></nav>
 <h2 id="s1"><span class="num-section">I.</span> Notion d'équation différentielle</h2>
-<h3>Définition</h3>
+<h3><span class="num-section">I.1</span> Définition</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Équation fonctionnelle</span><div class="boite-corps"><p>Une <strong>équation fonctionnelle</strong> est une équation dont l'inconnue est une fonction.</p></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Une équation fonctionnelle</span><div class="boite-corps"><p>On cherche les fonctions $f$ qui vérifient la propriété</p>
 <div class="maths">\[
@@ -86,7 +86,7 @@ f(x+y)=f(x)\times f(y)\qquad\text{pour tous réels } x \text{ et } y .
 <p>L'équation différentielle $(E_{1})$ peut se noter aussi $\dfrac{\mathrm{d}y}{\mathrm{d}t}=5$ : c'est la notation notamment des physiciens, qui permet d'indiquer par rapport à quelle variable la fonction est dérivée.</p>
 <p><strong>b)</strong>  $(E_{2}) : y'(x)=2x$ pour $x\in\R$.</p>
 <p>On remarque qu'une solution de cette équation est la fonction $f(x)=x^{2}+5$. On prouve ainsi l'existence ; se pose alors le problème de l'unicité.</p></div></section>
-<h3>Vérifier qu'une fonction est solution d'une équation différentielle</h3>
+<h3><span class="num-section">I.2</span> Vérifier qu'une fonction est solution d'une équation différentielle</h3>
 <p>Pour prouver que la fonction $g$ définie sur $\left]0\,;+\infty\right[$ par $g(x)=3x^{2}+\e^{x}$ est solution de l'équation différentielle $y'=6x+\e^{x}$, on remplace la fonction $y$ par la fonction $g$ dans le membre de gauche de l'équation et, par le calcul, on vérifie que le membre de gauche est bien égal au membre de droite.</p>
 <p>Pour tout $x$ de $\left]0\,;+\infty\right[$, la fonction $g$ est une somme de deux fonctions que je peux dériver terme à terme :</p>
 <div class="maths">\[
@@ -94,7 +94,7 @@ g'(x)=3\times 2x+\e^{x}=6x+\e^{x}.
 \]</div>
 <p>Donc $g$ est bien solution de l'équation $y'=6x+\e^{x}$.</p>
 <h2 id="s2"><span class="num-section">II.</span> Équations différentielles linéaires</h2>
-<h3>Définition</h3>
+<h3><span class="num-section">II.1</span> Définition</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Équation différentielle linéaire du premier ordre</span><div class="boite-corps"><p>Soit $y$ une fonction de la variable $x$. Si la fonction $y$ est dérivable, l'équation</p>
 <div class="maths">\[
 y'=ay+b
@@ -134,7 +134,7 @@ y(x)=\frac{C}{\e^{-ax}}=C\e^{ax}.
 \]</div></div></section>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème de linéarité.</span><div class="boite-corps"><p>l'équation différentielle $y'=ay$, $a\in\R$, alors $f+g$ et $kf$, $k\in\R$, sont également solutions de l'équation différentielle.</p></div></section>
 <section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><ul><li>$(f+g)'=f'+g'=af+ag=a(f+g)$ ;</li><li>$(kf)'=kf'=k\times af=a(kf)$.</li></ul></div></section>
-<h3>Méthode : résoudre une équation différentielle du type $y'=ay$</h3>
+<h3><span class="num-section">II.3</span> Méthode : résoudre une équation différentielle du type $y'=ay$</h3>
 <section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Résoudre $3y'+5y=0$</span><div class="boite-corps"><p>On considère l'équation différentielle $3y'+5y=0$.</p>
 <ol><li>Déterminer l'unique solution telle que $y(1)=2$.</li></ol></div></section>
 <p><em>Corrigé.</em></p>
@@ -160,7 +160,7 @@ y(x)=2\e^{\frac{5}{3}}\,\e^{-\frac{5}{3}x}
 =2\e^{\frac{5}{3}(1-x)} .
 \]</div>
 <h2 id="s3"><span class="num-section">III.</span> Équations différentielles du type $y'=ay+b$</h2>
-<h3>Solution particulière</h3>
+<h3><span class="num-section">III.1</span> Solution particulière</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Solution particulière</span><div class="boite-corps"><p>On appelle <strong>solution particulière</strong> de l'équation $y'=ay+b$ une solution quelconque de cette équation.</p></div></section>
 <p>On remarque qu'il existe une solution constante de cette équation. En effet, soit $f_{0}(x)=k$ une fonction constante : alors $f_{0}'(x)=0$, et en remplaçant dans l'équation on obtient</p>
 <div class="maths">\[
@@ -173,7 +173,7 @@ y(x)=2\e^{\frac{5}{3}}\,\e^{-\frac{5}{3}x}
 x\longmapsto -\frac{b}{a}
 \]</div>
 <p>est solution de l'équation différentielle $y'=ay+b$ (avec $a\neq 0$). Cette solution est appelée <strong>solution particulière constante</strong>.</p></div></section>
-<h3>Solutions générales de l'équation différentielle du premier ordre</h3>
+<h3><span class="num-section">III.2</span> Solutions générales de l'équation différentielle du premier ordre</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Résolution de $y'=ay+b$</span><div class="boite-corps"><p>L'équation différentielle du premier ordre $y'=ay+b$, avec $a$ et $b$ réels, se résout en trois étapes.</p>
 <p><strong>Étape 1.</strong>  Dans un premier temps, on annule la constante $b$ et on obtient l'équation dite « homogène » : $y'=ay$. Cette équation homogène admet comme solutions l'ensemble des fonctions $y_{C}(x)=C\e^{ax}$, avec $C\in\R$.</p>
 <p><strong>Étape 2.</strong>  Dans un second temps, on recherche une solution particulière sous la forme d'une fonction constante : la fonction $y_{0}(x)=-\dfrac{b}{a}$ est une solution particulière.</p>

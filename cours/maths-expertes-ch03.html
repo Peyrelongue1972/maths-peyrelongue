@@ -141,7 +141,7 @@ z_{2}=\overline{z_{1}}=\frac{1}{2}-i\frac{\sqrt{3}}{2} .
 P(z)=\sum_{k=0}^{k=n}a_{k}z^{k} .
 \]</div>
 <p>L'équation $P(z)=0$ est appelée <strong>équation polynomiale de degré $n$</strong>.</p></div></section>
-<h3>Identification d'un polynôme</h3>
+<h3><span class="num-section">II.1</span> Identification d'un polynôme</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Polynôme nul</span><div class="boite-corps"><p>Soit $p_{n}$ un polynôme à coefficients complexes de degré $n\in\N$.</p>
 <p>Si, pour tout complexe $z$, $p_{n}(z)=0$, alors ses $n+1$ coefficients sont nuls.</p>
 <p><strong>Un polynôme est nul si, et seulement si, tous ses coefficients sont nuls.</strong></p></div></section>
@@ -165,7 +165,7 @@ a_{k}\left(2^{n+1}-2^{k}\right)=0 \quad\text{pour } 0\leqslant k\leqslant n
 <p><strong>Conclusion :</strong> de l'initialisation et de l'hérédité, on peut conclure que la propriété est vraie quel que soit le rang $n$.</p></div></section>
 <p><strong>Corollaire :</strong> deux polynômes à coefficients complexes de même degré sont égaux si, et seulement si, tous leurs coefficients des termes de même degré sont égaux.</p>
 <p><strong>Notation :</strong> on note $\deg(P)$ le degré du polynôme $P$.</p>
-<h3>Factorisation de $z^{n}-a^{n}$</h3>
+<h3><span class="num-section">II.2</span> Factorisation de $z^{n}-a^{n}$</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Lemme</span><div class="boite-corps"><p>Soient $n\geqslant 1$ un entier et $z$ un complexe. Alors</p>
 <div class="maths">\[
 z^{n}-1=(z-1)\sum_{k=0}^{k=n-1}z^{k} .
@@ -189,7 +189,7 @@ z^{n}-a^{n}&=a^{n}\left(\left(\frac{z}{a}\right)^{n}-1\right)
 \end{aligned}\]</div></div></section>
 <p><strong>Pour $n=2$ :</strong> $z^{2}-a^{2}=(z-a)(z+a)$.</p>
 <p><strong>Pour $n=3$ :</strong> $z^{3}-a^{3}=(z-a)\left(z^{2}+az+a^{2}\right)$.</p>
-<h3>Racine d'un polynôme</h3>
+<h3><span class="num-section">II.3</span> Racine d'un polynôme</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Racine et factorisation</span><div class="boite-corps"><p>Soit $P$ un polynôme à coefficients complexes, de degré l'entier $n\geqslant 1$. Les deux propositions sont équivalentes :</p>
 <ol><li>il existe un complexe $a$ tel que $P(a)=0$ ;</li><li>il existe un polynôme $Q$ de degré $n-1$ tel que, pour tout complexe $z$, $P(z)=(z-a)Q(z)$.</li></ol></div></section>
 <section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>$P(z)=a_{n}z^{n}+\dots+a_{1}z+a_{0}$.</p>
@@ -262,8 +262,8 @@ P(z)=0\iff (z-a)Q(z)=0\iff z-a=0 \text{ ou } Q(z)=0 .
 <p>On applique l'hypothèse de récurrence : $Q$ est de degré $n$, donc admet au plus $n$ racines.</p>
 <p>Il en résulte que $P$, de degré $n+1$, admet au plus $n+1$ racines.</p>
 <p>De l'initialisation et de l'hérédité, nous pouvons conclure qu'un polynôme de degré $n$ admet au plus $n$ racines.</p></div></section>
-<h3>Racines $n$-ièmes</h3>
-<h3>Racines $n$-ièmes de l'unité</h3>
+<h3><span class="num-section">II.4</span> Racines $n$-ièmes</h3>
+<h3><span class="num-section">II.5</span> Racines $n$-ièmes de l'unité</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Racines $n$-ièmes de l'unité</span><div class="boite-corps"><p>Soit $n$ un entier naturel non nul. Dans $\C$, l'équation $(E) : z^{n}=1$ admet $n$ solutions distinctes, qui sont les nombres complexes $u_{k}$ définis par</p>
 <div class="maths">\[
 u_{k}=\e^{i\frac{2k\pi}{n}}
@@ -304,14 +304,14 @@ U_{n}=\left\{\e^{i\frac{2k\pi}{n}},\ k\in\Z \text{ et } 0\leqslant k\leqslant n-
 <h2 id="s3"><span class="num-section">III.</span> Géométrie</h2>
 <p>Le plan est muni d'un repère orthonormé direct $(O,\vec{u},\vec{v})$, nommé <strong>plan complexe</strong>.</p>
 <p>Remarque : sens direct $(\vec{u},\vec{v})=\dfrac{\pi}{2}+2k\pi$.</p>
-<h3>Affixe d'un point et affixe d'un vecteur</h3>
+<h3><span class="num-section">III.1</span> Affixe d'un point et affixe d'un vecteur</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Affixe</span><div class="boite-corps"><p>Soit $M$ le point du plan de coordonnées $(x\,;y)$.</p>
 <ol><li>On appelle <strong>affixe de $M$</strong> le nombre complexe $z$ défini par $z=x+iy$.</li><li>On appelle <strong>affixe du vecteur</strong> $\overrightarrow{OM}$ le nombre complexe $z$.</li><li>Un vecteur $\vec{w}$ a pour affixe $z$ lorsque $\vec{w}=\overrightarrow{OM}$, où $M$ est le point d'affixe $z$.</li></ol></div></section>
 <figure class="figure-cours"><img src="img/maths-expertes-ch03-fig01.png" alt="figure 1 du cours"></figure>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Trois affixes</span><div class="boite-corps"><p>Les points $U$, $V$ et $A$ ont pour affixes respectives $z_{U}=1$, $z_{V}=i$ et $z_{A}=-2+i$.</p></div></section>
 <p><strong>Remarque :</strong> un nombre complexe $z=x+iy$ peut représenter indifféremment un point $M(x\,;y)$ ou un vecteur $\vec{w}(x\,;y)$.</p>
 <p>L'axe des abscisses est appelé axe des réels et l'axe des ordonnées est appelé axe des imaginaires purs.</p>
-<h3>Propriétés</h3>
+<h3><span class="num-section">III.2</span> Propriétés</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Affixes de somme et de produit par un réel</span><div class="boite-corps"><p>Soient $\vec{v_{1}}$ et $\vec{v_{2}}$ deux vecteurs du plan complexe d'affixes respectives $z_{1}$ et $z_{2}$.</p>
 <ol><li>Le vecteur $\vec{v_{1}}+\vec{v_{2}}$ a pour affixe $z_{1}+z_{2}$.</li><li>Soit $\lambda\in\R$ : alors le vecteur $\lambda\vec{v_{1}}$ a pour affixe $\lambda z_{1}$.</li></ol></div></section>
 <section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>formes algébriques sont données par $z_{1}=x_{1}+iy_{1}$ et $z_{2}=x_{2}+iy_{2}$. Ainsi</p>

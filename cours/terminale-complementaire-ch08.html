@@ -74,14 +74,14 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 <nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Lois discrètes</span><a class="onglet" href="../pdf/terminale-complementaire/8-lois-discretes.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/terminale-complementaire/td01-loi-binomiale.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../quiz/terminale-complementaire-8.html" target="_blank" rel="noopener">Quiz</a></nav>
 <nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Variable aléatoire et loi de probabilité</a></li><li><a href="#s2">II Loi uniforme et loi de Bernoulli</a></li><li><a href="#s3">III Schéma de Bernoulli et loi binomiale</a></li><li><a href="#s4">IV Loi géométrique</a></li></ol></nav>
 <h2 id="s1"><span class="num-section">I.</span> Variable aléatoire et loi de probabilité</h2>
-<h3>Variable aléatoire</h3>
+<h3><span class="num-section">I.1</span> Variable aléatoire</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Variable aléatoire</span><div class="boite-corps"><p>Une <strong>variable aléatoire</strong> $X$ est une <strong>fonction</strong> définie sur un univers $\Omega$ et à valeurs dans $\R$.</p>
 <p>Si $x_{1},x_{2},\dots,x_{r}$ désignent les valeurs prises par $X$, on note « $X=x_{i}$ » l'événement « $X$ prend la valeur $x_{i}$ ».</p></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Le jeu du dé</span><div class="boite-corps"><p>On considère le jeu suivant : on lance un dé à six faces.</p>
 <ul><li>si le résultat est pair, on gagne $2$&nbsp;euros ;</li><li>si le résultat est $1$, on gagne $3$&nbsp;euros ;</li><li>si le résultat est $3$ ou $5$, on perd $4$&nbsp;euros.</li></ul>
 <p>On a défini une variable aléatoire $X$ sur $\Omega=\{1\,;2\,;3\,;4\,;5\,;6\}$ qui peut prendre les valeurs $2$, $3$ ou $-4$.</p>
 <p>On a donc : $X(1)=3$, $X(2)=2$, $X(3)=-4$, $X(4)=2$, $X(5)=-4$, $X(6)=2$.</p></div></section>
-<h3>Loi de probabilité</h3>
+<h3><span class="num-section">I.2</span> Loi de probabilité</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Loi de probabilité</span><div class="boite-corps"><p>Soit une variable aléatoire $X$ définie sur un univers $\Omega$ et prenant les valeurs $x_{1},x_{2},\dots,x_{r}$.</p>
 <p>La <strong>loi de probabilité</strong> de $X$ associe à toute valeur $x_{i}$ la probabilité $\prob(X=x_{i})$.</p></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Loi de probabilité du jeu</span><div class="boite-corps"><p>On considère la variable aléatoire $X$ définie dans l'exemple précédent.</p>
@@ -101,7 +101,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 p_{1}+p_{2}+p_{3}=\frac{1}{3}+\frac{1}{2}+\frac{1}{6}=1 .
 \]</div></div></section>
 <h2 id="s2"><span class="num-section">II.</span> Loi uniforme et loi de Bernoulli</h2>
-<h3>Loi uniforme discrète sur $\{1\,;2\,;\dots\,;n\}$</h3>
+<h3><span class="num-section">II.1</span> Loi uniforme discrète sur $\{1\,;2\,;\dots\,;n\}$</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Loi uniforme discrète</span><div class="boite-corps"><p>$X$ est une variable aléatoire qui prend ses valeurs dans l'ensemble $\{1\,;2\,;\dots\,;n\}$ avec $n\in\N^{*}$.</p>
 <p>Dire que la loi de probabilité de $X$ suit la <strong>loi uniforme</strong> sur $\{1\,;2\,;\dots\,;n\}$ signifie que toutes les valeurs prises par $X$ sont équiprobables. Ainsi, pour tout entier naturel $k$ de l'ensemble $\{1\,;2\,;\dots\,;n\}$ :</p>
 <div class="maths">\[
@@ -121,7 +121,7 @@ E(X)&=x_{1}\times\prob(X=x_{1})+\dots+x_{n}\times\prob(X=x_{n})\\
 <div class="maths">\[
 E(X)=\frac{6+1}{2}=3{,}5 .
 \]</div></div></section>
-<h3>Épreuve et loi de Bernoulli</h3>
+<h3><span class="num-section">II.2</span> Épreuve et loi de Bernoulli</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Épreuve de Bernoulli</span><div class="boite-corps"><p>Une <strong>épreuve de Bernoulli</strong> est une expérience aléatoire à deux issues. L'une est souvent appelée succès et notée $S$, l'autre est souvent appelée échec et notée $\overline{S}$.</p></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Parité d'un dé</span><div class="boite-corps"><p>L'épreuve consiste à observer la parité d'un lancer de dé : il y a deux issues, pair ou impair.</p></div></section>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Loi de Bernoulli</span><div class="boite-corps"><p>On considère une épreuve de Bernoulli où la probabilité de succès est $p$. $X$ est la variable aléatoire qui prend la valeur $1$ en cas de succès et $0$ en cas d'échec.</p>
@@ -150,7 +150,7 @@ V(X)=p(1-p)\bigl[p+1-p\bigr]=p(1-p) .
 \sigma(X)=\sqrt{V(X)}=\sqrt{p(1-p)} .
 \]</div></div></section>
 <h2 id="s3"><span class="num-section">III.</span> Schéma de Bernoulli et loi binomiale</h2>
-<h3>Schéma de Bernoulli</h3>
+<h3><span class="num-section">III.1</span> Schéma de Bernoulli</h3>
 <p>On considère une expérience aléatoire qui consiste à <strong>répéter $n$ fois une même épreuve de Bernoulli</strong> (épreuve à deux issues : $S$ succès et $\overline{S}$ échec). On note $p=\prob(S)$ et $\prob(\overline{S})$.</p>
 <p>Lorsque cette épreuve est répétée de <strong>manière identique et indépendante</strong>, on obtient un <strong>schéma de Bernoulli de paramètre $n$ et $p$</strong>.</p>
 <p>À ce schéma de Bernoulli, on associe une variable aléatoire $X$ qui compte les succès.</p>
@@ -158,7 +158,7 @@ V(X)=p(1-p)\bigl[p+1-p\bigr]=p(1-p) .
 <p><strong>Formule de calcul de $\prob(X=k)$</strong></p>
 <p>Avec pour $k$ succès parmi $n$ tirages, on a aussi $(n-k)$ échecs : il y a plusieurs chemins réalisant cet événement. La probabilité sur une branche avec uniquement $k$ succès est de $p^{k}(1-p)^{n-k}$. Il faut ensuite dénombrer (compter) les branches avec uniquement $k$ succès.</p>
 <figure class="figure-cours"><img src="img/terminale-complementaire-ch08-fig02.png" alt="figure 2 du cours"></figure>
-<h3>Coefficients binomiaux</h3>
+<h3><span class="num-section">III.2</span> Coefficients binomiaux</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Coefficient binomial</span><div class="boite-corps"><p>On représente à l'aide d'un arbre de probabilité un schéma de Bernoulli constitué de $n$ épreuves. Pour tout entier $k$ avec $0\leqslant k\leqslant n$, le nombre de chemins réalisant $k$ succès est noté $\dbinom{n}{k}$.</p>
 <p>La notation $\dbinom{n}{k}$ se lit « $k$ parmi $n$ ». Ces nombres sont appelés <strong>coefficients binomiaux</strong>. La formule de calcul n'est pas au programme.</p></div></section>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriétés</span><div class="boite-corps"><p>Pour tout entier $n\geqslant 1$ :</p>
@@ -173,7 +173,7 @@ V(X)=p(1-p)\bigl[p+1-p\bigr]=p(1-p) .
 <section class="boite boite-info"><p>$\dbinom{n}{k}$ est le coefficient binomial qui compte le nombre de chemins pour avoir $k$ succès.</p>
 <p>Le triangle de Pascal permet de calculer les coefficients binomiaux.</p>
 <table class="tableau"><tr><td>$n$</td><td>Triangle</td><td>$\binom{n}{0}$</td><td>$\binom{n}{1}$</td><td>$\binom{n}{2}$</td><td>$\binom{n}{3}$</td><td>$\binom{n}{4}$</td><td>$\binom{n}{5}$</td></tr><tr><td>$1$</td><td>$1\quad 1$</td><td>$1$</td><td>$1$</td><td></td><td></td><td></td><td></td></tr><tr><td>$2$</td><td>$1\quad 2\quad 1$</td><td>$1$</td><td>$2$</td><td>$1$</td><td></td><td></td><td></td></tr><tr><td>$3$</td><td>$1\quad 3\quad 3\quad 1$</td><td>$1$</td><td>$3$</td><td>$3$</td><td>$1$</td><td></td><td></td></tr><tr><td>$4$</td><td>$1\quad 4\quad 6\quad 4\quad 1$</td><td>$1$</td><td>$4$</td><td>$6$</td><td>$4$</td><td>$1$</td><td></td></tr><tr><td>$5$</td><td>$1\quad 5\quad 10\quad 10\quad 5\quad 1$</td><td>$1$</td><td>$5$</td><td>$10$</td><td>$10$</td><td>$5$</td><td>$1$</td></tr><tr><td class="vide"></td><td colspan="7" class="note-tableau"></td></tr></table></section>
-<h3>La loi binomiale</h3>
+<h3><span class="num-section">III.3</span> La loi binomiale</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Loi binomiale</span><div class="boite-corps"><p>La variable aléatoire $X$ qui compte les succès dans un schéma de Bernoulli de paramètre $n$ et $p$ suit la <strong>loi binomiale de paramètres $n$ et $p$</strong>, notée $\mathcal{B}(n\,;p)$.</p>
 <p>La variable aléatoire $X$ prend des valeurs entières entre $0$ et $n$ et</p>
 <div class="maths">\[
@@ -193,7 +193,7 @@ V(X)=np(1-p),
 \sigma(X)=\sqrt{np(1-p)} .
 \]</div></div></section>
 <h2 id="s4"><span class="num-section">IV.</span> Loi géométrique</h2>
-<h3>Définition</h3>
+<h3><span class="num-section">IV.1</span> Définition</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Loi géométrique</span><div class="boite-corps"><p>On répète une épreuve de Bernoulli dont la probabilité de succès est $p$. $X$ est la variable aléatoire qui compte le nombre d'épreuves nécessaires pour avoir le premier succès.</p>
 <p>La loi de probabilité de la variable aléatoire $X$ est appelée <strong>loi géométrique de paramètre $p$</strong>.</p></div></section>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Loi de probabilité</span><div class="boite-corps"><p>$X$ est une variable aléatoire qui suit la loi géométrique de paramètre $p$. Pour tout entier naturel $k\geqslant 1$ :</p>
@@ -209,7 +209,7 @@ V(X)=np(1-p),
 <div class="maths">\[
 E(X)=\frac{1}{p}.
 \]</div></div></section>
-<h3>Loi géométrique : une loi sans mémoire</h3>
+<h3><span class="num-section">IV.2</span> Loi géométrique : une loi sans mémoire</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Queue de la loi</span><div class="boite-corps"><p>$X$ est une variable aléatoire qui suit une loi géométrique de paramètre $p$.</p>
 <div class="maths">\[
 \prob(X&gt;n)=(1-p)^{n}.

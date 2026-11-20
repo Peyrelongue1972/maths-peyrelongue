@@ -86,7 +86,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 <p>$0$ est le premier terme de la suite : on le note $u_{0}$ ($u$ indice $0$), on l'appelle le terme de rang « $0$ ». « $2$ » est le deuxième terme de la suite : on le note $u_{1}$ ($u$ indice $1$), on l'appelle le terme de rang $1$. Le rang correspond à l'indice.</p>
 <p><strong>Remarque :</strong> on peut aussi commencer avec l'indice $1$ ($2\,;3\,\dots$) au lieu de $0$.</p>
 <h2 id="s2"><span class="num-section">II.</span> Mode de définition d'une suite</h2>
-<h3>Définition d'une suite par une relation de récurrence</h3>
+<h3><span class="num-section">II.1</span> Définition d'une suite par une relation de récurrence</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Suite définie par récurrence</span><div class="boite-corps"><p>Une suite est définie <strong>par récurrence</strong> lorsque le terme de rang $n$ est défini à partir de termes de rang qui le précèdent.</p></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$u_{0}=16$ et $u_{n}=\frac{1}{2}u_{n-1}$</span><div class="boite-corps"><p>La suite $(u_{n})_{\N}$ définie par</p>
 <div class="maths">\[
@@ -110,18 +110,18 @@ v_{n}=4v_{n-1}+1 & \text{pour } n\geqslant 1
 \end{cases}
 \]</div>
 <p>Calculer $v_{1}$, $v_{2}$, $v_{3}$.</p></div></section>
-<h3>Définition d'une suite de manière explicite</h3>
+<h3><span class="num-section">II.2</span> Définition d'une suite de manière explicite</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Suite définie explicitement</span><div class="boite-corps"><p>Une suite définie à l'aide d'une fonction $f$, définie sur $\N$, est dite définie de <strong>manière explicite</strong>. On a alors $u_{n}=f(n)$ pour $n\in\N$.</p></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$w_{n}=f(n)$ avec $f(x)=x^{2}$</span><div class="boite-corps"><p>Soit $f(x)=x^{2}$ définie sur $\N$ : on peut ainsi définir une suite $w_{n}$ par $w_{n}=f(n)$. Calculer les $4$ premiers termes.</p></div></section>
 <p><strong>Remarque :</strong> la fonction peut être définie à partir d'une certaine valeur $n_{0}&gt;0$ ; alors la suite $u_{n}$ sera définie à partir du rang $n_{0}$.</p>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$h(x)=-\dfrac{5}{x-2}$</span><div class="boite-corps"><p>La fonction $h(x)=-\dfrac{5}{x-2}$ est définie pour $n&gt;2$ : on pourra alors définir la suite $u_{n}=h(n)$ à partir du rang $n_{0}=3$.</p>
 <p>Calculer les $4$ premiers termes.</p></div></section>
 <h2 id="s3"><span class="num-section">III.</span> Représentation graphique d'une suite</h2>
-<h3>Représentation graphique</h3>
+<h3><span class="num-section">III.1</span> Représentation graphique</h3>
 <section class="boite boite-meth"><span class="boite-titre">Méthode</span> <span class="boite-sous-titre">Représenter une suite grpahiquement</span><div class="boite-corps"><p>Pour représenter une suite $u$ dans un repère, on place :</p>
 <ul><li>les indices $n$ sur l'axe des abscisses ;</li><li>les termes $u_{n}$ sur l'axe des ordonnées ;</li><li>les points de coordonnées $(n\,;u_{n})$ dans le repère sans les relier (image de points).</li></ul></div></section>
 <figure class="figure-cours"><img src="img/premiere-stmg-ch01-fig01.png" alt="figure 1 du cours"></figure>
-<h3>Représentation d'une suite définie par une formule explicite</h3>
+<h3><span class="num-section">III.2</span> Représentation d'une suite définie par une formule explicite</h3>
 <p>Soit $f$ une fonction définie sur $\N$ et $u_{n}$ la suite définie par $u_{n}=f(n)$.</p>
 <section class="boite boite-meth"><span class="boite-titre">Méthode</span> <span class="boite-sous-titre">Représenter uen suite explicite définie par uen fonction</span><div class="boite-corps"><p>Pour représenter la suite $u$, on trace la fonction $f$ : les abscisses $0,1,2,\dots,n$ représentent le rang des termes de notre suite, et les images $f(n)$ représentent les termes de notre suite.</p></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$f(x)=0{,}2x^{2}+0{,}5x-2$</span><div class="boite-corps"><div class="maths">\[
@@ -133,7 +133,7 @@ u_{n}=f(n) .
 <h2 id="s4"><span class="num-section">IV.</span> Sens de variation d'une suite</h2>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Suite croissante, décroissante</span><div class="boite-corps"><ul><li>Une suite est <strong>croissante</strong> lorsque les termes de la suite sont classés en ordre croissant : pour tout entier naturel $n$, on a $u_{n+1}\geqslant u_{n}$.</li><li>Une suite est <strong>décroissante</strong> lorsque les termes de la suite sont classés en ordre décroissant : pour tout entier naturel $n$, on a $u_{n+1}\leqslant u_{n}$.</li></ul></div></section>
 <p><strong>Remarque :</strong> graphiquement, le nuage de points représentant la suite « monte de gauche à droite » lorsque la suite est croissante et « descend de gauche à droite » lorsque la suite est décroissante.</p>
-<h3>Méthode</h3>
+<h3><span class="num-section">IV.1</span> Méthode</h3>
 <section class="boite boite-meth"><span class="boite-titre">Méthode</span> <span class="boite-sous-titre">Sens de variation d'une suite</span><div class="boite-corps"><p>Pour déterminer le sens de variation de la suite $(v_{n})$ :</p>
 <ul><li>on calcule, pour tout $n$, la différence $v_{n+1}-v_{n}$ ;</li><li>on étudie le signe de la différence ;</li><li>si la différence est positive, alors la suite $(v_{n})$ est croissante ; si la différence est négative, alors la suite $(v_{n})$ est décroissante.</li></ul></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$u_{n}=-3n+5$</span><div class="boite-corps"><p>Étudier le sens de variation de la suite $(u_{n})$ définie, pour tout entier naturel $n$, par $u_{n}=-3n+5$.</p>

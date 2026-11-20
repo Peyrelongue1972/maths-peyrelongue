@@ -74,7 +74,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 <nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Les suites numériques</span><a class="onglet" href="../pdf/terminale-complementaire/1-les-suites-numeriques.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/terminale-complementaire/td01-suites-arithmetiques-et-geometriques.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/terminale-complementaire/td01-limites-de-suites-geometriques.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../pdf/terminale-complementaire/td03-limites-de-suites.pdf" target="_blank" rel="noopener">TD n°3</a><a class="onglet" href="../quiz/terminale-complementaire-1.html" target="_blank" rel="noopener">Quiz</a></nav>
 <nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Rappel</a></li><li><a href="#s2">II Limite d'une suite</a></li><li><a href="#s3">III Opérations sur les limites</a></li><li><a href="#s4">IV Limites et comparaison</a></li><li><a href="#s5">V Limite des suites géométriques</a></li><li><a href="#s6">VI Suites arithmético-géométriques</a></li></ol></nav>
 <h2 id="s1"><span class="num-section">I.</span> Rappel</h2>
-<h3>Suites arithmétiques</h3>
+<h3><span class="num-section">I.1</span> Suites arithmétiques</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Suite arithmétique</span><div class="boite-corps"><p>$(u_{n})$ est une suite arithmétique de raison $r$. Alors :</p>
 <ul><li>$\forall n\in\N$, $u_{n+1}=u_{n}+r$   (formule de récurrence) ;</li><li>$\forall n\in\N$, $\forall p\in\N$, $u_{n+p}=u_{n}+(n-p)\times r$ ;</li><li>$\forall n\in\N$, $u_{n}=u_{0}+nr$   (formule explicite).</li></ul></div></section>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Somme des entiers</span><div class="boite-corps"><div class="maths">\[
@@ -84,7 +84,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 <div class="maths">\[
 \forall n\in\N,\quad u_{0}+u_{1}+\dots+u_{n}=\frac{u_{0}+u_{n}}{2}\times(n+1) .
 \]</div></div></section>
-<h3>Suites géométriques</h3>
+<h3><span class="num-section">I.2</span> Suites géométriques</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Suite géométrique</span><div class="boite-corps"><p>$(u_{n})$ est une suite géométrique de raison $q$. Alors :</p>
 <ul><li>$\forall n\in\N$, $u_{n+1}=q\times u_{n}$   (formule de récurrence) ;</li><li>$\forall n\in\N$, $\forall p\in\N$, $u_{n+p}=q^{n-p}\,u_{n}$ ;</li><li>$\forall n\in\N$, $u_{n}=q^{n}\,u_{0}$   (formule explicite).</li></ul></div></section>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Somme des puissances de $q$</span><div class="boite-corps"><div class="maths">\[
@@ -95,7 +95,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 \forall n\in\N,\quad u_{0}+u_{1}+\dots+u_{n}=\frac{u_{0}\left(1-q^{n+1}\right)}{1-q} .
 \]</div></div></section>
 <h2 id="s2"><span class="num-section">II.</span> Limite d'une suite</h2>
-<h3>Suite de limite infinie</h3>
+<h3><span class="num-section">II.1</span> Suite de limite infinie</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Limite $+\infty$</span><div class="boite-corps"><p>On dit que la suite $(u_{n})$ admet pour <strong>limite</strong> $+\infty$ si $(u_{n})$ est aussi grand que l'on veut à partir d'un certain rang ; on note :</p>
 <div class="maths">\[
 \limn u_{n}=+\infty .
@@ -110,7 +110,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 <p>En appliquant l'algorithme ci-contre avec $A=100$, on obtient en sortie $n=3$.</p>
 <p>À partir du terme $u_{3}$, les termes de la suite dépassent $100$.</p>
 <section class="boite boite-info"><p><strong>Langage naturel</strong><br> <span style="color:#9e0000">Définir fonction seuil($A$)</span><br> $n\leftarrow 0$<br> $u\leftarrow 2$<br> <span style="color:#16357f">Tant que $u&lt;A$</span><br> $n\leftarrow n+1$<br> $u\leftarrow 4u$<br> <span style="color:#16357f">Fin Tant que</span><br> <span style="color:#1d5c2c">Afficher $n$</span></p></section>
-<h3>Suite de limite finie</h3>
+<h3><span class="num-section">II.2</span> Suite de limite finie</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Limite finie</span><div class="boite-corps"><p>On dit que la suite $(u_{n})$ admet pour <strong>limite</strong> $L$ si $u_{n}$ est aussi proche de $L$ que l'on veut à partir d'un certain rang ; on note :</p>
 <div class="maths">\[
 \limn u_{n}=L .
@@ -127,11 +127,11 @@ u_{1\,000}=1+\frac{1}{1\,000^{2}}=1{,}000001 .
 <p>Les termes de la suite se resserrent autour de $1$ à partir d'un certain rang.</p>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Suite divergente</span><div class="boite-corps"><p>Une suite qui n'est pas convergente est dite <strong>divergente</strong>.</p></div></section>
 <p><strong>Remarque :</strong> une suite qui est divergente n'admet pas nécessairement de limite infinie. Par exemple, la suite de terme général $(-1)^{n}$ prend alternativement les valeurs $-1$ et $1$. Elle n'admet donc pas de limite finie, ni infinie. Elle est donc divergente.</p>
-<h3>Suites qui n'ont pas de limite</h3>
+<h3><span class="num-section">II.3</span> Suites qui n'ont pas de limite</h3>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span><div class="boite-corps"><p>la suite $(t_{n})$ définie pour tout $n$ non nul par $t_{n}=(-1)^{n}$.</p>
 <p>La suite $(t_{n})$ prend les valeurs $1$ et $-1$ : elle est bornée, mais je ne peux pas la rendre aussi proche de $1$ à partir d'un certain rang. En effet, elle alterne entre $1$ et $-1$.</p></div></section>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Suite divergente (bis)</span><div class="boite-corps"><p>Une suite qui n'est pas convergente est dite <strong>divergente</strong>. Une suite est dite divergente si sa limite est infinie ou si elle n'admet pas de limite.</p></div></section>
-<h3>Limites des suites usuelles</h3>
+<h3><span class="num-section">II.4</span> Limites des suites usuelles</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Limites des suites usuelles</span><div class="boite-corps"><div class="maths">\[
 \limn n=+\infty,
 \qquad
@@ -147,7 +147,7 @@ u_{1\,000}=1+\frac{1}{1\,000^{2}}=1{,}000001 .
 \limn \frac{1}{\sqrt{n}}=0 .
 \]</div></div></section>
 <h2 id="s3"><span class="num-section">III.</span> Opérations sur les limites</h2>
-<h3>Utiliser les propriétés des opérations sur les limites</h3>
+<h3><span class="num-section">III.1</span> Utiliser les propriétés des opérations sur les limites</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Somme de limite</span><div class="boite-corps"><table class="tableau"><tr><td>$\limn u_{n}=\ell$</td><td>$L$</td><td>$L$</td><td>$L$</td><td>$+\infty$</td><td>$-\infty$</td><td>$+\infty$</td></tr><tr><td>$\limn v_{n}=\ell'$</td><td>$L'$</td><td>$+\infty$</td><td>$-\infty$</td><td>$+\infty$</td><td>$-\infty$</td><td>$-\infty$</td></tr><tr><td>$\limn (u_{n}+v_{n})=\ell''$</td><td>$L+L'$</td><td>$+\infty$</td><td>$-\infty$</td><td>$+\infty$</td><td>$-\infty$</td><td><strong>F.I.*</strong></td></tr></table>
 <p>* Forme indéterminée : on ne peut pas prévoir la limite éventuelle.</p></div></section>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">produit de limite</span><div class="boite-corps"><p> $\infty$ désigne $+\infty$ ou $-\infty$</p>
@@ -157,7 +157,7 @@ u_{1\,000}=1+\frac{1}{1\,000^{2}}=1{,}000001 .
 <table class="tableau"><tr><td>$\limn u_{n}=\ell$</td><td>$L$</td><td>$L\neq 0$</td><td>$L$</td><td>$\infty$</td><td>$\infty$</td></tr><tr><td>$\limn v_{n}=\ell'$</td><td>$L'\neq 0$</td><td>$0$</td><td>$\infty$</td><td>$L$</td><td>$\infty$</td></tr><tr><td>$\limn \dfrac{u_{n}}{v_{n}}=\ell''$</td><td>$\dfrac{L}{L'}$</td><td>$0$</td><td>$\infty$</td><td>$0$</td><td>F.I.</td></tr></table>
 <p>On applique la règle des signes pour déterminer si le quotient est $+\infty$ ou $-\infty$.</p></div></section>
 <p>Tous ces résultats sont intuitifs. On retrouve par exemple un principe sur les opérations de limite semblable à la règle des signes établie sur les nombres relatifs.</p>
-<h3>Méthode : calculer la limite d'une suite à l'aide des formules d'opération</h3>
+<h3><span class="num-section">III.2</span> Méthode : calculer la limite d'une suite à l'aide des formules d'opération</h3>
 <p>Calculer les limites :   a) $\limn n^{2}+n$   b) $\limn \left(\dfrac{1}{\sqrt n}+1\right)\left(n^{2}+3\right)$   c) $\limn \dfrac{2}{-n^{2}-3}$</p>
 <p><strong>Correction</strong></p>
 <p><strong>a)</strong> $\limn n^{2}+n=+\infty$</p>
@@ -191,7 +191,7 @@ u_{1\,000}=1+\frac{1}{1\,000^{2}}=1{,}000001 .
 \end{cases}
 \]</div>
 <p>D'après la propriété donnant la <strong>limite d'un quotient</strong> : $\limn \dfrac{2}{-n^{2}-3}=0$.</p>
-<h3>Cas des formes indéterminées (non exigible)</h3>
+<h3><span class="num-section">III.3</span> Cas des formes indéterminées (non exigible)</h3>
 <p>On peut reconnaître les formes indéterminées pour lesquelles il faudra utiliser des calculs algébriques ou d'autres propriétés sur les calculs de limites afin de lever l'indétermination.</p>
 <section class="boite boite-info"><p>Les quatre formes indéterminées sont, par abus d'écriture :</p>
 <div class="maths">\[
@@ -252,7 +252,7 @@ n^{2}-5n+1=n^{2}\left(1-\frac{5n}{n^{2}}+\frac{1}{n^{2}}\right)
 <p>Donc, comme limite d'un produit : $\limn n^{2}\left(1-\dfrac{5}{n}+\dfrac{1}{n^{2}}\right)=+\infty$.</p>
 <p>Soit : $\limn n^{2}-5n+1=+\infty$.</p>
 <h2 id="s4"><span class="num-section">IV.</span> Limites et comparaison</h2>
-<h3>Théorèmes de comparaison</h3>
+<h3><span class="num-section">IV.1</span> Théorèmes de comparaison</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème de compraison 1</span><div class="boite-corps"><p>Soit deux suites $(u_{n})$ et $(v_{n})$.</p>
 <p>Si, à partir d'un certain rang, on a</p>
 <div class="maths">\[
@@ -273,12 +273,12 @@ u_{n}\geqslant v_{n}\\
 \end{cases}
 \]</div>
 <p>alors $\limn v_{n}=-\infty$.</p></div></section>
-<h3>Méthode : déterminer une limite par comparaison</h3>
+<h3><span class="num-section">IV.2</span> Méthode : déterminer une limite par comparaison</h3>
 <p>Déterminer la limite suivante : $\limn n^{2}+(-1)^{n}$.</p>
 <p><strong>Correction</strong></p>
 <p>On a : $(-1)^{n}\geqslant -1$, donc $n^{2}+(-1)^{n}\geqslant n^{2}-1$.</p>
 <p>Or $\limn n^{2}-1=+\infty$, donc par comparaison, $\limn n^{2}+(-1)^{n}=+\infty$.</p>
-<h3>Théorème d'encadrement</h3>
+<h3><span class="num-section">IV.3</span> Théorème d'encadrement</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème des gendarmes</span><div class="boite-corps"><p>Soit trois suites $(u_{n})$, $(v_{n})$ et $(w_{n})$.</p>
 <p>Si, à partir d'un certain rang, on a</p>
 <div class="maths">\[
@@ -292,7 +292,7 @@ u_{n}\leqslant v_{n}\leqslant w_{n}\\
 <figure class="figure-cours"><img src="img/terminale-complementaire-ch01-fig04.png" alt="figure 4 du cours"></figure>
 <p>Par abus de langage, on pourrait dire que les suites $(u_{n})$ et $(w_{n})$ (les gendarmes) se resserrent autour de la suite $(v_{n})$ à partir d'un certain rang pour la faire converger vers la même limite.</p>
 <p>Ce théorème est également appelé le <strong>théorème du sandwich</strong>.</p>
-<h3>Méthode : déterminer une limite par encadrement</h3>
+<h3><span class="num-section">IV.4</span> Méthode : déterminer une limite par encadrement</h3>
 <p>Déterminer la limite suivante : $\limn 1+\dfrac{\sin n}{n}$.</p>
 <p><strong>Correction</strong></p>
 <p>On a : $-1\leqslant\sin n\leqslant 1$, donc :</p>
@@ -313,7 +313,7 @@ u_{n}\leqslant v_{n}\leqslant w_{n}\\
 \]</div>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Comparaison ou encadrement ?</span><div class="boite-corps"><p>On utilise le théorème de comparaison pour démontrer une limite infinie, et le théorème d'encadrement pour une limite finie.</p></div></section>
 <h2 id="s5"><span class="num-section">V.</span> Limite des suites géométriques</h2>
-<h3>Approche intuitive</h3>
+<h3><span class="num-section">V.1</span> Approche intuitive</h3>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$a_{n}=1{,}5^{n}$</span><div class="boite-corps"><p>La suite $(a_{n})$ est une suite géométrique de raison $q=1{,}5$.</p>
 <p>La suite $(a_{n})$ est strictement positive (produit de facteurs positifs).</p>
 <p>La suite $(a_{n})$ est strictement croissante : $a_{n+1}=1{,}5a_{n}$, donc $a_{n+1}-a_{n}=0{,}5a_{n}&gt;0$.</p>
@@ -324,7 +324,7 @@ u_{n}\leqslant v_{n}\leqslant w_{n}\\
 <p>La suite $(b_{n})$ est strictement décroissante : $b_{n+1}=0{,}5b_{n}$, donc $b_{n+1}-b_{n}=-0{,}5b_{n}&lt;0$.</p>
 <p>Et la suite $(b_{n})$ est décroissante, et à chaque itération est diminuée de $50\,\%$.</p>
 <p>Intuitivement, la suite $(b_{n})$ semble converger vers $0$.</p></div></section>
-<h3>Limite de $q^{n}$</h3>
+<h3><span class="num-section">V.2</span> Limite de $q^{n}$</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Limite de $q^{n}$ (admise)</span><div class="boite-corps"><p>Soit $q$ un nombre réel strictement positif.</p>
 <ul><li>si $q&gt;1$, alors $\limn q^{n}=+\infty$ ;</li><li>si $0&lt;q&lt;1$, alors $\limn q^{n}=0$ ;</li><li>si $q=1$, alors $\limn q^{n}=1$.</li></ul></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Deux exemples</span><div class="boite-corps"><div class="maths">\[
@@ -332,7 +332,7 @@ u_{n}\leqslant v_{n}\leqslant w_{n}\\
 \qquad\qquad
 \limn 0{,}3^{n}=0 \text{ car } 0&lt;0{,}3&lt;1 .
 \]</div></div></section>
-<h3>Limite de la somme des termes d'une suite géométrique</h3>
+<h3><span class="num-section">V.3</span> Limite de la somme des termes d'une suite géométrique</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Limite de la somme</span><div class="boite-corps"><p>Soit $(u_{n})$ une suite géométrique de raison $q$, avec $0&lt;q&lt;1$ :</p>
 <div class="maths">\[
 \limn u_{0}+u_{1}+\dots+u_{n}=\frac{u_{0}}{1-q} .
@@ -346,7 +346,7 @@ S_{n}=u_{0}\frac{1-q^{n+1}}{1-q}=\frac{u_{0}}{1-q}\left(1-q^{n+1}\right) .
 \limn S_{n}=\frac{u_{0}}{1-q} .
 \]</div></div></section>
 <h2 id="s6"><span class="num-section">VI.</span> Suites arithmético-géométriques</h2>
-<h3>Définition</h3>
+<h3><span class="num-section">VI.1</span> Définition</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Suite arithmético-géométrique</span><div class="boite-corps"><p>Une suite <strong>arithmético-géométrique</strong> est une suite $(u_{n})$ définie par la donnée du premier terme $u_{0}$ et de la relation de récurrence :</p>
 <div class="maths">\[
 \forall n\in\N,\quad u_{n+1}=a\times u_{n}+b,

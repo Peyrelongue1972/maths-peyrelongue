@@ -74,7 +74,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 <nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Suites arithmétiques et géométriques</span><a class="onglet" href="../pdf/premiere-spe/7-suites-arithmetiques-et-geometriques.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/premiere-spe/td01-suites-arithmetiques.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/premiere-spe/td02-suites-geometriques.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../pdf/premiere-spe/td03-suites-modelisation.pdf" target="_blank" rel="noopener">TD n°3</a><a class="onglet" href="../quiz/premiere-spe-7.html" target="_blank" rel="noopener">Quiz</a></nav>
 <nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Suites arithmétiques</a></li><li><a href="#s2">II Suites géométriques</a></li></ol></nav>
 <h2 id="s1"><span class="num-section">I.</span> Suites arithmétiques</h2>
-<h3>Définition</h3>
+<h3><span class="num-section">I.1</span> Définition</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Suite arithmétique</span><div class="boite-corps"><p>La suite $(u_{n})$ est dite <strong>arithmétique</strong> lorsqu'il existe un nombre réel $r$ tel que, pour tout entier naturel $n$,</p>
 <div class="maths">\[
 u_{n+1}=u_{n}+r .
@@ -119,12 +119,12 @@ u_{45}=u_{10}+(45-10)r=2+35\times 3=107
 <div class="maths">\[
 u_{0}=u_{10}+(0-10)\times r=2-10\times 3=-28 .
 \]</div></div></section>
-<h3>Représentation graphique</h3>
+<h3><span class="num-section">I.2</span> Représentation graphique</h3>
 <p>Soit $u_{n}$ une suite arithmétique de raison $r$ et de premier terme $u_{0}$.</p>
 <p>On a donc $u_{n}=n\times r+u_{0}$ : on reconnaît une fonction affine de la variable $n$, avec $f(x)=rx+u_{0}$, $u_{0}$ l'ordonnée à l'origine et $r$ le coefficient directeur. La courbe de cette fonction est donc une droite, et la suite est donc représentée par un nuage de points alignés. Réciproquement, si la suite forme un nuage de points alignés, on peut déterminer la raison en calculant le coefficient directeur de la droite.</p>
 <figure class="figure-cours"><img src="img/premiere-spe-ch07-fig02.png" alt="figure 2 du cours"></figure>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Représentation graphique d'une suite arithmétique</span><div class="boite-corps"><ul><li>Si une suite est arithmétique, elle est représentée par un nuage de points <strong>alignés</strong>.</li><li>Si une suite est représentée par un nuage de points <strong>alignés</strong>, alors la suite est arithmétique.</li></ul></div></section>
-<h3>Sens de variation de la suite arithmétique</h3>
+<h3><span class="num-section">I.3</span> Sens de variation de la suite arithmétique</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Variations d'une suite arithmétique</span><div class="boite-corps"><p>Soit $(u_{n})$ une suite arithmétique de raison $r$.</p>
 <ul><li>Si $r&gt;0$, alors la suite est strictement croissante.</li><li>Si $r&lt;0$, alors la suite est strictement décroissante.</li><li>Si $r=0$, alors la suite est constante.</li></ul></div></section>
 <section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>Si $r&gt;0$, on a, pour tout indice $n$, $u_{n+1}-u_{n}=r&gt;0$, donc $u_{n+1}&gt;u_{n}$ pour tout $n$. Et, par définition, la suite est donc croissante.</p>
@@ -132,7 +132,7 @@ u_{0}=u_{10}+(0-10)\times r=2-10\times 3=-28 .
 <section class="boite boite-meth"><span class="boite-titre">Méthode</span><div class="boite-corps"><p>Pour prouver qu'une suite est arithmétique, on calcule la différence $u_{n+1}-u_{n}$.</p>
 <p>Si la différence est constante pour tout indice $n$, alors la suite est arithmétique.</p>
 <p>Inversement, si on peut montrer sur deux exemples que la différence n'est pas constante, alors la suite n'est pas arithmétique. (Un contre-exemple suffit !)</p></div></section>
-<h3>Somme des termes d'une suite arithmétique</h3>
+<h3><span class="num-section">I.4</span> Somme des termes d'une suite arithmétique</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Somme des $n$ premiers entiers</span><div class="boite-corps"><p>La somme des $n$ premiers entiers est</p>
 <div class="maths">\[
 S=1+2+3+\dots+n=\frac{n(n+1)}{2} .
@@ -169,7 +169,7 @@ S=u_{0}(n+1)+\frac{rn(n+1)}{2}
 \]</div></div></section>
 <p><strong>Remarque :</strong> la somme est égale à la moyenne arithmétique entre le premier terme et le dernier terme, multipliée par le nombre de termes !</p>
 <h2 id="s2"><span class="num-section">II.</span> Suites géométriques</h2>
-<h3>Définition</h3>
+<h3><span class="num-section">II.1</span> Définition</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Suite géométrique</span><div class="boite-corps"><p>Une suite $(u_{n})$ est dite <strong>géométrique</strong> lorsqu'il existe un nombre réel non nul $q$, qu'on appelle la <strong>raison</strong> de la suite, tel que, pour tout entier naturel $n$,</p>
 <div class="maths">\[
 u_{n+1}=q\times u_{n} .
@@ -198,11 +198,11 @@ u_{n}=\frac{u_{p}}{q^{p-n}}=u_{p}\times q^{n-p} .
 u_{n+1}=u_{p}\times q^{n+1-p}=q\times u_{p}\times q^{n-p}=q\times u_{n} :
 \]</div>
 <p>la suite est donc géométrique de raison $q$.</p></div></section>
-<h3>Représentation graphique</h3>
+<h3><span class="num-section">II.2</span> Représentation graphique</h3>
 <ul><li>Si une suite est <strong>géométrique</strong>, elle est représentée par un nuage de points <strong>exponentiels</strong>.</li><li>Si une suite est représentée par un nuage de points <strong>exponentiels</strong>, alors la suite est <strong>géométrique</strong>.</li></ul>
 <figure class="figure-cours"><img src="img/premiere-spe-ch07-fig04.png" alt="figure 4 du cours"></figure>
 <p><strong>Remarque :</strong> contrairement à une droite, il est difficile de prouver que le nuage de points est exponentiel ; il faudra utiliser un outil de linéarisation, le logarithme (c'est pour plus tard).</p>
-<h3>Sens de variation d'une suite géométrique</h3>
+<h3><span class="num-section">II.3</span> Sens de variation d'une suite géométrique</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Variations d'une suite géométrique</span><div class="boite-corps"><p>Soit $(u_{n})$ une suite géométrique de raison $q$ et de premier terme strictement positif.</p>
 <ul><li>Si $q&gt;1$, alors la suite est strictement croissante.</li><li>Si $0&lt;q&lt;1$, alors la suite est strictement décroissante.</li><li>Si $q=1$, alors la suite est constante.</li></ul></div></section>
 <section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>Soit $(u_{n})$ une suite géométrique de raison $q$, alors</p>
@@ -212,7 +212,7 @@ u_{n+1}=u_{p}\times q^{n+1-p}=q\times u_{p}\times q^{n-p}=q\times u_{n} :
 <p>Si $q&gt;1$, alors $\dfrac{u_{n+1}}{u_{n}}&gt;1$ et, comme $u_{n}&gt;0$, alors $u_{n+1}&gt;u_{n}$ : donc la suite est croissante.</p>
 <p>Si $q=1$, $\dfrac{u_{n+1}}{u_{n}}=1$, donc $u_{n+1}=u_{n}$ pour tout $n$ : la suite est constante.</p>
 <p>Si $q&lt;1$, $\dfrac{u_{n+1}}{u_{n}}&lt;1$ et, comme $u_{n}&gt;0$, alors $u_{n+1}&lt;u_{n}$ : donc la suite est décroissante.</p></div></section>
-<h3>Somme des premiers termes d'une suite géométrique</h3>
+<h3><span class="num-section">II.4</span> Somme des premiers termes d'une suite géométrique</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Somme des puissances de $q$</span><div class="boite-corps"><p>Pour $q\neq 1$,</p>
 <div class="maths">\[
 S=1+q+q^{2}+\dots+q^{n}=\frac{1-q^{n+1}}{1-q} .

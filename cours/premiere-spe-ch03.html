@@ -74,7 +74,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 <nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Les suites généralités</span><a class="onglet" href="../pdf/premiere-spe/3-les-suites-generalites.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/premiere-spe/td01-generalites-suites.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/premiere-spe/td02-variations-suites.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../pdf/premiere-spe/activite-representation-graphique-suite.pdf" target="_blank" rel="noopener">Activité</a><a class="onglet" href="../pdf/premiere-spe/fiche-methode-sens-variation-suite.pdf" target="_blank" rel="noopener">Fiche méthode</a><a class="onglet" href="../quiz/premiere-spe-3.html" target="_blank" rel="noopener">Quiz</a></nav>
 <nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Définition</a></li><li><a href="#s2">II Représentation graphique d'une suite</a></li><li><a href="#s3">III Sens de variation d'une suite numérique</a></li><li><a href="#s4">IV Notion de limite d'une suite</a></li><li><a href="#s5">V Algorithme Python pour suite récurrente</a></li></ol></nav>
 <h2 id="s1"><span class="num-section">I.</span> Définition</h2>
-<h3>Définition d'une suite numérique</h3>
+<h3><span class="num-section">I.1</span> Définition d'une suite numérique</h3>
 <p><strong>Exemple 0 :</strong> la suite $u$ des nombres pairs : $0,2,4,6,8,10,12,\dots$</p>
 <p>On note $(u_{n})$ l'ensemble des « éléments » de cette suite de nombres tel que :</p>
 <div class="maths">\[
@@ -91,7 +91,7 @@ n & \longmapsto & u(n)=u_{n}
 \]</div>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Suite numérique</span><div class="boite-corps"><p>Une <strong>suite numérique</strong> $(u_{n})$ est une liste ordonnée de nombres réels telle qu'à tout entier $n$ on associe un nombre réel noté $u_{n}$.</p>
 <p>$u_{n}$ est appelé le <strong>terme de rang $n$</strong> de cette suite (ou d'indice $n$).</p></div></section>
-<h3>Générer une suite numérique par une formule explicite</h3>
+<h3><span class="num-section">I.2</span> Générer une suite numérique par une formule explicite</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Suite définie explicitement</span><div class="boite-corps"><p>Une suite définie à l'aide d'une fonction $f$, définie sur $\N$, est dite définie de <strong>manière explicite</strong>. On a alors $u_{n}=f(n)$ pour $n\in\N$.</p></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Suite des nombres impairs</span><div class="boite-corps"><p>Pour tout $n$ de $\N$, on donne : $u_{n}=2n+1$, ce qui définit la suite des nombres impairs.</p>
 <p>Les premiers termes de cette suite sont donc :</p>
@@ -106,7 +106,7 @@ w_{0}&=2\times 0^{2}-0+1=1, & w_{2}&=2\times 2^{2}-2+1=5,\\
 w_{1}&=2\times 1^{2}-1+1=2, & w_{3}&=2\times 3^{2}-3+1=16 .
 \end{aligned}\]</div></div></section>
 <p>Lorsqu'on génère une suite par une formule explicite, chaque terme de la suite est exprimé en fonction de $n$ et indépendamment des termes précédents : la suite est une fonction de la variable entière $n$.</p>
-<h3>Générer une suite numérique par une relation de récurrence</h3>
+<h3><span class="num-section">I.3</span> Générer une suite numérique par une relation de récurrence</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Suite définie par récurrence</span><div class="boite-corps"><p>Une suite est définie <strong>par récurrence</strong> lorsque le terme de rang $n$ est défini à partir de termes de rang qui le précèdent.</p></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Le double du précédent</span><div class="boite-corps"><p>On définit la suite $(u_{n})$ par : $u_{0}=3$ et chaque terme de la suite est le double de son précédent.</p>
 <p>Les premiers termes de cette suite sont donc :</p>
@@ -139,7 +139,7 @@ w_{3}&=w_{2}+3=3+3=6, & &
 <p>Lorsqu'on génère une suite par une relation de récurrence, chaque terme de la suite s'obtient à partir d'un (ou plusieurs) des termes précédents.</p>
 <p><strong>À noter :</strong> le mot <em>récurrence</em> vient du latin <em>recurrere</em> qui signifie « revenir en arrière ».</p>
 <h2 id="s2"><span class="num-section">II.</span> Représentation graphique d'une suite</h2>
-<h3>Suite définie de manière explicite</h3>
+<h3><span class="num-section">II.1</span> Suite définie de manière explicite</h3>
 <p>Soit $f$ une fonction définie sur $\N$ et $(u_{n})$ la suite définie par $u_{n}=f(n)$.</p>
 <p>Dans un repère du plan, on représente une suite par un nuage de points de coordonnées $(n\,;u_{n})$.</p>
 <p>Pour représenter une suite $u$ dans un repère, on place :</p>
@@ -148,7 +148,7 @@ w_{3}&=w_{2}+3=3+3=6, & &
 <p>On construit le tableau de valeurs avec les premiers termes de la suite :</p></div></section>
 <table class="tableau"><tr><td>$n$</td><td>$0$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$6$</td><td>$7$</td><td>$8$</td></tr><tr><td>$u_{n}$</td><td>$-3$</td><td>$-2{,}5$</td><td>$-1$</td><td>$1{,}5$</td><td>$5$</td><td>$9{,}5$</td><td>$15$</td><td>$21{,}5$</td><td>$29$</td></tr><tr><td class="vide"></td><td colspan="9" class="note-tableau"></td></tr></table>
 <figure class="figure-cours"><img src="img/premiere-spe-ch03-fig01.png" alt="figure 1 du cours"></figure>
-<h3>Suite définie par récurrence</h3>
+<h3><span class="num-section">II.2</span> Suite définie par récurrence</h3>
 <p>Soit $f$ une fonction définie sur $\N$ et $(u_{n})$ la suite définie par la relation de récurrence $u_{n+1}=f(u_{n})$ et le premier terme $u_{0}$.</p>
 <section class="boite boite-meth"><span class="boite-titre">Méthode</span> <span class="boite-sous-titre">1<sup>re</sup> méthode</span><div class="boite-corps"><p>Pour représenter cette suite, il est possible de calculer les termes un à un : $u_{1}$, $u_{2}$, …, $u_{n}$, et de se placer dans un repère orthonormal pour placer les points $U_{k}$ de coordonnées $(k\,;u_{k})$.</p></div></section>
 <section class="boite boite-meth"><span class="boite-titre">Méthode</span> <span class="boite-sous-titre">2<sup>ème</sup> méthode : la construction graphique</span><div class="boite-corps"><figure class="figure-cours"><img src="img/premiere-spe-ch03-fig02.png" alt="figure 2 du cours"></figure>
@@ -160,7 +160,7 @@ w_{3}&=w_{2}+3=3+3=6, & &
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Conjecture graphique</span><div class="boite-corps"><p>On a représenté ci-dessous le nuage de points des premiers termes d'une suite $(u_{n})$.</p>
 <p>On peut conjecturer que cette suite est croissante pour $n\geqslant 3$.</p>
 <figure class="figure-cours"><img src="img/premiere-spe-ch03-fig03.png" alt="figure 3 du cours"></figure></div></section>
-<h3>Méthode : étudier les variations d'une suite</h3>
+<h3><span class="num-section">III.1</span> Méthode : étudier les variations d'une suite</h3>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$u_{n}=n^{2}-4n+4$</span><div class="boite-corps"><p>Pour tout $n$ de $\N$, on donne la suite $(u_{n})$ définie par : $u_{n}=n^{2}-4n+4$. Démontrer que la suite $(u_{n})$ est croissante à partir d'un certain rang.</p></div></section>
 <section class="boite boite-meth"><span class="boite-titre">Méthode</span> <span class="boite-sous-titre"><strong>Méthode 1 :</strong>Différence</span><div class="boite-corps"><p><strong>1.</strong> On commence par calculer la différence $u_{n+1}-u_{n}$ :</p>
 <div class="maths">\[\begin{aligned}

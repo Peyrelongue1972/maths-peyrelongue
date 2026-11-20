@@ -74,7 +74,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 <nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Limite d&#x27;une suite</span><a class="onglet" href="../pdf/terminale-spe/3-limite-d-une-suite.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/terminale-spe/td01-suites-numeriques-2.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/terminale-spe/td02-limites-de-suites-geometriques.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../pdf/terminale-spe/fiche-ap-limites-de-suites.pdf" target="_blank" rel="noopener">Fiche</a><a class="onglet" href="../quiz/terminale-spe-3.html" target="_blank" rel="noopener">Quiz</a></nav>
 <nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Limites finies</a></li><li><a href="#s2">II Limites infinies</a></li><li><a href="#s3">III Opérations sur les limites</a></li><li><a href="#s4">IV Limites et comparaison</a></li><li><a href="#s5">V Limite des suites géométriques</a></li></ol></nav>
 <h2 id="s1"><span class="num-section">I.</span> Limites finies</h2>
-<h3>Définition</h3>
+<h3><span class="num-section">I.1</span> Définition</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Limite finie</span><div class="boite-corps"><p>Une suite $(u_{n})$ a pour <strong>limite le réel $l$</strong> lorsque tout intervalle ouvert contenant $l$ contient tous les termes de la suite à partir d'un certain rang.</p>
 <p>Autrement dit, pour tout réel $\varepsilon&gt;0$, on peut trouver un rang $N_{0}$ tel que, pour tout $n\geqslant N_{0}$, on a $u_{n}\in\,]l-\varepsilon\,;l+\varepsilon[$, soit encore $l-\varepsilon\leqslant u_{n}\leqslant l+\varepsilon$.</p></div></section>
 <figure class="figure-cours"><img src="img/terminale-spe-ch03-fig01.png" alt="figure 1 du cours"></figure>
@@ -87,7 +87,7 @@ n\leqslant x&lt;n+1 .
 <p><strong>Exemple.</strong>  $[\pi]=3$ ;   $[-3{,}5]=-4$ ;   $[1{,}95]=1$.</p>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Suite convergente, suite divergente</span><div class="boite-corps"><ul><li>Une suite <strong>convergente</strong> est une suite qui a pour limite un nombre réel $l$. On dit aussi que <strong>la suite converge vers $l$</strong>.</li><li>Une suite <strong>divergente</strong> est une suite qui ne converge pas.</li></ul></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Une suite divergente</span><div class="boite-corps"><p>La suite de terme général $(-1)^{n}$ prend alternativement les valeurs $-1$ et $1$. Elle n'admet donc pas de limite finie : elle est divergente.</p></div></section>
-<h3>Propriétés</h3>
+<h3><span class="num-section">I.2</span> Propriétés</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Unicité de la limite (admise)</span><div class="boite-corps"><p>Si une suite $(u_{n})$ a pour limite le réel $l$, alors cette limite est unique.</p></div></section>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Limites de référence</span><div class="boite-corps"><div class="maths">\[
 \limn\frac{1}{n}=0,\qquad
@@ -133,14 +133,14 @@ n\geqslant\left[\frac{1}{\sqrt{\varepsilon}}\right]+1&gt;\frac{1}{\sqrt{\varepsi
 <p>Donc il faut choisir pour $N_{0}$ le premier entier au-dessus de $\dfrac{1}{\varepsilon}$, d'où $N_{0}=\left[\dfrac{1}{\varepsilon}\right]+1$.</p>
 <p><strong>Conclusion.</strong>  $\forall n\geqslant N_{0}$, $v_{n}\in[2-\varepsilon\,;2+\varepsilon[$, donc $\displaystyle\limn v_{n}=2$.</p>
 <h2 id="s2"><span class="num-section">II.</span> Limites infinies</h2>
-<h3>Définitions</h3>
+<h3><span class="num-section">II.1</span> Définitions</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Limite $+\infty$</span><div class="boite-corps"><p>Une suite $(u_{n})$ a pour <strong>limite $+\infty$</strong> lorsque, pour tout réel $A$, l'intervalle $[A\,;+\infty[$ contient tous les termes de la suite à partir d'un certain rang.</p>
 <p>Autrement dit, pour tout réel $A$, on peut trouver un rang $N_{0}$ tel que, pour tout entier $n\geqslant N_{0}$, on a $u_{n}\geqslant A$.</p></div></section>
 <figure class="figure-cours"><img src="img/terminale-spe-ch03-fig02.png" alt="figure 2 du cours"></figure>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Limite $-\infty$</span><div class="boite-corps"><p>Une suite $(u_{n})$ a pour <strong>limite $-\infty$</strong> lorsque, pour tout réel $A$, l'intervalle $]-\infty\,;A]$ contient tous les termes de la suite à partir d'un certain rang.</p>
 <p>Autrement dit, pour tout réel $A$, on peut trouver un rang $N_{0}$ tel que, pour tout entier $n\geqslant N_{0}$, on a $u_{n}\leqslant A$.</p></div></section>
 <figure class="figure-cours"><img src="img/terminale-spe-ch03-fig03.png" alt="figure 3 du cours"></figure>
-<h3>Suites de référence</h3>
+<h3><span class="num-section">II.2</span> Suites de référence</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Limites de référence</span><div class="boite-corps"><div class="maths">\[
 \limn n=+\infty,\qquad
 \limn n^{2}=+\infty,\qquad
@@ -164,7 +164,7 @@ n\geqslant\left[\frac{1}{\sqrt{\varepsilon}}\right]+1&gt;\frac{1}{\sqrt{\varepsi
 <section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>$\displaystyle\limn u_{n}=+\infty \iff \forall A\in\R,\ \exists N_{0}\in\N,\ \forall n\geqslant N_{0},\ u_{n}\geqslant A \Longrightarrow -u_{n}\leqslant -A$.</p>
 <p>En posant $B=-A$, on a $\forall B\in\R,\ \exists N_{0}\in\N,\ \forall n\geqslant N_{0},\ -u_{n}\leqslant B$.</p>
 <p>Donc $\displaystyle\limn(-u_{n})=-\infty$.</p></div></section>
-<h3>Propriétés</h3>
+<h3><span class="num-section">II.3</span> Propriétés</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Suites monotones non bornées</span><div class="boite-corps"><ul><li>Toute suite croissante non majorée a pour limite $+\infty$ quand $n$ tend vers $+\infty$.</li><li>Toute suite décroissante non minorée a pour limite $-\infty$ quand $n$ tend vers $+\infty$.</li></ul></div></section>
 <section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>Soit $(u_{n})$ une suite croissante non majorée et soit $A$ un nombre réel. Comme $(u_{n})$ n'est pas majorée, il existe un entier $n_{0}$ tel que $u_{n_{0}}\geqslant A$.</p>
 <p>Or, comme $(u_{n})$ est croissante, pour tout entier $n\geqslant n_{0}$, on a $u_{n}\geqslant u_{n_{0}}\geqslant A$.</p>
@@ -183,7 +183,7 @@ n\geqslant\left[\frac{1}{\sqrt{\varepsilon}}\right]+1&gt;\frac{1}{\sqrt{\varepsi
 <p>Donc la suite $(u_{n})$ n'est pas bornée.</p>
 <p><strong>Conclusion.</strong>  $\displaystyle\limn u_{n}=+\infty$.</p>
 <h2 id="s3"><span class="num-section">III.</span> Opérations sur les limites</h2>
-<h3>Limite d'une somme de suites</h3>
+<h3><span class="num-section">III.1</span> Limite d'une somme de suites</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème (admis).</span><div class="boite-corps"><table class="tableau"><tr><td>$\limn u_{n}=$</td><td>$L$</td><td>$L$</td><td>$L$</td><td>$+\infty$</td><td>$-\infty$</td><td>$+\infty$</td></tr><tr><td>$\limn v_{n}=$</td><td>$L'$</td><td>$+\infty$</td><td>$-\infty$</td><td>$+\infty$</td><td>$-\infty$</td><td>$-\infty$</td></tr><tr><td>$\limn u_{n}+v_{n}=$</td><td>$L+L'$</td><td>$+\infty$</td><td>$-\infty$</td><td>$+\infty$</td><td>$-\infty$</td><td><strong>F.I.</strong></td></tr></table>
 <p>* <strong>F.I.</strong> : <strong>forme indéterminée</strong> : on ne peut pas prévoir la limite éventuelle.</p></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Limite d'une somme</span><div class="boite-corps"><p>$\displaystyle\limn n^{2}+n$ :</p>
@@ -194,7 +194,7 @@ n\geqslant\left[\frac{1}{\sqrt{\varepsilon}}\right]+1&gt;\frac{1}{\sqrt{\varepsi
 <div class="maths">\[
 \limn n^{2}+n=+\infty .
 \]</div></div></section>
-<h3>Limite d'un produit de suites</h3>
+<h3><span class="num-section">III.2</span> Limite d'un produit de suites</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème (admis).</span><div class="boite-corps"><p>  $\infty$ désigne $+\infty$ ou $-\infty$.</p>
 <table class="tableau"><tr><td>$\limn u_{n}=$</td><td>$L$</td><td>$L$</td><td>$\infty$</td><td>$0$</td></tr><tr><td>$\limn v_{n}=$</td><td>$L'$</td><td>$\infty$</td><td>$\infty$</td><td>$\infty$</td></tr><tr><td>$\limn u_{n}v_{n}=$</td><td>$L\,L'$</td><td>$\infty$</td><td>$\infty$</td><td><strong>F.I.</strong></td></tr></table>
 <p><strong>On applique la règle des signes</strong> pour déterminer si le produit est $+\infty$ ou $-\infty$.</p></div></section>
@@ -206,7 +206,7 @@ n\geqslant\left[\frac{1}{\sqrt{\varepsilon}}\right]+1&gt;\frac{1}{\sqrt{\varepsi
 <div class="maths">\[
 \limn\left(\frac{1}{\sqrt{n}}+1\right)\times\left(n^{2}+3\right)=+\infty .
 \]</div></div></section>
-<h3>Limite d'un quotient de suites</h3>
+<h3><span class="num-section">III.3</span> Limite d'un quotient de suites</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème (admis).</span><div class="boite-corps"><p>  $\infty$ désigne $+\infty$ ou $-\infty$.</p>
 <table class="tableau"><tr><td>$\limn u_{n}=$</td><td>$L$</td><td>$L\neq 0$</td><td>$L$</td><td>$\infty$</td><td>$\infty$</td><td>$0$</td></tr><tr><td>$\limn v_{n}=$</td><td>$L'\neq 0$</td><td>$0$</td><td>$\infty$</td><td>$L$</td><td>$\infty$</td><td>$0$</td></tr><tr><td>$\limn\dfrac{u_{n}}{v_{n}}=$</td><td>$\dfrac{L}{L'}$</td><td>$\infty$</td><td>$0$</td><td>$\infty$</td><td><strong>F.I.</strong></td><td><strong>F.I.</strong></td></tr></table>
 <p><strong>On applique la règle des signes</strong> pour déterminer si le quotient est $+\infty$ ou $-\infty$.</p></div></section>
@@ -218,7 +218,7 @@ n\geqslant\left[\frac{1}{\sqrt{\varepsilon}}\right]+1&gt;\frac{1}{\sqrt{\varepsi
 <div class="maths">\[
 \limn\frac{2}{-n^{2}-3}=0 .
 \]</div></div></section>
-<h3>Cas des formes indéterminées</h3>
+<h3><span class="num-section">III.4</span> Cas des formes indéterminées</h3>
 <p>On peut reconnaître les formes indéterminées pour lesquelles il faudra utiliser des calculs algébriques ou d'autres propriétés sur les calculs de limites afin de lever l'indétermination.</p>
 <section class="boite boite-info"><p>Les quatre <strong>formes indéterminées</strong> sont, par abus d'écriture :</p>
 <div class="maths">\[
@@ -227,7 +227,7 @@ n\geqslant\left[\frac{1}{\sqrt{\varepsilon}}\right]+1&gt;\frac{1}{\sqrt{\varepsi
 \text{« }\frac{\infty}{\infty}\text{ »}\quad\text{et}\quad
 \text{« }\frac{0}{0}\text{ »}.
 \]</div></section>
-<h3>Méthode : lever une indétermination</h3>
+<h3><span class="num-section">III.5</span> Méthode : lever une indétermination</h3>
 <p>Déterminer les limites suivantes : <strong>a)</strong> $\displaystyle\limn n-3\sqrt{n}$   <strong>b)</strong> $\displaystyle\limn n^{2}-5n+1$.</p>
 <p><strong>Correction.</strong></p>
 <p><strong>a)</strong>  $\displaystyle\limn n-3\sqrt{n}=?$</p>
@@ -259,14 +259,14 @@ n^{2}-5n+1=n^{2}\left(1-\frac{5n}{n^{2}}+\frac{1}{n^{2}}\right)
 \]</div>
 <p>Soit : $\displaystyle\limn n^{2}-5n+1=+\infty$.</p>
 <h2 id="s4"><span class="num-section">IV.</span> Limites et comparaison</h2>
-<h3>Théorèmes de comparaison</h3>
+<h3><span class="num-section">IV.1</span> Théorèmes de comparaison</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème de compraison 1</span><div class="boite-corps"><p>Soit deux suites $(u_{n})$ et $(v_{n})$.</p>
 <p>Si, à partir d'un certain rang, on a $u_{n}\leqslant v_{n}$ et $\displaystyle\limn u_{n}=+\infty$, alors $\displaystyle\limn v_{n}=+\infty$.</p></div></section>
 <p>Par abus de langage, on pourrait dire que la suite $(u_{n})$ pousse la suite $(v_{n})$ vers $+\infty$ à partir d'un certain rang.</p>
 <figure class="figure-cours"><img src="img/terminale-spe-ch03-fig04.png" alt="figure 4 du cours"></figure>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème de comparaison 2</span><div class="boite-corps"><p>Soit deux suites $(u_{n})$ et $(v_{n})$.</p>
 <p>Si, à partir d'un certain rang, on a $u_{n}\geqslant v_{n}$ et $\displaystyle\limn u_{n}=-\infty$, alors $\displaystyle\limn v_{n}=-\infty$.</p></div></section>
-<h3>Méthode : déterminer une limite par comparaison</h3>
+<h3><span class="num-section">IV.2</span> Méthode : déterminer une limite par comparaison</h3>
 <p>Déterminer la limite suivante : $\displaystyle\limn n^{2}+(-1)^{n}$.</p>
 <p><strong>Correction.</strong></p>
 <p>On a : $(-1)^{n}\geqslant -1$, donc $n^{2}+(-1)^{n}\geqslant n^{2}-1$.</p>
@@ -274,7 +274,7 @@ n^{2}-5n+1=n^{2}\left(1-\frac{5n}{n^{2}}+\frac{1}{n^{2}}\right)
 <div class="maths">\[
 \limn n^{2}+(-1)^{n}=+\infty .
 \]</div>
-<h3>Théorème d'encadrement</h3>
+<h3><span class="num-section">IV.3</span> Théorème d'encadrement</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème des gendarmes</span><div class="boite-corps"><p>Soit trois suites $(u_{n})$, $(v_{n})$ et $(w_{n})$.</p>
 <p>Si, à partir d'un certain rang, on a</p>
 <div class="maths">\[
@@ -288,7 +288,7 @@ u_{n}\leqslant v_{n}\leqslant w_{n},
 <p>Par abus de langage, on pourrait dire que les suites $(u_{n})$ et $(w_{n})$ (les gendarmes) se resserrent autour de la suite $(v_{n})$ à partir d'un certain rang pour la faire converger vers la même limite.</p>
 <p>Ce théorème est également appelé le <strong>théorème du sandwich</strong>.</p>
 <figure class="figure-cours"><img src="img/terminale-spe-ch03-fig05.png" alt="figure 5 du cours"></figure>
-<h3>Méthode : déterminer une limite par encadrement</h3>
+<h3><span class="num-section">IV.4</span> Méthode : déterminer une limite par encadrement</h3>
 <p>Déterminer la limite suivante : $\displaystyle\limn 1+\frac{\sin n}{n}$.</p>
 <p><strong>Correction.</strong></p>
 <p>On a $-1\leqslant\sin n\leqslant 1$, donc</p>
@@ -302,7 +302,7 @@ u_{n}\leqslant v_{n}\leqslant w_{n},
 <p>Et donc $\displaystyle\limn 1+\frac{\sin n}{n}=1$.</p>
 <p><strong>Remarque.</strong>  On utilise le théorème de comparaison pour démontrer une limite infinie, et le théorème d'encadrement pour une limite finie.</p>
 <h2 id="s5"><span class="num-section">V.</span> Limite des suites géométriques</h2>
-<h3>Approche intuitive</h3>
+<h3><span class="num-section">V.1</span> Approche intuitive</h3>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span><div class="boite-corps"><p>$a_{n}=1{,}5^{n}$.</p>
 <p>La suite $(a_{n})$ est une suite géométrique de raison $q=1{,}5$.</p>
 <p>La suite $(a_{n})$ est strictement positive (produit de facteurs positifs).</p>
@@ -315,7 +315,7 @@ u_{n}\leqslant v_{n}\leqslant w_{n},
 <p>La suite $(b_{n})$ est strictement décroissante : $b_{n+1}=0{,}5b_{n}$, donc $b_{n+1}-b_{n}=-0{,}5b_{n}&lt;0$.</p>
 <p>Et la suite $(b_{n})$ est décroissante et, à chaque itération, diminue de $50\,\%$.</p>
 <p>Intuitivement, la suite $(b_{n})$ semble converger vers $0$.</p></div></section>
-<h3>Limite de $q^{n}$</h3>
+<h3><span class="num-section">V.2</span> Limite de $q^{n}$</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Limite de $q^{n}$</span><div class="boite-corps"><p>Soit $q$ un nombre réel strictement positif.</p>
 <ul><li>Si $q&gt;1$ alors $\displaystyle\limn q^{n}=+\infty$.</li><li>Si $0&lt;q&lt;1$ alors $\displaystyle\limn q^{n}=0$.</li><li>Si $q=1$ alors $\displaystyle\limn q^{n}=1$.</li></ul></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span><div class="boite-corps"><p>  $\displaystyle\limn 2^{n}=+\infty$ car $q=2&gt;1$ ;   $\displaystyle\limn 0{,}3^{n}=0$ car $0&lt;0{,}3&lt;1$.</p></div></section>
@@ -324,7 +324,7 @@ u_{n}\leqslant v_{n}\leqslant w_{n},
 <p>Posons $u_{n}=1+na$ : la suite vérifie $\displaystyle\limn na=+\infty$ par somme, donc $\displaystyle\limn u_{n}=+\infty$.</p>
 <p>Donc $\forall n\in\N$, $q^{n}&gt;u_{n}$ et $\displaystyle\limn u_{n}=+\infty$ ; d'après le théorème de comparaison, $\displaystyle\limn q^{n}=+\infty$.</p></li><li><p>Si $0&lt;q&lt;1$ : $\dfrac{1}{q}&gt;1$, donc $\displaystyle\limn\left(\frac{1}{q}\right)^{n}=+\infty$.</p>
 <p>Par quotient des limites, $\displaystyle\limn q^{n} =\limn\frac{1}{\left(\frac{1}{q}\right)^{n}}=0$.</p></li><li>Si $q=1$ : $q^{n}=1$ pour tout $n\in\N$, donc $\displaystyle\limn q^{n}=1$.</li></ul></div></section>
-<h3>Limite de la somme des termes d'une suite géométrique</h3>
+<h3><span class="num-section">V.3</span> Limite de la somme des termes d'une suite géométrique</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Somme des termes</span><div class="boite-corps"><p>Soit $(u_{n})$ une suite géométrique de raison $q$, avec $0&lt;q&lt;1$. Alors</p>
 <div class="maths">\[
 \limn u_{0}+u_{1}+\dots+u_{n}=\frac{u_{0}}{1-q}.

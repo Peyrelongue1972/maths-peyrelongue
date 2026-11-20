@@ -77,7 +77,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 <nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Histoire</a></li><li><a href="#s2">II Construction des nombres complexes</a></li><li><a href="#s3">III Forme exponentielle</a></li><li><a href="#s4">IV Formule du binôme</a></li><li><a href="#s5">V Annexe : formule trigonométrique</a></li></ol></nav>
 <p>\newpage</p>
 <h2 id="s1"><span class="num-section">I.</span> Histoire</h2>
-<h3>Un problème historique</h3>
+<h3><span class="num-section">I.1</span> Un problème historique</h3>
 <p>À la fin du XVI<sup>e</sup> siècle, les mathématiciens cherchent une résolution générale des équations du troisième degré. À l'aide d'un changement de variable, bien choisi, toute équation du troisième degré peut se mettre sous la forme</p>
 <div class="maths">\[
 x^{3}+px+q=0 .
@@ -126,7 +126,7 @@ x_{0}=2-\sqrt{-1}+2+\sqrt{-1}=4 .
 <p>$\sqrt{-1}$ sera utilisé pendant longtemps comme « astuce » de calcul. Descartes le baptisera « nombre imaginaire ». Et Euler introduira la notation $i=\sqrt{-1}$.</p>
 <p>Gauss donnera une représentation à ses nombres imaginaires, et c'est ainsi que prendra forme l'ensemble des nombres complexes au XIX<sup>e</sup> siècle.</p>
 <h2 id="s2"><span class="num-section">II.</span> Construction des nombres complexes</h2>
-<h3>Définition</h3>
+<h3><span class="num-section">II.1</span> Définition</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Nombre complexe</span><div class="boite-corps"><p>On appelle $\C$ l'ensemble des nombres complexes.</p>
 <p>Un nombre complexe $z$ est un nombre s'écrivant sous la forme :</p>
 <div class="maths">\[
@@ -145,7 +145,7 @@ z=a+ib\quad\text{avec } (a,b)\in\R^{2} \text{ et } i^{2}=-1 .
         \iff a=a' \text{ et } b'=b .
         \end{aligned}\]</div>
 <p>On arrive à une contradiction : l'hypothèse de départ est fausse et l'écriture est unique.</p></li></ul>
-<h3>Opérations avec les nombres complexes</h3>
+<h3><span class="num-section">II.2</span> Opérations avec les nombres complexes</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Addition et multiplication</span><div class="boite-corps"><p>On définit deux opérations dans l'ensemble $\C$.</p>
 <p>Soit $z=a+ib\in\C$ et $z'=a'+ib'\in\C$.</p>
 <p><strong>L'addition</strong> par :</p>
@@ -171,7 +171,7 @@ a+ib\preccurlyeq a'+ib'\iff a&lt;a' \text{ ou } a=a' \text{ et } b&lt;b' .
 \]</div>
 <p>D'où $3+5i\preccurlyeq4-2i$ et aussi $-5+2i\preccurlyeq-5+3i$.</p>
 <p>Cependant, cette relation n'est pas « performante », car elle n'est pas compatible avec la multiplication : d'après cette relation $0\preccurlyeq i$ et, en multipliant par $i$, on a $0\preccurlyeq-1$, qui est faux. On abandonne donc l'idée de comparaison et d'inéquation dans $\C$ !</p>
-<h3>Conjugué</h3>
+<h3><span class="num-section">II.3</span> Conjugué</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Conjugué</span><div class="boite-corps"><p>Soit $z=a+ib\in\C$ : on appelle le nombre conjugué de $z$, noté $\overline{z}$, le nombre $a-ib$.</p></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Conjugué d'un nombre</span><div class="boite-corps"><p>$z=3-5i$ alors $\overline{z}=3+5i$.</p></div></section>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Produit d'un complexe par son conjugué</span><div class="boite-corps"><p>$\forall z\in\C$, $z\,\overline{z}=a^{2}+b^{2}$.</p></div></section>
@@ -200,7 +200,7 @@ z=(2+3i)z+5-3i
 =\frac{2}{13}+\frac{3}{13}i .
 \]</div></div></section>
 <p>Cas général : $z=a+ib$. Montrer que $\dfrac{1}{z}=\dfrac{\overline{z}}{a^{2}+b^{2}}$.</p>
-<h3>Opérations et propriétés du conjugué</h3>
+<h3><span class="num-section">II.4</span> Opérations et propriétés du conjugué</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriétés du conjugué</span><div class="boite-corps"><p>Soit $z\in\C$ et $z'\in\C^{*}$, alors</p>
 <div class="maths">\[
 \overline{\overline{z}}=z
@@ -280,7 +280,7 @@ z=(2+3i)z+5-3i
 <p><strong>2)</strong> $z-\overline{z}=a+ib-(a-ib)=2ib=2i\,\Im(z)$.</p>
 <p><strong>3)</strong> $z=\overline{z}\iff z-\overline{z}=0\iff 2i\,\Im(z)=0 \iff \Im(z)=0\iff z\in\R$.</p>
 <p><strong>4)</strong> $z+\overline{z}=0\iff 2\Re(z)=0\iff z$ est imaginaire pur.</p></div></section>
-<h3>Représentation des nombres complexes</h3>
+<h3><span class="num-section">II.5</span> Représentation des nombres complexes</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Plan complexe</span><div class="boite-corps"><p>Soit le repère orthonormé $(O,\vec{u},\vec{v})$, appelé <strong>plan complexe</strong>. À tout nombre complexe $z=a+ib$, on peut associer un unique point $M(a\,;b)$ dans le repère $(O,\vec{u},\vec{v})$. On dit que $z$ est l'<strong>affixe</strong> de $M$ et on écrit alors $M(z)$.</p></div></section>
 <figure class="figure-cours"><img src="img/maths-expertes-ch01-fig01.png" alt="figure 1 du cours"></figure>
 <p><strong>Remarque :</strong> réciproquement, à tout point $M(a\,;b)$ du plan complexe, on peut associer un unique complexe $z=a+ib$. Cette application est bijective.</p>
@@ -288,7 +288,7 @@ z=(2+3i)z+5-3i
 <ul><li>L'axe des abscisses est appelé « axe des réels ».</li><li>L'axe des ordonnées est appelé « axe des imaginaires purs ».</li></ul>
 <p><strong>Interprétation géométrique du conjugué :</strong> $M'(\overline{z})$ est le symétrique de $M(z)$ par rapport à l'axe des réels.</p>
 <figure class="figure-cours"><img src="img/maths-expertes-ch01-fig02.png" alt="figure 2 du cours"></figure>
-<h3>Module</h3>
+<h3><span class="num-section">II.6</span> Module</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Module</span><div class="boite-corps"><p>Soit $z$ un nombre complexe d'écriture algébrique $a+ib$.</p>
 <p>Le <strong>module</strong> de $z$, noté $|z|$, est le nombre</p>
 <div class="maths">\[
@@ -302,12 +302,12 @@ OM=|z| .
 <section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><ul><li><strong>1)</strong> $|-z|=\sqrt{(-x)^{2}+(-y)^{2}}=\sqrt{x^{2}+y^{2}}=|z|$.</li><li><strong>2)</strong> $|\overline{z}|=\sqrt{x^{2}+(-y)^{2}}=\sqrt{x^{2}+y^{2}}=|z|$.</li><li><strong>3)</strong> $z\,\overline{z}=(x+iy)(x-iy)=x^{2}+y^{2}=|z|^{2}$.</li></ul></div></section>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriétés pour tous complexes</span><div class="boite-corps"><p>Pour tous complexes $z$ et $z'$ :</p>
 <ol><li>$|zz'|=|z|\,|z'|$ ;</li><li>$|z^{n}|=|z|^{n}$ ;</li><li>$\left|\dfrac{1}{z}\right|=\dfrac{1}{|z|}$ pour $z\neq 0$ ;</li><li>$\left|\dfrac{z}{z'}\right|=\dfrac{|z|}{|z'|}$ pour $z'\neq 0$.</li></ol></div></section>
-<h3>Argument</h3>
+<h3><span class="num-section">II.7</span> Argument</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Argument</span><div class="boite-corps"><p>Soit $z$ un nombre complexe non nul, de point image $M$ dans le plan complexe $(O,\vec{u},\vec{v})$. L'<strong>argument</strong> de $z$, noté $\arg(z)$, correspond à l'angle orienté $\left(\vec{u}\,;\overrightarrow{OM}\right)$.</p></div></section>
 <p><strong>Remarque :</strong> un nombre complexe non nul a une infinité d'arguments modulo $[2\pi]$.</p>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriétés de l'argument</span><div class="boite-corps"><p>Pour tout nombre complexe non nul $z$ :</p>
 <ol><li>$\arg(-z)=\arg(z)+\pi$ \ $[2\pi]$ et $\arg(\overline{z})=-\arg(z)$ \ $[2\pi]$ ;</li><li>$z$ est un nombre réel si, et seulement si, $\arg(z)=0$ \ $[2\pi]$ ou $\pi$ \ $[2\pi]$ ;</li><li>$z$ est imaginaire pur si, et seulement si, $\arg(z)=\dfrac{\pi}{2}$ \ $[2\pi]$ ou $-\dfrac{\pi}{2}$ \ $[2\pi]$.</li></ol></div></section>
-<h3>Représentation graphique en utilisant le module et l'argument</h3>
+<h3><span class="num-section">II.8</span> Représentation graphique en utilisant le module et l'argument</h3>
 <p>On peut aussi repérer le point $M$ par :</p>
 <ul><li>la distance $OM$ : le <strong>module</strong> de $z$, noté $|z|$ ;</li><li>l'angle $\left(\vec{u}\,;\overrightarrow{OM}\right)$ $[2\pi]$ : l'<strong>argument</strong> de $z$, noté $\arg(z)$.</li></ul>
 <ul><li><p>On a $|z|=\sqrt{a^{2}+b^{2}}$ (Pythagore) et, pour $z\neq 0$,</p>
@@ -336,7 +336,7 @@ OM=|z| .
 \end{cases}
 \quad\text{d'où } \theta_{2}=\frac{\pi}{6}\ [2\pi] .
 \]</div>
-<h3>Forme trigonométrique</h3>
+<h3><span class="num-section">II.9</span> Forme trigonométrique</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Forme trigonométrique</span><div class="boite-corps"><p>Tout nombre complexe non nul $z$ s'écrit sous la forme suivante :</p>
 <div class="maths">\[
 z=\rho\bigl(\cos(\theta)+i\sin(\theta)\bigr)
@@ -365,7 +365,7 @@ z=a+ib,
 z=|z|\bigl(\cos(\theta)+i\sin(\theta)\bigr).
 \]</div>
 <h2 id="s3"><span class="num-section">III.</span> Forme exponentielle</h2>
-<h3>Introduction</h3>
+<h3><span class="num-section">III.1</span> Introduction</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriété (admise)</span><div class="boite-corps"><p>La fonction exponentielle est la seule fonction continue sur $\R$ qui transforme une somme en produit et qui prend la valeur $e$ en $1$.</p></div></section>
 <p>Soit $f$ la fonction définie sur $\R$ à valeurs complexes par</p>
 <div class="maths">\[
@@ -399,7 +399,7 @@ f(x)f(x')&=\cos(x)\cos(x')-\sin(x)\sin(x')\\
 \]</div></div></section>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriétés</span><div class="boite-corps"><p>Pour tous $x$, $y$ réels et pour tout $n$ entier :</p>
 <ul><li>$\e^{ix}\times \e^{iy}=\e^{i(x+y)}$ ;</li><li>$\dfrac{\e^{ix}}{\e^{iy}}=\e^{i(x-y)}$ ;</li><li>$\left(\e^{ix}\right)^{n}=\e^{inx}$.</li></ul></div></section>
-<h3>Définition</h3>
+<h3><span class="num-section">III.2</span> Définition</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Forme exponentielle</span><div class="boite-corps"><p>La <strong>forme exponentielle</strong> d'un nombre complexe non nul est</p>
 <div class="maths">\[
 z=r\times \e^{i\theta}
@@ -409,7 +409,7 @@ z=r\times \e^{i\theta}
 <div class="maths">\[
 z=2\,\e^{i\frac{\pi}{3}} .
 \]</div></div></section>
-<h3>Formule de Moivre et formule d'Euler</h3>
+<h3><span class="num-section">III.3</span> Formule de Moivre et formule d'Euler</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Moivre et Euler</span><div class="boite-corps"><p>Soit $\theta\in\R$ et $n\in\N$ ; on a alors :</p>
 <ul><li><p><strong>Formule de Moivre :</strong></p>
 <div class="maths">        \[
@@ -435,9 +435,9 @@ z=2\,\e^{i\frac{\pi}{3}} .
 =\frac{i\bigl(2\sin(\theta)\bigr)}{2i}=\sin(\theta).
 \]</div></div></section>
 <h2 id="s4"><span class="num-section">IV.</span> Formule du binôme</h2>
-<h3>Exemple</h3>
+<h3><span class="num-section">IV.1</span> Exemple</h3>
 <p>$(a+b)^{0}=1\\ (a+b)^{1}=a+b\\ (a+b)^{2}=a^{2}+ab+ba+b^{2}=a^{2}+2ab+b^{2}\\ (a+b)^{3}=a^{3}+a^{2}b+aba+ba^{2}+ab^{2}+bab+b^{2}a+b^{3} =a^{3}+3a^{2}b+3ab^{2}+b^{3}$</p>
-<h3>Triangle de Pascal</h3>
+<h3><span class="num-section">IV.2</span> Triangle de Pascal</h3>
 <p>Le triangle de Pascal est une présentation des coefficients binomiaux dans un triangle. Il fut nommé ainsi en l'honneur du mathématicien français <strong>Blaise Pascal</strong>. Il est connu sous l'appellation « triangle de Pascal » en Occident.</p>
 <p>Pour passer d'une ligne à la suivante, le premier élément de la ligne et le dernier sont toujours des $1$, et les éléments suivants sont la somme des deux éléments de la ligne antérieure en partant de la gauche.</p>
 <p>Les coefficients sont appelés coefficients binomiaux et sont notés $\dbinom{n}{k}$, $n$ la ligne et $k$ la colonne.</p>
@@ -455,7 +455,7 @@ z=2\,\e^{i\frac{\pi}{3}} .
 \binom{n-1}{k-1}+\binom{n-1}{k}=\binom{n}{k}.
 \]</div></div></section>
 <section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>obtient le résultat souhaité. Il existe une preuve plus élégante qui fait appel au dénombrement.</p></div></section>
-<h3>Formule du binôme</h3>
+<h3><span class="num-section">IV.3</span> Formule du binôme</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Formule du binôme</span><div class="boite-corps"><p>Pour tout $n\in\N$ et pour tout $z,t\in\C$,</p>
 <div class="maths">\[
 (z+t)^{n}=\sum_{k=0}^{n}\binom{n}{k}z^{k}t^{n-k}

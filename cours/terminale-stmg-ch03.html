@@ -107,11 +107,11 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 <p><strong>Remarque.</strong>  La probabilité conditionnelle suit les règles et lois de probabilités vues pour les probabilités simples. On a en particulier :</p>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriétés</span><div class="boite-corps"><ul><li>$0\leqslant\prob_{A}(B)\leqslant 1$ ;</li><li>$\prob_{A}\bigl(\overline{B}\bigr)=1-\prob_{A}(B)$ ;</li><li>$\prob(A\cap B)=\prob(A)\times\prob_{A}(B)$.</li></ul></div></section>
 <h2 id="s2"><span class="num-section">II.</span> Arbre pondéré</h2>
-<h3>Exemple</h3>
+<h3><span class="num-section">II.1</span> Exemple</h3>
 <p>On reprend le 2<sup>e</sup> exemple étudié au paragraphe I.</p>
 <p>L'expérience aléatoire peut être schématisée par un <strong>arbre pondéré</strong> (ou arbre de probabilité) :</p>
 <figure class="figure-cours"><img src="img/terminale-stmg-ch03-fig01.png" alt="figure 1 du cours"></figure>
-<h3>Règles</h3>
+<h3><span class="num-section">II.2</span> Règles</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Règle 1</span><div class="boite-corps"><p>La somme des probabilités des branches issues d'un même nœud est égale à $1$.</p></div></section>
 <p><strong>Exemples.</strong></p>
 <ul><li>À partir du nœud « On tire une boule », on a : $\prob(R)+\prob(\overline{R})=0{,}4+0{,}6=1$.</li><li>À partir du nœud « Boule rouge », on a : $\prob_{R}(\overline{G})=1-\prob_{R}(G)=1-0{,}75=0{,}25$.</li></ul>
@@ -132,7 +132,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 <div class="maths">\[
 \prob(G)=\prob(R\cap G)+\prob\bigl(\overline{R}\cap G\bigr)=0{,}3+0{,}18=0{,}48 .
 \]</div>
-<h3>Exercice : calculer la probabilité d'un événement associé à plusieurs feuilles</h3>
+<h3><span class="num-section">II.3</span> Exercice : calculer la probabilité d'un événement associé à plusieurs feuilles</h3>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span><div class="boite-corps"><p>Lors d'une épidémie chez des bovins, on s'est aperçu que, si la maladie est diagnostiquée suffisamment tôt chez un animal, on peut le guérir ; sinon la maladie est mortelle.</p>
 <p>Un test est mis au point et essayé sur un échantillon d'animaux dont $2$ % est porteur de la maladie. On obtient les résultats suivants :</p>
 <ul><li>si un animal est porteur de la maladie, le test est positif dans $85$ % des cas ;</li><li>si un animal est sain, le test est négatif dans $95$ % des cas.</li></ul>
@@ -157,7 +157,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 \]</div>
 <p>La probabilité que le bovin soit malade sachant que le test est positif est d'environ $26$ %.</p>
 <h2 id="s3"><span class="num-section">III.</span> Probabilités et indépendance</h2>
-<h3>Définition</h3>
+<h3><span class="num-section">III.1</span> Définition</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Événements indépendants</span><div class="boite-corps"><p>On dit que deux événements $A$ et $B$ de probabilité non nulle sont <strong>indépendants</strong> lorsque</p>
 <div class="maths">\[
 \prob_{A}(B)=\prob(B)
@@ -182,7 +182,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 \prob_{T}(R)=\frac{1}{8}.
 \]</div>
 <p>Ainsi $\prob_{T}(R)\neq\prob(R)$ : les événements $R$ et $T$ ne sont donc <strong>pas indépendants</strong>.</p>
-<h3>Exercice : utiliser l'indépendance de deux événements</h3>
+<h3><span class="num-section">III.2</span> Exercice : utiliser l'indépendance de deux événements</h3>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span><div class="boite-corps"><p>Dans une population, un individu est atteint par la maladie $a$ avec une probabilité égale à $0{,}005$ et par la maladie $b$ avec une probabilité égale à $0{,}01$.</p>
 <p>On choisit au hasard un individu de cette population. Soit $A$ l'événement « L'individu a la maladie $a$ » et $B$ l'événement « L'individu a la maladie $b$ ». On suppose que les événements $A$ et $B$ sont indépendants.</p>
 <ol><li>Calculer la probabilité qu'un individu soit atteint par les deux maladies.</li><li>Calculer $\prob(A\cup B)$. Interpréter le résultat.</li></ol></div></section>

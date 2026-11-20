@@ -73,7 +73,7 @@
 <nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Définitions</a></li><li><a href="#s2">II Calculs de primitives</a></li></ol></nav>
 <p>Dans tout le chapitre, $a$ et $b$ sont deux réels d'un intervalle $I$, bornes incluses, tels que $a\leqslant b$.</p>
 <h2 id="s1"><span class="num-section">I.</span> Définitions</h2>
-<h3>Définition</h3>
+<h3><span class="num-section">I.1</span> Définition</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Primitive d'une fonction</span><div class="boite-corps"><p>Soit $f$ une fonction définie sur un intervalle $I$.</p>
 <p>On appelle <strong>primitive de $f$ sur $I$</strong> toute fonction $F$ définie et dérivable sur $I$ vérifiant</p>
 <div class="maths">\[
@@ -113,7 +113,7 @@ G(x_{0})=F(x_{0})+k \;\Longrightarrow\; y_{0}=y_{0}+k
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème d'existence (admis)</span><div class="boite-corps"><p>Toute fonction continue sur un intervalle $I$ admet des primitives sur $I$.</p></div></section>
 <p><strong>Remarque.</strong>  La continuité est une condition <em>suffisante</em> mais non nécessaire : il existe des fonctions non continues qui admettent des primitives. De plus, c'est un théorème d'existence, mais il ne donne pas d'expression des primitives.</p>
 <h2 id="s2"><span class="num-section">II.</span> Calculs de primitives</h2>
-<h3>Primitives des fonctions usuelles</h3>
+<h3><span class="num-section">II.1</span> Primitives des fonctions usuelles</h3>
 <p>Les fonctions $f$ suivantes sont définies et dérivables sur l'intervalle $I$ ; $n$ est un entier relatif différent de $-1$. On prend comme constante d'intégration $k=0$ et $a\in\R$.</p>
 <p></p>
 <section class="boite boite-info"><p> <strong>Obtention de primitives par lecture inverse du tableau des dérivées</strong></p>
@@ -121,7 +121,7 @@ G(x_{0})=F(x_{0})+k \;\Longrightarrow\; y_{0}=y_{0}+k
 <table class="tableau"><tr><td>Fonction $f$</td><td>Primitive $F$</td><td>Intervalle</td></tr><tr><td>$f(x)=a$</td><td>$F(x)=ax$</td><td>$\R$</td></tr><tr><td>$f(x)=x$</td><td>$F(x)=\dfrac{x^{2}}{2}$</td><td>$\R$</td></tr><tr><td>$f(x)=x^{n}$</td><td>$F(x)=\dfrac{x^{n+1}}{n+1}$</td><td>$\R$</td></tr><tr><td>$f(x)=\dfrac{1}{x}$</td><td>$F(x)=\ln|x|$</td><td>$]-\infty\,;0[\ \text{ou}\ ]0\,;+\infty[$</td></tr><tr><td>$f(x)=\dfrac{1}{x^{n}}$, $n\neq 1$</td><td>$F(x)=\dfrac{-1}{(n-1)x^{n-1}}$</td><td>$]-\infty\,;0[\ \text{ou}\ ]0\,;+\infty[$</td></tr><tr><td>$f(x)=\dfrac{1}{\sqrt{x}}$</td><td>$F(x)=2\sqrt{x}$</td><td>$]0\,;+\infty[$</td></tr><tr><td>$f(x)=\sin x$</td><td>$F(x)=-\cos x$</td><td>$\R$</td></tr><tr><td>$f(x)=\cos x$</td><td>$F(x)=\sin x$</td><td>$\R$</td></tr><tr><td>$f(x)=\e^{x}$</td><td>$F(x)=\e^{x}$</td><td>$\R$</td></tr><tr><td class="vide"></td><td colspan="2" class="note-tableau"></td></tr></table></section>
 <p><strong>Remarque.</strong>  Pour obtenir <em>toutes</em> les primitives d'une fonction $f$ donnée, il suffit de rajouter une constante à l'une d'entre elles.</p>
 <p><strong>Remarque.</strong>  Pour $n&lt;0$, la fonction $x\mapsto x^{n}$ n'est pas définie sur $\R$ : on travaille alors sur $]-\infty\,;0[$ ou sur $]0\,;+\infty[$ (voir la ligne consacrée à $\dfrac{1}{x^{n}}$).</p>
-<h3>Primitives des fonctions composées</h3>
+<h3><span class="num-section">II.2</span> Primitives des fonctions composées</h3>
 <p>Dans le tableau ci-dessous, $u$ et $v$ sont des fonctions dérivables sur un intervalle $I$, et $k$ désigne une constante réelle.</p>
 <p></p>
 <section class="boite boite-info"><p> <strong>Primitives des fonctions composées</strong></p>
@@ -134,7 +134,7 @@ G(x_{0})=F(x_{0})+k \;\Longrightarrow\; y_{0}=y_{0}+k
         \qquad\text{et}\qquad
         x\longmapsto -\frac{1}{a}\cos(ax+b).
         \]</div></li><li>En réalité, une primitive de toute fonction de la forme $\dfrac{u'}{u}$ est une fonction de la forme $\ln(u)$.</li></ol>
-<h3>Application des tableaux</h3>
+<h3><span class="num-section">II.3</span> Application des tableaux</h3>
 <section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Application du tableau des fonctions de référence</span><div class="boite-corps"><ol><li>Sur $\R$, $f(x)=x^{7}$, donc $F(x)=\dfrac{x^{8}}{8}$.</li><li>Sur $]0\,;+\infty[$, $f(x)=\dfrac{1}{x^{5}}$, donc $F(x)=-\dfrac{1}{4x^{4}}$.</li></ol></div></section>
 <p>On dérive $F$ « dans sa tête » pour vérifier le résultat.</p>
 <p><strong>Remarque.</strong>  On peut toujours utiliser la formule $\dfrac{x^{n+1}}{n+1}$ avec $n\in\mathbb{Z}$ :</p>

@@ -74,7 +74,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 <nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Variables aléatoires</span><a class="onglet" href="../pdf/premiere-spe/13-variables-aleatoires.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/premiere-spe/td01-variable-aleatoire.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../quiz/premiere-spe-13.html" target="_blank" rel="noopener">Quiz</a></nav>
 <nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Notion de variable aléatoire réelle</a></li><li><a href="#s2">II Espérance d'une variable aléatoire réelle</a></li><li><a href="#s3">III Variance et écart-type</a></li></ol></nav>
 <h2 id="s1"><span class="num-section">I.</span> Notion de variable aléatoire réelle</h2>
-<h3>Variable aléatoire</h3>
+<h3><span class="num-section">I.1</span> Variable aléatoire</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Variable aléatoire</span><div class="boite-corps"><p>Soit $\Omega$ l'ensemble des issues d'une expérience aléatoire ($\Omega$ est l'univers). Une <strong>variable aléatoire</strong> sur $\Omega$ est une fonction définie sur $\Omega$ à valeurs dans $\R$.</p></div></section>
 <p>Soient $X$ une variable aléatoire définie sur $\Omega$ et $x$ un réel.</p>
 <p><strong>1.</strong> L'événement « $X$ prend la valeur $x$ » est l'ensemble des issues de $\Omega$ auxquelles on associe le réel $x$.</p>
@@ -87,7 +87,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 <section class="boite boite-meth"><span class="boite-titre">Méthode</span><div class="boite-corps"><ul><li>il faut commencer par déterminer l'univers en fonction de l'expérience aléatoire ;</li><li>la variable aléatoire associe une valeur à chaque issue de l'univers.</li></ul></div></section>
 <p><strong>1.</strong> L'univers de cette expérience aléatoire est l'ensemble $\Omega_{1}$ des personnes du restaurant. Chaque personne interrogée répond $10$, $12$ ou $18$. On peut donc définir la variable $X_{1}$ sur $\Omega_{1}$, qui associe à chaque personne une valeur parmi $10$, $12$ ou $18$.</p>
 <p><strong>2.</strong> L'univers de cette expérience aléatoire est l'ensemble $\Omega_{2}=\{10\,;12\,;18\}$. Pour chaque valeur, on compte le nombre de personnes ayant choisi ce menu. La variable aléatoire $X_{2}$ est définie sur $\Omega_{2}$ et associe à chaque prix le nombre de personnes correspondant.</p>
-<h3>Loi de probabilité d'une variable aléatoire réelle</h3>
+<h3><span class="num-section">I.2</span> Loi de probabilité d'une variable aléatoire réelle</h3>
 <p>La <strong>probabilité de l'événement</strong> $\{X=x_{i}\}$ est la somme des probabilités des issues de $X$ auxquelles on associe le réel $x_{i}$.</p>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Loi de probabilité</span><div class="boite-corps"><p>Soit $X$ une variable aléatoire définie sur $\Omega$. Définir la <strong>loi de probabilité</strong> de la variable aléatoire $X$, c'est associer à chaque valeur $x_{i}$ prise par $X$ la probabilité de l'événement $\{X=x_{i}\}$.</p>
 <p>On présente souvent la loi de probabilité de $X$ sous la forme d'un tableau.</p></div></section>
@@ -115,7 +115,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 &=a\,\Esp(X)+b .
 \end{aligned}\]</div></div></section>
 <p><strong>Rappel :</strong> on a utilisé la propriété $p_{1}+p_{2}+\dots+p_{r}=1$.</p>
-<h3>Méthode</h3>
+<h3><span class="num-section">II.1</span> Méthode</h3>
 <p><strong>1.</strong> On applique la formule du cours en remplaçant les $x_{i}$ par les valeurs prises par la variable aléatoire $X$ et les $p_{i}$ par les probabilités correspondantes.</p>
 <p><strong>2.</strong> On interprète le résultat à l'aide d'une <strong>moyenne</strong>, en se rappelant que cela est valable uniquement pour un <strong>très grand nombre</strong> d'expériences identiques réalisées.</p>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Calculer et interpréter $\Esp(X)$</span><div class="boite-corps"><p>Soit $X$ une variable aléatoire dont on donne la loi de probabilité dans le tableau suivant. Calculer et interpréter $\Esp(X)$.</p>
@@ -156,7 +156,7 @@ V(X)&=\Esp\left(x^{2}\right)-2\,\Esp(x)\sum_{i=1}^{n}p_{i}x_{i}
 V(aX+b)=a^{2}\,V(X) .
 \]</div></div></section>
 <p>\end{boxprop}</p>
-<h3>Méthode</h3>
+<h3><span class="num-section">III.1</span> Méthode</h3>
 <p><strong>1.</strong> On applique la formule du cours en remplaçant les $x_{i}$ par les valeurs prises par la variable aléatoire $X$ et les $p_{i}$ par les probabilités correspondantes.</p>
 <p><strong>2.</strong> L'écart-type s'obtient simplement en calculant la racine carrée de la variance.</p>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Variance et écart-type</span><div class="boite-corps"><p>Soit $X$ une variable aléatoire dont on donne la loi de probabilité dans le tableau suivant. Calculer la variance et l'écart-type de la variable aléatoire $X$.</p>

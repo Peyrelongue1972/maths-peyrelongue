@@ -78,7 +78,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 <p>Lorsque cette épreuve est répétée de <strong>manière identique et indépendante</strong>, on obtient un <strong>schéma de Bernoulli de paramètre $n$ et $p$</strong>.</p>
 <p>À ce schéma de Bernoulli, on associe une variable aléatoire $X$ qui compte les succès.</p>
 <figure class="figure-cours"><img src="img/terminale-stmg-ch08-fig01.png" alt="figure 1 du cours"></figure>
-<h3>Formule de calcul de $\prob(X=k)$</h3>
+<h3><span class="num-section">I.1</span> Formule de calcul de $\prob(X=k)$</h3>
 <p>Avec pour $k$ succès parmi $n$ tirages, on a aussi $(n-k)$ échecs : il y a plusieurs chemins réalisant cet événement.</p>
 <p>La probabilité sur une branche avec uniquement $k$ succès est de $p^{k}(1-p)^{n-k}$. Il faut ensuite dénombrer (compter) les branches avec uniquement $k$ succès.</p>
 <figure class="figure-cours"><img src="img/terminale-stmg-ch08-fig02.png" alt="figure 2 du cours"></figure>
@@ -107,11 +107,11 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 \prob(X=k)=\binom{10}{k}\left(\frac{2}{3}\right)^{k}
 \left(\frac{1}{3}\right)^{10-k}.
 \]</div></div></section>
-<h3>Représentation graphique de la loi binomiale</h3>
+<h3><span class="num-section">III.1</span> Représentation graphique de la loi binomiale</h3>
 <p>La représentation de la distribution correspondant à une loi binomiale dépend du paramètre $p$ : plus $p$ est proche de $0$, plus la probabilité d'obtenir un succès sera faible ; si $p$ devient proche de $1$, la probabilité d'obtenir un grand nombre de succès sera élevée.</p>
 <p>La hauteur de chaque bâton au niveau de l'abscisse $k$ correspond à $\prob(X=k)$.</p>
 <figure class="figure-cours"><img src="img/terminale-stmg-ch08-fig03.png" alt="figure 3 du cours"></figure>
-<h3>Espérance, variance et écart-type</h3>
+<h3><span class="num-section">III.2</span> Espérance, variance et écart-type</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Paramètres d'une loi binomiale</span><div class="boite-corps"><p>Soient $n$ un entier naturel strictement positif et $p$ un nombre réel de l'intervalle $[0\,;1]$. On note $X$ une variable aléatoire qui suit la loi binomiale de paramètres $n$ et $p$.</p>
 <ol><li>L'espérance de $X$ est $E(X)=np$.</li><li>La variance de $X$ est $V(X)=np(1-p)$.</li><li>L'écart-type de $X$ est $\sigma(X)=\sqrt{np(1-p)}$.</li></ol></div></section>
 <section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><div class="maths">\[\begin{aligned}
@@ -122,7 +122,7 @@ E(X)&=\sum_{k=0}^{n}k\,\prob(X=k)
  =np\bigl(p+(1-p)\bigr)^{n-1}=np .
 \end{aligned}\]</div>
 <p>On a utilisé la formule du binôme de Newton pour la dernière somme, et l'égalité $k\dbinom{n}{k}=n\dbinom{n-1}{k-1}$.</p></div></section>
-<h3>Correction type</h3>
+<h3><span class="num-section">III.3</span> Correction type</h3>
 <section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Entretiens d'embauche</span><div class="boite-corps"><p>On considère une situation où la probabilité de réussir un entretien d'embauche est égale à $0{,}12$. On interroge dix candidats et on suppose leur embauche indépendante de celle des autres candidats. On note $X$ la variable aléatoire égale au nombre de candidats qui ont réussi leur entretien parmi les dix.</p>
 <ol><li>Calculer $E(X)$ et donner une interprétation dans le contexte de l'exercice.</li><li>Calculer $V(X)$ et $\sigma(X)$.</li></ol></div></section>
 <p><strong>Correction.</strong></p>

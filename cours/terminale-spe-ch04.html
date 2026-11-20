@@ -131,7 +131,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 <p>La probabilité qu'un individu choisi au hasard ait au moins une des deux maladies est égale à $0{,}01495$.</p>
 <figure class="figure-cours"><img src="img/terminale-spe-ch04-fig01.png" alt="figure 1 du cours"></figure>
 <h2 id="s3"><span class="num-section">III.</span> Variable aléatoire et loi de probabilité</h2>
-<h3>Variable aléatoire</h3>
+<h3><span class="num-section">III.1</span> Variable aléatoire</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Variable aléatoire</span><div class="boite-corps"><p>Une <strong>variable aléatoire</strong> $X$ est une <strong>fonction</strong> définie sur un univers $\Omega$ et à valeurs dans $\R$.</p>
 <p>Si $x_{1},x_{2},\dots,x_{r}$ désignent les valeurs prises par $X$, on note « $X=x_{i}$ » l'événement « $X$ prend la valeur $x_{i}$ ».</p></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Un jeu de dés</span><div class="boite-corps"><p>On considère le jeu suivant : on lance un dé à six faces.</p>
@@ -156,7 +156,7 @@ X(1)=3,\quad X(2)=2,\quad X(3)=-4,\quad X(4)=2,\quad X(5)=-4,\quad X(6)=2 .
 <section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><div class="maths">\[
 \prob(X=x_{1})+\prob(X=x_{2})+\dots+\prob(X=x_{r})=\prob(\Omega)=1 .
 \]</div></div></section>
-<h3>Espérance d'une variable aléatoire réelle</h3>
+<h3><span class="num-section">III.3</span> Espérance d'une variable aléatoire réelle</h3>
 <p>L'<strong>espérance</strong> de $X$ est le nombre réel, noté $E(X)$, défini par</p>
 <div class="maths">\[
 E(X)=\sum p_{i}x_{i}=p_{1}x_{1}+p_{2}x_{2}+\dots+p_{r}x_{r} .
@@ -227,7 +227,7 @@ V(aX+b)=\sum p_{i}\bigl(ax_{i}+b-(aE(X)+b)\bigr)^{2}
 \sigma=\sqrt{V(X)} .
 \]</div></div></section>
 <h2 id="s4"><span class="num-section">IV.</span> Loi uniforme et loi de Bernoulli</h2>
-<h3>Loi uniforme discrète sur $\{1\,;2\,;\dots\,;n\}$</h3>
+<h3><span class="num-section">IV.1</span> Loi uniforme discrète sur $\{1\,;2\,;\dots\,;n\}$</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Loi uniforme discrète</span><div class="boite-corps"><p>$X$ est une variable aléatoire qui prend ses valeurs dans l'ensemble $\{1\,;2\,;\dots\,;n\}$ avec $n\in\N^{*}$.</p>
 <p>Dire que la loi de probabilité de $X$ suit la loi uniforme sur $\{1\,;2\,;\dots\,;n\}$ signifie que toutes les valeurs prises par $X$ sont équiprobables. Ainsi, pour tout entier naturel $k$ de l'ensemble $\{1\,;2\,;\dots\,;n\}$,</p>
 <div class="maths">\[
@@ -285,7 +285,7 @@ V(X)
 \sigma(X)&=\sqrt{V(X)}=\sqrt{p(1-p)} .
 \end{aligned}\]</div></div></section>
 <h2 id="s5"><span class="num-section">V.</span> Schéma de Bernoulli et loi binomiale</h2>
-<h3>Schéma de Bernoulli</h3>
+<h3><span class="num-section">V.1</span> Schéma de Bernoulli</h3>
 <p>On considère une expérience aléatoire qui consiste à <strong>répéter $n$ fois une même épreuve de Bernoulli</strong> (épreuve à deux issues : $S$ succès et $\overline{S}$ échec). On note $p=\prob(S)$ et $\prob(\overline{S})$.</p>
 <p>Lorsque cette épreuve est répétée de <strong>manière identique et indépendante</strong>, on obtient un <strong>schéma de Bernoulli de paramètre $n$ et $p$</strong>.</p>
 <p>À ce schéma de Bernoulli, on associe une variable aléatoire $X$ qui compte les succès.</p>
@@ -294,7 +294,7 @@ V(X)
 <p>La probabilité sur une branche avec uniquement $k$ succès est $p^{k}(1-p)^{n-k}$. Il faut ensuite dénombrer (compter) les branches avec uniquement $k$ succès.</p>
 <p>Avec $k$ succès parmi $n$ tirages, on a aussi $(n-k)$ échecs : il y a plusieurs chemins réalisant cet événement. Chaque chemin est déterminé par la donnée de ses $k$ succès ; le nombre de chemins menant à $k$ succès est égal au nombre de combinaisons de $k$ parmi $n$ : $\dbinom{n}{k}$.</p>
 <figure class="figure-cours"><img src="img/terminale-spe-ch04-fig03.png" alt="figure 3 du cours"></figure>
-<h3>Coefficients binomiaux</h3>
+<h3><span class="num-section">V.2</span> Coefficients binomiaux</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Coefficient binomial</span><div class="boite-corps"><p>On représente à l'aide d'un arbre de probabilité un schéma de Bernoulli constitué de $n$ épreuves. Pour tout entier $k$ avec $0\leqslant k\leqslant n$, le nombre de chemins réalisant $k$ succès est noté $\dbinom{n}{k}$.</p>
 <p>La notation $\dbinom{n}{k}$ se lit « $k$ parmi $n$ ». Ces nombres sont appelés <strong>coefficients binomiaux</strong>.</p></div></section>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriétés des coefficients binomiaux</span><div class="boite-corps"><p>Pour tout entier $n\geqslant 1$ :</p>
@@ -340,11 +340,11 @@ V(X)
 E(X)=10\times\frac{2}{3}=\frac{20}{3}.
 \]</div>
 <p> <strong>Attention :</strong> si le tirage est <strong>sans remise</strong>, la composition de l'urne change après chaque tirage : les épreuves ne sont alors <strong>ni identiques ni indépendantes</strong>, et $X$ <em>ne suit pas</em> une loi binomiale.</p></div></section>
-<h3>Représentation graphique de la loi binomiale</h3>
+<h3><span class="num-section">V.4</span> Représentation graphique de la loi binomiale</h3>
 <p>La représentation de la distribution correspondant à une loi binomiale dépend du paramètre $p$ : plus $p$ est proche de $0$, plus la probabilité d'obtenir un succès sera faible ; si $p$ devient proche de $1$, la probabilité d'obtenir un grand nombre de succès sera élevée.</p>
 <p>La hauteur de chaque bâton au niveau de l'abscisse $k$ correspond à $\prob(X=k)$.</p>
 <figure class="figure-cours"><img src="img/terminale-spe-ch04-fig04.png" alt="figure 4 du cours"></figure>
-<h3>Espérance, variance et écart-type</h3>
+<h3><span class="num-section">V.5</span> Espérance, variance et écart-type</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Paramètres d'une loi binomiale</span><div class="boite-corps"><p>Soient $n$ un entier naturel strictement positif et $p$ un nombre réel de l'intervalle $[0\,;1]$. On note $X$ une variable aléatoire qui suit la loi binomiale de paramètres $n$ et $p$.</p>
 <ol><li>L'espérance de $X$ est $E(X)=np$.</li><li>La variance de $X$ est $V(X)=np(1-p)$.</li><li>L'écart-type de $X$ est $\sigma(X)=\sqrt{np(1-p)}$.</li></ol></div></section>
 <section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><div class="maths">\[\begin{aligned}
