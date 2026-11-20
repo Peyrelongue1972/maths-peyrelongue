@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 4 : Les matrices — Maths expertes</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "Mnp": "{\\mathcal{M}_{n,p}(\\R)}", "Mn": "{\\mathcal{M}_{n}(\\R)}", "Mdeux": "{\\mathcal{M}_{2}(\\R)}", "detm": "{\\mathrm{det}}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#maths-expertes">← Retour au site</a></p>
+  <h1>Chapitre 4 : Les matrices</h1>
+  <p class="sous-titre">Maths expertes · Chapitre 4 — Les matrices · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Les matrices</span><a class="onglet" href="../pdf/maths-expertes/Chapitre_IV_Les_Matrices.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/maths-expertes/td01-matrices.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/maths-expertes/td02-puissance-matrices.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../pdf/maths-expertes/td03-inverse-matrice.pdf" target="_blank" rel="noopener">TD n°3</a><a class="onglet" href="../pdf/maths-expertes/td04-suites-matrices.pdf" target="_blank" rel="noopener">TD n°4</a><a class="onglet" href="../quiz/maths-expertes-4.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Définition</a></li><li><a href="#s2">II Addition – Multiplication par un réel</a></li><li><a href="#s3">III Matrices carrées</a></li></ol></nav>
+<h2 id="s1"><span class="num-section">I.</span> Définition</h2>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Matrice</span><div class="boite-corps"><p>Soient $n$ et $p$ deux entiers naturels non nuls.</p>
+<ul><li>Une <strong>matrice</strong> $M$ de taille $n\times p$ est un tableau de nombres réels à $n$ lignes et $p$ colonnes.</li><li>L'entier $n\times p$ est la <strong>dimension</strong> ou <strong>taille</strong> ou <strong>format</strong> de la matrice $A$.</li><li>Soient $i$ et $j$ deux entiers tels que $1\leqslant i\leqslant n$ et $1\leqslant j\leqslant p$ : le nombre situé à l'intersection de la $i$<sup>ème</sup> ligne et de la $j$<sup>ème</sup> colonne est noté $a_{i,j}$.</li></ul></div></section>
+<p>On note</p>
+<div class="maths">\[
+A=
+\begin{pmatrix}
+a_{1,1} & \dots & a_{1,p}\\
+\vdots & \ddots & \vdots\\
+a_{n,1} & \dots & a_{n,p}
+\end{pmatrix}
+=\left[a_{i,j}\right]
+\quad\text{avec } 1\leqslant i\leqslant n \text{ et } 1\leqslant j\leqslant p .
+\]</div>
+<p>$a_{i,j}$ désigne le coefficient situé à la $i$<sup>ème</sup> ligne et à la $j$<sup>ème</sup> colonne.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Quatre matrices</span><div class="boite-corps"><div class="maths">\[
+A=
+\begin{pmatrix}
+2 & 3 & -1\\
+0{,}5 & 0{,}3 & 7
+\end{pmatrix}
+\]</div>
+<p>$A$ est une matrice à $2$ lignes et $3$ colonnes, donc de taille $2\times 3$.</p>
+<div class="maths">\[
+B=
+\begin{pmatrix}
+2\\-\sqrt{2}\\1
+\end{pmatrix}
+\]</div>
+<p>est une matrice de dimension $3\times 1$ (matrice colonne).</p>
+<div class="maths">\[
+C=
+\begin{pmatrix}
+1 & \sqrt{3} & -2 & \dfrac{1}{4}
+\end{pmatrix}
+\]</div>
+<p>est une matrice de taille $1\times 4$ (matrice ligne).</p>
+<div class="maths">\[
+D=
+\begin{pmatrix}
+1 & 1 & 1\\
+2 & 5 & -3\\
+-1 & 0 & \dfrac{1}{2}
+\end{pmatrix}
+\]</div>
+<p>est une matrice de dimension $3\times 3$ : c'est une matrice carrée d'ordre $3$.</p></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Matrices particulières</span><div class="boite-corps"><p>Soient $n$ et $p$ deux entiers non nuls.</p>
+<ul><li>Une <strong>matrice colonne</strong> est de dimension $n\times 1$.</li><li>Une <strong>matrice ligne</strong> est de dimension $1\times p$.</li><li>Une <strong>matrice carrée d'ordre $p$</strong> est de dimension $p\times p$.</li><li>Une matrice de dimension $n\times p$ dont tous les coefficients sont nuls est la <strong>matrice nulle</strong>, notée $(0)$.</li><li>Une matrice dont les coefficients $a_{i,i}=1$ pour tout $i$ et $a_{i,j}=0$ pour $i\neq j$ est la <strong>matrice identité</strong>.</li></ul></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Matrice symétrique</span><div class="boite-corps"><p>Une matrice carrée d'ordre $n$ est <strong>symétrique</strong> lorsque</p>
+<div class="maths">\[
+\forall i,j,\quad a_{i,j}=a_{j,i} .
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Matrice symétrique</span><div class="boite-corps"><div class="maths">\[
+A=
+\begin{pmatrix}
+1 & 5 & -2\\
+5 & \sqrt{2} & 3\\
+-2 & 3 & \dfrac{1}{5}
+\end{pmatrix}
+\]</div>
+<p>est une matrice symétrique.</p></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Transposée</span><div class="boite-corps"><p>Si $A=(a_{i,j})$, la matrice de coefficient $(a_{j,i})$ est notée $^{t}A$ et appelée <strong>matrice transposée</strong> de $A$.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Transposée</span><div class="boite-corps"><div class="maths">\[
+A=
+\begin{pmatrix}
+2 & 3 & -1\\
+0{,}5 & 0{,}3 & 7
+\end{pmatrix}
+\qquad
+^{t}A=
+\begin{pmatrix}
+2 & 0{,}5\\
+3 & 0{,}3\\
+-1 & 7
+\end{pmatrix}
+\]</div></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Matrice symétrique et transposée</span><div class="boite-corps"><p>Une matrice est symétrique si $A={}^{t}A$.</p></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Égalité de deux matrices</span><div class="boite-corps"><p>Deux matrices $A$ et $B$ de taille $n\times p$ sont égales si, et seulement si, pour tous $i\in\{1,2,\dots,n\}$ et pour tous $j\in\{1,\dots,p\}$,</p>
+<div class="maths">\[
+a_{i,j}=b_{i,j} .
+\]</div></div></section>
+<h2 id="s2"><span class="num-section">II.</span> Addition – Multiplication par un réel</h2>
+<h3><span class="num-section">II.1</span> Addition</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Addition matricielle</span><div class="boite-corps"><p>Soient $A=(a_{i,j})$ et $B=(b_{i,j})$ deux matrices de même dimension $n\times p$.</p>
+<p>L'addition de ces deux matrices restitue une matrice somme, notée $A+B=(s_{i,j})$, de dimension $n\times p$, définie par :</p>
+<div class="maths">\[
+\forall(i,j)\in[\![1,n]\!]\times[\![1,p]\!],\quad s_{i,j}=a_{i,j}+b_{i,j} .
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Somme de deux matrices</span><div class="boite-corps"><div class="maths">\[
+A=
+\begin{pmatrix}
+1 & 1 & 1\\
+2 & 5 & -3\\
+-1 & 0 & \dfrac{1}{2}
+\end{pmatrix}
+\quad\text{et}\quad
+B=
+\begin{pmatrix}
+-1 & 1 & 1\\
+-2 & -2 & -3\\
+1 & 0 & \dfrac{1}{2}
+\end{pmatrix}
+\quad\text{alors}\quad
+A+B=
+\begin{pmatrix}
+0 & 2 & 2\\
+0 & 3 & -6\\
+0 & 0 & 1
+\end{pmatrix}
+\]</div></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Matrice opposée</span><div class="boite-corps"><p>Soit $A=(a_{i,j})$ une matrice de dimension $n\times p$. Sa matrice opposée, notée $-A$, est définie par :</p>
+<div class="maths">\[
+-A=(-a_{i,j}).
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Groupe commutatif</span><div class="boite-corps"><p>L'ensemble $\Mnp$ (l'ensemble des matrices réelles de dimension $n\times p$) muni de la loi d'addition est un groupe commutatif, ce qui signifie que, quelles que soient les matrices $A$, $B$ et $C$ de même dimension $n\times p$, nous disposons des propriétés suivantes :</p>
+<ul><li>$A+B\in\Mnp$ (l'addition est stable) ;</li><li>$A+B=B+A$ (l'addition est commutative) ;</li><li>$(A+B)+C=A+(B+C)$ (l'addition est associative) ;</li><li>$A+(0)=(0)+A=A$ (l'addition admet un élément neutre $(0)$) ;</li><li>$A+(-A)=(-A)+A=(0)$ (tout élément de $\Mnp$ admet un symétrique, l'opposé, pour l'addition).</li></ul></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>dans $\R$.</p></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Soustraction matricielle</span><div class="boite-corps"><p>Soient $A=(a_{i,j})$ et $B=(b_{i,j})$ deux matrices de même dimension $n\times p$.</p>
+<p>La <strong>soustraction matricielle</strong> $A-B$ est la matrice de dimension $n\times p$ définie par :</p>
+<div class="maths">\[
+A-B=A+(-B).
+\]</div></div></section>
+<h3><span class="num-section">II.2</span> Multiplication d'une matrice par un réel</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Multiplication par un réel</span><div class="boite-corps"><p>Soit $A=(a_{i,j})$ une matrice de dimension $n\times p$ et $k$ un nombre réel. Le produit de $A$ par $k$ est la matrice notée $kA$, de même dimension, définie par :</p>
+<div class="maths">\[
+kA=\left(k\,a_{i,j}\right).
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Produit par $2$</span><div class="boite-corps"><div class="maths">\[
+A=
+\begin{pmatrix}
+1 & 1 & 1\\
+2 & 5 & -3\\
+-1 & 0 & \dfrac{1}{2}
+\end{pmatrix}
+\quad\text{alors}\quad
+2A=
+\begin{pmatrix}
+2 & 2 & 2\\
+4 & 10 & -6\\
+-2 & 0 & 1
+\end{pmatrix}
+\]</div></div></section>
+<p><strong>Remarque :</strong> $1A=A$ ; $0A=(0)$ et $(-1)A=-A$.</p>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriétés</span><div class="boite-corps"><p>Soient $A=(a_{i,j})$ et $B=(b_{i,j})$ deux matrices de même dimension $n\times p$, et $k$ et $k'$ deux réels ; alors :</p>
+<ul><li>$k(A+B)=kA+kB$ ;</li><li>$(k+k')A=kA+k'A$ ;</li><li>$k(k'A)=(kk')A$.</li></ul></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>des propriétés de l'addition dans $\R$.</p></div></section>
+<p><strong>Remarque :</strong> l'ensemble $\Mnp$ muni de l'addition et de la multiplication par un scalaire a une structure d'<strong>espace vectoriel</strong>. Cela signifie que $(\Mnp,+)$ est un groupe commutatif et que la multiplication par un scalaire vérifie les $3$ propriétés précédentes et $1A=A$.</p>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Combinaison linéaire</span><div class="boite-corps"><p>Soient $A=(a_{i,j})$ et $B=(b_{i,j})$ deux matrices de même dimension $n\times p$ : une <strong>combinaison linéaire</strong> de ces deux matrices est une matrice de la même dimension de la forme</p>
+<div class="maths">\[
+\alpha A+\beta B,
+\]</div>
+<p>avec $\alpha$ et $\beta$ deux réels.</p>
+<p>Plus généralement, soient $A_{1}$, $A_{2}$, …, $A_{r}$ des matrices de même dimension et $\alpha_{1},\dots,\alpha_{r}$ des nombres réels : $\alpha_{1}A_{1}+\alpha_{2}A_{2}+\dots+\alpha_{r}A_{r}$ est une combinaison linéaire de ces $r$ matrices.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Vecteurs de la base canonique</span><div class="boite-corps"><div class="maths">\[
+e_{1}=\begin{pmatrix}1\\0\\0\end{pmatrix}
+\qquad
+e_{2}=\begin{pmatrix}0\\1\\0\end{pmatrix}
+\qquad
+e_{3}=\begin{pmatrix}0\\0\\1\end{pmatrix}
+\]</div>
+<p>le vecteur $X=\begin{pmatrix}a\\b\\c\end{pmatrix}$ est une combinaison linéaire de $e_{1}$, $e_{2}$ et $e_{3}$. En effet</p>
+<div class="maths">\[
+X=ae_{1}+be_{2}+ce_{3} .
+\]</div></div></section>
+<h3><span class="num-section">II.3</span> Multiplication matricielle</h3>
+<h3><span class="num-section">II.4</span> Multiplication d'une matrice ligne par une matrice colonne</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Ligne par colonne</span><div class="boite-corps"><p>Soient $n\in\N^{*}$, $A=(a_{1},\dots,a_{n})$ une matrice ligne de dimension $1\times n$ et</p>
+<div class="maths">\[
+B=\begin{pmatrix}b_{1}\\b_{2}\\\vdots\\b_{n}\end{pmatrix}
+\]</div>
+<p>une matrice colonne de dimension $n\times 1$.</p>
+<p>Le <strong>produit de $A$ par $B$</strong>, noté $AB$, est le réel défini par</p>
+<div class="maths">\[
+AB=\sum_{i=1}^{n}a_{i}\times b_{i} .
+\]</div>
+<p>Le <strong>produit de $B$ par $A$</strong>, noté $BA$, restitue une matrice de dimension $n\times n$ :</p>
+<div class="maths">\[
+BA=(c_{i,j})
+\qquad
+\forall i,j\in[\![1,n]\!]^{2},\quad c_{i,j}=b_{i}\times a_{j} .
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Ligne fois colonne</span><div class="boite-corps"><div class="maths">\[
+A=\begin{pmatrix}1 & 1 & 3\end{pmatrix}
+\quad\text{et}\quad
+B=\begin{pmatrix}2\\1\\3\end{pmatrix}
+\quad\text{alors}\quad
+AB=2\times 1+1\times 1+3\times 3=12
+\]</div>
+<div class="maths">\[
+BA=\begin{pmatrix}2\\1\\3\end{pmatrix}\times
+\begin{pmatrix}1 & 1 & 3\end{pmatrix}
+=\begin{pmatrix}
+2 & 2 & 6\\
+1 & 1 & 3\\
+3 & 3 & 9
+\end{pmatrix}
+\]</div></div></section>
+<p><strong>Remarque :</strong> la multiplication n'est pas commutative, $AB\neq BA$.</p>
+<h3><span class="num-section">II.5</span> Multiplication d'une matrice $n\times p$ par une matrice colonne</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Matrice par colonne</span><div class="boite-corps"><p>Soient $n\in\N^{*}$, $A=(a_{i,j})$ une matrice de dimension $n\times p$ et</p>
+<div class="maths">\[
+B=\begin{pmatrix}b_{1}\\b_{2}\\\vdots\\b_{p}\end{pmatrix}
+\]</div>
+<p>une matrice colonne de dimension $p\times 1$.</p>
+<p>Le <strong>produit de $A$ par $B$</strong>, noté $AB$, est une matrice colonne</p>
+<div class="maths">\[
+C=\begin{pmatrix}c_{1}\\\vdots\\c_{n}\end{pmatrix}
+\]</div>
+<p>de dimension $n\times 1$ telle que</p>
+<div class="maths">\[
+\forall i\in[\![1,n]\!],\quad c_{i}=\sum_{k=1}^{k=n}a_{i,k}\times b_{k} .
+\]</div>
+<p>On multiplie chaque ligne de $A$ par la colonne $B$.</p>
+<p><strong>La règle :</strong></p>
+<div class="maths">\[
+\text{dimension } (n\times p)\times\text{dimension } (p\times 1)
+=\text{dimension } (n\times 1).
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Matrice par colonne</span><div class="boite-corps"><div class="maths">\[
+A=\begin{pmatrix}2 & 1 & 0\\-1 & 3 & 1\end{pmatrix}
+\qquad
+B=\begin{pmatrix}1\\-2\\1\end{pmatrix}
+\]</div>
+<div class="maths">\[
+AB=\begin{pmatrix}
+2\times 1+1\times(-2)+0\times 1\\
+-1\times 1+3\times(-2)+1\times 1
+\end{pmatrix}
+=\begin{pmatrix}0\\-3\end{pmatrix}
+\]</div></div></section>
+<h3><span class="num-section">II.6</span> Multiplication d'une matrice ligne par une matrice $n\times p$</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Colonne par matrice</span><div class="boite-corps"><p>Soient $n\in\N^{*}$, $A=(a_{i,j})$ une matrice de dimension $n\times p$ et $B=(b_{1}\ \dots\ b_{n})$ une matrice ligne de dimension $1\times n$.</p>
+<p>Le <strong>produit de $B$ par $A$</strong>, noté $BA$, restitue une matrice ligne $C=(c_{1}\ \dots\ c_{p})$ de dimension $1\times p$ telle que</p>
+<div class="maths">\[
+\forall i\in[\![1,p]\!],\quad c_{i}=\sum_{k=1}^{k=n}a_{k,i}\times b_{k} .
+\]</div>
+<p>On multiplie la ligne de $B$ par chaque colonne de $A$.</p>
+<p><strong>La règle :</strong></p>
+<div class="maths">\[
+\text{dimension } (1\times n)\times\text{dimension } (n\times p)
+=\text{dimension } (1\times p).
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Ligne par matrice</span><div class="boite-corps"><div class="maths">\[
+A=\begin{pmatrix}1 & -1\\2 & -2\\3 & 1\end{pmatrix}
+\qquad
+B=\begin{pmatrix}1 & 3 & 5\end{pmatrix}
+\]</div>
+<div class="maths">\[
+BA=\begin{pmatrix}1 & 3 & 5\end{pmatrix}
+\begin{pmatrix}1 & -1\\2 & -2\\3 & 1\end{pmatrix}
+=\begin{pmatrix}26 & -2\end{pmatrix}
+\]</div></div></section>
+<h3><span class="num-section">II.7</span> Multiplication de deux matrices quelconques</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Produit matriciel</span><div class="boite-corps"><p>Soient $A=(a_{i,j})$ une matrice de dimension $n\times p$ et $B=(b_{j,k})$ une matrice de dimension $p\times q$.</p>
+<p>Le <strong>produit de $A$ par $B$</strong>, noté $AB$, est la matrice $C=(c_{i,k})$ de dimension $n\times q$ telle que</p>
+<div class="maths">\[
+\forall i\in[\![1,n]\!],\ \forall k\in[\![1,q]\!],\quad
+c_{i,k}=\sum_{j=1}^{j=n}a_{i,j}\times b_{j,k} .
+\]</div>
+<p>Le coefficient $c_{i,k}$ est le produit de la $i$-ème ligne de $A$ par la $k$-ème colonne de $B$.</p></div></section>
+<p><strong>Remarque :</strong> le produit matriciel $AB$ est défini sous réserve que le nombre de colonnes de $A$ soit égal au nombre de lignes de $B$ :</p>
+<div class="maths">\[
+\text{dimension } (n\times p)\times\text{dimension } (p\times q)
+=\text{dimension } (n\times q).
+\]</div>
+<p>La multiplication n'est pas commutative !</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Produit de deux matrices</span><div class="boite-corps"><div class="maths">\[
+A=\begin{pmatrix}1 & 2\\4 & 3\end{pmatrix}
+\qquad
+B=\begin{pmatrix}1 & 0 & 1\\0 & 1 & 1\end{pmatrix}
+\qquad
+AB=\begin{pmatrix}1 & 2 & 3\\4 & 3 & 7\end{pmatrix}
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriétés du produit</span><div class="boite-corps"><p>Soient $A$, $B$, $C$ trois matrices dont les dimensions sont compatibles avec la multiplication matricielle, et soit $k$ un réel. Nous disposons des propriétés suivantes :</p>
+<ul><li>$A(BC)=(AB)C$ : associativité ;</li><li>$(A+B)C=AC+BC$ et $C(A+B)=CA+CB$ : distributivité de la multiplication sur l'addition ;</li><li>$(kA)B=A(kB)=k(AB)$.</li></ul></div></section>
+<h2 id="s3"><span class="num-section">III.</span> Matrices carrées</h2>
+<h3><span class="num-section">III.1</span> Matrices carrées particulières</h3>
+<p><strong>Matrice diagonale :</strong> soit $n$ un entier naturel non nul et $A=(a_{i,j})$ une matrice carrée d'ordre $n$.</p>
+<p>Si $a_{i,j}=0$ pour tout $i\neq j$, alors $A$ est une <strong>matrice diagonale</strong>.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Matrice diagonale</span><div class="boite-corps"><div class="maths">\[
+A=
+\begin{pmatrix}
+a & 0 & 0\\
+0 & b & 0\\
+0 & 0 & c
+\end{pmatrix}
+\]</div>
+<p>$A$ est une matrice diagonale.</p></div></section>
+<p><strong>Matrice unité :</strong> soit $n$ un entier naturel non nul. La matrice carrée unité d'ordre $n$, notée $I_{n}$, est une matrice diagonale dont les coefficients de sa diagonale sont égaux à $1$.</p>
+<div class="maths">\[
+I_{n}=(\delta_{i,j})
+\quad\text{avec}\quad
+\begin{cases}
+\delta_{i,j}=0 & \text{si } i\neq j\\
+\delta_{i,j}=1 & \text{si } i=j
+\end{cases}
+\]</div>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Matrices unité</span><div class="boite-corps"><div class="maths">\[
+I_{2}=\begin{pmatrix}1 & 0\\0 & 1\end{pmatrix}
+\qquad
+I_{3}=
+\begin{pmatrix}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Élément neutre</span><div class="boite-corps"><p>Quelle que soit la matrice carrée $A$ d'ordre $n$ :</p>
+<div class="maths">\[
+A\times I_{n}=I_{n}\times A=A .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><div class="maths">\[
+c_{i,k}=\sum_{j=1}^{j=n}a_{i,j}\times\delta_{j,k}=a_{i,k},
+\]</div>
+<p>d'où $A\times I_{n}=A$.</p>
+<p>On prouve de même que $I_{n}\times A=A$.</p></div></section>
+<p><strong>Remarque :</strong> la matrice unité est l'élément neutre de la multiplication de matrices. Et elle commute avec toutes les matrices carrées.</p>
+<p>Une matrice $A$ commute avec elle-même aussi : $A\times A=A\times A$.</p>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Puissance d'une matrice</span><div class="boite-corps"><p>Soient $A$ une matrice carrée d'ordre $n$ et $k$ un entier naturel non nul.</p>
+<p>La <strong>puissance $k$-ième</strong> de $A$, notée $A^{k}$, est la matrice</p>
+<div class="maths">\[
+A^{k}=A\times A\times A\times\dots\times A .
+\]</div>
+<p>Par convention : $A^{0}=I$.</p></div></section>
+<p><strong>Exemple de calcul :</strong></p>
+<div class="maths">\[
+(A+I)^{2}=(A+I)(A+I)=A\times A+A\times I+I\times A+I\times I
+=A^{2}+A+A+I=A^{2}+2A+I .
+\]</div>
+<p><strong>Attention :</strong></p>
+<div class="maths">\[
+(A+B)^{2}=A^{2}+AB+BA+B^{2}
+\]</div>
+<p>et on ne peut pas simplifier, car $AB\neq BA$ le plus souvent !</p>
+<h3><span class="num-section">III.2</span> Inverse de matrice</h3>
+<p><strong>Remarque :</strong> dans $\R^{*}$, tout élément $a$ admet un inverse $\dfrac{1}{a}$ ; ce n'est pas le cas dans $\Mn$. Cette propriété de $\R^{*}$ n'est pas transmise à l'ensemble des matrices !</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Une matrice non inversible</span><div class="boite-corps"><p>Soit $A=\begin{pmatrix}1 & -1\\1 & -1\end{pmatrix}$ : on cherche une matrice $X=\begin{pmatrix}x & y\\z & t\end{pmatrix}$ tel que $AX=I_{2}$.</p>
+<div class="maths">\[
+AX=\begin{pmatrix}1 & -1\\1 & -1\end{pmatrix}\times
+\begin{pmatrix}x & y\\z & t\end{pmatrix}
+=\begin{pmatrix}x-z & y-t\\x-z & y-t\end{pmatrix}
+=\begin{pmatrix}1 & 0\\0 & 1\end{pmatrix}
+\]</div>
+<p>Donc on obtient le système</p>
+<div class="maths">\[
+\begin{cases}
+x-z=1\\
+x-z=0\\
+y-t=0\\
+y-t=1
+\end{cases}
+\]</div>
+<p>le système est incompatible. Donc la matrice $A$ n'a pas d'inverse.</p></div></section>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Matrice inversible</span><div class="boite-corps"><p>Une matrice carrée $A$ de taille $n$ est <strong>inversible</strong> lorsqu'il existe une matrice carrée $B$ de taille $n$ telle que</p>
+<div class="maths">\[
+A\times B=B\times A=I_{n} .
+\]</div>
+<p>Si la matrice $B$ existe, on la note $A^{-1}$ ; elle est unique et est appelée <strong>matrice inverse</strong> de $A$.</p></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p><strong>Preuve de l'unicité :</strong> on suppose qu'il existe deux matrices $X$ et $Y$ telles que $A\times X=X\times A=I_{n}$ et $A\times Y=Y\times A=I_{n}$.</p>
+<div class="maths">\[
+X=X\times I=X\times A\times Y=I\times Y=Y,
+\]</div>
+<p>ce qui assure l'unicité de $A^{-1}$.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Calcul d'un inverse</span><div class="boite-corps"><p>Soit $A=\begin{pmatrix}1 & -1\\1 & 3\end{pmatrix}$ : on cherche une matrice $X=\begin{pmatrix}x & y\\z & t\end{pmatrix}$ telle que $AX=I_{2}$.</p>
+<div class="maths">\[
+AX=\begin{pmatrix}1 & -1\\1 & 3\end{pmatrix}\times
+\begin{pmatrix}x & y\\z & t\end{pmatrix}
+=\begin{pmatrix}x-z & y-t\\x+3z & y+3t\end{pmatrix}
+=\begin{pmatrix}1 & 0\\0 & 1\end{pmatrix}
+\]</div>
+<p>Donc on obtient le système</p>
+<div class="maths">\[
+\begin{cases}
+x-z=1\\
+x+3z=0\\
+y-t=0\\
+y+3t=1
+\end{cases}
+\iff
+\begin{cases}
+-4z=1 & L_{1}-L_{2}\\
+x+3z=0\\
+-4t=-1 & L_{3}-L_{4}\\
+y+3t=1
+\end{cases}
+\iff
+\begin{cases}
+z=-\dfrac{1}{4}\\[6pt]
+x=\dfrac{3}{4}\\[6pt]
+t=\dfrac{1}{4}\\[6pt]
+y=\dfrac{1}{4}
+\end{cases}
+\]</div>
+<p>Donc</p>
+<div class="maths">\[
+X=
+\begin{pmatrix}
+\dfrac{3}{4} & \dfrac{1}{4}\\[6pt]
+-\dfrac{1}{4} & \dfrac{1}{4}
+\end{pmatrix}
+=A^{-1} .
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Inverse de l'inverse</span><div class="boite-corps"><p>Soit $A$ une matrice carrée inversible : alors</p>
+<div class="maths">\[
+\left(A^{-1}\right)^{-1}=A .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>$A\times A^{-1}=A^{-1}\times A=I_{n}$, donc $A$ est la matrice inverse de $A^{-1}$. D'où $\left(A^{-1}\right)^{-1}=A$.</p></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Inverse d'un produit</span><div class="boite-corps"><p>Soient $A$ et $B$ deux matrices carrées inversibles : alors le produit $AB$ est inversible et</p>
+<div class="maths">\[
+(AB)^{-1}=B^{-1}A^{-1} .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><div class="maths">\[
+AB\times B^{-1}A^{-1}=A\times I_{n}\times A^{-1}=A\times A^{-1}=I_{n}
+\]</div>
+<div class="maths">\[
+B^{-1}A^{-1}AB=B^{-1}I_{n}B=B^{-1}B=I_{n} .
+\]</div>
+<p>Donc $B^{-1}A^{-1}$ est la matrice inverse de $AB$.</p></div></section>
+<h3><span class="num-section">III.3</span> Inversion de matrice et résolution de système</h3>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Écriture matricielle d'un système</span><div class="boite-corps"><div class="maths">\[
+\begin{cases}
+3x+2y+3z=a\\
+y-z=b\\
+z=c
+\end{cases}
+\iff
+\begin{pmatrix}3 & 2 & 3\\0 & 1 & -1\\0 & 0 & 1\end{pmatrix}
+\times
+\begin{pmatrix}x\\y\\z\end{pmatrix}
+=
+\begin{pmatrix}a\\b\\c\end{pmatrix}
+\]</div>
+<p>Si la matrice $A=\begin{pmatrix}3 & 2 & 3\\0 & 1 & -1\\0 & 0 & 1\end{pmatrix}$ est inversible, alors</p>
+<div class="maths">\[
+\begin{pmatrix}x\\y\\z\end{pmatrix}
+=A^{-1}\times\begin{pmatrix}a\\b\\c\end{pmatrix} .
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Système $AX=B$</span><div class="boite-corps"><p>Soit $A$ une matrice carrée inversible d'ordre $n$. Pour toute matrice colonne $B$ de dimension $n$, il existe une unique matrice colonne $X$ de dimension $n$ telle que $AX=B$ :</p>
+<div class="maths">\[
+AX=B\iff X=A^{-1}B .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p><strong>Existence d'une solution dans le cas où $A$ est inversible.</strong></p>
+<div class="maths">\[
+AX=B
+\]</div>
+<p>On multiplie à gauche les deux membres de l'équation par $A^{-1}$ :</p>
+<div class="maths">\[
+A^{-1}AX=A^{-1}B
+\iff I_{n}X=A^{-1}B
+\iff X=A^{-1}B .
+\]</div>
+<p>Donc $A^{-1}B$ est une solution.</p>
+<p><strong>Réciproquement</strong>, soit $X=A^{-1}B$ : alors $AX=A\,A^{-1}B=I_{n}B=B$.</p>
+<p><strong>Unicité de la solution :</strong> soient $X$ et $X'$ deux solutions : $AX=B$ et $AX'=B$, donc $AX-AX'=(0)$, soit $A(X-X')=(0)$.</p>
+<p>On multiplie à gauche par $A^{-1}$ :</p>
+<div class="maths">\[
+A^{-1}A(X-X')=A^{-1}(0)=(0)\iff I_{n}(X-X')=(0)
+\iff X-X'=(0)\iff X=X' .
+\]</div></div></section>
+<p><strong>Remarque :</strong> la résolution du système fournit une méthode d'inversion de la matrice $A$.</p>
+<p><strong>On reprend notre exemple :</strong></p>
+<div class="maths">\[
+\begin{cases}
+3x+2y+3z=a\\
+y-z=b\\
+z=c
+\end{cases}
+\iff
+\begin{cases}
+3x+2y+3z=a\\
+y=b+c\\
+z=c
+\end{cases}
+\iff
+\begin{cases}
+3x+2b+2c+3c=a\\
+y=b+c\\
+z=c
+\end{cases}
+\iff
+\begin{cases}
+x=\dfrac{a-2b-5c}{3}\\
+y=b+c\\
+z=c
+\end{cases}
+\]</div>
+<p>Donc</p>
+<div class="maths">\[
+\begin{pmatrix}x\\y\\z\end{pmatrix}
+=
+\begin{pmatrix}
+\dfrac{1}{3} & -\dfrac{2}{3} & -\dfrac{5}{3}\\
+0 & 1 & 1\\
+0 & 0 & 1
+\end{pmatrix}
+\times
+\begin{pmatrix}a\\b\\c\end{pmatrix}
+\]</div>
+<p>donc</p>
+<div class="maths">\[
+\begin{pmatrix}3 & 2 & 3\\0 & 1 & -1\\0 & 0 & 1\end{pmatrix}^{-1}
+=
+\begin{pmatrix}
+\dfrac{1}{3} & -\dfrac{2}{3} & -\dfrac{5}{3}\\
+0 & 1 & 1\\
+0 & 0 & 1
+\end{pmatrix}
+\]</div>
+<h3><span class="num-section">III.4</span> Inverse d'une matrice diagonale</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Inverse d'une matrice diagonale</span><div class="boite-corps"><p>Soit $D$ une matrice diagonale, de diagonale principale $d_{1},d_{2},\dots,d_{n}$. Si tous les réels $d_{i}$ sont non nuls, alors la matrice $D$ est inversible et sa matrice inverse $D^{-1}$ est une matrice diagonale qui a comme coefficients diagonaux</p>
+<div class="maths">\[
+\frac{1}{d_{1}},\ \frac{1}{d_{2}},\ \dots,\ \frac{1}{d_{n}} .
+\]</div></div></section>
+<h3><span class="num-section">III.5</span> Cas particulier des matrices carrées d'ordre 2</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Déterminant d'ordre 2</span><div class="boite-corps"><p>Soit $A=\begin{pmatrix}a & c\\b & d\end{pmatrix}$ une matrice appartenant à $\Mdeux$.</p>
+<p>Le <strong>déterminant</strong> de $A$, noté $\detm(A)$, est le réel défini par</p>
+<div class="maths">\[
+\detm(A)=ad-bc .
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Inverse d'une matrice $2\times 2$</span><div class="boite-corps"><p>Une matrice $A=\begin{pmatrix}a & c\\b & d\end{pmatrix}$ est inversible si, et seulement si, $\detm(A)\neq 0$, et nous avons :</p>
+<div class="maths">\[
+A^{-1}=\frac{1}{\detm(A)}
+\begin{pmatrix}d & -c\\-b & a\end{pmatrix}
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><div class="maths">\[
+\frac{1}{\detm(A)}
+\begin{pmatrix}d & -c\\-b & a\end{pmatrix}
+\begin{pmatrix}a & c\\b & d\end{pmatrix}
+=\frac{1}{\detm(A)}
+\begin{pmatrix}
+ad-bc & dc-dc\\
+-ab+ab & -bc+ad
+\end{pmatrix}
+=\frac{1}{\detm(A)}
+\begin{pmatrix}
+\detm(A) & 0\\
+0 & \detm(A)
+\end{pmatrix}
+=I_{2}
+\]</div>
+<p>Et</p>
+<div class="maths">\[
+\begin{pmatrix}a & c\\b & d\end{pmatrix}
+\frac{1}{\detm(A)}
+\begin{pmatrix}d & -c\\-b & a\end{pmatrix}
+=\frac{1}{\detm(A)}
+\begin{pmatrix}a & c\\b & d\end{pmatrix}
+\begin{pmatrix}d & -c\\-b & a\end{pmatrix}
+=\frac{1}{\detm(A)}
+\begin{pmatrix}
+ad-bc & 0\\
+0 & ad-bc
+\end{pmatrix}
+=I_{2}
+\]</div></div></section>
+  <p style="margin-top:2.5rem"><a href="../index.html#maths-expertes">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

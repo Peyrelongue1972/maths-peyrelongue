@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 7 : Suites arithmétiques et géométriques — Première spécialité</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#premiere-spe">← Retour au site</a></p>
+  <h1>Chapitre 7 : Suites arithmétiques et géométriques</h1>
+  <p class="sous-titre">Première spécialité · Chapitre 7 — Suites arithmétiques et géométriques · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Suites arithmétiques et géométriques</span><a class="onglet" href="../pdf/premiere-spe/7-suites-arithmetiques-et-geometriques.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/premiere-spe/td01-suites-arithmetiques.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/premiere-spe/td02-suites-geometriques.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../pdf/premiere-spe/td03-suites-modelisation.pdf" target="_blank" rel="noopener">TD n°3</a><a class="onglet" href="../quiz/premiere-spe-7.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Suites arithmétiques</a></li><li><a href="#s2">II Suites géométriques</a></li></ol></nav>
+<h2 id="s1"><span class="num-section">I.</span> Suites arithmétiques</h2>
+<h3><span class="num-section">I.1</span> Définition</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Suite arithmétique</span><div class="boite-corps"><p>La suite $(u_{n})$ est dite <strong>arithmétique</strong> lorsqu'il existe un nombre réel $r$ tel que, pour tout entier naturel $n$,</p>
+<div class="maths">\[
+u_{n+1}=u_{n}+r .
+\]</div>
+<p>Autrement dit, la différence entre deux termes consécutifs est constante :</p>
+<div class="maths">\[
+(u_{n}) \text{ arithmétique} \iff \text{pour tout entier } n,\ u_{n+1}-u_{n}=r .
+\]</div></div></section>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">$u_{n}=3n+5$</span><div class="boite-corps"><p>Soit la suite $(u_{n})$ définie pour tout $n$ par $u_{n}=3n+5$.</p>
+<ol><li>Calculer $u_{1}$, $u_{2}$, $u_{3}$.</li><li>La suite $u_{n}$ est-elle arithmétique ?</li><li>Si oui, quelle est sa raison ?</li></ol></div></section>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">$u_{n+1}=u_{n}^{2}+3$</span><div class="boite-corps"><p>Soit la suite $(u_{n})$ définie pour tout $n$ par $u_{n+1}=u_{n}^{2}+3$ et $u_{0}=1$.</p>
+<ol><li>Calculer $u_{1}$, $u_{2}$, $u_{3}$.</li><li>La suite $u_{n}$ est-elle arithmétique ?</li></ol></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Terme général</span><div class="boite-corps"><p>$(u_{n})$ est une suite arithmétique de raison $r$ <strong>si et seulement si</strong></p>
+<div class="maths">\[
+\forall n\in\N,\ u_{n}=(n-p)r+u_{p}
+\]</div>
+<p>c'est-à-dire</p>
+<div class="maths">\[
+(u_{n}) \text{ arithmétique} \iff \forall n\in\N,\ u_{n}=(n-p)r+u_{p} .
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Corollaire</span><div class="boite-corps"><p>Si $u_{n}$ est une suite arithmétique de raison $r$, alors</p>
+<div class="maths">\[
+\forall n\in\N,\ u_{n}=n\times r+u_{0} .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>Soit $(u_{n})$ une suite arithmétique.</p>
+<p><strong>Condition nécessaire :</strong> $(u_{n})$ une suite arithmétique $\Longrightarrow$ $\forall n\in\N$, $u_{n}=n\times r+u_{0}$.</p>
+<p><strong>Cas $n\geqslant p$ :</strong> donc, pour passer de $u_{p}$ à $u_{n}$, il y a $(n-p)$ progressions ; on ajoute donc $(n-p)\times r$ à $u_{p}$, d'où $u_{n}=(n-p)r+u_{p}$. Et en particulier, pour $p=0$, on a $u_{n}=n\times r+u_{0}$.</p>
+<figure class="figure-cours"><img src="img/premiere-spe-ch07-fig01.png" alt="figure 1 du cours"></figure>
+<p><strong>Cas $n&lt;p$ :</strong> donc, pour passer de $u_{n}$ à $u_{p}$, je recule de $(p-n)$ progressions, donc $u_{p}=(p-n)r+u_{n}$, d'où $u_{n}=u_{p}-(p-n)r=u_{p}+(n-p)r$.</p>
+<p><strong>Condition suffisante :</strong> $\forall n\in\N$, $u_{n}=n\times r+u_{0}$ $\Longrightarrow$ $(u_{n})$ est une suite arithmétique.</p>
+<p>Soit la suite $(u_{n})$ telle que $\forall n\in\N$, $u_{n}=n\times r+u_{0}$ ; on a alors</p>
+<div class="maths">\[
+u_{n+1}=(n+1)\times r+u_{0}=u_{n}+r :
+\]</div>
+<p>la suite est donc arithmétique !</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$u_{10}=2$ et $r=3$</span><div class="boite-corps"><p>Soit $(u_{n})$ la suite arithmétique de raison $3$ telle que $u_{10}=2$.</p>
+<p>Alors</p>
+<div class="maths">\[
+u_{45}=u_{10}+(45-10)r=2+35\times 3=107
+\]</div>
+<p>et</p>
+<div class="maths">\[
+u_{0}=u_{10}+(0-10)\times r=2-10\times 3=-28 .
+\]</div></div></section>
+<h3><span class="num-section">I.2</span> Représentation graphique</h3>
+<p>Soit $u_{n}$ une suite arithmétique de raison $r$ et de premier terme $u_{0}$.</p>
+<p>On a donc $u_{n}=n\times r+u_{0}$ : on reconnaît une fonction affine de la variable $n$, avec $f(x)=rx+u_{0}$, $u_{0}$ l'ordonnée à l'origine et $r$ le coefficient directeur. La courbe de cette fonction est donc une droite, et la suite est donc représentée par un nuage de points alignés. Réciproquement, si la suite forme un nuage de points alignés, on peut déterminer la raison en calculant le coefficient directeur de la droite.</p>
+<figure class="figure-cours"><img src="img/premiere-spe-ch07-fig02.png" alt="figure 2 du cours"></figure>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Représentation graphique d'une suite arithmétique</span><div class="boite-corps"><ul><li>Si une suite est arithmétique, elle est représentée par un nuage de points <strong>alignés</strong>.</li><li>Si une suite est représentée par un nuage de points <strong>alignés</strong>, alors la suite est arithmétique.</li></ul></div></section>
+<h3><span class="num-section">I.3</span> Sens de variation de la suite arithmétique</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Variations d'une suite arithmétique</span><div class="boite-corps"><p>Soit $(u_{n})$ une suite arithmétique de raison $r$.</p>
+<ul><li>Si $r&gt;0$, alors la suite est strictement croissante.</li><li>Si $r&lt;0$, alors la suite est strictement décroissante.</li><li>Si $r=0$, alors la suite est constante.</li></ul></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>Si $r&gt;0$, on a, pour tout indice $n$, $u_{n+1}-u_{n}=r&gt;0$, donc $u_{n+1}&gt;u_{n}$ pour tout $n$. Et, par définition, la suite est donc croissante.</p>
+<p>Si $r&lt;0$, on a, pour tout indice $n$, $u_{n+1}-u_{n}=r&lt;0$, donc $u_{n+1}&lt;u_{n}$ pour tout $n$. Et, par définition, la suite est donc décroissante.</p></div></section>
+<section class="boite boite-meth"><span class="boite-titre">Méthode</span><div class="boite-corps"><p>Pour prouver qu'une suite est arithmétique, on calcule la différence $u_{n+1}-u_{n}$.</p>
+<p>Si la différence est constante pour tout indice $n$, alors la suite est arithmétique.</p>
+<p>Inversement, si on peut montrer sur deux exemples que la différence n'est pas constante, alors la suite n'est pas arithmétique. (Un contre-exemple suffit !)</p></div></section>
+<h3><span class="num-section">I.4</span> Somme des termes d'une suite arithmétique</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Somme des $n$ premiers entiers</span><div class="boite-corps"><p>La somme des $n$ premiers entiers est</p>
+<div class="maths">\[
+S=1+2+3+\dots+n=\frac{n(n+1)}{2} .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><div class="maths">\[
+S=n+(n-1)+(n-2)+\dots+2+1 .
+\]</div>
+<p>Donc</p>
+<div class="maths">\[
+2S=[n+1]+[(n-1)+2]+\dots+[1+n]=[n+1]+\dots+[n+1]=n(n+1),
+\]</div>
+<p>d'où</p>
+<div class="maths">\[
+S=\frac{n(n+1)}{2} .
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$1+2+\dots+100$</span><div class="boite-corps"><div class="maths">\[
+S=1+2+3+\dots+100=\frac{101}{2}\times 100=5050 .
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Somme des termes d'une suite arithmétique</span><div class="boite-corps"><p>Soit $(u_{n})$ une suite arithmétique ; alors</p>
+<div class="maths">\[
+S=u_{0}+u_{1}+\dots+u_{n}=\frac{(u_{0}+u_{n})(n+1)}{2} .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><div class="maths">\[
+S=u_{0}+u_{1}+\dots+u_{n}=u_{0}+(u_{0}+r)+(u_{0}+2r)+\dots+(u_{0}+nr)
+\]</div>
+<div class="maths">\[
+S=u_{0}\times(n+1)+[r+2r+3r+\dots+nr]=u_{0}\times(n+1)+r[1+2+3+\dots+n]
+\]</div>
+<div class="maths">\[
+S=u_{0}(n+1)+\frac{rn(n+1)}{2}
+=(n+1)\left[u_{0}+\frac{rn}{2}\right]
+=\frac{(n+1)[2u_{0}+nr]}{2}
+=\frac{(n+1)(u_{0}+u_{n})}{2} .
+\]</div></div></section>
+<p><strong>Remarque :</strong> la somme est égale à la moyenne arithmétique entre le premier terme et le dernier terme, multipliée par le nombre de termes !</p>
+<h2 id="s2"><span class="num-section">II.</span> Suites géométriques</h2>
+<h3><span class="num-section">II.1</span> Définition</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Suite géométrique</span><div class="boite-corps"><p>Une suite $(u_{n})$ est dite <strong>géométrique</strong> lorsqu'il existe un nombre réel non nul $q$, qu'on appelle la <strong>raison</strong> de la suite, tel que, pour tout entier naturel $n$,</p>
+<div class="maths">\[
+u_{n+1}=q\times u_{n} .
+\]</div>
+<div class="maths">\[
+(u_{n}) \text{ géométrique} \iff \text{pour tout entier } n,\ u_{n+1}=q\times u_{n} .
+\]</div></div></section>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">$u_{n}=5\times 2^{n}$</span><div class="boite-corps"><p>Soit la suite $(u_{n})$ définie par $u_{0}=5$ et, pour tout $n\geqslant 1$, $u_{n}=5\times 2^{n}$.</p>
+<ol><li>Calculer $u_{1}$, $u_{2}$, $u_{3}$. La suite $u_{n}$ peut-elle être géométrique ? Si oui, le montrer et donner sa raison $q$.</li></ol></div></section>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">$u_{n}=3^{n}$</span><div class="boite-corps"><p>Soit la suite $(u_{n})$ définie pour tout $n\geqslant 0$ par $u_{n}=3^{n}$.</p>
+<ol><li>Calculer $u_{1}$, $u_{2}$, $u_{3}$. La suite $u_{n}$ peut-elle être géométrique ? Si oui, le montrer et donner sa raison $q$.</li></ol></div></section>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Terme général</span><div class="boite-corps"><p>La suite $(u_{n})$ est géométrique de raison $q$ si et seulement si</p>
+<div class="maths">\[
+\forall n,p\geqslant 0,\ u_{n}=u_{p}\times q^{n-p} .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p><strong>Condition nécessaire.</strong></p>
+<p>La suite $(u_{n})$ est géométrique de raison $q$ $\Longrightarrow$ $\forall n,p\geqslant 0$, $u_{n}=u_{p}\times q^{n-p}$.</p>
+<p><strong>Cas où $n\geqslant p$ :</strong> de $u_{p}$ à $u_{n}$, on multiplie $n-p$ fois par la raison, donc on a $u_{n}=u_{p}\times q^{n-p}$.</p>
+<figure class="figure-cours"><img src="img/premiere-spe-ch07-fig03.png" alt="figure 3 du cours"></figure>
+<p><strong>Cas où $n&lt;p$ :</strong> de $u_{n}$ à $u_{p}$, on multiplie $p-n$ fois par la raison, d'où $u_{p}=u_{n}\times q^{p-n}$, d'où</p>
+<div class="maths">\[
+u_{n}=\frac{u_{p}}{q^{p-n}}=u_{p}\times q^{n-p} .
+\]</div>
+<p><strong>Condition suffisante :</strong> $\forall n,p\geqslant 0$, $u_{n}=u_{p}\times q^{n-p}$ $\Longrightarrow$ la suite $(u_{n})$ est géométrique de raison $q$.</p>
+<div class="maths">\[
+u_{n+1}=u_{p}\times q^{n+1-p}=q\times u_{p}\times q^{n-p}=q\times u_{n} :
+\]</div>
+<p>la suite est donc géométrique de raison $q$.</p></div></section>
+<h3><span class="num-section">II.2</span> Représentation graphique</h3>
+<ul><li>Si une suite est <strong>géométrique</strong>, elle est représentée par un nuage de points <strong>exponentiels</strong>.</li><li>Si une suite est représentée par un nuage de points <strong>exponentiels</strong>, alors la suite est <strong>géométrique</strong>.</li></ul>
+<figure class="figure-cours"><img src="img/premiere-spe-ch07-fig04.png" alt="figure 4 du cours"></figure>
+<p><strong>Remarque :</strong> contrairement à une droite, il est difficile de prouver que le nuage de points est exponentiel ; il faudra utiliser un outil de linéarisation, le logarithme (c'est pour plus tard).</p>
+<h3><span class="num-section">II.3</span> Sens de variation d'une suite géométrique</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Variations d'une suite géométrique</span><div class="boite-corps"><p>Soit $(u_{n})$ une suite géométrique de raison $q$ et de premier terme strictement positif.</p>
+<ul><li>Si $q&gt;1$, alors la suite est strictement croissante.</li><li>Si $0&lt;q&lt;1$, alors la suite est strictement décroissante.</li><li>Si $q=1$, alors la suite est constante.</li></ul></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>Soit $(u_{n})$ une suite géométrique de raison $q$, alors</p>
+<div class="maths">\[
+\frac{u_{n+1}}{u_{n}}=q .
+\]</div>
+<p>Si $q&gt;1$, alors $\dfrac{u_{n+1}}{u_{n}}&gt;1$ et, comme $u_{n}&gt;0$, alors $u_{n+1}&gt;u_{n}$ : donc la suite est croissante.</p>
+<p>Si $q=1$, $\dfrac{u_{n+1}}{u_{n}}=1$, donc $u_{n+1}=u_{n}$ pour tout $n$ : la suite est constante.</p>
+<p>Si $q&lt;1$, $\dfrac{u_{n+1}}{u_{n}}&lt;1$ et, comme $u_{n}&gt;0$, alors $u_{n+1}&lt;u_{n}$ : donc la suite est décroissante.</p></div></section>
+<h3><span class="num-section">II.4</span> Somme des premiers termes d'une suite géométrique</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Somme des puissances de $q$</span><div class="boite-corps"><p>Pour $q\neq 1$,</p>
+<div class="maths">\[
+S=1+q+q^{2}+\dots+q^{n}=\frac{1-q^{n+1}}{1-q} .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><div class="maths">\[
+q\times S=q+q^{2}+\dots+q^{n+1}
+\quad\text{donc}\quad
+S-qS=1-q^{n+1},
+\]</div>
+<div class="maths">\[
+S(1-q)=1-q^{n+1}, \quad\text{d'où}\quad S=\frac{1-q^{n+1}}{1-q} .
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Somme des termes d'une suite géométrique</span><div class="boite-corps"><p>Soit $(u_{n})$ une suite géométrique de raison $q$ et de premier terme $u_{0}$.</p>
+<p>Alors la somme des termes</p>
+<div class="maths">\[
+S=u_{p}+u_{p+1}+\dots+u_{n}=u_{p}\times\frac{1-q^{n-p+1}}{1-q} .
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><div class="maths">\[\begin{aligned}
+S&=u_{p}+\dots+u_{n}=u_{p}+qu_{p}+q^{2}u_{p}+\dots+q^{n-p}u_{p}\\
+&=u_{p}\left(1+q+\dots+q^{n-p}\right)=u_{p}\times\frac{1-q^{n-p+1}}{1-q} .
+\end{aligned}\]</div></div></section>
+  <p style="margin-top:2.5rem"><a href="../index.html#premiere-spe">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>

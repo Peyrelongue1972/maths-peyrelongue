@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 1 : Nombres complexes 
+{\large Le point de vue algébrique} — Maths expertes</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "ii": "{\\mathrm{i}}"} },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.cours{max-width:900px;margin:0 auto;padding:1.2rem 1.3rem 3.5rem}
+.cours h1{font-size:1.75rem;margin:.4rem 0 .2rem}
+.cours .sous-titre{color:var(--doux);margin:0 0 1.6rem}
+.cours h2{font-size:1.35rem;margin:2.2rem 0 .8rem;padding-bottom:.35rem;
+  border-bottom:2px solid var(--couleur,#2b6cb0)}
+.cours h2 .num-section{color:var(--couleur,#2b6cb0)}
+.cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours p{margin:.65rem 0;text-align:justify}
+.cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
+.cours li{margin:.28rem 0}
+.boite{border-radius:12px;padding:.75rem .95rem;margin:1rem 0;border:1px solid var(--bord);
+  background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.06);border-left:6px solid var(--accent,#2b6cb0)}
+.boite-titre{font-weight:700;text-transform:uppercase;letter-spacing:.03em;font-size:.78rem;
+  color:var(--accent,#2b6cb0)}
+.boite-sous-titre{font-weight:600;font-size:.95rem}
+.boite-corps{margin-top:.35rem}
+.boite-def{--accent:#2b6cb0;background:#f2f7fd}
+.boite-prop{--accent:#2f855a;background:#f1f9f4}
+.boite-ex{--accent:#718096;background:#f7f8fa}
+.boite-exo{--accent:#c05621;background:#fdf6f0}
+.boite-thm{--accent:#c53030;background:#fdf2f2}
+.boite-rem{--accent:#718096;background:#f7fafc}
+.boite-rappel{--accent:#805ad5;background:#f7f4fd}
+.boite-info{--accent:#2c7a7b;background:#f0f9f9}
+.boite-meth{--accent:#2b6cb0;background:#eef4fb}
+.boite-corr{--accent:#2f855a;background:#f1f9f4}
+.boite-preuve{--accent:#4a5568;background:#f8f9fb}
+.tableau{border-collapse:collapse;margin:.9rem auto;font-size:.97rem;width:auto}
+.tableau td{border:1px solid var(--bord);padding:.35rem .7rem;text-align:center;vertical-align:middle}
+.tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
+.tableau td.vide{border:none;background:transparent}
+.figure-cours{margin:1.1rem 0;text-align:center}
+.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+  border-radius:10px;padding:6px}
+.maths{overflow-x:auto;margin:.9rem 0}
+.figure-manquante{color:#b33;font-style:italic}
+.mini-fig{max-height:1.44rem;vertical-align:middle}
+.minipage{margin:.8rem 0}
+.verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
+a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
+a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
+.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
+.onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
+.onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
+.onglet.actif{background:var(--couleur,#2b6cb0);border-color:var(--couleur,#2b6cb0);color:#fff;font-weight:600}
+.sommaire{background:#fff;border:1px solid var(--bord);border-radius:12px;padding:.8rem 1.1rem;
+  margin:1.2rem 0}
+.sommaire ol{margin:.3rem 0 .3rem 1.2rem}
+.sommaire a{color:var(--couleur,#2b6cb0);text-decoration:none}
+.sommaire a:hover{text-decoration:underline}
+</style>
+</head>
+<body style="--couleur:#2b6cb0">
+<main class="cours">
+  <p><a href="../index.html#maths-expertes">← Retour au site</a></p>
+  <h1>Chapitre 1 : Nombres complexes 
+{\large Le point de vue algébrique}</h1>
+  <p class="sous-titre">Maths expertes · Chapitre 1 — Nombres complexes (algébrique) · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Nombres complexes (algébrique)</span><a class="onglet" href="../pdf/maths-expertes/Chapitre_I_Nombre_complexe_Forme_algébrique.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/maths-expertes/td01-nombres-complexes.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/maths-expertes/td02-nombres-complexes.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../pdf/maths-expertes/td03-nombres-complexes.pdf" target="_blank" rel="noopener">TD n°3</a><a class="onglet" href="../quiz/maths-expertes-1.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Histoire</a></li><li><a href="#s2">II Construction des nombres complexes</a></li><li><a href="#s3">III Forme exponentielle</a></li><li><a href="#s4">IV Formule du binôme</a></li><li><a href="#s5">V Annexe : formule trigonométrique</a></li></ol></nav>
+<p>\newpage</p>
+<h2 id="s1"><span class="num-section">I.</span> Histoire</h2>
+<h3><span class="num-section">I.1</span> Un problème historique</h3>
+<p>À la fin du XVI<sup>e</sup> siècle, les mathématiciens cherchent une résolution générale des équations du troisième degré. À l'aide d'un changement de variable, bien choisi, toute équation du troisième degré peut se mettre sous la forme</p>
+<div class="maths">\[
+x^{3}+px+q=0 .
+\]</div>
+<ul><li><p>Soit la fonction $f$ définie sur $\R$ par $f(x)=x^{3}+px+q$.</p>
+<p>$f$ est continue sur $\R$ et $\lim\limits_{+\infty}f=+\infty$ et $\lim\limits_{-\infty}f=-\infty$ ; d'après le théorème des valeurs intermédiaires, l'équation $f(x)=0$ admet au moins une solution.</p></li><li><p>La formule de Cardan donne l'expression de cette solution :</p>
+<div class="maths">        \[
+        x_{0}=\sqrt[3]{-\frac{q}{2}-\sqrt{\left(\frac{q}{2}\right)^{2}
+        +\left(\frac{p}{3}\right)^{3}}}
+        +\sqrt[3]{-\frac{q}{2}+\sqrt{\left(\frac{q}{2}\right)^{2}
+        +\left(\frac{p}{3}\right)^{3}}} .
+        \]</div></li><li><p>Bombelli, autre mathématicien de l'époque, applique cette formule à l'équation</p>
+<div class="maths">        \[
+        x^{3}-15x-4=0\quad\text{avec } p=-15 \text{ et } q=-4 .
+        \]</div></li></ul>
+<p>Il obtient alors :</p>
+<div class="maths">\[\begin{aligned}
+x_{0}&=\sqrt[3]{2-\sqrt{4-125}}+\sqrt[3]{2+\sqrt{4-125}}\\
+x_{0}&=\sqrt[3]{2-\sqrt{-121}}+\sqrt[3]{2+\sqrt{-121}}\\
+x_{0}&=\sqrt[3]{2-11\sqrt{-1}}+\sqrt[3]{2+11\sqrt{-1}} .
+\end{aligned}\]</div>
+<p>On a une racine avec des réels négatifs : l'algorithme de Cardan ne marche pas !</p>
+<p>Mais Bombelli décide de poursuivre le calcul avec le nombre $\sqrt{-1}$, en posant pour principe que $\sqrt{-1}^{2}=-1$. C'est un génie du calcul, et il a l'idée de trouver les cubes égaux à $2-11\sqrt{-1}$ et à $2+11\sqrt{-1}$.</p>
+<div class="maths">\[
+(a+b)^{3}=a^{3}+3a^{2}b+3ab^{2}+b^{3}
+\qquad\text{et}\qquad
+(a-b)^{3}=a^{3}-3a^{2}b+3ab^{2}-b^{3}
+\]</div>
+<div class="maths">\[\begin{aligned}
+\left(2-\sqrt{-1}\right)^{3}
+&=2^{3}-3\times 2^{2}\times\sqrt{-1}+3\times 2\times\left(\sqrt{-1}\right)^{2}
+-\sqrt{-1}^{3}\\
+&=8-12\sqrt{-1}-6+\sqrt{-1}=2-11\sqrt{-1}
+\end{aligned}\]</div>
+<div class="maths">\[\begin{aligned}
+\left(2+\sqrt{-1}\right)^{3}
+&=2^{3}+3\times 2^{2}\times\sqrt{-1}+3\times 2\times\left(\sqrt{-1}\right)^{2}
++\sqrt{-1}^{3}\\
+&=8+12\sqrt{-1}-6-\sqrt{-1}=2+11\sqrt{-1}
+\end{aligned}\]</div>
+<p>Il utilise ses cubes dans la formule et obtient</p>
+<div class="maths">\[
+x_{0}=2-\sqrt{-1}+2+\sqrt{-1}=4 .
+\]</div>
+<p>On peut vérifier aisément que $4$ est bien solution. Donc l'algorithme de Cardan, en utilisant un nombre interdit, fonctionne.</p>
+<p>$\sqrt{-1}$ sera utilisé pendant longtemps comme « astuce » de calcul. Descartes le baptisera « nombre imaginaire ». Et Euler introduira la notation $i=\sqrt{-1}$.</p>
+<p>Gauss donnera une représentation à ses nombres imaginaires, et c'est ainsi que prendra forme l'ensemble des nombres complexes au XIX<sup>e</sup> siècle.</p>
+<h2 id="s2"><span class="num-section">II.</span> Construction des nombres complexes</h2>
+<h3><span class="num-section">II.1</span> Définition</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Nombre complexe</span><div class="boite-corps"><p>On appelle $\C$ l'ensemble des nombres complexes.</p>
+<p>Un nombre complexe $z$ est un nombre s'écrivant sous la forme :</p>
+<div class="maths">\[
+z=a+ib\quad\text{avec } (a,b)\in\R^{2} \text{ et } i^{2}=-1 .
+\]</div>
+<p>Le nombre réel $a$ s'appelle la <strong>partie réelle</strong> de $z$, notée $\Re(z)$. Le nombre réel $b$ s'appelle la <strong>partie imaginaire</strong> de $z$, notée $\Im(z)$.</p>
+<p>La forme $z=a+ib$ est appelée <strong>forme algébrique</strong>.</p></div></section>
+<p><strong>Remarque :</strong></p>
+<ul><li>Si $b=0$, $z$ est réel, donc $\R\subset\C$.</li><li>Si $a=0$, $z$ est un imaginaire pur. L'ensemble des imaginaires purs est noté $i\R$.</li><li><p>La forme algébrique est unique. Raisonnons par l'absurde : supposons que $z$ ait deux écritures $a+ib$ et $a'+ib'$ avec $(a,b)\neq(a',b')$.</p>
+<div class="maths">\[\begin{aligned}        
+        a+ib=a'+ib'
+        &\iff a-a'=i(b'-b)\\
+        &\iff (a-a')^{2}=i^{2}(b'-b)^{2}
+        \iff (a-a')^{2}=-(b'-b)^{2}\\
+        &\iff a-a'=0 \text{ et } b'-b=0
+        \iff a=a' \text{ et } b'=b .
+        \end{aligned}\]</div>
+<p>On arrive à une contradiction : l'hypothèse de départ est fausse et l'écriture est unique.</p></li></ul>
+<h3><span class="num-section">II.2</span> Opérations avec les nombres complexes</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Addition et multiplication</span><div class="boite-corps"><p>On définit deux opérations dans l'ensemble $\C$.</p>
+<p>Soit $z=a+ib\in\C$ et $z'=a'+ib'\in\C$.</p>
+<p><strong>L'addition</strong> par :</p>
+<div class="maths">\[
+z+z'=(a+a')+i(b+b').
+\]</div>
+<p><strong>La multiplication</strong> par :</p>
+<div class="maths">\[
+z\times z'=aa'-bb'+i(ab'+a'b).
+\]</div></div></section>
+<ul><li>L'addition dans $\C$ possède les propriétés de commutativité et d'associativité, un élément neutre $0$ et, pour chaque nombre complexe $z$, un élément symétrique, l'opposé $-z$.</li><li>La multiplication dans $\C$ possède les propriétés de commutativité et d'associativité, un élément neutre $1$ et, pour chaque nombre complexe $z$ non nul, un élément symétrique, l'inverse $\dfrac{1}{z}$.</li><li>La multiplication dans $\C$ est distributive par rapport à l'addition.</li><li><p>L'intégrité (produit nul) : $\forall z,z'\in\C$,</p>
+<div class="maths">        \[
+        zz'=0\iff z=0 \text{ ou } z'=0 .
+        \]</div></li></ul>
+<p>Ces différentes propriétés donnent à $\C$ une structure de corps commutatif $(\C,+,\times)$ comme $(\R,+,\times)$.</p>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Calculs dans $\C$</span><div class="boite-corps"><p>Soient $z_{1}=1+i$, $z_{2}=\sqrt{3}+i$, $z_{3}=-5+2i$.</p>
+<ol><li>Calculer $z_{1}+z_{2}$ ; $z_{1}+z_{3}$ ; $z_{2}-z_{3}$.</li><li>Calculer $z_{1}z_{2}$ ; $z_{1}z_{3}$ ; $z_{2}z_{3}$.</li></ol></div></section>
+<p><strong>Comparaison de deux complexes :</strong> il est possible de définir une relation d'ordre dans $\C$, prolongement de la relation d'ordre dans $\R$.</p>
+<p>On compare les parties réelles et, en cas d'égalité, les parties imaginaires.</p>
+<p>En notant $\preccurlyeq$ cette relation</p>
+<div class="maths">\[
+a+ib\preccurlyeq a'+ib'\iff a&lt;a' \text{ ou } a=a' \text{ et } b&lt;b' .
+\]</div>
+<p>D'où $3+5i\preccurlyeq4-2i$ et aussi $-5+2i\preccurlyeq-5+3i$.</p>
+<p>Cependant, cette relation n'est pas « performante », car elle n'est pas compatible avec la multiplication : d'après cette relation $0\preccurlyeq i$ et, en multipliant par $i$, on a $0\preccurlyeq-1$, qui est faux. On abandonne donc l'idée de comparaison et d'inéquation dans $\C$ !</p>
+<h3><span class="num-section">II.3</span> Conjugué</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Conjugué</span><div class="boite-corps"><p>Soit $z=a+ib\in\C$ : on appelle le nombre conjugué de $z$, noté $\overline{z}$, le nombre $a-ib$.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Conjugué d'un nombre</span><div class="boite-corps"><p>$z=3-5i$ alors $\overline{z}=3+5i$.</p></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Produit d'un complexe par son conjugué</span><div class="boite-corps"><p>$\forall z\in\C$, $z\,\overline{z}=a^{2}+b^{2}$.</p></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><div class="maths">\[
+z\,\overline{z}=(a+ib)(a-ib)=a^{2}-iab+iab-i^{2}b^{2}=a^{2}+b^{2}.
+\]</div></div></section>
+<p><strong>Applications du conjugué.</strong></p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Application 1</span><div class="boite-corps"><p>Trouver la forme algébrique du complexe $z=\dfrac{2-5i}{3+2i}$.</p>
+<p>Comme pour les calculs avec des radicaux, on multiplie en haut et en bas par le conjugué du dénominateur :</p>
+<div class="maths">\[
+z=\frac{2-5i}{3+2i}=\frac{(2-5i)(3-2i)}{9+4}
+=\frac{6-4i-15i+10i^{2}}{13}=\frac{-4-19i}{13}
+=-\frac{4}{13}-\frac{19}{13}i .
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Application 2</span><div class="boite-corps"><p>Résoudre l'équation suivante : $z=(2+3i)z+5-3i$.</p>
+<div class="maths">\[\begin{aligned}
+z=(2+3i)z+5-3i
+&\iff z-(2+3i)z=5-3i
+\iff z=\frac{5-3i}{-1-3i}\\
+&=\frac{(5-3i)(-1+3i)}{1^{2}+3^{2}}
+=\frac{-5+15i+3i-9i^{2}}{10}=\frac{4+19i}{10}=\frac{4}{10}+\frac{19}{10}i .
+\end{aligned}\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Application 3</span><div class="boite-corps"><p>Calcul de l'inverse $z=2-3i$.</p>
+<div class="maths">\[
+\frac{1}{z}=\frac{1}{2-3i}=\frac{2+3i}{2^{2}+3^{2}}=\frac{2+3i}{13}
+=\frac{2}{13}+\frac{3}{13}i .
+\]</div></div></section>
+<p>Cas général : $z=a+ib$. Montrer que $\dfrac{1}{z}=\dfrac{\overline{z}}{a^{2}+b^{2}}$.</p>
+<h3><span class="num-section">II.4</span> Opérations et propriétés du conjugué</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriétés du conjugué</span><div class="boite-corps"><p>Soit $z\in\C$ et $z'\in\C^{*}$, alors</p>
+<div class="maths">\[
+\overline{\overline{z}}=z
+\qquad
+\overline{z+z'}=\overline{z}+\overline{z'}
+\qquad
+\overline{zz'}=\overline{z}\times\overline{z'}
+\]</div>
+<div class="maths">\[
+\overline{\left(\frac{1}{z}\right)}=\frac{1}{\overline{z}}
+\qquad
+\overline{\left(\frac{z}{z'}\right)}=\frac{\overline{z}}{\overline{z'}}
+\qquad
+\overline{z^{n}}=\overline{z}^{n}\quad\text{avec } n\in\N .
+\]</div></div></section>
+<p><strong>Remarque.</strong>  Le conjugué de la somme, du produit et du quotient est égal à la somme, au produit et au quotient des conjugués. Les opérations avec le conjugué ne posent aucun problème.</p>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>part le terme de gauche et le terme de droite, en posant $z=a+ib$ et $z'=a'+ib'$.</p>
+<p><strong>1)</strong> $\overline{\overline{z}}=\overline{(a+ib)}=\overline{(a-ib)}=a+ib=z$.</p>
+<p><strong>2)</strong></p>
+<div class="maths">\[\begin{aligned}
+\overline{z+z'}&=\overline{a+ib+a'+ib'}
+=\overline{(a+a')+i(b+b')}\\
+&=(a+a')-i(b+b')
+=a-ib+a'-ib'=\overline{z}+\overline{z'} .
+\end{aligned}\]</div>
+<p><strong>3)</strong></p>
+<div class="maths">\[\begin{aligned}
+\overline{zz'}&=\overline{(a+ib)(a'+ib')}
+=\overline{(aa'-bb')+i(ab'+a'b)}\\
+&=(aa'-bb')-i(ab'+a'b).
+\end{aligned}\]</div>
+<div class="maths">\[
+\overline{z}\,\overline{z'}=(a-ib)(a'-ib')=aa'+i^{2}bb'-i(ab'+a'b)
+=aa'-bb'-i(ab'+a'b).
+\]</div>
+<p>D'où $\overline{zz'}=\overline{z}\,\overline{z'}$.</p>
+<p><strong>4)</strong></p>
+<div class="maths">\[
+\overline{\left(\frac{1}{z}\right)}
+=\overline{\left(\frac{a-ib}{a^{2}+b^{2}}\right)}
+=\frac{a+ib}{a^{2}+b^{2}}
+\qquad\text{et}\qquad
+\frac{1}{\overline{z}}=\frac{1}{a-ib}=\frac{a+ib}{a^{2}+b^{2}}
+\]</div>
+<p>d'où $\overline{\left(\dfrac{1}{z}\right)}=\dfrac{1}{\overline{z}}$.</p>
+<p><strong>5)</strong> 3 et 4 impliquent</p>
+<div class="maths">\[
+\overline{\left(\frac{z}{z'}\right)}
+=\overline{z\times\frac{1}{z'}}
+=\overline{z}\times\overline{\frac{1}{z'}}
+=\overline{z}\times\frac{1}{\overline{z'}}
+=\frac{\overline{z}}{\overline{z'}} .
+\]</div>
+<p><strong>6)</strong> Démontrons par récurrence que, pour tout $n\in\N$, $\overline{z^{n}}=\overline{z}^{n}$.</p>
+<p>Soit $H_{k}$ la proposition : pour $k\in\N$, $\overline{z^{k}}=\overline{z}^{k}$.</p>
+<p><strong>Initialisation :</strong> pour $k=0$, $z^{0}=1$, d'où $\overline{z^{0}}=\overline{1}=1$ et $\overline{z}^{0}=1$, d'où $\overline{z^{0}}=\overline{z}^{0}$ : $H_{0}$ est vraie.</p>
+<p><strong>Hérédité :</strong> on suppose que, pour $k\in\N$, $\overline{z^{k}}=\overline{z}^{k}$. Montrons que $H_{k}$ vraie entraîne $H_{k+1}$ vraie :</p>
+<div class="maths">\[
+\overline{z^{k+1}}=\overline{z^{k}\times z}
+=\overline{z^{k}}\times\overline{z}
+=\overline{z}^{k}\times\overline{z}
+=\overline{z}^{k+1},
+\]</div>
+<p>donc $H_{k}$ vraie $\Longrightarrow$ $H_{k+1}$ vraie.</p>
+<p><strong>Conclusion :</strong> $\forall n\in\N$, $H_{n}$ est vraie, pour tout $n\in\N$, $\overline{z^{n}}=\overline{z}^{n}$.</p></div></section>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Conjugué d'un quotient</span><div class="boite-corps"><p>Donner la forme algébrique du conjugué de $z=\dfrac{5+3i}{2-3i}$.</p>
+<div class="maths">\[
+\overline{z}=\overline{\left(\frac{5+3i}{2-3i}\right)}
+=\frac{5-3i}{2+3i}
+=\frac{(5-3i)(2-3i)}{4+9}
+=\frac{10-15i-6i+6i^{2}}{13}
+=\frac{4-21i}{13} .
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Parties réelle et imaginaire</span><div class="boite-corps"><p>Soit $z\in\C$, alors</p>
+<ol><li>$z+\overline{z}=2\,\Re(z)$ ;</li><li>$z-\overline{z}=2i\,\Im(z)$ ;</li><li>$z\in\R\iff z=\overline{z}$ ;</li><li>$z$ est imaginaire pur $\iff z+\overline{z}=0$.</li></ol></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p><strong>1)</strong> $z+\overline{z}=a+ib+a-ib=2a=2\Re(z)$.</p>
+<p><strong>2)</strong> $z-\overline{z}=a+ib-(a-ib)=2ib=2i\,\Im(z)$.</p>
+<p><strong>3)</strong> $z=\overline{z}\iff z-\overline{z}=0\iff 2i\,\Im(z)=0 \iff \Im(z)=0\iff z\in\R$.</p>
+<p><strong>4)</strong> $z+\overline{z}=0\iff 2\Re(z)=0\iff z$ est imaginaire pur.</p></div></section>
+<h3><span class="num-section">II.5</span> Représentation des nombres complexes</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Plan complexe</span><div class="boite-corps"><p>Soit le repère orthonormé $(O,\vec{u},\vec{v})$, appelé <strong>plan complexe</strong>. À tout nombre complexe $z=a+ib$, on peut associer un unique point $M(a\,;b)$ dans le repère $(O,\vec{u},\vec{v})$. On dit que $z$ est l'<strong>affixe</strong> de $M$ et on écrit alors $M(z)$.</p></div></section>
+<figure class="figure-cours"><img src="img/maths-expertes-ch01-fig01.png" alt="figure 1 du cours"></figure>
+<p><strong>Remarque :</strong> réciproquement, à tout point $M(a\,;b)$ du plan complexe, on peut associer un unique complexe $z=a+ib$. Cette application est bijective.</p>
+<p><strong>Conséquence.</strong> On peut représenter tout nombre complexe $z=a+ib$.</p>
+<ul><li>L'axe des abscisses est appelé « axe des réels ».</li><li>L'axe des ordonnées est appelé « axe des imaginaires purs ».</li></ul>
+<p><strong>Interprétation géométrique du conjugué :</strong> $M'(\overline{z})$ est le symétrique de $M(z)$ par rapport à l'axe des réels.</p>
+<figure class="figure-cours"><img src="img/maths-expertes-ch01-fig02.png" alt="figure 2 du cours"></figure>
+<h3><span class="num-section">II.6</span> Module</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Module</span><div class="boite-corps"><p>Soit $z$ un nombre complexe d'écriture algébrique $a+ib$.</p>
+<p>Le <strong>module</strong> de $z$, noté $|z|$, est le nombre</p>
+<div class="maths">\[
+|z|=\sqrt{a^{2}+b^{2}} .
+\]</div></div></section>
+<p>Interprétation géométrique : le module de $z$ correspond à la distance $OM$ :</p>
+<div class="maths">\[
+OM=|z| .
+\]</div>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriétés du module</span><div class="boite-corps"><ol><li>$|-z|=|z|$ ;</li><li>$|z|=|\overline{z}|$ ;</li><li>$z\,\overline{z}=|z|^{2}$ ;</li><li>$\dfrac{1}{z}=\dfrac{\overline{z}}{|z|^{2}}$ pour $z\neq 0$.</li></ol></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><ul><li><strong>1)</strong> $|-z|=\sqrt{(-x)^{2}+(-y)^{2}}=\sqrt{x^{2}+y^{2}}=|z|$.</li><li><strong>2)</strong> $|\overline{z}|=\sqrt{x^{2}+(-y)^{2}}=\sqrt{x^{2}+y^{2}}=|z|$.</li><li><strong>3)</strong> $z\,\overline{z}=(x+iy)(x-iy)=x^{2}+y^{2}=|z|^{2}$.</li></ul></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriétés pour tous complexes</span><div class="boite-corps"><p>Pour tous complexes $z$ et $z'$ :</p>
+<ol><li>$|zz'|=|z|\,|z'|$ ;</li><li>$|z^{n}|=|z|^{n}$ ;</li><li>$\left|\dfrac{1}{z}\right|=\dfrac{1}{|z|}$ pour $z\neq 0$ ;</li><li>$\left|\dfrac{z}{z'}\right|=\dfrac{|z|}{|z'|}$ pour $z'\neq 0$.</li></ol></div></section>
+<h3><span class="num-section">II.7</span> Argument</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Argument</span><div class="boite-corps"><p>Soit $z$ un nombre complexe non nul, de point image $M$ dans le plan complexe $(O,\vec{u},\vec{v})$. L'<strong>argument</strong> de $z$, noté $\arg(z)$, correspond à l'angle orienté $\left(\vec{u}\,;\overrightarrow{OM}\right)$.</p></div></section>
+<p><strong>Remarque :</strong> un nombre complexe non nul a une infinité d'arguments modulo $[2\pi]$.</p>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriétés de l'argument</span><div class="boite-corps"><p>Pour tout nombre complexe non nul $z$ :</p>
+<ol><li>$\arg(-z)=\arg(z)+\pi$ \ $[2\pi]$ et $\arg(\overline{z})=-\arg(z)$ \ $[2\pi]$ ;</li><li>$z$ est un nombre réel si, et seulement si, $\arg(z)=0$ \ $[2\pi]$ ou $\pi$ \ $[2\pi]$ ;</li><li>$z$ est imaginaire pur si, et seulement si, $\arg(z)=\dfrac{\pi}{2}$ \ $[2\pi]$ ou $-\dfrac{\pi}{2}$ \ $[2\pi]$.</li></ol></div></section>
+<h3><span class="num-section">II.8</span> Représentation graphique en utilisant le module et l'argument</h3>
+<p>On peut aussi repérer le point $M$ par :</p>
+<ul><li>la distance $OM$ : le <strong>module</strong> de $z$, noté $|z|$ ;</li><li>l'angle $\left(\vec{u}\,;\overrightarrow{OM}\right)$ $[2\pi]$ : l'<strong>argument</strong> de $z$, noté $\arg(z)$.</li></ul>
+<ul><li><p>On a $|z|=\sqrt{a^{2}+b^{2}}$ (Pythagore) et, pour $z\neq 0$,</p>
+<div class="maths">        \[
+        \begin{cases}
+        \sin(\theta)=\dfrac{b}{|z|}\\[6pt]
+        \cos(\theta)=\dfrac{a}{|z|}
+        \end{cases}
+        \quad\text{avec } \theta=\arg(z)\ [2\pi] .
+        \]</div></li></ul>
+<section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Module et argument</span><div class="boite-corps"><p>Représenter puis déterminer le module et un argument des nombres complexes suivants : $z_{1}=1+i$, $z_{2}=\sqrt{3}+i$, $z_{3}=-5+2i$.</p></div></section>
+<p>On a les représentations de $z_{1}$, $z_{2}$ et $z_{3}$ suivantes :</p>
+<p>$OM_{1}=\sqrt{1^{2}+1^{2}}=\sqrt{2}$ et</p>
+<div class="maths">\[
+\begin{cases}
+\sin(\theta_{1})=\dfrac{1}{\sqrt{2}}=\dfrac{\sqrt{2}}{2}\\[6pt]
+\cos(\theta_{1})=\dfrac{1}{\sqrt{2}}=\dfrac{\sqrt{2}}{2}
+\end{cases}
+\quad\text{d'où } \theta_{1}=\frac{\pi}{4}\ [2\pi] .
+\]</div>
+<p>$OM_{2}=\sqrt{\sqrt{3}^{2}+1^{2}}=2$ et</p>
+<div class="maths">\[
+\begin{cases}
+\sin(\theta_{2})=\dfrac{1}{2}\\[6pt]
+\cos(\theta_{2})=\dfrac{\sqrt{3}}{2}
+\end{cases}
+\quad\text{d'où } \theta_{2}=\frac{\pi}{6}\ [2\pi] .
+\]</div>
+<h3><span class="num-section">II.9</span> Forme trigonométrique</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Forme trigonométrique</span><div class="boite-corps"><p>Tout nombre complexe non nul $z$ s'écrit sous la forme suivante :</p>
+<div class="maths">\[
+z=\rho\bigl(\cos(\theta)+i\sin(\theta)\bigr)
+\quad\text{avec } \rho=|z| \text{ et } \theta=\arg(z)\ [2\pi] .
+\]</div>
+<p>Cette forme est appelée <strong>forme trigonométrique</strong> du complexe $z$.</p></div></section>
+<p><strong>Remarque :</strong> le couple $(\rho\,;\theta)$ est appelé coordonnée polaire du point $M$ d'affixe $z$.</p>
+<figure class="figure-cours"><img src="img/maths-expertes-ch01-fig03.png" alt="figure 3 du cours"></figure>
+<p><strong>Lien entre forme algébrique et forme trigonométrique :</strong></p>
+<div class="maths">\[
+z=a+ib,
+\qquad
+\rho=|z|=\sqrt{a^{2}+b^{2}},
+\qquad
+\theta=\arg(z)\ [2\pi],
+\]</div>
+<p>avec</p>
+<div class="maths">\[
+\begin{cases}
+\cos(\theta)=\dfrac{a}{\rho}\\[6pt]
+\sin(\theta)=\dfrac{b}{\rho}
+\end{cases}
+\]</div>
+<p>D'où</p>
+<div class="maths">\[
+z=|z|\bigl(\cos(\theta)+i\sin(\theta)\bigr).
+\]</div>
+<h2 id="s3"><span class="num-section">III.</span> Forme exponentielle</h2>
+<h3><span class="num-section">III.1</span> Introduction</h3>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriété (admise)</span><div class="boite-corps"><p>La fonction exponentielle est la seule fonction continue sur $\R$ qui transforme une somme en produit et qui prend la valeur $e$ en $1$.</p></div></section>
+<p>Soit $f$ la fonction définie sur $\R$ à valeurs complexes par</p>
+<div class="maths">\[
+f(x)=\cos(x)+i\sin(x).
+\]</div>
+<ul><li>$f(0)=\cos(0)+i\sin(0)=1+0=1$.</li><li>$\forall x\in\R$, $|f(x)|=\sqrt{\cos^{2}(x)+\sin^{2}(x)}=\sqrt{1}=1$.</li></ul>
+<p>Montrons que $f(x)f(x')=f(x+x')$ :</p>
+<div class="maths">\[\begin{aligned}
+f(x)f(x')&=\cos(x)\cos(x')-\sin(x)\sin(x')\\
+&\quad+i\bigl(\cos(x)\sin(x')+\cos(x')\sin(x)\bigr)\\
+&=\cos(x+x')+i\sin(x+x').
+\end{aligned}\]</div>
+<div class="maths">\[
+\forall x,x'\in\R,\quad f(x+x')=f(x)f(x')
+\qquad\text{et}\quad f(0)=1 .
+\]</div>
+<p>Donc $f$ vérifie la même propriété que l'exponentielle réelle, d'où l'idée de définir une exponentielle complexe.</p>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Exponentielle imaginaire</span><div class="boite-corps"><p>Pour tout $x$ réel, on note</p>
+<div class="maths">\[
+\e^{ix}=\cos(x)+i\sin(x).
+\]</div></div></section>
+<p>$\e^{ix}$ se lit « exponentielle de $ix$ ».</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Valeurs remarquables</span><div class="boite-corps"><div class="maths">\[
+\e^{i0}=1
+\qquad
+\e^{i\frac{\pi}{2}}=i
+\qquad
+\e^{i\pi}=-1
+\qquad
+\e^{i\frac{3\pi}{2}}=-i .
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriétés</span><div class="boite-corps"><p>Pour tous $x$, $y$ réels et pour tout $n$ entier :</p>
+<ul><li>$\e^{ix}\times \e^{iy}=\e^{i(x+y)}$ ;</li><li>$\dfrac{\e^{ix}}{\e^{iy}}=\e^{i(x-y)}$ ;</li><li>$\left(\e^{ix}\right)^{n}=\e^{inx}$.</li></ul></div></section>
+<h3><span class="num-section">III.2</span> Définition</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Forme exponentielle</span><div class="boite-corps"><p>La <strong>forme exponentielle</strong> d'un nombre complexe non nul est</p>
+<div class="maths">\[
+z=r\times \e^{i\theta}
+\quad\text{avec } r=|z| \text{ et } \theta=\arg(z)\ [2\pi] .
+\]</div></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Forme exponentielle de $1+i\sqrt{3}$</span><div class="boite-corps"><p>Soit $z=1+i\sqrt{3}$ : on a $|z|=2$ et $\arg(z)=\dfrac{\pi}{3}$, donc</p>
+<div class="maths">\[
+z=2\,\e^{i\frac{\pi}{3}} .
+\]</div></div></section>
+<h3><span class="num-section">III.3</span> Formule de Moivre et formule d'Euler</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Moivre et Euler</span><div class="boite-corps"><p>Soit $\theta\in\R$ et $n\in\N$ ; on a alors :</p>
+<ul><li><p><strong>Formule de Moivre :</strong></p>
+<div class="maths">        \[
+        \cos(n\theta)+i\sin(n\theta)=\e^{in\theta}
+        =\bigl(\cos\theta+i\sin\theta\bigr)^{n} ;
+        \]</div></li><li><p><strong>Formules d'Euler :</strong></p>
+<div class="maths">        \[
+        \cos\theta=\frac{\e^{i\theta}+\e^{-i\theta}}{2}
+        \qquad\text{et}\qquad
+        \sin\theta=\frac{\e^{i\theta}-\e^{-i\theta}}{2i} .
+        \]</div></li></ul></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>l'exponentielle.</p>
+<p><strong>Formule d'Euler :</strong></p>
+<div class="maths">\[
+\frac{\e^{i\theta}+\e^{-i\theta}}{2}
+=\frac{\cos(\theta)+i\sin(\theta)+\cos(-\theta)+i\sin(-\theta)}{2}
+=\frac{2\cos(\theta)+i\bigl(\sin(\theta)-\sin(\theta)\bigr)}{2}
+=\cos(\theta).
+\]</div>
+<div class="maths">\[
+\frac{\e^{i\theta}-\e^{-i\theta}}{2i}
+=\frac{\cos(\theta)+i\sin(\theta)-\left(\cos(-\theta)+i\sin(-\theta)\right)}{2i}
+=\frac{i\bigl(2\sin(\theta)\bigr)}{2i}=\sin(\theta).
+\]</div></div></section>
+<h2 id="s4"><span class="num-section">IV.</span> Formule du binôme</h2>
+<h3><span class="num-section">IV.1</span> Exemple</h3>
+<p>$(a+b)^{0}=1\\ (a+b)^{1}=a+b\\ (a+b)^{2}=a^{2}+ab+ba+b^{2}=a^{2}+2ab+b^{2}\\ (a+b)^{3}=a^{3}+a^{2}b+aba+ba^{2}+ab^{2}+bab+b^{2}a+b^{3} =a^{3}+3a^{2}b+3ab^{2}+b^{3}$</p>
+<h3><span class="num-section">IV.2</span> Triangle de Pascal</h3>
+<p>Le triangle de Pascal est une présentation des coefficients binomiaux dans un triangle. Il fut nommé ainsi en l'honneur du mathématicien français <strong>Blaise Pascal</strong>. Il est connu sous l'appellation « triangle de Pascal » en Occident.</p>
+<p>Pour passer d'une ligne à la suivante, le premier élément de la ligne et le dernier sont toujours des $1$, et les éléments suivants sont la somme des deux éléments de la ligne antérieure en partant de la gauche.</p>
+<p>Les coefficients sont appelés coefficients binomiaux et sont notés $\dbinom{n}{k}$, $n$ la ligne et $k$ la colonne.</p>
+<table class="tableau"><tr><td>$n\backslash k$</td><td>$0$</td><td>$1$</td><td>$2$</td><td>$3$</td><td>$4$</td><td>$5$</td><td>$\dots$</td></tr><tr><td>$0$</td><td>$1$</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>$1$</td><td>$1$</td><td>$1$</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>$2$</td><td>$1$</td><td>$2$</td><td>$1$</td><td></td><td></td><td></td><td></td></tr><tr><td>$3$</td><td>$1$</td><td>$3$</td><td>$3$</td><td>$1$</td><td></td><td></td><td></td></tr><tr><td>$4$</td><td>$1$</td><td>$4$</td><td>$6$</td><td>$4$</td><td>$1$</td><td></td><td></td></tr><tr><td>$5$</td><td>$1$</td><td>$5$</td><td>$10$</td><td>$10$</td><td>$5$</td><td>$1$</td><td></td></tr><tr><td>$6$</td><td>$1$</td><td>$6$</td><td>$15$</td><td>$20$</td><td>$15$</td><td>$6$</td><td>$1$</td></tr><tr><td class="vide"></td><td colspan="7" class="note-tableau"></td></tr></table>
+<p>À la ligne $5$, on obtient les coefficients de $(a+b)^{5}$ :</p>
+<div class="maths">\[
+(a+b)^{5}=a^{5}+5a^{4}b+10a^{3}b^{2}+10a^{2}b^{3}+5ab^{4}+b^{5} .
+\]</div>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Coefficients binomiaux (admis, cours de dénombrement)</span><div class="boite-corps"><p>Pour $n,k\in\N$ et pour $0\leqslant k\leqslant n$,</p>
+<div class="maths">\[
+\binom{n}{k}=\frac{n!}{(n-k)!\,k!}.
+\]</div></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Relation de Pascal</span><div class="boite-corps"><p>Pour $n,k\in\N^{*}$ et pour $1\leqslant k\leqslant n-1$,</p>
+<div class="maths">\[
+\binom{n-1}{k-1}+\binom{n-1}{k}=\binom{n}{k}.
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>obtient le résultat souhaité. Il existe une preuve plus élégante qui fait appel au dénombrement.</p></div></section>
+<h3><span class="num-section">IV.3</span> Formule du binôme</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Formule du binôme</span><div class="boite-corps"><p>Pour tout $n\in\N$ et pour tout $z,t\in\C$,</p>
+<div class="maths">\[
+(z+t)^{n}=\sum_{k=0}^{n}\binom{n}{k}z^{k}t^{n-k}
+=\binom{n}{0}t^{n}+\binom{n}{1}zt^{n-1}+\binom{n}{2}z^{2}t^{n-2}
++\dots+\binom{n}{n}z^{n},
+\]</div>
+<p>avec</p>
+<div class="maths">\[
+\binom{n}{k}=\frac{n!}{(n-k)!\,k!}
+\]</div>
+<p>les coefficients binomiaux (ou coefficients de Pascal).</p></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>Montrons la propriété $P(n)$ : pour tout $n\in\N$ et pour tout $z,t\in\C$,</p>
+<div class="maths">\[
+(z+t)^{n}=\sum_{k=0}^{n}\binom{n}{k}z^{k}t^{n-k}.
+\]</div>
+<p><strong>Initialisation :</strong> $(z+t)^{0}=\dbinom{0}{0}z^{0}t^{0}=1$ : $P(O)$ est vérifiée.</p>
+<p><strong>Hérédité :</strong> Soit $k\in\N$. On suppose la proposition $P(k)$ vraie ; montrons la propriété au rang $k+1$.</p>
+<div class="maths">\[
+(z+t)^{k+1}=(z+t)(z+t)^{k}=(z+t)\sum_{p=0}^{k}\binom{k}{p}z^{p}t^{k-p}
+=\sum_{p=0}^{k}\binom{k}{p}z^{p+1}t^{k-p}
++\sum_{p=0}^{k}\binom{k}{p}z^{p}t^{k+1-p} .
+\]</div>
+<p>Nous allons modifier l'écriture de la première somme $\displaystyle\sum_{p=0}^{k}\binom{k}{p}z^{p+1}t^{k-p}$ :</p>
+<div class="maths">\[
+\sum_{p=0}^{k}\binom{k}{p}z^{p+1}t^{k-p}
+=\sum_{p=0}^{k}\binom{k}{p}z^{p+1}t^{k+1-(p+1)} .
+\]</div>
+<p>Le $(p+1)$ va varier de $1$ à $k+1$ ; je remplace $p$ par $p-1$ et je modifie le domaine de variation du nouveau $p$, qui commencera à $1$ et ira jusqu'à $k+1$ :</p>
+<div class="maths">\[
+\sum_{p=0}^{k}\binom{k}{p}z^{p+1}t^{k-p}
+=\sum_{p=1}^{k+1}\binom{k}{p-1}z^{p}t^{k+1-p} .
+\]</div>
+<p>Je remplace dans la formule du haut :</p>
+<div class="maths">\[
+(z+t)^{k+1}=\sum_{p=1}^{k+1}\binom{k}{p-1}z^{p}t^{k+1-p}
++\sum_{p=0}^{k}\binom{k}{p}z^{p}t^{k+1-p} .
+\]</div>
+<p>Pour $p$ allant de $1$ à $k$, nous avons les mêmes termes dans les deux sommes, je peux les regrouper. De plus, on remarque que</p>
+<div class="maths">\[
+\binom{k}{k}=\binom{k+1}{k+1}=1
+\qquad\text{et}\qquad
+\binom{k}{0}=\binom{k+1}{0}=1 .
+\]</div>
+<div class="maths">\[
+(z+t)^{k+1}=\binom{k+1}{k+1}z^{k+1}
++\sum_{p=1}^{k}\left(\binom{k}{p-1}+\binom{k}{p}\right)z^{p}t^{k+1-p}
++\binom{k+1}{0}t^{k+1} .
+\]</div>
+<p>On applique la relation de Pascal :</p>
+<div class="maths">\[
+(z+t)^{k+1}=\binom{k+1}{k+1}z^{k+1}
++\sum_{p=1}^{k}\binom{k+1}{p}z^{p}t^{k+1-p}
++\binom{k+1}{0}t^{k+1} .
+\]</div>
+<p>On peut alors tout regrouper sous la même somme :</p>
+<div class="maths">\[
+(z+t)^{k+1}=\sum_{p=0}^{k+1}\binom{k+1}{p}z^{p}t^{k+1-p} .
+\]</div>
+<p>D'où l'hérédité : $P(k)$ vraie entraîne que $P(k+1)$ est vraie.</p>
+<p><strong>Conclusion :</strong> de l'initialisation et de l'hérédité, par le principe de récurrence, $\forall n\in\N$, $P(n)$ est vraie.</p></div></section>
+<h2 id="s5"><span class="num-section">V.</span> Annexe : formule trigonométrique</h2>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Formule de $\cos(x-y)$</span><div class="boite-corps"><div class="maths">\[
+\forall x,y\in\R,\quad \cos(x-y)=\cos(x)\cos(y)+\sin(x)\sin(y).
+\]</div></div></section>
+<section class="boite boite-preuve"><span class="boite-titre">Démonstration</span><div class="boite-corps"><p>que</p>
+<div class="maths">\[
+\left(\overrightarrow{OI},\overrightarrow{OA}\right)=x
+\qquad\text{et}\qquad
+\left(\overrightarrow{OI},\overrightarrow{OB}\right)=y ;
+\]</div>
+<p>on a donc</p>
+<div class="maths">\[
+\left(\overrightarrow{OA},\overrightarrow{OB}\right)=y-x .
+\]</div>
+<p>Les coordonnées de $A\bigl(\cos(x)\,;\sin(x)\bigr)$ et les coordonnées de $B\bigl(\cos(y)\,;\sin(y)\bigr)$, d'où</p>
+<div class="maths">\[
+\overrightarrow{OA}
+\begin{pmatrix}\cos(x)\\\sin(x)\end{pmatrix}
+\qquad\text{et}\qquad
+\overrightarrow{OB}
+\begin{pmatrix}\cos(y)\\\sin(y)\end{pmatrix}
+\]</div>
+<p>on va calculer le produit scalaire $\overrightarrow{OA}\cdot\overrightarrow{OB}$ par deux méthodes.</p>
+<ol><li>$\overrightarrow{OA}\cdot\overrightarrow{OB} =OA\times OB\times\cos(y-x)=\cos(y-x)=\cos(x-y)$ (car $\cos$ est paire).</li><li>$\overrightarrow{OA}\cdot\overrightarrow{OB} =\cos(x)\cos(y)+\sin(x)\sin(y)$.</li></ol>
+<p>D'où</p>
+<div class="maths">\[
+\forall x,y\in\R,\quad \cos(x-y)=\cos(x)\cos(y)+\sin(x)\sin(y).
+\]</div></div></section>
+<figure class="figure-cours"><img src="img/maths-expertes-ch01-fig04.png" alt="figure 4 du cours"></figure>
+<p><strong>Corollaire :</strong></p>
+<ul><li>$\cos(x+y)=\cos(x)\cos(y)-\sin(x)\sin(y)$</li><li>$\sin(x+y)=\sin(x)\cos(y)+\cos(x)\sin(y)$</li><li>$\sin(x-y)=\sin(x)\cos(y)-\cos(x)\sin(y)$</li></ul>
+<p><strong>Preuve :</strong></p>
+<p><strong>1.</strong></p>
+<div class="maths">\[\begin{aligned}
+\cos(x+y)&=\cos\bigl(x-(-y)\bigr)
+=\cos(x)\cos(-y)+\sin(x)\sin(-y)\\
+&=\cos(x)\cos(y)-\sin(x)\sin(y).
+\end{aligned}\]</div>
+<p><strong>2.</strong></p>
+<div class="maths">\[\begin{aligned}
+\sin(x+y)&=\cos\left(\frac{\pi}{2}-(x+y)\right)
+=\cos\left(\frac{\pi}{2}-x\right)\cos(y)+\sin\left(\frac{\pi}{2}-x\right)\sin(y)\\
+&=\sin(x)\cos(y)+\cos(x)\sin(y).
+\end{aligned}\]</div>
+<p><strong>3.</strong></p>
+<div class="maths">\[\begin{aligned}
+\sin(x-y)&=\sin\bigl(x+(-y)\bigr)
+=\cos(x)\sin(-y)+\sin(x)\cos(-y)\\
+&=\sin(x)\cos(y)-\sin(y)\cos(x).
+\end{aligned}\]</div>
+  <p style="margin-top:2.5rem"><a href="../index.html#maths-expertes">← Retour au site</a></p>
+</main>
+<script src="../assets/acces.js"></script>
+</body>
+</html>
