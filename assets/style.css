@@ -122,6 +122,9 @@ main.cours .img-cours{max-width:52.5% !important}
 main.cours .mini-fig{max-height:2.52rem !important}
 .question .figure img{max-width:min(595px, 96%) !important}
 
+main.cours h3 .num-section{color:var(--couleur,#3182ce);margin-right:.35em}
+main.cours .fbox{display:inline-block;border:1px solid var(--bord,#cfd6e0);border-radius:8px;padding:.15em .55em;background:#fffdf5}
+
 /* onglets des pages de cours : quatre par ligne */
 main.cours .onglets{display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:.45rem}
 main.cours .onglet{justify-content:center; text-align:center}
