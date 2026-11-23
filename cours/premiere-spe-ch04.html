@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Chapitre 4 : Fonctions --- nombre dérivé — Première spécialité</title>
+<title>Chapitre 4 : Fonctions — nombre dérivé — Première spécialité</title>
 <link rel="stylesheet" href="../assets/style.css">
 <script>
   window.MathJax = {
-    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "taua": "{\\tau_{f}}"} },
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "taua": "{\\tau_{f}}", "norme": ["{\\left\\|#1\\right\\|}", 1], "prob": "{P}", "Pcond": ["{P_{#1}\\left(#2\\right)}", 2], "suite": ["{\\left(#1\\right)}", 1], "limn": "{\\lim\\limits_{n\\to+\\infty}}", "limx": ["{\\lim\\limits_{x\\to #1}}", 1]} },
     options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
   };
 </script>
@@ -20,6 +20,9 @@
   border-bottom:2px solid var(--couleur,#2b6cb0)}
 .cours h2 .num-section{color:var(--couleur,#2b6cb0)}
 .cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours h3 .num-section{color:var(--couleur,#2b6cb0);margin-right:.15em}
+.cours .fbox{display:inline-block;border:1px solid var(--bord,#cfd6e0);border-radius:8px;
+  padding:.15em .55em;background:#fffdf5}
 .cours p{margin:.65rem 0;text-align:justify}
 .cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
 .cours li{margin:.28rem 0}
@@ -45,7 +48,7 @@
 .tableau td.note-tableau{max-width:36ch;text-align:left;font-size:.9rem}
 .tableau td.vide{border:none;background:transparent}
 .figure-cours{margin:1.1rem 0;text-align:center}
-.figure-cours img{max-width:30%;height:auto;background:#fff;border:1px solid var(--bord);
+.figure-cours img{max-width:60%;height:auto;background:#fff;border:1px solid var(--bord);
   border-radius:10px;padding:6px}
 .maths{overflow-x:auto;margin:.9rem 0}
 .figure-manquante{color:#b33;font-style:italic}
@@ -54,7 +57,7 @@
 .verbatim{background:#f4f7fb;border:1px solid var(--bord);border-radius:8px;padding:.7rem .9rem;font-family:ui-monospace,Consolas,monospace;font-size:.85rem;overflow-x:auto;white-space:pre-wrap}
 a.onglet[href*="quiz/"]{background:#fdeaf4;border-color:#f2b8d6;color:#9d2168;font-weight:600}
 a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
-.img-cours{max-width:30%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
+.img-cours{max-width:60%;height:auto;display:block;margin:1rem auto;border:1px solid var(--bord);border-radius:10px;padding:6px;background:#fff}
 .onglets{display:flex;gap:.45rem;flex-wrap:wrap;margin:0 0 1.3rem}
 .onglet{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem .85rem;border-radius:999px;border:1px solid var(--bord);background:#fff;color:inherit;text-decoration:none;font-size:.92rem}
 .onglet:hover{border-color:var(--couleur,#2b6cb0);text-decoration:none}
@@ -69,12 +72,12 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 <body style="--couleur:#2b6cb0">
 <main class="cours">
   <p><a href="../index.html#premiere-spe">← Retour au site</a></p>
-  <h1>Chapitre 4 : Fonctions --- nombre dérivé</h1>
+  <h1>Chapitre 4 : Fonctions — nombre dérivé</h1>
   <p class="sous-titre">Première spécialité · Chapitre 4 — Nombre dérivé · cours de Frederik de Peyrelongue</p>
 <nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Nombre dérivé</span><a class="onglet" href="../pdf/premiere-spe/4-nombre-derive.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/premiere-spe/td01-nombre-derive.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/premiere-spe/td02-nombre-derive.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../pdf/premiere-spe/td03-nombre-derive.pdf" target="_blank" rel="noopener">TD n°3</a><a class="onglet" href="../pdf/premiere-spe/td01-nombre-derive-corrige.pdf" target="_blank" rel="noopener">TD n°1 · Nombre dérivé</a><a class="onglet" href="../quiz/premiere-spe-4.html" target="_blank" rel="noopener">Quiz</a></nav>
-<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Nombre dérivé</a></li><li><a href="#s2">II Tangente à une courbe en un point</a></li><li><a href="#s3">III Dérivation sur un intervalle – fonction dérivée</a></li><li><a href="#s4">IV Opérations sur les fonctions dérivables</a></li></ol></nav>
+<nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Nombre dérivé</a></li><li><a href="#s2">II Tangente à une courbe en un point</a></li><li><a href="#s3">III Approximation affine</a></li><li><a href="#s4">IV Dérivation sur un intervalle – fonction dérivée</a></li><li><a href="#s5">V Opérations sur les fonctions dérivables</a></li></ol></nav>
 <h2 id="s1"><span class="num-section">I.</span> Nombre dérivé</h2>
-<h3>1.1  Taux d'accroissement</h3>
+<h3 id="s1-1">1.1  Taux d'accroissement</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Taux d'accroissement</span><div class="boite-corps"><p>Soit $f$ une fonction définie sur un intervalle $I$ de $\R$, $a$ un point de $I$ et $h$ un réel non nul tel que $a+h$ soit dans $I$.</p>
 <p>On appelle <strong>taux d'accroissement</strong> de $f$ entre $a$ et $a+h$ le nombre réel</p>
 <div class="maths">\[
@@ -97,7 +100,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 \]</div>
 <p><strong>Conclusion :</strong> le taux d'accroissement de la fonction carré dépend de l'emplacement de l'intervalle. Plus $a$ est grand, plus l'accroissement est fort (logique : la courbe accélère).</p></div></section>
 <section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">$f(x)=x^{2}+2x+1$ sur $[1\,;1+h]$</span><div class="boite-corps"><p>Soit $f(x)=x^{2}+2x+1$. Calculer le taux d'accroissement sur l'intervalle $[1\,;1+h]$.</p></div></section>
-<h3>1.2  Nombre dérivé en $a$</h3>
+<h3 id="s1-2">1.2  Nombre dérivé en $a$</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Nombre dérivé</span><div class="boite-corps"><p>Soit $f$ une fonction définie sur un intervalle $I$ de $\R$, $a$ un point de $I$ et $h$ un réel non nul tel que $a+h$ soit dans $I$.</p>
 <p>On dit que $f$ est <strong>dérivable en $a$</strong> si le taux d'accroissement $\dfrac{f(a+h)-f(a)}{h}$ tend vers un nombre réel lorsque $h$ tend vers $0$. Ce nombre est appelé <strong>nombre dérivé</strong> de $f$ en $a$ et est noté $f'(a)$.</p>
 <p>On écrit alors</p>
@@ -136,12 +139,103 @@ f'(a)=\lim_{h\to 0}\frac{f(a+h)-f(a)}{h}=\lim_{h\to 0}(2a+h)=2a .
 <div class="maths">\[
 y=f(a)+f'(a)(x-a) .
 \]</div>
-<h2 id="s3"><span class="num-section">III.</span> Dérivation sur un intervalle – fonction dérivée</h2>
-<h3>3.1  Définition</h3>
+<h2 id="s3"><span class="num-section">III.</span> Approximation affine</h2>
+<h3 id="s3-1">3.1  L'idée : remplacer la courbe par sa tangente</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Approximation affine en un point</span><div class="boite-corps"><p>Soit $f$ une fonction dérivable en un réel $a$ et soit $\mathcal{C}_{f}$ sa courbe représentative. Au voisinage du point $A\bigl(a\,;f(a)\bigr)$, la tangente $T_{a}$ à $\mathcal{C}_{f}$ en $A$ et la courbe $\mathcal{C}_{f}$ sont très proches l'une de l'autre.</p>
+<p>On dit que la fonction affine</p>
+<div class="maths">\[
+p(x)=f'(a)(x-a)+f(a)
+\]</div>
+<p>est l'<strong>approximation affine</strong> de $f$ au voisinage de $a$, et que c'est la <strong>meilleure approximation affine</strong> de $f$ près de $a$.</p>
+<p>Autrement dit, pour $x$ proche de $a$ :</p>
+<div class="maths">\[
+f(x)\approx f'(a)(x-a)+f(a) .
+\]</div></div></section>
+<p>La fonction $p$ est la fonction affine dont la droite représentative est la tangente $T_{a}$ : on a bien $p(a)=f(a)$ (la tangente passe par $A$) et $p'(x)=f'(a)$ pour tout $x$ (la tangente a pour coefficient directeur $f'(a)$).</p>
+<figure class="figure-cours"><img src="img/premiere-spe-ch04-fig03.png" alt="figure 3 du cours"></figure>
+<p><strong>Remarque :</strong></p>
+<ol><li>L'approximation n'est valable que <strong>localement</strong>, c'est-à-dire au voisinage de $a$ : l'écart entre la courbe et la tangente augmente lorsqu'on s'éloigne du point $A$.</li><li>Remplacer $f$ par $p$, c'est remplacer localement la courbe par sa tangente : c'est le principe des approximations utilisées en physique pour « linéariser » une grandeur au voisinage d'une valeur.</li></ol>
+<h3 id="s3-2">3.2  Exemple : $f(x)=x^{2}$ au voisinage de $a=1$</h3>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Approximation affine de la fonction carré en $1$</span><div class="boite-corps"><p>Soit $f$ la fonction définie sur $\R$ par $f(x)=x^{2}$.</p>
+<p><strong>1)</strong> On calcule $f(1)$ et $f'(1)$ :</p>
+<div class="maths">\[
+f(1)=1^{2}=1
+\qquad\text{et}\qquad
+f'(x)=2x\quad\text{donc}\quad f'(1)=2 .
+\]</div>
+<p><strong>2)</strong> L'équation de la tangente en $A(1\,;1)$ est donc</p>
+<div class="maths">\[
+y=f(1)+f'(1)(x-1)=1+2(x-1)=2x-1 .
+\]</div>
+<p><strong>3)</strong> Pour $x$ proche de $1$, on a donc</p>
+<div class="maths">\[
+f(x)=x^{2}\approx 2x-1 .
+\]</div>
+<p><strong>4)</strong> L'écart entre la courbe et la tangente se calcule exactement :</p>
+<div class="maths">\[
+f(x)-(2x-1)=x^{2}-2x+1=(x-1)^{2} .
+\]</div></div></section>
+<table class="tableau"><tr><td>$x$</td><td>$0{,}9$</td><td>$1$</td><td>$1{,}1$</td><td>$1{,}2$</td><td>$1{,}5$</td><td>$2$</td></tr><tr><td>$f(x)=x^{2}$</td><td>$0{,}81$</td><td>$1$</td><td>$1{,}21$</td><td>$1{,}44$</td><td>$2{,}25$</td><td>$4$</td></tr><tr><td>$2x-1$</td><td>$0{,}8$</td><td>$1$</td><td>$1{,}2$</td><td>$1{,}4$</td><td>$2$</td><td>$3$</td></tr><tr><td>écart $(x-1)^{2}$</td><td>$0{,}01$</td><td>$0$</td><td>$0{,}01$</td><td>$0{,}04$</td><td>$0{,}25$</td><td>$1$</td></tr></table>
+<p>L'écart est très petit lorsque $x$ est proche de $1$ (il vaut $0{,}01$ pour $x=1{,}1$), puis devient important lorsqu'on s'éloigne : pour $x=2$, la tangente annonce $3$ alors que $f(2)=4$.</p>
+<h3 id="s3-3">3.3  Application : estimer une valeur sans calculatrice</h3>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Estimation de $\sqrt{4{,}1}$</span><div class="boite-corps"><p>On cherche une valeur approchée de $\sqrt{4{,}1}$ sans calculatrice. On considère la fonction $f(x)=\sqrt{x}$ sur $[0\,;+\infty[$ et le réel $a=4$, proche de $4{,}1$ et dont la racine est connue.</p>
+<p><strong>1)</strong> $f(4)=\sqrt{4}=2$ et, pour $x&gt;0$, $f'(x)=\dfrac{1}{2\sqrt{x}}$, donc</p>
+<div class="maths">\[
+f'(4)=\frac{1}{2\sqrt{4}}=\frac{1}{4}=0{,}25 .
+\]</div>
+<p><strong>2)</strong> La tangente en $A(4\,;2)$ a pour équation</p>
+<div class="maths">\[
+y=2+0{,}25(x-4)=0{,}25x+1 .
+\]</div>
+<p><strong>3)</strong> Pour $x=4{,}1$, l'approximation affine donne</p>
+<div class="maths">\[
+\sqrt{4{,}1}\approx 0{,}25\times 4{,}1+1=1{,}025+1=2{,}025 .
+\]</div>
+<p><strong>4)</strong> La calculatrice donne $\sqrt{4{,}1}\approx 2{,}024\,845\,7$. L'erreur commise est donc</p>
+<div class="maths">\[
+2{,}025-2{,}024\,845\,7\approx 0{,}000\,154 ,
+\]</div>
+<p>soit une erreur relative inférieure à $0{,}01\,\%$ : l'estimation est excellente.</p></div></section>
+<p><strong>Remarque :</strong> de la même façon, avec la fonction carré au voisinage de $1$, on obtient $1{,}02^{2}\approx 2\times 1{,}02-1=1{,}04$, alors que $1{,}02^{2}=1{,}0404$ : l'erreur commise n'est que de $0{,}0004$.</p>
+<h3 id="s3-4">3.4  Erreur d'approximation et fonction $\varepsilon$</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Erreur d'approximation</span><div class="boite-corps"><p>Soit $f$ une fonction dérivable en $a$. Pour tout réel $x$ de l'intervalle de définition de $f$ tel que $x\neq a$, on pose</p>
+<div class="maths">\[
+\varepsilon(x)=\frac{f(x)-\bigl[f'(a)(x-a)+f(a)\bigr]}{x-a}
+=\frac{f(x)-f(a)}{x-a}-f'(a) .
+\]</div>
+<p>Comme $f'(a)=\lim_{x\to a}\dfrac{f(x)-f(a)}{x-a}$, on a</p>
+<div class="maths">\[
+\lim_{x\to a}\varepsilon(x)=0 .
+\]</div>
+<p>On peut alors écrire l'égalité <strong>exacte</strong>, valable pour tout $x\neq a$ :</p>
+<div class="maths">\[
+f(x)=f'(a)(x-a)+f(a)+(x-a)\,\varepsilon(x),
+\qquad\text{avec}\quad \lim_{x\to a}\varepsilon(x)=0 .
+\]</div></div></section>
+<p>Le terme $(x-a)\,\varepsilon(x)$ est l'<strong>erreur d'approximation</strong> commise lorsque l'on remplace $f(x)$ par $f'(a)(x-a)+f(a)$. C'est le produit de deux quantités qui tendent vers $0$ lorsque $x$ tend vers $a$ : il est donc très petit dès que $x$ est proche de $a$.</p>
+<p>De plus,</p>
+<div class="maths">\[
+\frac{(x-a)\,\varepsilon(x)}{x-a}=\varepsilon(x)
+\qquad\text{et}\qquad
+\lim_{x\to a}\varepsilon(x)=0 :
+\]</div>
+<p>l'erreur est <strong>négligeable devant $x-a$</strong>. On dit que l'approximation affine est une approximation <strong>au premier ordre</strong>.</p>
+<section class="boite boite-rem"><span class="boite-titre">Remarque</span><div class="boite-corps"><p>L'écriture $f(x)\approx f'(a)(x-a)+f(a)$ est une notation simplifiée : elle sous-entend que l'on néglige le terme $(x-a)\,\varepsilon(x)$. L'égalité avec $\varepsilon(x)$ est, elle, rigoureusement exacte : elle ne fait que traduire la définition de $f'(a)$ comme limite du taux d'accroissement.</p>
+<p><strong>Pourquoi « meilleure » approximation ?</strong> Si une fonction affine $q(x)=mx+k$ vérifiait elle aussi $f(x)-q(x)=(x-a)\,\varepsilon_{1}(x)$ avec $\lim_{x\to a}\varepsilon_{1}(x)=0$, alors en divisant par $x-a$ et en faisant tendre $x$ vers $a$, on obtiendrait $q(a)=f(a)$ puis $m=f'(a)$ : la fonction $q$ serait donc $p$. La tangente est ainsi la seule droite qui « colle » à la courbe au premier ordre au voisinage de $A$.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Vérification sur la fonction carré</span><div class="boite-corps"><p>Reprenons $f(x)=x^{2}$ et $a=1$, dont l'approximation affine est $2x-1$. Pour $x\neq 1$,</p>
+<div class="maths">\[
+\varepsilon(x)=\frac{x^{2}-(2x-1)}{x-1}=\frac{(x-1)^{2}}{x-1}=x-1,
+\]</div>
+<p>et l'on a bien $\lim_{x\to 1}\varepsilon(x)=0$. On retrouve l'égalité exacte</p>
+<div class="maths">\[
+x^{2}=2x-1+(x-1)\times(x-1)=2x-1+(x-1)^{2} .
+\]</div></div></section>
+<h2 id="s4"><span class="num-section">IV.</span> Dérivation sur un intervalle – fonction dérivée</h2>
+<h3 id="s4-1">4.1  Définition</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Fonction dérivée</span><div class="boite-corps"><p>Soit $f$ une fonction définie sur un intervalle $I$ de $\R$. Si, pour tout $a$ de $I$, $f$ est dérivable en $a$, on dit que $f$ est <strong>dérivable sur $I$</strong>.</p>
 <p>La fonction qui, à tout $x$ de $I$, associe le nombre dérivé de $f$ sur $x$, est appelée <strong>fonction dérivée</strong> de $f$ et est notée $f'$.</p></div></section>
-<h3>3.2  Exemples</h3>
-<h3><span class="num-section">III.3</span> a) Fonction dérivée de la fonction constante $f(x)=k$</h3>
+<h3 id="s4-2">4.2  Exemples</h3>
+<h3 id="s4-3">a) Fonction dérivée de la fonction constante $f(x)=k$</h3>
 <p>Soit $x$ un nombre réel quelconque.</p>
 <p>Le taux d'accroissement entre $x$ et $x+h$ est</p>
 <div class="maths">\[
@@ -150,7 +244,7 @@ y=f(a)+f'(a)(x-a) .
 <p>Le taux d'accroissement de la fonction constante entre $x$ et $x+h$ est nul quel que soit $h$, et donc notamment quand $h$ devient très petit, il reste nul.</p>
 <p>Donc $f'(x)=0$ pour tout $x$ réel.</p>
 <p>La fonction dérivée de la fonction constante est donc nulle.</p>
-<h3><span class="num-section">III.4</span> b) Fonction dérivée de la fonction affine $f(x)=mx+p$</h3>
+<h3 id="s4-4">b) Fonction dérivée de la fonction affine $f(x)=mx+p$</h3>
 <p>Soit $a$ un nombre réel quelconque.</p>
 <p>Le taux d'accroissement entre $a$ et $a+h$ est :</p>
 <div class="maths">\[
@@ -160,7 +254,7 @@ y=f(a)+f'(a)(x-a) .
 <p>Le taux d'accroissement de la fonction affine entre $a$ et $a+h$ est égal au coefficient directeur $m$, quelle que soit la valeur de $h$, et donc notamment quand $h$ devient très petit, il reste constant égal à $m$.</p>
 <p>La limite du taux d'accroissement de la fonction affine en « $a$ » existe : le nombre dérivé est donc défini, et pour tout nombre réel $a$, $f'(a)=m$.</p>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Dérivée d'une fonction affine</span><div class="boite-corps"><p>La fonction affine est dérivable sur $\R$ et sa fonction dérivée est $f'(x)=m$.</p></div></section>
-<h3><span class="num-section">III.5</span> c) Fonction dérivée de la fonction carré $f(x)=x^{2}$</h3>
+<h3 id="s4-5">c) Fonction dérivée de la fonction carré $f(x)=x^{2}$</h3>
 <p>Soit $a$ un nombre réel quelconque et $h&gt;0$.</p>
 <p>Le taux d'accroissement entre $a$ et $a+h$ est :</p>
 <div class="maths">\[
@@ -173,7 +267,7 @@ y=f(a)+f'(a)(x-a) .
 \]</div>
 <p>La limite du taux d'accroissement de la fonction carré en « $a$ » existe : le nombre dérivé est donc défini, et pour tout nombre réel $a$, $f'(a)=2a$.</p>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Dérivée de la fonction carré</span><div class="boite-corps"><p>La fonction carré est dérivable sur $\R$ et sa fonction dérivée est $f'(x)=2x$.</p></div></section>
-<h3><span class="num-section">III.6</span> d) Fonction dérivée de la fonction inverse $f(x)=\dfrac{1}{x}$</h3>
+<h3 id="s4-6">d) Fonction dérivée de la fonction inverse $f(x)=\dfrac{1}{x}$</h3>
 <p>La fonction inverse est définie sur $\R^{*}$.</p>
 <p>Soit $a\in\R^{*}$ et $h$ un nombre réel strictement positif.</p>
 <p>Le taux d'accroissement entre $a$ et $a+h$ est :</p>
@@ -194,7 +288,7 @@ f'(a)=-\frac{1}{a^{2}} .
 <div class="maths">\[
 f'(x)=-\frac{1}{x^{2}} .
 \]</div></div></section>
-<h3><span class="num-section">III.7</span> e) Fonction dérivée de la fonction racine carrée $f(x)=\sqrt{x}$</h3>
+<h3 id="s4-7">e) Fonction dérivée de la fonction racine carrée $f(x)=\sqrt{x}$</h3>
 <p>La fonction racine carrée est définie sur $\R^{+}$.</p>
 <p>Soit $a\in\R^{+}$ et $h$ un nombre réel strictement positif.</p>
 <p>Le taux d'accroissement entre $a$ et $a+h$ est :</p>
@@ -230,11 +324,11 @@ f'(a)=\frac{1}{2\sqrt{a}} .
 <div class="maths">\[
 f'(x)=\frac{1}{2\sqrt{x}} .
 \]</div></div></section>
-<h3>3.3  Fonctions dérivées des fonctions usuelles</h3>
+<h3 id="s4-8">4.3  Fonctions dérivées des fonctions usuelles</h3>
 <table class="tableau"><tr><td></td><td>Fonction $f$ définie par :</td><td>Ensemble de définition $\mathcal{D}_{f}$</td><td>Fonction dérivée $f'$ définie par :</td><td>Ensemble de dérivabilité $\mathcal{D}_{f'}$</td></tr><tr><td><strong>1.</strong></td><td>$f(x)=k$, avec $k\in\R$</td><td>$\R$</td><td>$f'(x)=0$</td><td>$\R$</td></tr><tr><td><strong>2.</strong></td><td>$f(x)=mx+p$, avec $m$ et $p$ réels</td><td>$\R$</td><td>$f'(x)=m$</td><td>$\R$</td></tr><tr><td><strong>3.</strong></td><td>$f(x)=x^{2}$</td><td>$\R$</td><td>$f'(x)=2x$</td><td>$\R$</td></tr><tr><td><strong>4.</strong></td><td>$f(x)=x^{n}$, avec $n\in\N^{*}$</td><td>$\R$</td><td>$f'(x)=nx^{n-1}$</td><td>$\R$</td></tr><tr><td><strong>5.</strong></td><td>$f(x)=\dfrac{1}{x}$</td><td>$\R\setminus\{0\}$</td><td>$f'(x)=-\dfrac{1}{x^{2}}$</td><td>$\R\setminus\{0\}$</td></tr><tr><td><strong>6.</strong></td><td>$f(x)=\dfrac{1}{x^{n}}$ avec $n\in\N^{*}$</td><td>$\R\setminus\{0\}$</td><td>$f'(x)=-\dfrac{n}{x^{n+1}}$</td><td>$\R\setminus\{0\}$</td></tr><tr><td><strong>7.</strong></td><td>$f(x)=\sqrt{x}$</td><td>$[0\,;+\infty[$</td><td>$f'(x)=\dfrac{1}{2\sqrt{x}}$</td><td>$]0\,;+\infty[$</td></tr></table>
-<h2 id="s4"><span class="num-section">IV.</span> Opérations sur les fonctions dérivables</h2>
+<h2 id="s5"><span class="num-section">V.</span> Opérations sur les fonctions dérivables</h2>
 <table class="tableau"><tr><td></td><td>Type d'opération</td><td>Fonction à dériver</td><td>Fonction dérivée</td></tr><tr><td><strong>1.</strong></td><td>Dérivée d'une somme</td><td>$u+v$</td><td>$(u+v)'=u'+v'$</td></tr><tr><td><strong>2.</strong></td><td>Dérivée d'un produit par une constante</td><td>$k\times u$</td><td>$(k\times u)'=k\times u'$</td></tr><tr><td><strong>3.</strong></td><td>Dérivée d'un produit</td><td>$u\times v$</td><td>$(u\times v)'=u'\times v+u\times v'$</td></tr><tr><td><strong>4.</strong></td><td>Dérivée d'un inverse</td><td>$\dfrac{1}{v}$ avec $v(x)\neq 0$ pour tout $x\in I$</td><td>$\left(\dfrac{1}{v}\right)'=\dfrac{-v'}{v^{2}}$</td></tr><tr><td><strong>5.</strong></td><td>Dérivée d'un quotient</td><td>$\dfrac{u}{v}$ avec $v(x)\neq 0$ pour tout $x\in I$</td><td>$\left(\dfrac{u}{v}\right)'=\dfrac{u'\times v-u\times v'}{v^{2}}$</td></tr><tr><td><strong>6.</strong></td><td>Dérivée de $f(x)=g(ax+b)$, avec $a\neq 0$ : soit $I$ l'intervalle tel que, pour tout $x\in I$, $ax+b\in J$. La fonction $f$ est définie et dérivable sur $J$ et $f'(x)=a\times g'(ax+b)$.</td></tr></table>
-<h3>4.1  Produit d'une fonction dérivable par une constante</h3>
+<h3 id="s5-1">5.1  Produit d'une fonction dérivable par une constante</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Produit par une constante</span><div class="boite-corps"><p>Si $u$ est une fonction dérivable sur un intervalle $I$ de $\R$, et $k$ une constante, alors $k\,u$ est dérivable sur $I$ et</p>
 <div class="maths">\[
 (k\,u)'=k\,u' .
@@ -252,7 +346,7 @@ f'(x)=\lim_{h\to 0}\taua[x\,;x+h]=\lim_{h\to 0}k\,\tau_{u}[x\,;x+h]=ku'(x) .
 <p>La fonction $f$ est sous la forme $k\,u$ avec $u(x)=x^{7}$ et $k=3$.</p>
 <p>La fonction $u$ est dérivable sur $\R$, avec $u'(x)=7x^{6}$.</p>
 <p>Donc $f$ est dérivable sur $\R$ et $f'(x)=21x^{6}$.</p></div></section>
-<h3>4.2  Somme de deux fonctions dérivables</h3>
+<h3 id="s5-2">5.2  Somme de deux fonctions dérivables</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Somme</span><div class="boite-corps"><p>Si $u$ et $v$ sont deux fonctions dérivables sur un même intervalle $I$ de $\R$, alors $f=u+v$ est dérivable sur $I$ et</p>
 <div class="maths">\[
 f'=(u+v)'=u'+v' .
@@ -275,7 +369,7 @@ f'(x)=\lim_{h\to 0}\taua[x\,;x+h]
 <div class="maths">\[
 f'(x)=2x-\frac{1}{x^{2}} .
 \]</div></div></section>
-<h3>4.3  Produit de deux fonctions dérivables</h3>
+<h3 id="s5-3">5.3  Produit de deux fonctions dérivables</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Produit</span><div class="boite-corps"><p>Si $u$ et $v$ sont deux fonctions dérivables sur un même intervalle $I$ de $\R$, alors $u\,v$ est dérivable sur $I$ et</p>
 <div class="maths">\[
 (u\,v)'=u'\times v+u\times v' .
@@ -300,7 +394,7 @@ f'(x)=\lim_{h\to 0}\taua[x\,;x+h]
 f'(x)=2x(x+5)+x^{2} .
 \]</div></div></section>
 <p><strong>Remarque :</strong> attention, la dérivée d'un produit n'est jamais le produit des dérivées !</p>
-<h3>4.4  Inverse d'une fonction dérivable</h3>
+<h3 id="s5-4">5.4  Inverse d'une fonction dérivable</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Inverse</span><div class="boite-corps"><p>Si $u$ est une fonction dérivable sur un même intervalle $I$ de $\R$, et si, pour tout $x$ de $I$, $u(x)\neq 0$, alors $\dfrac{1}{u}$ est dérivable sur $I$ et</p>
 <div class="maths">\[
 \left(\frac{1}{u}\right)'=\frac{-u'}{u^{2}} .
@@ -311,7 +405,7 @@ f'(x)=2x(x+5)+x^{2} .
 <div class="maths">\[
 f'(x)=\frac{2x}{\left(1-x^{2}\right)^{2}} .
 \]</div></div></section>
-<h3>4.5  Quotient de deux fonctions dérivables</h3>
+<h3 id="s5-5">5.5  Quotient de deux fonctions dérivables</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Quotient</span><div class="boite-corps"><p>Si $u$ et $v$ sont deux fonctions dérivables sur un même intervalle $I$ de $\R$, et si $v$ ne s'annule pas sur $I$, alors $\dfrac{u}{v}$ est dérivable sur $I$ et</p>
 <div class="maths">\[
 \left(\frac{u}{v}\right)'=\frac{u'\times v-v'\times u}{v^{2}} .
