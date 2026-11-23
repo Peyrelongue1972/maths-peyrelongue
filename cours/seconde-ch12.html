@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="../assets/style.css">
 <script>
   window.MathJax = {
-    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "AB": "{\\overrightarrow{AB}}", "AM": "{\\overrightarrow{AM}}"} },
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "AB": "{\\overrightarrow{AB}}", "AM": "{\\overrightarrow{AM}}", "norme": ["{\\left\\|#1\\right\\|}", 1], "prob": "{P}", "Pcond": ["{P_{#1}\\left(#2\\right)}", 2], "suite": ["{\\left(#1\\right)}", 1], "limn": "{\\lim\\limits_{n\\to+\\infty}}", "limx": ["{\\lim\\limits_{x\\to #1}}", 1]} },
     options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
   };
 </script>
@@ -20,6 +20,9 @@
   border-bottom:2px solid var(--couleur,#2b6cb0)}
 .cours h2 .num-section{color:var(--couleur,#2b6cb0)}
 .cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours h3 .num-section{color:var(--couleur,#2b6cb0);margin-right:.15em}
+.cours .fbox{display:inline-block;border:1px solid var(--bord,#cfd6e0);border-radius:8px;
+  padding:.15em .55em;background:#fffdf5}
 .cours p{margin:.65rem 0;text-align:justify}
 .cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
 .cours li{margin:.28rem 0}
@@ -71,14 +74,14 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
   <p><a href="../index.html#seconde">← Retour au site</a></p>
   <h1>Chapitre 12 : Équation de droite cartésienne</h1>
   <p class="sous-titre">Seconde · Chapitre 12 — Équation de droite cartésienne · cours de Frederik de Peyrelongue</p>
-<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Équation de droite cartésienne</span><a class="onglet" href="../pdf/seconde/12-equation-de-droite-cartesienne.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../quiz/seconde-12.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Équation de droite cartésienne</span><a class="onglet" href="../pdf/seconde/12-equation-de-droite-cartesienne.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/seconde/activite1-equation-de-droite.pdf" target="_blank" rel="noopener">Activité 1 — Équation de droite</a><a class="onglet" href="../pdf/seconde/td01-equations-de-droites.pdf" target="_blank" rel="noopener">TD n°1 — Équations de droites</a><a class="onglet" href="../pdf/seconde/td02-systemes-lineaires.pdf" target="_blank" rel="noopener">TD n°2 — Systèmes linéaires et problèmes</a><a class="onglet" href="../quiz/seconde-12.html" target="_blank" rel="noopener">Quiz</a></nav>
 <nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Notion d'équation de droite</a></li><li><a href="#s2">II Théorèmes</a></li><li><a href="#s3">III Propriétés</a></li><li><a href="#s4">IV Application : fonction affine</a></li><li><a href="#s5">V Résolution de système d'équations à deux inconnues</a></li></ol></nav>
 <h2 id="s1"><span class="num-section">I.</span> Notion d'équation de droite</h2>
-<h3>1.1  Définition d'une droite</h3>
+<h3 id="s1-1">1.1  Définition d'une droite</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Droite $(AB)$</span><div class="boite-corps"><p>Soient $A$ et $B$ deux points du plan : on appelle <strong>droite</strong> $(AB)$ l'ensemble des points $M$ du plan alignés avec les points $A$ et $B$.</p></div></section>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Vecteur directeur</span><div class="boite-corps"><p>On appelle <strong>vecteur directeur</strong> de la droite $(AB)$ tout vecteur $\vec{v}$ qui a la même direction que la droite $(AB)$.</p></div></section>
 <p><strong>Remarque :</strong> une droite admet une infinité de vecteurs directeurs. Ils sont tous colinéaires entre eux.</p>
-<figure class="figure-cours"><img src="img/seconde-ch12-fig01.png" alt="figure 1 du cours"></figure>
+<figure class="figure-cours"><img src="img/-fig01.png" alt="figure 1 du cours"></figure>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Point et vecteur directeur</span><div class="boite-corps"><p>Soient $A$ un point et $\vec{u}$ un vecteur : l'ensemble des points $M$ du plan tels que les vecteurs $\AM$ et $\vec{u}$ soient colinéaires forme une droite passant par $A$ et de vecteur directeur $\vec{u}$.</p></div></section>
 <p><strong>Remarque :</strong> un point et un vecteur définissent une droite !</p>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Colinéarité et déterminant</span><div class="boite-corps"><p>Deux vecteurs non nuls $\vec{u}$ et $\vec{v}$ sont colinéaires si et seulement si</p>
@@ -126,13 +129,13 @@ a\,y+b\,x+c=0
 a\,y+b\,x+c=0 .
 \]</div>
 <p>Tout point $M$ du plan de coordonnées $M(x\,;y)$ qui vérifie l'équation $a\,y+b\,x+c=0$ appartient à la droite $D$.</p>
-<figure class="figure-cours"><img src="img/seconde-ch12-fig02.png" alt="figure 2 du cours"></figure>
+<figure class="figure-cours"><img src="img/-fig02.png" alt="figure 2 du cours"></figure>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Corollaire : vecteur directeur</span><div class="boite-corps"><p>Soit $D$ une droite ayant pour équation cartésienne $a\,y+b\,x+c=0$ : alors le vecteur</p>
 <div class="maths">\[
 \vec{u}\begin{pmatrix}-a\\ b\end{pmatrix}
 \]</div>
 <p>est un vecteur directeur de la droite $D$.</p></div></section>
-<h3>2.1  Équation réduite de droite</h3>
+<h3 id="s2-1">2.1  Équation réduite de droite</h3>
 <p><strong>Remarque :</strong> $a$ et $b$ ne peuvent pas être nuls en même temps.</p>
 <p><strong>1<sup>er</sup> cas : droite horizontale</strong> ($b=0$ et $a\neq 0$).</p>
 <p>Le vecteur $\vec{u}\begin{pmatrix}-a\\ 0\end{pmatrix}$ est un vecteur directeur de la droite $D$ : il est horizontal, la droite $D$ est donc horizontale et elle a pour équation réduite</p>
@@ -154,16 +157,16 @@ m=-\frac{b}{a}
 p=-\frac{c}{a} .
 \]</div>
 <ul><li>$m$ : nombre réel appelé <strong>coefficient directeur</strong> ;</li><li>$p$ : nombre réel appelé <strong>ordonnée à l'origine</strong>.</li></ul>
-<figure class="figure-cours"><img src="img/seconde-ch12-fig03.png" alt="figure 3 du cours"></figure>
+<figure class="figure-cours"><img src="img/-fig03.png" alt="figure 3 du cours"></figure>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Corollaire : fonction affine</span><div class="boite-corps"><p>Toute fonction affine a pour représentation graphique une droite.</p></div></section>
 <h2 id="s3"><span class="num-section">III.</span> Propriétés</h2>
-<h3>3.1  Vecteur directeur d'une droite</h3>
+<h3 id="s3-1">3.1  Vecteur directeur d'une droite</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Équation et vecteur directeur</span><div class="boite-corps"><ol><li>Toute droite $D$ non parallèle à l'axe des ordonnées admet une équation de la forme $y=m\,x+p$, et un vecteur directeur de $D$ est $\vec{u}(1\,;m)$.</li><li>Toute droite parallèle à l'axe des ordonnées a pour équation $x=k$ et pour vecteur directeur $\vec{u}(0\,;1)$.</li></ol></div></section>
-<h3>3.2  Droite parallèle</h3>
+<h3 id="s3-2">3.2  Droite parallèle</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Parallélisme</span><div class="boite-corps"><p>Deux droites sont parallèles si et seulement si leurs vecteurs directeurs sont colinéaires.</p></div></section>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Même coefficient directeur</span><div class="boite-corps"><p>Deux droites $D$ et $D'$ ayant le même coefficient directeur $m$ sont parallèles.</p></div></section>
 <p><strong>Preuve :</strong> $D$ a pour équation $y=m\,x+p$ et $D'$ a pour équation $y=m\,x+p'$ : elles ont donc même vecteur directeur $\vec{u}(1\,;m)$. Les deux vecteurs sont donc colinéaires et les droites parallèles.</p>
-<h3>3.3  Droites sécantes</h3>
+<h3 id="s3-3">3.3  Droites sécantes</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Coefficients directeurs différents</span><div class="boite-corps"><p>Deux droites $D$ et $D'$ ayant des coefficients directeurs différents sont sécantes.</p></div></section>
 <h2 id="s4"><span class="num-section">IV.</span> Application : fonction affine</h2>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Fonction affine</span><div class="boite-corps"><p>Les fonctions définies sur $\R$ dont l'expression est de la forme $f(x)=a\,x+b$, avec $a$ et $b$ deux nombres réels, sont appelées <strong>fonctions affines</strong>.</p></div></section>
@@ -171,7 +174,7 @@ p=-\frac{c}{a} .
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Représentation graphique</span><div class="boite-corps"><p>La représentation graphique d'une fonction affine est une droite.</p></div></section>
 <p><strong>Preuve :</strong> $y=a\,x+b$ est l'équation réduite d'une droite.</p>
 <h2 id="s5"><span class="num-section">V.</span> Résolution de système d'équations à deux inconnues</h2>
-<h3>5.1  Système linéaire de deux équations à deux inconnues</h3>
+<h3 id="s5-1">5.1  Système linéaire de deux équations à deux inconnues</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Système linéaire</span><div class="boite-corps"><p>On appelle $S$ un <strong>système linéaire</strong> de deux équations à deux inconnues :</p>
 <div class="maths">\[
 S\left\{
@@ -194,7 +197,7 @@ y+3x=5
 \right.
 \]</div>
 <p>$S_{1}$ est un système linéaire de deux équations à deux inconnues. Chaque équation peut être interprétée comme une droite.</p></div></section>
-<h3>5.2  Résolution graphique d'un système</h3>
+<h3 id="s5-2">5.2  Résolution graphique d'un système</h3>
 <p>Pour résoudre graphiquement le système $(S)$, il faut tracer la droite $D$ d'équation $a\,y+b\,x=c$ et la droite $D'$ d'équation $a'\,y+b'\,x=c'$, puis il y a $3$ cas :</p>
 <p><strong>1<sup>er</sup> cas :</strong> $D$ et $D'$ sont sécantes en un point $M\left(x_{0}\,;y_{0}\right)$.</p>
 <p>Le système admet une unique solution qui est $\left(x_{0}\,;y_{0}\right)$. On note l'ensemble des solutions $S=\left\{\left(x_{0}\,;y_{0}\right)\right\}$.</p>
@@ -213,8 +216,8 @@ y+3x=5
 \]</div>
 <p>On trace la droite $D$ d'équation $y=-2x+3$ et la droite $D'$ d'équation $y=-3x+5$.</p>
 <p>L'unique solution est le point d'intersection des deux droites : $M(2\,;-1)$, donc $S=\{(2\,;-1)\}$.</p>
-<figure class="figure-cours"><img src="img/seconde-ch12-fig04.png" alt="figure 4 du cours"></figure></div></section>
-<h3>5.3  Résolution algébrique d'un système</h3>
+<figure class="figure-cours"><img src="img/-fig04.png" alt="figure 4 du cours"></figure></div></section>
+<h3 id="s5-3">5.3  Résolution algébrique d'un système</h3>
 <p>On dispose de deux méthodes pour résoudre algébriquement un système linéaire à deux inconnues : la <strong>méthode par substitution</strong> et la <strong>méthode par combinaison</strong>.</p>
 <p><em>On peut avoir une préférence, mais il est cependant intéressant de connaître les deux méthodes : c'est pourquoi certains exercices sont corrigés avec une méthode, et d'autres avec l'autre méthode.</em></p>
 <p><strong>A. Méthode par substitution</strong></p>

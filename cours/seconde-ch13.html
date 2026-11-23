@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="../assets/style.css">
 <script>
   window.MathJax = {
-    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}"} },
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "norme": ["{\\left\\|#1\\right\\|}", 1], "prob": "{P}", "Pcond": ["{P_{#1}\\left(#2\\right)}", 2], "suite": ["{\\left(#1\\right)}", 1], "limn": "{\\lim\\limits_{n\\to+\\infty}}", "limx": ["{\\lim\\limits_{x\\to #1}}", 1]} },
     options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
   };
 </script>
@@ -20,6 +20,9 @@
   border-bottom:2px solid var(--couleur,#2b6cb0)}
 .cours h2 .num-section{color:var(--couleur,#2b6cb0)}
 .cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours h3 .num-section{color:var(--couleur,#2b6cb0);margin-right:.15em}
+.cours .fbox{display:inline-block;border:1px solid var(--bord,#cfd6e0);border-radius:8px;
+  padding:.15em .55em;background:#fffdf5}
 .cours p{margin:.65rem 0;text-align:justify}
 .cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
 .cours li{margin:.28rem 0}
@@ -71,10 +74,10 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
   <p><a href="../index.html#seconde">← Retour au site</a></p>
   <h1>Chapitre 13 : Les fonctions de référence</h1>
   <p class="sous-titre">Seconde · Chapitre 13 — Les fonctions de référence · cours de Frederik de Peyrelongue</p>
-<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Les fonctions de référence</span><a class="onglet" href="../pdf/seconde/13-les-fonctions-de-reference.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../quiz/seconde-13.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Les fonctions de référence</span><a class="onglet" href="../pdf/seconde/13-les-fonctions-de-reference.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/seconde/td01-fonctions-de-reference.pdf" target="_blank" rel="noopener">TD n°1 — Fonctions de référence</a><a class="onglet" href="../pdf/seconde/td02-fonctions-de-reference.pdf" target="_blank" rel="noopener">TD n°2 — Fonctions de référence</a><a class="onglet" href="../quiz/seconde-13.html" target="_blank" rel="noopener">Quiz</a></nav>
 <nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Fonction inverse</a></li><li><a href="#s2">II Fonction cube</a></li><li><a href="#s3">III Fonction racine carrée</a></li></ol></nav>
 <h2 id="s1"><span class="num-section">I.</span> Fonction inverse</h2>
-<h3><span class="num-section">I.1</span> Définition et propriétés</h3>
+<h3 id="s1-1"><span class="num-section">I.1</span> Définition et propriétés</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Fonction inverse</span><div class="boite-corps"><p>La <strong>fonction inverse</strong> est la fonction définie sur $\left]-\infty\,;0\right[\cup\left]0\,;+\infty\right[$ par</p>
 <div class="maths">\[
 x\longmapsto\frac{1}{x} .
@@ -89,7 +92,7 @@ x\longmapsto\frac{1}{x} .
 <p><strong>Conséquence :</strong> la courbe $\mathcal{C}$ représentant la fonction inverse est symétrique par rapport à l'origine.</p>
 <p><strong>Preuve :</strong> soit $M$ appartenant à $\mathcal{C}$ : $M$ a pour coordonnées $\begin{pmatrix}x\\ 1/x\end{pmatrix}$. Le point $M'$, symétrique de $M$ par rapport à l'origine, a donc pour coordonnées $\begin{pmatrix}-x\\ -1/x\end{pmatrix}$.</p>
 <p>Les coordonnées de $M'$ vérifient $f(-x)=\dfrac{1}{-x}$ : $M'$ appartient aussi à la courbe $\mathcal{C}$.</p>
-<figure class="figure-cours"><img src="img/seconde-ch13-fig01.png" alt="figure 1 du cours"></figure>
+<figure class="figure-cours"><img src="img/<span class="num-section">I.1</span> -fig01.png" alt="figure 1 du cours"></figure>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Sens de variation</span><div class="boite-corps"><p>La fonction inverse est strictement décroissante sur $\left]-\infty\,;0\right[$ et sur $\left]0\,;+\infty\right[$.</p></div></section>
 <p><strong>Preuve :</strong></p>
 <ul><li><p><strong>1<sup>er</sup> cas :</strong> soit $0&lt;a&lt;b$.</p>
@@ -110,17 +113,17 @@ x\longmapsto\frac{1}{x} .
 <div class="maths">\[
 \frac{1}{\pi}&lt;\frac{1}{3} .
 \]</div></div></section>
-<h3><span class="num-section">I.2</span> Inéquation quotient</h3>
+<h3 id="s1-2"><span class="num-section">I.2</span> Inéquation quotient</h3>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Résoudre $\dfrac{x-1}{x+5}\leqslant 0$</span><div class="boite-corps"><p>Pour résoudre cette inéquation, on va considérer la fonction $f(x)=\dfrac{x-1}{x+5}$ : elle est définie sur</p>
 <div class="maths">\[
 D_{f}=\left]-\infty\,;-5\right[\cup\left]-5\,;+\infty\right[
 \]</div>
 <p>($-5$ est une valeur interdite !).</p>
 <p>On va dresser le tableau de signes de $f$ :</p>
-<figure class="figure-cours"><img src="img/seconde-ch13-fig02.png" alt="figure 2 du cours"></figure>
+<figure class="figure-cours"><img src="img/<span class="num-section">I.2</span> -fig02.png" alt="figure 2 du cours"></figure>
 <p>L'ensemble des solutions est $S=\left]-5\,;1\right]$.</p></div></section>
 <h2 id="s2"><span class="num-section">II.</span> Fonction cube</h2>
-<h3><span class="num-section">II.1</span> Définition et propriétés</h3>
+<h3 id="s2-1"><span class="num-section">II.1</span> Définition et propriétés</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Fonction cube</span><div class="boite-corps"><p>La <strong>fonction cube</strong> est la fonction $f$ définie sur $\R$ par</p>
 <div class="maths">\[
 f(x)=x^{3} .
@@ -132,9 +135,9 @@ f(x)=x^{3} .
 <p>Soit $M\in\mathcal{C}_{f}$, donc les points $M\left(x\,;x^{3}\right)$, et $M'$ le symétrique de $M$ par rapport à $O$ : $M'$ a pour coordonnées $x_{M'}=-x$ et $y_{M'}=-y_{M}=-x^{3}$.</p>
 <p>Comme $f(-x)=-x^{3}$, le point $M'$ appartient à $\mathcal{C}_{f}$.</p>
 <p><strong>Conclusion :</strong> la courbe $\mathcal{C}_{f}$ est symétrique par rapport à $O$.</p>
-<figure class="figure-cours"><img src="img/seconde-ch13-fig03.png" alt="figure 3 du cours"></figure>
+<figure class="figure-cours"><img src="img/<span class="num-section">II.1</span> -fig03.png" alt="figure 3 du cours"></figure>
 <p><strong>Tableau de variation de la fonction cube :</strong></p>
-<figure class="figure-cours"><img src="img/seconde-ch13-fig04.png" alt="figure 4 du cours"></figure>
+<figure class="figure-cours"><img src="img/<span class="num-section">II.1</span> -fig04.png" alt="figure 4 du cours"></figure>
 <p><strong>Démonstration :</strong> démontrons que $f$ est strictement croissante sur $\R$ : soit $a$ et $b$ deux nombres tels que $a&lt;b$.</p>
 <p>Étudions le signe de</p>
 <div class="maths">\[
@@ -149,23 +152,23 @@ a^{2}+ab+b^{2}=\left(a+\frac{b}{2}\right)^{2}+\frac{3}{4}b^{2} :
 <p>Comme $a&lt;b$, on a $a-b&lt;0$ et, d'après la règle des signes d'un produit, $f(a)-f(b)&lt;0$.</p>
 <p><strong>Conclusion :</strong> pour tous nombres réels $a$ et $b$ tels que $a&lt;b$, on a $f(a)&lt;f(b)$.</p>
 <p><em>$f$ est donc strictement croissante sur $\R$.</em></p>
-<h3><span class="num-section">II.2</span> Comparer les cubes de deux nombres</h3>
+<h3 id="s2-2"><span class="num-section">II.2</span> Comparer les cubes de deux nombres</h3>
 <p>En utilisant les variations de la fonction cube, on a la propriété suivante :</p>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Comparaison des cubes</span><div class="boite-corps"><p>Deux nombres réels et leurs cubes sont rangés dans le <strong>même ordre</strong> : pour tous réels $a$ et $b$ tels que $a&lt;b$, on a</p>
 <div class="maths">\[
 a^{3}&lt;b^{3} .
 \]</div></div></section>
 <p><strong>Preuve :</strong> la fonction cube est croissante, donc les images sont dans le même ordre que les antécédents !</p>
-<h3><span class="num-section">II.3</span> Résoudre l'équation $x^{3}=k$</h3>
+<h3 id="s2-3"><span class="num-section">II.3</span> Résoudre l'équation $x^{3}=k$</h3>
 <p>Les solutions de l'équation $x^{3}=k$ sont les abscisses des points d'intersection de la courbe de la fonction cube et de la droite parallèle à l'axe des abscisses d'équation $y=k$.</p>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Équation $x^{3}=k$</span><div class="boite-corps"><p>Soit un réel $k$.</p>
 <ul><li>Si $k&gt;0$, l'équation $x^{3}=k$ a une unique solution : $S=\left\{\sqrt[3]{k}\right\}$.</li><li>Si $k=0$, l'équation $x^{3}=k$ a une unique solution : $S=\{0\}$.</li><li>Si $k&lt;0$, l'équation $x^{3}=k$ a une unique solution : $S=\left\{-\sqrt[3]{|k|}\right\}$.</li></ul></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Résoudre $x^{3}=8$ et $x^{3}=-2$</span><div class="boite-corps"><ul><li>L'équation $x^{3}=8$ admet une unique solution : $2$.</li><li>L'équation $x^{3}=-2$ admet une unique solution : $-\sqrt[3]{2}$.</li></ul></div></section>
-<h3><span class="num-section">II.4</span> Position relative des courbes $y=x$, $y=x^{2}$, $y=x^{3}$</h3>
+<h3 id="s2-4"><span class="num-section">II.4</span> Position relative des courbes $y=x$, $y=x^{2}$, $y=x^{3}$</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Position relative sur $\left[0\,;+\infty\right[$</span><div class="boite-corps"><ul><li>Pour tout réel $x$ appartenant à $[0\,;1]$, on a : $x^{3}\leqslant x^{2}\leqslant x$.</li><li>Pour tout réel $x$ appartenant à $\left[1\,;+\infty\right[$, on a : $x^{3}\geqslant x^{2}\geqslant x$.</li></ul></div></section>
-<figure class="figure-cours"><img src="img/seconde-ch13-fig05.png" alt="figure 5 du cours"></figure>
+<figure class="figure-cours"><img src="img/<span class="num-section">II.4</span> -fig05.png" alt="figure 5 du cours"></figure>
 <h2 id="s3"><span class="num-section">III.</span> Fonction racine carrée</h2>
-<h3><span class="num-section">III.1</span> Définition et propriétés</h3>
+<h3 id="s3-1"><span class="num-section">III.1</span> Définition et propriétés</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Fonction racine carrée</span><div class="boite-corps"><p>La <strong>fonction racine carrée</strong> est la fonction $f$ qui, à tout nombre de son ensemble de définition $\left[0\,;+\infty\right[$, associe la racine carrée de ce nombre :</p>
 <div class="maths">\[
 f(x)=\sqrt{x} .
@@ -178,10 +181,10 @@ f(b)-f(a)=\sqrt{b}-\sqrt{a}
 =\frac{b-a}{\sqrt{b}+\sqrt{a}} .
 \]</div>
 <p>Étant donné que $b&gt;a$, le numérateur $(b-a)$ est toujours positif, tout comme le dénominateur qui est une somme de racines carrées : donc $f(b)-f(a)&gt;0$, ce qui montre que la fonction racine carrée est strictement <strong>croissante</strong> sur son ensemble de définition.</p>
-<figure class="figure-cours"><img src="img/seconde-ch13-fig06.png" alt="figure 6 du cours"></figure>
+<figure class="figure-cours"><img src="img/<span class="num-section">III.1</span> -fig06.png" alt="figure 6 du cours"></figure>
 <p><strong>Tableau de variations</strong></p>
-<h3><span class="num-section">III.2</span> Comparaison de fonctions</h3>
-<h3><span class="num-section">III.3</span> Comparaison de $f(x)=\sqrt{x}$ et $g(x)=x$ sur l'ensemble des réels positifs</h3>
+<h3 id="s3-2"><span class="num-section">III.2</span> Comparaison de fonctions</h3>
+<h3 id="s3-3"><span class="num-section">III.3</span> Comparaison de $f(x)=\sqrt{x}$ et $g(x)=x$ sur l'ensemble des réels positifs</h3>
 <p>Pour comparer deux fonctions, on calcule la différence entre les deux fonctions et on étudie le signe :</p>
 <div class="maths">\[
 f(x)-g(x)=\sqrt{x}-x=\sqrt{x}\left(1-\sqrt{x}\right) .
@@ -194,15 +197,15 @@ f(x)-g(x)=\sqrt{x}-x=\sqrt{x}\left(1-\sqrt{x}\right) .
 <p>$(1-\sqrt{x})\geqslant 0$ sur $[0\,;1]$ et $(1-\sqrt{x})&lt;0$ sur $\left]1\,;+\infty\right[$.</p>
 <p>On en déduit donc que $f(x)-g(x)$ est positif sur l'intervalle $[0\,;1]$ et strictement négatif sur l'intervalle $\left]1\,;+\infty\right[$.</p>
 <p>Par conséquent : sur $[0\,;1]$, $\sqrt{x}\geqslant x$ et, sur $\left]1\,;+\infty\right[$, $\sqrt{x}&lt;x$.</p>
-<figure class="figure-cours"><img src="img/seconde-ch13-fig07.png" alt="figure 7 du cours"></figure>
-<h3><span class="num-section">III.4</span> Comparaison de $g(x)=x$ et $h(x)=x^{2}$ sur l'ensemble des réels</h3>
+<figure class="figure-cours"><img src="img/<span class="num-section">III.3</span> -fig07.png" alt="figure 7 du cours"></figure>
+<h3 id="s3-4"><span class="num-section">III.4</span> Comparaison de $g(x)=x$ et $h(x)=x^{2}$ sur l'ensemble des réels</h3>
 <div class="maths">\[
 g(x)-h(x)=x-x^{2}=x(1-x) .
 \]</div>
-<figure class="figure-cours"><img src="img/seconde-ch13-fig08.png" alt="figure 8 du cours"></figure>
+<figure class="figure-cours"><img src="img/<span class="num-section">III.4</span> -fig08.png" alt="figure 8 du cours"></figure>
 <p>On en déduit donc que $g(x)-h(x)$ est positif sur l'intervalle $[0\,;1]$ et strictement négatif sur l'intervalle $\left]-\infty\,;0\right[\cup\left]1\,;+\infty\right[$.</p>
 <p>Par conséquent : sur $[0\,;1]$, $x\geqslant x^{2}$ et, sur $\left]-\infty\,;0\right[\cup\left]1\,;+\infty\right[$, $x&lt;x^{2}$.</p>
-<h3><span class="num-section">III.5</span> Comparaison de $\sqrt{x}$, $x$ et $x^{2}$</h3>
+<h3 id="s3-5"><span class="num-section">III.5</span> Comparaison de $\sqrt{x}$, $x$ et $x^{2}$</h3>
 <p>On déduit des comparaisons précédentes que :</p>
 <ul><li>sur $[0\,;1]$, $\sqrt{x}\geqslant x\geqslant x^{2}$ ;</li><li>sur $\left]1\,;+\infty\right[$, $\sqrt{x}&lt;x&lt;x^{2}$.</li></ul>
   <p style="margin-top:2.5rem"><a href="../index.html#seconde">← Retour au site</a></p>

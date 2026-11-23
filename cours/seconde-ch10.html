@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="../assets/style.css">
 <script>
   window.MathJax = {
-    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}"} },
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "norme": ["{\\left\\|#1\\right\\|}", 1], "prob": "{P}", "Pcond": ["{P_{#1}\\left(#2\\right)}", 2], "suite": ["{\\left(#1\\right)}", 1], "limn": "{\\lim\\limits_{n\\to+\\infty}}", "limx": ["{\\lim\\limits_{x\\to #1}}", 1]} },
     options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
   };
 </script>
@@ -20,6 +20,9 @@
   border-bottom:2px solid var(--couleur,#2b6cb0)}
 .cours h2 .num-section{color:var(--couleur,#2b6cb0)}
 .cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours h3 .num-section{color:var(--couleur,#2b6cb0);margin-right:.15em}
+.cours .fbox{display:inline-block;border:1px solid var(--bord,#cfd6e0);border-radius:8px;
+  padding:.15em .55em;background:#fffdf5}
 .cours p{margin:.65rem 0;text-align:justify}
 .cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
 .cours li{margin:.28rem 0}
@@ -71,7 +74,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
   <p><a href="../index.html#seconde">← Retour au site</a></p>
   <h1>Chapitre 10 : Étude de la fonction carré</h1>
   <p class="sous-titre">Seconde · Chapitre 10 — Étude de la fonction carré · cours de Frederik de Peyrelongue</p>
-<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Étude de la fonction carré</span><a class="onglet" href="../pdf/seconde/10-etude-de-la-fonction-carre.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../quiz/seconde-10.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Étude de la fonction carré</span><a class="onglet" href="../pdf/seconde/10-etude-de-la-fonction-carre.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/seconde/activite1-fonction-carre.pdf" target="_blank" rel="noopener">Activité 1 — La fonction carré</a><a class="onglet" href="../pdf/seconde/td01-fonction-carre.pdf" target="_blank" rel="noopener">TD n°1 — Fonction carré</a><a class="onglet" href="../pdf/seconde/td02-fonction-carre.pdf" target="_blank" rel="noopener">TD n°2 — Fonction carré</a><a class="onglet" href="../pdf/seconde/td03-calcul-algebrique.pdf" target="_blank" rel="noopener">TD n°3 — Calcul algébrique</a><a class="onglet" href="../pdf/seconde/probleme-fonction-geometrie.pdf" target="_blank" rel="noopener">Problème — fonction et géométrie</a><a class="onglet" href="../quiz/seconde-10.html" target="_blank" rel="noopener">Quiz</a></nav>
 <nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Définition et propriétés</a></li><li><a href="#s2">II Représentation graphique et parité</a></li><li><a href="#s3">III Comparer les carrés de deux nombres</a></li><li><a href="#s4">IV Résoudre l'équation $x^{2}=k$</a></li><li><a href="#s5">V Résoudre une inéquation</a></li></ol></nav>
 <h2 id="s1"><span class="num-section">I.</span> Définition et propriétés</h2>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Fonction carré</span><div class="boite-corps"><p>La <strong>fonction carré</strong> est la fonction $f$ définie sur $\R$ par</p>
@@ -144,10 +147,10 @@ x^{2}=k\iff x-\sqrt{k}=0 \ \text{ou}\ x+\sqrt{k}=0
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Résoudre $x^{2}=4$ et $x^{2}=-1$</span><div class="boite-corps"><ul><li>L'équation $x^{2}=4$ admet deux solutions : $-2$ et $2$.</li><li>L'équation $x^{2}=-1$ n'admet pas de solution.</li></ul>
 <figure class="figure-cours"><img src="img/seconde-ch10-fig04.png" alt="figure 4 du cours"></figure></div></section>
 <h2 id="s5"><span class="num-section">V.</span> Résoudre une inéquation</h2>
-<h3>5.1  Résoudre graphiquement une inéquation</h3>
+<h3 id="s5-1">5.1  Résoudre graphiquement une inéquation</h3>
 <ul><li>Soit $x$ un réel : déterminer les solutions de l'inéquation $x^{2}\leqslant a$ en utilisant la représentation graphique de la fonction carré.</li><li>Les solutions de l'inéquation $x^{2}\leqslant a$ sont les abscisses des points de la courbe de la fonction carré qui ont une ordonnée inférieure ou égale à $a$.</li><li>On trace la droite d'équation $y=a$, on repasse en couleur les points de la courbe qui sont situés en dessous de la droite, puis on lit les abscisses de ces points.</li></ul>
-<figure class="figure-cours"><img src="img/seconde-ch10-fig05.png" alt="figure 5 du cours"></figure>
-<h3>5.2  Résoudre algébriquement une inéquation</h3>
+<figure class="figure-cours"><img src="img/-fig05.png" alt="figure 5 du cours"></figure>
+<h3 id="s5-2">5.2  Résoudre algébriquement une inéquation</h3>
 <p><strong>Résoudre $f(x)&lt;k$ :</strong></p>
 <ol><li>On se ramène à une comparaison à zéro : $f(x)&lt;k\iff f(x)-k&lt;0$.</li><li>On factorise l'expression obtenue.</li><li>On dresse un tableau de signes et, par lecture du tableau, on peut conclure.</li></ol>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Résoudre $x^{2}&lt;4$</span><div class="boite-corps"><p>Résoudre $x^{2}&lt;4$ :</p>

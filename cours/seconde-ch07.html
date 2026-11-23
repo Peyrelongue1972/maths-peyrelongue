@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="../assets/style.css">
 <script>
   window.MathJax = {
-    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}"} },
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "norme": ["{\\left\\|#1\\right\\|}", 1], "prob": "{P}", "Pcond": ["{P_{#1}\\left(#2\\right)}", 2], "suite": ["{\\left(#1\\right)}", 1], "limn": "{\\lim\\limits_{n\\to+\\infty}}", "limx": ["{\\lim\\limits_{x\\to #1}}", 1]} },
     options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
   };
 </script>
@@ -20,6 +20,9 @@
   border-bottom:2px solid var(--couleur,#2b6cb0)}
 .cours h2 .num-section{color:var(--couleur,#2b6cb0)}
 .cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours h3 .num-section{color:var(--couleur,#2b6cb0);margin-right:.15em}
+.cours .fbox{display:inline-block;border:1px solid var(--bord,#cfd6e0);border-radius:8px;
+  padding:.15em .55em;background:#fffdf5}
 .cours p{margin:.65rem 0;text-align:justify}
 .cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
 .cours li{margin:.28rem 0}
@@ -71,12 +74,12 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
   <p><a href="../index.html#seconde">← Retour au site</a></p>
   <h1>Chapitre 7 : Information chiffrée</h1>
   <p class="sous-titre">Seconde · Chapitre 7 — Information chiffrée · cours de Frederik de Peyrelongue</p>
-<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Information chiffrée</span><a class="onglet" href="../pdf/seconde/7-information-chiffree.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../quiz/seconde-7.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Information chiffrée</span><a class="onglet" href="../pdf/seconde/7-information-chiffree.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/seconde/td01-information-chiffree.pdf" target="_blank" rel="noopener">TD n°1 — Information chiffrée</a><a class="onglet" href="../quiz/seconde-7.html" target="_blank" rel="noopener">Quiz</a></nav>
 <nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Proportions</a></li><li><a href="#s2">II Évolutions</a></li><li><a href="#s3">III Indices</a></li></ol></nav>
 <h2 id="s1"><span class="num-section">I.</span> Proportions</h2>
 <p>Soit un ensemble $A$ ayant $n_{A}$ éléments, inclus dans un ensemble plus grand $E$ ayant $n_{E}$ éléments.</p>
 <figure class="figure-cours"><img src="img/seconde-ch07-fig01.png" alt="figure 1 du cours"></figure>
-<h3>1.1  Calculer une proportion $p$ d'un ensemble $A$ inclus dans un ensemble $E$</h3>
+<h3 id="s1-1">1.1  Calculer une proportion $p$ d'un ensemble $A$ inclus dans un ensemble $E$</h3>
 <p>Pour calculer la proportion d'éléments de $A$ compris dans l'ensemble $E$, on calcule le rapport du nombre d'éléments :</p>
 <div class="maths">\[
 p=\frac{n_{A}}{n_{E}} .
@@ -89,14 +92,14 @@ N=\frac{15}{90}=\frac{1}{6}
 \qquad\text{et en pourcentage}\qquad
 \frac{1}{6}\approx 0{,}1667=\frac{16{,}67}{100}=16{,}67\,\% .
 \]</div></div></section>
-<h3>1.2  Calculer un pourcentage d'une quantité</h3>
+<h3 id="s1-2">1.2  Calculer un pourcentage d'une quantité</h3>
 <p><strong>Exemple :</strong> $38\,\%$ de $40$ est égal à $R=\dfrac{38}{100}\times 40$.</p>
 <p>Calculer $p\,\%$ de $N$, c'est calculer $\dfrac{p}{100}\times N$.</p>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Filles d'un club d'escrime</span><div class="boite-corps"><p>Il y a $45\,\%$ de filles dans un club d'escrime de $300$ membres. Combien y a-t-il de filles dans le club ?</p>
 <div class="maths">\[
 N=\frac{45}{100}\times 300=135 .
 \]</div></div></section>
-<h3>1.3  Savoir retrouver $n_{E}$ à partir de $p$ et de $n_{A}$</h3>
+<h3 id="s1-3">1.3  Savoir retrouver $n_{E}$ à partir de $p$ et de $n_{A}$</h3>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Élèves malades</span><div class="boite-corps"><p>$24$ élèves sont malades, ce qui représente dans l'établissement $5\,\%$ de l'effectif. Combien y a-t-il d'élèves ?</p></div></section>
 <table class="tableau"><tr><td>$5\,\%$</td><td>$\longrightarrow$</td><td>$24$ élèves</td></tr><tr><td>$100\,\%$</td><td>$\longrightarrow$</td><td>$X$ élèves</td></tr></table>
 <p>Produit en croix :</p>
@@ -115,7 +118,7 @@ p\times n_{E}=\frac{n_{A}}{n_{E}}\times n_{E}
 \qquad\text{donc}\qquad
 n_{E}=\frac{24}{0{,}05}=480 .
 \]</div>
-<h3>1.4  Proportions enchaînées</h3>
+<h3 id="s1-4">1.4  Proportions enchaînées</h3>
 <p>Soient $A$, $B$ et $E$ trois ensembles tels que $B\subset A\subset E$. Si $p_{1}$ est la proportion de $B$ dans $A$ et si $p_{2}$ est la proportion de $A$ dans $E$, alors la proportion de $B$ dans $E$ est $p_{1}\times p_{2}$.</p>
 <p><strong>Preuve :</strong> on a $p_{1}=\dfrac{n_{B}}{n_{A}}$ et $p_{2}=\dfrac{n_{A}}{n_{E}}$, d'où</p>
 <div class="maths">\[
@@ -128,7 +131,7 @@ p_{1}\times p_{2}=\frac{n_{B}}{n_{A}}\times\frac{n_{A}}{n_{E}}
 0{,}13\times 0{,}2=0{,}026=2{,}6\,\% .
 \]</div></div></section>
 <h2 id="s2"><span class="num-section">II.</span> Évolutions</h2>
-<h3>2.1  Taux d'évolution</h3>
+<h3 id="s2-1">2.1  Taux d'évolution</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Taux d'évolution</span><div class="boite-corps"><p>On appelle <strong>taux d'évolution</strong> (ou taux de variation) le pourcentage de variation entre deux valeurs, l'une de départ et l'autre d'arrivée.</p>
 <p>La variation $t$ en pourcentage entre $V_{d}$, valeur de départ, et $V_{a}$, valeur d'arrivée, est</p>
 <div class="maths">\[
@@ -138,12 +141,12 @@ t=\frac{V_{a}-V_{d}}{V_{d}} .
 <div class="maths">\[
 t=\frac{100-80}{80}=0{,}25=\frac{25}{100}=25\,\% .
 \]</div></div></section>
-<h3>2.2  Le coefficient multiplicateur</h3>
+<h3 id="s2-2">2.2  Le coefficient multiplicateur</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Coefficient multiplicateur</span><div class="boite-corps"><p>Le <strong>coefficient multiplicateur</strong> $C_{M}$ est le rapport de la valeur d'arrivée $V_{a}$ sur la valeur de départ $V_{d}$ :</p>
 <div class="maths">\[
 C_{M}=\frac{V_{a}}{V_{d}} .
 \]</div></div></section>
-<h3>2.3  Le coefficient multiplicateur et le taux $t$</h3>
+<h3 id="s2-3">2.3  Le coefficient multiplicateur et le taux $t$</h3>
 <div class="maths">\[
 C_{M}=1+t .
 \]</div>
@@ -154,13 +157,13 @@ C_{M}=\frac{V_{a}}{V_{d}}
 =\frac{V_{a}-V_{d}}{V_{d}}+\frac{V_{d}}{V_{d}}
 =t+1 .
 \]</div>
-<figure class="figure-cours"><img src="img/seconde-ch07-fig02.png" alt="figure 2 du cours"></figure>
+<figure class="figure-cours"><img src="img/-fig02.png" alt="figure 2 du cours"></figure>
 <p><strong>Exemple :</strong></p>
 <ul><li>pour une augmentation de $12\,\%$, le taux $t=12\,\%$ et le coefficient multiplicateur $C_{M}=1{,}12$ ;</li><li>pour une baisse de $12\,\%$, le taux $t=-12\,\%$ et le coefficient multiplicateur $C_{M}=0{,}88$.</li></ul>
 <ul><li>Pour trouver $V_{a}$, on multiplie $V_{d}$ par $(1+t)$ : $V_{a}=(1+t)\times V_{d}$.</li><li>Pour trouver $V_{d}$, on multiplie $V_{a}$ par $\dfrac{1}{1+t}$ : $V_{a}\times\dfrac{1}{1+t}=V_{d}$.</li><li><p>Pour trouver le taux d'évolution :</p>
 <ul><li><strong>Méthode 1 :</strong> $t=\dfrac{V_{a}-V_{d}}{V_{d}}$ ;</li><li><strong>Méthode 2 :</strong> on calcule le coefficient multiplicateur $C_{M}=\dfrac{V_{a}}{V_{d}}$, puis $t=C_{M}-1$.</li></ul></li></ul>
-<h3>2.4  Taux global correspondant à plusieurs évolutions successives</h3>
-<figure class="figure-cours"><img src="img/seconde-ch07-fig03.png" alt="figure 3 du cours"></figure>
+<h3 id="s2-4">2.4  Taux global correspondant à plusieurs évolutions successives</h3>
+<figure class="figure-cours"><img src="img/-fig03.png" alt="figure 3 du cours"></figure>
 <ul><li><p>Il faut multiplier les coefficients multiplicateurs entre eux :</p>
 <div class="maths">        \[
         C_{M\text{global}}=C_{M_{1}}\times C_{M_{2}}\times\dots\times C_{M_{n}}
@@ -175,8 +178,8 @@ C_{M}=\frac{V_{a}}{V_{d}}
 <div class="maths">\[
 t_{g}=(1+0{,}2)\times(1+0{,}2)-1=0{,}44=44\,\% .
 \]</div></div></section>
-<h3>2.5  Calculer un taux moyen correspondant à $n$ évolutions successives, connaissant le taux global</h3>
-<figure class="figure-cours"><img src="img/seconde-ch07-fig04.png" alt="figure 4 du cours"></figure>
+<h3 id="s2-5">2.5  Calculer un taux moyen correspondant à $n$ évolutions successives, connaissant le taux global</h3>
+<figure class="figure-cours"><img src="img/-fig04.png" alt="figure 4 du cours"></figure>
 <p>On écrit :</p>
 <div class="maths">\[
 \left(1+t_{m}\right)^{n}=1+t_{g}
@@ -188,7 +191,7 @@ t_{m}=\left(1+t_{g}\right)^{\frac{1}{n}}-1 .
 t_{m}=(1+0{,}15)^{\frac{1}{12}}-1=0{,}0117 .
 \]</div>
 <p>Le taux moyen mensuel est de $1{,}17\,\%$ par mois.</p></div></section>
-<h3>2.6  Taux d'évolution réciproque</h3>
+<h3 id="s2-6">2.6  Taux d'évolution réciproque</h3>
 <p>On cherche à obtenir le taux d'évolution $t_{r}$ qui annule une évolution $t_{x}$.</p>
 <p>Une évolution d'un taux $t_{x}$ revient à multiplier par $(1+t_{x})$ : pour revenir en arrière, il faut diviser par $(1+t_{x})$ :</p>
 <div class="maths">\[

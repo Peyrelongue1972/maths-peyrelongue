@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="../assets/style.css">
 <script>
   window.MathJax = {
-    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}"} },
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "norme": ["{\\left\\|#1\\right\\|}", 1], "prob": "{P}", "Pcond": ["{P_{#1}\\left(#2\\right)}", 2], "suite": ["{\\left(#1\\right)}", 1], "limn": "{\\lim\\limits_{n\\to+\\infty}}", "limx": ["{\\lim\\limits_{x\\to #1}}", 1]} },
     options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
   };
 </script>
@@ -20,6 +20,9 @@
   border-bottom:2px solid var(--couleur,#2b6cb0)}
 .cours h2 .num-section{color:var(--couleur,#2b6cb0)}
 .cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours h3 .num-section{color:var(--couleur,#2b6cb0);margin-right:.15em}
+.cours .fbox{display:inline-block;border:1px solid var(--bord,#cfd6e0);border-radius:8px;
+  padding:.15em .55em;background:#fffdf5}
 .cours p{margin:.65rem 0;text-align:justify}
 .cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
 .cours li{margin:.28rem 0}
@@ -71,7 +74,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
   <p><a href="../index.html#seconde">← Retour au site</a></p>
   <h1>Chapitre 3 : Généralités sur les fonctions</h1>
   <p class="sous-titre">Seconde · Chapitre 3 — Généralités sur les fonctions · cours de Frederik de Peyrelongue</p>
-<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Généralités sur les fonctions</span><a class="onglet" href="../pdf/seconde/3-generalites-sur-les-fonctions.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../quiz/seconde-3.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Généralités sur les fonctions</span><a class="onglet" href="../pdf/seconde/3-generalites-sur-les-fonctions.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/seconde/activite1-securite-routiere.pdf" target="_blank" rel="noopener">Activité 1 — Sécurité routière</a><a class="onglet" href="../pdf/seconde/activite2-lecture-graphique.pdf" target="_blank" rel="noopener">Activité 2 — Lecture graphique</a><a class="onglet" href="../pdf/seconde/td01-generalites-fonctions.pdf" target="_blank" rel="noopener">TD n°1 — Généralités sur les fonctions</a><a class="onglet" href="../quiz/seconde-3.html" target="_blank" rel="noopener">Quiz</a></nav>
 <nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Généralités sur les fonctions</a></li><li><a href="#s2">II Courbe représentative d'une fonction</a></li><li><a href="#s3">III Résolution graphique d'équation</a></li><li><a href="#s4">IV Résolution graphique d'équation et d'inéquation</a></li><li><a href="#s5">V Résolution graphique d'équations du type $f(x)=g(x)$ et d'inéquations du type $f(x)&gt;g(x)$</a></li><li><a href="#s6">VI Sens de variation</a></li></ol></nav>
 <h2 id="s1"><span class="num-section">I.</span> Généralités sur les fonctions</h2>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Fonction numérique</span><div class="boite-corps"><p>Soit $D_{f}$ une partie de $\R$ (un ensemble de nombres réels). Lorsqu'on associe à tout nombre $x$ appartenant à $D_{f}$ un <strong>unique nombre</strong> $y$ réel, on définit une fonction numérique $f$ de l'ensemble de nombres $D_{f}$ vers $\R$.</p>
@@ -96,16 +99,16 @@ f(V)=\frac{V^{2}}{155} .
 <ul><li>Calculer les images de $3$, $2{,}5$ et $0$ par la fonction $f$.</li><li>Montrer que $-1$ et $0{,}5$ sont des antécédents de $0$ par la fonction $f$.</li></ul></div></section>
 <section class="boite boite-rem"><span class="boite-titre">Remarque</span> <span class="boite-sous-titre">1</span><div class="boite-corps"><ul><li>L'<strong>image</strong> d'un nombre par une fonction, lorsqu'elle existe, <strong>est unique</strong>.</li><li>Un nombre peut avoir un, plusieurs ou aucun antécédent par une fonction.</li></ul></div></section>
 <h2 id="s2"><span class="num-section">II.</span> Courbe représentative d'une fonction</h2>
-<h3>2.1  Notion de courbe représentative d'une fonction</h3>
+<h3 id="s2-1">2.1  Notion de courbe représentative d'une fonction</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Courbe représentative</span><div class="boite-corps"><p>Soit $D_{f}$ une partie de $\R$ et soit $f$ une fonction définie sur $D_{f}$. La <strong>représentation graphique</strong> de la fonction $f$ (ou sa <strong>courbe représentative</strong>) dans le repère $\left(O\,;I\,,J\right)$ est l'ensemble des points $M$ de coordonnées $\left(x\,;f(x)\right)$, où $x\in D_{f}$.</p>
 <ul><li>L'abscisse $x$ prend toutes les valeurs de $D_{f}$.</li><li>L'ordonnée $y$ est l'image de $x$ par $f$.</li><li>On dit que la courbe représentative de $f$, notée $\mathcal{C}_{f}$, a pour équation $y=f(x)$.</li></ul></div></section>
-<h3>2.2  Tracer une courbe représentative d'une fonction</h3>
+<h3 id="s2-2">2.2  Tracer une courbe représentative d'une fonction</h3>
 <p><strong>Méthode :</strong> on dresse un tableau de valeurs de $f$ et on place les points de $\mathcal{C}_{f}$ ainsi connus dans le repère orthonormé $\left(O\,;I\,,J\right)$. Si $x$ est une variable « continue », on essaie de relier de façon harmonieuse les points entre eux.</p>
 <section class="boite boite-rem"><span class="boite-titre">Remarque</span> <span class="boite-sous-titre">2</span><div class="boite-corps"><p>Si $x$ est une variable à valeurs entières, on ne relie pas les points.</p>
 <p>Un cercle ne peut être la représentation graphique d'une fonction, car l'image d'un point doit être unique.</p></div></section>
 <h2 id="s3"><span class="num-section">III.</span> Résolution graphique d'équation</h2>
 <p><strong>Activité 2 :</strong> la courbe ci-dessous est la représentation graphique de la fonction $g$.</p>
-<figure class="figure-cours"><img src="img/seconde-ch03-fig02.png" alt="figure 2 du cours"></figure>
+<figure class="figure-cours"><img src="img/-fig02.png" alt="figure 2 du cours"></figure>
 <ul><li>Déterminer l'ensemble de définition de $g$.</li><li>Lire les images de $-3$ et $2$ par $g$.</li><li>Résoudre graphiquement, en justifiant, l'équation $g(x)=-3$.</li><li>Résoudre graphiquement, en justifiant, l'équation $g(x)=5$.</li><li>Résoudre graphiquement, en justifiant, l'inéquation $g(x)&lt;2$.</li><li>Résoudre graphiquement, en justifiant, l'inéquation $g(x)\geqslant -3$.</li><li>Construire la droite d'équation $y=2x+1$.</li><li>Résoudre graphiquement, en justifiant, l'inéquation $g(x)\geqslant 2x+1$.</li><li>On admet que $g(x)=-x^{2}+2x+5$. Le point $P(-0{,}5\,;4)$ appartient-il à la courbe représentative de $g$ ? Justifier votre réponse.</li></ul>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriété 1</span><div class="boite-corps"><p>Soient $k$ un nombre réel, $f$ une fonction et $\mathcal{C}_{f}$ sa courbe représentative.</p>
 <p>Les solutions de l'équation $f(x)=k$ sont les abscisses des points d'intersection de $\mathcal{C}_{f}$ avec la droite d'équation $y=k$.</p></div></section>
@@ -116,15 +119,15 @@ f(V)=\frac{V^{2}}{155} .
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriété 3</span><div class="boite-corps"><ol><li>Les solutions de l'équation $f(x)=g(x)$ sont les abscisses des points d'intersection entre la courbe $\mathcal{C}_{f}$ et la courbe $\mathcal{C}_{g}$.</li><li>Les solutions de l'inéquation $f(x)\geqslant g(x)$ sont les abscisses des points de la courbe $\mathcal{C}_{f}$ qui se situent au-dessus ou sur la courbe $\mathcal{C}_{g}$.</li><li>Les solutions de l'inéquation $f(x)&gt;g(x)$ sont les abscisses des points de la courbe $\mathcal{C}_{f}$ qui se situent strictement au-dessus de la courbe $\mathcal{C}_{g}$.</li><li>Les solutions de l'inéquation $f(x)\leqslant g(x)$ sont les abscisses des points de la courbe $\mathcal{C}_{f}$ qui se situent en dessous ou sur la courbe $\mathcal{C}_{g}$.</li><li>Les solutions de l'inéquation $f(x)&lt;g(x)$ sont les abscisses des points de la courbe $\mathcal{C}_{f}$ qui se situent strictement en dessous de la courbe $\mathcal{C}_{g}$.</li></ol></div></section>
 <section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Comparer deux courbes</span><div class="boite-corps"><p>Voici les courbes de deux fonctions $f$ et $g$ définies sur $[-4\,;4]$.</p>
 <p>Résoudre graphiquement : $f(x)=g(x)$, puis $f(x)&lt;g(x)$.</p>
-<figure class="figure-cours"><img src="img/seconde-ch03-fig03.png" alt="figure 3 du cours"></figure></div></section>
+<figure class="figure-cours"><img src="img/-fig03.png" alt="figure 3 du cours"></figure></div></section>
 <h2 id="s6"><span class="num-section">VI.</span> Sens de variation</h2>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Fonction croissante, décroissante</span><div class="boite-corps"><p>Une fonction $f$ est <strong>croissante</strong> sur un intervalle $I$ si elle conserve l'ordre : pour toutes valeurs réelles $a$ et $b$ de $I$ telles que $a&lt;b$, on a $f(a)&lt;f(b)$.</p>
 <p>Une fonction $f$ est <strong>décroissante</strong> sur un intervalle $I$ si elle inverse l'ordre : pour toutes valeurs réelles $a$ et $b$ de $I$ telles que $a&lt;b$, on a $f(a)&gt;f(b)$.</p></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Fonction sur $[-1\,;+\infty[$</span><div class="boite-corps"><p>Soit la fonction $f$ représentée sur l'intervalle $[-1\,;+\infty[$.</p>
-<figure class="figure-cours"><img src="img/seconde-ch03-fig04.png" alt="figure 4 du cours"></figure>
+<figure class="figure-cours"><img src="img/-fig04.png" alt="figure 4 du cours"></figure>
 <p>$f$ est décroissante sur $[-1\,;0]$, croissante sur $[0\,;1]$, décroissante sur $[1\,;3.2]$, puis enfin croissante sur $[3.2\,;+\infty[$.</p></div></section>
 <p>On résume les variations de la fonction $f$ dans un tableau de variation :</p>
-<figure class="figure-cours"><img src="img/seconde-ch03-fig05.png" alt="figure 5 du cours"></figure>
+<figure class="figure-cours"><img src="img/-fig05.png" alt="figure 5 du cours"></figure>
   <p style="margin-top:2.5rem"><a href="../index.html#seconde">← Retour au site</a></p>
 </main>
 <script src="../assets/acces.js"></script>

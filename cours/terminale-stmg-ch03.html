@@ -20,6 +20,9 @@
   border-bottom:2px solid var(--couleur,#2b6cb0)}
 .cours h2 .num-section{color:var(--couleur,#2b6cb0)}
 .cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours h3 .num-section{color:var(--couleur,#2b6cb0);margin-right:.15em}
+.cours .fbox{display:inline-block;border:1px solid var(--bord,#cfd6e0);border-radius:8px;
+  padding:.15em .55em;background:#fffdf5}
 .cours p{margin:.65rem 0;text-align:justify}
 .cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
 .cours li{margin:.28rem 0}
@@ -71,7 +74,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
   <p><a href="../index.html#terminale-stmg">← Retour au site</a></p>
   <h1>Chapitre III : Probabilités conditionnelles</h1>
   <p class="sous-titre">Terminale STMG · Chapitre 3 — Probabilités conditionnelles · cours de Frederik de Peyrelongue</p>
-<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Probabilités conditionnelles</span><a class="onglet" href="../pdf/terminale-stmg/fiche-ap-probabilites-conditionnelles.pdf" target="_blank" rel="noopener">Fiche d&#x27;AP</a><a class="onglet" href="../pdf/terminale-stmg/td01-probabilites-conditionnelles.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/terminale-stmg/td02-probabilites-conditionnelles.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../pdf/terminale-stmg/td03-arbre-independance.pdf" target="_blank" rel="noopener">TD n°3</a><a class="onglet" href="../quiz/terminale-stmg-3.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Probabilités conditionnelles</span><a class="onglet" href="../pdf/terminale-stmg/iii-probabilites-conditionnelles.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/terminale-stmg/fiche-ap-probabilites-conditionnelles.pdf" target="_blank" rel="noopener">Fiche d&#x27;AP</a><a class="onglet" href="../pdf/terminale-stmg/td01-probabilites-conditionnelles.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/terminale-stmg/td02-probabilites-conditionnelles.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../pdf/terminale-stmg/td03-arbre-independance.pdf" target="_blank" rel="noopener">TD n°3</a><a class="onglet" href="../quiz/terminale-stmg-3.html" target="_blank" rel="noopener">Quiz</a></nav>
 <nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Notion de probabilité conditionnelle</a></li><li><a href="#s2">II Arbre pondéré</a></li><li><a href="#s3">III Probabilités et indépendance</a></li></ol></nav>
 <h2 id="s1"><span class="num-section">I.</span> Notion de probabilité conditionnelle</h2>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Tirage d'une carte</span><div class="boite-corps"><p>On tire une carte au hasard dans un jeu de $32$ cartes.</p>
@@ -107,11 +110,11 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 <p><strong>Remarque.</strong>  La probabilité conditionnelle suit les règles et lois de probabilités vues pour les probabilités simples. On a en particulier :</p>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriétés</span><div class="boite-corps"><ul><li>$0\leqslant\prob_{A}(B)\leqslant 1$ ;</li><li>$\prob_{A}\bigl(\overline{B}\bigr)=1-\prob_{A}(B)$ ;</li><li>$\prob(A\cap B)=\prob(A)\times\prob_{A}(B)$.</li></ul></div></section>
 <h2 id="s2"><span class="num-section">II.</span> Arbre pondéré</h2>
-<h3><span class="num-section">II.1</span> Exemple</h3>
+<h3 id="s2-1"><span class="num-section">II.1</span> Exemple</h3>
 <p>On reprend le 2<sup>e</sup> exemple étudié au paragraphe I.</p>
 <p>L'expérience aléatoire peut être schématisée par un <strong>arbre pondéré</strong> (ou arbre de probabilité) :</p>
-<figure class="figure-cours"><img src="img/terminale-stmg-ch03-fig01.png" alt="figure 1 du cours"></figure>
-<h3><span class="num-section">II.2</span> Règles</h3>
+<figure class="figure-cours"><img src="img/<span class="num-section">II.1</span> -fig01.png" alt="figure 1 du cours"></figure>
+<h3 id="s2-2"><span class="num-section">II.2</span> Règles</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Règle 1</span><div class="boite-corps"><p>La somme des probabilités des branches issues d'un même nœud est égale à $1$.</p></div></section>
 <p><strong>Exemples.</strong></p>
 <ul><li>À partir du nœud « On tire une boule », on a : $\prob(R)+\prob(\overline{R})=0{,}4+0{,}6=1$.</li><li>À partir du nœud « Boule rouge », on a : $\prob_{R}(\overline{G})=1-\prob_{R}(G)=1-0{,}75=0{,}25$.</li></ul>
@@ -132,14 +135,14 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 <div class="maths">\[
 \prob(G)=\prob(R\cap G)+\prob\bigl(\overline{R}\cap G\bigr)=0{,}3+0{,}18=0{,}48 .
 \]</div>
-<h3><span class="num-section">II.3</span> Exercice : calculer la probabilité d'un événement associé à plusieurs feuilles</h3>
+<h3 id="s2-3"><span class="num-section">II.3</span> Exercice : calculer la probabilité d'un événement associé à plusieurs feuilles</h3>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span><div class="boite-corps"><p>Lors d'une épidémie chez des bovins, on s'est aperçu que, si la maladie est diagnostiquée suffisamment tôt chez un animal, on peut le guérir ; sinon la maladie est mortelle.</p>
 <p>Un test est mis au point et essayé sur un échantillon d'animaux dont $2$ % est porteur de la maladie. On obtient les résultats suivants :</p>
 <ul><li>si un animal est porteur de la maladie, le test est positif dans $85$ % des cas ;</li><li>si un animal est sain, le test est négatif dans $95$ % des cas.</li></ul>
 <p>On choisit de prendre ces fréquences observées comme probabilités pour toute la population, et d'utiliser le test pour un dépistage préventif de la maladie.</p>
 <p>On note respectivement $M$ et $T$ les événements « Être porteur de la maladie » et « Avoir un test positif ».<br> <strong>1)</strong>  Un animal est choisi au hasard. Quelle est la probabilité que son test soit positif ?</p>
 <p><strong>2)</strong>  Si le test du bovin est positif, quelle est la probabilité qu'il soit malade ?</p></div></section>
-<figure class="figure-cours"><img src="img/terminale-stmg-ch03-fig02.png" alt="figure 2 du cours"></figure>
+<figure class="figure-cours"><img src="img/<span class="num-section">II.3</span> -fig02.png" alt="figure 2 du cours"></figure>
 <p><strong>Correction.</strong></p>
 <p><strong>1)</strong>  La probabilité que le test soit positif est associée aux deux feuilles $M\cap T$ et $\overline{M}\cap T$.</p>
 <p>D'après l'arbre de probabilité, on a :</p>
@@ -157,7 +160,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 \]</div>
 <p>La probabilité que le bovin soit malade sachant que le test est positif est d'environ $26$ %.</p>
 <h2 id="s3"><span class="num-section">III.</span> Probabilités et indépendance</h2>
-<h3><span class="num-section">III.1</span> Définition</h3>
+<h3 id="s3-1"><span class="num-section">III.1</span> Définition</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Événements indépendants</span><div class="boite-corps"><p>On dit que deux événements $A$ et $B$ de probabilité non nulle sont <strong>indépendants</strong> lorsque</p>
 <div class="maths">\[
 \prob_{A}(B)=\prob(B)
@@ -182,7 +185,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 \prob_{T}(R)=\frac{1}{8}.
 \]</div>
 <p>Ainsi $\prob_{T}(R)\neq\prob(R)$ : les événements $R$ et $T$ ne sont donc <strong>pas indépendants</strong>.</p>
-<h3><span class="num-section">III.2</span> Exercice : utiliser l'indépendance de deux événements</h3>
+<h3 id="s3-2"><span class="num-section">III.2</span> Exercice : utiliser l'indépendance de deux événements</h3>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span><div class="boite-corps"><p>Dans une population, un individu est atteint par la maladie $a$ avec une probabilité égale à $0{,}005$ et par la maladie $b$ avec une probabilité égale à $0{,}01$.</p>
 <p>On choisit au hasard un individu de cette population. Soit $A$ l'événement « L'individu a la maladie $a$ » et $B$ l'événement « L'individu a la maladie $b$ ». On suppose que les événements $A$ et $B$ sont indépendants.</p>
 <ol><li>Calculer la probabilité qu'un individu soit atteint par les deux maladies.</li><li>Calculer $\prob(A\cup B)$. Interpréter le résultat.</li></ol></div></section>
@@ -205,7 +208,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 &=0{,}01495 .
 \end{aligned}\]</div>
 <p>La probabilité qu'un individu choisi au hasard ait au moins une des deux maladies est égale à $0{,}01495$.</p>
-<figure class="figure-cours"><img src="img/terminale-stmg-ch03-fig03.png" alt="figure 3 du cours"></figure>
+<figure class="figure-cours"><img src="img/<span class="num-section">III.2</span> -fig03.png" alt="figure 3 du cours"></figure>
   <p style="margin-top:2.5rem"><a href="../index.html#terminale-stmg">← Retour au site</a></p>
 </main>
 <script src="../assets/acces.js"></script>

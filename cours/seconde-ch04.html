@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="../assets/style.css">
 <script>
   window.MathJax = {
-    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "AB": "{\\overrightarrow{AB}}", "CD": "{\\overrightarrow{CD}}", "AC": "{\\overrightarrow{AC}}"} },
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "AB": "{\\overrightarrow{AB}}", "CD": "{\\overrightarrow{CD}}", "AC": "{\\overrightarrow{AC}}", "norme": ["{\\left\\|#1\\right\\|}", 1], "prob": "{P}", "Pcond": ["{P_{#1}\\left(#2\\right)}", 2], "suite": ["{\\left(#1\\right)}", 1], "limn": "{\\lim\\limits_{n\\to+\\infty}}", "limx": ["{\\lim\\limits_{x\\to #1}}", 1]} },
     options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
   };
 </script>
@@ -20,6 +20,9 @@
   border-bottom:2px solid var(--couleur,#2b6cb0)}
 .cours h2 .num-section{color:var(--couleur,#2b6cb0)}
 .cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours h3 .num-section{color:var(--couleur,#2b6cb0);margin-right:.15em}
+.cours .fbox{display:inline-block;border:1px solid var(--bord,#cfd6e0);border-radius:8px;
+  padding:.15em .55em;background:#fffdf5}
 .cours p{margin:.65rem 0;text-align:justify}
 .cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
 .cours li{margin:.28rem 0}
@@ -71,7 +74,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
   <p><a href="../index.html#seconde">← Retour au site</a></p>
   <h1>Chapitre 4 : Les vecteurs</h1>
   <p class="sous-titre">Seconde · Chapitre 4 — Les vecteurs · cours de Frederik de Peyrelongue</p>
-<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Les vecteurs</span><a class="onglet" href="../pdf/seconde/4-les-vecteurs.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../quiz/seconde-4.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Les vecteurs</span><a class="onglet" href="../pdf/seconde/4-les-vecteurs.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/seconde/td01-vecteurs-sans-coordonnees.pdf" target="_blank" rel="noopener">TD n°1 — Somme de vecteurs</a><a class="onglet" href="../pdf/seconde/td02-chasles.pdf" target="_blank" rel="noopener">TD n°2 — Relation de Chasles</a><a class="onglet" href="../pdf/seconde/td03-colineaires.pdf" target="_blank" rel="noopener">TD n°3 — Vecteurs colinéaires</a><a class="onglet" href="../quiz/seconde-4.html" target="_blank" rel="noopener">Quiz</a></nav>
 <nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Translation et vecteur</a></li><li><a href="#s2">II Égalité de deux vecteurs</a></li><li><a href="#s3">III Représentant d'un vecteur</a></li><li><a href="#s4">IV Vecteurs particuliers</a></li><li><a href="#s5">V Sommes de vecteurs</a></li><li><a href="#s6">VI Vecteurs colinéaires et applications en géométrie</a></li></ol></nav>
 <h2 id="s1"><span class="num-section">I.</span> Translation et vecteur</h2>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Vecteur du plan</span><div class="boite-corps"><p>Si l'on a choisi une unité de longueur dans le plan, un <strong>vecteur</strong> $\vec{u}$ du plan est caractérisé par trois propriétés :</p>
@@ -160,13 +163,13 @@ ABCD \text{ est un parallélogramme } \iff \AB=\CD .
 \]</div></div></section>
 <figure class="figure-cours"><img src="img/seconde-ch04-fig09.png" alt="figure 9 du cours"></figure>
 <h2 id="s6"><span class="num-section">VI.</span> Vecteurs colinéaires et applications en géométrie</h2>
-<h3>6.1  Vecteurs colinéaires</h3>
+<h3 id="s6-1">6.1  Vecteurs colinéaires</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Vecteurs colinéaires</span><div class="boite-corps"><p>Deux vecteurs sont <strong>colinéaires</strong> s'ils ont la même direction.</p></div></section>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Caractérisation par un réel</span><div class="boite-corps"><p>Deux vecteurs non nuls $\vec{u}$ et $\vec{v}$ sont colinéaires si, et seulement si, il existe un réel $k$ tel que</p>
 <div class="maths">\[
 \vec{u}=k\,\vec{v} .
 \]</div></div></section>
-<figure class="figure-cours"><img src="img/seconde-ch04-fig10.png" alt="figure 10 du cours"></figure>
+<figure class="figure-cours"><img src="img/-fig10.png" alt="figure 10 du cours"></figure>
 <section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Vecteurs colinéaires</span><div class="boite-corps"><p>Citer les vecteurs colinéaires de la figure ci-dessus.</p>
 <p>Trouver une relation vectorielle reliant les vecteurs colinéaires à chaque fois que cela est possible.</p></div></section>
 <section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Point défini par une relation</span><div class="boite-corps"><ol><li><p>$A$ et $B$ sont deux points distincts, $M$ est le point tel que</p>
@@ -174,15 +177,15 @@ ABCD \text{ est un parallélogramme } \iff \AB=\CD .
         \frac{1}{2}\,\AB-\frac{1}{3}\,\overrightarrow{BM}=\vec{0} .
         \]</div>
 <p>Exprimer $\overrightarrow{AM}$ en fonction de $\AB$. En déduire que $\AB$ et $\overrightarrow{AM}$ sont colinéaires. Placer le point $M$.</p></li><li>$A$ et $B$ sont deux points distincts, $M$ est le point tel que $3\,\AB-2\,\overrightarrow{AM}=\vec{0}$. Justifier que $\AB$ et $\overrightarrow{AM}$ sont colinéaires. Placer le point $M$.</li></ol></div></section>
-<h3>6.2  Droites parallèles</h3>
+<h3 id="s6-2">6.2  Droites parallèles</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Parallélisme et colinéarité</span><div class="boite-corps"><p>Les droites $(AB)$ et $(CD)$ sont parallèles si, et seulement si, les vecteurs $\AB$ et $\CD$ sont colinéaires.</p></div></section>
 <p><strong>Preuve :</strong></p>
 <ol><li>Si $(AB)$ et $(CD)$ sont parallèles, alors $\AB$ et $\CD$ ont donc même direction : ils sont colinéaires.</li><li><strong>Réciproquement</strong>, si les vecteurs $\AB$ et $\CD$ sont colinéaires, les droites $(AB)$ et $(CD)$ ont alors même direction : elles sont donc parallèles.</li></ol>
-<h3>6.3  Points alignés</h3>
+<h3 id="s6-3">6.3  Points alignés</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Alignement et colinéarité</span><div class="boite-corps"><p>Les points $A$, $B$ et $C$ sont alignés si, et seulement si, $\AB$ et $\AC$ sont colinéaires.</p></div></section>
 <p><strong>Preuve :</strong> si les points $A$, $B$ et $C$ sont alignés, alors les droites $(AB)$ et $(AC)$ sont parallèles et, d'après le théorème précédent, les vecteurs $\AB$ et $\AC$ sont colinéaires.</p>
 <p><strong>Réciproquement</strong>, si les vecteurs $\AB$ et $\AC$ sont colinéaires, les droites $(AB)$ et $(AC)$ sont donc parallèles ; elles sont aussi sécantes au point $A$, elles sont donc confondues : les points $A$, $B$ et $C$ sont donc alignés.</p>
-<h3>6.4  Milieu d'un segment</h3>
+<h3 id="s6-4">6.4  Milieu d'un segment</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Milieu et vecteurs</span><div class="boite-corps"><p>Soient $A$ et $B$ deux points du plan.</p>
 <ul><li>$I$ est le milieu de $[AB]$ <strong>si et seulement si</strong> $\AB=2\,\overrightarrow{AI}$.</li><li>$I$ est le milieu de $[AB]$ <strong>si et seulement si</strong>, pour tout point $M$, $\overrightarrow{MA}+\overrightarrow{MB}=2\,\overrightarrow{MI}$.</li></ul></div></section>
   <p style="margin-top:2.5rem"><a href="../index.html#seconde">← Retour au site</a></p>

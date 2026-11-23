@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="../assets/style.css">
 <script>
   window.MathJax = {
-    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "AB": "{\\overrightarrow{AB}}", "BC": "{\\overrightarrow{BC}}", "OM": "{\\overrightarrow{OM}}", "OI": "{\\overrightarrow{OI}}", "OJ": "{\\overrightarrow{OJ}}", "AC": "{\\overrightarrow{AC}}"} },
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "AB": "{\\overrightarrow{AB}}", "BC": "{\\overrightarrow{BC}}", "OM": "{\\overrightarrow{OM}}", "OI": "{\\overrightarrow{OI}}", "OJ": "{\\overrightarrow{OJ}}", "AC": "{\\overrightarrow{AC}}", "norme": ["{\\left\\|#1\\right\\|}", 1], "prob": "{P}", "Pcond": ["{P_{#1}\\left(#2\\right)}", 2], "suite": ["{\\left(#1\\right)}", 1], "limn": "{\\lim\\limits_{n\\to+\\infty}}", "limx": ["{\\lim\\limits_{x\\to #1}}", 1]} },
     options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
   };
 </script>
@@ -20,6 +20,9 @@
   border-bottom:2px solid var(--couleur,#2b6cb0)}
 .cours h2 .num-section{color:var(--couleur,#2b6cb0)}
 .cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours h3 .num-section{color:var(--couleur,#2b6cb0);margin-right:.15em}
+.cours .fbox{display:inline-block;border:1px solid var(--bord,#cfd6e0);border-radius:8px;
+  padding:.15em .55em;background:#fffdf5}
 .cours p{margin:.65rem 0;text-align:justify}
 .cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
 .cours li{margin:.28rem 0}
@@ -71,7 +74,7 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
   <p><a href="../index.html#seconde">← Retour au site</a></p>
   <h1>Chapitre 9 : Les vecteurs avec coordonnées</h1>
   <p class="sous-titre">Seconde · Chapitre 9 — Les vecteurs avec coordonnées · cours de Frederik de Peyrelongue</p>
-<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Les vecteurs avec coordonnées</span><a class="onglet" href="../pdf/seconde/9-les-vecteurs-avec-coordonnees.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../quiz/seconde-9.html" target="_blank" rel="noopener">Quiz</a></nav>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Les vecteurs avec coordonnées</span><a class="onglet" href="../pdf/seconde/9-les-vecteurs-avec-coordonnees.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/seconde/td01-vecteurs-coordonnees.pdf" target="_blank" rel="noopener">TD n°1 — Coordonnées de vecteurs</a><a class="onglet" href="../pdf/seconde/td02-vecteurs-coordonnees.pdf" target="_blank" rel="noopener">TD n°2 — Somme et colinéarité</a><a class="onglet" href="../pdf/seconde/td03-vecteurs-coordonnees.pdf" target="_blank" rel="noopener">TD n°3 — Colinéarité et alignement</a><a class="onglet" href="../pdf/seconde/probleme-geometrie.pdf" target="_blank" rel="noopener">Problèmes de géométrie</a><a class="onglet" href="../quiz/seconde-9.html" target="_blank" rel="noopener">Quiz</a></nav>
 <nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Coordonnées d'un vecteur</a></li><li><a href="#s2">II Coordonnées et opérations</a></li><li><a href="#s3">III Vecteurs colinéaires et applications en géométrie</a></li></ol></nav>
 <h2 id="s1"><span class="num-section">I.</span> Coordonnées d'un vecteur</h2>
 <p><strong>Exercice :</strong> exprimer le vecteur $\vec{u}$ en fonction de $\OI$ et de $\OJ$.</p>
@@ -79,14 +82,14 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 \vec{u}=4\,\OI-\OJ .
 \]</div>
 <figure class="figure-cours"><img src="img/seconde-ch09-fig01.png" alt="figure 1 du cours"></figure>
-<h3>1.1  Définition</h3>
+<h3 id="s1-1">1.1  Définition</h3>
 <p>Soit $(O\,;I\,,J)$ un repère du plan et $\vec{u}$ un vecteur donné.</p>
 <p>On considère la translation $t_{\vec{u}}$ de vecteur $\vec{u}$. La translation $t_{\vec{u}}$ associe au point $O$ un unique point $M$ tel que $\vec{u}=\OM$.</p>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Coordonnées d'un vecteur</span><div class="boite-corps"><p>Les coordonnées $(a\,;b)$ du point $M$, image du point $O$ par la translation $t_{\vec{u}}$ de vecteur $\vec{u}$, sont appelées <strong>coordonnées du vecteur</strong> $\vec{u}$, dans le repère $(O\,;I\,,J)$.</p>
 <p>On note $\vec{u}\begin{pmatrix}a\\ b\end{pmatrix}$.</p></div></section>
 <section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Images successives</span><div class="boite-corps"><ol><li>Donner les coordonnées du point $O_{1}$, image de $O$ par la translation de vecteur $\overrightarrow{V_{1}}$, puis en déduire les coordonnées du vecteur $\overrightarrow{V_{1}}$.</li><li>Par le même procédé, établir les coordonnées des vecteurs $\overrightarrow{V_{2}}$, $\overrightarrow{V_{3}}$, $\overrightarrow{V_{4}}$.</li></ol></div></section>
-<figure class="figure-cours"><img src="img/seconde-ch09-fig02.png" alt="figure 2 du cours"></figure>
-<h3>1.2  Coordonnées d'un vecteur $\AB$</h3>
+<figure class="figure-cours"><img src="img/-fig02.png" alt="figure 2 du cours"></figure>
+<h3 id="s1-2">1.2  Coordonnées d'un vecteur $\AB$</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Coordonnées de $\AB$</span><div class="boite-corps"><p>Dans un repère $(O\,;I\,,J)$, si $A\left(x_{A}\,;y_{A}\right)$ et $B\left(x_{B}\,;y_{B}\right)$, le vecteur $\AB$ a pour coordonnées :</p>
 <div class="maths">\[
 \AB\begin{pmatrix}x_{B}-x_{A}\\ y_{B}-y_{A}\end{pmatrix} .
@@ -101,7 +104,7 @@ l'origine}\\ \text{ordonnée de l'extrémité}-\text{ordonnée de l'origine}
 <p>Donc $x_{I}=\dfrac{x_{O}+x_{B}}{2}=\dfrac{x_{B}}{2}$ et $y_{I}=\dfrac{y_{B}}{2}$. $I$ est aussi le milieu de $[AM]$, donc $x_{I}=\dfrac{x_{A}+x_{M}}{2}$ et $y_{I}=\dfrac{y_{A}+y_{M}}{2}$.</p>
 <p>On a donc $\dfrac{x_{B}}{2}=\dfrac{x_{A}+x_{M}}{2}$, et donc $x_{M}=x_{B}-x_{A}$.</p>
 <p>De même $\dfrac{y_{B}}{2}=\dfrac{y_{A}+y_{M}}{2}$, et donc $y_{M}=y_{B}-y_{A}$.</p>
-<figure class="figure-cours"><img src="img/seconde-ch09-fig03.png" alt="figure 3 du cours"></figure>
+<figure class="figure-cours"><img src="img/-fig03.png" alt="figure 3 du cours"></figure>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Coordonnées de $\AB$ et $\BC$</span><div class="boite-corps"><p>$A(-2\,;5)$, $B(9\,;23)$ et $C(8\,;-2)$. Calculer les coordonnées des vecteurs $\AB$ et $\BC$.</p>
 <div class="maths">\[\begin{aligned}
 \AB &: x_{B}-x_{A}=9-(-2)=11
@@ -111,10 +114,10 @@ l'origine}\\ \text{ordonnée de l'extrémité}-\text{ordonnée de l'origine}
 \quad\text{et}\quad y_{C}-y_{B}=-2-23=-25
 &&\text{d'où}\quad \BC\begin{pmatrix}-1\\-25\end{pmatrix}
 \end{aligned}\]</div></div></section>
-<h3>1.3  Nouvelle notation d'un repère</h3>
+<h3 id="s1-3">1.3  Nouvelle notation d'un repère</h3>
 <p>Le repère $(O\,;I\,,J)$ se note aussi $(O\,;\vec{i}\,;\vec{j})$, où $\vec{i}=\OI$ et $\vec{j}=\OJ$.</p>
 <h2 id="s2"><span class="num-section">II.</span> Coordonnées et opérations</h2>
-<h3>2.1  Égalité entre deux vecteurs</h3>
+<h3 id="s2-1">2.1  Égalité entre deux vecteurs</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Égalité et coordonnées</span><div class="boite-corps"><p>Deux vecteurs $\vec{u}\begin{pmatrix}x\\ y\end{pmatrix}$ et $\vec{v}\begin{pmatrix}x'\\ y'\end{pmatrix}$ sont égaux si et seulement si leurs coordonnées sont égales :</p>
 <div class="maths">\[
 \vec{u}=\vec{v}\iff x=x' \text{ et } y=y' .
@@ -124,8 +127,8 @@ l'origine}\\ \text{ordonnée de l'extrémité}-\text{ordonnée de l'origine}
 <p><strong>Réciproquement :</strong> si $x=x'$ et $y=y'$, alors $M=N$ et donc $\vec{u}$ et $\vec{v}$ représentent la même translation : ils sont donc égaux.</p>
 <section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Quadrilatère $MNRP$</span><div class="boite-corps"><p>Le plan est rapporté à un repère $(O\,;\vec{i}\,;\vec{j})$.</p>
 <ul><li>Placer les points $M(2\,;3)$, $N(6\,;4)$, $R(-1\,;-1)$ et $P(3\,;0)$.</li><li>Calculer les coordonnées des vecteurs $\overrightarrow{MN}$ et $\overrightarrow{PR}$.</li><li>Quelle est la nature du quadrilatère $MNRP$ ?</li><li>Calculer les coordonnées de $K$ tel que $\overrightarrow{MK}=\OI$.</li></ul></div></section>
-<figure class="figure-cours"><img src="img/seconde-ch09-fig04.png" alt="figure 4 du cours"></figure>
-<h3>2.2  Somme de deux vecteurs</h3>
+<figure class="figure-cours"><img src="img/-fig04.png" alt="figure 4 du cours"></figure>
+<h3 id="s2-2">2.2  Somme de deux vecteurs</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Somme et coordonnées</span><div class="boite-corps"><p>Dans un repère du plan, si $\vec{u}\begin{pmatrix}x\\ y\end{pmatrix}$ et $\vec{v}\begin{pmatrix}x'\\ y'\end{pmatrix}$, alors</p>
 <div class="maths">\[
 \vec{u}+\vec{v}\begin{pmatrix}x+x'\\ y+y'\end{pmatrix} .
@@ -140,14 +143,14 @@ l'origine}\\ \text{ordonnée de l'extrémité}-\text{ordonnée de l'origine}
 <p>On a donc bien $\vec{u}+\vec{v}\begin{pmatrix}x+x'\\ y+y'\end{pmatrix}$.</p>
 <section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Sommes de vecteurs</span><div class="boite-corps"><p>Soit un repère du plan $(O\,;\vec{i}\,;\vec{j})$.</p>
 <ol><li>$\vec{u}\begin{pmatrix}4\\5\end{pmatrix}$ et $\vec{v}\begin{pmatrix}3\\-7\end{pmatrix}$ : calculer les coordonnées du vecteur $\vec{u}+\vec{v}$.</li><li>$\vec{u}\begin{pmatrix}\sqrt{2}\\5\end{pmatrix}$ et $\vec{v}\begin{pmatrix}3\\-7\end{pmatrix}$ : calculer les coordonnées du vecteur $\vec{u}+\vec{v}$.</li><li>$\vec{u}\begin{pmatrix}\sqrt{2}\\5\end{pmatrix}$ et $\vec{v}\begin{pmatrix}-\sqrt{2}\\-7\end{pmatrix}$ : calculer les coordonnées du vecteur $\vec{u}+\vec{v}$.</li></ol></div></section>
-<h3>2.3  Produit d'un vecteur par un nombre réel</h3>
+<h3 id="s2-3">2.3  Produit d'un vecteur par un nombre réel</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Produit par un réel</span><div class="boite-corps"><p>Soit $\vec{u}$ un vecteur de coordonnées $\begin{pmatrix}x\\ y\end{pmatrix}$ et $k$ un nombre réel : le vecteur $k\,\vec{u}$ a pour coordonnées</p>
 <div class="maths">\[
 k\,\vec{u}\begin{pmatrix}k\,x\\ k\,y\end{pmatrix} .
 \]</div></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Multiples de $\AB$</span><div class="boite-corps"><p>Soit $\AB\begin{pmatrix}2\\1\end{pmatrix}$ et les points $C$ et $D$ tels que $\AC=3\,\AB$ et $\overrightarrow{AD}=-2\,\AB$.</p>
 <p>Alors $\AC\begin{pmatrix}6\\3\end{pmatrix}$ et $\overrightarrow{AD}\begin{pmatrix}-4\\-2\end{pmatrix}$.</p></div></section>
-<h3>2.4  Vecteur opposé</h3>
+<h3 id="s2-4">2.4  Vecteur opposé</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Vecteur opposé</span><div class="boite-corps"><p>Soit $\vec{u}$ un vecteur de coordonnées $\begin{pmatrix}x\\ y\end{pmatrix}$ : on note $-\vec{u}$ le vecteur opposé à $\vec{u}$, qui vérifie $\vec{u}-\vec{u}=\vec{0}$ et dont les coordonnées sont</p>
 <div class="maths">\[
 -\vec{u}\begin{pmatrix}-x\\ -y\end{pmatrix} .
@@ -155,7 +158,7 @@ k\,\vec{u}\begin{pmatrix}k\,x\\ k\,y\end{pmatrix} .
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Vecteur opposé</span><div class="boite-corps"><p>Soit $\vec{u}\begin{pmatrix}-1\\2\end{pmatrix}$, alors $-\vec{u}\begin{pmatrix}1\\-2\end{pmatrix}$.</p></div></section>
 <section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Multiples d'un vecteur</span><div class="boite-corps"><p>Soit un repère du plan $(O\,;\vec{i}\,;\vec{j})$.</p>
 <ol><li>$\vec{u}\begin{pmatrix}4\\5\end{pmatrix}$ : calculer les coordonnées du vecteur $\vec{v}=2\,\vec{u}$.</li><li>$\vec{u}\begin{pmatrix}\sqrt{2}\\5\end{pmatrix}$ : calculer les coordonnées du vecteur $\vec{v}=\sqrt{2}\,\vec{u}$.</li><li>$\vec{u}\begin{pmatrix}\sqrt{2}\\5\end{pmatrix}$ : calculer les coordonnées du vecteur $\vec{v}=-\vec{u}$.</li></ol></div></section>
-<h3>2.5  Norme d'un vecteur</h3>
+<h3 id="s2-5">2.5  Norme d'un vecteur</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Norme</span><div class="boite-corps"><p>Soit $\vec{u}$ un vecteur de coordonnées $\begin{pmatrix}x\\ y\end{pmatrix}$ : la norme de $\vec{u}$ est égale à</p>
 <div class="maths">\[
 \|\vec{u}\|=\sqrt{x^{2}+y^{2}} .
@@ -163,11 +166,11 @@ k\,\vec{u}\begin{pmatrix}k\,x\\ k\,y\end{pmatrix} .
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Norme d'un vecteur</span><div class="boite-corps"><p>Soit $\vec{u}\begin{pmatrix}-1\\2\end{pmatrix}$, alors $\|\vec{u}\|=\sqrt{(-1)^{2}+2^{2}}=\sqrt{5}$.</p></div></section>
 <p><strong>Preuve :</strong> on place le vecteur $\vec{u}$ à l'origine du repère : le vecteur représente alors l'hypoténuse d'un triangle rectangle dont l'un des côtés a pour longueur $|x|$ et l'autre $|y|$, donc, d'après Pythagore, $\|\vec{u}\|^{2}=x^{2}+y^{2}$, d'où le résultat.</p>
 <h2 id="s3"><span class="num-section">III.</span> Vecteurs colinéaires et applications en géométrie</h2>
-<h3>3.1  Vecteurs colinéaires</h3>
+<h3 id="s3-1">3.1  Vecteurs colinéaires</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Vecteurs colinéaires</span><div class="boite-corps"><p>Deux vecteurs sont <strong>colinéaires</strong> s'ils ont même direction.</p></div></section>
 <section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Vecteurs colinéaires</span><div class="boite-corps"><p>Citer les vecteurs colinéaires de la figure ci-dessous.</p>
 <p>Trouver une relation vectorielle reliant les vecteurs colinéaires à chaque fois que cela est possible.</p></div></section>
-<figure class="figure-cours"><img src="img/seconde-ch09-fig05.png" alt="figure 5 du cours"></figure>
+<figure class="figure-cours"><img src="img/-fig05.png" alt="figure 5 du cours"></figure>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Colinéarité et réel $k$</span><div class="boite-corps"><p>Deux vecteurs non nuls $\vec{u}$ et $\vec{v}$ sont colinéaires si et seulement si il existe un réel $k$ tel que</p>
 <div class="maths">\[
 \vec{u}=k\,\vec{v} .
@@ -177,7 +180,7 @@ k\,\vec{u}\begin{pmatrix}k\,x\\ k\,y\end{pmatrix} .
         \frac{1}{2}\,\AB-\frac{1}{3}\,\overrightarrow{BM}=\vec{0} .
         \]</div>
 <p>Exprimer $\overrightarrow{AM}$ en fonction de $\AB$. En déduire que $\AB$ et $\overrightarrow{AM}$ sont colinéaires. Placer le point $M$.</p></li><li>$A$ et $B$ sont deux points distincts, $M$ est le point tel que $3\,\AB-2\,\overrightarrow{AM}=\vec{0}$. Justifier que $\AB$ et $\overrightarrow{AM}$ sont colinéaires. Placer le point $M$.</li></ol></div></section>
-<h3>3.2  Critère de colinéarité</h3>
+<h3 id="s3-2">3.2  Critère de colinéarité</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Déterminant</span><div class="boite-corps"><p>Soient deux vecteurs $\vec{u}\begin{pmatrix}x\\ y\end{pmatrix}$ et $\vec{v}\begin{pmatrix}x'\\ y'\end{pmatrix}$. On appelle <strong>déterminant</strong> des deux vecteurs $\vec{u}$ et $\vec{v}$ du plan la quantité $x\,y'-x'\,y$ ; on note</p>
 <div class="maths">\[
 \det\left(\vec{u}\,,\vec{v}\right)
@@ -195,15 +198,15 @@ k\,\vec{u}\begin{pmatrix}k\,x\\ k\,y\end{pmatrix} .
 \]</div></div></section>
 <section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Application</span><div class="boite-corps"><p>Montrer que $\vec{u}\begin{pmatrix}2\\-5\end{pmatrix}$ et $\vec{v}\begin{pmatrix}-3\\7{,}5\end{pmatrix}$ sont deux vecteurs colinéaires.</p></div></section>
 <section class="boite boite-exo"><span class="boite-titre">Exercice</span> <span class="boite-sous-titre">Algorithme</span><div class="boite-corps"><p>Écrire un algorithme qui permet de savoir si deux vecteurs sont colinéaires ou non.</p></div></section>
-<h3>3.3  Droites parallèles</h3>
+<h3 id="s3-3">3.3  Droites parallèles</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Parallélisme et colinéarité</span><div class="boite-corps"><p>Les droites $(AB)$ et $(CD)$ sont parallèles si et seulement si les vecteurs $\AB$ et $\overrightarrow{CD}$ sont colinéaires.</p></div></section>
 <p><strong>Preuve :</strong> si $(AB)$ et $(CD)$ sont parallèles, alors $\AB$ et $\overrightarrow{CD}$ ont donc même direction : ils sont colinéaires.</p>
 <p><strong>Réciproquement :</strong> si les vecteurs $\AB$ et $\overrightarrow{CD}$ sont colinéaires, les droites $(AB)$ et $(CD)$ ont alors même direction : elles sont donc parallèles.</p>
-<h3>3.4  Points alignés</h3>
+<h3 id="s3-4">3.4  Points alignés</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Alignement et colinéarité</span><div class="boite-corps"><p>Les points $A$, $B$ et $C$ sont alignés si et seulement si $\AB$ et $\AC$ sont colinéaires.</p></div></section>
 <p><strong>Preuve :</strong> si les points $A$, $B$ et $C$ sont alignés, alors les droites $(AB)$ et $(AC)$ sont parallèles et, d'après le théorème précédent, les vecteurs $\AB$ et $\AC$ sont colinéaires.</p>
 <p><strong>Réciproquement :</strong> si les vecteurs $\AB$ et $\AC$ sont colinéaires, les droites $(AB)$ et $(AC)$ sont donc parallèles ; elles sont aussi sécantes au point $A$, elles sont donc confondues : les points $A$, $B$ et $C$ sont donc alignés.</p>
-<h3>3.5  Milieu d'un segment</h3>
+<h3 id="s3-5">3.5  Milieu d'un segment</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Milieu d'un segment</span><div class="boite-corps"><p>Soient $A$ et $B$ deux points du plan.</p>
 <ul><li>$I$ est milieu de $[AB]$ <strong>si et seulement si</strong> $\AB=2\,\overrightarrow{AI}$.</li><li>$I$ est milieu de $[AB]$ <strong>si et seulement si</strong>, pour tout point $M$, $\overrightarrow{MA}+\overrightarrow{MB}=2\,\overrightarrow{MI}$.</li><li><p>Le point $I$ est milieu de $[AB]$ <strong>si et seulement si</strong> les coordonnées de $I$ vérifient :</p>
 <div class="maths">        \[
