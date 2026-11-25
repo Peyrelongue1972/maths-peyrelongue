@@ -20,6 +20,9 @@
   border-bottom:2px solid var(--couleur,#2b6cb0)}
 .cours h2 .num-section{color:var(--couleur,#2b6cb0)}
 .cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours h3 .num-section{color:var(--couleur,#2b6cb0);margin-right:.15em}
+.cours .fbox{display:inline-block;border:1px solid var(--bord,#cfd6e0);border-radius:8px;
+  padding:.15em .55em;background:#fffdf5}
 .cours p{margin:.65rem 0;text-align:justify}
 .cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
 .cours li{margin:.28rem 0}
@@ -70,8 +73,8 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 <main class="cours">
   <p><a href="../index.html#terminale-complementaire">← Retour au site</a></p>
   <h1>Les fonctions – limites</h1>
-  <p class="sous-titre">Terminale complémentaire · Chapitre 2 — Les fonctions - limites · cours de Frederik de Peyrelongue</p>
-<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Les fonctions - limites</span><a class="onglet" href="../pdf/terminale-complementaire/2-les-fonctions-limites.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/terminale-complementaire/td02-recherche-de-limites.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../quiz/terminale-complementaire-2.html" target="_blank" rel="noopener">Quiz</a></nav>
+  <p class="sous-titre">Terminale complémentaire · Chapitre 2 - Les fonctions - limites · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Les fonctions - limites</span><a class="onglet" href="../pdf/terminale-complementaire/2-les-fonctions-limites.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/terminale-complementaire/td02-recherche-de-limites.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../pdf/terminale-complementaire/td03-limites-de-fonctions.pdf" target="_blank" rel="noopener">TD n°3 — Limites de fonctions</a><a class="onglet" href="../quiz/terminale-complementaire-2.html" target="_blank" rel="noopener">Quiz</a></nav>
 <nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I Rappels sur la dérivation</a></li><li><a href="#s2">II Limite d'une fonction à l'infini</a></li><li><a href="#s3">III Limite d'une fonction en un réel $A$</a></li><li><a href="#s4">IV Opérations sur les limites</a></li><li><a href="#s5">V Théorèmes de comparaison et croissances comparées</a></li></ol></nav>
 <h2 id="s1"><span class="num-section">I.</span> Rappels sur la dérivation</h2>
 <p>Le nombre dérivé $f'(a)$ de la fonction $f$ en un point $M\bigl(a\,;f(a)\bigr)$ correspond à la pente de la tangente à la courbe au point $M$.</p>
@@ -79,11 +82,11 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 <div class="maths">\[
 T : y=f'(a)(x-a)+f(a) .
 \]</div></div></section>
-<h3><span class="num-section">I.1</span> Les fonctions dérivées de référence</h3>
+<h3 id="s1-1"><span class="num-section">I.1</span> Les fonctions dérivées de référence</h3>
 <table class="tableau"><tr><td></td><td>Fonction $f$ définie par :</td><td>Ensemble de définition $\mathcal{D}_{f}$</td><td>Fonction dérivée $f'$ définie par :</td><td>Ensemble de dérivabilité $\mathcal{D}_{f'}$</td></tr><tr><td><strong>1.</strong></td><td>$f(x)=k$, avec $k\in\R$</td><td>$\R$</td><td>$f'(x)=0$</td><td>$\R$</td></tr><tr><td><strong>2.</strong></td><td>$f(x)=mx+p$, avec $m$ et $p$ réels</td><td>$\R$</td><td>$f'(x)=m$</td><td>$\R$</td></tr><tr><td><strong>3.</strong></td><td>$f(x)=x^{2}$</td><td>$\R$</td><td>$f'(x)=2x$</td><td>$\R$</td></tr><tr><td><strong>4.</strong></td><td>$f(x)=x^{n}$, avec $n\in\N^{*}$</td><td>$\R$</td><td>$f'(x)=nx^{n-1}$</td><td>$\R$</td></tr><tr><td><strong>5.</strong></td><td>$f(x)=\dfrac{1}{x}$</td><td>$\R\setminus\{0\}$</td><td>$f'(x)=-\dfrac{1}{x^{2}}$</td><td>$\R\setminus\{0\}$</td></tr><tr><td><strong>6.</strong></td><td>$f(x)=\dfrac{1}{x^{n}}$ avec $n\in\N^{*}$</td><td>$\R\setminus\{0\}$</td><td>$f'(x)=-\dfrac{n}{x^{n+1}}$</td><td>$\R\setminus\{0\}$</td></tr><tr><td><strong>7.</strong></td><td>$f(x)=\sqrt{x}$</td><td>$[0\,;+\infty[$</td><td>$f'(x)=\dfrac{1}{2\sqrt{x}}$</td><td>$]0\,;+\infty[$</td></tr><tr><td><strong>8.</strong></td><td>$f(x)=\e^{x}$</td><td>$\R$</td><td>$f'(x)=\e^{x}$</td><td>$\R$</td></tr></table>
-<h3><span class="num-section">I.2</span> Opérations sur les fonctions dérivées</h3>
+<h3 id="s1-2"><span class="num-section">I.2</span> Opérations sur les fonctions dérivées</h3>
 <table class="tableau"><tr><td></td><td>Type d'opération</td><td>Fonction à dériver</td><td>Fonction dérivée</td></tr><tr><td><strong>1.</strong></td><td>Dérivée d'une somme</td><td>$u+v$</td><td>$(u+v)'=u'+v'$</td></tr><tr><td><strong>2.</strong></td><td>Dérivée d'un produit par une constante</td><td>$k\times u$</td><td>$(k\times u)'=k\times u'$</td></tr><tr><td><strong>3.</strong></td><td>Dérivée d'un produit</td><td>$u\times v$</td><td>$(u\times v)'=u'\times v+u\times v'$</td></tr><tr><td><strong>4.</strong></td><td>Dérivée d'un inverse</td><td>$\dfrac{1}{v}$ avec $v(x)\neq 0$ pour tout $x\in I$</td><td>$\left(\dfrac{1}{v}\right)'=\dfrac{-v'}{v^{2}}$</td></tr><tr><td><strong>5.</strong></td><td>Dérivée d'un quotient</td><td>$\dfrac{u}{v}$ avec $v(x)\neq 0$ pour tout $x\in I$</td><td>$\left(\dfrac{u}{v}\right)'=\dfrac{u'\times v-u\times v'}{v^{2}}$</td></tr><tr><td><strong>6.</strong></td><td>Dérivée de $f(x)=g(ax+b)$, avec $a\neq 0$ : soit $I$ l'intervalle tel que, pour tout $x\in I$, $ax+b\in J$. La fonction $f$ est définie et dérivable sur $J$ et $f'(x)=a\times g'(ax+b)$.</td></tr></table>
-<h3><span class="num-section">I.3</span> Sens de variation, extremum local et dérivée</h3>
+<h3 id="s1-3"><span class="num-section">I.3</span> Sens de variation, extremum local et dérivée</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Sens de variation</span><div class="boite-corps"><p>$f$ est une fonction dérivable sur un intervalle $I$.</p>
 <p>Si, pour tout réel $x$ de $I$, $f'(x)&gt;0$ sauf en un nombre fini de points où elle s'annule, alors la fonction $f$ est strictement croissante sur $I$.</p>
 <p>Si, pour tout réel $x$ de $I$, $f'(x)&lt;0$ sauf en un nombre fini de points où elle s'annule, alors la fonction $f$ est strictement décroissante sur $I$.</p></div></section>
@@ -91,10 +94,10 @@ T : y=f'(a)(x-a)+f(a) .
 <p>Si $f'$ s'annule et change de signe en $c$, alors $f(c)$ est un extremum local de $I$.</p></div></section>
 <figure class="figure-cours"><img src="img/terminale-complementaire-ch02-fig01.png" alt="figure 1 du cours"></figure>
 <h2 id="s2"><span class="num-section">II.</span> Limite d'une fonction à l'infini</h2>
-<h3><span class="num-section">II.1</span> Fonction sans limite à l'infini</h3>
+<h3 id="s2-1"><span class="num-section">II.1</span> Fonction sans limite à l'infini</h3>
 <p>Il existe des fonctions qui ne possèdent pas de limite infinie. C'est le cas des fonctions sinusoïdales.</p>
 <figure class="figure-cours"><img src="img/terminale-complementaire-ch02-fig02.png" alt="figure 2 du cours"></figure>
-<h3><span class="num-section">II.2</span> Limite finie à l'infini</h3>
+<h3 id="s2-2"><span class="num-section">II.2</span> Limite finie à l'infini</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Limite $L$ en $+\infty$</span><div class="boite-corps"><p>On dit que la fonction $f$ admet pour <strong>limite</strong> $L$ en $+\infty$ si tout intervalle ouvert contenant $L$ contient toutes les valeurs de $f(x)$ dès que $x$ est suffisamment grand ; on note :</p>
 <div class="maths">\[
 \limx{x}{+\infty} f(x)=L .
@@ -107,7 +110,7 @@ T : y=f'(a)(x-a)+f(a) .
 \limx{x}{+\infty} f(x)=5 .
 \]</div>
 <p>Graphiquement, la fonction devient horizontale : on dit que $\mathcal{C}_{f}$ admet une asymptote horizontale au voisinage de $+\infty$.</p></div></section>
-<h3><span class="num-section">II.3</span> Limite infinie en $+\infty$ et $-\infty$</h3>
+<h3 id="s2-3"><span class="num-section">II.3</span> Limite infinie en $+\infty$ et $-\infty$</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Limite $+\infty$ et $-\infty$</span><div class="boite-corps"><p>On dit que la fonction $f$ admet pour limite $+\infty$ en $+\infty$ si, pour tout nombre $M$ réel aussi grand soit-il, il existe une valeur de $A$ tel que, pour $x$ supérieur à $A$, on aura $f(x)&gt;M$ ; on note :</p>
 <div class="maths">\[
 \limx{x}{+\infty} f(x)=+\infty .
@@ -120,15 +123,15 @@ T : y=f'(a)(x-a)+f(a) .
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">$f(x)=x^{2}$</span><div class="boite-corps"><p>{ex:carre} La fonction définie par $f(x)=x^{2}$ a pour limite $+\infty$ lorsque $x$ tend vers $+\infty$.</p>
 <p>En effet, les valeurs de la fonction deviennent aussi grandes que l'on souhaite dès que $x$ est suffisamment grand.</p>
 <p>Si on prend un réel $a$ quelconque, l'intervalle $]a\,;+\infty[$ contient toutes les valeurs de la fonction dès que $x$ est suffisamment grand.</p></div></section>
-<h3><span class="num-section">II.4</span> Limites des fonctions usuelles</h3>
+<h3 id="s2-4"><span class="num-section">II.4</span> Limites des fonctions usuelles</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Limites des fonctions usuelles</span><div class="boite-corps"><ul><li>$\limx{x}{+\infty} x^{2}=+\infty$, $\limx{x}{-\infty} x^{2}=+\infty$ ;</li><li>$\limx{x}{+\infty} x^{3}=+\infty$, $\limx{x}{-\infty} x^{3}=-\infty$ ;</li><li>$\limx{x}{+\infty} x^{n}=+\infty$, $\limx{x}{-\infty} x^{n}=+\infty$ (pour $n$ pair) ;</li><li>$\limx{x}{+\infty} x^{n}=+\infty$, $\limx{x}{-\infty} x^{n}=-\infty$ (pour $n$ impair) ;</li><li>$\limx{x}{+\infty} \sqrt{x}=+\infty$ ;</li><li>$\limx{x}{+\infty} \dfrac{1}{x}=0$, $\limx{x}{-\infty} \dfrac{1}{x}=0$ ;</li><li>$\limx{x}{+\infty} \e^{x}=+\infty$, $\limx{x}{-\infty} \e^{x}=0$.</li></ul></div></section>
 <h2 id="s3"><span class="num-section">III.</span> Limite d'une fonction en un réel $A$</h2>
-<h3><span class="num-section">III.1</span> Lorsque la fonction est continue en $A$</h3>
+<h3 id="s3-1"><span class="num-section">III.1</span> Lorsque la fonction est continue en $A$</h3>
 <p><strong>Exemple :</strong> $f(x)=x^{2}$ : la fonction est continue en $3$ :</p>
 <div class="maths">\[
 \limx{x}{3} f(x)=f(3)=3^{2}=9 .
 \]</div>
-<h3><span class="num-section">III.2</span> Limite pour un point de discontinuité</h3>
+<h3 id="s3-2"><span class="num-section">III.2</span> Limite pour un point de discontinuité</h3>
 <p><strong>Exemple :</strong></p>
 <p>La fonction représentée ci-dessous a pour limite $+\infty$ lorsque $x$ tend vers $A$.</p>
 <p>En effet, les valeurs de la fonction deviennent aussi grandes que l'on souhaite dès que $x$ est suffisamment proche de $A$.</p>
@@ -150,10 +153,10 @@ T : y=f'(a)(x-a)+f(a) .
 <figure class="figure-cours"><img src="img/terminale-complementaire-ch02-fig06.png" alt="figure 6 du cours"></figure>
 <h2 id="s4"><span class="num-section">IV.</span> Opérations sur les limites</h2>
 <p>$\alpha$ peut désigner $+\infty$, $-\infty$ ou un nombre réel.</p>
-<h3><span class="num-section">IV.1</span> Limite d'une somme</h3>
+<h3 id="s4-1"><span class="num-section">IV.1</span> Limite d'une somme</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Limite d'une somme de fonction</span><div class="boite-corps"><table class="tableau"><tr><td>$\limx{x}{\alpha} f(x)=$</td><td>$L$</td><td>$L$</td><td>$L$</td><td>$+\infty$</td><td>$-\infty$</td><td>$+\infty$</td></tr><tr><td>$\limx{x}{\alpha} g(x)=$</td><td>$L'$</td><td>$+\infty$</td><td>$-\infty$</td><td>$+\infty$</td><td>$-\infty$</td><td>$-\infty$</td></tr><tr><td>$\limx{x}{\alpha} f(x)+g(x)=$</td><td>$L+L'$</td><td>$+\infty$</td><td>$-\infty$</td><td>$+\infty$</td><td>$-\infty$</td><td><strong>F.I.*</strong></td></tr></table>
 <p>* Forme indéterminée : on ne peut pas prévoir la limite éventuelle.</p></div></section>
-<h3><span class="num-section">IV.2</span> Limite d'un produit</h3>
+<h3 id="s4-2"><span class="num-section">IV.2</span> Limite d'un produit</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Limite d'un produit de fonction</span><div class="boite-corps"><p> $\infty$ désigne $+\infty$ ou $-\infty$</p>
 <table class="tableau"><tr><td>$\limx{x}{\alpha} f(x)=$</td><td>$L$</td><td>$L$</td><td>$\infty$</td><td>$0$</td></tr><tr><td>$\limx{x}{\alpha} g(x)=$</td><td>$L'$</td><td>$\infty$</td><td>$\infty$</td><td>$\infty$</td></tr><tr><td>$\limx{x}{\alpha} f(x)g(x)=$</td><td>$L\,L'$</td><td>$\infty$</td><td>$\infty$</td><td>F.I.</td></tr></table></div></section>
 <p><strong>Exemple :</strong> $\limx{x}{-\infty}(x-5)(3+x^{2})$ ?</p>
@@ -162,7 +165,7 @@ T : y=f'(a)(x-a)+f(a) .
 <div class="maths">\[
 \limx{x}{-\infty}(x-5)(3+x^{2})=-\infty .
 \]</div>
-<h3><span class="num-section">IV.3</span> Limite d'un quotient</h3>
+<h3 id="s4-3"><span class="num-section">IV.3</span> Limite d'un quotient</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Limite d'un quotient de fonction</span><div class="boite-corps"><p> $\infty$ désigne $+\infty$ ou $-\infty$</p>
 <table class="tableau"><tr><td>$\limx{x}{\alpha} f(x)=$</td><td>$L$</td><td>$L\neq 0$</td><td>$L$</td><td>$\infty$</td><td>$\infty$</td></tr><tr><td>$\limx{x}{\alpha} g(x)=$</td><td>$L'\neq 0$</td><td>$0$</td><td>$\infty$</td><td>$L$</td><td>$\infty$</td></tr><tr><td>$\limx{x}{\alpha} \dfrac{f(x)}{g(x)}=$</td><td>$\dfrac{L}{L'}$</td><td>$\infty$</td><td>$0$</td><td>$\infty$</td><td>F.I.</td></tr></table>
 <p>On applique la règle des signes pour déterminer si le quotient est $+\infty$ ou $-\infty$.</p></div></section>
@@ -181,7 +184,7 @@ T : y=f'(a)(x-a)+f(a) .
 "\infty-\infty",\quad "0\times\infty",\quad "\frac{\infty}{\infty}"
 \quad\text{et}\quad "\frac{0}{0}" .
 \]</div>
-<h3><span class="num-section">IV.4</span> Méthode : lever une forme indéterminée sur les fonctions polynômes et rationnelles</h3>
+<h3 id="s4-4"><span class="num-section">IV.4</span> Méthode : lever une forme indéterminée sur les fonctions polynômes et rationnelles</h3>
 <p><strong>Calculer</strong> $\displaystyle\limx{x}{+\infty}-3x^{3}+2x^{2}-6x+1$.</p>
 <p>On a $\limx{x}{+\infty}-3x^{3}=-\infty$ et $\limx{x}{+\infty}2x^{2}=+\infty$.</p>
 <p>On reconnaît une forme indéterminée du type « $\infty-\infty$ ».</p>
@@ -255,7 +258,7 @@ T : y=f'(a)(x-a)+f(a) .
 \limx{x}{-\infty}\frac{3x^{2}+2}{4x-1}=-\infty .
 \]</div>
 <h2 id="s5"><span class="num-section">V.</span> Théorèmes de comparaison et croissances comparées</h2>
-<h3><span class="num-section">V.1</span> Théorème de comparaison</h3>
+<h3 id="s5-1"><span class="num-section">V.1</span> Théorème de comparaison</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">de comparaison</span><div class="boite-corps"><p>Soient $f$ et $g$ deux fonctions définies au voisinage de $A$ (réel ou infini).</p>
 <ul><li>Si $f(x)\geqslant g(x)$ au voisinage de $A$ et si $\limx{x}{A} g(x)=+\infty$, alors $\limx{x}{A} f(x)=+\infty$.</li><li>Si $f(x)\leqslant g(x)$ au voisinage de $A$ et si $\limx{x}{A} g(x)=-\infty$, alors $\limx{x}{A} f(x)=-\infty$.</li></ul></div></section>
 <section class="boite boite-info"><span class="boite-titre">Info</span> <span class="boite-sous-titre">Méthode d'application</span><div class="boite-corps"><p>On <strong>minore</strong> (ou majore) la fonction par une fonction plus simple dont on sait calculer la limite, puis on conclut à l'aide du théorème.</p></div></section>
@@ -268,7 +271,7 @@ f(x)=x+\sin(x)\geqslant x-1 .
 \limx{x}{+\infty} f(x)=+\infty .
 \]</div>
 <p>De la même manière, $f(x)\leqslant x+1$ et $\limx{x}{-\infty}(x+1)=-\infty$, donc $\limx{x}{-\infty} f(x)=-\infty$.</p></div></section>
-<h3><span class="num-section">V.2</span> Théorème des gendarmes (encadrement)</h3>
+<h3 id="s5-2"><span class="num-section">V.2</span> Théorème des gendarmes (encadrement)</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">des gendarmes (encadrement)</span><div class="boite-corps"><p>Soient $f$, $g$ et $h$ trois fonctions définies au voisinage de $A$. Si, au voisinage de $A$,</p>
 <div class="maths">\[
 g(x)\leqslant f(x)\leqslant h(x)
@@ -296,7 +299,7 @@ g(x)\leqslant f(x)\leqslant h(x)
 <div class="maths">\[
 \limx{x}{+\infty} f(x)=3 .
 \]</div></div></section>
-<h3><span class="num-section">V.3</span> Théorèmes de croissances comparées</h3>
+<h3 id="s5-3"><span class="num-section">V.3</span> Théorèmes de croissances comparées</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">de croissances comparées</span><div class="boite-corps"><p>Au voisinage de $+\infty$, la fonction exponentielle « l'emporte » sur toute puissance de $x$, et toute puissance de $x$ « l'emporte » sur le logarithme :</p>
 <div class="maths">\[
 \limx{x}{+\infty}\frac{\mathrm{e}^{x}}{x^{n}}=+\infty
