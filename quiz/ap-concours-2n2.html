@@ -54,7 +54,7 @@
   <article class="question" data-bonne="4">
     <h3><span class="num">1</span>Gaspard le cafard se déplace uniquement sur les lignes d'un quadrillage dont les carrés ont un côté de longueur $1$. S'il se trouve sur un croisement du quadrillage, combien de croisements sont pour lui à distance $3$ (le long des lignes) ?</h3>
     <div class="choix"><button type="button" data-i="0">$10$</button><button type="button" data-i="1">une autre réponse</button><button type="button" data-i="2">$4$</button><button type="button" data-i="3">$9$</button><button type="button" data-i="4">$12$</button></div>
-    <p class="expl"><strong>Réponse :</strong> <strong>$12$.</strong> Depuis un croisement, il y a $4$ directions et $3$ croisements à distance $3$ dans chacune (en restant sur les lignes) : $4\times3=12$.  # WHITELIST balises</p>
+    <p class="expl"><strong>Réponse :</strong> Depuis un croisement, les croisements situés à exactement $3$ unités le long des lignes sont $(\pm3\,;0)$ et $(0\,;\pm3)$ (quatre points), puis $(\pm2\,;\pm1)$ et $(\pm1\,;\pm2)$ (huit points), soit $4+8=12$ croisements.  # WHITELIST balises</p>
   </article>
   <article class="question" data-bonne="4">
     <h3><span class="num">2</span>Un quart de cercle de rayon $4$ et de centre $B$ et un quart de cercle de rayon $3$ et de centre $D$ sont construits à l'intérieur du rectangle $ABCD$ ; le sommet $C$ appartient au grand quart de cercle. Si les deux cercles sont tangents, que vaut $\lvert AB\rvert$ ?</h3>
@@ -135,13 +135,13 @@
     <h3><span class="num">15</span>Les demi-cercles de centres $B$ et $D$ et de rayon $3$ sont tangents en $C$. La tangente au demi-cercle de diamètre $[AC]$ issue de $D$ coupe en $P$ la tangente au demi-cercle de diamètre $[CE]$ issue de $B$. Que vaut l'aire du triangle $BDP$ ?</h3>
     <div class="figure"><img src="../quiz-figures/geo2-q313.png" alt="figure de la question 15"></div>
     <div class="choix"><button type="button" data-i="0">$3\sqrt3$</button><button type="button" data-i="1">$\dfrac{6\sqrt3-3}{2}$</button><button type="button" data-i="2">une autre réponse</button><button type="button" data-i="3">$5$</button><button type="button" data-i="4">$\dfrac92$</button></div>
-    <p class="expl"><strong>Réponse :</strong> <strong>$3\sqrt3$.</strong> Les demi-cercles ont pour rayon $3$ et sont tangents en $C$, donc $BD=6$. La tangente issue de $D$ au cercle de centre $B$ donne $DP=\sqrt{BD^{2}-3^{2}}=\sqrt{27}=3\sqrt3$ et $BP=3$, avec $(BP)\perp(DP)$. Le triangle $BDP$ est donc rectangle en $P$ et son aire vaut $\frac12\times3\times3\sqrt3=3\sqrt3$. Les deux tangentes se coupent d'ailleurs en $P(6 ;\sqrt3)$, au-dessus de $C$.  # WHITELIST balises</p>
+    <p class="expl"><strong>Réponse :</strong> Les demi-cercles ont pour rayon $3$ et sont tangents en $C$, donc $BC=CD=3$ et $BD=6$. En prenant $B(0\,;0)$, $C(3\,;0)$ et $D(6\,;0)$, la tangente issue de $D$ au cercle de centre $B$ a pour équation $y=\frac{6-x}{\sqrt3}$ (sa distance à $B$ vaut $3$) et la tangente issue de $B$ au cercle de centre $D$ a pour équation $y=\frac{x}{\sqrt3}$ (sa distance à $D$ vaut $3$). Elles se coupent en $P\left(3\,;\sqrt3\right)$, à la verticale de $C$. Le triangle $BDP$ a donc pour base $BD=6$ et pour hauteur $CP=\sqrt3$, d'où une aire de $\frac12\times6\times\sqrt3=3\sqrt3$.  # WHITELIST balises</p>
   </article>
-  <article class="question" data-bonne="1">
+  <article class="question" data-bonne="3">
     <h3><span class="num">16</span>Un « hand spinner » (le trait gras sur la figure) est formé de $6$ cercles de même rayon $r$ tangents entre eux, et tangents à un $7$&lt;sup&gt;e&lt;/sup&gt; cercle central de même rayon. Quel est le périmètre de ce « hand spinner » ?</h3>
     <div class="figure"><img src="../quiz-figures/geo2-q315.png" alt="figure de la question 16"></div>
     <div class="choix"><button type="button" data-i="0">$6\pi r^{2}$</button><button type="button" data-i="1">$8\pi$</button><button type="button" data-i="2">$3\pi r$</button><button type="button" data-i="3">$8\pi r$</button><button type="button" data-i="4">$6\pi r$</button></div>
-    <p class="expl"><strong>Réponse :</strong> <strong>$8\pi r$.</strong> Chaque cercle extérieur est tangent à deux voisins ; l'arc apparent mesure $240$°, donc le périmètre vaut $6\times\frac{240}{360}\times2\pi r=8\pi r$.  # WHITELIST balises</p>
+    <p class="expl"><strong>Réponse :</strong> Chaque cercle extérieur est tangent à ses deux voisins : les deux points de contact délimitent, du côté extérieur, un arc de $240$° que ne recouvre aucun autre cercle (l'arc intérieur de $120$°, lui, est en partie masqué par le cercle central). Le périmètre du hand spinner vaut donc $6\times\frac{240}{360}\times2\pi r=8\pi r$.  # WHITELIST balises</p>
   </article>
   <article class="question" data-bonne="3">
     <h3><span class="num">17</span>Le triangle $ABC$ est rectangle en $A$ avec $\lvert AB\rvert=12$ et $\lvert AC\rvert=5$. La droite $d$ est la bissectrice de l'angle $\widehat A$. Le triangle $ADE$ est l'image de $ABC$ par la symétrie orthogonale d'axe $d$. Les côtés $BC$ et $DE$ se coupent en $F$. Que vaut l'aire du quadrilatère non convexe $ABFD$ ?</h3>
@@ -152,7 +152,7 @@
   <article class="question" data-bonne="1">
     <h3><span class="num">18</span>Dans un triangle $ABC$, la médiane issue de $A$ est perpendiculaire à la médiane issue de $B$. Si $\lvert BC\rvert=8$ et $\lvert AC\rvert=6$, que vaut $\lvert AB\rvert$ ?</h3>
     <div class="choix"><button type="button" data-i="0">$3\sqrt2$</button><button type="button" data-i="1">$2\sqrt5$</button><button type="button" data-i="2">$\dfrac{11}{\sqrt5}$</button><button type="button" data-i="3">$\dfrac92$</button><button type="button" data-i="4">$5$</button></div>
-    <p class="expl"><strong>Réponse :</strong> <strong>$2\sqrt5$.</strong> En notant $b=AB$ et $c=AC=6$, la perpendicularité des deux médianes donne $c^{2}-2b^{2}-b\cdot c=0$ avec $b\cdot c=\frac{b^{2}+36-64}{2}$, d'où $b^{2}=20$.  # WHITELIST balises</p>
+    <p class="expl"><strong>Réponse :</strong> En notant $a=BC=8$, $b=CA=6$ et $c=AB$, la perpendicularité des médianes issues de $A$ et de $B$ équivaut à $a^{2}+b^{2}=5c^{2}$. On en déduit $5c^{2}=8^{2}+6^{2}=100$, donc $c^{2}=20$ et $c=2\sqrt5$.  # WHITELIST balises</p>
   </article>
   <article class="question" data-bonne="3">
     <h3><span class="num">19</span>Le côté du petit carré vaut le tiers du côté du carré moyen ; le côté du carré moyen vaut la moitié du côté du grand carré. Si l'aire du petit carré est $11$ cm$^{2}$, quelle est l'aire du grand carré, en cm$^{2}$ ?</h3>
@@ -194,7 +194,7 @@
     <h3><span class="num">25</span>Le segment $[AB]$ est tangent en son milieu $M$ à un cercle. Les perpendiculaires à $AB$ en $A$ et $B$ coupent le cercle en $D$ et $C$, comme sur la figure. Quel doit être le rapport de la longueur du segment $[AB]$ au rayon du cercle pour que $ABCD$ soit un carré ?</h3>
     <div class="figure"><img src="../quiz-figures/geo2-q327.png" alt="figure de la question 25"></div>
     <div class="choix"><button type="button" data-i="0">$\sqrt2$</button><button type="button" data-i="1">$\dfrac85$</button><button type="button" data-i="2">$\dfrac45$</button><button type="button" data-i="3">$1$</button><button type="button" data-i="4">$2$</button></div>
-    <p class="expl"><strong>Réponse :</strong> <strong>$\frac85$.</strong> En posant $t=\frac{AB}{R}$ et $AB=2a$, la condition $AD=AB$ donne $t=1-\sqrt{1-t^{2}/4}$, soit $t=\frac85$.  # WHITELIST balises</p>
+    <p class="expl"><strong>Réponse :</strong> Posons $t=\frac{AB}{R}$ et $AB=2a$, donc $a=\frac{tR}{2}$. Le point $D$ est sur la perpendiculaire en $A$ à $[AB]$, à la distance $AD=R+\sqrt{R^{2}-a^{2}}$ de $A$. La condition $AD=AB$ s'écrit $R+\sqrt{R^{2}-a^{2}}=2a$, soit $\sqrt{1-\frac{t^{2}}{4}}=t-1$. En élevant au carré : $1-\frac{t^{2}}{4}=t^{2}-2t+1$, d'où $\frac{5t^{2}}{4}=2t$ et $t=\frac85$.  # WHITELIST balises</p>
   </article>
   <article class="question" data-bonne="2">
     <h3><span class="num">26</span>$\dfrac{2020^{2}+2020}{2020}=$</h3>
@@ -247,10 +247,10 @@
     <div class="choix"><button type="button" data-i="0">$50\pi$</button><button type="button" data-i="1">$15\pi$</button><button type="button" data-i="2">$10\pi$</button><button type="button" data-i="3">$25\pi$</button><button type="button" data-i="4">$5\pi$</button></div>
     <p class="expl"><strong>Réponse :</strong> <strong>$50\pi$.</strong> $R=7{,}5$ et $r=2{,}5$ ; l'aire de la couronne vaut $\pi(R^{2}-r^{2})=\pi(56{,}25-6{,}25)=50\pi$.  # WHITELIST balises</p>
   </article>
-  <article class="question" data-bonne="4">
+  <article class="question" data-bonne="3">
     <h3><span class="num">35</span>Laquelle des affirmations suivantes à propos d'un triangle quelconque est <strong>fausse</strong> ?</h3>
     <div class="choix"><button type="button" data-i="0">si le point d'intersection des médiatrices est sur un côté du triangle, alors le triangle est rectangle</button><button type="button" data-i="1">le point d'intersection des médianes n'est jamais extérieur au triangle</button><button type="button" data-i="2">si le point d'intersection des hauteurs est extérieur au triangle, alors le point d'intersection des médiatrices est extérieur au triangle</button><button type="button" data-i="3">si une hauteur, une médiatrice et une médiane sont confondues, alors le triangle est équilatéral</button><button type="button" data-i="4">si le point d'intersection des hauteurs est sur un côté du triangle, alors il est également sur un second côté du triangle</button></div>
-    <p class="expl"><strong>Réponse :</strong> <strong>.</strong> Si l'orthocentre est sur un côté, le triangle est rectangle et il n'est alors que sur ce seul côté.  # WHITELIST balises</p>
+    <p class="expl"><strong>Réponse :</strong> Dans un triangle rectangle, l'orthocentre est le sommet de l'angle droit : il appartient donc à deux côtés, ce qui rend vraie l'affirmation sur l'orthocentre. Les affirmations sur l'orthocentre extérieur, sur le centre du cercle circonscrit situé sur un côté et sur le centre de gravité sont elles aussi exactes. En revanche, si une hauteur, une médiatrice et une médiane sont confondues, le triangle est seulement isocèle : dans un triangle isocèle en $A$, la hauteur et la médiane issues de $A$ ainsi que la médiatrice de $[BC]$ sont la même droite sans que le triangle soit équilatéral. C'est donc la dernière affirmation qui est fausse.  # WHITELIST balises</p>
   </article>
   <article class="question" data-bonne="2">
     <h3><span class="num">36</span>Ce drapeau est un rectangle de longueur $1{,}6$ m et de largeur $1$ m composé d'une croix blanche sur fond noir. L'aire de la croix blanche est égale aux $\frac{3}{10}$ de l'aire totale du drapeau. Les deux bandes blanches qui se croisent ont la même largeur. Quelle est, en millimètres, la largeur de chacune de ces bandes blanches ?</h3>
@@ -275,11 +275,11 @@
     <div class="choix"><button type="button" data-i="0">$90$</button><button type="button" data-i="1">$75$</button><button type="button" data-i="2">$45$</button><button type="button" data-i="3">$60$</button><button type="button" data-i="4">$30$</button></div>
     <p class="expl"><strong>Réponse :</strong> <strong>$60$°.</strong> $[BD]$ est un diamètre donc $\widehat{BAD}=90$° ; les angles $\widehat{ADB}$ et $\widehat{ACB}$ interceptent le même arc $AB$, d'où $60$°.  # WHITELIST balises</p>
   </article>
-  <article class="question" data-bonne="3">
+  <article class="question" data-bonne="4">
     <h3><span class="num">40</span>Parmi les quatre dessins suivants, combien peuvent être tracés sans lever le crayon et sans repasser par un même trait ?</h3>
     <div class="figure"><img src="../quiz-figures/geo2-q355.png" alt="figure de la question 40"></div>
     <div class="choix"><button type="button" data-i="0">$4$</button><button type="button" data-i="1">$2$</button><button type="button" data-i="2">$0$</button><button type="button" data-i="3">$3$</button><button type="button" data-i="4">$1$</button></div>
-    <p class="expl"><strong>Réponse :</strong> <strong>$3$.</strong> Un dessin est traçable d'un seul trait si et seulement s'il a $0$ ou $2$ sommets impairs ; c'est le cas de trois des quatre dessins.  # WHITELIST balises</p>
+    <p class="expl"><strong>Réponse :</strong> Un dessin se trace d'un seul trait si et seulement s'il possède $0$ ou $2$ sommets de degré impair. La maison simple (carré surmonté d'un toit) n'a que les deux extrémités de la base du toit de degré impair : elle se trace. La maison avec porte ajoute deux sommets impairs au bas de la porte (quatre au total), celle dont le toit est coupé par une horizontale ajoute deux sommets impairs, et celle à toit trapézoïdal également : ces trois dessins ne se tracent pas. Un seul dessin convient.  # WHITELIST balises</p>
   </article>
   <article class="question" data-bonne="3">
     <h3><span class="num">41</span>Dans le rectangle $ABCD$, $\lvert AB\rvert=60$. Le point $M$ est milieu de $[AB]$, le point $N$ est sur $[AD]$ avec $\lvert AN\rvert=20$. Quelle est la longueur de $[AD]$ si le triangle $MNC$ est rectangle en $N$ ?</h3>
@@ -298,11 +298,11 @@
     <div class="choix"><button type="button" data-i="0">$\sqrt5$</button><button type="button" data-i="1">$\pi$</button><button type="button" data-i="2">$\dfrac52$</button><button type="button" data-i="3">$3$</button><button type="button" data-i="4">$2$</button></div>
     <p class="expl"><strong>Réponse :</strong> <strong>$2$.</strong> Le demi-disque est inscrit dans le quart de disque : son diamètre est le rayon du quart de disque, donc si le quart de disque a pour rayon $R$, le demi-disque a pour rayon $r=\frac{R}{2}$. Le rapport des aires vaut alors \[ \frac{\frac{\pi R^{2}}{4}}{\frac{\pi r^{2}}{2}} =\frac{R^{2}}{4}\times\frac{2}{r^{2}} =\frac{R^{2}}{2\left(\frac{R}{2}\right)^{2}} =2.\]  # WHITELIST balises</p>
   </article>
-  <article class="question" data-bonne="1">
+  <article class="question" data-bonne="4">
     <h3><span class="num">44</span>Le sol d'une cave, représenté ci-contre, est pavé de carreaux de forme carrée, excepté aux trois endroits indiqués en noir, où une colonne carrée s'élève jusqu'au plafond. Le cercle indique la position d'une lampe. Quelle est l'aire de la surface au sol qui est éclairée par cette lampe (aire mesurée en nombre de carreaux) ?</h3>
     <div class="figure"><img src="../quiz-figures/geo2-q365.png" alt="figure de la question 44"></div>
     <div class="choix"><button type="button" data-i="0">$13$</button><button type="button" data-i="1">$14$</button><button type="button" data-i="2">$17$</button><button type="button" data-i="3">$7{,}5$</button><button type="button" data-i="4">$14{,}5$</button></div>
-    <p class="expl"><strong>Réponse :</strong> <strong>$14$ carreaux.</strong> Le comptage des cases atteintes par la lumière, colonnes par colonnes, donne $14$ carreaux.  # WHITELIST balises</p>
+    <p class="expl"><strong>Réponse :</strong> La lampe est placée à un nœud du quadrillage. Chaque colonne (un carreau) projette depuis la lampe une ombre de $3{,}5$ carreaux en tout : le carreau de la colonne et $2{,}5$ carreaux d'ombre portée au-delà. Les trois ombres sont disjointes et couvrent $3\times3{,}5=10{,}5$ carreaux ; comme le sol compte $5\times5=25$ carreaux, la surface éclairée vaut $25-10{,}5=14{,}5$ carreaux.  # WHITELIST balises</p>
   </article>
   <article class="question" data-bonne="3">
     <h3><span class="num">45</span>Dans le demi-cercle de diamètre $[AB]$ est inscrit un carré $IJKL$, avec les sommets $I$ et $J$ sur le segment $[AB]$. Que vaut le rapport de l'aire du carré à l'aire du demi-disque ?</h3>
@@ -326,7 +326,7 @@
     <h3><span class="num">48</span>Deux demi-droites de même origine font un angle de $60$°. Elles sont tangentes à un cercle de rayon $1$ en $T$ et $T'$. Quelle est l'aire de la surface délimitée par ces deux demi-droites et le petit arc $TT'$ ?</h3>
     <div class="figure"><img src="../quiz-figures/geo2-q370.png" alt="figure de la question 48"></div>
     <div class="choix"><button type="button" data-i="0">$2\sqrt3-\dfrac{\pi}{6}$</button><button type="button" data-i="1">$\sqrt3-\dfrac{\pi}{6}$</button><button type="button" data-i="2">$\sqrt3-\dfrac{\pi}{3}$</button><button type="button" data-i="3">$2\sqrt3-\dfrac{\pi}{3}$</button><button type="button" data-i="4">$\sqrt3$</button></div>
-    <p class="expl"><strong>Réponse :</strong> <strong>$\sqrt3-\frac{\pi}{3}$.</strong> Le secteur angulaire a pour aire $\sqrt3$ et l'on retire le secteur circulaire d'angle $120$° et de rayon $1$, d'aire $\frac{2\pi}{3}$... soit $\sqrt3-\frac{\pi}{3}$.  # WHITELIST balises</p>
+    <p class="expl"><strong>Réponse :</strong> Le sommet $V$ des deux demi-droites est à distance $2$ du centre $O$ du cercle (rayon $1$ et demi-angle $30$°, donc $OV=\frac{1}{\sin30°}=2$) ; les points de contact sont à distance $\sqrt3$ de $V$ et l'arc $TT'$ a pour angle au centre $120$°. L'aire cherchée est celle du triangle $VTT'$ diminuée du segment circulaire : $\frac12\times\sqrt3\times\sqrt3\times\sin60°-\left(\frac{\pi}{3}-\frac12\sin120°\right)=\frac{3\sqrt3}{4}-\frac{\pi}{3}+\frac{\sqrt3}{4}=\sqrt3-\frac{\pi}{3}$.  # WHITELIST balises</p>
   </article>
   <script>
   (function () {
