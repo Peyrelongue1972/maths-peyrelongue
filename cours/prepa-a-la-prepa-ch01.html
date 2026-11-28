@@ -3,12 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Chapitre 1 : Les coniques 
-\large Prépa à la prépa — Prépa à la prépa</title>
+<title>Chapitre 1 : Les coniques  Prépa à la prépa — Prépa à la prépa</title>
 <link rel="stylesheet" href="../assets/style.css">
 <script>
   window.MathJax = {
-    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}"} },
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\ℝ}", "N": "{\ℕ}", "Z": "{\ℤ}", "Q": "{\ℚ}", "C": "{\ℂ}", "D": "{\𝔻}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "norme": ["{\\left\\|#1\\right\\|}", 1], "prob": "{P}", "Pcond": ["{P_{#1}\\left(#2\\right)}", 2], "suite": ["{\\left(#1\\right)}", 1], "limn": "{\\lim\\limits_{n\\to+\\infty}}", "limx": ["{\\lim\\limits_{x\\to #1}}", 1]} },
     options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
   };
 </script>
@@ -21,6 +20,9 @@
   border-bottom:2px solid var(--couleur,#2b6cb0)}
 .cours h2 .num-section{color:var(--couleur,#2b6cb0)}
 .cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours h3 .num-section{color:var(--couleur,#2b6cb0);margin-right:.15em}
+.cours .fbox{display:inline-block;border:1px solid var(--bord,#cfd6e0);border-radius:8px;
+  padding:.15em .55em;background:#fffdf5}
 .cours p{margin:.65rem 0;text-align:justify}
 .cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
 .cours li{margin:.28rem 0}
@@ -70,16 +72,15 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 <body style="--couleur:#2b6cb0">
 <main class="cours">
   <p><a href="../index.html#prepa-a-la-prepa">← Retour au site</a></p>
-  <h1>Chapitre 1 : Les coniques 
-\large Prépa à la prépa</h1>
-  <p class="sous-titre">Prépa à la prépa · Chapitre 1 — Les coniques · cours de Frederik de Peyrelongue</p>
-<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Les coniques</span><a class="onglet" href="../pdf/prepa-a-la-prepa/1-les-coniques.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/prepa-a-la-prepa/td01-coniques.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/prepa-a-la-prepa/activites-coniques.pdf" target="_blank" rel="noopener">Activités</a><a class="onglet" href="../quiz/prepa-a-la-prepa-1.html" target="_blank" rel="noopener">Quiz</a></nav>
+  <h1>Chapitre 1 : Les coniques  Prépa à la prépa</h1>
+  <p class="sous-titre">Prépa à la prépa · Chapitre 1 - Les coniques · cours de Frederik de Peyrelongue</p>
+<nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Les coniques</span><a class="onglet" href="../pdf/prepa-a-la-prepa/1-les-coniques.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/prepa-a-la-prepa/activites-coniques.pdf" target="_blank" rel="noopener">Activités</a><a class="onglet" href="../pdf/prepa-a-la-prepa/td01-coniques.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../quiz/prepa-a-la-prepa-1.html" target="_blank" rel="noopener">Quiz</a></nav>
 <nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I I  Introduction</a></li><li><a href="#s2">II II  Définition par foyer, directrice et excentricité</a></li><li><a href="#s3">III III  Les coniques : définition bifocale</a></li><li><a href="#s4">IV IV  Tangentes aux coniques</a></li></ol></nav>
 <h2 id="s1"><span class="num-section">I.</span> I  Introduction</h2>
 <p>Une approche intéressante des coniques est de les considérer comme l'intersection d'un plan avec un cône de révolution. Cette méthode permet de comprendre de manière géométrique l'origine des différentes courbes coniques (cercle, ellipse, parabole et hyperbole) et de mieux saisir leurs propriétés.</p>
-<h3>1.1  Le cône de révolution</h3>
+<h3 id="s1-1">1.1  Le cône de révolution</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Cône de révolution</span><div class="boite-corps"><p>Un <strong>cône de révolution</strong> est un cône formé par la rotation d'un triangle rectangle autour de l'un de ses côtés. Ce cône a un axe de symétrie, et tous les générateurs (les segments de droite reliant un point sur la base et le sommet du cône) sont inclinés sous le même angle par rapport à l'axe. Ce cône a une forme « pyramidale » et ses sections par un plan peuvent produire différents types de courbes appelées <strong>coniques</strong>.</p></div></section>
-<h3>1.2  Les coniques comme intersections du cône et du plan</h3>
+<h3 id="s1-2">1.2  Les coniques comme intersections du cône et du plan</h3>
 <p>La manière dont une courbe conique est formée dépend de l'angle avec lequel le plan coupe le cône. Voici les différentes possibilités selon l'orientation du plan par rapport au cône.</p>
 <p><strong>a) Le cercle (plan perpendiculaire à l'axe du cône)</strong></p>
 <ul><li><strong>Description</strong> : si le plan coupe le cône perpendiculairement à l'axe du cône (l'axe de révolution), l'intersection produite est un <strong>cercle</strong>.</li><li><strong>Géométriquement</strong> : le plan coupe le cône à égale distance de l'axe dans toutes les directions, produisant une courbe dont tous les points sont à une distance constante du centre, formant ainsi un cercle.</li></ul>
@@ -89,22 +90,22 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 <ul><li><strong>Description</strong> : si le plan coupe le cône parallèlement à l'un des générateurs (lignes formant les côtés du cône), l'intersection produite est une <strong>parabole</strong>.</li><li><strong>Géométriquement</strong> : le plan touche le cône suivant une ligne parallèle à l'un des générateurs, ce qui forme une courbe ayant une symétrie axiale, typique de la parabole.</li></ul>
 <p><strong>d) L'hyperbole (plan coupant les deux nappes du cône)</strong></p>
 <ul><li><strong>Description</strong> : si le plan coupe le cône de manière à intersecter les deux nappes (les deux parties du cône au-dessus et au-dessous de l'axe), l'intersection produira une <strong>hyperbole</strong>.</li><li><strong>Géométriquement</strong> : le plan coupe le cône en traversant les deux parties opposées du cône, ce qui crée deux branches opposées, formant une hyperbole.</li></ul>
-<h3>1.3  Les quatre cas en images</h3>
+<h3 id="s1-3">1.3  Les quatre cas en images</h3>
 <p><img class="img-cours" src="img/prepa-a-la-prepa-ch01-quatre-sections-cone.png" alt=""></p>
 <p><em>À gauche : les éléments du cône de révolution (axe, sommet, génératrices, nappes). À droite : les quatre coniques obtenues selon l'inclinaison du plan de coupe : le <strong>cercle</strong> (plan perpendiculaire à l'axe), l'<strong>ellipse</strong> (plan incliné), la <strong>parabole</strong> (plan parallèle à une génératrice) et l'<strong>hyperbole</strong> (plan coupant les deux nappes).</em></p>
 <h2 id="s2"><span class="num-section">II.</span> II  Définition par foyer, directrice et excentricité</h2>
-<p>La droite $\Delta$ passant par $F$ et perpendiculaire à $\D$ est appelée <strong>axe focal</strong> de $\C$.</p>
+<p>La droite $\Delta$ passant par $F$ et perpendiculaire à $𝔻$ est appelée <strong>axe focal</strong> de $ℂ$.</p>
 <p>On note</p>
 <div class="maths">\[
-\C=\left\{M\in\mathcal{P}\ \middle|\ \frac{MF}{MH}=e\right\}
+ℂ=\left\{M\in\mathcal{P}\ \middle|\ \frac{MF}{MH}=e\right\}
 \]</div>
-<p>On notera $K$ l'intersection de $\D$ et $\Delta$.</p>
-<p>Si $M$ est un point de $\C$, notons $M'$ son symétrique par rapport à l'axe focal $\Delta$. La conservation des distances par une symétrie orthogonale nous donne $\dfrac{M'F}{M'H'}=e$, où $H'$ est le projeté orthogonal de $M'$ sur $\D$, mais aussi le symétrique de $H$. $M'$ appartient donc à $\C$.</p>
-<p>L'axe focal est donc un <strong>axe de symétrie</strong> de nos coniques $\C$.</p>
+<p>On notera $K$ l'intersection de $𝔻$ et $\Delta$.</p>
+<p>Si $M$ est un point de $ℂ$, notons $M'$ son symétrique par rapport à l'axe focal $\Delta$. La conservation des distances par une symétrie orthogonale nous donne $\dfrac{M'F}{M'H'}=e$, où $H'$ est le projeté orthogonal de $M'$ sur $𝔻$, mais aussi le symétrique de $H$. $M'$ appartient donc à $ℂ$.</p>
+<p>L'axe focal est donc un <strong>axe de symétrie</strong> de nos coniques $ℂ$.</p>
 <p>Cette remarque nous pousse à choisir $\Delta$ comme premier axe du repère orthonormé que nous allons choisir pour établir les équations cartésiennes de nos coniques.</p>
-<p>Pour l'origine du repère, on choisit une intersection de $\C$ et de l'axe focal :</p>
+<p>Pour l'origine du repère, on choisit une intersection de $ℂ$ et de l'axe focal :</p>
 <div class="maths">\[
-M\in\C\cap\Delta
+M\inℂ\cap\Delta
 \iff MF=eMK \text{ et } M\in\Delta
 \iff \overline{MF}=\mp e\,\overline{MK}
 \iff
@@ -113,7 +114,7 @@ M\in\C\cap\Delta
 \overline{MF}-e\,\overline{MK}=0
 \end{cases}
 \]</div>
-<ul><li>Si $e=1$ la première équation a pour solution le milieu de $[FK]$ et la seconde n'a pas de solution.</li><li><p>Si $e\neq1$, $\C\cap\Delta=\{A\,;A'\}$ où $A$ est le barycentre de $F(1)$, $K(e)$ et $A'$ le barycentre de $F(1)$, $K(-e)$. En notant $O$ le milieu de $[AA']$, on a (propriété des barycentres)</p>
+<ul><li>Si $e=1$ la première équation a pour solution le milieu de $[FK]$ et la seconde n'a pas de solution.</li><li><p>Si $e\neq1$, $ℂ\cap\Delta=\{A\,;A'\}$ où $A$ est le barycentre de $F(1)$, $K(e)$ et $A'$ le barycentre de $F(1)$, $K(-e)$. En notant $O$ le milieu de $[AA']$, on a (propriété des barycentres)</p>
 <div class="maths">        \[
         \begin{cases}
         \overline{OF}+e\,\overline{OK}=(1+e)\overline{OA}\\
@@ -131,16 +132,16 @@ M\in\C\cap\Delta
 e=\frac{c}{a} \qquad ; \qquad d=\frac{a}{e}=\frac{a^{2}}{c}.
 \]</div>
 <p>Voyons selon les valeurs de « $e$ » les différents cas.</p>
-<h3>2.1  La parabole, cas où $e=1$</h3>
+<h3 id="s2-1">2.1  La parabole, cas où $e=1$</h3>
 <p>La parabole est le cas particulier où l'excentricité $e$ est égale à $1$.</p>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Parabole</span><div class="boite-corps"><p>Une parabole est le lieu des points $M$ tels que le rapport des distances entre $M$ et un <strong>foyer</strong> $F$ et $M$ et une <strong>directrice</strong> $D$ est constant et égal à $1$, c'est-à-dire que</p>
 <div class="maths">\[
 \frac{MF}{MH}=1 .
 \]</div></div></section>
-<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Interprétation géométrique et tracé</span><div class="boite-corps"><p>Pour chaque point $M$ de la parabole, la distance à $F$ est égale à la distance à la directrice $\D$.</p>
-<p><strong>Méthode pour tracer la parabole.</strong> On prend un point $H$ sur la directrice $\D$ de la conique ; $M$ est alors l'intersection de la médiatrice de $[FH]$ et de la droite perpendiculaire à $\D$ passant par $H$. Si $H$ est en $K$, le point $M$ est alors en $S$, milieu de $[KF]$. En faisant varier $H$ sur $\D$, on obtient une parabole de sommet $S$.</p></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Interprétation géométrique et tracé</span><div class="boite-corps"><p>Pour chaque point $M$ de la parabole, la distance à $F$ est égale à la distance à la directrice $𝔻$.</p>
+<p><strong>Méthode pour tracer la parabole.</strong> On prend un point $H$ sur la directrice $𝔻$ de la conique ; $M$ est alors l'intersection de la médiatrice de $[FH]$ et de la droite perpendiculaire à $𝔻$ passant par $H$. Si $H$ est en $K$, le point $M$ est alors en $S$, milieu de $[KF]$. En faisant varier $H$ sur $𝔻$, on obtient une parabole de sommet $S$.</p></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Équation cartésienne de la parabole</span><div class="boite-corps"><p>Plaçons-nous dans le repère orthogonal $R=\left(O\,;\vec{\imath}\,;\vec{\jmath}\right)$ d'origine le milieu $O$ du segment $[FK]$ et de premier axe $\Delta$ orienté de $K$ vers $F$. $F$ et $K$ ont les coordonnées suivantes : $F(c\,;0)$ et $K(-c\,;0)$.</p>
-<p>Soit $M(x\,;y)\in\C$ :</p>
+<p>Soit $M(x\,;y)\inℂ$ :</p>
 <div class="maths">\[\begin{aligned}
 MF^{2}=MH^{2}
 &\iff (x-c)^{2}+y^{2}=(x+c)^{2}\\
@@ -154,7 +155,7 @@ y^{2}=2px .
 \]</div></div></section>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span><div class="boite-corps"><p>La courbe de la fonction carré est une parabole (on a permuté les axes).</p></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">De l'équation au foyer et à la directrice</span><div class="boite-corps"><p>À partir de l'équation cartésienne d'une parabole, retrouver le foyer et la directrice. Exemple : $y=\dfrac{1}{4}x^{2}$.</p>
-<p><strong>1\iere{} méthode.</strong> Ici $x$ et $y$ jouent des rôles inversés, donc la parabole est verticale, d'où $x^{2}=4y$. On a alors $p=2=d(F\,;\D)$, donc $F(0\,;1)$ et $\D\,:\,y=-1$.</p>
+<p><strong>1\iere{} méthode.</strong> Ici $x$ et $y$ jouent des rôles inversés, donc la parabole est verticale, d'où $x^{2}=4y$. On a alors $p=2=d(F\,;𝔻)$, donc $F(0\,;1)$ et $𝔻\,:\,y=-1$.</p>
 <p><strong>2\ieme{} méthode.</strong> Soit $y=d$ la directrice et $F(0\,;c)$ le foyer, avec $MH=MF$ (car c'est une parabole) :</p>
 <div class="maths">\[\begin{aligned}
 &\iff x^{2}+(y-c)^{2}=(y-d)^{2}
@@ -171,13 +172,13 @@ c=1\\
 d=-1
 \end{cases}
 \end{aligned}\]</div></div></section>
-<h3>2.2  Cas où $e\neq1$ : équation cartésienne</h3>
+<h3 id="s2-2">2.2  Cas où $e\neq1$ : équation cartésienne</h3>
 <p>Plaçons-nous dans le repère orthogonal $R=\left(O\,;\vec{\imath}\,;\vec{\jmath}\right)$ où $\vec{\imath}=\dfrac{\overline{OA}}{\left|\overline{OA}\right|}$ et $O$ le milieu de $[AA']$, où $A$ est le barycentre de $F(1)$, $K(e)$ et $A'$ le barycentre de $F(1)$, $K(-e)$.</p>
 <p>On a $OA=a$, $OF=c$ et $OK=d$. On a les rapports suivants :</p>
 <div class="maths">\[
 e=\frac{c}{a} \qquad ; \qquad d=\frac{a}{e}=\frac{a^{2}}{c}.
 \]</div>
-<p>Soit $M(x\,;y)\in\C$ :</p>
+<p>Soit $M(x\,;y)\inℂ$ :</p>
 <div class="maths">\[
 MF^{2}=e^{2}MH^{2}\quad\text{avec } H(d\,;y)
 \iff (x-c)^{2}+y^{2}=e^{2}(x-d)^{2}.
@@ -190,7 +191,7 @@ MF^{2}=e^{2}MH^{2}\quad\text{avec } H(d\,;y)
 \iff \frac{y^{2}}{a^{2}-c^{2}}+\frac{x^{2}}{a^{2}}&=1
 \end{aligned}\]</div>
 <p>On a évidemment $a^{2}\neq c^{2}$ car $e=\dfrac{c}{a}\neq1$.</p>
-<p><strong>Dans le cas où $e&lt;1$</strong>, alors $a^{2}-c^{2}=(a+c)(a-c)&gt;0$ car $a&gt;c$ ; on pose $b^{2}=a^{2}-c^{2}$. On vient d'obtenir une équation cartésienne réduite de la conique $\C$ :</p>
+<p><strong>Dans le cas où $e&lt;1$</strong>, alors $a^{2}-c^{2}=(a+c)(a-c)&gt;0$ car $a&gt;c$ ; on pose $b^{2}=a^{2}-c^{2}$. On vient d'obtenir une équation cartésienne réduite de la conique $ℂ$ :</p>
 <div class="maths">\[
 \frac{x^{2}}{a^{2}}+\frac{y^{2}}{b^{2}}=1 .
 \]</div>
@@ -199,7 +200,7 @@ MF^{2}=e^{2}MH^{2}\quad\text{avec } H(d\,;y)
 E\ :\ \frac{x^{2}}{a^{2}}+\frac{y^{2}}{b^{2}}=1
 \]</div>
 <p>où $a$ et $b$ sont des réels non nuls.</p></div></section>
-<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Réciproque et propriétés</span><div class="boite-corps"><ul><li>On a donc montré que toute conique de foyer $F$, de directrice $\D$ et d'excentricité $e&lt;1$ est une ellipse.</li><li><p>Réciproquement, si $a\neq b$, on peut supposer $a&gt;b$ (quitte à échanger les rôles de $x$ et $y$). On pose alors $c=\sqrt{a^{2}-b^{2}}$, on définit $F(c\,;0)$ et $\D$ d'équation $x=\dfrac{a^{2}}{c}$.</p>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Réciproque et propriétés</span><div class="boite-corps"><ul><li>On a donc montré que toute conique de foyer $F$, de directrice $𝔻$ et d'excentricité $e&lt;1$ est une ellipse.</li><li><p>Réciproquement, si $a\neq b$, on peut supposer $a&gt;b$ (quitte à échanger les rôles de $x$ et $y$). On pose alors $c=\sqrt{a^{2}-b^{2}}$, on définit $F(c\,;0)$ et $𝔻$ d'équation $x=\dfrac{a^{2}}{c}$.</p>
 <p>En partant de $\dfrac{y^{2}}{a^{2}-c^{2}}+\dfrac{x^{2}}{a^{2}}=1$, on remonte les équivalences et on obtient que $M\in E\iff MF=eMH$.</p></li><li><p>Les axes $(Ox)$ et $(Oy)$ sont des <strong>axes de symétrie</strong>. On peut tracer $E$ en étudiant les fonctions</p>
 <div class="maths">        \[
         f(x)=\frac{b}{a}\sqrt{a^{2}-x^{2}}
@@ -207,12 +208,12 @@ E\ :\ \frac{x^{2}}{a^{2}}+\frac{y^{2}}{b^{2}}=1
         g(x)=-\frac{b}{a}\sqrt{a^{2}-x^{2}} .
         \]</div></li></ul></div></section>
 <figure class="figure-cours"><img src="img/prepa-a-la-prepa-ch01-fig01.png" alt="figure 1 du cours"></figure>
-<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Application : de l'équation aux éléments caractéristiques</span><div class="boite-corps"><p>Déterminer les éléments caractéristiques, le foyer $F$, la directrice $\D$ et l'excentricité de la conique à partir de l'équation cartésienne.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Application : de l'équation aux éléments caractéristiques</span><div class="boite-corps"><p>Déterminer les éléments caractéristiques, le foyer $F$, la directrice $𝔻$ et l'excentricité de la conique à partir de l'équation cartésienne.</p>
 <p>Soit $E$ d'équation $\dfrac{x^{2}}{16}+\dfrac{y^{2}}{9}=1$.</p>
 <p>On a $a^{2}=16$ donc $a=4$ ; $b^{2}=9$ donc $b=3$ ; on pose $c=\sqrt{a^{2}-b^{2}}=\sqrt{7}$.</p>
-<p>Le foyer est $F(c\,;0)=\left(\sqrt{7}\,;0\right)$, la directrice est $\D\,:\,x=\dfrac{a^{2}}{c}=\dfrac{16}{\sqrt{7}}=\dfrac{16\sqrt{7}}{7}$ et $e=\dfrac{c}{a}=\dfrac{\sqrt{7}}{4}$.</p>
+<p>Le foyer est $F(c\,;0)=\left(\sqrt{7}\,;0\right)$, la directrice est $𝔻\,:\,x=\dfrac{a^{2}}{c}=\dfrac{16}{\sqrt{7}}=\dfrac{16\sqrt{7}}{7}$ et $e=\dfrac{c}{a}=\dfrac{\sqrt{7}}{4}$.</p>
 <p>Si $a&lt;b$ on permute les rôles, donc les axes.</p></div></section>
-<p><strong>Dans le cas où $e&gt;1$</strong>, alors $a^{2}-c^{2}=(a+c)(a-c)&lt;0$ car $a&lt;c$ ; on pose $b^{2}=c^{2}-a^{2}$. On vient d'obtenir une équation cartésienne réduite de la conique $\C$ :</p>
+<p><strong>Dans le cas où $e&gt;1$</strong>, alors $a^{2}-c^{2}=(a+c)(a-c)&lt;0$ car $a&lt;c$ ; on pose $b^{2}=c^{2}-a^{2}$. On vient d'obtenir une équation cartésienne réduite de la conique $ℂ$ :</p>
 <div class="maths">\[
 \frac{x^{2}}{a^{2}}-\frac{y^{2}}{b^{2}}=1 .
 \]</div>
@@ -221,20 +222,20 @@ E\ :\ \frac{x^{2}}{a^{2}}+\frac{y^{2}}{b^{2}}=1
 H\ :\ \frac{x^{2}}{a^{2}}-\frac{y^{2}}{b^{2}}=1
 \]</div>
 <p>où $a$ et $b$ sont des réels non nuls.</p></div></section>
-<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Réciproque</span><div class="boite-corps"><p>On a donc montré que toute conique de foyer $F$, de directrice $\D$ et d'excentricité $e&gt;1$ est une hyperbole.</p>
-<p>Réciproquement, toute hyperbole $H$ d'équation $\dfrac{x^{2}}{a^{2}}-\dfrac{y^{2}}{b^{2}}=1$ dans un repère orthonormal est une conique définie par un foyer $F$, une directrice $\D$ et une excentricité $e&gt;1$.</p>
-<p>Pour le prouver, on pose $c=\sqrt{a^{2}+b^{2}}$, $e=\dfrac{c}{a}$, on définit la droite $\D\,:\,x=\dfrac{a^{2}}{c}$ et le point $F(c\,;0)$. On peut alors remonter l'équivalence de la démonstration :</p>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Réciproque</span><div class="boite-corps"><p>On a donc montré que toute conique de foyer $F$, de directrice $𝔻$ et d'excentricité $e&gt;1$ est une hyperbole.</p>
+<p>Réciproquement, toute hyperbole $H$ d'équation $\dfrac{x^{2}}{a^{2}}-\dfrac{y^{2}}{b^{2}}=1$ dans un repère orthonormal est une conique définie par un foyer $F$, une directrice $𝔻$ et une excentricité $e&gt;1$.</p>
+<p>Pour le prouver, on pose $c=\sqrt{a^{2}+b^{2}}$, $e=\dfrac{c}{a}$, on définit la droite $𝔻\,:\,x=\dfrac{a^{2}}{c}$ et le point $F(c\,;0)$. On peut alors remonter l'équivalence de la démonstration :</p>
 <div class="maths">\[
 M\in H \iff MF=e\,MH .
 \]</div>
-<p>L'hyperbole $H$ est donc la conique de foyer $F$ et de directrice $\D$.</p></div></section>
+<p>L'hyperbole $H$ est donc la conique de foyer $F$ et de directrice $𝔻$.</p></div></section>
 <figure class="figure-cours"><img src="img/prepa-a-la-prepa-ch01-fig02.png" alt="figure 2 du cours"></figure>
-<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Application</span><div class="boite-corps"><p>Déterminer les éléments caractéristiques, le foyer $F$, la directrice $\D$ et l'excentricité de la conique à partir de l'équation cartésienne.</p></div></section>
-<h3>2.3  Le cercle</h3>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Application</span><div class="boite-corps"><p>Déterminer les éléments caractéristiques, le foyer $F$, la directrice $𝔻$ et l'excentricité de la conique à partir de l'équation cartésienne.</p></div></section>
+<h3 id="s2-3">2.3  Le cercle</h3>
 <p>Le cercle peut aussi être vu comme un cas particulier de l'ellipse où les deux foyers sont confondus en un seul point, et l'excentricité $e$ est égale à $0$.</p>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Cercle</span><div class="boite-corps"><p>Un cercle est le lieu des points $M$ tels que la distance entre $M$ et un centre $O$ est constante. Si l'on utilise l'idée du rapport des distances, on peut dire que pour un cercle, l'excentricité est $e=0$, et tous les points du cercle sont équidistants du centre.</p></div></section>
 <h2 id="s3"><span class="num-section">III.</span> III  Les coniques : définition bifocale</h2>
-<h3>3.1  Ellipse</h3>
+<h3 id="s3-1">3.1  Ellipse</h3>
 <p>On cherche le lieu $\mathcal{E}$ des points $M$ qui vérifient</p>
 <div class="maths">\[
 \mathcal{E}=\left\{M\in\mathcal{P}\ \middle|\ MF+MF'=2a\right\}
@@ -243,7 +244,7 @@ M\in H \iff MF=e\,MH .
 <ul><li>Si $\mathcal{E}$ est non vide, il existe alors $M$ appartenant à $\mathcal{E}$ et l'inégalité triangulaire nous donne $FF'\leqslant MF+MF'$, donc $c\leqslant a$.</li><li>La contraposée nous donne : $c&gt;a$ implique que $\mathcal{E}$ est vide.</li></ul>
 <p>Nous ne devons donc étudier que le cas $c\leqslant a$.</p>
 <p><strong>Dans le cas où $c=a$</strong> : $MF+MF'=FF'\iff M\in[FF']$, donc $\mathcal{E}=[FF']$.</p>
-<h3>3.1  Ellipse (suite) : cas $c&lt;a$</h3>
+<h3 id="s3-2">3.1  Ellipse (suite) : cas $c&lt;a$</h3>
 <p>On se place dans le repère $R=\left(O\,;\vec{\imath}\,;\vec{\jmath}\right)$ de la figure ci-dessous, avec $O$ milieu de $[FF']$, donc $F(c\,;0)$ et $F'(-c\,;0)$.</p>
 <p>Pour $M(x\,;y)\in\mathcal{E}$ :</p>
 <div class="maths">\[\begin{aligned}
@@ -270,7 +271,7 @@ MF+MF'=2a
 2a^{2}-c^{2}-x^{2}-y^{2}\geqslant0 .
 \]</div>
 <p>Si $M\in\mathcal{E}$, on a forcément $x^{2}\leqslant a^{2}$ et $y^{2}\leqslant a^{2}-c^{2}$, donc l'inégalité recherchée est vérifiée.</p></div></section>
-<h3>3.2  Hyperbole</h3>
+<h3 id="s3-3">3.2  Hyperbole</h3>
 <p>On cherche le lieu $\mathcal{H}$ des points $M$ qui vérifient</p>
 <div class="maths">\[
 \mathcal{H}=\left\{M\in\mathcal{P}\ \middle|\ \left|MF-MF'\right|=2a\right\}
@@ -322,7 +323,7 @@ x^{2}+y^{2}+c^{2}-2a^{2}
 =\frac{c^{2}x^{2}}{a^{2}}-a^{2}
 \geqslant c^{2}-a^{2}\geqslant0 .
 \]</div>
-<h3>3.3  Hyperbole et ses asymptotes</h3>
+<h3 id="s3-4">3.3  Hyperbole et ses asymptotes</h3>
 <p>Soit $\mathcal{H}$ une hyperbole d'équation $\dfrac{x^{2}}{a^{2}}-\dfrac{y^{2}}{b^{2}}=1$ :</p>
 <div class="maths">\[
 \frac{x^{2}}{a^{2}}-\frac{y^{2}}{b^{2}}=1
@@ -339,14 +340,14 @@ Y=\dfrac{x}{a}+\dfrac{y}{b}
 <p>Dans le repère $\left(O\,;(OX)\,;(OY)\right)$, pas forcément orthonormal, on a obtenu l'équation de la fonction inverse et les axes $X=0$ et $Y=0$ sont les asymptotes de l'hyperbole.</p>
 <p>Donc réciproquement, dans le repère initial, $y=\dfrac{b}{a}x$ et $y=-\dfrac{b}{a}x$ sont les deux asymptotes de l'hyperbole.</p>
 <p>Pour tracer $\mathcal{H}$, on trace d'abord les deux asymptotes.</p>
-<section class="boite boite-thm"><span class="boite-titre">Théorème</span><div class="boite-corps"><p>L'équation d'une hyperbole dans le système d'axes formé par ses asymptotes est de la forme $xy=k$ où $k\in\R^{*}$.</p></div></section>
-<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">(réciproque)</span><div class="boite-corps"><p>Toute équation de la forme $xy=k$ où $k\in\R^{*}$ dans un repère quelconque est celle d'une hyperbole dont les asymptotes sont les axes du repère.</p></div></section>
-<h3>3.4  Interprétation géométrique de l'excentricité</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span><div class="boite-corps"><p>L'équation d'une hyperbole dans le système d'axes formé par ses asymptotes est de la forme $xy=k$ où $k\inℝ^{*}$.</p></div></section>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">(réciproque)</span><div class="boite-corps"><p>Toute équation de la forme $xy=k$ où $k\inℝ^{*}$ dans un repère quelconque est celle d'une hyperbole dont les asymptotes sont les axes du repère.</p></div></section>
+<h3 id="s3-5">3.4  Interprétation géométrique de l'excentricité</h3>
 <table class="tableau"><tr><td><strong>Conique</strong></td><td><strong>Excentricité $e$</strong></td><td><strong>Propriétés principales</strong></td></tr><tr><td><strong>Cercle</strong></td><td>$e=0$</td><td>Tous les points à distance égale du centre</td></tr><tr><td><strong>Ellipse</strong></td><td>$0&lt;e&lt;1$</td><td>La somme des distances à deux foyers est constante</td></tr><tr><td><strong>Parabole</strong></td><td>$e=1$</td><td>La distance au foyer est égale à la distance à la directrice</td></tr><tr><td><strong>Hyperbole</strong></td><td>$e&gt;1$</td><td>La différence des distances à deux foyers est constante</td></tr></table>
 <p><strong>Conclusion.</strong> L'excentricité $e$ permet d'expliquer les coniques de manière simple et géométrique. Cette approche montre comment chaque conique (cercle, ellipse, parabole, hyperbole) peut être définie par une relation de distances spécifiques entre un point $M$, les foyers et la directrice. C'est une définition très utile en géométrie analytique, car elle permet de passer facilement des propriétés géométriques à des équations algébriques.</p>
 <h2 id="s4"><span class="num-section">IV.</span> IV  Tangentes aux coniques</h2>
-<h3>4.1  Les paraboles</h3>
-<section class="boite boite-thm"><span class="boite-titre">Théorème</span><div class="boite-corps"><p>La tangente en $M$ à une parabole $P$ de foyer $F$ et de directrice $\D$ coïncide avec la médiatrice de $[FH]$ où $H$ représente le projeté orthogonal de $M$ sur $\D$.</p></div></section>
+<h3 id="s4-1">4.1  Les paraboles</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span><div class="boite-corps"><p>La tangente en $M$ à une parabole $P$ de foyer $F$ et de directrice $𝔻$ coïncide avec la médiatrice de $[FH]$ où $H$ représente le projeté orthogonal de $M$ sur $𝔻$.</p></div></section>
 <p><strong>Preuve.</strong> Soit $P$ une parabole d'équation $y^{2}=2px$. Son foyer a donc pour coordonnées $F\left(\dfrac{p}{2}\,;0\right)$ et la directrice a pour équation $x=-\dfrac{p}{2}$.</p>
 <p>La parabole peut être vue comme l'union de deux fonctions $f_{1}(x)=\sqrt{2px}$ et $f_{2}(x)=-\sqrt{2px}$.</p>
 <p>On prend $M$ sur $\mathcal{C}_{f_{1}}$, donc $M\left(a\,;\sqrt{2pa}\right)\in P$.</p>
@@ -360,14 +361,14 @@ y=f_{1}'(a)(x-a)+f_{1}(a)=\sqrt{\frac{p}{2a}}\,(x-a)+\sqrt{2pa} .
 \]</div>
 <p>On constate que $T_{a}$ et $(HF)$ sont perpendiculaires car $m\times m_{T}=-1$.</p>
 <p>Je considère le triangle $HMF$ : on a $MH=MF$ (parabole), le triangle est isocèle, la tangente $T_{a}$ issue de $M$ est donc une hauteur, mais la hauteur dans un triangle isocèle est confondue avec la médiatrice.</p>
-<h3>4.2  Applications</h3>
+<h3 id="s4-2">4.2  Applications</h3>
 <p><strong>Optique</strong></p>
 <ul><li>Les paraboles sont utilisées dans la conception de miroirs paraboliques et d'antennes paraboliques.</li><li>La propriété fondamentale d'une parabole est que toute droite parallèle à son axe de symétrie se réfléchit sur la parabole et passe par son foyer.</li><li>La tangente en un point de la parabole est utilisée pour déterminer l'angle de réflexion de la lumière ou des ondes électromagnétiques.</li></ul>
 <p><strong>Ingénierie et architecture</strong></p>
 <ul><li>Les paraboles sont souvent utilisées dans la conception de ponts, d'arches et de structures pour répartir les forces de manière optimale.</li><li>La tangente en un point de la parabole permet de déterminer la pente ou l'inclinaison de la structure à cet endroit, ce qui est crucial pour les calculs de stabilité et de résistance.</li></ul>
 <p><strong>Physique et mouvement parabolique</strong></p>
 <ul><li>Dans l'étude du mouvement des projectiles, la trajectoire d'un objet lancé dans l'air (en négligeant la résistance de l'air) est une parabole.</li><li>La tangente à la parabole en un point donné représente la direction instantanée du mouvement de l'objet à cet instant.</li><li>Cela permet de déterminer la vitesse et l'angle de lancement optimal pour atteindre une cible.</li></ul>
-<h3>4.3  Tangentes à une conique à centre</h3>
+<h3 id="s4-3">4.3  Tangentes à une conique à centre</h3>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span><div class="boite-corps"><p>La tangente en un point $M$ d'une ellipse $E$ de foyers $F$ et $F'$ est la bissectrice extérieure issue de $M$ du triangle $MFF'$.</p></div></section>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Équation de la tangente</span><div class="boite-corps"><p>Soit $E$ une ellipse d'équation $\dfrac{x^{2}}{a^{2}}+\dfrac{y^{2}}{b^{2}}=1$ dans un repère orthogonal dont l'axe des abscisses est $(FF')$.</p>
 <p>La tangente au point $M\left(x_{0}\,;y_{0}\right)$ a pour équation :</p>
@@ -400,7 +401,7 @@ T_{x_{0}}\ :\ y=-\frac{b^{2}x_{0}}{a^{2}y_{0}}\left(x-x_{0}\right)+y_{0}
 \iff \frac{yy_{0}}{b^{2}}=-\frac{x_{0}x}{a^{2}}+1
 \iff \frac{x_{0}x}{a^{2}}+\frac{y_{0}y}{b^{2}}=1 .
 \]</div>
-<h3>4.4  Applications des tangentes à une ellipse</h3>
+<h3 id="s4-4">4.4  Applications des tangentes à une ellipse</h3>
 <ul><li><strong>Astronomie</strong> : les orbites des planètes sont des ellipses, et les tangentes sont utilisées pour étudier les vitesses et les directions des corps célestes.</li><li><strong>Ingénierie</strong> : les ellipses sont utilisées dans la conception d'engrenages, de lentilles et de structures mécaniques.</li><li><strong>Architecture</strong> : les ellipses et leurs tangentes sont utilisées pour créer des formes esthétiques et fonctionnelles, comme dans les arches ou les dômes.</li></ul>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">de réflexion (applications en optique et acoustique)</span><div class="boite-corps"><p>Une propriété fondamentale des ellipses est que <strong>tout rayon émis depuis l'un des foyers de l'ellipse se réfléchit sur l'ellipse et passe par l'autre foyer</strong>. Cela signifie que :</p>
 <ul><li>la tangente en un point de l'ellipse est la <strong>bissectrice</strong> de l'angle formé par les droites reliant ce point aux deux foyers ;</li><li>cette propriété est utilisée dans la conception de miroirs elliptiques (pour concentrer la lumière ou le son) et en acoustique (pour amplifier les sons).</li></ul></div></section>

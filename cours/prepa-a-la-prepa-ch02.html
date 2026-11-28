@@ -3,12 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Chapitre 2 : Notions sur les applications et les ensembles 
-\large Prépa à la prépa — Prépa à la prépa</title>
+<title>Chapitre 2 : Notions sur les applications et les ensembles  Prépa à la prépa — Prépa à la prépa</title>
 <link rel="stylesheet" href="../assets/style.css">
 <script>
   window.MathJax = {
-    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\\mathbb{R}}", "N": "{\\mathbb{N}}", "Z": "{\\mathbb{Z}}", "Q": "{\\mathbb{Q}}", "C": "{\\mathbb{C}}", "D": "{\\mathbb{D}}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "mathbb": ["{\\mathbbm{#1}}", 1]} },
+    tex: { inlineMath: [['$','$']], displayMath: [['\\[','\\]']], macros: {"R": "{\ℝ}", "N": "{\ℕ}", "Z": "{\ℤ}", "Q": "{\ℚ}", "C": "{\ℂ}", "D": "{\𝔻}", "e": "{\\mathrm{e}}", "dx": "{\\,\\mathrm{d}x}", "qedhere": "{}", "qed": "{\\blacksquare}", "vect": ["{\\overrightarrow{#1}}", 1], "abs": ["{\\left\\lvert #1\\right\\rvert}", 1], "llbracket": "{[\\\\![}", "rrbracket": "{]\\\\!]}", "norme": ["{\\left\\|#1\\right\\|}", 1], "prob": "{P}", "Pcond": ["{P_{#1}\\left(#2\\right)}", 2], "suite": ["{\\left(#1\\right)}", 1], "limn": "{\\lim\\limits_{n\\to+\\infty}}", "limx": ["{\\lim\\limits_{x\\to #1}}", 1]} },
     options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
   };
 </script>
@@ -21,6 +20,9 @@
   border-bottom:2px solid var(--couleur,#2b6cb0)}
 .cours h2 .num-section{color:var(--couleur,#2b6cb0)}
 .cours h3{font-size:1.08rem;margin:1.5rem 0 .6rem;color:var(--couleur,#2b6cb0)}
+.cours h3 .num-section{color:var(--couleur,#2b6cb0);margin-right:.15em}
+.cours .fbox{display:inline-block;border:1px solid var(--bord,#cfd6e0);border-radius:8px;
+  padding:.15em .55em;background:#fffdf5}
 .cours p{margin:.65rem 0;text-align:justify}
 .cours ul,.cours ol{margin:.5rem 0 .8rem 1.4rem}
 .cours li{margin:.28rem 0}
@@ -70,51 +72,50 @@ a.onglet[href*="quiz/"]:hover{background:#fbdcec;border-color:#e79cc3}
 <body style="--couleur:#2b6cb0">
 <main class="cours">
   <p><a href="../index.html#prepa-a-la-prepa">← Retour au site</a></p>
-  <h1>Chapitre 2 : Notions sur les applications et les ensembles 
-\large Prépa à la prépa</h1>
-  <p class="sous-titre">Prépa à la prépa · Chapitre 2 — Applications et ensembles · cours de Frederik de Peyrelongue</p>
+  <h1>Chapitre 2 : Notions sur les applications et les ensembles  Prépa à la prépa</h1>
+  <p class="sous-titre">Prépa à la prépa · Chapitre 2 - Applications et ensembles · cours de Frederik de Peyrelongue</p>
 <nav class="onglets" aria-label="Documents du chapitre"><span class="onglet actif">Applications et ensembles</span><a class="onglet" href="../pdf/prepa-a-la-prepa/2-applications-et-ensembles.pdf" target="_blank" rel="noopener">Cours PDF</a><a class="onglet" href="../pdf/prepa-a-la-prepa/td01-raisonnement-ensembles.pdf" target="_blank" rel="noopener">TD n°1</a><a class="onglet" href="../pdf/prepa-a-la-prepa/td02-applications.pdf" target="_blank" rel="noopener">TD n°2</a><a class="onglet" href="../pdf/prepa-a-la-prepa/td03-ensembles-cardinalite.pdf" target="_blank" rel="noopener">TD n°3</a><a class="onglet" href="../quiz/prepa-a-la-prepa-2.html" target="_blank" rel="noopener">Quiz</a></nav>
 <nav class="sommaire"><strong>Sommaire</strong><ol><li><a href="#s1">I I  Méthodes de raisonnement</a></li><li><a href="#s2">II II  Notions d'ensemble</a></li><li><a href="#s3">III III  Cardinalité et dénombrement</a></li><li><a href="#s4">IV IV  Applications</a></li><li><a href="#s5">V V  Éléments de théorie des cardinaux</a></li></ol></nav>
 <h2 id="s1"><span class="num-section">I.</span> I  Méthodes de raisonnement</h2>
-<h3>1.1  La contraposée</h3>
+<h3 id="s1-1">1.1  La contraposée</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Méthode : contraposée</span><div class="boite-corps"><p>Soit $P\Rightarrow Q$ une implication. Sa <strong>contraposée</strong> est $\text{non }Q\Rightarrow\text{non }P$.</p></div></section>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Propriété</span><div class="boite-corps"><p>Une implication est vraie si et seulement si sa contraposée est vraie.</p></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Exemple</span><div class="boite-corps"><p>Prouvons que, pour tout entier $n$, l'implication « $n^{2}$ pair $\Rightarrow n$ pair » est vraie. Montrons pour cela sa contraposée : « $n$ impair $\Rightarrow n^{2}$ impair ».</p>
-<p>Supposons $n$ impair. Il existe donc $k\in\Z$ tel que $n=2k+1$. Ainsi,</p>
+<p>Supposons $n$ impair. Il existe donc $k\inℤ$ tel que $n=2k+1$. Ainsi,</p>
 <div class="maths">\[
 n^{2}=(2k+1)^{2}=4k^{2}+4k+1=2\left(2k^{2}+2k\right)+1 .
 \]</div>
 <p>Donc $n^{2}$ est impair.</p></div></section>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Avertissement</span><div class="boite-corps"><p>Il ne faut pas confondre la contraposée avec la <strong>réciproque</strong> de $P\Rightarrow Q$, qui est $Q\Rightarrow P$. La réciproque n'est pas toujours vraie lorsque l'implication initiale est vraie.</p>
 <p>Par exemple, « $x\geqslant1\Rightarrow x^{2}\geqslant1$ » est vraie, mais sa réciproque « $x^{2}\geqslant1\Rightarrow x\geqslant1$ » est fausse : prendre $x=-2$.</p></div></section>
-<h3>1.2  Le raisonnement par l'absurde</h3>
+<h3 id="s1-2">1.2  Le raisonnement par l'absurde</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Méthode : raisonnement par l'absurde</span><div class="boite-corps"><p>Pour montrer qu'une proposition $P$ est vraie, on peut supposer que non $P$ est vraie, c'est-à-dire que $P$ est fausse, puis aboutir à une contradiction.</p></div></section>
-<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Exemple : $\sqrt{2}\notin\Q$</span><div class="boite-corps"><p>Supposons par l'absurde que $\sqrt{2}\in\Q$. Alors il existe deux entiers $p$ et $q$, avec $q\neq0$, premiers entre eux, tels que</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Exemple : $\sqrt{2}\notinℚ$</span><div class="boite-corps"><p>Supposons par l'absurde que $\sqrt{2}\inℚ$. Alors il existe deux entiers $p$ et $q$, avec $q\neq0$, premiers entre eux, tels que</p>
 <div class="maths">\[
 \frac{p}{q}=\sqrt{2}\ \Longrightarrow\ p^{2}=2q^{2} .
 \]</div>
-<p>Ainsi $p^{2}$ est pair, donc $p$ est pair d'après l'exemple précédent. Il existe donc $k\in\Z$ tel que $p=2k$.</p>
+<p>Ainsi $p^{2}$ est pair, donc $p$ est pair d'après l'exemple précédent. Il existe donc $k\inℤ$ tel que $p=2k$.</p>
 <p>En remplaçant, on obtient $(2k)^{2}=2q^{2}$, donc $4k^{2}=2q^{2}$, donc $q^{2}=2k^{2}$. Ainsi $q^{2}$ est pair, donc $q$ est pair.</p>
-<p>Les entiers $p$ et $q$ sont donc tous les deux pairs, ce qui contredit le fait qu'ils sont premiers entre eux. C'est absurde. On conclut que $\sqrt{2}\notin\Q$.</p></div></section>
-<h3>1.3  Le raisonnement par disjonction de cas</h3>
-<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Exemple : $\forall x\in\R$, $|x|\geqslant x$</span><div class="boite-corps"><p>Montrons que $\forall x\in\R$, $|x|\geqslant x$. On distingue deux cas :</p>
+<p>Les entiers $p$ et $q$ sont donc tous les deux pairs, ce qui contredit le fait qu'ils sont premiers entre eux. C'est absurde. On conclut que $\sqrt{2}\notinℚ$.</p></div></section>
+<h3 id="s1-3">1.3  Le raisonnement par disjonction de cas</h3>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Exemple : $\forall x\inℝ$, $|x|\geqslant x$</span><div class="boite-corps"><p>Montrons que $\forall x\inℝ$, $|x|\geqslant x$. On distingue deux cas :</p>
 <ul><li>si $x\geqslant0$, alors $|x|=x$, donc $|x|\geqslant x$ ;</li><li>si $x&lt;0$, alors $|x|\geqslant0&gt;x$, donc $|x|\geqslant x$.</li></ul>
 <p>Dans tous les cas, $|x|\geqslant x$.</p></div></section>
-<h3>1.4  Le raisonnement par implications successives</h3>
+<h3 id="s1-4">1.4  Le raisonnement par implications successives</h3>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Exemple</span><div class="boite-corps"><p>Montrons que $\forall x\geqslant0$, $\mathrm{e}^{x}+\dfrac{1}{x+1}-1\geqslant0$.</p>
 <div class="maths">\[\begin{aligned}
 \forall x\geqslant0 \Rightarrow \mathrm{e}^{x}\geqslant\mathrm{e}^{0}
-&\quad(\text{la fonction exponentielle est croissante sur }\R)\\
+&\quad(\text{la fonction exponentielle est croissante sur }ℝ)\\
 \Rightarrow \mathrm{e}^{x}-1\geqslant0 &\qquad (I_{1})
 \end{aligned}\]</div>
 <p>De plus, $\forall x\geqslant0$, $1+x\geqslant1\Rightarrow\dfrac{1}{x+1}&gt;0$ $(I_{2})$.</p>
 <p>$(I_{1})$ et $(I_{2})$ $\Rightarrow$ $\mathrm{e}^{x}+\dfrac{1}{x+1}-1\geqslant0$   <em>en sommant ces deux inégalités.</em></p></div></section>
-<h3>1.5  Le contre-exemple</h3>
+<h3 id="s1-5">1.5  Le contre-exemple</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Méthode : contre-exemple</span><div class="boite-corps"><p>Pour montrer qu'une proposition du type « $\forall x$, $P(x)$ » est fausse, il suffit de trouver un exemple de $x$ pour lequel $P(x)$ est fausse.</p></div></section>
-<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Exemple</span><div class="boite-corps"><p>Montrons que la proposition $\forall x\in\R$, $x^{2}\geqslant x$ est fausse.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Exemple</span><div class="boite-corps"><p>Montrons que la proposition $\forall x\inℝ$, $x^{2}\geqslant x$ est fausse.</p>
 <p>Pour $x=\dfrac{1}{2}$, on a $\left(\dfrac{1}{2}\right)^{2}\geqslant\dfrac{1}{2}$, c'est-à-dire $\dfrac{1}{4}\geqslant\dfrac{1}{2}$, ce qui est faux.</p></div></section>
 <section class="boite boite-rem"><span class="boite-titre">Remarque</span><div class="boite-corps"><p>Le contre-exemple sert uniquement à infirmer une proposition universelle. On ne peut pas démontrer une proposition universelle avec un simple exemple.</p></div></section>
-<h3>1.6  La double implication</h3>
+<h3 id="s1-6">1.6  La double implication</h3>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Méthode : équivalence</span><div class="boite-corps"><p>Pour démontrer une équivalence $P\iff Q$, on peut démontrer séparément les deux implications $P\Rightarrow Q$ et $Q\Rightarrow P$.</p></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Exemple : $A\cup B=A\iff B\subset A$</span><div class="boite-corps"><p>Soient $A$ et $B$ deux ensembles. Montrons que $A\cup B=A\iff B\subset A$.</p>
 <ul><li>Supposons $A\cup B=A$. Soit $x\in B$. Alors $x\in A\cup B$. Or $A\cup B=A$, donc $x\in A$. Ainsi, $B\subset A$.</li><li><p>Supposons $B\subset A$. Montrons $A\cup B=A$ par double inclusion.</p>
@@ -124,20 +125,20 @@ n^{2}=(2k+1)^{2}=4k^{2}+4k+1=2\left(2k^{2}+2k\right)+1 .
 <p>Par double inclusion, on obtient $A\cup B=A$.</p></li></ul></div></section>
 <section class="boite boite-rem"><span class="boite-titre">Remarque</span><div class="boite-corps"><p>L'expression « si et seulement si » correspond à une équivalence, notée $\iff$.</p></div></section>
 <h2 id="s2"><span class="num-section">II.</span> II  Notions d'ensemble</h2>
-<h3>2.1  Définitions et notations</h3>
+<h3 id="s2-1">2.1  Définitions et notations</h3>
 <p>On peut définir un ensemble de plusieurs manières :</p>
-<ul><li>en listant ses éléments : par exemple $E=\{1\,;4\,;-2\}$ ou encore $\N=\{0\,;1\,;2\,;3\,;\dots\}$ ;</li><li><p>à l'aide d'une propriété vérifiée par ses éléments :</p>
-<ul><li>$E=\{n\in\N \mid n \text{ est pair}\}$ ;</li></ul></li></ul>
+<ul><li>en listant ses éléments : par exemple $E=\{1\,;4\,;-2\}$ ou encore $ℕ=\{0\,;1\,;2\,;3\,;\dots\}$ ;</li><li><p>à l'aide d'une propriété vérifiée par ses éléments :</p>
+<ul><li>$E=\{n\inℕ \mid n \text{ est pair}\}$ ;</li></ul></li></ul>
 <p> Le symbole « $|$ » se lit « tel que ».</p>
-<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriétés : les ensembles usuels</span><div class="boite-corps"><ul><li>$\N=\{0\,;1\,;2\,;\dots\}$ : les entiers naturels ;</li><li>$\Z=\{\dots\,;-2\,;-1\,;0\,;1\,;2\,;\dots\}$ : les entiers relatifs ;</li><li>$\Q=\left\{\dfrac{p}{q}\ \middle|\ p\in\Z,\ q\in\N^{*}\right\}$ : les nombres rationnels ;</li><li>$\R$ : les nombres réels.</li></ul>
-<p>L'étoile signifie qu'on retire $0$ de l'ensemble : $\N^{*}=\{1\,;2\,;3\,;\dots\}$.</p>
-<p>On note également les intervalles ouverts $\left]a\,;b\right[=\{x\in\R \mid a&lt;x&lt;b\}$ et les segments $[a\,;b]$.</p></div></section>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriétés : les ensembles usuels</span><div class="boite-corps"><ul><li>$ℕ=\{0\,;1\,;2\,;\dots\}$ : les entiers naturels ;</li><li>$ℤ=\{\dots\,;-2\,;-1\,;0\,;1\,;2\,;\dots\}$ : les entiers relatifs ;</li><li>$ℚ=\left\{\dfrac{p}{q}\ \middle|\ p\inℤ,\ q\inℕ^{*}\right\}$ : les nombres rationnels ;</li><li>$ℝ$ : les nombres réels.</li></ul>
+<p>L'étoile signifie qu'on retire $0$ de l'ensemble : $ℕ^{*}=\{1\,;2\,;3\,;\dots\}$.</p>
+<p>On note également les intervalles ouverts $\left]a\,;b\right[=\{x\inℝ \mid a&lt;x&lt;b\}$ et les segments $[a\,;b]$.</p></div></section>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Notations ensemblistes</span><div class="boite-corps"><ul><li>$x\in A$ signifie que $x$ est un élément de l'ensemble $A$ ; $x\notin A$ signifie que $x$ n'est pas un élément de $A$.</li><li>$A\subset B$ signifie que $A$ est inclus dans $B$, c'est-à-dire que tous les éléments de $A$ sont aussi des éléments de $B$.</li><li>$\varnothing$ est l'ensemble vide : il ne possède aucun élément.</li></ul></div></section>
-<h3>2.2  Opérations : réunion, intersection, différence, complémentaire</h3>
+<h3 id="s2-2">2.2  Opérations : réunion, intersection, différence, complémentaire</h3>
 <p>Soient $A$ et $B$ deux sous-ensembles d'un ensemble $E$.</p>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Opérations courantes</span><div class="boite-corps"><ul><li>Union : $A\cup B=\{x\in E \mid x\in A \text{ ou } x\in B\}$.</li><li>Intersection : $A\cap B=\{x\in E \mid x\in A \text{ et } x\in B\}$.</li><li>Différence : $A\setminus B=\{x\in E \mid x\in A \text{ et } x\notin B\}$ ; $A\setminus B$ se lit « $A$ privé de $B$ ».</li><li>Complémentaire de $A$ dans $E$ : $\overline{A}=\{x\in E \mid x\notin A\}$.</li></ul></div></section>
-<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Exemples</span><div class="boite-corps"><p>Soient $A$ et $B$ des sous-ensembles de $\R$.</p>
-<ul><li>Si $A=[-1\,;1]$ et $B=[0\,;+\infty[$, alors $A\cap B=[0\,;1]$ et $A\cup B=[-1\,;+\infty[$.</li><li>Si $A=\N$ et $B=\Z$, alors $A\cup B=\Z$ et $A\cap B=\N$.</li></ul></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Exemples</span><div class="boite-corps"><p>Soient $A$ et $B$ des sous-ensembles de $ℝ$.</p>
+<ul><li>Si $A=[-1\,;1]$ et $B=[0\,;+\infty[$, alors $A\cap B=[0\,;1]$ et $A\cup B=[-1\,;+\infty[$.</li><li>Si $A=ℕ$ et $B=ℤ$, alors $A\cup B=ℤ$ et $A\cap B=ℕ$.</li></ul></div></section>
 <section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriétés</span><div class="boite-corps"><p>Les opérations $\cup$ et $\cap$ possèdent les propriétés suivantes :</p>
 <ul><li>commutativité : $A\cup B=B\cup A$, $A\cap B=B\cap A$ ;</li><li>associativité : $A\cup(B\cup C)=(A\cup B)\cup C$, $A\cap(B\cap C)=(A\cap B)\cap C$ ;</li><li>distributivité : $A\cap(B\cup C)=(A\cap B)\cup(A\cap C)$.</li></ul></div></section>
 <section class="boite boite-rem"><span class="boite-titre">Remarque</span> <span class="boite-sous-titre">familles d'ensembles</span><div class="boite-corps"><p>Comme pour les sommes et les produits, on peut indexer les unions et les intersections. Soit $\left(A_{i}\right)_{i\in I}$ une famille d'ensembles :</p>
@@ -146,12 +147,12 @@ n^{2}=(2k+1)^{2}=4k^{2}+4k+1=2\left(2k^{2}+2k\right)+1 .
 \qquad
 \bigcap_{i\in I}A_{i}=\left\{x \mid \forall i\in I,\ x\in A_{i}\right\}.
 \]</div></div></section>
-<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Exemples</span><div class="boite-corps"><p>$\bigcup_{k\in\N}\{k\}=\N$ ; $\bigcup_{i=0}^{n}[i\,;i+1]=[0\,;n+1]$.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Exemples</span><div class="boite-corps"><p>$\bigcup_{k\inℕ}\{k\}=ℕ$ ; $\bigcup_{i=0}^{n}[i\,;i+1]=[0\,;n+1]$.</p></div></section>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Proposition : lois de De Morgan</span><div class="boite-corps"><p>Soient $A$ et $B$ deux parties d'un ensemble $E$. Alors $\overline{A\cup B}=\overline{A}\cap\overline{B}$ et $\overline{A\cap B}=\overline{A}\cup\overline{B}$, où les complémentaires sont pris dans $E$.</p></div></section>
 <section class="boite boite-rem"><span class="boite-titre">Remarque</span><div class="boite-corps"><p>La proposition se généralise à une union et une intersection quelconques.</p></div></section>
 <p><strong>Preuve.</strong> On va procéder par équivalence.</p>
 <ul><li>$x\in\overline{A\cup B}\iff x\notin A\cup B \iff \text{non}\left(x\in A \text{ ou } x\in B\right) \iff x\notin A \text{ et } x\notin B \iff x\in\overline{A} \text{ et } x\in\overline{B} \iff x\in\overline{A}\cap\overline{B}$.</li><li>$x\in\overline{A\cap B}\iff x\notin A\cap B \iff \text{non}\left(x\in A \text{ et } x\in B\right) \iff x\notin A \text{ ou } x\notin B \iff x\in\overline{A} \text{ ou } x\in\overline{B} \iff x\in\overline{A}\cup\overline{B}$.</li></ul>
-<h3>2.3  Ensemble des parties et produit cartésien</h3>
+<h3 id="s2-3">2.3  Ensemble des parties et produit cartésien</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Ensemble des parties</span><div class="boite-corps"><p>Soit $E$ un ensemble. On définit l'ensemble des parties de $E$, noté $\mathcal{P}(E)$, comme l'ensemble des sous-ensembles de $E$ :</p>
 <div class="maths">\[
 A\in\mathcal{P}(E)\iff A\subset E .
@@ -163,16 +164,16 @@ A\in\mathcal{P}(E)\iff A\subset E .
 A\times B=\left\{(a\,;b) \mid a\in A \text{ et } b\in B\right\}.
 \]</div>
 <p>Il se lit « $A$ croix $B$ ».</p></div></section>
-<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Exemples</span><div class="boite-corps"><ul><li>$\N\times\R$ est l'ensemble des couples dont le premier élément est un entier naturel et le second un réel.</li><li>$\{0\,;2\}\times\{1\,;2\,;3\}=\{(0\,;1)\,;(0\,;2)\,;(0\,;3)\,;(2\,;1)\,;(2\,;2)\,;(2\,;3)\}$.</li><li>$\R\times\R=\R^{2}$ : c'est le plan.</li><li>$\R\times\R\times\R=\R^{3}$ : c'est l'espace.</li></ul></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Exemples</span><div class="boite-corps"><ul><li>$ℕ\timesℝ$ est l'ensemble des couples dont le premier élément est un entier naturel et le second un réel.</li><li>$\{0\,;2\}\times\{1\,;2\,;3\}=\{(0\,;1)\,;(0\,;2)\,;(0\,;3)\,;(2\,;1)\,;(2\,;2)\,;(2\,;3)\}$.</li><li>$ℝ\timesℝ=ℝ^{2}$ : c'est le plan.</li><li>$ℝ\timesℝ\timesℝ=ℝ^{3}$ : c'est l'espace.</li></ul></div></section>
 <h2 id="s3"><span class="num-section">III.</span> III  Cardinalité et dénombrement</h2>
-<h3>3.1  Cardinal d'un ensemble fini</h3>
+<h3 id="s3-1">3.1  Cardinal d'un ensemble fini</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Cardinal</span><div class="boite-corps"><p>Soit $E$ un ensemble fini. On appelle <strong>cardinal</strong> de $E$ le nombre d'éléments de $E$. On le note $\mathrm{Card}(E)$.</p>
 <p>En particulier, $\mathrm{Card}(\varnothing)=0$.</p></div></section>
 <section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Exemple</span><div class="boite-corps"><p>Si $E=\{1\,;2\,;3\,;4\,;5\,;6\}$, alors $\mathrm{Card}(E)=6$.</p></div></section>
-<h3>3.2  Factorielle et permutations</h3>
-<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Factorielle</span><div class="boite-corps"><p>On définit la suite $(n!)_{n\in\N}$ par récurrence en posant</p>
+<h3 id="s3-2">3.2  Factorielle et permutations</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Factorielle</span><div class="boite-corps"><p>On définit la suite $(n!)_{n\inℕ}$ par récurrence en posant</p>
 <div class="maths">\[
-0!=1 \qquad\text{et}\qquad \forall n\in\N,\ (n+1)!=(n+1)\,n! .
+0!=1 \qquad\text{et}\qquad \forall n\inℕ,\ (n+1)!=(n+1)\,n! .
 \]</div>
 <p>Ainsi, pour tout entier $n\geqslant1$,</p>
 <div class="maths">\[
@@ -184,17 +185,17 @@ n!=1\times2\times\dots\times n .
 (A\,;B\,;C)\,;(A\,;C\,;B)\,;(B\,;A\,;C)\,;(B\,;C\,;A)\,;(C\,;A\,;B)\,;(C\,;B\,;A) .
 \]</div></div></section>
 <p><strong>Preuve.</strong> Étant donné une liste à $n$ éléments $(x_{1}\,;\dots\,;x_{n})$, on peut permuter $x_{1}$ de $n$ manières, puis on peut permuter $x_{2}$ de $n-1$ manières (il ne peut pas prendre la place du précédent), etc. Il y a donc $n(n-1)\times\dots\times2\times1$ façons de permuter $n$ éléments.</p>
-<h3>3.3  Coefficients binomiaux</h3>
-<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Coefficient binomial</span><div class="boite-corps"><p>Soient $n\in\N$ et $k\in\{0\,;\dots\,;n\}$. On appelle <strong>coefficient binomial</strong> « $k$ parmi $n$ », et on note $\dbinom{n}{k}$, le nombre de parties à $k$ éléments d'un ensemble à $n$ éléments.</p></div></section>
+<h3 id="s3-3">3.3  Coefficients binomiaux</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Coefficient binomial</span><div class="boite-corps"><p>Soient $n\inℕ$ et $k\in\{0\,;\dots\,;n\}$. On appelle <strong>coefficient binomial</strong> « $k$ parmi $n$ », et on note $\dbinom{n}{k}$, le nombre de parties à $k$ éléments d'un ensemble à $n$ éléments.</p></div></section>
 <section class="boite boite-rem"><span class="boite-titre">Remarque</span><div class="boite-corps"><p>Un ensemble possède une unique partie à $0$ élément, qui est l'ensemble vide. Ses parties à un élément sont ses <strong>singletons</strong> (c'est-à-dire une partie possédant un seul élément). Par conséquent,</p>
 <div class="maths">\[
 \binom{n}{0}=1 \qquad\text{et}\qquad \binom{n}{1}=n .
 \]</div></div></section>
-<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Proposition : symétrie et formule de Pascal</span><div class="boite-corps"><p>Soient $n\in\N$ et $k\in\{0\,;\dots\,;n\}$. Alors</p>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Proposition : symétrie et formule de Pascal</span><div class="boite-corps"><p>Soient $n\inℕ$ et $k\in\{0\,;\dots\,;n\}$. Alors</p>
 <div class="maths">\[
 \binom{n}{k}=\binom{n}{n-k} .
 \]</div>
-<p>De plus, pour tout $n\in\N$ et tout $k\in\{0\,;\dots\,;n\}$,</p>
+<p>De plus, pour tout $n\inℕ$ et tout $k\in\{0\,;\dots\,;n\}$,</p>
 <div class="maths">\[
 \binom{n}{k-1}+\binom{n}{k}=\binom{n+1}{k} .
 \]</div></div></section>
@@ -208,7 +209,7 @@ n!=1\times2\times\dots\times n .
 <div class="maths">\[
 \binom{n}{k-1}+\binom{n}{k}=\binom{n+1}{k} .
 \]</div></div></section>
-<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Proposition : formule explicite</span><div class="boite-corps"><p>Pour tout $n\in\N$ et tout $k\in\{0\,;\dots\,;n\}$,</p>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Proposition : formule explicite</span><div class="boite-corps"><p>Pour tout $n\inℕ$ et tout $k\in\{0\,;\dots\,;n\}$,</p>
 <div class="maths">\[
 \binom{n}{k}=\frac{n!}{(n-k)!\,k!} .
 \]</div></div></section>
@@ -224,40 +225,40 @@ n(n-1)\cdots(n-k+1)=\frac{n!}{(n-k)!} .
 \]</div>
 <p>d'où le résultat.</p>
 <h2 id="s4"><span class="num-section">IV.</span> IV  Applications</h2>
-<h3>4.1  Définition</h3>
+<h3 id="s4-1">4.1  Définition</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Application</span><div class="boite-corps"><p>Soient $E$ et $F$ deux ensembles. Une <strong>application</strong> $f$ de $E$ dans $F$ est une relation entre ces deux ensembles qui, à tout élément $x$ de $E$ (qu'on appelle l'ensemble de départ ou de définition), associe un unique élément $f(x)$ de $F$ (l'ensemble d'arrivée). On note :</p>
 <div class="maths">\[
 f\ :\ E\to F, \qquad x\mapsto f(x) .
 \]</div>
 <p>$f(x)$ est l'<strong>image</strong> de $x$ par $f$ et $x$ est un <strong>antécédent</strong> de $f(x)$ par $f$.</p></div></section>
 <section class="boite boite-rem"><span class="boite-titre">Remarque</span><div class="boite-corps"><p>Nous retiendrons qu'une application associe à chaque élément de son ensemble de définition une unique image. Si un élément n'a pas d'image, il n'appartient pas à l'ensemble de définition.</p>
-<p>Une fonction réelle est une application de $\R$ dans $\R$.</p></div></section>
-<h3>4.2  Composition de fonctions</h3>
+<p>Une fonction réelle est une application de $ℝ$ dans $ℝ$.</p></div></section>
+<h3 id="s4-2">4.2  Composition de fonctions</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Composée</span><div class="boite-corps"><p>Soient $f : E\to F$ et $g : F\to G$ deux applications. On définit la composée $g\circ f : E\to G$ par $x\mapsto g\left(f(x)\right)$.</p></div></section>
 <section class="boite boite-rem"><span class="boite-titre">Remarque</span><div class="boite-corps"><p>On peut composer plus de deux applications à condition que les ensembles d'arrivée et de départ s'emboîtent correctement. Par exemple, si $f : E\to F$, $g : F\to G$ et $h : G\to H$, alors $h\circ(g\circ f)=(h\circ g)\circ f$.</p>
 <p>La composition est donc <strong>associative</strong>, mais elle n'est <strong>pas commutative</strong> en général : même lorsque $f\circ g$ et $g\circ f$ existent toutes les deux, on n'a pas forcément $f\circ g=g\circ f$.</p></div></section>
-<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Exemple</span><div class="boite-corps"><p>Soient $f : \R\to\R$, $x\mapsto x-1$ et $g : \R\to\R$, $x\mapsto x^{2}$.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Exemple</span><div class="boite-corps"><p>Soient $f : ℝ\toℝ$, $x\mapsto x-1$ et $g : ℝ\toℝ$, $x\mapsto x^{2}$.</p>
 <p>Alors $(g\circ f)(x)=(x-1)^{2}$ et $(f\circ g)(x)=x^{2}-1$.</p>
 <p>Ces deux applications sont donc différentes.</p></div></section>
-<h3>4.3  Injection, surjection, bijection</h3>
+<h3 id="s4-3">4.3  Injection, surjection, bijection</h3>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Injection, surjection, bijection</span><div class="boite-corps"><p>Soit $f : E\to F$ une application.</p>
 <ul><li>On dit que $f$ est <strong>injective</strong> (de $E$ dans $F$) si tout élément de $F$ possède au plus un antécédent dans $E$. Autrement dit : $\forall(x\,;y)\in E^{2}$, $f(x)=f(y)\Rightarrow x=y$.</li><li>On dit que $f$ est <strong>surjective</strong> (de $E$ dans $F$) si tout élément de $F$ possède au moins un antécédent dans $E$. Autrement dit : $\forall y\in F$, $\exists x\in E$ tel que $f(x)=y$.</li><li>On dit que $f$ est <strong>bijective</strong> (de $E$ dans $F$) si $f$ est injective et surjective. Autrement dit : $\forall y\in F$, $\exists!\,x\in E$ tel que $f(x)=y$.</li></ul></div></section>
-<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Exemples</span><div class="boite-corps"><ul><li>$f : \R\to\R$, $x\mapsto x^{2}$ n'est ni injective ($1$ a $2$ antécédents : $1$ et $-1$) ni surjective ($-1$ n'a pas d'antécédent).</li><li>$g : \R^{+}\to\R$, $x\mapsto x^{2}$ est injective.</li><li>$h : \R^{+}\to\R^{+}$, $x\mapsto x^{2}$ est bijective.</li></ul></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Exemples</span><div class="boite-corps"><ul><li>$f : ℝ\toℝ$, $x\mapsto x^{2}$ n'est ni injective ($1$ a $2$ antécédents : $1$ et $-1$) ni surjective ($-1$ n'a pas d'antécédent).</li><li>$g : ℝ^{+}\toℝ$, $x\mapsto x^{2}$ est injective.</li><li>$h : ℝ^{+}\toℝ^{+}$, $x\mapsto x^{2}$ est bijective.</li></ul></div></section>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Bijection réciproque</span><div class="boite-corps"><p>Soit $f : E\to F$ une application bijective. Comme $\forall y\in F$, $\exists!\,x\in E$ tel que $f(x)=y$, on peut définir une nouvelle application, notée $f^{-1} : F\to E$, qui à $y$ associe l'unique $x$ tel que $f(x)=y$. On l'appelle la <strong>bijection réciproque</strong> de $f$ : c'est l'application qui à tout élément $y$ associe l'unique antécédent de $y$ par $f$.</p></div></section>
-<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Exemples</span><div class="boite-corps"><ul><li>$f : \R^{+}\to\R^{+}$, $x\mapsto x^{2}$ est bijective et $f^{-1} : \R^{+}\to\R^{+}$, $x\mapsto\sqrt{x}$.</li><li>$g : \R^{-}\to\R^{+}$, $x\mapsto x^{2}$ est bijective et $g^{-1} : \R^{+}\to\R^{+}$, $x\mapsto-\sqrt{x}$.</li><li>$\exp : \R\to\R^{+*}$, $x\mapsto\mathrm{e}^{x}$ est bijective et $\exp^{-1}\left]0\,;+\infty\right[ : \R$, $x\mapsto\ln x$.</li></ul></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Exemples</span><div class="boite-corps"><ul><li>$f : ℝ^{+}\toℝ^{+}$, $x\mapsto x^{2}$ est bijective et $f^{-1} : ℝ^{+}\toℝ^{+}$, $x\mapsto\sqrt{x}$.</li><li>$g : ℝ^{-}\toℝ^{+}$, $x\mapsto x^{2}$ est bijective et $g^{-1} : ℝ^{+}\toℝ^{+}$, $x\mapsto-\sqrt{x}$.</li><li>$\exp : ℝ\toℝ^{+*}$, $x\mapsto\mathrm{e}^{x}$ est bijective et $\exp^{-1}\left]0\,;+\infty\right[ : ℝ$, $x\mapsto\ln x$.</li></ul></div></section>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Proposition : identité et réciproque</span><div class="boite-corps"><p>On note, pour $E$ un ensemble, $id_{E} : E\to E$, $x\mapsto x$ l'application identité de $E$.</p>
 <ul><li>Soit $f : E\to F$ bijective, on a : $f\circ f^{-1}=id_{F}$ et $f^{-1}\circ f=id_{E}$.</li><li>Soit $f : E\to F$. S'il existe $g : F\to E$ vérifiant $f\circ g=id_{F}$ et $g\circ f=id_{E}$, alors $f$ est bijective et $g=f^{-1}$.</li></ul></div></section>
 <section class="boite boite-rem"><span class="boite-titre">Remarque</span> <span class="boite-sous-titre">étudier la bijectivité</span><div class="boite-corps"><p>En pratique, pour étudier la <strong>bijectivité</strong> d'une application $f$, on cherche à résoudre l'équation $f(x)=y$ d'inconnue $x\in E$ et de paramètre $y\in F$.</p>
 <ul><li>Si cette équation a une unique solution pour tout $y$, alors $f$ est bijective et on récupère l'expression de $f^{-1}$.</li><li>Si l'équation a plusieurs solutions pour certains $y$, $f$ n'est pas injective.</li><li>Si l'équation n'a pas de solutions pour certains $y$, $f$ n'est pas surjective.</li></ul></div></section>
-<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Exemples</span><div class="boite-corps"><ul><li><p>Soit $f : \R\to\R$, $x\mapsto5x-2$. On veut résoudre $f(x)=y$ d'inconnue $x\in\R$ et de paramètre $y\in\R$.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Exemples</span><div class="boite-corps"><ul><li><p>Soit $f : ℝ\toℝ$, $x\mapsto5x-2$. On veut résoudre $f(x)=y$ d'inconnue $x\inℝ$ et de paramètre $y\inℝ$.</p>
 <div class="maths">        \[
         f(x)=y\iff 5x-2=y\iff 5x=y+2\iff x=\frac{y+2}{5} .
         \]</div>
-<p>On trouve une unique solution donc $f$ est bijective et $f^{-1} : \R\to\R$, $x\mapsto\dfrac{x+2}{5}$.</p></li><li><p>Soit $f : \R\to\R$, $x\mapsto(x+1)^{2}$. On veut résoudre $f(x)=y$.</p>
+<p>On trouve une unique solution donc $f$ est bijective et $f^{-1} : ℝ\toℝ$, $x\mapsto\dfrac{x+2}{5}$.</p></li><li><p>Soit $f : ℝ\toℝ$, $x\mapsto(x+1)^{2}$. On veut résoudre $f(x)=y$.</p>
 <div class="maths">        \[
         f(x)=y\iff (x+1)^{2}=y .
         \]</div>
-<p>Si $y&lt;0$, il n'y a pas de solutions, donc $f$ n'est pas surjective (dans $\R$).</p>
+<p>Si $y&lt;0$, il n'y a pas de solutions, donc $f$ n'est pas surjective (dans $ℝ$).</p>
 <p>Si $y\geqslant0$, $(x+1)^{2}=y\iff x+1=\sqrt{y}$ ou $-\sqrt{y} \iff x=\sqrt{y}-1$ ou $-\sqrt{y}-1$.</p>
 <p>Donc, quand $y&gt;0$, il y a $2$ solutions, donc $f$ n'est pas injective.</p></li></ul></div></section>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Proposition : composée de bijections</span><div class="boite-corps"><p>Soient $f : E\to F$ et $g : F\to G$ bijectives. Alors $g\circ f : E\to G$ est bijective et</p>
@@ -274,23 +275,23 @@ g\left(f(x)\right)=y
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Restriction</span><div class="boite-corps"><p>Soit $f : E\to F$ et $A\subset E$. On appelle <strong>restriction</strong> de $f$ à $A$ l'application $f_{|A} : A\to F$, $x\mapsto f(x)$.</p></div></section>
 <section class="boite boite-rem"><span class="boite-titre">Remarque</span><div class="boite-corps"><p>Cela revient à étudier une application sur un ensemble plus petit ; l'intérêt est d'obtenir une nouvelle application qui est, elle, injective, si on choisit correctement la restriction. On peut gagner de l'injectivité avec une restriction, mais pas de la surjectivité (car on a, en général, moins d'images en restreignant).</p></div></section>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Prolongement</span><div class="boite-corps"><p>Soit $f : E\to F$. Si $G$ est un ensemble tel que $E\subset G$, on appelle <strong>prolongement</strong> de $f$ à $G$ toute application $g : G\to F$ vérifiant $g_{|E}=f$.</p></div></section>
-<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Exemple</span><div class="boite-corps"><p>Soit $f : x\mapsto\dfrac{\sin(x)}{x}$ définie sur $\R^{*}$ ; on peut la prolonger sur $\R$ par la fonction $g$ :</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Exemple</span><div class="boite-corps"><p>Soit $f : x\mapsto\dfrac{\sin(x)}{x}$ définie sur $ℝ^{*}$ ; on peut la prolonger sur $ℝ$ par la fonction $g$ :</p>
 <div class="maths">\[
 g(x)=
 \begin{cases}
-\dfrac{\sin(x)}{x} & \text{si } x\in\R^{*}\\[6pt]
+\dfrac{\sin(x)}{x} & \text{si } x\inℝ^{*}\\[6pt]
 1 & \text{si } x=0
 \end{cases}
 \]</div></div></section>
 <h2 id="s5"><span class="num-section">V.</span> V  Éléments de théorie des cardinaux</h2>
-<h3>5.1  Ensemble fini et cardinal</h3>
+<h3 id="s5-1">5.1  Ensemble fini et cardinal</h3>
 <p>Lorsque l'on veut dénombrer les éléments d'un ensemble fini (par exemple, si on veut savoir combien de poires contient un panier), on établit une bijection entre un ensemble d'entiers et l'ensemble en question. On attribue le nombre $1$ à une poire, le nombre $2$ à une autre, le nombre $3$ à une troisième, et ainsi de suite, jusqu'à finalement attribuer un entier $n$ à la dernière poire du panier.</p>
 <p>On a alors défini une bijection entre l'ensemble des poires du panier et l'ensemble $\left[\![1\,;n\right]\!]$. Cette bijection n'est pas unique s'il y a au moins deux poires, mais l'entier $n$ que l'on obtient est toujours le même. On dit alors qu'il y a $n$ poires dans le panier. Lorsque l'on est plus jeune, et que l'on doit encore compter sur ses doigts, on établit en fait une bijection entre l'ensemble des poires et un ensemble de doigts.</p>
 <p>Dans tous les cas, on a compté en établissant <strong>une bijection entre l'ensemble étudié et un ensemble de référence</strong> bien compris.</p>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Même cardinal</span><div class="boite-corps"><p>On dit que deux ensembles $E$ et $F$ ont <strong>même cardinal</strong> s'il existe une bijection de $E$ dans $F$. Dans ce cas on écrira $\mathrm{card}(E)=\mathrm{card}(F)$.</p></div></section>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Équipotence</span><div class="boite-corps"><p>Soient $X$ et $Y$ deux ensembles. On dit que $X$ est <strong>équipotent</strong> à $Y$ s'il existe une bijection de $X$ sur $Y$.</p></div></section>
 <section class="boite boite-rem"><span class="boite-titre">Remarque</span><div class="boite-corps"><p>La relation d'équipotence est une relation d'équivalence.</p></div></section>
-<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Exemples</span><div class="boite-corps"><p>$\N$ est équipotent à $2\N$ car l'application $n\mapsto2n$ est une bijection.</p>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Exemples</span><div class="boite-corps"><p>$ℕ$ est équipotent à $2ℕ$ car l'application $n\mapsto2n$ est une bijection.</p>
 <p>$\mathcal{P}(E)$ et $\{0\,;1\}^{E}$ (où $\{0\,;1\}^{E}$ est l'ensemble des applications de $E$ dans $\{0\,;1\}$) sont équipotents car l'application définie par</p>
 <div class="maths">\[
 \mathcal{P}(E)\to\{0\,;1\}^{E}, \qquad A\mapsto\mathbb{1}_{A}
@@ -306,10 +307,10 @@ g(x)=
 <p><strong>Idée de la preuve.</strong> Soit $f$ une injection de $E$ dans $F$ et $g$ une injection de $F$ dans $E$.</p>
 <p>Si $g(F)=E$, alors $g$ est surjective et injective, donc c'est une bijection. Et c'est fini.</p>
 <p>On suppose que $g$ n'est pas surjective. On note $\widetilde{F}=g(F)\subset E$.</p>
-<p>On peut alors voir $g$ comme une bijection de $F$ dans $\widetilde{F}$ (car injective et surjective par construction). On définit maintenant $E_{0}=E\setminus\widetilde{F}$, puis, par récurrence sur $n\in\N$ :</p>
+<p>On peut alors voir $g$ comme une bijection de $F$ dans $\widetilde{F}$ (car injective et surjective par construction). On définit maintenant $E_{0}=E\setminus\widetilde{F}$, puis, par récurrence sur $n\inℕ$ :</p>
 <div class="maths">\[
 E_{n+1}=g\circ f\left(E_{n}\right)\subset\widetilde{F},
-\qquad\text{posons } B=\bigcup_{n\in\N}E_{n} .
+\qquad\text{posons } B=\bigcup_{n\inℕ}E_{n} .
 \]</div>
 <p>Pour $x\in E$, on définit l'application</p>
 <div class="maths">\[
@@ -321,13 +322,13 @@ x & \text{si } x\in E\setminus B
 \]</div>
 <p>L'application $h$ est injective (pour $x\in B$, $h=g\circ f$ est une composée de deux applications injectives donc injective ; pour $x\in E\setminus B$, $h=id$ donc injective).</p>
 <p>Cela définit une bijection de $E$ dans $\widetilde{F}$. Alors $g^{-1}\circ h$ est une bijection de $E$ dans $F$.</p>
-<h3>5.2  Ensemble fini</h3>
-<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Lemme</span><div class="boite-corps"><p>Soit $(n\,;p)\in\N^{2}$. S'il existe une injection de $\left[\![1\,;n\right]\!]$ dans $\left[\![1\,;p\right]\!]$ alors $n\leqslant p$.</p></div></section>
-<p><strong>Preuve.</strong> On montre le résultat par récurrence sur $p\in\N$. Si $p=0$ alors $n=0$, car il n'existe pas d'application d'un ensemble non vide dans l'ensemble vide. On suppose le résultat acquis jusqu'au rang $p-1$ (récurrence forte) et on suppose qu'il existe une injection $i$ de $\left[\![1\,;n\right]\!]$ dans $\left[\![1\,;p\right]\!]$. Si $n=0$ alors on a bien $n\leqslant p$. On suppose maintenant que $n\geqslant1$.</p>
+<h3 id="s5-2">5.2  Ensemble fini</h3>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Lemme</span><div class="boite-corps"><p>Soit $(n\,;p)\inℕ^{2}$. S'il existe une injection de $\left[\![1\,;n\right]\!]$ dans $\left[\![1\,;p\right]\!]$ alors $n\leqslant p$.</p></div></section>
+<p><strong>Preuve.</strong> On montre le résultat par récurrence sur $p\inℕ$. Si $p=0$ alors $n=0$, car il n'existe pas d'application d'un ensemble non vide dans l'ensemble vide. On suppose le résultat acquis jusqu'au rang $p-1$ (récurrence forte) et on suppose qu'il existe une injection $i$ de $\left[\![1\,;n\right]\!]$ dans $\left[\![1\,;p\right]\!]$. Si $n=0$ alors on a bien $n\leqslant p$. On suppose maintenant que $n\geqslant1$.</p>
 <p>On considère la permutation $\pi$ de $\left[\![1\,;p\right]\!]$ qui échange $i(n)$ et $p$, et laisse invariants les autres éléments. Alors $\pi\circ i$ est une injection de $\left[\![1\,;n\right]\!]$ dans $\left[\![1\,;p\right]\!]$ qui envoie $n$ sur $p$. Par restriction, elle induit une injection $\left[\![1\,;n-1\right]\!]$ dans $\left[\![1\,;p-1\right]\!]$. Par hypothèse de récurrence on a alors $n-1\leqslant p-1$, et donc $n\leqslant p$. D'où le résultat.</p>
-<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Corollaire</span><div class="boite-corps"><p>Soit $(n\,;p)\in\N^{2}$. S'il existe une bijection de $\left[\![1\,;n\right]\!]$ dans $\left[\![1\,;p\right]\!]$ alors $n=p$.</p></div></section>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Corollaire</span><div class="boite-corps"><p>Soit $(n\,;p)\inℕ^{2}$. S'il existe une bijection de $\left[\![1\,;n\right]\!]$ dans $\left[\![1\,;p\right]\!]$ alors $n=p$.</p></div></section>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Cardinal d'un ensemble</span><div class="boite-corps"><p>Soit $E$ un ensemble.</p>
-<ul><li>Soit $n\in\N$. On dit que $E$ est de <strong>cardinal</strong> $n$ si $E$ est en bijection avec $\left[\![1\,;n\right]\!]$. Un tel $n$ est nécessairement unique.</li><li>On dit que $E$ est <strong>fini</strong> s'il est de cardinal $n$ pour un certain $n\in\N$. On dit que $E$ est <strong>infini</strong> s'il n'est pas fini.</li></ul></div></section>
+<ul><li>Soit $n\inℕ$. On dit que $E$ est de <strong>cardinal</strong> $n$ si $E$ est en bijection avec $\left[\![1\,;n\right]\!]$. Un tel $n$ est nécessairement unique.</li><li>On dit que $E$ est <strong>fini</strong> s'il est de cardinal $n$ pour un certain $n\inℕ$. On dit que $E$ est <strong>infini</strong> s'il n'est pas fini.</li></ul></div></section>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Proposition</span><div class="boite-corps"><p>Soient $E$ un ensemble fini et $A$ une partie de $E$. Alors $A$ est un ensemble fini et $\mathrm{Card}(A)\leqslant\mathrm{Card}(E)$.</p></div></section>
 <p><strong>Preuve.</strong> On va d'abord montrer le résultat par récurrence dans le cas où $E=\left[\![1\,;n\right]\!]$, puis on passera au cas général.</p>
 <p><strong>1\ier{} cas : $E=\left[\![1\,;n\right]\!]$ et $A$ une partie de $E$.</strong></p>
@@ -343,7 +344,7 @@ p+1 & \text{si } x=n
 \end{cases}
 \]</div>
 <p>Donc $A$ est en bijection avec $\left[\![1\,;p+1\right]\!]$ et $A$ est donc fini et $\mathrm{card}(A)=p+1\leqslant n+1$.</p>
-<p><strong>2\ieme{} cas : le cas général.</strong> On note $n=\mathrm{card}(E)$ et on considère une bijection $\psi$ de $E$ dans $\left[\![1\,;n\right]\!]$. Si $A$ est une partie de $E$, alors $\psi(A)$ est une partie de $\left[\![1\,;n\right]\!]$. Donc l'ensemble $\psi(A)$ va être en bijection avec $\left[\![1\,;p\right]\!]$ pour un certain $p\in\N$ tel que $p\leqslant n$. Donc $A$ est en bijection avec $\psi(A)$ et $\psi(A)$ est en bijection avec $\left[\![1\,;p\right]\!]$ donc $A$ est en bijection avec $\left[\![1\,;p\right]\!]$. Cela prouve que $A$ est fini de cardinal $p\leqslant n$.</p>
+<p><strong>2\ieme{} cas : le cas général.</strong> On note $n=\mathrm{card}(E)$ et on considère une bijection $\psi$ de $E$ dans $\left[\![1\,;n\right]\!]$. Si $A$ est une partie de $E$, alors $\psi(A)$ est une partie de $\left[\![1\,;n\right]\!]$. Donc l'ensemble $\psi(A)$ va être en bijection avec $\left[\![1\,;p\right]\!]$ pour un certain $p\inℕ$ tel que $p\leqslant n$. Donc $A$ est en bijection avec $\psi(A)$ et $\psi(A)$ est en bijection avec $\left[\![1\,;p\right]\!]$ donc $A$ est en bijection avec $\left[\![1\,;p\right]\!]$. Cela prouve que $A$ est fini de cardinal $p\leqslant n$.</p>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Proposition : cardinal d'une union disjointe</span><div class="boite-corps"><p>Soient $F$ et $G$ deux ensembles finis disjoints. Alors $F\cup G$ est fini et</p>
 <div class="maths">\[
 \mathrm{Card}(F\cup G)=\mathrm{Card}(F)+\mathrm{Card}(G) .
@@ -366,56 +367,56 @@ g(x)+n & \text{si } x\in G
 <div class="maths">\[
 \mathrm{Card}(F\cup G)=\mathrm{Card}(F)+\mathrm{Card}(G)-\mathrm{card}(F\cap G) .
 \]</div></div></section>
-<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Proposition : ensemble infini</span><div class="boite-corps"><p>Soit $E$ un ensemble infini. Alors il existe une injection de $\N$ dans $E$.</p></div></section>
-<p><strong>Preuve.</strong> On construit une injection par récurrence $\psi$ de $\N$ dans $E$.</p>
-<p>Soit $n\in\N$ ; supposons avoir défini $\psi(k)$ pour tout $k\in\left[\![0\,;n-1\right]\!]$. Puisque la partie $\{\psi(0)\,;\psi(1)\,;\dots\,;\psi(n-1)\}$ est finie, elle n'est pas égale à $E$. On peut donc trouver un $\psi(n)$ tel que $\psi(n)\in E\setminus\{\psi(0)\,;\psi(1)\,;\dots\,;\psi(n-1)\}$.</p>
-<p>Cela définit par récurrence une application injective de $\N$ dans $E$.</p>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Proposition : ensemble infini</span><div class="boite-corps"><p>Soit $E$ un ensemble infini. Alors il existe une injection de $ℕ$ dans $E$.</p></div></section>
+<p><strong>Preuve.</strong> On construit une injection par récurrence $\psi$ de $ℕ$ dans $E$.</p>
+<p>Soit $n\inℕ$ ; supposons avoir défini $\psi(k)$ pour tout $k\in\left[\![0\,;n-1\right]\!]$. Puisque la partie $\{\psi(0)\,;\psi(1)\,;\dots\,;\psi(n-1)\}$ est finie, elle n'est pas égale à $E$. On peut donc trouver un $\psi(n)$ tel que $\psi(n)\in E\setminus\{\psi(0)\,;\psi(1)\,;\dots\,;\psi(n-1)\}$.</p>
+<p>Cela définit par récurrence une application injective de $ℕ$ dans $E$.</p>
 <p>En effet, supposons par l'absurde pour $n&lt;p$ que $\psi(n)=\psi(p)$ : cela contredit la construction de l'application. C'est donc absurde.</p>
-<h3>5.3  Ensemble dénombrable</h3>
-<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Ensemble dénombrable</span><div class="boite-corps"><p>On dit d'un ensemble qu'il est <strong>dénombrable</strong> s'il est en bijection avec une partie de $\N$.</p>
+<h3 id="s5-3">5.3  Ensemble dénombrable</h3>
+<section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Ensemble dénombrable</span><div class="boite-corps"><p>On dit d'un ensemble qu'il est <strong>dénombrable</strong> s'il est en bijection avec une partie de $ℕ$.</p>
 <p>En particulier, un ensemble fini est considéré comme dénombrable.</p></div></section>
-<section class="boite boite-rem"><span class="boite-titre">Remarque</span><div class="boite-corps"><p>Certains mathématiciens définissent les ensembles dénombrables comme étant les ensembles en bijection avec $\N$, auquel cas les ensembles finis ne sont pas dénombrables.</p></div></section>
+<section class="boite boite-rem"><span class="boite-titre">Remarque</span><div class="boite-corps"><p>Certains mathématiciens définissent les ensembles dénombrables comme étant les ensembles en bijection avec $ℕ$, auquel cas les ensembles finis ne sont pas dénombrables.</p></div></section>
 <section class="boite boite-def"><span class="boite-titre">Définition</span> <span class="boite-sous-titre">Ensemble infini</span><div class="boite-corps"><p>Un ensemble $E$ est infini s'il existe $x_{0}\in E$ et une injection de $E$ dans $E\setminus\{x_{0}\}$. Dans le cas contraire, $E$ est un ensemble fini et l'on note $\mathrm{card}(E)&lt;+\infty$.</p></div></section>
-<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Exemple</span><div class="boite-corps"><p>$\N$ est infini car l'application $n\mapsto n+1$ est une injection de $\N$ dans $\N\setminus\{0\}$.</p></div></section>
+<section class="boite boite-ex"><span class="boite-titre">Exemple</span> <span class="boite-sous-titre">Exemple</span><div class="boite-corps"><p>$ℕ$ est infini car l'application $n\mapsto n+1$ est une injection de $ℕ$ dans $ℕ\setminus\{0\}$.</p></div></section>
 <section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Proposition</span><div class="boite-corps"><p>Soit $E$ un ensemble.</p>
 <ol><li>S'il existe une injection de $E$ dans un ensemble $F$ dénombrable, alors $E$ est dénombrable.</li><li>S'il existe une surjection d'un ensemble dénombrable dans $E$, alors $E$ est dénombrable.</li></ol></div></section>
 <p><strong>Preuve.</strong></p>
-<ul><li>On suppose qu'il existe une injection $\phi$ de $E$ dans un ensemble dénombrable $F$. Comme $F$ est dénombrable, il existe une injection $\psi$ de $F$ dans $\N$. La composée $\psi\circ\phi$ est alors une injection de $E$ dans $\N$. Comme $E$ est infini, il existe par ailleurs une injection de $\N$ dans $E$ d'après la proposition précédente. D'après le théorème de <strong>Cantor-Bernstein</strong>, on obtient qu'il existe une bijection de $E$ dans $\N$, et donc que $E$ est dénombrable.</li><li>On suppose maintenant qu'il existe une surjection $\phi$ d'un ensemble dénombrable $F$ vers $E$. Pour chaque $x\in E$ on considère son antécédent $f(x)\in F$ de $x$ par $\phi$ (on a $\phi\left(f(x)\right)=x$). Cela définit une application $f$ de $E$ dans $F$ qui est injective. D'après la première propriété, on en déduit que $E$ est dénombrable.</li></ul>
-<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriété</span><div class="boite-corps"><ol><li>$\Z$ est dénombrable.</li><li>$\N^{2}$ est dénombrable.</li><li>$\Q$ est dénombrable.</li></ol></div></section>
+<ul><li>On suppose qu'il existe une injection $\phi$ de $E$ dans un ensemble dénombrable $F$. Comme $F$ est dénombrable, il existe une injection $\psi$ de $F$ dans $ℕ$. La composée $\psi\circ\phi$ est alors une injection de $E$ dans $ℕ$. Comme $E$ est infini, il existe par ailleurs une injection de $ℕ$ dans $E$ d'après la proposition précédente. D'après le théorème de <strong>Cantor-Bernstein</strong>, on obtient qu'il existe une bijection de $E$ dans $ℕ$, et donc que $E$ est dénombrable.</li><li>On suppose maintenant qu'il existe une surjection $\phi$ d'un ensemble dénombrable $F$ vers $E$. Pour chaque $x\in E$ on considère son antécédent $f(x)\in F$ de $x$ par $\phi$ (on a $\phi\left(f(x)\right)=x$). Cela définit une application $f$ de $E$ dans $F$ qui est injective. D'après la première propriété, on en déduit que $E$ est dénombrable.</li></ul>
+<section class="boite boite-prop"><span class="boite-titre">Propriété</span> <span class="boite-sous-titre">Propriété</span><div class="boite-corps"><ol><li>$ℤ$ est dénombrable.</li><li>$ℕ^{2}$ est dénombrable.</li><li>$ℚ$ est dénombrable.</li></ol></div></section>
 <p><strong>Preuve.</strong></p>
-<ol><li><p>L'ensemble $\Z$ des entiers relatifs est dénombrable, car l'application $\phi : \Z\to\N$ qui à $n$ associe</p>
+<ol><li><p>L'ensemble $ℤ$ des entiers relatifs est dénombrable, car l'application $\phi : ℤ\toℕ$ qui à $n$ associe</p>
 <div class="maths">        \[
         \Phi(n)=
         \begin{cases}
-        2n & \text{si } n\in\N\\
-        -2n-1 & \text{si } n\notin\N
+        2n & \text{si } n\inℕ\\
+        -2n-1 & \text{si } n\notinℕ
         \end{cases}
         \]</div>
-<p>est bijective.</p></li><li><p>L'ensemble $\N^{2}$ est dénombrable : l'application $\Phi : \N^{2}\to\N$ qui à $(p\,;q)$ associe</p>
+<p>est bijective.</p></li><li><p>L'ensemble $ℕ^{2}$ est dénombrable : l'application $\Phi : ℕ^{2}\toℕ$ qui à $(p\,;q)$ associe</p>
 <div class="maths">        \[
         \Phi(p\,;q)=\frac{(p+q)(p+q+1)}{2}+q
         \]</div>
-<p>est une bijection. L'idée est de représenter $\N^{2}$ par le quart de plan et $\N$ par les points de coordonnées entières ; il faut alors trouver un chemin qui parcourt l'ensemble des points du plan. Cette application consiste à numéroter les couples de $\N\times\N$ au fur et à mesure de leur parcours (en diagonales successives).</p></li><li><p>D'une part $\N\subset\Q$ donc $\Q$ est infini, et il existe donc trivialement une injection de $\N$ dans $\Q$.</p>
-<p>D'autre part, pour tout nombre rationnel $r$, il existe un unique couple $(p\,;q)\in\Z\times\N^{*}$ avec $p$ et $q$ premiers entre eux. L'application définie par</p>
+<p>est une bijection. L'idée est de représenter $ℕ^{2}$ par le quart de plan et $ℕ$ par les points de coordonnées entières ; il faut alors trouver un chemin qui parcourt l'ensemble des points du plan. Cette application consiste à numéroter les couples de $ℕ\timesℕ$ au fur et à mesure de leur parcours (en diagonales successives).</p></li><li><p>D'une part $ℕ\subsetℚ$ donc $ℚ$ est infini, et il existe donc trivialement une injection de $ℕ$ dans $ℚ$.</p>
+<p>D'autre part, pour tout nombre rationnel $r$, il existe un unique couple $(p\,;q)\inℤ\timesℕ^{*}$ avec $p$ et $q$ premiers entre eux. L'application définie par</p>
 <div class="maths">        \[
-        \Q\to\Z\times\N^{*}, \qquad \frac{p}{q}\mapsto(p\,;q)
+        ℚ\toℤ\timesℕ^{*}, \qquad \frac{p}{q}\mapsto(p\,;q)
         \]</div>
-<p>est une injection. Or $\Z\times\N^{*}$ est équipotent à $\N^{2}$, qui lui-même est équipotent à $\N$ ; donc, par composition, il existe une injection de $\Q$ dans $\N$. L'ensemble $\Q$ est donc dénombrable.</p></li></ol>
-<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème</span><div class="boite-corps"><p>L'ensemble $\R$ est infini non dénombrable, et $\mathrm{card}(\R)=\mathrm{card}\left(\mathcal{P}(\N)\right)$.</p></div></section>
-<section class="boite boite-rem"><span class="boite-titre">Remarque</span><div class="boite-corps"><p>$\{0\,;1\}^{\N}$ désigne l'ensemble de toutes les suites infinies de $0$ et de $1$.</p></div></section>
+<p>est une injection. Or $ℤ\timesℕ^{*}$ est équipotent à $ℕ^{2}$, qui lui-même est équipotent à $ℕ$ ; donc, par composition, il existe une injection de $ℚ$ dans $ℕ$. L'ensemble $ℚ$ est donc dénombrable.</p></li></ol>
+<section class="boite boite-thm"><span class="boite-titre">Théorème</span> <span class="boite-sous-titre">Théorème</span><div class="boite-corps"><p>L'ensemble $ℝ$ est infini non dénombrable, et $\mathrm{card}(ℝ)=\mathrm{card}\left(\mathcal{P}(ℕ)\right)$.</p></div></section>
+<section class="boite boite-rem"><span class="boite-titre">Remarque</span><div class="boite-corps"><p>$\{0\,;1\}^{ℕ}$ désigne l'ensemble de toutes les suites infinies de $0$ et de $1$.</p></div></section>
 <p><strong>Preuve.</strong> Soit $\phi$ l'application définie par</p>
 <div class="maths">\[
-\phi : \{0\,;1\}^{\N}\to[0\,;1], \qquad
-\left(x_{n}\right)_{n\in\N}\mapsto\sum_{n=0}^{+\infty}\frac{2x_{n}}{3^{n+1}} .
+\phi : \{0\,;1\}^{ℕ}\to[0\,;1], \qquad
+\left(x_{n}\right)_{n\inℕ}\mapsto\sum_{n=0}^{+\infty}\frac{2x_{n}}{3^{n+1}} .
 \]</div>
-<p>Pour toute suite $\left(x_{n}\right)_{n\in\N}$ on a</p>
+<p>Pour toute suite $\left(x_{n}\right)_{n\inℕ}$ on a</p>
 <div class="maths">\[
 0\leqslant\sum_{n=0}^{+\infty}\frac{2x_{n}}{3^{n+1}}
 \leqslant\sum_{n=0}^{+\infty}\frac{2}{3^{n+1}}
 =\frac{2}{3}\times\frac{1}{1-\frac13}=1 .
 \]</div>
 <p>Ainsi la fonction $\Phi$ est bien définie (et à valeurs dans $[0\,;1]$). Montrons que $\Phi$ est injective.</p>
-<p>Supposons par l'absurde qu'il existe deux suites différentes $a=\left(a_{n}\right)_{n\in\N}$ et $b=\left(b_{n}\right)_{n\in\N}$ à valeurs dans $\{0\,;1\}$ telles que $\Phi(a)=\Phi(b)$. On note $N=\min\left\{n\in\N \mid a_{n}\neq b_{n}\right\}$.</p>
+<p>Supposons par l'absurde qu'il existe deux suites différentes $a=\left(a_{n}\right)_{n\inℕ}$ et $b=\left(b_{n}\right)_{n\inℕ}$ à valeurs dans $\{0\,;1\}$ telles que $\Phi(a)=\Phi(b)$. On note $N=\min\left\{n\inℕ \mid a_{n}\neq b_{n}\right\}$.</p>
 <p>On peut par exemple supposer que $a_{N}=0$ et $b_{N}=1$. Notons $S=\sum_{n=0}^{N-1}\dfrac{2a_{n}}{3^{n+1}}$. On a alors</p>
 <div class="maths">\[
 \Phi(b)\geqslant S+\frac{2}{3^{N+1}}
@@ -423,7 +424,7 @@ g(x)+n & \text{si } x\in G
 \Phi(a)\leqslant S+\sum_{n=N+1}^{+\infty}\frac{2}{3^{n+1}}
 =S+\frac{1}{3^{N+1}},
 \]</div>
-<p>d'où $\Phi(a)\neq\Phi(b)$ : c'est la contradiction. Ainsi il existe une injection de $\{0\,;1\}^{\N}$ (ensemble indénombrable) dans $[0\,;1]$. Cela prouve que $[0\,;1]$ est indénombrable ! Donc $\R$ est indénombrable.</p>
+<p>d'où $\Phi(a)\neq\Phi(b)$ : c'est la contradiction. Ainsi il existe une injection de $\{0\,;1\}^{ℕ}$ (ensemble indénombrable) dans $[0\,;1]$. Cela prouve que $[0\,;1]$ est indénombrable ! Donc $ℝ$ est indénombrable.</p>
   <p style="margin-top:2.5rem"><a href="../index.html#prepa-a-la-prepa">← Retour au site</a></p>
 </main>
 <script src="../assets/acces.js"></script>
